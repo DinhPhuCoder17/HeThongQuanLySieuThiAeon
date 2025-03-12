@@ -1,6 +1,7 @@
 ﻿--drop database QuanLySieuThiAEON
 go
 create database QuanLySieuThiAEON
+go
 use QuanLySieuThiAEON
 go
 
@@ -12,7 +13,8 @@ CREATE TABLE Nhanvien (
     Ngaysinh DATE,
     Gioitinh NVARCHAR(10),
     Diachi NVARCHAR(255),
-    Sodienthoai VARCHAR(15)
+    Sodienthoai VARCHAR(15),
+	Xoa int
 );
 
 CREATE TABLE Quanly (
@@ -26,8 +28,9 @@ CREATE TABLE HD_Nhaphang (
     Sohd varchar(10) CONSTRAINT PK_HD_Nhaphang PRIMARY KEY,
     Ngaydat DATE,
     Trangthai NVARCHAR(50),
-    Thanhtien DECIMAL(18, 2),
-	Soluong INT
+    Tongtien DECIMAL(18, 2),
+	Soluong INT,
+	Hanthanhtoan date
 );
 
 CREATE TABLE QuanlyKho (
@@ -40,7 +43,7 @@ CREATE TABLE Calam (
     Tencalam NVARCHAR(100),
     ThoigianBD datetime,
     ThoigianKT datetime,
-	Soluong int
+	Soluong int,
 	CONSTRAINT CK_Thoigian CHECK (ThoigianKT > ThoigianBD)
 );
 
@@ -67,7 +70,8 @@ CREATE TABLE Nhacungcap (
     TenNCC NVARCHAR(255),
     Diachi NVARCHAR(255),
     Masothue VARCHAR(20),
-    Sodienthoai VARCHAR(15)
+    Sodienthoai VARCHAR(15),
+	Xoa int
 );
 
 CREATE TABLE Hanghoa (
@@ -80,7 +84,9 @@ CREATE TABLE Hanghoa (
 	Soluong INT,
     Uudai NVARCHAR(255),
     MaNCC varchar(10),
+	THSD varchar(50)
     CONSTRAINT FK_Hanghoa_MaNCC FOREIGN KEY (MaNCC) REFERENCES Nhacungcap(MaNCC),
+	Xoa int
 );
 
 --CREATE TABLE Hansudung (
@@ -114,7 +120,8 @@ CREATE TABLE Khachhang (
     Diachi NVARCHAR(255),
     Diemthuong INT,
     Gioitinh NVARCHAR(10),
-	Hang nvarchar(50)
+	Hang nvarchar(50),
+	Xoa int
 );
 
 CREATE TABLE Hoadonbanhang (
@@ -142,88 +149,6 @@ CREATE TABLE Batbuoc(
     CONSTRAINT FK_Batbuoc_Macalam FOREIGN KEY (Macalam) REFERENCES Calam(Macalam),
     CONSTRAINT FK_Batbuoc_Manhanvien FOREIGN KEY (Manhanvien) REFERENCES Nhanvien(Manhanvien)
 );
-
-
-
-
---Nha Cung Cap--
-INSERT INTO Nhacungcap (MaNCC, TenNCC, Diachi, Masothue, Sodienthoai)
-VALUES ('NCC001', N'Vinamilk', N'10 Tân Trào, Quận 7, TP.HCM', '0300588569', '02854155555');
---End Nha Cung Cap--
-
---Hang Hoa--
-INSERT INTO Hanghoa (Mahanghoa, Tenhanghoa, Tiennhap, Tendanhmuc, Tienban, ImageData, Soluong, Uudai, MaNCC)  
-VALUES 
-('HH0001', N'Sữa tươi Vinamilk 1L', 25000, N'Sữa tươi', 30000,  (SELECT * FROM OPENROWSET(BULK 'C:\Users\ADMIN\Desktop\Game\Công Nghệ Phần Mềm\Siêu Thị Aeon\Cơ sở dữ liệu\image\Sua1lVinamilk.jpg', SINGLE_BLOB) AS ImageFile), 0, N'Giảm 5% khi mua 2 hộp', 'NCC001'),
-('HH0002', N'Sữa đặc Ông Thọ 380g', 20000, N'Sữa đặc', 25000, (SELECT * FROM OPENROWSET(BULK 'C:\Users\ADMIN\Desktop\Game\Công Nghệ Phần Mềm\Siêu Thị Aeon\Cơ sở dữ liệu\image\Sua1lVinamilk.jpg', SINGLE_BLOB) AS ImageFile), 0, N'Mua 3 tặng 1', 'NCC001'),
-('HH0003', N'Yoghurt Vinamilk Có Đường 100g', 5000, N'Sữa chua', 7000, (SELECT * FROM OPENROWSET(BULK 'C:\Users\ADMIN\Desktop\Game\Công Nghệ Phần Mềm\Siêu Thị Aeon\Cơ sở dữ liệu\image\Sua1lVinamilk.jpg', SINGLE_BLOB) AS ImageFile), 0, N'Giảm 10% khi mua 10 hộp', 'NCC001'),
-('HH0004', N'Sữa bột Vinamilk Dielac Alpha 900g', 180000, N'Sữa bột', 210000, (SELECT * FROM OPENROWSET(BULK 'C:\Users\ADMIN\Desktop\Game\Công Nghệ Phần Mềm\Siêu Thị Aeon\Cơ sở dữ liệu\image\Sua1lVinamilk.jpg', SINGLE_BLOB) AS ImageFile), 0, N'Giảm 20.000đ khi mua trên 2 hộp', 'NCC001'),
-('HH0005', N'Sữa hạt Vinamilk Óc Chó 180ml', 12000, N'Sữa hạt', 15000, (SELECT * FROM OPENROWSET(BULK 'C:\Users\ADMIN\Desktop\Game\Công Nghệ Phần Mềm\Siêu Thị Aeon\Cơ sở dữ liệu\image\Sua1lVinamilk.jpg', SINGLE_BLOB) AS ImageFile), 0, N'Mua 5 tặng 1', 'NCC001');
---Hang Hoa--
-
---HD Nhap Hang---
-Insert into HD_Nhaphang values('01', '01/02/2005', N'Chưa xử lý', 100000, 10000)
-Insert into HD_Nhaphang values('02', '01/02/2005', N'Chưa xử lý', 100000, 10000)
---HD Nhap Hang---
-
---HH-HD--
-Insert into HD_HH values
-('HH002', '01', GETDATE(), 1, 0),
-('HH001', '01', GETDATE(), 10, 0),
-('HH005', '01', GETDATE(), 5, 0)
-
-Insert into HD_HH values
-('HH002', '02', GETDATE(), 300, 0),
-('HH001', '02', GETDATE(), 10, 0),
-('HH005', '02', GETDATE(), 100, 0)
---End HH-HD--
-
---Nhanvien--
-INSERT INTO Nhanvien (Manhanvien, Hoten, CCCD, Ngaysinh, Gioitinh, Diachi, Sodienthoai)
-VALUES 
-('NV001', N'Nguyễn Văn An', '123456789012', '1990-05-15', N'Nam', N'123 Đường Láng, Hà Nội', '0987654321'),
-('NV002', N'Trần Thị Bình', '987654321098', '1995-08-20', N'Nữ', N'45 Lê Lợi, TP.HCM', '0912345678'),
-('NV003', N'Lê Văn Cường', '456789123456', '1988-12-01', N'Nam', N'78 Hùng Vương, Đà Nẵng', '0935123456'),
-('NV004', N'Phạm Thị Dung', '321654987123', '1993-03-10', N'Nữ', N'56 Trần Phú, Nha Trang', '0908765432'),
-('NV005', N'Hoàng Văn Em', '654321789456', '1997-07-25', N'Nam', N'89 Nguyễn Huệ, Huế', '0978123456');
---End Nhanvien--
-
---Calam--
-INSERT INTO Calam (Macalam, Tencalam, ThoigianBD, ThoigianKT)  
-VALUES  
-    ('CL001', N'Ca sáng', '2025-03-06 06:00:00', '2025-03-06 14:00:00', 2),  
-    ('CL002', N'Ca chiều', '2025-03-06 14:00:00', '2025-03-06 22:00:00', 2),  
-    ('CL003', N'Ca đêm', '2025-03-06 22:00:00', '2025-03-07 06:00:00', 2);  
---End Calam-
-
-
---Bat buoc--
-Insert into Batbuoc values 
-('CL001', 'NV001')
-Insert into Batbuoc values ('CL001', 'NV002')
-Insert into Batbuoc values  ('CL001', 'NV003')
-Insert into Batbuoc values  ('CL001', 'NV005')
---End Bat buoc--
-
---Chamcong--
-INSERT INTO Chamcong (ID, ThoigianCN, Checkin, Checkout, Trangthai, Socong, Macalam, Manhanvien)  
-VALUES  
-('CC002', '2025-03-06', '08:00:00', '17:00:00', N'Đã chấm công', 1.0, 'CL001', 'NV005')
---End Chamcong--
-
---Hoadonbanhang--
-INSERT INTO Hoadonbanhang (Mahoadon, Thoigianban, Manhanvien, Sodienthoai)
-VALUES 
-('HD001', '2025-03-06 10:30:00', 'NV001', null),
-('HD002', '2025-03-06 11:00:00', 'NV002', null),
-('HD003', '2025-03-06 14:15:00', 'NV003', null);
---End Hoadonbanhang--
-
-
---HH_HDBH--
-Insert into HH_HDBH values ('HH001', 'HD001', 5)
-Insert into HH_HDBH values ('HH002', 'HD001', 200)
---End HH_HDBH--
 
 
 
@@ -323,6 +248,7 @@ End
 --End Trigger bang Batbuoc--
 
 --Trigger bang HH_HDBH--
+go
 Create trigger tg_HH_HDBH
 on HH_HDBH
 for Insert
@@ -387,8 +313,8 @@ Select @maxMaNhanvien = MAX(Manhanvien) from Nhanvien;
 	Set @newMaNhanvien = 'NV' + right('0000' + cast(@soMoi as varchar(4)), 4)
 	End
 	--Insert
-	Insert into Nhanvien(Manhanvien, Hoten, CCCD, Ngaysinh, Gioitinh, Diachi, Sodienthoai)
-	Values (@newMaNhanvien, @Hoten, @CCCD, @Ngaysinh, @Gioitinh, @Diachi, @Sodienthoai);
+	Insert into Nhanvien(Manhanvien, Hoten, CCCD, Ngaysinh, Gioitinh, Diachi, Sodienthoai, Xoa)
+	Values (@newMaNhanvien, @Hoten, @CCCD, @Ngaysinh, @Gioitinh, @Diachi, @Sodienthoai, 1);
 	print 'adding successfully: ' + @newMaNhanvien;
 End;
 
@@ -402,7 +328,8 @@ create proc themMaHanghoa
 	@ImageData varbinary(max),
 	@Soluong INT,
     @Uudai NVARCHAR(255),
-    @MaNCC varchar(10)
+    @MaNCC varchar(10),
+	@THSD varchar(50)
 As
 Begin 
 Declare @newMaHanghoa varchar(10);
@@ -420,8 +347,8 @@ Begin
 	Set @newMaHanghoa = 'HH' + right('0000' + cast(@soMoi as varchar(4)), 4)
 	End
 	--Insert
-INSERT INTO Hanghoa (Mahanghoa, Tenhanghoa, Tiennhap, Tendanhmuc, Tienban, ImageData, Soluong, Uudai, MaNCC)  
-Values (@newMaHanghoa, @Tenhanghoa, @Tiennhap, @Tendanhmuc, @Tienban, @ImageData, @Soluong, @Uudai, @MaNCC);
+INSERT INTO Hanghoa (Mahanghoa, Tenhanghoa, Tiennhap, Tendanhmuc, Tienban, ImageData, Soluong, Uudai, MaNCC, THSD, Xoa)  
+Values (@newMaHanghoa, @Tenhanghoa, @Tiennhap, @Tendanhmuc, @Tienban, @ImageData, @Soluong, @Uudai, @MaNCC, @THSD, 1);
 print 'adding successfully: ' + @newMaHanghoa;
 End;
 
@@ -449,8 +376,8 @@ Select @maxMaNCC = MAX(MaNCC) from Nhacungcap;
 	Set @newMaNCC = 'NC' + right('0000' + cast(@soMoi as varchar(4)), 4)
 	End
 	--Insert
-	Insert into Nhacungcap(MaNCC, TenNCC, Diachi, Masothue, Sodienthoai)
-	Values (@newMaNCC, @TenNCC, @Diachi, @Masothue, @Sodienthoai);
+	Insert into Nhacungcap(MaNCC, TenNCC, Diachi, Masothue, Sodienthoai, Xoa)
+	Values (@newMaNCC, @TenNCC, @Diachi, @Masothue, @Sodienthoai, 1);
 	print 'adding successfully: ' + @newMaNCC;
 End;
 
@@ -516,7 +443,7 @@ go
 create proc themMaHDNH
 	@Ngaydat DATE,
     @Trangthai NVARCHAR(50),
-    @Thanhtien DECIMAL(18, 2),
+    @Tongtien DECIMAL(18, 2),
 	@Soluong INT
 As
 Begin 
@@ -535,8 +462,8 @@ Select @maxMaHDNH = MAX(Macalam) from Calam;
 	Set @newMaHDNH = 'NH' + right('0000' + cast(@soMoi as varchar(4)), 4)
 	End
 	--Insert
-	Insert into HD_Nhaphang(Sohd, Ngaydat, Trangthai, Thanhtien, Soluong)
-	Values (@newMaHDNH, @Ngaydat, @Trangthai, @Thanhtien, @Soluong);
+	Insert into HD_Nhaphang(Sohd, Ngaydat, Trangthai, Tongtien, Soluong, Hanthanhtoan)
+	Values (@newMaHDNH, @Ngaydat, @Trangthai, @Tongtien, @Soluong, DATEADD(MONTH, 1, @Ngaydat));
 	print 'adding successfully: ' + @newMaHDNH;
 End;
 
