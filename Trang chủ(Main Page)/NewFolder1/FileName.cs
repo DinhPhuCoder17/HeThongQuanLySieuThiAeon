@@ -8,6 +8,7 @@ namespace Trang_chu_Main_Page_.NewFolder1
 {
     class FileName
     {
+        int a = 10;
         // tao conflict
         // tao conflict 2
     }
