@@ -691,5 +691,8 @@
   <ItemGroup>
     <None Include="Resources\Log Bù Công.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="NewFolder1\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
