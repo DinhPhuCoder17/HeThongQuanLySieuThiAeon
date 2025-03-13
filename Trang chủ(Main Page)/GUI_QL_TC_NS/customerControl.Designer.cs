@@ -55,12 +55,6 @@
             this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.guna2Elipse2 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.dtg_CustomerList = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.Col_Customer_MaKhachHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Col_Customer_HoTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Col_Customer_SoDienThoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Col_CusTomer_BacHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Col_Customer_DiemThuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Col_Customer_LichSuMuaHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Timer_Customer_Add = new System.Windows.Forms.Timer(this.components);
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.cb_Customer_Filter = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -321,6 +315,7 @@
             // dtg_CustomerList
             // 
             this.dtg_CustomerList.AllowUserToAddRows = false;
+            this.dtg_CustomerList.AllowUserToDeleteRows = false;
             this.dtg_CustomerList.AllowUserToResizeColumns = false;
             this.dtg_CustomerList.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
@@ -334,13 +329,6 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dtg_CustomerList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dtg_CustomerList.ColumnHeadersHeight = 40;
-            this.dtg_CustomerList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Col_Customer_MaKhachHang,
-            this.Col_Customer_HoTen,
-            this.Col_Customer_SoDienThoai,
-            this.Col_CusTomer_BacHang,
-            this.Col_Customer_DiemThuong,
-            this.Col_Customer_LichSuMuaHang});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -354,6 +342,7 @@
             this.dtg_CustomerList.Location = new System.Drawing.Point(29, 146);
             this.dtg_CustomerList.Margin = new System.Windows.Forms.Padding(20);
             this.dtg_CustomerList.Name = "dtg_CustomerList";
+            this.dtg_CustomerList.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -384,7 +373,7 @@
             this.dtg_CustomerList.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.DimGray;
             this.dtg_CustomerList.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dtg_CustomerList.ThemeStyle.HeaderStyle.Height = 40;
-            this.dtg_CustomerList.ThemeStyle.ReadOnly = false;
+            this.dtg_CustomerList.ThemeStyle.ReadOnly = true;
             this.dtg_CustomerList.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.dtg_CustomerList.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dtg_CustomerList.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -393,42 +382,6 @@
             this.dtg_CustomerList.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.OrangeRed;
             this.dtg_CustomerList.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             this.dtg_CustomerList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgCustomerList_CellContentClick);
-            // 
-            // Col_Customer_MaKhachHang
-            // 
-            this.Col_Customer_MaKhachHang.HeaderText = "Mã Khách Hàng";
-            this.Col_Customer_MaKhachHang.MinimumWidth = 6;
-            this.Col_Customer_MaKhachHang.Name = "Col_Customer_MaKhachHang";
-            // 
-            // Col_Customer_HoTen
-            // 
-            this.Col_Customer_HoTen.HeaderText = "Họ Tên";
-            this.Col_Customer_HoTen.MinimumWidth = 6;
-            this.Col_Customer_HoTen.Name = "Col_Customer_HoTen";
-            // 
-            // Col_Customer_SoDienThoai
-            // 
-            this.Col_Customer_SoDienThoai.HeaderText = "Số Điện Thoại";
-            this.Col_Customer_SoDienThoai.MinimumWidth = 6;
-            this.Col_Customer_SoDienThoai.Name = "Col_Customer_SoDienThoai";
-            // 
-            // Col_CusTomer_BacHang
-            // 
-            this.Col_CusTomer_BacHang.HeaderText = "Bậc Hạng";
-            this.Col_CusTomer_BacHang.MinimumWidth = 6;
-            this.Col_CusTomer_BacHang.Name = "Col_CusTomer_BacHang";
-            // 
-            // Col_Customer_DiemThuong
-            // 
-            this.Col_Customer_DiemThuong.HeaderText = "Điểm Thưởng";
-            this.Col_Customer_DiemThuong.MinimumWidth = 6;
-            this.Col_Customer_DiemThuong.Name = "Col_Customer_DiemThuong";
-            // 
-            // Col_Customer_LichSuMuaHang
-            // 
-            this.Col_Customer_LichSuMuaHang.HeaderText = "Lịch Sử Mua Hàng";
-            this.Col_Customer_LichSuMuaHang.MinimumWidth = 6;
-            this.Col_Customer_LichSuMuaHang.Name = "Col_Customer_LichSuMuaHang";
             // 
             // Timer_Customer_Add
             // 
@@ -583,11 +536,5 @@
         private Guna.UI2.WinForms.Guna2GradientButton btn_Customer_Delete;
         private System.Windows.Forms.Label label4;
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Col_Customer_MaKhachHang;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Col_Customer_HoTen;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Col_Customer_SoDienThoai;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Col_CusTomer_BacHang;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Col_Customer_DiemThuong;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Col_Customer_LichSuMuaHang;
     }
 }

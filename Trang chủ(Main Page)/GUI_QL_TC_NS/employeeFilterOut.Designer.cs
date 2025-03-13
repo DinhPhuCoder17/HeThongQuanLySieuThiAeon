@@ -70,14 +70,6 @@
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.logTransition_2 = new System.Windows.Forms.Timer(this.components);
             this.guna2Elipse4 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.Col_Employee_MaNhanVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Col_Employee_HoTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Col_Employee_VaiTro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Col_Employee_SoDienThoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Col_Employee_NgaySinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Col_Employee_DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Col_Employee_GioiTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Col_Employee_CCCD = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_Employee)).BeginInit();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
@@ -105,15 +97,6 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dtg_Employee.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dtg_Employee.ColumnHeadersHeight = 40;
-            this.dtg_Employee.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Col_Employee_MaNhanVien,
-            this.Col_Employee_HoTen,
-            this.Col_Employee_VaiTro,
-            this.Col_Employee_SoDienThoai,
-            this.Col_Employee_NgaySinh,
-            this.Col_Employee_DiaChi,
-            this.Col_Employee_GioiTinh,
-            this.Col_Employee_CCCD});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -597,62 +580,6 @@
             this.guna2Elipse4.BorderRadius = 20;
             this.guna2Elipse4.TargetControl = this.guna2DataGridView2;
             // 
-            // Col_Employee_MaNhanVien
-            // 
-            this.Col_Employee_MaNhanVien.HeaderText = "Mã Nhân Viên";
-            this.Col_Employee_MaNhanVien.MinimumWidth = 6;
-            this.Col_Employee_MaNhanVien.Name = "Col_Employee_MaNhanVien";
-            this.Col_Employee_MaNhanVien.ReadOnly = true;
-            // 
-            // Col_Employee_HoTen
-            // 
-            this.Col_Employee_HoTen.HeaderText = "Họ Tên";
-            this.Col_Employee_HoTen.MinimumWidth = 6;
-            this.Col_Employee_HoTen.Name = "Col_Employee_HoTen";
-            this.Col_Employee_HoTen.ReadOnly = true;
-            // 
-            // Col_Employee_VaiTro
-            // 
-            this.Col_Employee_VaiTro.HeaderText = "Vai Trò";
-            this.Col_Employee_VaiTro.MinimumWidth = 6;
-            this.Col_Employee_VaiTro.Name = "Col_Employee_VaiTro";
-            this.Col_Employee_VaiTro.ReadOnly = true;
-            // 
-            // Col_Employee_SoDienThoai
-            // 
-            this.Col_Employee_SoDienThoai.HeaderText = "Số Điện Thoại";
-            this.Col_Employee_SoDienThoai.MinimumWidth = 6;
-            this.Col_Employee_SoDienThoai.Name = "Col_Employee_SoDienThoai";
-            this.Col_Employee_SoDienThoai.ReadOnly = true;
-            // 
-            // Col_Employee_NgaySinh
-            // 
-            this.Col_Employee_NgaySinh.HeaderText = "Ngày Sinh";
-            this.Col_Employee_NgaySinh.MinimumWidth = 6;
-            this.Col_Employee_NgaySinh.Name = "Col_Employee_NgaySinh";
-            this.Col_Employee_NgaySinh.ReadOnly = true;
-            // 
-            // Col_Employee_DiaChi
-            // 
-            this.Col_Employee_DiaChi.HeaderText = "Địa Chỉ";
-            this.Col_Employee_DiaChi.MinimumWidth = 6;
-            this.Col_Employee_DiaChi.Name = "Col_Employee_DiaChi";
-            this.Col_Employee_DiaChi.ReadOnly = true;
-            // 
-            // Col_Employee_GioiTinh
-            // 
-            this.Col_Employee_GioiTinh.HeaderText = "Giới Tính";
-            this.Col_Employee_GioiTinh.MinimumWidth = 6;
-            this.Col_Employee_GioiTinh.Name = "Col_Employee_GioiTinh";
-            this.Col_Employee_GioiTinh.ReadOnly = true;
-            // 
-            // Col_Employee_CCCD
-            // 
-            this.Col_Employee_CCCD.HeaderText = "CCCD";
-            this.Col_Employee_CCCD.MinimumWidth = 6;
-            this.Col_Employee_CCCD.Name = "Col_Employee_CCCD";
-            this.Col_Employee_CCCD.ReadOnly = true;
-            // 
             // employeeFilterOut
             // 
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
@@ -720,13 +647,5 @@
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse4;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Col_Employee_MaNhanVien;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Col_Employee_HoTen;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Col_Employee_VaiTro;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Col_Employee_SoDienThoai;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Col_Employee_NgaySinh;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Col_Employee_DiaChi;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Col_Employee_GioiTinh;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Col_Employee_CCCD;
     }
 }

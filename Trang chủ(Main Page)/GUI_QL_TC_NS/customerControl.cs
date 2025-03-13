@@ -8,12 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Guna.UI2.WinForms;
+using BLL;
 
 namespace Trang_chủ_Main_Page_
 {
     public partial class customerControl : Form
     {
         bool menu_CusTomer_Add_Expand=false;
+        BLL_Customer bllCustomer = new BLL_Customer();
         public customerControl()
         {
             InitializeComponent();
@@ -21,49 +23,13 @@ namespace Trang_chủ_Main_Page_
 
         private void customerControl_Load(object sender, EventArgs e)
         {
-            dtg_CustomerList.Rows.Add();
-            dtg_CustomerList.Rows[0].Cells[0].Value = "Jan 21, 2020";
-            dtg_CustomerList.Rows[0].Cells[1].Value = "Dilan Cooper";
-            dtg_CustomerList.Rows[0].Cells[2].Value = "Dilan Cooper";
-            dtg_CustomerList.Rows[0].Cells[3].Value = "(239)555-2020";
-
-            dtg_CustomerList.Rows.Add();
-            dtg_CustomerList.Rows[1].Cells[0].Value = "Jan 21, 2020";
-            dtg_CustomerList.Rows[1].Cells[1].Value = "Dilan Cooper";
-            dtg_CustomerList.Rows[1].Cells[2].Value = "Dilan Cooper";
-            dtg_CustomerList.Rows[1].Cells[3].Value = "(239)555-2020";
-            // Đảm bảo DataGridView có ít nhất 12 dòng
-            while (dtg_CustomerList.Rows.Count < 12)
-            {
-                dtg_CustomerList.Rows.Add();
-            }
-
-            // Dữ liệu mẫu cho 12 dòng
-            string[,] data = new string[,]
-            {
-    { "Jan 21, 2020", "Dilan Cooper", "Dilan Cooper", "(239)555-2020" },
-    { "Jan 22, 2020", "Sarah Johnson", "Sarah Johnson", "(312)555-3030" },
-    { "Jan 23, 2020", "Michael Brown", "Michael Brown", "(415)555-4040" },
-    { "Jan 24, 2020", "Emily Davis", "Emily Davis", "(617)555-5050" },
-    { "Jan 25, 2020", "James Wilson", "James Wilson", "(718)555-6060" },
-    { "Jan 26, 2020", "Sophia Martinez", "Sophia Martinez", "(213)555-7070" },
-    { "Jan 27, 2020", "David Clark", "David Clark", "(305)555-8080" },
-    { "Jan 28, 2020", "Olivia White", "Olivia White", "(702)555-9090" },
-    { "Jan 29, 2020", "William Harris", "William Harris", "(312)555-1010" },
-    { "Jan 30, 2020", "Ava Thompson", "Ava Thompson", "(415)555-2020" },
-    { "Jan 31, 2020", "Ethan Walker", "Ethan Walker", "(404)555-3030" },
-    { "Feb 1, 2020", "Mia Robinson", "Mia Robinson", "(503)555-4040" }
-            };
-
-            // Gán dữ liệu vào từng dòng của DataGridView
-            for (int i = 0; i < 12; i++)
-            {
-                for (int j = 0; j < 4; j++) // 4 cột
-                {
-                    dtg_CustomerList.Rows[i].Cells[j].Value = data[i, j];
-                }
-            }
-
+            dtg_CustomerList.DataSource = bllCustomer.loadCustomer();
+            dtg_CustomerList.Columns["Sodienthoai"].HeaderText = "Số điện thoại";
+            dtg_CustomerList.Columns["Hoten"].HeaderText = "Họ tên";
+            dtg_CustomerList.Columns["Diachi"].HeaderText = "Địa chỉ";
+            dtg_CustomerList.Columns["Diemthuong"].HeaderText = "Điểm thưởng";
+            dtg_CustomerList.Columns["Gioitinh"].HeaderText = "Giới tính";
+            dtg_CustomerList.Columns["Hang"].HeaderText = "Hạng";
         }
 
         private void dtgCustomerList_CellContentClick(object sender, DataGridViewCellEventArgs e)

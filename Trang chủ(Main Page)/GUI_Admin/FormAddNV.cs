@@ -12,6 +12,7 @@ namespace Trang_chủ_Main_Page_
 {
     public partial class FormAddNV : Form
     {
+        
         public FormAddNV()
         {
             InitializeComponent();
