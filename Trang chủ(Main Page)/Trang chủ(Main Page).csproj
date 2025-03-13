@@ -413,7 +413,6 @@
     <Compile Include="loading.Designer.cs">
       <DependentUpon>loading.cs</DependentUpon>
     </Compile>
-    <Compile Include="NewFolder1\FileName.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -694,11 +693,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj">
-      <Project>{c222c324-e6fe-426b-aa35-a8186b2eaa49}</Project>
+      <Project>{1f0d01dc-9590-4b16-9d69-43a3b01ba9f9}</Project>
       <Name>BLL</Name>
     </ProjectReference>
     <ProjectReference Include="..\DTO\DTO.csproj">
-      <Project>{c27bafc3-0713-4c6a-9d93-3f6a801b176c}</Project>
+      <Project>{eadb2919-dc31-4986-b668-1678aeeeab32}</Project>
       <Name>DTO</Name>
     </ProjectReference>
   </ItemGroup>
