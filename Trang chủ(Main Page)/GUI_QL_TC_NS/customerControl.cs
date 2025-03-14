@@ -15,7 +15,7 @@ namespace Trang_chủ_Main_Page_
     public partial class customerControl : Form
     {
         bool menu_CusTomer_Add_Expand=false;
-        BLL_Customer bllCustomer = new BLL_Customer();
+        BLL_QuanlyTCNS bLL_QuanlyTCNS = new BLL_QuanlyTCNS();
         public customerControl()
         {
             InitializeComponent();
@@ -23,7 +23,7 @@ namespace Trang_chủ_Main_Page_
 
         private void customerControl_Load(object sender, EventArgs e)
         {
-            dtg_CustomerList.DataSource = bllCustomer.loadCustomer();
+            dtg_CustomerList.DataSource = bLL_QuanlyTCNS.xemDSKH();
             dtg_CustomerList.Columns["Sodienthoai"].HeaderText = "Số điện thoại";
             dtg_CustomerList.Columns["Hoten"].HeaderText = "Họ tên";
             dtg_CustomerList.Columns["Diachi"].HeaderText = "Địa chỉ";

@@ -18,7 +18,7 @@ namespace Trang_chủ_Main_Page_
         bool menuExpand = false;
         bool menuExpand_2=false;
 
-        private readonly BLL_EmployeeFilterOut bllemployeefilterout = new BLL_EmployeeFilterOut();
+        private readonly BLL_QuanlyTCNS bLL_QuanlyTCNS = new BLL_QuanlyTCNS();
 
         public employeeFilterOut()
         {
@@ -27,7 +27,7 @@ namespace Trang_chủ_Main_Page_
 
         private void employeeFilterOut_Load(object sender, EventArgs e)
         {
-            dtg_Employee.DataSource = bllemployeefilterout.loadEmployee();
+            dtg_Employee.DataSource = bLL_QuanlyTCNS.xemDSNV();
             dtg_Employee.Columns[0].HeaderText = "Mã nhân viên";
             dtg_Employee.Columns[1].HeaderText = "Họ tên";
             dtg_Employee.Columns[2].HeaderText = "CCCD";
