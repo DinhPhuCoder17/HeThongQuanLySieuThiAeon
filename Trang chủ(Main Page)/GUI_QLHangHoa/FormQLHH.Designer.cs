@@ -42,8 +42,9 @@
             this.btnDatHang = new Guna.UI2.WinForms.Guna2Button();
             this.pn_Customer = new System.Windows.Forms.Panel();
             this.btnNhapHang = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnNhaCungCap = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.sidebarContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).BeginInit();
@@ -74,8 +75,9 @@
             this.sidebarContainer.Controls.Add(this.btnDSTonKho);
             this.sidebarContainer.Controls.Add(this.btnDatHang);
             this.sidebarContainer.Controls.Add(this.pn_Customer);
-            this.sidebarContainer.Controls.Add(this.guna2Button1);
+            this.sidebarContainer.Controls.Add(this.btnNhaCungCap);
             this.sidebarContainer.Controls.Add(this.guna2Button2);
+            this.sidebarContainer.Controls.Add(this.guna2Button1);
             this.sidebarContainer.Dock = System.Windows.Forms.DockStyle.Left;
             this.sidebarContainer.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.sidebarContainer.Location = new System.Drawing.Point(0, 0);
@@ -205,32 +207,32 @@
             this.btnNhapHang.TextOffset = new System.Drawing.Point(-13, 0);
             this.btnNhapHang.Click += new System.EventHandler(this.btnNhapHang_Click);
             // 
-            // guna2Button1
+            // btnNhaCungCap
             // 
-            this.guna2Button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.guna2Button1.Animated = true;
-            this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button1.BorderRadius = 15;
-            this.guna2Button1.CheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button1.CustomImages.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button1.Image")));
-            this.guna2Button1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button1.ImageSize = new System.Drawing.Size(25, 25);
-            this.guna2Button1.Location = new System.Drawing.Point(3, 461);
-            this.guna2Button1.Margin = new System.Windows.Forms.Padding(0);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(200, 60);
-            this.guna2Button1.TabIndex = 2;
-            this.guna2Button1.Text = "Nhà Cung Cấp";
-            this.guna2Button1.TextOffset = new System.Drawing.Point(-8, 0);
-            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
+            this.btnNhaCungCap.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnNhaCungCap.Animated = true;
+            this.btnNhaCungCap.BackColor = System.Drawing.Color.Transparent;
+            this.btnNhaCungCap.BorderRadius = 15;
+            this.btnNhaCungCap.CheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.btnNhaCungCap.CustomImages.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnNhaCungCap.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnNhaCungCap.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnNhaCungCap.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnNhaCungCap.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnNhaCungCap.FillColor = System.Drawing.Color.Transparent;
+            this.btnNhaCungCap.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.btnNhaCungCap.ForeColor = System.Drawing.Color.White;
+            this.btnNhaCungCap.Image = ((System.Drawing.Image)(resources.GetObject("btnNhaCungCap.Image")));
+            this.btnNhaCungCap.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnNhaCungCap.ImageSize = new System.Drawing.Size(25, 25);
+            this.btnNhaCungCap.Location = new System.Drawing.Point(3, 461);
+            this.btnNhaCungCap.Margin = new System.Windows.Forms.Padding(0);
+            this.btnNhaCungCap.Name = "btnNhaCungCap";
+            this.btnNhaCungCap.Size = new System.Drawing.Size(200, 60);
+            this.btnNhaCungCap.TabIndex = 2;
+            this.btnNhaCungCap.Text = "Nhà Cung Cấp";
+            this.btnNhaCungCap.TextOffset = new System.Drawing.Point(-8, 0);
+            this.btnNhaCungCap.Click += new System.EventHandler(this.btnNhaCungCap_Click);
             // 
             // guna2Button2
             // 
@@ -258,6 +260,33 @@
             this.guna2Button2.Text = "Đăng Xuất";
             this.guna2Button2.TextOffset = new System.Drawing.Point(-15, 0);
             this.guna2Button2.Click += new System.EventHandler(this.ButtonDangXuat_Click);
+            // 
+            // guna2Button1
+            // 
+            this.guna2Button1.Animated = true;
+            this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Button1.BorderRadius = 15;
+            this.guna2Button1.CheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.guna2Button1.CustomImages.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.FillColor = System.Drawing.Color.Transparent;
+            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button1.Image")));
+            this.guna2Button1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.guna2Button1.ImageOffset = new System.Drawing.Point(5, 0);
+            this.guna2Button1.ImageSize = new System.Drawing.Size(25, 25);
+            this.guna2Button1.Location = new System.Drawing.Point(0, 581);
+            this.guna2Button1.Margin = new System.Windows.Forms.Padding(0);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.Size = new System.Drawing.Size(200, 128);
+            this.guna2Button1.TabIndex = 13;
+            this.guna2Button1.Text = "Nút vô Khiếu Nại bữa sau xóa";
+            this.guna2Button1.TextOffset = new System.Drawing.Point(-15, 0);
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click_1);
             // 
             // Form1
             // 
@@ -295,6 +324,7 @@
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2Panel3;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox4;
+        private Guna.UI2.WinForms.Guna2Button btnNhaCungCap;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
     }
 }

@@ -26,9 +26,9 @@ namespace Trang_chu_Main_Page_.GUI_QLHangHoa
         private void QuanLyNhaCungCap_Load(object sender, EventArgs e)
         {
             // Đảm bảo có đủ dòng trong DataGridView
-            while (guna2DataGridView2.Rows.Count < 10)
+            while (dgvNhaCungCap.Rows.Count < 10)
             {
-                guna2DataGridView2.Rows.Add();
+                dgvNhaCungCap.Rows.Add();
             }
 
             // Dữ liệu mẫu cho 10 dòng
@@ -51,7 +51,7 @@ namespace Trang_chu_Main_Page_.GUI_QLHangHoa
             {
                 for (int j = 0; j < 5; j++) // 5 cột
                 {
-                    guna2DataGridView2.Rows[i].Cells[j].Value = data[i, j];
+                    dgvNhaCungCap.Rows[i].Cells[j].Value = data[i, j];
                 }
             }
 

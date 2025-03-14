@@ -46,6 +46,10 @@ namespace Trang_chủ_Main_Page_
             }
             else if (selectedRole.Contains("Quản lý Nhân Sự/Tài Chính"))
             {
+                container(new FormAddQL());
+            }
+            else if (selectedRole.Contains("Nhân Viên"))
+            {
                 container(new FormAddNV());
             }
         }

@@ -51,7 +51,7 @@ namespace Trang_chủ_Main_Page_
             c.OnSelect += (ss, ee) =>
             {
                 var us1 = (HangHoaNCC)ss;
-                foreach (DataGridViewRow item in guna2DataGridView2.Rows)
+                foreach (DataGridViewRow item in dgvDanhSachDatHang.Rows)
                 {
                     if (item.Cells.Count > 0 && item.Cells[0].Value != null && item.Cells[0].Value.ToString() == us1.label1.Text)
                     {
@@ -63,7 +63,7 @@ namespace Trang_chủ_Main_Page_
                     }
                 }
 
-                guna2DataGridView2.Rows.Add(new object[] { us1.label1.Text, us1.label3.Text, 1, us1.label4.Text, us1.label4.Text });
+                dgvDanhSachDatHang.Rows.Add(new object[] { us1.label1.Text, us1.label3.Text, 1, us1.label4.Text, us1.label4.Text });
                 CalculateTotal();
             };
         }

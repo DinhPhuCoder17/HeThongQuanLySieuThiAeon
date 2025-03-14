@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Trang_chu_Main_Page_.GUI_QLHangHoa;
 
 namespace Trang_chủ_Main_Page_
 {
@@ -96,12 +97,12 @@ namespace Trang_chủ_Main_Page_
         private void CTDH_Load(object sender, EventArgs e)
         {
             // Xóa dữ liệu cũ (nếu cần)
-            guna2DataGridView1.Rows.Clear();
+            dgvCTDH.Rows.Clear();
 
             // Thêm 10 dòng dữ liệu mẫu
             for (int i = 1; i <= 10; i++)
             {
-                guna2DataGridView1.Rows.Add(
+                dgvCTDH.Rows.Add(
                     "DH00" + i,                   // Mã Đơn Hàng
                     "NCC00" + i,                  // Mã Nhà Cung Cấp
                     "Nhà Cung Cấp " + i,          // Tên Nhà Cung Cấp
@@ -116,6 +117,12 @@ namespace Trang_chủ_Main_Page_
                 );
             }
 
+        }
+
+        private void btnKhieuNai_Click(object sender, EventArgs e)
+        {
+            KhieuNai kN = new KhieuNai();
+            kN.Show();
         }
     }
 }

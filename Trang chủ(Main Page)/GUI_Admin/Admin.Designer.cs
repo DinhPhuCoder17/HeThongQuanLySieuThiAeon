@@ -40,7 +40,7 @@
             this.lbl_role_Add = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.guna2GradientButton2 = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.btnDSNV = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
@@ -87,7 +87,8 @@
             this.cb_role.ItemHeight = 30;
             this.cb_role.Items.AddRange(new object[] {
             "Quản lý Nhân Sự/Tài Chính",
-            "Quản lý Kho"});
+            "Quản lý Kho",
+            "Nhân Viên"});
             this.cb_role.Location = new System.Drawing.Point(90, 167);
             this.cb_role.Name = "cb_role";
             this.cb_role.Size = new System.Drawing.Size(252, 36);
@@ -145,26 +146,26 @@
             this.guna2CirclePictureBox1.UseTransparentBackground = true;
             this.guna2CirclePictureBox1.Click += new System.EventHandler(this.guna2CirclePictureBox1_Click);
             // 
-            // guna2GradientButton2
+            // btnDSNV
             // 
-            this.guna2GradientButton2.Animated = true;
-            this.guna2GradientButton2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2GradientButton2.BorderRadius = 8;
-            this.guna2GradientButton2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2GradientButton2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2GradientButton2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2GradientButton2.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2GradientButton2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2GradientButton2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
-            this.guna2GradientButton2.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            this.guna2GradientButton2.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.guna2GradientButton2.ForeColor = System.Drawing.Color.White;
-            this.guna2GradientButton2.Location = new System.Drawing.Point(1146, 169);
-            this.guna2GradientButton2.Name = "guna2GradientButton2";
-            this.guna2GradientButton2.Size = new System.Drawing.Size(212, 58);
-            this.guna2GradientButton2.TabIndex = 31;
-            this.guna2GradientButton2.Text = "Danh Sách Nhân Viên";
-            this.guna2GradientButton2.Click += new System.EventHandler(this.btn_DSNhanVien_Click);
+            this.btnDSNV.Animated = true;
+            this.btnDSNV.BackColor = System.Drawing.Color.Transparent;
+            this.btnDSNV.BorderRadius = 8;
+            this.btnDSNV.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnDSNV.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnDSNV.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnDSNV.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnDSNV.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnDSNV.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
+            this.btnDSNV.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.btnDSNV.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.btnDSNV.ForeColor = System.Drawing.Color.White;
+            this.btnDSNV.Location = new System.Drawing.Point(1146, 169);
+            this.btnDSNV.Name = "btnDSNV";
+            this.btnDSNV.Size = new System.Drawing.Size(212, 58);
+            this.btnDSNV.TabIndex = 31;
+            this.btnDSNV.Text = "Danh Sách Nhân Viên";
+            this.btnDSNV.Click += new System.EventHandler(this.btn_DSNhanVien_Click);
             // 
             // guna2Elipse1
             // 
@@ -438,7 +439,7 @@
             this.ClientSize = new System.Drawing.Size(1381, 842);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.guna2GradientButton2);
+            this.Controls.Add(this.btnDSNV);
             this.Controls.Add(this.guna2CirclePictureBox1);
             this.Controls.Add(this.lbl_role_Add);
             this.Controls.Add(this.guna2Panel3);
@@ -464,7 +465,7 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
-        private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton2;
+        private Guna.UI2.WinForms.Guna2GradientButton btnDSNV;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse2;

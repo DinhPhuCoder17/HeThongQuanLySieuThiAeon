@@ -128,5 +128,16 @@ namespace Trang_chủ_Main_Page_
         {
             container(new QuanLyNhaCungCap());
         }
+
+        private void btnNhaCungCap_Click(object sender, EventArgs e)
+        {
+            container(new QuanLyNhaCungCap());
+        }
+
+        private void guna2Button1_Click_1(object sender, EventArgs e)
+        {
+            KhieuNai kN = new KhieuNai();
+            kN.Show();
+        }
     }
 }

@@ -20,12 +20,12 @@ namespace Trang_chu_Main_Page_.GUI_QLHangHoa
         private void CTHH_Load(object sender, EventArgs e)
         {
             // Xóa dữ liệu cũ (nếu cần)
-            guna2DataGridView1.Rows.Clear();
+            dgvCTHH.Rows.Clear();
 
             // Thêm 10 dòng dữ liệu mẫu
             for (int i = 1; i <= 10; i++)
             {
-                guna2DataGridView1.Rows.Add(
+                dgvCTHH.Rows.Add(
                     DateTime.Now.AddDays(-i).ToString("dd/MM/yyyy"),  // Ngày Sản Xuất (giả lập ngày trước đó)
                     10 + i,                                          // Số Lượng
                     "Nhà Cung Cấp " + i,                            // Nhà Cung Cấp

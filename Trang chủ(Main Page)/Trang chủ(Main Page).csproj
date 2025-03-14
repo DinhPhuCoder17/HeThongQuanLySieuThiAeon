@@ -420,6 +420,12 @@
     <Compile Include="GUI_QLHangHoa\GoiYNhapHangBangAI.Designer.cs">
       <DependentUpon>GoiYNhapHangBangAI.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI_QLHangHoa\KhieuNai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI_QLHangHoa\KhieuNai.Designer.cs">
+      <DependentUpon>KhieuNai.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI_QLHangHoa\NhapHang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -528,6 +534,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI_QLHangHoa\GoiYNhapHangBangAI.resx">
       <DependentUpon>GoiYNhapHangBangAI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI_QLHangHoa\KhieuNai.resx">
+      <DependentUpon>KhieuNai.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI_QLHangHoa\NhapHang.resx">
       <DependentUpon>NhapHang.cs</DependentUpon>

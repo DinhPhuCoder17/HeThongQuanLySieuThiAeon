@@ -8,7 +8,7 @@ namespace DAL
 {
     public class DataProvider
     {
-        private String connectionStr = @"Data Source=LAPTOP-CKE458TU;Initial Catalog=QuanLySieuThiAEON;Integrated Security=True";
+        private String connectionStr = @"Data Source=.;Initial Catalog=QuanLySieuThiAEON;Integrated Security=True";
         
         //Tạo singleton
         private static DataProvider instance;
