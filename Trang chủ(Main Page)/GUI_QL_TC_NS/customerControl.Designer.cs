@@ -30,18 +30,18 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(customerControl));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.txt_DiemThuong = new Guna.UI2.WinForms.Guna2TextBox();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txt_Customer_Hoten = new Guna.UI2.WinForms.Guna2TextBox();
-            this.lbl_LiDo = new System.Windows.Forms.Label();
-            this.txt_MaKhachHang = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txt_DiaChiKH = new Guna.UI2.WinForms.Guna2TextBox();
             this.lbl_Customer_HoTen = new System.Windows.Forms.Label();
-            this.lbl_MaKhachHang = new System.Windows.Forms.Label();
+            this.lb_DiaChiKH = new System.Windows.Forms.Label();
             this.menu_CusTomer_Add = new Guna.UI2.WinForms.Guna2Panel();
+            this.cb_GioiTinhKH = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.lb_GioiTinhKH = new System.Windows.Forms.Label();
             this.txt_Customer_SDT = new Guna.UI2.WinForms.Guna2TextBox();
             this.lbl_Customer_SDT = new System.Windows.Forms.Label();
             this.btnCustomerAdd_Send = new Guna.UI2.WinForms.Guna2Button();
@@ -67,25 +67,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtg_CustomerList)).BeginInit();
             this.SuspendLayout();
             // 
-            // txt_DiemThuong
-            // 
-            this.txt_DiemThuong.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_DiemThuong.DefaultText = "";
-            this.txt_DiemThuong.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txt_DiemThuong.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txt_DiemThuong.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txt_DiemThuong.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txt_DiemThuong.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_DiemThuong.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txt_DiemThuong.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_DiemThuong.Location = new System.Drawing.Point(387, 16);
-            this.txt_DiemThuong.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txt_DiemThuong.Name = "txt_DiemThuong";
-            this.txt_DiemThuong.PlaceholderText = "";
-            this.txt_DiemThuong.SelectedText = "";
-            this.txt_DiemThuong.Size = new System.Drawing.Size(176, 48);
-            this.txt_DiemThuong.TabIndex = 24;
-            // 
             // txt_Customer_Hoten
             // 
             this.txt_Customer_Hoten.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -97,76 +78,96 @@
             this.txt_Customer_Hoten.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_Customer_Hoten.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_Customer_Hoten.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_Customer_Hoten.Location = new System.Drawing.Point(107, 107);
+            this.txt_Customer_Hoten.Location = new System.Drawing.Point(135, 29);
             this.txt_Customer_Hoten.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_Customer_Hoten.Name = "txt_Customer_Hoten";
-            this.txt_Customer_Hoten.PlaceholderText = "";
+            this.txt_Customer_Hoten.PlaceholderText = "Họ tên khách hàng";
             this.txt_Customer_Hoten.SelectedText = "";
-            this.txt_Customer_Hoten.Size = new System.Drawing.Size(176, 48);
+            this.txt_Customer_Hoten.Size = new System.Drawing.Size(412, 48);
             this.txt_Customer_Hoten.TabIndex = 25;
             // 
-            // lbl_LiDo
+            // txt_DiaChiKH
             // 
-            this.lbl_LiDo.AutoSize = true;
-            this.lbl_LiDo.Location = new System.Drawing.Point(294, 30);
-            this.lbl_LiDo.Name = "lbl_LiDo";
-            this.lbl_LiDo.Size = new System.Drawing.Size(87, 16);
-            this.lbl_LiDo.TabIndex = 20;
-            this.lbl_LiDo.Text = "Điểm Thưởng";
-            // 
-            // txt_MaKhachHang
-            // 
-            this.txt_MaKhachHang.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_MaKhachHang.DefaultText = "";
-            this.txt_MaKhachHang.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txt_MaKhachHang.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txt_MaKhachHang.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txt_MaKhachHang.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txt_MaKhachHang.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_MaKhachHang.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txt_MaKhachHang.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_MaKhachHang.Location = new System.Drawing.Point(111, 16);
-            this.txt_MaKhachHang.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txt_MaKhachHang.Name = "txt_MaKhachHang";
-            this.txt_MaKhachHang.PlaceholderText = "";
-            this.txt_MaKhachHang.SelectedText = "";
-            this.txt_MaKhachHang.Size = new System.Drawing.Size(176, 48);
-            this.txt_MaKhachHang.TabIndex = 26;
+            this.txt_DiaChiKH.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_DiaChiKH.DefaultText = "";
+            this.txt_DiaChiKH.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txt_DiaChiKH.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txt_DiaChiKH.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_DiaChiKH.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_DiaChiKH.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_DiaChiKH.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txt_DiaChiKH.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_DiaChiKH.Location = new System.Drawing.Point(135, 170);
+            this.txt_DiaChiKH.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txt_DiaChiKH.Name = "txt_DiaChiKH";
+            this.txt_DiaChiKH.PlaceholderText = "Địa chỉ khách hàng";
+            this.txt_DiaChiKH.SelectedText = "";
+            this.txt_DiaChiKH.Size = new System.Drawing.Size(412, 48);
+            this.txt_DiaChiKH.TabIndex = 26;
             // 
             // lbl_Customer_HoTen
             // 
             this.lbl_Customer_HoTen.AutoSize = true;
-            this.lbl_Customer_HoTen.Location = new System.Drawing.Point(49, 121);
+            this.lbl_Customer_HoTen.Location = new System.Drawing.Point(56, 49);
             this.lbl_Customer_HoTen.Name = "lbl_Customer_HoTen";
             this.lbl_Customer_HoTen.Size = new System.Drawing.Size(52, 16);
             this.lbl_Customer_HoTen.TabIndex = 21;
             this.lbl_Customer_HoTen.Text = "Họ Tên";
             // 
-            // lbl_MaKhachHang
+            // lb_DiaChiKH
             // 
-            this.lbl_MaKhachHang.AutoSize = true;
-            this.lbl_MaKhachHang.Location = new System.Drawing.Point(3, 30);
-            this.lbl_MaKhachHang.Name = "lbl_MaKhachHang";
-            this.lbl_MaKhachHang.Size = new System.Drawing.Size(102, 16);
-            this.lbl_MaKhachHang.TabIndex = 22;
-            this.lbl_MaKhachHang.Text = "Mã Khách Hàng";
+            this.lb_DiaChiKH.AutoSize = true;
+            this.lb_DiaChiKH.Location = new System.Drawing.Point(56, 186);
+            this.lb_DiaChiKH.Name = "lb_DiaChiKH";
+            this.lb_DiaChiKH.Size = new System.Drawing.Size(47, 16);
+            this.lb_DiaChiKH.TabIndex = 22;
+            this.lb_DiaChiKH.Text = "Địa chỉ";
             // 
             // menu_CusTomer_Add
             // 
+            this.menu_CusTomer_Add.Controls.Add(this.cb_GioiTinhKH);
+            this.menu_CusTomer_Add.Controls.Add(this.lb_GioiTinhKH);
             this.menu_CusTomer_Add.Controls.Add(this.txt_Customer_SDT);
-            this.menu_CusTomer_Add.Controls.Add(this.txt_DiemThuong);
             this.menu_CusTomer_Add.Controls.Add(this.lbl_Customer_SDT);
             this.menu_CusTomer_Add.Controls.Add(this.txt_Customer_Hoten);
-            this.menu_CusTomer_Add.Controls.Add(this.lbl_LiDo);
-            this.menu_CusTomer_Add.Controls.Add(this.txt_MaKhachHang);
             this.menu_CusTomer_Add.Controls.Add(this.lbl_Customer_HoTen);
             this.menu_CusTomer_Add.Controls.Add(this.btnCustomerAdd_Send);
-            this.menu_CusTomer_Add.Controls.Add(this.lbl_MaKhachHang);
+            this.menu_CusTomer_Add.Controls.Add(this.lb_DiaChiKH);
+            this.menu_CusTomer_Add.Controls.Add(this.txt_DiaChiKH);
             this.menu_CusTomer_Add.Location = new System.Drawing.Point(198, 130);
             this.menu_CusTomer_Add.Name = "menu_CusTomer_Add";
             this.menu_CusTomer_Add.Size = new System.Drawing.Size(580, 0);
             this.menu_CusTomer_Add.TabIndex = 19;
             this.menu_CusTomer_Add.Paint += new System.Windows.Forms.PaintEventHandler(this.menu_CusTomer_Add_Paint);
+            // 
+            // cb_GioiTinhKH
+            // 
+            this.cb_GioiTinhKH.BackColor = System.Drawing.Color.Transparent;
+            this.cb_GioiTinhKH.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cb_GioiTinhKH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_GioiTinhKH.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cb_GioiTinhKH.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cb_GioiTinhKH.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cb_GioiTinhKH.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cb_GioiTinhKH.ItemHeight = 30;
+            this.cb_GioiTinhKH.Items.AddRange(new object[] {
+            "Nam",
+            "Nữ"});
+            this.cb_GioiTinhKH.Location = new System.Drawing.Point(135, 246);
+            this.cb_GioiTinhKH.Name = "cb_GioiTinhKH";
+            this.cb_GioiTinhKH.Size = new System.Drawing.Size(140, 36);
+            this.cb_GioiTinhKH.StartIndex = 0;
+            this.cb_GioiTinhKH.TabIndex = 29;
+            this.cb_GioiTinhKH.SelectedIndexChanged += new System.EventHandler(this.cb_GioiTinhKH_SelectedIndexChanged);
+            // 
+            // lb_GioiTinhKH
+            // 
+            this.lb_GioiTinhKH.AutoSize = true;
+            this.lb_GioiTinhKH.Location = new System.Drawing.Point(56, 255);
+            this.lb_GioiTinhKH.Name = "lb_GioiTinhKH";
+            this.lb_GioiTinhKH.Size = new System.Drawing.Size(54, 16);
+            this.lb_GioiTinhKH.TabIndex = 28;
+            this.lb_GioiTinhKH.Text = "Giới tính";
             // 
             // txt_Customer_SDT
             // 
@@ -179,18 +180,18 @@
             this.txt_Customer_SDT.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_Customer_SDT.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_Customer_SDT.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_Customer_SDT.Location = new System.Drawing.Point(387, 107);
+            this.txt_Customer_SDT.Location = new System.Drawing.Point(135, 97);
             this.txt_Customer_SDT.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_Customer_SDT.Name = "txt_Customer_SDT";
-            this.txt_Customer_SDT.PlaceholderText = "";
+            this.txt_Customer_SDT.PlaceholderText = "Số điện thoại khách hàng";
             this.txt_Customer_SDT.SelectedText = "";
-            this.txt_Customer_SDT.Size = new System.Drawing.Size(176, 48);
+            this.txt_Customer_SDT.Size = new System.Drawing.Size(412, 48);
             this.txt_Customer_SDT.TabIndex = 24;
             // 
             // lbl_Customer_SDT
             // 
             this.lbl_Customer_SDT.AutoSize = true;
-            this.lbl_Customer_SDT.Location = new System.Drawing.Point(289, 121);
+            this.lbl_Customer_SDT.Location = new System.Drawing.Point(37, 118);
             this.lbl_Customer_SDT.Name = "lbl_Customer_SDT";
             this.lbl_Customer_SDT.Size = new System.Drawing.Size(92, 16);
             this.lbl_Customer_SDT.TabIndex = 20;
@@ -206,11 +207,12 @@
             this.btnCustomerAdd_Send.FillColor = System.Drawing.Color.White;
             this.btnCustomerAdd_Send.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnCustomerAdd_Send.ForeColor = System.Drawing.Color.Black;
-            this.btnCustomerAdd_Send.Location = new System.Drawing.Point(191, 199);
+            this.btnCustomerAdd_Send.Location = new System.Drawing.Point(216, 317);
             this.btnCustomerAdd_Send.Name = "btnCustomerAdd_Send";
             this.btnCustomerAdd_Send.Size = new System.Drawing.Size(180, 45);
             this.btnCustomerAdd_Send.TabIndex = 23;
             this.btnCustomerAdd_Send.Text = "Xác Nhận";
+            this.btnCustomerAdd_Send.Click += new System.EventHandler(this.btnCustomerAdd_Send_Click);
             // 
             // guna2BorderlessForm1
             // 
@@ -318,43 +320,43 @@
             this.dtg_CustomerList.AllowUserToDeleteRows = false;
             this.dtg_CustomerList.AllowUserToResizeColumns = false;
             this.dtg_CustomerList.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dtg_CustomerList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtg_CustomerList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            this.dtg_CustomerList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtg_CustomerList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dtg_CustomerList.ColumnHeadersHeight = 40;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.OrangeRed;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtg_CustomerList.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.OrangeRed;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtg_CustomerList.DefaultCellStyle = dataGridViewCellStyle8;
             this.dtg_CustomerList.EnableHeadersVisualStyles = true;
             this.dtg_CustomerList.GridColor = System.Drawing.Color.White;
             this.dtg_CustomerList.Location = new System.Drawing.Point(29, 146);
             this.dtg_CustomerList.Margin = new System.Windows.Forms.Padding(20);
             this.dtg_CustomerList.Name = "dtg_CustomerList";
             this.dtg_CustomerList.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtg_CustomerList.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtg_CustomerList.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dtg_CustomerList.RowHeadersVisible = false;
             this.dtg_CustomerList.RowHeadersWidth = 51;
-            dataGridViewCellStyle5.NullValue = "delete";
-            this.dtg_CustomerList.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle10.NullValue = "delete";
+            this.dtg_CustomerList.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dtg_CustomerList.RowTemplate.DefaultCellStyle.NullValue = "de";
             this.dtg_CustomerList.RowTemplate.DividerHeight = 5;
             this.dtg_CustomerList.RowTemplate.Height = 40;
@@ -457,6 +459,7 @@
             this.btn_Customer_Add.Size = new System.Drawing.Size(163, 49);
             this.btn_Customer_Add.TabIndex = 22;
             this.btn_Customer_Add.Text = "Thêm Khách hàng";
+            this.btn_Customer_Add.Click += new System.EventHandler(this.btn_Customer_Add_Click);
             // 
             // btn_Customer_Change
             // 
@@ -509,13 +512,10 @@
         }
 
         #endregion
-
-        private Guna.UI2.WinForms.Guna2TextBox txt_DiemThuong;
         private Guna.UI2.WinForms.Guna2TextBox txt_Customer_Hoten;
-        private System.Windows.Forms.Label lbl_LiDo;
-        private Guna.UI2.WinForms.Guna2TextBox txt_MaKhachHang;
+        private Guna.UI2.WinForms.Guna2TextBox txt_DiaChiKH;
         private System.Windows.Forms.Label lbl_Customer_HoTen;
-        private System.Windows.Forms.Label lbl_MaKhachHang;
+        private System.Windows.Forms.Label lb_DiaChiKH;
         private Guna.UI2.WinForms.Guna2Panel menu_CusTomer_Add;
         private Guna.UI2.WinForms.Guna2Button btnCustomerAdd_Send;
         private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
@@ -536,5 +536,7 @@
         private Guna.UI2.WinForms.Guna2GradientButton btn_Customer_Delete;
         private System.Windows.Forms.Label label4;
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
+        private Guna.UI2.WinForms.Guna2ComboBox cb_GioiTinhKH;
+        private System.Windows.Forms.Label lb_GioiTinhKH;
     }
 }

@@ -17,6 +17,16 @@ CREATE TABLE Nhanvien (
 	Xoa int
 );
 
+CREATE TABLE Khachhang (
+	Sodienthoai varchar(10) CONSTRAINT PK_KH PRIMARY KEY,
+	Hoten nvarchar(255),
+	Diachi nvarchar(255),
+	Diemthuong int,
+	Gioitinh nvarchar(10),
+	Hang nvarchar(50),
+	Xoa int default 1
+)
+
 CREATE TABLE Quanly (
     Manhanvien varchar(10) CONSTRAINT PK_Quanly PRIMARY KEY,
     Username VARCHAR(50),
@@ -122,8 +132,9 @@ CREATE TABLE Hoadonbanhang (
     Manhanvien varchar(10),
     Sodienthoai varchar(15),
     CONSTRAINT FK_Hoadonbanhang_Manhanvien FOREIGN KEY (Manhanvien) REFERENCES Nhanvien(Manhanvien),
-    CONSTRAINT FK_Hoadonbanhang_Makhachhang FOREIGN KEY (Sodienthoai) REFERENCES Khachhang(Sodienthoai)
+	Thanhtien float
 );
+
 
 CREATE TABLE HH_HDBH (
     Mahanghoa varchar(10),
@@ -131,8 +142,11 @@ CREATE TABLE HH_HDBH (
 	Soluong INT,
     CONSTRAINT PK_HH_HDBH PRIMARY KEY (Mahanghoa, Mahoadon),
     CONSTRAINT FK_HH_HDBH_Mahanghoa FOREIGN KEY (Mahanghoa) REFERENCES Hanghoa(Mahanghoa),
-    CONSTRAINT FK_HH_HDBH_Mahoadon FOREIGN KEY (Mahoadon) REFERENCES Hoadonbanhang(Mahoadon)
+    CONSTRAINT FK_HH_HDBH_Mahoadon FOREIGN KEY (Mahoadon) REFERENCES Hoadonbanhang(Mahoadon),
+	Tongtien float
 );
+
+
 
 CREATE TABLE Batbuoc(
 	Macalam varchar(10),
@@ -278,6 +292,43 @@ Begin
 End
 --End Trigger bang HH_HDBH--
 
+--Trigger cập nhật hạng khách hàng--
+go
+Create trigger tg_HDBH
+on Hoadonbanhang
+for insert
+As
+Begin
+	Declare @TongTienDaMua float, @Sodienthoai varchar(15)
+	Set @Sodienthoai = (
+		Select Sodienthoai
+		From inserted
+	)
+	Set @TongTienDaMua = (
+		Select SUM(Thanhtien)
+		From Hoadonbanhang
+		Where Sodienthoai = @Sodienthoai
+	)
+
+	if (@TongTienDaMua * 1000) < 1000000
+	Begin
+		Update Khachhang set Hang = N'Thành viên' Where Sodienthoai = @Sodienthoai
+	End
+	else if	(@TongTienDaMua * 1000) < 3000000
+	Begin
+		Update Khachhang set Hang = N'Bạc' Where Sodienthoai = @Sodienthoai
+	End
+	else if	(@TongTienDaMua * 1000) < 7000000
+	Begin
+		Update Khachhang set Hang = N'Vàng' Where Sodienthoai = @Sodienthoai
+	End
+	else if	(@TongTienDaMua * 1000) < 10000000
+	Begin
+		Update Khachhang set Hang = N'Kim Cương' Where Sodienthoai = @Sodienthoai
+	End
+
+End
+
 ----------------------------Procedure-----------------------------
 --Procedure thêm mã cho nhân viên mới--
 go
@@ -297,7 +348,7 @@ Declare @soMoi int;
 Select @maxMaNhanvien = MAX(Manhanvien) from Nhanvien;
 	--Nếu chưa có ai, mã đầu tiên là NV0001
 	If @maxMaNhanvien is null
-		Set @newMaNhanvien = 'SV0001';
+		Set @newMaNhanvien = 'NV0001';
 	--Tiến hành tạo mã mới
 	Else
 	Begin
@@ -528,18 +579,61 @@ Begin
 	PRINT 'Đã thêm chấm công với ID: ' + @ID + ' và trạng thái: ' + @Trangthai;
 End;
 
+--Trigger Them Khach hang--
+go
+CREATE PROC ThemKH 
+		@Sodienthoai nvarchar(12),
+		@Hoten nvarchar(100),
+		@Diachi nvarchar(255),
+		@Gioitinh nvarchar(100)
+As
+Begin
+	Declare @Diemthuong int, @Hang nvarchar(50)
+	Set @Diemthuong = 0
+	Set @Diemthuong = (
+		Select sum(Thanhtien)
+		From Hoadonbanhang
+		Where Sodienthoai = @Sodienthoai
+	)/1000
+
+	if(@Diemthuong is null)
+	Begin
+			Set @Diemthuong = 0
+	End
+
+	if (@Diemthuong * 1000) < 1000000
+	Begin
+		Set @Hang = N'Thành viên'
+	End
+	else if	(@Diemthuong * 1000) < 3000000
+	Begin
+		Set @Hang = N'Bạc'
+	End
+	else if	(@Diemthuong * 1000) < 7000000
+	Begin
+		Set @Hang = N'Vàng'
+	End
+	else
+	Begin
+		Set @Hang = N'Kim Cương'
+	End
+
+	Insert into Khachhang values(@Sodienthoai, @Hoten, @Diachi, @Diemthuong, @Gioitinh, @Hang, 1)
+End
+
+go
 INSERT INTO Nhanvien (Manhanvien, Hoten, CCCD, Ngaysinh, Gioitinh, Diachi, Sodienthoai, Xoa) 
 VALUES 
-('NV001', N'Nguyễn Văn A', '123456789012', '1990-01-01', N'Nam', N'Hà Nội', '0987654321', 1),
-('NV002', N'Trần Thị B', '123456789013', '1992-02-02', N'Nữ', N'Hồ Chí Minh', '0912345678', 1),
-('NV003', N'Lê Văn C', '123456789014', '1995-03-03', N'Nam', N'Đà Nẵng', '0901234567', 1),
-('NV004', N'Phạm Thị D', '123456789015', '1998-04-04', N'Nữ', N'Hải Phòng', '0988123456', 1),
-('NV005', N'Hồ Văn E', '123456789016', '1991-05-05', N'Nam', N'Cần Thơ', '0971234567', 1),
-('NV006', N'Đinh Thị F', '123456789017', '1994-06-06', N'Nữ', N'Bình Dương', '0961234567', 1),
-('NV007', N'Bùi Văn G', '123456789018', '1993-07-07', N'Nam', N'Quảng Ninh', '0951234567', 1),
-('NV008', N'Ngô Thị H', '123456789019', '1996-08-08', N'Nữ', N'Vũng Tàu', '0941234567', 1),
-('NV009', N'Doãn Văn I', '123456789020', '1997-09-09', N'Nam', N'Thái Bình', '0931234567', 1),
-('NV010', N'Vũ Thị K', '123456789021', '1990-10-10', N'Nữ', N'An Giang', '0921234567', 1);
+('NV0001', N'Nguyễn Văn A', '123456789012', '1990-01-01', N'Nam', N'Hà Nội', '0987654321', 1),
+('NV0002', N'Trần Thị B', '123456789013', '1992-02-02', N'Nữ', N'Hồ Chí Minh', '0912345678', 1),
+('NV0003', N'Lê Văn C', '123456789014', '1995-03-03', N'Nam', N'Đà Nẵng', '0901234567', 1),
+('NV0004', N'Phạm Thị D', '123456789015', '1998-04-04', N'Nữ', N'Hải Phòng', '0988123456', 1),
+('NV0005', N'Hồ Văn E', '123456789016', '1991-05-05', N'Nam', N'Cần Thơ', '0971234567', 1),
+('NV0006', N'Đinh Thị F', '123456789017', '1994-06-06', N'Nữ', N'Bình Dương', '0961234567', 1),
+('NV0007', N'Bùi Văn G', '123456789018', '1993-07-07', N'Nam', N'Quảng Ninh', '0951234567', 1),
+('NV0008', N'Ngô Thị H', '123456789019', '1996-08-08', N'Nữ', N'Vũng Tàu', '0941234567', 1),
+('NV0009', N'Doãn Văn I', '123456789020', '1997-09-09', N'Nam', N'Thái Bình', '0931234567', 1),
+('NV0010', N'Vũ Thị K', '123456789021', '1990-10-10', N'Nữ', N'An Giang', '0921234567', 1);
 
 INSERT INTO Khachhang (Sodienthoai, Hoten, Diachi, Diemthuong, Gioitinh, Hang, Xoa) VALUES
 ('0987654321', N'Nguyễn Văn An', N'Hà Nội', 100, N'Nam', N'Thành viên', 1),
@@ -552,3 +646,57 @@ INSERT INTO Khachhang (Sodienthoai, Hoten, Diachi, Diemthuong, Gioitinh, Hang, X
 ('0917788990', N'Ngô Anh Tú', N'Nha Trang', 130, N'Nam', N'Thành viên', 1),
 ('0908899001', N'Bùi Thị Hoa', N'Huế', 210, N'Nữ', N'Bạch Kim', 1),
 ('0899900112', N'Lý Quang Minh', N'Tây Ninh', 90, N'Nam', N'Thành viên', 1);
+
+INSERT INTO Nhacungcap (MaNCC, TenNCC, Diachi, Masothue, Sodienthoai, Xoa)
+VALUES
+    ('NCC0001', N'Công ty TNHH Thực Phẩm An Phát', N'123 Lê Lợi, Hà Nội', '0101234567', '0912345678', 1),
+    ('NCC0002', N'Công ty CP Hóa Mỹ Phẩm Việt', N'456 Trần Hưng Đạo, TP.HCM', '0202345678', '0923456789', 1),
+    ('NCC0003', N'Công ty TNHH Dịch Vụ Thương Mại Minh Khang', N'789 Lý Thường Kiệt, Đà Nẵng', '0303456789', '0934567890', 1),
+    ('NCC0004', N'Công ty CP Sản Xuất Hòa Bình', N'12 Nguyễn Huệ, Huế', '0404567890', '0945678901', 1),
+    ('NCC0005', N'Công ty TNHH Nông Sản Việt', N'34 Quang Trung, Hải Phòng', '0505678901', '0956789012', 1),
+    ('NCC0006', N'Công ty CP Công Nghệ Thịnh Vượng', N'56 Lê Lai, Cần Thơ', '0606789012', '0967890123', 1),
+    ('NCC0007', N'Công ty TNHH Xuất Nhập Khẩu Thành Công', N'78 Hai Bà Trưng, Nha Trang', '0707890123', '0978901234', 1),
+    ('NCC0008', N'Công ty CP Thương Mại Đại Phát', N'90 Phạm Ngũ Lão, Quy Nhơn', '0808901234', '0989012345', 1),
+    ('NCC0009', N'Công ty TNHH Dược Phẩm An Bình', N'102 Nguyễn Trãi, Vũng Tàu', '0909012345', '0990123456', 1),
+    ('NCC0010', N'Công ty CP Phân Phối Nam Việt', N'114 Đống Đa, Bình Định', '1001234567', '0901234567', 1);
+
+INSERT INTO Hanghoa (Mahanghoa, Tenhanghoa, Tiennhap, Tendanhmuc, Tienban, ImageData, Soluong, Uudai, MaNCC, THSD, Xoa)
+VALUES
+    ('HH0001', N'Gạo ST25', 15000, N'Thực phẩm', 20000, NULL, 500, '5%', 'NCC001', '2025-12-31', 1),
+    ('HH0002', N'Dầu ăn Simply 1L', 45000, N'Thực phẩm', 55000, NULL, 500, '10%', 'NCC002', '2025-11-30', 1),
+    ('HH0003', N'Sữa Vinamilk 180ml', 6500, N'Đồ uống', 9000, NULL, 500, '7%', 'NCC003', '2025-10-15', 1),
+    ('HH0004', N'Mì Hảo Hảo', 3500, N'Thực phẩm', 5000, NULL, 500, '3%', 'NCC004', '2025-09-25', 1),
+    ('HH0005', N'Nước suối La Vie 500ml', 4000, N'Đồ uống', 6000, NULL, 500, '8%', 'NCC005', '2025-08-20', 1),
+    ('HH0006', N'Bánh Chocopie', 75000, N'Bánh kẹo', 95000, NULL, 500, '12%', 'NCC006', '2025-07-12', 1),
+    ('HH0007', N'Bột giặt Omo 4.5kg', 120000, N'Hóa phẩm', 145000, NULL, 500, '15%', 'NCC007', '2025-06-30', 1),
+    ('HH0008', N'Kem đánh răng P/S', 25000, N'Hóa phẩm', 35000, NULL, 500, '10%', 'NCC008', '2025-05-18', 1),
+    ('HH0009', N'Nước mắm Nam Ngư 500ml', 32000, N'Thực phẩm', 45000, NULL, 500, '6%', 'NCC009', '2025-04-10', 1),
+    ('HH0010', N'Khẩu trang y tế 50 cái', 45000, N'Chăm sóc sức khỏe', 60000, NULL, 500, '20%', 'NCC010', '2025-03-01', 1);
+
+
+INSERT INTO Hoadonbanhang (Mahoadon, Thoigianban, Manhanvien, Sodienthoai, Thanhtien) VALUES
+('HD0001', '2024-03-01 08:30:00', 'NV0001', '0971122334', 800000)
+INSERT INTO Hoadonbanhang (Mahoadon, Thoigianban, Manhanvien, Sodienthoai, Thanhtien) VALUES
+('HD0002', '2024-03-02 10:45:00', 'NV0002', '0962233445', 2300000)
+INSERT INTO Hoadonbanhang (Mahoadon, Thoigianban, Manhanvien, Sodienthoai, Thanhtien) VALUES
+('HD0003', '2024-03-03 14:20:00', 'NV0003', '0962233445', 1700000)
+
+
+Insert into HH_HDBH values
+('HH0001', 'HD0001', 10, 200000)
+Insert into HH_HDBH values
+('HH0010', 'HD0001', 10, 600000)
+Insert into HH_HDBH values
+('HH0002', 'HD0002', 20, 1100000)
+Insert into HH_HDBH values
+('HH0005', 'HD0002', 200,1200000)
+Insert into HH_HDBH values
+('HH0002', 'HD0003', 20, 1100000)
+Insert into HH_HDBH values
+('HH0010', 'HD0003', 10,600000)
+
+exec themKH '321' , 'Tien' , 'HANOI' , 'Nu'
+Select * From Khachhang
+
+
+exec themMaNhanvien 'Thanh Liem', '123', '01/02/2005', 'Nam', 'TPHCM', '123456'    

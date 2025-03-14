@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Guna.UI2.WinForms;
 using BLL;
+using ServiceStack.OrmLite.Converters;
+using System.Text.RegularExpressions;
 
 namespace Trang_chủ_Main_Page_
 {
@@ -52,7 +54,7 @@ namespace Trang_chủ_Main_Page_
             if (menu_CusTomer_Add_Expand == false)
             {
                 menu_CusTomer_Add.Height += 10;
-                if (menu_CusTomer_Add.Height >= 270)
+                if (menu_CusTomer_Add.Height >= 400)
                 {
                     Timer_Customer_Add.Stop();
                     menu_CusTomer_Add_Expand = true;
@@ -75,6 +77,52 @@ namespace Trang_chủ_Main_Page_
         }
 
         private void btnCustomerFilterOut_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_Customer_Add_Click(object sender, EventArgs e)
+        {
+            Timer_Customer_Add.Start();
+        }
+
+        private void btnCustomerAdd_Send_Click(object sender, EventArgs e)
+        {
+            if (txt_Customer_Hoten.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập họ tên khách hàng");
+            }
+            else if (txt_Customer_SDT.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập số điện thoại khách hàng");
+            }
+            else if (txt_DiaChiKH.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập địa chỉ khách hàng");
+            }
+            else
+            {
+                    bool result = bLL_QuanlyTCNS.themKH(txt_Customer_Hoten.Text, txt_Customer_SDT.Text, txt_DiaChiKH.Text, cb_GioiTinhKH.SelectedItem.ToString());
+                    if (result)
+                    {
+                        MessageBox.Show("Thêm khách hàng thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        customerControl_Load(sender, e);
+                        Timer_Customer_Add.Start();
+                        txt_Customer_Hoten.Text = "";
+                        txt_Customer_SDT.Text = "";
+                        txt_DiaChiKH.Text = "";
+                }
+                else
+                    {
+                        MessageBox.Show("Thêm khách hàng thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txt_Customer_Hoten.Text = "";
+                        txt_Customer_SDT.Text = "";
+                        txt_DiaChiKH.Text = "";
+                }
+            }
+        }
+
+        private void cb_GioiTinhKH_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
