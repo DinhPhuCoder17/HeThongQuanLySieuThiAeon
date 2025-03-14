@@ -35,10 +35,8 @@ namespace Trang_chủ_Main_Page_
             }
             lblTotal.Text = $" {total:C}";
         }
-
         public void AddItem(string name, string Supplier, double cost, string icon)
         {
-
             var c = new HangHoaNCC()
             {
                 Title = name,
@@ -48,25 +46,39 @@ namespace Trang_chủ_Main_Page_
             };
 
             flowLayoutPanel1.Controls.Add(c);
+
             c.OnSelect += (ss, ee) =>
             {
                 var us1 = (HangHoaNCC)ss;
+                int addQuantity = us1.SoLuong; // Lấy số lượng từ TextBox trong UserControl
+
                 foreach (DataGridViewRow item in dgvDanhSachDatHang.Rows)
                 {
-                    if (item.Cells.Count > 0 && item.Cells[0].Value != null && item.Cells[0].Value.ToString() == us1.label1.Text)
+                    if (item.Cells.Count > 0 && item.Cells[0].Value != null &&
+                        item.Cells[0].Value.ToString() == us1.label1.Text)
                     {
-                        item.Cells[2].Value = int.Parse(item.Cells[2].Value.ToString()) + 1;
-                        item.Cells[4].Value = (int.Parse(item.Cells[2].Value.ToString()) *
-                      double.Parse(item.Cells[3].Value.ToString().Replace("$", ""))).ToString("C2");
+                        int currentQuantity = int.Parse(item.Cells[2].Value.ToString());
+                        item.Cells[2].Value = currentQuantity + addQuantity;
+                        double costValue = double.Parse(item.Cells[3].Value.ToString().Replace("$", ""));
+                        item.Cells[4].Value = ((currentQuantity + addQuantity) * costValue).ToString("C2");
                         CalculateTotal();
                         return;
                     }
                 }
 
-                dgvDanhSachDatHang.Rows.Add(new object[] { us1.label1.Text, us1.label3.Text, 1, us1.label4.Text, us1.label4.Text });
+                dgvDanhSachDatHang.Rows.Add(new object[]
+                {
+        us1.label1.Text,
+        us1.label3.Text,
+        addQuantity,
+        us1.label4.Text,
+        (addQuantity * double.Parse(us1.label4.Text.Replace("$", ""))).ToString("C2")
+                });
                 CalculateTotal();
             };
+
         }
+
 
         private void DatHang_Load(object sender, EventArgs e)
         {
