@@ -114,15 +114,7 @@ CREATE TABLE HD_HH (
     CONSTRAINT FK_HD_HH_Sohd FOREIGN KEY (Sohd) REFERENCES HD_Nhaphang(Sohd)
 );
 
-CREATE TABLE Khachhang (
-    Sodienthoai varchar(15) CONSTRAINT PK_Khachhang PRIMARY KEY,
-    Hoten NVARCHAR(100),
-    Diachi NVARCHAR(255),
-    Diemthuong INT,
-    Gioitinh NVARCHAR(10),
-	Hang nvarchar(50),
-	Xoa int
-);
+
 
 CREATE TABLE Hoadonbanhang (
     Mahoadon varchar(10) CONSTRAINT PK_Hoadonbanhang PRIMARY KEY,
@@ -549,3 +541,14 @@ VALUES
 ('NV009', N'Doãn Văn I', '123456789020', '1997-09-09', N'Nam', N'Thái Bình', '0931234567', 1),
 ('NV010', N'Vũ Thị K', '123456789021', '1990-10-10', N'Nữ', N'An Giang', '0921234567', 1);
 
+INSERT INTO Khachhang (Sodienthoai, Hoten, Diachi, Diemthuong, Gioitinh, Hang, Xoa) VALUES
+('0987654321', N'Nguyễn Văn An', N'Hà Nội', 100, N'Nam', N'Thành viên', 1),
+('0971122334', N'Trần Thị Bình', N'Hồ Chí Minh', 200, N'Nữ', N'Bạc', 1),
+('0962233445', N'Lê Minh Quang', N'Đà Nẵng', 150, N'Nam', N'Vàng', 1),
+('0953344556', N'Phạm Hoài Nam', N'Cần Thơ', 120, N'Nam', N'Thành viên', 1),
+('0944455667', N'Hoàng Thanh Tâm', N'Hải Phòng', 300, N'Nữ', N'Bạch Kim', 1),
+('0935566778', N'Vũ Đức Toàn', N'Bình Dương', 250, N'Nam', N'Vàng', 1),
+('0926677889', N'Đặng Mỹ Linh', N'Quảng Ninh', 180, N'Nữ', N'Bạc', 1),
+('0917788990', N'Ngô Anh Tú', N'Nha Trang', 130, N'Nam', N'Thành viên', 1),
+('0908899001', N'Bùi Thị Hoa', N'Huế', 210, N'Nữ', N'Bạch Kim', 1),
+('0899900112', N'Lý Quang Minh', N'Tây Ninh', 90, N'Nam', N'Thành viên', 1);
