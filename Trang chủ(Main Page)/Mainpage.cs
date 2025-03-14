@@ -37,6 +37,7 @@ namespace Trang_chủ_Main_Page_
         {
             loading load=new loading();
             load.Show();
+            this.Hide();
         }
 
         private void lblTk_Click(object sender, EventArgs e)

@@ -63,5 +63,25 @@ namespace DAL
                 return false;
             }
         }
+
+        public bool suaKH(DTO_Khachhang kh)
+        {
+            try
+            {
+                int line = DataProvider.Instance.ExecuteNonQuery(
+                    "Update Khachhang set Hoten = @Hoten , Diachi = @Diachi , Diemthuong = @Diemthuong , Gioitinh = @Gioitinh , Hang = @Hang Where Sodienthoai = @Sodienthoai", new object[] { kh.hoTen, kh.diaChi, kh.diemThuong, kh.gioiTinh, kh.hang, kh.soDienThoai }
+                );
+                if (line != 0)
+                {
+                    return true;
+                }
+                return false;
+            }
+            catch
+            {
+                MessageBox.Show("Khách hàng không tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+        }
     }
 }

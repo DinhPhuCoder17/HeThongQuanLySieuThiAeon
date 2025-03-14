@@ -339,12 +339,12 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dtg_CustomerList.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dtg_CustomerList.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dtg_CustomerList.EnableHeadersVisualStyles = true;
             this.dtg_CustomerList.GridColor = System.Drawing.Color.White;
             this.dtg_CustomerList.Location = new System.Drawing.Point(29, 146);
             this.dtg_CustomerList.Margin = new System.Windows.Forms.Padding(20);
             this.dtg_CustomerList.Name = "dtg_CustomerList";
-            this.dtg_CustomerList.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -375,7 +375,7 @@
             this.dtg_CustomerList.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.DimGray;
             this.dtg_CustomerList.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dtg_CustomerList.ThemeStyle.HeaderStyle.Height = 40;
-            this.dtg_CustomerList.ThemeStyle.ReadOnly = true;
+            this.dtg_CustomerList.ThemeStyle.ReadOnly = false;
             this.dtg_CustomerList.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.dtg_CustomerList.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dtg_CustomerList.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -385,6 +385,7 @@
             this.dtg_CustomerList.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             this.dtg_CustomerList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_CustomerList_CellClick);
             this.dtg_CustomerList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgCustomerList_CellContentClick);
+            this.dtg_CustomerList.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dtg_CustomerList_DataError);
             // 
             // Timer_Customer_Add
             // 
@@ -482,6 +483,7 @@
             this.btn_Customer_Change.Size = new System.Drawing.Size(163, 49);
             this.btn_Customer_Change.TabIndex = 23;
             this.btn_Customer_Change.Text = "Sửa Khách Hàng";
+            this.btn_Customer_Change.Click += new System.EventHandler(this.btn_Customer_Change_Click);
             // 
             // customerControl
             // 

@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls.Adapters;
 using System.Windows.Forms;
 namespace Trang_chủ_Main_Page_
 {
@@ -17,6 +18,7 @@ namespace Trang_chủ_Main_Page_
         customerControl customerControl;
         financialManagement financialManagement;
         Statistic statistic;
+
         public EmployeeMainPage()
         {
             InitializeComponent();

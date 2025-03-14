@@ -20,9 +20,13 @@ namespace Trang_chủ_Main_Page_
         String soDienThoaiSelected = "";
         bool menu_CusTomer_Add_Expand=false;
         BLL_QuanlyTCNS bLL_QuanlyTCNS = new BLL_QuanlyTCNS();
+        bool isEdited = false;  // Biến kiểm tra xem có đang ở chế độ chỉnh sửa hay không
+        DataGridViewRow rowEdited = null; // Dòng đang chỉnh sửa
+
         public customerControl()
         {
             InitializeComponent();
+            dtg_CustomerList.ReadOnly = true;
         }
 
         private void customerControl_Load(object sender, EventArgs e)
@@ -156,6 +160,108 @@ namespace Trang_chủ_Main_Page_
             if (e.RowIndex >= 0)
             {
                 soDienThoaiSelected = dtg_CustomerList.Rows[e.RowIndex].Cells[0].Value.ToString();
+            }
+
+            //if(isEdited)
+            //{
+            //    dtg_CustomerList.Rows[e.RowIndex].ReadOnly = false;
+            //}
+        }
+
+
+        private DataGridViewComboBoxCell cbAltGender;
+        private DataGridViewComboBoxCell cbAltRank;
+
+        private void btn_Customer_Change_Click(object sender, EventArgs e)
+        {
+            if(isEdited == false)
+            {
+                if (dtg_CustomerList.CurrentRow != null) // Kiểm tra có dòng nào đang chọn không
+                {
+                    isEdited = true;
+
+                    dtg_CustomerList.ReadOnly = false; // Mở khóa tất cả các dòng
+                    dtg_CustomerList.Columns["Sodienthoai"].ReadOnly = true;
+
+                    foreach (DataGridViewRow row in dtg_CustomerList.Rows)
+                    {
+                        foreach (DataGridViewCell cell in row.Cells)
+                        {
+                            if (row == dtg_CustomerList.CurrentRow && cell.OwningColumn.Name != "Sodienthoai")
+                            {
+                                cell.ReadOnly = false; // Mở khóa
+                            }
+                            else
+                            {
+                                cell.ReadOnly = true; // Khóa lại các ô khác
+                            }
+                        }
+                    }
+                    dtg_CustomerList.CurrentRow.DefaultCellStyle.BackColor = Color.DarkGray;
+                    dtg_CustomerList.CurrentRow.DefaultCellStyle.SelectionBackColor = Color.Gray;
+                    btn_Customer_Add.Enabled = false;
+                    btn_Customer_Delete.Enabled = false;
+                    rowEdited = dtg_CustomerList.CurrentRow;
+
+                    //Thêm combobox vào ô giới tính
+                    cbAltGender = new DataGridViewComboBoxCell();
+                    cbAltGender.Items.AddRange("Nam", "Nữ");
+                    cbAltGender.Value = rowEdited.Cells[4].Value;
+                    rowEdited.Cells[4] = cbAltGender;
+
+                    cbAltRank = new DataGridViewComboBoxCell();
+                    cbAltRank.Items.AddRange("Thành viên", "Bạc", "Vàng", "Kim cương");
+                    cbAltRank.Value = rowEdited.Cells[5].Value;
+                    rowEdited.Cells[5] = cbAltRank;
+
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng chọn một khách hàng để chỉnh sửa.");
+                }
+            }else
+            {
+                if (Regex.IsMatch(rowEdited.Cells[3].Value.ToString(), "[^0-9]"))
+                {
+                    MessageBox.Show("Điểm thưởng không chứa kí tự");
+                }
+                else
+                {
+                    try
+                    {
+                        if (bLL_QuanlyTCNS.suaKH(rowEdited.Cells[0].Value.ToString(), rowEdited.Cells[1].Value.ToString(), rowEdited.Cells[2].Value.ToString(), int.Parse(rowEdited.Cells[3].Value.ToString()), rowEdited.Cells[4].Value.ToString(), rowEdited.Cells[5].Value.ToString()))
+                        {
+                            MessageBox.Show("Sửa thông tin khách hàng thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            customerControl_Load(sender, e);
+                            isEdited = false;
+                            dtg_CustomerList.ReadOnly = true;
+                            btn_Customer_Add.Enabled = true;
+                            btn_Customer_Delete.Enabled = true;
+                            rowEdited.DefaultCellStyle.BackColor = Color.White;
+                            rowEdited.DefaultCellStyle.SelectionBackColor = Color.FromArgb(255, 69, 0);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Sửa thông tin khách hàng thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Điểm thưởng không hợp lệ");
+
+                    }
+                }
+            }
+            
+        }
+
+        //Ngăn hộp thoại lỗi mặc định khi nhập kí tự vào điểm thưởng
+        private void dtg_CustomerList_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            e.ThrowException = false;
+            if (e.Context.HasFlag(DataGridViewDataErrorContexts.Commit))
+            {
+                MessageBox.Show("Điểm thưởng sai định dạng", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

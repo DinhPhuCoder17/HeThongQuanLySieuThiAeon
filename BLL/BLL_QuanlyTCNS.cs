@@ -69,5 +69,31 @@ namespace BLL
             }
             return false;
         }
+
+        public bool suaKH(String Sodienthoai, String Hoten, String Diachi, int Diemthuong, String Gioitinh, String hang)
+        {
+            if (Regex.IsMatch(Hoten, "[0-9]"))
+            {
+                MessageBox.Show("Họ tên không được chứa số");
+                return false;
+            }
+            else if (Diemthuong < 0)
+            {
+                MessageBox.Show("Điểm thưởng không hợp lệ");
+                return false;
+            }
+            else
+            {
+                DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn sửa thông tin khách hàng này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if (result == DialogResult.Yes) {
+                    DTO_Khachhang kh = new DTO_Khachhang(Hoten, Sodienthoai, Gioitinh, Diachi, Diemthuong, hang, null);
+                    if (dAL_QuanlyTCNS.suaKH(kh))
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
     }
 }
