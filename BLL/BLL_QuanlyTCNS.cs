@@ -16,16 +16,20 @@ namespace BLL
     {
 
         private readonly DAL_QuanlyTCNS dAL_QuanlyTCNS = new DAL_QuanlyTCNS();
+
+        //Xem danh sách nhân viên
         public DataTable xemDSNV()
         {
             return dAL_QuanlyTCNS.xemDSNV();
         }
 
+        //Xem danh sách khách hàng
         public DataTable xemDSKH()
         {
             return dAL_QuanlyTCNS.xemDSKH();
         }
 
+        //Thêm khách hàng
         public Boolean themKH(String Hoten, String Sodienthoai, String Diachi, String Gioitinh)
         {
             if(Regex.IsMatch(Hoten, "[0-9]"))
@@ -49,8 +53,21 @@ namespace BLL
                 return true;
             }
             return false;
-
         }
 
+        //Xóa khách hàng
+        public Boolean xoaKH(String soDienThoai)
+        {
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa khách hàng này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if(result == DialogResult.Yes)
+            {
+                if (dAL_QuanlyTCNS.xoaKH(soDienThoai))
+                {
+                    return true;
+                }
+                return false;
+            }
+            return false;
+        }
     }
 }

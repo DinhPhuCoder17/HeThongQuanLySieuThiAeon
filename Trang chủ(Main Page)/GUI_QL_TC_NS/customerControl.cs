@@ -11,11 +11,13 @@ using Guna.UI2.WinForms;
 using BLL;
 using ServiceStack.OrmLite.Converters;
 using System.Text.RegularExpressions;
+using static Jenga.Theme;
 
 namespace Trang_chủ_Main_Page_
 {
     public partial class customerControl : Form
     {
+        String soDienThoaiSelected = "";
         bool menu_CusTomer_Add_Expand=false;
         BLL_QuanlyTCNS bLL_QuanlyTCNS = new BLL_QuanlyTCNS();
         public customerControl()
@@ -125,6 +127,36 @@ namespace Trang_chủ_Main_Page_
         private void cb_GioiTinhKH_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_Customer_Delete_Click(object sender, EventArgs e)
+        {
+            if (soDienThoaiSelected != "")
+            {
+                if (bLL_QuanlyTCNS.xoaKH(soDienThoaiSelected))
+                {
+                    MessageBox.Show("Xóa khách hàng thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    customerControl_Load(sender, e);
+                }
+                else
+                {
+                    MessageBox.Show("Xóa khách hàng thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn khách hàng cần xóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        //Lấy số điện thoại đã chọn
+
+        private void dtg_CustomerList_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                soDienThoaiSelected = dtg_CustomerList.Rows[e.RowIndex].Cells[0].Value.ToString();
+            }
         }
     }
 }
