@@ -29,6 +29,7 @@ namespace Trang_chủ_Main_Page_
             dtg_CustomerList.ReadOnly = true;
         }
 
+        //Load danh sách khách hàng
         private void customerControl_Load(object sender, EventArgs e)
         {
             dtg_CustomerList.DataSource = bLL_QuanlyTCNS.xemDSKH();
@@ -262,6 +263,17 @@ namespace Trang_chủ_Main_Page_
             if (e.Context.HasFlag(DataGridViewDataErrorContexts.Commit))
             {
                 MessageBox.Show("Điểm thưởng sai định dạng", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void txt_Customer_SearchBar_TextChanged(object sender, EventArgs e)
+        {
+            if(txt_Customer_SearchBar.Text == null)
+            {
+                customerControl_Load(sender, e);
+            }else
+            {
+                    dtg_CustomerList.DataSource = bLL_QuanlyTCNS.timKiemKH(txt_Customer_SearchBar.Text);
             }
         }
     }

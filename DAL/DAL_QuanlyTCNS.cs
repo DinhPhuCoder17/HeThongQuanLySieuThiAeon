@@ -83,5 +83,10 @@ namespace DAL
                 return false;
             }
         }
+
+        public DataTable timKiemKH(String tukhoa)
+        {
+            return DataProvider.Instance.ExecuteQueryOneParameter("Select Sodienthoai, Hoten, Diachi, Diemthuong, Gioitinh, Hang From Khachhang where (Sodienthoai LIKE '%' + @tukhoa + '%' or Hoten LIKE '%' + @tukhoa + '%') and Xoa = 1", new object[] { tukhoa});
+        }
     }
 }

@@ -272,6 +272,7 @@
             this.txt_Customer_SearchBar.SelectedText = "";
             this.txt_Customer_SearchBar.Size = new System.Drawing.Size(651, 39);
             this.txt_Customer_SearchBar.TabIndex = 0;
+            this.txt_Customer_SearchBar.TextChanged += new System.EventHandler(this.txt_Customer_SearchBar_TextChanged);
             // 
             // guna2Panel1
             // 

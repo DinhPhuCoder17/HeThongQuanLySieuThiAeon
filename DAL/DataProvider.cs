@@ -79,7 +79,7 @@ namespace DAL
             return data;
         }
 
-        public object ExecuteScalar(string query, object[] parameter = null)
+        public object ExecuteScalar(string query, object[] parameter)
         {
             object data = null;
             using (SqlConnection connection = new SqlConnection(connectionStr))
@@ -102,6 +102,35 @@ namespace DAL
                 data = command.ExecuteScalar();
             }
             return data;
+        }
+
+        //Hàm thực thi query có 1 tham số giống nhau nhưng có hai biến trong SQL
+        public DataTable ExecuteQueryOneParameter(string query, object[] parameter = null)
+        {
+            DataTable dt = new DataTable();
+            using (SqlConnection connection = new SqlConnection(connectionStr))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(query, connection);
+                if (parameter != null)
+                {
+                    string[] listPara = query.Split(' ');
+                    int i = 0;
+                    foreach (string item in listPara)
+                    {
+                        if (item.Contains("@"))
+                        {
+                            command.Parameters.AddWithValue(item, parameter[i]);
+                            i++;
+                            break;
+                        }
+                    }
+                }
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                adapter.Fill(dt);
+                connection.Close();
+            }
+            return dt;
         }
     }
 }

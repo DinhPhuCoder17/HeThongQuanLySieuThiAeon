@@ -95,5 +95,10 @@ namespace BLL
             }
             return false;
         }
+
+        public DataTable timKiemKH(String Sodienthoai)
+        {
+            return dAL_QuanlyTCNS.timKiemKH(Sodienthoai);
+        }
     }
 }
