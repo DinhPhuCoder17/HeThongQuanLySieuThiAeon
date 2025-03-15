@@ -32,6 +32,7 @@ namespace Trang_chủ_Main_Page_
         //Load danh sách khách hàng
         private void customerControl_Load(object sender, EventArgs e)
         {
+
             dtg_CustomerList.DataSource = bLL_QuanlyTCNS.xemDSKH();
             dtg_CustomerList.Columns["Sodienthoai"].HeaderText = "Số điện thoại";
             dtg_CustomerList.Columns["Hoten"].HeaderText = "Họ tên";
@@ -39,6 +40,11 @@ namespace Trang_chủ_Main_Page_
             dtg_CustomerList.Columns["Diemthuong"].HeaderText = "Điểm thưởng";
             dtg_CustomerList.Columns["Gioitinh"].HeaderText = "Giới tính";
             dtg_CustomerList.Columns["Hang"].HeaderText = "Hạng";
+
+            foreach (DataGridViewColumn column in dtg_CustomerList.Columns)
+            {
+                column.SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
         }
 
         private void dtgCustomerList_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -274,6 +280,14 @@ namespace Trang_chủ_Main_Page_
             }else
             {
                     dtg_CustomerList.DataSource = bLL_QuanlyTCNS.timKiemKH(txt_Customer_SearchBar.Text);
+            }
+        }
+
+        private void cb_Customer_Filter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cb_Customer_Filter.SelectedIndex != -1)
+            {
+                dtg_CustomerList.DataSource = bLL_QuanlyTCNS.sapXepKH(cb_Customer_Filter.SelectedIndex);
             }
         }
     }

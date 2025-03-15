@@ -88,5 +88,17 @@ namespace DAL
         {
             return DataProvider.Instance.ExecuteQueryOneParameter("Select Sodienthoai, Hoten, Diachi, Diemthuong, Gioitinh, Hang From Khachhang where (Sodienthoai LIKE '%' + @tukhoa + '%' or Hoten LIKE '%' + @tukhoa + '%') and Xoa = 1", new object[] { tukhoa});
         }
+
+        public DataTable sapXepKH(int chonIndex)
+        {
+            switch(chonIndex)
+            {
+                case 0:
+                    return DataProvider.Instance.ExecuteQuery("Select Sodienthoai, Hoten, Diachi, Diemthuong, Gioitinh, Hang From Khachhang where Xoa = 1 order by Diemthuong asc");
+                case 1:
+                    return DataProvider.Instance.ExecuteQuery("Select Sodienthoai, Hoten, Diachi, Diemthuong, Gioitinh, Hang From Khachhang where Xoa = 1 order by Diemthuong desc");
+            }
+            return null;
+        }
     }
 }

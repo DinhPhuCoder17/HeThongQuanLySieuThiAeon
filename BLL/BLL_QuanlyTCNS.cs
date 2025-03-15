@@ -100,5 +100,10 @@ namespace BLL
         {
             return dAL_QuanlyTCNS.timKiemKH(Sodienthoai);
         }
+
+        public DataTable sapXepKH(int indexChon)
+        {
+            return dAL_QuanlyTCNS.sapXepKH(indexChon);
+        }
     }
 }
