@@ -531,7 +531,7 @@ Begin
 	Declare @Trangthai nvarchar(100);
 
 	--Lấy giờ bắt đầu và kết thúc từ bảng Ca làm
-	Select @ThoigianBD = ThoigianBD, @ThoigianKT = ThoigianKT
+	Select @ThoigianBD = CONVERT(TIME, ThoigianBD), @ThoigianKT = CONVERT(TIME, ThoigianKT)
 	From Calam
 	Where Macalam = @Macalam;
 	-- Kiểm tra nếu không tìm thấy ca làm
@@ -571,13 +571,14 @@ Begin
 		Set @SoPhut = DATEDIFF(Minute, @Checkin, @ThoigianKT);
 
 	-- Chuyển phút thành số công (giờ)
-	Set @Socong = @SoPhut / 60.0;
+	Set @Socong = @SoPhut / 60.0 / 8.0
 
 	-- Thêm dữ liệu vào bảng Chamcong
     INSERT INTO Chamcong (ID, ThoigianCN, Checkin, Checkout, Socong, Trangthai, Macalam, Manhanvien)
     VALUES (@ID, @ThoigianCN, @Checkin, @Checkout, @Socong, @Trangthai, @Macalam, @Manhanvien);
 	PRINT 'Đã thêm chấm công với ID: ' + @ID + ' và trạng thái: ' + @Trangthai;
 End;
+
 
 --Trigger Them Khach hang--
 go
@@ -706,3 +707,18 @@ Insert into HH_HDBH values
 Insert into HH_HDBH values
 ('HH0010', 'HD0003', 10,600000)
 
+exec themMacalam 'Ca thường', '2024-03-15 08:30:00', '2024-03-15 15:30:00', 3
+exec themMacalam 'Ca thường', '2024-03-15 16:30:00', '2024-03-15 21:30:00', 3
+
+Insert into Batbuoc values('CL0001', 'NV0001')
+Insert into Batbuoc values('CL0001', 'NV0002')
+Insert into Batbuoc values('CL0001', 'NV0003')
+Insert into Batbuoc values('CL0002', 'NV0004')
+Insert into Batbuoc values('CL0002', 'NV0005')
+Insert into Batbuoc values('CL0002', 'NV0006')
+
+EXEC themChamCong '2025-03-15', '08:30:00', '15:30:00', 'CL0001', 'NV0001';
+EXEC themChamCong '2025-03-15', '10:30:00', '17:30:00', 'CL0001', 'NV0002';
+EXEC themChamCong '2025-03-15', '09:30:00', '15:30:00', 'CL0001', 'NV0003';
+
+Select * From Chamcong

@@ -131,6 +131,18 @@ namespace Trang_chủ_Main_Page_
                 }
             }
         }
+
+        private void txt_Employee_SearchBar_TextChanged(object sender, EventArgs e)
+        {
+            if (txt_Employee_SearchBar.Text == "")
+            {
+                employeeFilterOut_Load(sender, e);
+            }
+            else
+            {
+                dtg_Employee.DataSource = bLL_QuanlyTCNS.timKiemNV(txt_Employee_SearchBar.Text);
+            }
+        }
     }
 }
 

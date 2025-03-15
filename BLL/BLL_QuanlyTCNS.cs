@@ -17,6 +17,7 @@ namespace BLL
 
         private readonly DAL_QuanlyTCNS dAL_QuanlyTCNS = new DAL_QuanlyTCNS();
 
+
         //Xem danh sách nhân viên
         public DataTable xemDSNV()
         {
@@ -70,6 +71,7 @@ namespace BLL
             return false;
         }
 
+        //Sửa khách hàng
         public bool suaKH(String Sodienthoai, String Hoten, String Diachi, int Diemthuong, String Gioitinh, String hang)
         {
             if (Regex.IsMatch(Hoten, "[0-9]"))
@@ -96,14 +98,24 @@ namespace BLL
             return false;
         }
 
-        public DataTable timKiemKH(String Sodienthoai)
+
+        //Tìm kiếm khách hàng
+        public DataTable timKiemKH(String tukhoa)
         {
-            return dAL_QuanlyTCNS.timKiemKH(Sodienthoai);
+            return dAL_QuanlyTCNS.timKiemKH(tukhoa);
         }
 
+
+        //Sắp xếp khách hàng
         public DataTable sapXepKH(int indexChon)
         {
             return dAL_QuanlyTCNS.sapXepKH(indexChon);
+        }
+
+        //Tìm kiếm nhân viên
+        public DataTable timKiemNV(String tukhoa)
+        {
+            return dAL_QuanlyTCNS.timKiemNV(tukhoa);
         }
     }
 }

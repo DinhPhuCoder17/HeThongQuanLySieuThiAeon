@@ -210,6 +210,7 @@
             this.txt_Employee_SearchBar.SelectedText = "";
             this.txt_Employee_SearchBar.Size = new System.Drawing.Size(651, 39);
             this.txt_Employee_SearchBar.TabIndex = 0;
+            this.txt_Employee_SearchBar.TextChanged += new System.EventHandler(this.txt_Employee_SearchBar_TextChanged);
             // 
             // guna2Elipse2
             // 

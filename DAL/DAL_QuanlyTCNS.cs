@@ -84,11 +84,14 @@ namespace DAL
             }
         }
 
+        //Tìm kiếm khách hàng
         public DataTable timKiemKH(String tukhoa)
         {
             return DataProvider.Instance.ExecuteQueryOneParameter("Select Sodienthoai, Hoten, Diachi, Diemthuong, Gioitinh, Hang From Khachhang where (Sodienthoai LIKE '%' + @tukhoa + '%' or Hoten LIKE '%' + @tukhoa + '%') and Xoa = 1", new object[] { tukhoa});
         }
 
+
+        //Sắp xếp khách hàng
         public DataTable sapXepKH(int chonIndex)
         {
             switch(chonIndex)
@@ -99,6 +102,11 @@ namespace DAL
                     return DataProvider.Instance.ExecuteQuery("Select Sodienthoai, Hoten, Diachi, Diemthuong, Gioitinh, Hang From Khachhang where Xoa = 1 order by Diemthuong desc");
             }
             return null;
+        }
+
+        public DataTable timKiemNV(String tukhoa)
+        {
+            return DataProvider.Instance.ExecuteQueryOneParameter("Select Manhanvien, Hoten, CCCD, Ngaysinh, Gioitinh, Diachi, Sodienthoai From Nhanvien where Xoa = 1 AND (Manhanvien LIKE + '%' + @tukhoa + '%' or Hoten LIKE + '%' + @tukhoa + '%') or CCCD LIKE + '%' + @tukhoa + '%' or Sodienthoai LIKE + '%' + @tukhoa + '%'", new object[] {tukhoa});
         }
     }
 }
