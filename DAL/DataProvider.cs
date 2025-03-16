@@ -79,7 +79,7 @@ namespace DAL
             return data;
         }
 
-        public object ExecuteScalar(string query, object[] parameter)
+        public object ExecuteScalar(string query, object[] parameter = null)
         {
             object data = null;
             using (SqlConnection connection = new SqlConnection(connectionStr))

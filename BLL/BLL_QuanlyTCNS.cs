@@ -129,5 +129,31 @@ namespace BLL
         {
             return dAL_QuanlyTCNS.xemDSNVLamViec();
         }
+
+        public bool themCaLam(DTO_Calam caLam)
+        {
+            
+                DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn thêm ca làm này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if (result == DialogResult.Yes) {
+                    if (dAL_QuanlyTCNS.themCaLam(caLam))
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            return false;
+        }
+
+        public bool xoaCaLam(String maCaLam)
+        {
+            if(dAL_QuanlyTCNS.xoaCaLam(maCaLam))
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }

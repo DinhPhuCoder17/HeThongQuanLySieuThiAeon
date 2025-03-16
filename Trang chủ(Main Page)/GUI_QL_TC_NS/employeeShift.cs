@@ -5,11 +5,13 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
 using DTO;
 using Guna.UI2.WinForms;
+using ServiceStack.OrmLite.Converters;
 using Trang_chủ_Main_Page_;
 using Trang_chu_Main_Page_.GUI_QL_TC_NS;
 using static Jenga.Theme;
@@ -23,7 +25,8 @@ namespace Trang_chủ_Main_Page_
         BLL_QuanlyTCNS bLL_QuanlyTCNS = new BLL_QuanlyTCNS();
         bool menu_ChooseEmployee = false;
         bool addMode = false;
-
+        bool shiftClick = false;
+        String maCaLamChoose = "";
 
         public employeeShift()
         {
@@ -92,6 +95,8 @@ namespace Trang_chủ_Main_Page_
             dtp_Shift_End.Enabled = false;
             dtp_Shift_Start.Enabled = false;
             btn_Shift_Confirm.Enabled = false;
+            txt_TenCa.Enabled = false;
+            txt_Shift_Number.Enabled = false;
 
         }
 
@@ -247,36 +252,45 @@ namespace Trang_chủ_Main_Page_
                 switch (dayOfWeek)
                 {
                     case DayOfWeek.Monday:
-                        AddShiftPanel(dayOfWeek, calam.tenCaLam, calam.tgBatDau, calam.tgKetThuc, 0, calam.soLuongNhanVien, calam.PC_Nhanvien);
+                        AddShiftPanel(calam.maCaLam, dayOfWeek, calam.tenCaLam, calam.tgBatDau, calam.tgKetThuc, 0, calam.soLuongNhanVien, calam.PC_Nhanvien);
                         break;
                     case DayOfWeek.Tuesday:
-                        AddShiftPanel(dayOfWeek, calam.tenCaLam, calam.tgBatDau, calam.tgKetThuc, 1, calam.soLuongNhanVien, calam.PC_Nhanvien);
+                        AddShiftPanel(calam.maCaLam, dayOfWeek, calam.tenCaLam, calam.tgBatDau, calam.tgKetThuc, 1, calam.soLuongNhanVien, calam.PC_Nhanvien);
                         break;
                     case DayOfWeek.Wednesday:
-                        AddShiftPanel(dayOfWeek, calam.tenCaLam, calam.tgBatDau, calam.tgKetThuc, 2, calam.soLuongNhanVien, calam.PC_Nhanvien);
+                        AddShiftPanel(calam.maCaLam, dayOfWeek, calam.tenCaLam, calam.tgBatDau, calam.tgKetThuc, 2, calam.soLuongNhanVien, calam.PC_Nhanvien);
                         break;
                     case DayOfWeek.Thursday:
-                        AddShiftPanel(dayOfWeek, calam.tenCaLam, calam.tgBatDau, calam.tgKetThuc, 3, calam.soLuongNhanVien, calam.PC_Nhanvien);
+                        AddShiftPanel(calam.maCaLam, dayOfWeek, calam.tenCaLam, calam.tgBatDau, calam.tgKetThuc, 3, calam.soLuongNhanVien, calam.PC_Nhanvien);
                         break;
                     case DayOfWeek.Friday:
-                        AddShiftPanel(dayOfWeek, calam.tenCaLam, calam.tgBatDau, calam.tgKetThuc, 4, calam.soLuongNhanVien, calam.PC_Nhanvien);
+                        AddShiftPanel(calam.maCaLam, dayOfWeek, calam.tenCaLam, calam.tgBatDau, calam.tgKetThuc, 4, calam.soLuongNhanVien, calam.PC_Nhanvien);
                         break;
                     case DayOfWeek.Saturday:
-                        AddShiftPanel(dayOfWeek, calam.tenCaLam, calam.tgBatDau, calam.tgKetThuc, 5, calam.soLuongNhanVien, calam.PC_Nhanvien);
+                        AddShiftPanel(calam.maCaLam, dayOfWeek, calam.tenCaLam, calam.tgBatDau, calam.tgKetThuc, 5, calam.soLuongNhanVien, calam.PC_Nhanvien);
                         break;
                     case DayOfWeek.Sunday:
-                        AddShiftPanel(dayOfWeek, calam.tenCaLam, calam.tgBatDau, calam.tgKetThuc, 6, calam.soLuongNhanVien, calam.PC_Nhanvien);
+                        AddShiftPanel(calam.maCaLam, dayOfWeek, calam.tenCaLam, calam.tgBatDau, calam.tgKetThuc, 6, calam.soLuongNhanVien, calam.PC_Nhanvien);
                         break;
                 }
             }
             
         }
 
-        private void AddShiftPanel(DayOfWeek day, string name, DateTime start, DateTime end, int column, int soLuong, List<String> batBuoc)
+        // Hàm giảm độ sáng (darken) của màu
+        private Color DarkenColor(Color color, int amount)
+        {
+            int r = Math.Max(color.R - amount, 0); // Giảm đỏ
+            int g = Math.Max(color.G - amount, 0); // Giảm xanh lá
+            int b = Math.Max(color.B - amount, 0); // Giảm xanh dương
+            return Color.FromArgb(r, g, b);
+        }
+
+        private void AddShiftPanel(String maCalam, DayOfWeek day, string name, DateTime start, DateTime end, int column, int soLuong, List<String> batBuoc)
         {
             int timeStart = int.Parse(start.ToString("HH"));
             int timeEnd = int.Parse(end.ToString("HH"));
-            int height = (timeEnd - timeStart) * 33;
+            int height = (timeEnd - timeStart)*33;
             Color color = Color.IndianRed;
             if(batBuoc.Count < soLuong)
             {
@@ -290,6 +304,18 @@ namespace Trang_chủ_Main_Page_
                 Size = new Size(159, height),
                 BackColor = color,
                 BorderStyle = BorderStyle.FixedSingle
+            };
+
+            //Thêm sự kiện click vào panel
+            panelCover.Click += Panelcover_Click;
+            //Thêm hover vào panel
+            panelCover.MouseEnter += (sender, e) =>
+            {
+                panelCover.BackColor = DarkenColor(color, 40);
+            };
+            panelCover.MouseLeave += (sender, e) =>
+            {
+                panelCover.BackColor = color;
             };
 
             Label lbNameShift = new Label
@@ -322,27 +348,50 @@ namespace Trang_chủ_Main_Page_
                 Location = new Point(23, 60)
             };
 
+            Label lbUnvisibleMaCaLam = new Label
+            {
+                Text = maCalam,
+                AutoSize = false,
+                TextAlign = ContentAlignment.TopCenter,
+                ForeColor = Color.White,
+                Font = new Font("Microsoft Sans Serif", 9, FontStyle.Underline),
+                Location = new Point(23, 80),
+                Visible = false
+            };
+
+
+
             //Thêm label tên Ca làm
             panelCover.Controls.Add(lbNameShift);
             //Thêm label chi tiết Ca làm
             panelCover.Controls.Add(lbDetailShift);
             //Thêm label số lượng nhân viên
             panelCover.Controls.Add(lbDetailQuantity);
+            //Thêm label mã ca làm ẩn
+            panelCover.Controls.Add(lbUnvisibleMaCaLam);
 
             //Thêm panel vào tableLayoutPanel
-            tableLayoutPanel1.Controls.Add(panelCover, column, timeStart - 5);
-            tableLayoutPanel1.SetRowSpan(panelCover, height);
+            tableLayoutPanel1.Controls.Add(panelCover, column, timeStart - 4);
+            tableLayoutPanel1.SetRowSpan(panelCover, height/33);
             panelCover.BringToFront();
         }
 
-        
 
+        private void Panelcover_Click(object sender, EventArgs e)
+        {
+            shiftClick = true;
+            btn_Shift_Edit.Enabled = true;
+            btn_Shift_Remove.Enabled = true;
+            Panel panel = (Panel)sender;
+            maCaLamChoose = panel.Controls[3].Text;
+        }
 
         private void btnChooseEmployee_Click(object sender, EventArgs e)
         {
             timer_ChooseEmployee.Start();
         }
 
+        //Hàm slide menu chọn nhân viên
         private void timer_ChooseEmployee_Tick(object sender, EventArgs e)
         {
             if (menu_ChooseEmployee == false)
@@ -365,12 +414,113 @@ namespace Trang_chủ_Main_Page_
             }
         }
 
+
+        //Chọn option Thêm nhân viên
         private void btn_Shift_Add_Click(object sender, EventArgs e)
         {
             addMode = true;
+
+            //Vô hiệu hóa các chức năng khác
             btnChooseEmployee.Enabled = true;
             dtp_Shift_End.Enabled = true;
+            dtp_Shift_Start.Enabled = true;
             btn_Shift_Confirm.Enabled = true;
+            btn_Shift_Edit.Enabled = false;
+            btn_Shift_Remove.Enabled = false;
+            txt_TenCa.Enabled = true;
+            txt_TenCa.Text = "";
+            txt_Shift_Number.Enabled = true;
+            txt_Shift_Number.Text = "";
+            txt_TenCa.Focus();
+            
+        }
+
+        
+        private void btn_Shift_Confirm_Click(object sender, EventArgs e)
+        {
+            if(addMode)
+            {
+                List<String> phanCongNhanVien = new List<string>();
+
+                //Tạo list nhân viên phân công
+                foreach (DataGridViewRow row in dtg_ChooseEmployee.Rows)
+                {
+                    if (Convert.ToBoolean(row.Cells[0].Value) == true)
+                    {
+                        phanCongNhanVien.Add(row.Cells[1].Value.ToString());
+                    }
+                }
+                if (Regex.IsMatch(txt_Shift_Number.Text, "[^0-9]"))
+                {
+                    MessageBox.Show("Số lượng nhân viên không hợp lệ");
+                    return;
+                }
+                else if (txt_TenCa.Text == "")
+                {
+                    MessageBox.Show("Tên ca làm không được để trống");
+                }
+                else if (dtp_Shift_Start.Value.ToString("dd/MM/yyyy") != dtp_Shift_End.Value.ToString("dd/MM/yyyy"))
+                {
+                    MessageBox.Show("Thời gian bắt đầu và kết thúc không hợp lệ");
+                }
+                else if (int.Parse(txt_Shift_Number.Text) < 0)
+                {
+                    MessageBox.Show("Số lượng nhân viên không hợp lệ");
+                }
+                else if (dtp_Shift_Start.Value >= dtp_Shift_End.Value)
+                {
+                    MessageBox.Show("Thời gian bắt đầu phải nhỏ hơn thời gian kết thúc");
+                }
+                else if (phanCongNhanVien.Count == 0)
+                {
+                    MessageBox.Show("Chưa chọn nhân viên");
+                }
+                else
+                {
+                    {
+                        DTO_Calam calam = new DTO_Calam(null, txt_TenCa.Text, dtp_Shift_Start.Value, dtp_Shift_End.Value, int.Parse(txt_Shift_Number.Text), phanCongNhanVien);
+                        if (bLL_QuanlyTCNS.themCaLam(calam))
+                        {
+                            MessageBox.Show("Thêm ca làm thành công", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            toMauThoiKhoaBieu();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Thêm ca làm thất bại", "Thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+                addMode = false;
+                employeeShift_Load(sender, e);
+            }
+        }
+
+        private void btn_Shift_Remove_Click(object sender, EventArgs e)
+        {
+            if (maCaLamChoose == "")
+            {
+                MessageBox.Show("Chưa chọn ca làm");
+            }
+            else
+            {
+                DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa ca làm này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if (result == DialogResult.Yes)
+                {
+                    if (bLL_QuanlyTCNS.xoaCaLam(maCaLamChoose))
+                    {
+                        MessageBox.Show("Xóa ca làm thành công", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        toMauThoiKhoaBieu();
+                        btn_Shift_Add.Enabled = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Xóa ca làm thất bại", "Thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        btn_Shift_Add.Enabled = true;
+
+
+                    }
+                }
+            }
         }
     }
 }
