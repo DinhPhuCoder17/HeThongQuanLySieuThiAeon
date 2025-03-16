@@ -117,5 +117,17 @@ namespace BLL
         {
             return dAL_QuanlyTCNS.timKiemNV(tukhoa);
         }
+
+        //Tô màu thời khóa biểu
+        public Dictionary<String, DTO_Calam> toMauThoiKhoaBieu(String startDate, String endDate)
+        {
+            return dAL_QuanlyTCNS.toMauThoiKhoaBieu(startDate, endDate);
+        }
+
+        //Xem nhân viên để xếp ca
+        public DataTable xemDSNVLamViec()
+        {
+            return dAL_QuanlyTCNS.xemDSNVLamViec();
+        }
     }
 }

@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DTO;
+using Microsoft.Identity.Client;
 
 namespace DAL
 {
@@ -107,6 +108,43 @@ namespace DAL
         public DataTable timKiemNV(String tukhoa)
         {
             return DataProvider.Instance.ExecuteQueryOneParameter("Select Manhanvien, Hoten, CCCD, Ngaysinh, Gioitinh, Diachi, Sodienthoai From Nhanvien where Xoa = 1 AND (Manhanvien LIKE + '%' + @tukhoa + '%' or Hoten LIKE + '%' + @tukhoa + '%') or CCCD LIKE + '%' + @tukhoa + '%' or Sodienthoai LIKE + '%' + @tukhoa + '%'", new object[] {tukhoa});
+        }
+
+        public Dictionary<String,DTO_Calam> toMauThoiKhoaBieu(String startDate, String endDate)
+        {
+            //Ghép hai bảng lấy dữ liệu ca làm và bắt buộc
+            DataTable dt = DataProvider.Instance.ExecuteQuery("Select * From Calam cl join Batbuoc bb on cl.Macalam = bb.Macalam" +
+                " Where ThoigianBD > @startDate AND ThoigianKT < @endDate", new object[] {startDate, endDate });
+
+            //Tạo danh sách để lưu dữ liệu Key là mã ca làm, Value là DTO_Calam
+            Dictionary<String,DTO_Calam> list = new Dictionary<String, DTO_Calam>();
+            foreach (DataRow row in dt.Rows)
+            {
+                //Kiểm tra xem mã ca làm đã tồn tại trong danh sách chưa
+                if (list.ContainsKey(row[0].ToString()))
+                {
+                    //Nếu đã tồn tại thì thêm nhân viên vào danh sách
+                    list[row[0].ToString()].PC_Nhanvien.Add(row[6].ToString());                }
+                else
+                {
+                    //Nếu chưa tồn tại thì thêm vào danh sách
+                    list[row[0].ToString()] = new DTO_Calam(
+                    row[0].ToString(),
+                    row[1].ToString(),
+                    Convert.ToDateTime(row[2]),
+                    Convert.ToDateTime(row[3]),
+                    int.Parse(row[4].ToString()),
+                    new List<string> { row[6].ToString() } // Tạo danh sách và thêm phần tử
+                );
+                }
+                
+            }
+            return list;
+        }
+
+        public DataTable xemDSNVLamViec()
+        {
+            return DataProvider.Instance.ExecuteQuery("Select Manhanvien, Hoten From Nhanvien where Xoa = 1");
         }
     }
 }

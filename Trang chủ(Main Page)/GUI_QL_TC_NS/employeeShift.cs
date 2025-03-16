@@ -7,13 +7,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BLL;
+using DTO;
+using Guna.UI2.WinForms;
 using Trang_chủ_Main_Page_;
+using Trang_chu_Main_Page_.GUI_QL_TC_NS;
+using static Jenga.Theme;
+
 
 namespace Trang_chủ_Main_Page_
 {
     public partial class employeeShift : Form
     {
-        
+        private DateTime today = DateTime.Today;
+        BLL_QuanlyTCNS bLL_QuanlyTCNS = new BLL_QuanlyTCNS();
+        bool menu_ChooseEmployee = false;
+        bool addMode = false;
+
+
         public employeeShift()
         {
             InitializeComponent();
@@ -50,6 +61,62 @@ namespace Trang_chủ_Main_Page_
 
         private void employeeShift_Load(object sender, EventArgs e)
         {
+            displayDay();
+            dtp_Shift_Start.Format = DateTimePickerFormat.Custom;
+            dtp_Shift_Start.CustomFormat = "dd/MM/yyyy HH:mm:ss";
+            dtp_Shift_End.Format = DateTimePickerFormat.Custom;
+            dtp_Shift_End.CustomFormat = "dd/MM/yyyy HH:mm:ss";
+            dtp_Shift_Start.ShowUpDown = true;
+            dtp_Shift_End.ShowUpDown = true;
+            toMauThoiKhoaBieu();
+
+            //Load danh sách nhân viên làm việc
+            dtg_ChooseEmployee.DataSource = bLL_QuanlyTCNS.xemDSNVLamViec();
+            DataGridViewCheckBoxColumn checkColumn = new DataGridViewCheckBoxColumn
+            {
+                HeaderText = "Chọn",    // Tiêu đề cột
+                Name = "chkSelect",     // Tên cột (dùng để truy cập)
+                Width = 50,             // Độ rộng cột
+                TrueValue = true,       // Giá trị khi tích
+                FalseValue = false,     // Giá trị khi bỏ tích
+            };
+
+            // Thêm cột vào DataGridView
+            dtg_ChooseEmployee.ReadOnly = false;
+            dtg_ChooseEmployee.Columns.Insert(0, checkColumn);
+            dtg_ChooseEmployee.Columns[1].ReadOnly = true;
+            dtg_ChooseEmployee.Columns[2].ReadOnly = true;
+
+            //Khóa các thêm, xóa, sửa
+            btnChooseEmployee.Enabled = false;
+            dtp_Shift_End.Enabled = false;
+            dtp_Shift_Start.Enabled = false;
+            btn_Shift_Confirm.Enabled = false;
+
+        }
+
+        private void displayDay()
+        {
+            container_Date.Controls.Clear();
+            // Tìm ngày Thứ Hai của tuần hiện tại
+            DateTime monday = today.AddDays(-(int)today.DayOfWeek + 1);
+
+            // Nếu hôm nay là Chủ Nhật, lùi về Thứ Hai tuần trước
+            if (today.DayOfWeek == DayOfWeek.Sunday)
+            {
+                monday = today.AddDays(-6);
+            }
+            DateTime tempTime = monday;
+
+            for (int i = 0; i < 7; i++)
+            {
+                UserControlDateNum dateNum = new UserControlDateNum();
+                dateNum.setDay(tempTime.ToString("dd/MM/yyyy"));
+                container_Date.Controls.Add(dateNum);
+
+                // Tăng ngày lên 1 cho vòng lặp tiếp theo
+                tempTime = tempTime.AddDays(1);
+            }
 
         }
 
@@ -91,6 +158,219 @@ namespace Trang_chủ_Main_Page_
         private void guna2DateTimePicker2_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Panel3_Paint_2(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnPrevCalendar_Click(object sender, EventArgs e)
+        {
+            container_Date.Controls.Clear();
+            today = today.AddDays(-7);
+
+            // Tìm ngày Thứ Hai của tuần hiện tại
+            DateTime monday = today.AddDays(-(int)today.DayOfWeek + 1);
+
+            // Nếu hôm nay là Chủ Nhật, lùi về Thứ Hai tuần trước
+            if (today.DayOfWeek == DayOfWeek.Sunday)
+            {
+                monday = today.AddDays(-6);
+            }
+            DateTime tempTime = monday;
+
+            for (int i = 0; i < 7; i++)
+            {
+                UserControlDateNum dateNum = new UserControlDateNum();
+                dateNum.setDay(tempTime.ToString("dd/MM/yyyy"));
+                container_Date.Controls.Add(dateNum);
+
+                // Tăng ngày lên 1 cho vòng lặp tiếp theo
+                tempTime = tempTime.AddDays(1);
+            }
+            toMauThoiKhoaBieu();
+
+        }
+
+        private void btn_NextCalendar_Click(object sender, EventArgs e)
+        {
+            container_Date.Controls.Clear();
+            today = today.AddDays(7);
+
+            // Tìm ngày Thứ Hai của tuần hiện tại
+            DateTime monday = today.AddDays(-(int)today.DayOfWeek + 1);
+
+            // Nếu hôm nay là Chủ Nhật, lùi về Thứ Hai tuần trước
+            if (today.DayOfWeek == DayOfWeek.Sunday)
+            {
+                monday = today.AddDays(-6);
+            }
+            DateTime tempTime = monday;
+
+            for (int i = 0; i < 7; i++)
+            {
+                UserControlDateNum dateNum = new UserControlDateNum();
+                dateNum.setDay(tempTime.ToString("dd/MM/yyyy"));
+                container_Date.Controls.Add(dateNum);
+
+                // Tăng ngày lên 1 cho vòng lặp tiếp theo
+                tempTime = tempTime.AddDays(1);
+            }
+            toMauThoiKhoaBieu();
+
+        }
+
+        //Hàm tô màu thời khóa biểu
+        private void toMauThoiKhoaBieu()
+        {
+            tableLayoutPanel1.Controls.Clear();
+            DateTime startDate = today.AddDays(-(int)today.DayOfWeek + 1);
+
+            // Nếu hôm nay là Chủ Nhật, lùi về Thứ Hai tuần trước
+            if (today.DayOfWeek == DayOfWeek.Sunday)
+            {
+                startDate = today.AddDays(-6);
+            }
+
+            DateTime endDate = startDate.AddDays(7);
+            Dictionary<String, DTO_Calam> listPhanCong = bLL_QuanlyTCNS.toMauThoiKhoaBieu(startDate.ToString("yyyy/MM/dd"), endDate.ToString("yyyy/MM/dd"));
+            foreach (var item in listPhanCong)
+            {
+                DTO_Calam calam = item.Value;
+                DayOfWeek dayOfWeek = calam.tgBatDau.DayOfWeek;
+                switch (dayOfWeek)
+                {
+                    case DayOfWeek.Monday:
+                        AddShiftPanel(dayOfWeek, calam.tenCaLam, calam.tgBatDau, calam.tgKetThuc, 0, calam.soLuongNhanVien, calam.PC_Nhanvien);
+                        break;
+                    case DayOfWeek.Tuesday:
+                        AddShiftPanel(dayOfWeek, calam.tenCaLam, calam.tgBatDau, calam.tgKetThuc, 1, calam.soLuongNhanVien, calam.PC_Nhanvien);
+                        break;
+                    case DayOfWeek.Wednesday:
+                        AddShiftPanel(dayOfWeek, calam.tenCaLam, calam.tgBatDau, calam.tgKetThuc, 2, calam.soLuongNhanVien, calam.PC_Nhanvien);
+                        break;
+                    case DayOfWeek.Thursday:
+                        AddShiftPanel(dayOfWeek, calam.tenCaLam, calam.tgBatDau, calam.tgKetThuc, 3, calam.soLuongNhanVien, calam.PC_Nhanvien);
+                        break;
+                    case DayOfWeek.Friday:
+                        AddShiftPanel(dayOfWeek, calam.tenCaLam, calam.tgBatDau, calam.tgKetThuc, 4, calam.soLuongNhanVien, calam.PC_Nhanvien);
+                        break;
+                    case DayOfWeek.Saturday:
+                        AddShiftPanel(dayOfWeek, calam.tenCaLam, calam.tgBatDau, calam.tgKetThuc, 5, calam.soLuongNhanVien, calam.PC_Nhanvien);
+                        break;
+                    case DayOfWeek.Sunday:
+                        AddShiftPanel(dayOfWeek, calam.tenCaLam, calam.tgBatDau, calam.tgKetThuc, 6, calam.soLuongNhanVien, calam.PC_Nhanvien);
+                        break;
+                }
+            }
+            
+        }
+
+        private void AddShiftPanel(DayOfWeek day, string name, DateTime start, DateTime end, int column, int soLuong, List<String> batBuoc)
+        {
+            int timeStart = int.Parse(start.ToString("HH"));
+            int timeEnd = int.Parse(end.ToString("HH"));
+            int height = (timeEnd - timeStart) * 33;
+            Color color = Color.IndianRed;
+            if(batBuoc.Count < soLuong)
+            {
+                color = Color.FromArgb(255, 69, 0);
+            }else if(batBuoc.Count == soLuong)
+            {
+                color = Color.FromArgb(0, 210, 106);
+            }
+            Panel panelCover = new Panel
+            {
+                Size = new Size(159, height),
+                BackColor = color,
+                BorderStyle = BorderStyle.FixedSingle
+            };
+
+            Label lbNameShift = new Label
+            {
+                Text = name,
+                AutoSize = false,
+                TextAlign = ContentAlignment.TopCenter,
+                ForeColor = Color.White,
+                Font = new Font("Microsoft Sans Serif", 11, FontStyle.Bold),
+                Location = new Point(26, 20)
+            };
+
+            Label lbDetailShift = new Label
+            {
+                Text = $"{start:HH:mm} - {end:HH:mm}",
+                AutoSize = false,
+                TextAlign = ContentAlignment.TopCenter,
+                ForeColor = Color.White,
+                Font = new Font("Microsoft Sans Serif", 9, FontStyle.Italic),
+                Location = new Point(23, 40)
+            };
+
+            Label lbDetailQuantity = new Label
+            {
+                Text = $"Số lượng: {batBuoc.Count} / {soLuong}",
+                AutoSize = false,
+                TextAlign = ContentAlignment.TopCenter,
+                ForeColor = Color.White,
+                Font = new Font("Microsoft Sans Serif", 9, FontStyle.Underline),
+                Location = new Point(23, 60)
+            };
+
+            //Thêm label tên Ca làm
+            panelCover.Controls.Add(lbNameShift);
+            //Thêm label chi tiết Ca làm
+            panelCover.Controls.Add(lbDetailShift);
+            //Thêm label số lượng nhân viên
+            panelCover.Controls.Add(lbDetailQuantity);
+
+            //Thêm panel vào tableLayoutPanel
+            tableLayoutPanel1.Controls.Add(panelCover, column, timeStart - 5);
+            tableLayoutPanel1.SetRowSpan(panelCover, height);
+            panelCover.BringToFront();
+        }
+
+        
+
+
+        private void btnChooseEmployee_Click(object sender, EventArgs e)
+        {
+            timer_ChooseEmployee.Start();
+        }
+
+        private void timer_ChooseEmployee_Tick(object sender, EventArgs e)
+        {
+            if (menu_ChooseEmployee == false)
+            {
+                pn_ChooseEmployee.Height += 20;
+                if (pn_ChooseEmployee.Height >= 294)
+                {
+                    timer_ChooseEmployee.Stop();
+                    menu_ChooseEmployee = true;
+                }
+            }
+            else
+            {
+                pn_ChooseEmployee.Height -= 20;
+                if (pn_ChooseEmployee.Height <= 0)
+                {
+                    timer_ChooseEmployee.Stop();
+                    menu_ChooseEmployee = false;
+                }
+            }
+        }
+
+        private void btn_Shift_Add_Click(object sender, EventArgs e)
+        {
+            addMode = true;
+            btnChooseEmployee.Enabled = true;
+            dtp_Shift_End.Enabled = true;
+            btn_Shift_Confirm.Enabled = true;
         }
     }
 }

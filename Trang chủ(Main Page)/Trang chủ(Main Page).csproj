@@ -488,6 +488,18 @@
     <Compile Include="GUI_QL_TC_NS\financialManagement.Designer.cs">
       <DependentUpon>financialManagement.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI_QL_TC_NS\UserControlDateNum.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI_QL_TC_NS\UserControlDateNum.Designer.cs">
+      <DependentUpon>UserControlDateNum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI_QL_TC_NS\UserControlDetailShift.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI_QL_TC_NS\UserControlDetailShift.Designer.cs">
+      <DependentUpon>UserControlDetailShift.cs</DependentUpon>
+    </Compile>
     <Compile Include="Mainpage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -579,6 +591,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI_QL_TC_NS\financialManagement.resx">
       <DependentUpon>financialManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI_QL_TC_NS\UserControlDateNum.resx">
+      <DependentUpon>UserControlDateNum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI_QL_TC_NS\UserControlDetailShift.resx">
+      <DependentUpon>UserControlDetailShift.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mainpage.resx">
       <DependentUpon>Mainpage.cs</DependentUpon>
@@ -796,6 +814,12 @@
       <Project>{eadb2919-dc31-4986-b668-1678aeeeab32}</Project>
       <Name>DTO</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1 ht.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\roiii.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Data.SqlClient.SNI.6.0.2\build\net462\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('..\packages\Microsoft.Data.SqlClient.SNI.6.0.2\build\net462\Microsoft.Data.SqlClient.SNI.targets')" />

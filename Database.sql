@@ -707,14 +707,19 @@ Insert into HH_HDBH values
 Insert into HH_HDBH values
 ('HH0010', 'HD0003', 10,600000)
 
-exec themMacalam 'Ca thường', '2024-03-15 08:30:00', '2024-03-15 15:30:00', 3
-exec themMacalam 'Ca thường', '2024-03-15 16:30:00', '2024-03-15 21:30:00', 3
+exec themMacalam N'Ca thường', '2024-03-15 08:30:00', '2024-03-15 15:30:00', 3
+exec themMacalam N'Ca thường', '2024-03-15 16:30:00', '2024-03-15 21:30:00', 3
+exec themMacalam N'Ca thường', '2025-03-14 16:30:00', '2024-03-15 21:30:00', 3
+exec themMacalam N'Ca thường', '2025-03-13 08:30:00', '2025-03-13 15:30:00', 3
 
+Select * From Calam
 Insert into Batbuoc values('CL0001', 'NV0001')
 Insert into Batbuoc values('CL0001', 'NV0002')
 Insert into Batbuoc values('CL0001', 'NV0003')
 Insert into Batbuoc values('CL0002', 'NV0004')
 Insert into Batbuoc values('CL0002', 'NV0005')
+Insert into Batbuoc values('CL0004', 'NV0004')
+
 Insert into Batbuoc values('CL0002', 'NV0006')
 
 EXEC themChamCong '2025-03-15', '08:30:00', '15:30:00', 'CL0001', 'NV0001';
@@ -722,3 +727,5 @@ EXEC themChamCong '2025-03-15', '10:30:00', '17:30:00', 'CL0001', 'NV0002';
 EXEC themChamCong '2025-03-15', '09:30:00', '15:30:00', 'CL0001', 'NV0003';
 
 Select * From Chamcong
+
+

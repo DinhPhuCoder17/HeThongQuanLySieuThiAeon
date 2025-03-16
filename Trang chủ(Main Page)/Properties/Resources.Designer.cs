@@ -63,6 +63,16 @@ namespace Trang_chu_Main_Page_.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1_ht {
+            get {
+                object obj = ResourceManager.GetObject("1 ht", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _45292 {
             get {
                 object obj = ResourceManager.GetObject("45292", resourceCulture);
@@ -246,6 +256,16 @@ namespace Trang_chu_Main_Page_.Properties {
         internal static System.Drawing.Bitmap Red_Abstract_Background_Instagram_Post__17_ {
             get {
                 object obj = ResourceManager.GetObject("Red Abstract Background Instagram Post (17)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap roiii {
+            get {
+                object obj = ResourceManager.GetObject("roiii", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
