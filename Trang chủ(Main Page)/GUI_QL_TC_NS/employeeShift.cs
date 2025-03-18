@@ -27,6 +27,7 @@ namespace Trang_chủ_Main_Page_
         bool addMode = false;
         bool shiftClick = false;
         String maCaLamChoose = "";
+        Panel chooseShiftPanel;
 
         public employeeShift()
         {
@@ -290,6 +291,11 @@ namespace Trang_chủ_Main_Page_
         {
             int timeStart = int.Parse(start.ToString("HH"));
             int timeEnd = int.Parse(end.ToString("HH"));
+            //Nếu sau 21:00 thì tự động fill dầy cột
+            if(end.TimeOfDay > TimeSpan.Parse("21:00"))
+            {
+                timeEnd = 23;
+            }
             int height = (timeEnd - timeStart)*33;
             Color color = Color.IndianRed;
             if(batBuoc.Count < soLuong)
@@ -371,12 +377,12 @@ namespace Trang_chủ_Main_Page_
             panelCover.Controls.Add(lbUnvisibleMaCaLam);
 
             //Thêm panel vào tableLayoutPanel
-            tableLayoutPanel1.Controls.Add(panelCover, column, timeStart - 4);
+            tableLayoutPanel1.Controls.Add(panelCover, column, timeStart - 6);
             tableLayoutPanel1.SetRowSpan(panelCover, height/33);
             panelCover.BringToFront();
         }
 
-
+        //Su kien click vao panel
         private void Panelcover_Click(object sender, EventArgs e)
         {
             shiftClick = true;
@@ -384,6 +390,7 @@ namespace Trang_chủ_Main_Page_
             btn_Shift_Remove.Enabled = true;
             Panel panel = (Panel)sender;
             maCaLamChoose = panel.Controls[3].Text;
+            chooseShiftPanel = panel;
         }
 
         private void btnChooseEmployee_Click(object sender, EventArgs e)
@@ -477,21 +484,35 @@ namespace Trang_chủ_Main_Page_
                 }
                 else
                 {
+                    
+                    DTO_Calam calam = new DTO_Calam(null, txt_TenCa.Text, dtp_Shift_Start.Value, dtp_Shift_End.Value, int.Parse(txt_Shift_Number.Text), phanCongNhanVien);
+                    if (bLL_QuanlyTCNS.themCaLam(calam))
                     {
-                        DTO_Calam calam = new DTO_Calam(null, txt_TenCa.Text, dtp_Shift_Start.Value, dtp_Shift_End.Value, int.Parse(txt_Shift_Number.Text), phanCongNhanVien);
-                        if (bLL_QuanlyTCNS.themCaLam(calam))
-                        {
-                            MessageBox.Show("Thêm ca làm thành công", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            toMauThoiKhoaBieu();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Thêm ca làm thất bại", "Thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
+                        MessageBox.Show("Thêm ca làm thành công", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        toMauThoiKhoaBieu();
                     }
+                    else
+                    {
+                        MessageBox.Show("Thêm ca làm thất bại", "Thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    
+                }
+                if(menu_ChooseEmployee)
+                {
+                    timer_ChooseEmployee.Start();
                 }
                 addMode = false;
-                employeeShift_Load(sender, e);
+                foreach(DataGridViewRow row in dtg_ChooseEmployee.Rows)
+                {
+                    if (Convert.ToBoolean(row.Cells[0].Value) == true)
+                    {
+                        row.Cells[0].Value = false;
+                    }
+                }
+                //employeeShift_Load(sender, e);
+            }else
+            {
+                MessageBox.Show("Vui lòng chọn chức năng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -503,6 +524,8 @@ namespace Trang_chủ_Main_Page_
             }
             else
             {
+                Color oldColor = chooseShiftPanel.BackColor;
+                chooseShiftPanel.BackColor = Color.LightGray;
                 DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa ca làm này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 if (result == DialogResult.Yes)
                 {
@@ -516,10 +539,9 @@ namespace Trang_chủ_Main_Page_
                     {
                         MessageBox.Show("Xóa ca làm thất bại", "Thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         btn_Shift_Add.Enabled = true;
-
-
                     }
                 }
+                chooseShiftPanel.BackColor = oldColor;
             }
         }
     }

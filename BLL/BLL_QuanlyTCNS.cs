@@ -130,12 +130,24 @@ namespace BLL
             return dAL_QuanlyTCNS.xemDSNVLamViec();
         }
 
+        //Thêm ca làm
         public bool themCaLam(DTO_Calam caLam)
         {
             
                 DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn thêm ca làm này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 if (result == DialogResult.Yes) {
-                    if (dAL_QuanlyTCNS.themCaLam(caLam))
+                    if (caLam.soLuongNhanVien < caLam.PC_Nhanvien.Count)
+                    {
+                        MessageBox.Show("Số lượng nhân viên không hợp lệ");
+                        return false;
+                    }
+                    if (caLam.tgBatDau.TimeOfDay < TimeSpan.Parse("06:00"))
+                    {
+                        MessageBox.Show("Thời gian không hợp lệ - Trước 6:00");
+                    return false;
+                    }
+
+                if (dAL_QuanlyTCNS.themCaLam(caLam))
                     {
                         return true;
                     }

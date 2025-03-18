@@ -174,7 +174,7 @@ namespace DAL
             }
             catch
             {
-                MessageBox.Show("Ca làm đã tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Trùng thời gian với ca làm khác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
         }
