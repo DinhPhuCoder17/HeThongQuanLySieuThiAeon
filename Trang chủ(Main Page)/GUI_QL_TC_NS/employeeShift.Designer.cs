@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(employeeShift));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.btnPrevCalendar = new Guna.UI2.WinForms.Guna2CircleButton();
@@ -93,6 +93,7 @@
             this.btn_Shift_Edit = new Guna.UI2.WinForms.Guna2GradientButton();
             this.btn_Shift_Confirm = new Guna.UI2.WinForms.Guna2GradientButton();
             this.btn_Shift_Remove = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.txt_TenCa = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -329,11 +330,11 @@
             this.dtp_Shift_Start.FillColor = System.Drawing.Color.White;
             this.dtp_Shift_Start.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.dtp_Shift_Start.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtp_Shift_Start.Location = new System.Drawing.Point(107, 707);
+            this.dtp_Shift_Start.Location = new System.Drawing.Point(229, 707);
             this.dtp_Shift_Start.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtp_Shift_Start.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtp_Shift_Start.Name = "dtp_Shift_Start";
-            this.dtp_Shift_Start.Size = new System.Drawing.Size(211, 36);
+            this.dtp_Shift_Start.Size = new System.Drawing.Size(163, 36);
             this.dtp_Shift_Start.TabIndex = 20;
             this.dtp_Shift_Start.Value = new System.DateTime(2025, 3, 3, 14, 48, 32, 894);
             // 
@@ -345,11 +346,11 @@
             this.dtp_Shift_End.FillColor = System.Drawing.Color.White;
             this.dtp_Shift_End.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.dtp_Shift_End.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtp_Shift_End.Location = new System.Drawing.Point(357, 707);
+            this.dtp_Shift_End.Location = new System.Drawing.Point(416, 707);
             this.dtp_Shift_End.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtp_Shift_End.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtp_Shift_End.Name = "dtp_Shift_End";
-            this.dtp_Shift_End.Size = new System.Drawing.Size(212, 36);
+            this.dtp_Shift_End.Size = new System.Drawing.Size(163, 36);
             this.dtp_Shift_End.TabIndex = 21;
             this.dtp_Shift_End.Value = new System.DateTime(2025, 3, 3, 14, 48, 32, 894);
             this.dtp_Shift_End.ValueChanged += new System.EventHandler(this.guna2DateTimePicker2_ValueChanged);
@@ -500,7 +501,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(13, 88);
+            this.label8.Location = new System.Drawing.Point(9, 77);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(21, 16);
             this.label8.TabIndex = 12;
@@ -509,7 +510,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(13, 120);
+            this.label9.Location = new System.Drawing.Point(9, 105);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(21, 16);
             this.label9.TabIndex = 12;
@@ -518,7 +519,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(13, 152);
+            this.label10.Location = new System.Drawing.Point(9, 135);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(21, 16);
             this.label10.TabIndex = 12;
@@ -527,7 +528,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(13, 184);
+            this.label11.Location = new System.Drawing.Point(9, 166);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(21, 16);
             this.label11.TabIndex = 12;
@@ -536,7 +537,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(10, 216);
+            this.label12.Location = new System.Drawing.Point(6, 198);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(28, 16);
             this.label12.TabIndex = 12;
@@ -545,7 +546,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(10, 248);
+            this.label13.Location = new System.Drawing.Point(6, 228);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(28, 16);
             this.label13.TabIndex = 12;
@@ -554,7 +555,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(9, 279);
+            this.label14.Location = new System.Drawing.Point(6, 259);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(28, 16);
             this.label14.TabIndex = 12;
@@ -563,7 +564,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(10, 314);
+            this.label15.Location = new System.Drawing.Point(6, 290);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(28, 16);
             this.label15.TabIndex = 12;
@@ -572,7 +573,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(10, 349);
+            this.label16.Location = new System.Drawing.Point(6, 322);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(28, 16);
             this.label16.TabIndex = 12;
@@ -581,7 +582,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(10, 384);
+            this.label17.Location = new System.Drawing.Point(6, 353);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(28, 16);
             this.label17.TabIndex = 12;
@@ -590,7 +591,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(10, 419);
+            this.label18.Location = new System.Drawing.Point(6, 389);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(28, 16);
             this.label18.TabIndex = 12;
@@ -599,7 +600,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(9, 449);
+            this.label19.Location = new System.Drawing.Point(6, 421);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(28, 16);
             this.label19.TabIndex = 12;
@@ -608,7 +609,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(9, 481);
+            this.label20.Location = new System.Drawing.Point(6, 454);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(28, 16);
             this.label20.TabIndex = 12;
@@ -617,7 +618,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(9, 513);
+            this.label21.Location = new System.Drawing.Point(6, 487);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(28, 16);
             this.label21.TabIndex = 12;
@@ -626,7 +627,7 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(9, 545);
+            this.label22.Location = new System.Drawing.Point(6, 520);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(28, 16);
             this.label22.TabIndex = 12;
@@ -635,7 +636,7 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(9, 577);
+            this.label23.Location = new System.Drawing.Point(6, 554);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(28, 16);
             this.label23.TabIndex = 12;
@@ -668,7 +669,7 @@
             this.guna2Panel3.FillColor = System.Drawing.Color.White;
             this.guna2Panel3.Location = new System.Drawing.Point(12, 74);
             this.guna2Panel3.Name = "guna2Panel3";
-            this.guna2Panel3.Size = new System.Drawing.Size(1157, 614);
+            this.guna2Panel3.Size = new System.Drawing.Size(1157, 601);
             this.guna2Panel3.TabIndex = 9;
             this.guna2Panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel3_Paint_2);
             // 
@@ -687,20 +688,20 @@
             this.tableLayoutPanel1.RowCount = 16;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 47.14286F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 52.85714F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 48F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1114, 526);
             this.tableLayoutPanel1.TabIndex = 14;
             // 
@@ -738,26 +739,26 @@
             this.dtg_ChooseEmployee.AllowUserToDeleteRows = false;
             this.dtg_ChooseEmployee.AllowUserToResizeColumns = false;
             this.dtg_ChooseEmployee.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.dtg_ChooseEmployee.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtg_ChooseEmployee.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            this.dtg_ChooseEmployee.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtg_ChooseEmployee.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dtg_ChooseEmployee.ColumnHeadersHeight = 4;
             this.dtg_ChooseEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtg_ChooseEmployee.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtg_ChooseEmployee.DefaultCellStyle = dataGridViewCellStyle9;
             this.dtg_ChooseEmployee.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dtg_ChooseEmployee.Location = new System.Drawing.Point(3, 4);
             this.dtg_ChooseEmployee.Name = "dtg_ChooseEmployee";
@@ -841,6 +842,7 @@
             this.btn_Shift_Confirm.Size = new System.Drawing.Size(163, 47);
             this.btn_Shift_Confirm.TabIndex = 28;
             this.btn_Shift_Confirm.Text = "Xác Nhận";
+            this.btn_Shift_Confirm.Click += new System.EventHandler(this.btn_Shift_Confirm_Click);
             // 
             // btn_Shift_Remove
             // 
@@ -861,12 +863,34 @@
             this.btn_Shift_Remove.Size = new System.Drawing.Size(163, 47);
             this.btn_Shift_Remove.TabIndex = 29;
             this.btn_Shift_Remove.Text = "Xóa";
+            this.btn_Shift_Remove.Click += new System.EventHandler(this.btn_Shift_Remove_Click);
+            // 
+            // txt_TenCa
+            // 
+            this.txt_TenCa.BorderRadius = 8;
+            this.txt_TenCa.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_TenCa.DefaultText = "";
+            this.txt_TenCa.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txt_TenCa.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txt_TenCa.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_TenCa.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_TenCa.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_TenCa.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txt_TenCa.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_TenCa.Location = new System.Drawing.Point(98, 707);
+            this.txt_TenCa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txt_TenCa.Name = "txt_TenCa";
+            this.txt_TenCa.PlaceholderText = "Tên ca làm";
+            this.txt_TenCa.SelectedText = "";
+            this.txt_TenCa.Size = new System.Drawing.Size(118, 36);
+            this.txt_TenCa.TabIndex = 30;
             // 
             // employeeShift
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1181, 842);
+            this.Controls.Add(this.txt_TenCa);
             this.Controls.Add(this.btn_Shift_Remove);
             this.Controls.Add(this.btn_Shift_Confirm);
             this.Controls.Add(this.btn_Shift_Edit);
@@ -958,6 +982,7 @@
         private Guna.UI2.WinForms.Guna2GradientButton btn_Shift_Confirm;
         private Guna.UI2.WinForms.Guna2GradientButton btn_Shift_Edit;
         private Guna.UI2.WinForms.Guna2GradientButton btn_Shift_Remove;
+        private Guna.UI2.WinForms.Guna2TextBox txt_TenCa;
     }
 }
 

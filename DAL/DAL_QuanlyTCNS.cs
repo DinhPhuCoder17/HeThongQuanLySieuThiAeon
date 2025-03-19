@@ -146,5 +146,58 @@ namespace DAL
         {
             return DataProvider.Instance.ExecuteQuery("Select Manhanvien, Hoten From Nhanvien where Xoa = 1");
         }
+
+        public bool themCaLam(DTO_Calam caLam)
+        {
+            try
+            {
+                int line = DataProvider.Instance.ExecuteNonQuery(
+                    "exec themMacaLam @TenCaLam , @TgBatDau , @TgKetThuc , @SoLuongNhanVien", new object[] {caLam.tenCaLam, caLam.tgBatDau.ToString("yyyy/MM/dd HH:mm:ss"), caLam.tgKetThuc.ToString("yyyy/MM/dd HH:mm:ss"), caLam.soLuongNhanVien }
+                );
+                if (line != 0)
+                {
+                    object maCalamObject = DataProvider.Instance.ExecuteScalar("Select Macalam From Calam Order by cast(substring(Macalam, 3, len(Macalam) - 2) as INT) desc");
+                    for (int i = 0; i < caLam.PC_Nhanvien.Count; i++)
+                    {
+                        int lineNext = DataProvider.Instance.ExecuteNonQuery(
+                            "Insert into Batbuoc values( @Macalam , @Manhanvien )", new object[] { maCalamObject.ToString(), caLam.PC_Nhanvien[i] }
+                        );
+                        if (lineNext == 0)
+                        {
+                            return false;
+                        }
+                    }
+
+                    return true;
+                }
+                return false;
+            }
+            catch
+            {
+                MessageBox.Show("Trùng thời gian với ca làm khác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+        }
+
+        public bool xoaCaLam(String maCaLam)
+        {
+            try
+            {
+                int line = DataProvider.Instance.ExecuteNonQuery("Delete from Batbuoc where Macalam = @Macalam ", new object[] { maCaLam });
+                if (line != 0)
+                {
+                    int lineNext = DataProvider.Instance.ExecuteNonQuery("Delete from Calam where Macalam = @Macalam", new object[] { maCaLam });
+                    if (lineNext != 0)
+                    { 
+                        return true;
+                    }
+                }
+                return false;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

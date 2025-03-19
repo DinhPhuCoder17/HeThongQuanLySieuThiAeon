@@ -436,8 +436,18 @@ Begin
 Declare @newMacalam varchar(10);
 Declare @maxMacalam varchar(10);
 Declare @soMoi int;
+	IF EXISTS (
+        SELECT 1
+        FROM Calam
+        WHERE NOT (
+            @ThoigianBD >= ThoigianKT OR @ThoigianKT <= ThoigianBD
+        )
+    )
+    BEGIN
+        RETURN;
+    END;
 	--Lấy mã ca làm lớn nhất hiện tại
-Select @maxMacalam = MAX(Macalam) from Calam;
+	Select @maxMacalam = MAX(Macalam) from Calam;
 	--Nếu chưa có ca làm, mã đầu tiên là CL0001
 	If @maxMacalam is null
 		Set @newMacalam = 'CL0001';
