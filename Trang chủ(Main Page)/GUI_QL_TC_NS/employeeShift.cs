@@ -331,7 +331,7 @@ namespace Trang_chủ_Main_Page_
                 TextAlign = ContentAlignment.TopCenter,
                 ForeColor = Color.White,
                 Font = new Font("Microsoft Sans Serif", 11, FontStyle.Bold),
-                Location = new Point(26, 20)
+                Location = new Point(26, 20),              
             };
 
             Label lbDetailShift = new Label
@@ -469,6 +469,10 @@ namespace Trang_chủ_Main_Page_
                 else if (dtp_Shift_Start.Value.ToString("dd/MM/yyyy") != dtp_Shift_End.Value.ToString("dd/MM/yyyy"))
                 {
                     MessageBox.Show("Thời gian bắt đầu và kết thúc không hợp lệ");
+                }
+                else if (txt_Shift_Number.Text == "")
+                {
+                    MessageBox.Show("Số lượng nhân viên trống");
                 }
                 else if (int.Parse(txt_Shift_Number.Text) < 0)
                 {

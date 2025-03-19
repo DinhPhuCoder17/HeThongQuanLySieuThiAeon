@@ -77,5 +77,10 @@ namespace Trang_chủ_Main_Page_
         {
 
         }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

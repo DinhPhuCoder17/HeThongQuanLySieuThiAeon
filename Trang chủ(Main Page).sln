@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAL", "DAL\DAL.csproj", "{F
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BLL", "BLL\BLL.csproj", "{1F0D01DC-9590-4B16-9D69-43A3B01BA9F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PythonModel", "PythonModel\PythonModel.csproj", "{647AA272-310B-4D4F-8F3A-B2B5475A524A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PythonModel", "PythonModel\PythonModel.csproj", "{647AA272-310B-4D4F-8F3A-B2B5475A524A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NewFolder1", "NewFolder1", "{6960D92E-5E79-428A-80F8-F84CB55FEB8D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

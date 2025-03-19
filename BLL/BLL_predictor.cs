@@ -82,7 +82,7 @@ namespace BLL
             ProcessStartInfo psi = new ProcessStartInfo
             {
                 FileName = "python",
-                Arguments = $"\"predictor.py\" \"{csvFile}\"",
+                Arguments = $"\"predictor.py\" \"{csvFile}\"", 
                 RedirectStandardOutput = true,
                 RedirectStandardError = true,
                 UseShellExecute = false,

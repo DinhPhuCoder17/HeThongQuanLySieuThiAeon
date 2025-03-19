@@ -627,6 +627,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="regression_model.pkl" />
     <None Include="Resources\z6337298354173_6e29e312c0f5bb2790c6e3e14bd06be8.jpg" />
   </ItemGroup>
   <ItemGroup>
