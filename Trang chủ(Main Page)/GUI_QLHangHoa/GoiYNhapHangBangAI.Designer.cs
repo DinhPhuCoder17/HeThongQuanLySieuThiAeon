@@ -56,6 +56,8 @@
             this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2Elipse2 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2Elipse3 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             this.guna2Panel1.SuspendLayout();
@@ -123,6 +125,7 @@
             this.guna2TextBox2.SelectedText = "";
             this.guna2TextBox2.Size = new System.Drawing.Size(651, 39);
             this.guna2TextBox2.TabIndex = 9;
+            this.guna2TextBox2.TextChanged += new System.EventHandler(this.guna2TextBox2_TextChanged);
             // 
             // cmbLocTheoDanhMuc_GoiYNhapHang
             // 
@@ -135,7 +138,7 @@
             this.cmbLocTheoDanhMuc_GoiYNhapHang.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cmbLocTheoDanhMuc_GoiYNhapHang.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cmbLocTheoDanhMuc_GoiYNhapHang.ItemHeight = 30;
-            this.cmbLocTheoDanhMuc_GoiYNhapHang.Location = new System.Drawing.Point(800, 117);
+            this.cmbLocTheoDanhMuc_GoiYNhapHang.Location = new System.Drawing.Point(969, 114);
             this.cmbLocTheoDanhMuc_GoiYNhapHang.Name = "cmbLocTheoDanhMuc_GoiYNhapHang";
             this.cmbLocTheoDanhMuc_GoiYNhapHang.Size = new System.Drawing.Size(164, 36);
             this.cmbLocTheoDanhMuc_GoiYNhapHang.TabIndex = 20;
@@ -144,7 +147,7 @@
             // 
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(642, 117);
+            this.label3.Location = new System.Drawing.Point(799, 114);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(152, 36);
             this.label3.TabIndex = 19;
@@ -373,10 +376,39 @@
             this.guna2Elipse3.BorderRadius = 20;
             this.guna2Elipse3.TargetControl = this;
             // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(366, 114);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(152, 36);
+            this.label1.TabIndex = 35;
+            this.label1.Text = "Lọc theo danh mục:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // guna2ComboBox1
+            // 
+            this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ComboBox1.BorderRadius = 8;
+            this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.guna2ComboBox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2ComboBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2ComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.guna2ComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.guna2ComboBox1.ItemHeight = 30;
+            this.guna2ComboBox1.Location = new System.Drawing.Point(542, 114);
+            this.guna2ComboBox1.Name = "guna2ComboBox1";
+            this.guna2ComboBox1.Size = new System.Drawing.Size(164, 36);
+            this.guna2ComboBox1.TabIndex = 36;
+            // 
             // GoiYNhapHangBangAI
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.ClientSize = new System.Drawing.Size(1181, 842);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.guna2ComboBox1);
             this.Controls.Add(this.dgvGoiYNhapHang);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.guna2Panel1);
@@ -423,5 +455,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse2;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse3;
+        private System.Windows.Forms.Label label1;
+        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
     }
 }

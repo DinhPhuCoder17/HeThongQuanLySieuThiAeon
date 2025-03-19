@@ -656,7 +656,6 @@ INSERT INTO Khachhang (Sodienthoai, Hoten, Diachi, Diemthuong, Gioitinh, Hang, X
 ('0935566778', N'Vũ Đức Toàn', N'Bình Dương', 250, N'Nam', N'Vàng', 1),
 ('0926677889', N'Đặng Mỹ Linh', N'Quảng Ninh', 180, N'Nữ', N'Bạc', 1),
 ('0917788990', N'Ngô Anh Tú', N'Nha Trang', 130, N'Nam', N'Thành viên', 1),
-('0908899001', N'Bùi Thị Hoa', N'Huế', 210, N'Nữ', N'Bạch Kim', 1),
 ('0899900112', N'Lý Quang Minh', N'Tây Ninh', 90, N'Nam', N'Thành viên', 1);
 
 INSERT INTO Nhacungcap (MaNCC, TenNCC, Diachi, Masothue, Sodienthoai, Xoa)
@@ -692,6 +691,8 @@ INSERT INTO Hoadonbanhang (Mahoadon, Thoigianban, Manhanvien, Sodienthoai, Thanh
 ('HD0002', '2024-03-02 10:45:00', 'NV0002', '0962233445', 2300000)
 INSERT INTO Hoadonbanhang (Mahoadon, Thoigianban, Manhanvien, Sodienthoai, Thanhtien) VALUES
 ('HD0003', '2024-03-03 14:20:00', 'NV0003', '0962233445', 1700000)
+INSERT INTO Hoadonbanhang (Mahoadon, Thoigianban, Manhanvien, Sodienthoai, Thanhtien) VALUES
+('HD0004', '2024-03-04 14:20:00', 'NV0003', '0962233445', 100000)
 
 
 Insert into HH_HDBH values
@@ -706,6 +707,9 @@ Insert into HH_HDBH values
 ('HH0002', 'HD0003', 20, 1100000)
 Insert into HH_HDBH values
 ('HH0010', 'HD0003', 10,600000)
+Insert into HH_HDBH values
+('HH0009', 'HD0004', 400,450000)
+
 
 exec themMacalam N'Ca thường', '2024-03-15 08:30:00', '2024-03-15 15:30:00', 3
 exec themMacalam N'Ca thường', '2024-03-15 16:30:00', '2024-03-15 21:30:00', 3
@@ -720,7 +724,6 @@ Insert into Batbuoc values('CL0002', 'NV0004')
 Insert into Batbuoc values('CL0002', 'NV0005')
 Insert into Batbuoc values('CL0004', 'NV0004')
 
-Insert into Batbuoc values('CL0002', 'NV0006')
 
 EXEC themChamCong '2025-03-15', '08:30:00', '15:30:00', 'CL0001', 'NV0001';
 EXEC themChamCong '2025-03-15', '10:30:00', '17:30:00', 'CL0001', 'NV0002';

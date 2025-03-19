@@ -5,11 +5,13 @@ VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trang chủ(Main Page)", "Trang chủ(Main Page)\Trang chủ(Main Page).csproj", "{373C3A36-71C6-4C65-AFBD-EB17A342F1D6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTO", "DTO\DTO.csproj", "{EADB2919-DC31-4986-B668-1678AEEEAB32}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DTO", "DTO\DTO.csproj", "{EADB2919-DC31-4986-B668-1678AEEEAB32}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{F165EB70-DABB-4490-B04E-E1213B9B22C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAL", "DAL\DAL.csproj", "{F165EB70-DABB-4490-B04E-E1213B9B22C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{1F0D01DC-9590-4B16-9D69-43A3B01BA9F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BLL", "BLL\BLL.csproj", "{1F0D01DC-9590-4B16-9D69-43A3B01BA9F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PythonModel", "PythonModel\PythonModel.csproj", "{647AA272-310B-4D4F-8F3A-B2B5475A524A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,8 +35,15 @@ Global
 		{1F0D01DC-9590-4B16-9D69-43A3B01BA9F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1F0D01DC-9590-4B16-9D69-43A3B01BA9F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1F0D01DC-9590-4B16-9D69-43A3B01BA9F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{647AA272-310B-4D4F-8F3A-B2B5475A524A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{647AA272-310B-4D4F-8F3A-B2B5475A524A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{647AA272-310B-4D4F-8F3A-B2B5475A524A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{647AA272-310B-4D4F-8F3A-B2B5475A524A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7C0C98E1-3D0F-41FF-94F0-C114DD252C2A}
 	EndGlobalSection
 EndGlobal

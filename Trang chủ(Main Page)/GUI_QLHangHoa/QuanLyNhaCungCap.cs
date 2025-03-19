@@ -86,7 +86,7 @@ namespace Trang_chu_Main_Page_.GUI_QLHangHoa
 
         private void guna2GradientButton1_Click_1(object sender, EventArgs e)
         {
-            t_Supplier_Add.Start();
+            t_Supplier_Add.Stop();
         }
     }
 }

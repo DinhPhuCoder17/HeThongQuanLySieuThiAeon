@@ -814,6 +814,10 @@
       <Project>{eadb2919-dc31-4986-b668-1678aeeeab32}</Project>
       <Name>DTO</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PythonModel\PythonModel.csproj">
+      <Project>{ac3f8483-b95d-4964-8644-711a1d63908a}</Project>
+      <Name>PythonModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\1 ht.png" />
