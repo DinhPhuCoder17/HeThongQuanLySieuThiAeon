@@ -26,7 +26,10 @@ namespace Trang_chủ_Main_Page_
         bool menu_ChooseEmployee = false;
         bool addMode = false;
         bool shiftClick = false;
+        bool editMode = false;
+        Panel editPanel;
         String maCaLamChoose = "";
+        Color editColor;
         Panel chooseShiftPanel;
 
         public employeeShift()
@@ -317,11 +320,17 @@ namespace Trang_chủ_Main_Page_
             //Thêm hover vào panel
             panelCover.MouseEnter += (sender, e) =>
             {
-                panelCover.BackColor = DarkenColor(color, 40);
+                if(!editMode)
+                {
+                    panelCover.BackColor = DarkenColor(color, 40);
+                }
             };
             panelCover.MouseLeave += (sender, e) =>
             {
-                panelCover.BackColor = color;
+                if (!editMode)
+                {
+                    panelCover.BackColor = color;
+                }
             };
 
             Label lbNameShift = new Label
@@ -364,8 +373,25 @@ namespace Trang_chủ_Main_Page_
                 Location = new Point(23, 80),
                 Visible = false
             };
+            
+            //Thêm label thời gian bắt đầu
+            DateTimePicker dtpInvisibleTGBD = new DateTimePicker
+            {
+                Value = start,
+                Visible = false,
+            };
 
+            //Thêm label thời gian kết thúc
+            DateTimePicker dtpInvisibleTGKT = new DateTimePicker
+            {
+                Value = end,
+                Visible = false,
+            };
 
+            //Thêm sự kiện click vào các label
+            lbNameShift.Click += allPanel_Click;
+            lbDetailShift.Click += allPanel_Click;
+            lbDetailQuantity.Click += allPanel_Click;
 
             //Thêm label tên Ca làm
             panelCover.Controls.Add(lbNameShift);
@@ -373,8 +399,12 @@ namespace Trang_chủ_Main_Page_
             panelCover.Controls.Add(lbDetailShift);
             //Thêm label số lượng nhân viên
             panelCover.Controls.Add(lbDetailQuantity);
-            //Thêm label mã ca làm ẩn
+            //Thêm label mã ca làm
             panelCover.Controls.Add(lbUnvisibleMaCaLam);
+            //Thêm DateTimePicker thời gian bắt đầu
+            panelCover.Controls.Add(dtpInvisibleTGBD);
+            //Thêm DateTimePicker thời gian kết thúc
+            panelCover.Controls.Add(dtpInvisibleTGKT);
 
             //Thêm panel vào tableLayoutPanel
             tableLayoutPanel1.Controls.Add(panelCover, column, timeStart - 6);
@@ -385,12 +415,62 @@ namespace Trang_chủ_Main_Page_
         //Su kien click vao panel
         private void Panelcover_Click(object sender, EventArgs e)
         {
-            shiftClick = true;
-            btn_Shift_Edit.Enabled = true;
-            btn_Shift_Remove.Enabled = true;
-            Panel panel = (Panel)sender;
-            maCaLamChoose = panel.Controls[3].Text;
-            chooseShiftPanel = panel;
+            if(!editMode)
+            {
+                //Khóa chức năng chọn nhân viên trong trạng thái 
+                dtg_ChooseEmployee.Columns["chkSelect"].ReadOnly = true;
+                //Mở chức năng chọn nhân viên trong trạng thái thêm
+                btnChooseEmployee.Enabled = true;
+                shiftClick = true;
+                btn_Shift_Edit.Enabled = true;
+                if (!editMode)
+                {
+                    btn_Shift_Remove.Enabled = true;
+                }
+                Panel panel = (Panel)sender;
+                maCaLamChoose = panel.Controls[3].Text;
+                chooseShiftPanel = panel;
+                List<String> listNhanVienHienTai = bLL_QuanlyTCNS.listNhanVienHienTai(maCaLamChoose);
+                foreach (DataGridViewRow row in dtg_ChooseEmployee.Rows)
+                {
+                    if (listNhanVienHienTai.Contains(row.Cells[1].Value.ToString()))
+                    {
+                        row.Cells[0].Value = true;
+                    }
+                    else
+                    {
+                        row.Cells[0].Value = false;
+                    }
+                }
+
+                txt_TenCa.Text = panel.Controls[0].Text;
+                if (panel.Controls[4] is DateTimePicker dtpStart)
+                {
+                    dtp_Shift_Start.Value = dtpStart.Value;
+                }
+                if (panel.Controls[5] is DateTimePicker dtpEnd)
+                {
+                    dtp_Shift_End.Value = dtpEnd.Value;
+                }
+                String[] splitQuantity = panel.Controls[2].Text.Split('/');
+                txt_Shift_Number.Text = splitQuantity[1].Trim();
+            }
+        }
+
+        //Su kien click vao label của Panel Cover
+        private void allPanel_Click(object sender, EventArgs e)
+        {
+            while (sender != null)
+            {
+                if (sender is Panel)
+                {
+                    Panelcover_Click(sender, e);
+                    break;
+                }else
+                {
+                    sender = ((Control)sender).Parent;
+                }
+            }
         }
 
         private void btnChooseEmployee_Click(object sender, EventArgs e)
@@ -439,13 +519,23 @@ namespace Trang_chủ_Main_Page_
             txt_Shift_Number.Enabled = true;
             txt_Shift_Number.Text = "";
             txt_TenCa.Focus();
-            
+            dtg_ChooseEmployee.Columns["chkSelect"].ReadOnly = false;
+
+            foreach (DataGridViewRow row in dtg_ChooseEmployee.Rows)
+            {
+                if (Convert.ToBoolean(row.Cells[0].Value) == true)
+                {
+                    row.Cells[0].Value = false;
+                }
+            }
+
         }
 
-        
+
         private void btn_Shift_Confirm_Click(object sender, EventArgs e)
         {
-            if(addMode)
+            //Nếu đang ở chế độ thêm
+            if (addMode)
             {
                 List<String> phanCongNhanVien = new List<string>();
 
@@ -488,7 +578,7 @@ namespace Trang_chủ_Main_Page_
                 }
                 else
                 {
-                    
+
                     DTO_Calam calam = new DTO_Calam(null, txt_TenCa.Text, dtp_Shift_Start.Value, dtp_Shift_End.Value, int.Parse(txt_Shift_Number.Text), phanCongNhanVien);
                     if (bLL_QuanlyTCNS.themCaLam(calam))
                     {
@@ -499,27 +589,85 @@ namespace Trang_chủ_Main_Page_
                     {
                         MessageBox.Show("Thêm ca làm thất bại", "Thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    
+
                 }
-                if(menu_ChooseEmployee)
+                if (menu_ChooseEmployee)
                 {
                     timer_ChooseEmployee.Start();
                 }
                 addMode = false;
-                foreach(DataGridViewRow row in dtg_ChooseEmployee.Rows)
+                dtg_ChooseEmployee.Columns["chkSelect"].ReadOnly = true;
+                foreach (DataGridViewRow row in dtg_ChooseEmployee.Rows)
                 {
                     if (Convert.ToBoolean(row.Cells[0].Value) == true)
                     {
                         row.Cells[0].Value = false;
                     }
                 }
-                //employeeShift_Load(sender, e);
-            }else
+            }
+            else if(editMode)
+            {
+                if (txt_TenCa.Text == "")
+                {
+                    MessageBox.Show("Tên ca làm không được để trống");
+                }
+                else if (Regex.IsMatch(txt_Shift_Number.Text, "[^0-9]"))
+                {
+                    MessageBox.Show("Số lượng nhân viên không hợp lệ");
+                }
+                else if (txt_Shift_Number.Text == "")
+                {
+                    MessageBox.Show("Số lượng nhân viên trống");
+                }
+                else if (int.Parse(txt_Shift_Number.Text) < 0)
+                {
+                    MessageBox.Show("Số lượng nhân viên không hợp lệ");
+                }
+                else
+                {
+                    List<String> phanCongNhanVien = new List<string>();
+                    foreach (DataGridViewRow row in dtg_ChooseEmployee.Rows)
+                    {
+                        if (Convert.ToBoolean(row.Cells[0].Value))
+                        {
+                            phanCongNhanVien.Add(row.Cells[1].Value.ToString());
+                        }
+                    }
+
+                    //Kiểm tra số lượng nhân viên có khớp với số lượng nhân viên đã chọn không
+                    
+                    DTO_Calam calam = new DTO_Calam(editPanel.Controls[3].Text, txt_TenCa.Text, dtp_Shift_Start.Value, dtp_Shift_End.Value, int.Parse(txt_Shift_Number.Text), phanCongNhanVien);
+                    if(bLL_QuanlyTCNS.suaCaLam(calam))
+                    {
+                        MessageBox.Show("Sửa ca làm thành công", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        toMauThoiKhoaBieu();
+                    }else
+                    {
+                        MessageBox.Show("Sửa ca làm thất bại", "Thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        toMauThoiKhoaBieu();
+                    }
+                    editMode = false;
+                }
+            }
+            else
             {
                 MessageBox.Show("Vui lòng chọn chức năng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-        }
+            if(menu_ChooseEmployee)
+            {
+                timer_ChooseEmployee.Start();
+            }
+            dtg_ChooseEmployee.Columns["chkSelect"].ReadOnly = true;
+            foreach (DataGridViewRow row in dtg_ChooseEmployee.Rows)
+            {
+                if (Convert.ToBoolean(row.Cells[0].Value) == true)
+                {
+                    row.Cells[0].Value = false;
+                }
+            }
 
+            btn_Shift_Add.Enabled = true;
+        }
         private void btn_Shift_Remove_Click(object sender, EventArgs e)
         {
             if (maCaLamChoose == "")
@@ -546,6 +694,34 @@ namespace Trang_chủ_Main_Page_
                     }
                 }
                 chooseShiftPanel.BackColor = oldColor;
+            }
+        }
+
+        private void btn_Shift_Edit_Click(object sender, EventArgs e)
+        {
+            if(!addMode)
+            {
+                if (chooseShiftPanel != null)
+                {
+                    editMode = true;
+                    addMode = false;
+                    txt_TenCa.Enabled = true;
+                    txt_Shift_Number.Enabled = true;
+                    btn_Shift_Confirm.Enabled = true;
+                    btn_Shift_Add.Enabled = false;
+                    btn_Shift_Remove.Enabled = false;
+                    dtg_ChooseEmployee.Columns["chkSelect"].ReadOnly = false;
+                    editColor = chooseShiftPanel.BackColor;
+                    editPanel = chooseShiftPanel;
+                    editPanel.BackColor = Color.LightGray;
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng chọn ca làm");
+                }
+            }else
+            {
+                MessageBox.Show("Đang ở chế độ thêm", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }
