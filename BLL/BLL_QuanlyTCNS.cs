@@ -167,5 +167,33 @@ namespace BLL
             }
             return false;
         }
+
+        public List<String> listNhanVienHienTai(String Macalam)
+        {
+            DataTable dt = dAL_QuanlyTCNS.listNhanVienHienTai(Macalam);
+            List<String> list = new List<String>();
+            foreach (DataRow row in dt.Rows)
+            {
+                list.Add(row[0].ToString());
+            }
+            return list;
+        }
+
+        public bool suaCaLam(DTO_Calam calam)
+        {
+            if(calam.PC_Nhanvien.Count <= calam.soLuongNhanVien)
+            {
+                DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn sửa ca làm này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if (result == DialogResult.Yes)
+                {
+                    if(dAL_QuanlyTCNS.suaCaLam(calam))
+                    {
+                        return true;
+                    }
+                }
+            }
+            MessageBox.Show("Số lượng nhân viên không hợp lệ");
+            return false;
+        }
     }
 }

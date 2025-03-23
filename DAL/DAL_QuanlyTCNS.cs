@@ -199,5 +199,76 @@ namespace DAL
                 return false;
             }
         }
+
+        public DataTable listNhanVienHienTai(String Macalam)
+        {
+            return DataProvider.Instance.ExecuteQuery("Select Manhanvien From Batbuoc where Macalam = @Macalam ", new object[] {Macalam});
+        }
+
+        public bool suaCaLam(DTO_Calam caLam)
+        {
+            try
+            {
+                int line = DataProvider.Instance.ExecuteNonQuery(
+                    "Update Calam set TenCaLam = @TenCaLam , SoLuong = @SoLuong Where Macalam = @Macalam", new object[] { caLam.tenCaLam, caLam.soLuongNhanVien, caLam.maCaLam }
+                );
+                if (line != 0)
+                {
+                    bool isExists = false;
+                    DataTable dt = DataProvider.Instance.ExecuteQuery("Select * From Batbuoc where Macalam = @Macalam", new object[] { caLam.maCaLam });
+                    foreach (String maNhanVien in caLam.PC_Nhanvien)
+                    {
+                        foreach (DataRow row in dt.Rows)
+                        {
+                            if (row[1].ToString() == maNhanVien)
+                            {
+                                isExists = true;
+                            }
+                        }
+                        if (!isExists)
+                        {
+                            int lineNext = DataProvider.Instance.ExecuteNonQuery(
+                                "Insert into Batbuoc values( @Macalam , @Manhanvien )", new object[] { caLam.maCaLam, maNhanVien }
+                            );
+                            if (lineNext == 0)
+                            {
+                                return false;
+                            }
+                        }
+                        isExists = false;
+                    }
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        isExists = false;
+                        foreach (String maNhanVien in caLam.PC_Nhanvien)
+                        {
+                            if (row[1].ToString() == maNhanVien)
+                            {
+                                isExists = true;
+                            }
+                        }
+
+                        if (!isExists)
+                        {
+                            int lineNext = DataProvider.Instance.ExecuteNonQuery(
+                                "Delete from Batbuoc where Macalam = @Macalam and Manhanvien = @Manhanvien", new object[] { caLam.maCaLam, row[1].ToString() }
+                            );
+                            if (lineNext == 0)
+                            {
+                                return false;
+                            }
+                        }
+                    }
+                    return true;
+                }
+                return false;
+            }
+            catch
+            {
+                MessageBox.Show("Trùng thời gian với ca làm khác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+        }
     }
 }
