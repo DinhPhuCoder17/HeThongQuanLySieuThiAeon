@@ -195,16 +195,19 @@
             this.btnLuu.Size = new System.Drawing.Size(163, 58);
             this.btnLuu.TabIndex = 30;
             this.btnLuu.Text = "Lưu";
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // guna2DataGridView2
             // 
             this.guna2DataGridView2.AllowUserToAddRows = false;
+            this.guna2DataGridView2.AllowUserToDeleteRows = false;
             this.guna2DataGridView2.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.guna2DataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.guna2DataGridView2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2DataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -251,6 +254,7 @@
             this.guna2DataGridView2.RowHeadersWidth = 51;
             this.guna2DataGridView2.RowTemplate.DividerHeight = 5;
             this.guna2DataGridView2.RowTemplate.Height = 40;
+            this.guna2DataGridView2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.guna2DataGridView2.Size = new System.Drawing.Size(1147, 479);
             this.guna2DataGridView2.TabIndex = 15;
             this.guna2DataGridView2.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -283,6 +287,7 @@
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
+            this.Column1.Width = 37;
             // 
             // Column2
             // 
@@ -291,6 +296,7 @@
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
+            this.Column2.Width = 139;
             // 
             // Column11
             // 
@@ -299,6 +305,7 @@
             this.Column11.MinimumWidth = 6;
             this.Column11.Name = "Column11";
             this.Column11.ReadOnly = true;
+            this.Column11.Width = 139;
             // 
             // Column12
             // 
@@ -307,6 +314,7 @@
             this.Column12.MinimumWidth = 6;
             this.Column12.Name = "Column12";
             this.Column12.ReadOnly = true;
+            this.Column12.Width = 138;
             // 
             // Column13
             // 
@@ -315,6 +323,7 @@
             this.Column13.MinimumWidth = 6;
             this.Column13.Name = "Column13";
             this.Column13.ReadOnly = true;
+            this.Column13.Width = 139;
             // 
             // Column14
             // 
@@ -323,6 +332,7 @@
             this.Column14.MinimumWidth = 6;
             this.Column14.Name = "Column14";
             this.Column14.ReadOnly = true;
+            this.Column14.Width = 139;
             // 
             // Column15
             // 
@@ -331,6 +341,7 @@
             this.Column15.MinimumWidth = 6;
             this.Column15.Name = "Column15";
             this.Column15.ReadOnly = true;
+            this.Column15.Width = 139;
             // 
             // Column16
             // 
@@ -339,6 +350,7 @@
             this.Column16.MinimumWidth = 6;
             this.Column16.Name = "Column16";
             this.Column16.ReadOnly = true;
+            this.Column16.Width = 138;
             // 
             // Column17
             // 
@@ -347,6 +359,7 @@
             this.Column17.MinimumWidth = 6;
             this.Column17.Name = "Column17";
             this.Column17.ReadOnly = true;
+            this.Column17.Width = 139;
             // 
             // guna2Elipse1
             // 

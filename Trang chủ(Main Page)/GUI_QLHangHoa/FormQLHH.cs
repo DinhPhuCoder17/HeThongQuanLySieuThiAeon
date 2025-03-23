@@ -83,8 +83,7 @@ namespace Trang_chủ_Main_Page_
 
         private void btnDSTonKho_Click(object sender, EventArgs e)
         {
-
-            container(new CTHH());
+            container(new DSTonKho());
         }
         private void container(object _form)
         {

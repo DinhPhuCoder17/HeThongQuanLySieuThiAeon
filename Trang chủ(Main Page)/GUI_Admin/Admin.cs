@@ -75,7 +75,7 @@ namespace Trang_chủ_Main_Page_
 
         private void Admin_Load(object sender, EventArgs e)
         {
-            guna2DataGridView2.Rows.Add(1, "Nguyễn Văn A", "15/05/1990", "Nam", "Hà Nội", "012345678901", "nguyenvana@example.com", "0987654321", "Nhân viên");
+            guna2DataGridView2.Rows.Add(1, "Nguyễn Văn B", "15/05/1990", "Nam", "Hà Nội", "012345678901", "nguyenvana@example.com", "0987654321", "Nhân viên");
             guna2DataGridView2.Rows.Add(2, "Trần Thị B", "20/07/1995", "Nữ", "TP.HCM", "098765432109", "tranthib@example.com", "0912345678", "Nhân viên");
             guna2DataGridView2.Rows.Add(3, "Lê Văn C", "10/02/1992", "Nam", "Đà Nẵng", "123456789012", "levanc@example.com", "0978123456", "Nhân viên");
             guna2DataGridView2.Rows.Add(4, "Phạm Thị D", "05/11/1993", "Nữ", "Cần Thơ", "987654321098", "phamthid@example.com", "0965234789", "Nhân viên");
@@ -85,6 +85,11 @@ namespace Trang_chủ_Main_Page_
             guna2DataGridView2.Rows.Add(8, "Nguyễn Thị H", "09/09/1997", "Nữ", "Huế", "456789012345", "nguyenthih@example.com", "0923456789", "Nhân viên");
             guna2DataGridView2.Rows.Add(9, "Bùi Văn I", "14/06/1994", "Nam", "Quảng Ninh", "567890123457", "buivani@example.com", "0912345670", "Nhân viên");
             guna2DataGridView2.Rows.Add(10, "Dương Thị K", "22/04/1991", "Nữ", "Vũng Tàu", "678901234568", "duongthik@example.com", "0909876543", "Nhân viên");
+            guna2DataGridView2.Rows.Add(11, "Lý Văn L", "10/01/1987", "Nam", "Bắc Giang", "789012345678", "lyvanl@example.com", "0897654321", "Nhân viên");
+            guna2DataGridView2.Rows.Add(12, "Mai Thị M", "08/03/1992", "Nữ", "Bến Tre", "890123456789", "maithim@example.com", "0886543210", "Nhân viên");
+            guna2DataGridView2.Rows.Add(13, "Đỗ Hoàng N", "12/07/1995", "Nam", "Quảng Nam", "901234567890", "dohoangn@example.com", "0875432109", "Nhân viên");
+            guna2DataGridView2.Rows.Add(14, "Phan Thanh O", "28/09/1989", "Nam", "Gia Lai", "012345678901", "phanthanho@example.com", "0864321098", "Nhân viên");
+            guna2DataGridView2.Rows.Add(15, "Trịnh Thị P", "05/12/1994", "Nữ", "Kiên Giang", "123456789012", "trinhthip@example.com", "0853210987", "Nhân viên");
 
         }
 
@@ -93,7 +98,7 @@ namespace Trang_chủ_Main_Page_
             if (menuExpand_3 == false)
             {
                 guna2Panel1.Height += 25;
-                if (guna2Panel1.Height >= 600)
+                if (guna2Panel1.Height >= 578)
                 {
                     lbl_role.ForeColor =Color.FromArgb(255, 251, 234);
                     lbl_role_Add.ForeColor =Color.FromArgb(255, 251, 234);
