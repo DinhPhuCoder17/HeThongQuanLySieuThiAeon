@@ -255,7 +255,7 @@
             this.btnThemMatHang.Size = new System.Drawing.Size(149, 42);
             this.btnThemMatHang.TabIndex = 1;
             this.btnThemMatHang.Text = "Thêm mặt hàng";
-            this.btnThemMatHang.Click += new System.EventHandler(this.guna2GradientButton3_Click);
+            this.btnThemMatHang.Click += new System.EventHandler(this.btnThemMatHang_Click);
             // 
             // flowLayoutPanel1
             // 

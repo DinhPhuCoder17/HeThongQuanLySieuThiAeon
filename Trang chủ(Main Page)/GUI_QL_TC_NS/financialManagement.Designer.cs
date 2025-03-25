@@ -300,6 +300,7 @@
             this.btn_Bill_Cancel.Size = new System.Drawing.Size(163, 58);
             this.btn_Bill_Cancel.TabIndex = 25;
             this.btn_Bill_Cancel.Text = "Hủy Hóa Đơn";
+            this.btn_Bill_Cancel.Click += new System.EventHandler(this.btn_Bill_Cancel_Click);
             // 
             // financialManagement
             // 

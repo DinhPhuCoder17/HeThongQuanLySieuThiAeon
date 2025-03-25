@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BLL;
 
 namespace Trang_chủ_Main_Page_
 {
     public partial class financialManagement : Form
     {
+        BLL_QuanlyTCNS bLL_QuanlyTCNS=new BLL_QuanlyTCNS();
         public financialManagement()
         {
             InitializeComponent();
@@ -59,6 +61,11 @@ namespace Trang_chủ_Main_Page_
                 }
             }
 
+        }
+
+        private void btn_Bill_Cancel_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

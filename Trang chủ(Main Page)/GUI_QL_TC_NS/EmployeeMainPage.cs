@@ -217,5 +217,23 @@ namespace Trang_chủ_Main_Page_
                 statistic.Activate();
             }
         }
+
+        private void guna2Button1_Click_1(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Title = "Chọn file Excel";
+                openFileDialog.Filter = "Excel Files|*.xls;*.xlsx";
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string excelPath = openFileDialog.FileName;
+                    MessageBox.Show("Đã chọn file: " + excelPath, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // Thực hiện đọc file Excel (có thể dùng EPPlus hoặc OpenXml)
+                }
+            }
+
+        }
     }
 }

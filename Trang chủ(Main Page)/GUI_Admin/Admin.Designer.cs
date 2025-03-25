@@ -182,7 +182,7 @@
             this.guna2Panel1.Controls.Add(this.guna2DataGridView2);
             this.guna2Panel1.Location = new System.Drawing.Point(-1, 235);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(1390, 0);
+            this.guna2Panel1.Size = new System.Drawing.Size(1381, 0);
             this.guna2Panel1.TabIndex = 0;
             // 
             // guna2TextBox2
@@ -224,7 +224,7 @@
             this.guna2GradientButton3.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
             this.guna2GradientButton3.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.guna2GradientButton3.ForeColor = System.Drawing.Color.White;
-            this.guna2GradientButton3.Location = new System.Drawing.Point(1010, 517);
+            this.guna2GradientButton3.Location = new System.Drawing.Point(1010, 536);
             this.guna2GradientButton3.Name = "guna2GradientButton3";
             this.guna2GradientButton3.Size = new System.Drawing.Size(163, 58);
             this.guna2GradientButton3.TabIndex = 35;
@@ -244,7 +244,7 @@
             this.guna2GradientButton1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
             this.guna2GradientButton1.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.guna2GradientButton1.ForeColor = System.Drawing.Color.White;
-            this.guna2GradientButton1.Location = new System.Drawing.Point(841, 517);
+            this.guna2GradientButton1.Location = new System.Drawing.Point(841, 537);
             this.guna2GradientButton1.Name = "guna2GradientButton1";
             this.guna2GradientButton1.Size = new System.Drawing.Size(163, 58);
             this.guna2GradientButton1.TabIndex = 34;
@@ -264,7 +264,7 @@
             this.guna2GradientButton5.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
             this.guna2GradientButton5.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.guna2GradientButton5.ForeColor = System.Drawing.Color.White;
-            this.guna2GradientButton5.Location = new System.Drawing.Point(1179, 517);
+            this.guna2GradientButton5.Location = new System.Drawing.Point(1179, 536);
             this.guna2GradientButton5.Name = "guna2GradientButton5";
             this.guna2GradientButton5.Size = new System.Drawing.Size(163, 58);
             this.guna2GradientButton5.TabIndex = 33;
@@ -276,8 +276,7 @@
             this.guna2DataGridView2.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.guna2DataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.guna2DataGridView2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.guna2DataGridView2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
@@ -325,7 +324,7 @@
             this.guna2DataGridView2.RowHeadersWidth = 51;
             this.guna2DataGridView2.RowTemplate.DividerHeight = 5;
             this.guna2DataGridView2.RowTemplate.Height = 40;
-            this.guna2DataGridView2.Size = new System.Drawing.Size(1339, 0);
+            this.guna2DataGridView2.Size = new System.Drawing.Size(1330, 470);
             this.guna2DataGridView2.TabIndex = 16;
             this.guna2DataGridView2.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.guna2DataGridView2.ThemeStyle.AlternatingRowsStyle.Font = null;

@@ -134,11 +134,6 @@ namespace Trang_chủ_Main_Page_
             themMatHang.Show();
         }
 
-        private void guna2GradientButton3_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
