@@ -93,7 +93,7 @@
             this.btnTaoTaiKhoan.Name = "btnTaoTaiKhoan";
             this.btnTaoTaiKhoan.Size = new System.Drawing.Size(200, 58);
             this.btnTaoTaiKhoan.TabIndex = 32;
-            this.btnTaoTaiKhoan.Text = "Tạo Tài Khoản";
+            this.btnTaoTaiKhoan.Text = "Thêm nhân viên";
             // 
             // txtDiaChi
             // 
