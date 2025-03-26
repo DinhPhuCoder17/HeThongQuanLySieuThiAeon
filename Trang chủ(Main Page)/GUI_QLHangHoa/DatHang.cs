@@ -54,14 +54,12 @@ namespace Trang_chủ_Main_Page_
                 Icon = icon
             };
 
-           // c.Load_Data((byte[])DataProvider.Instance.ExecuteScalar("SELECT ImageData FROM Hanghoa WHERE Mahanghoa = 'HH0001'"));
-
             flowLayoutPanel1.Controls.Add(c);
 
             c.OnSelect += (ss, ee) =>
             {
                 var us1 = (HangHoaNCC)ss;
-                int addQuantity = us1.SoLuong; // Lấy số lượng từ TextBox trong UserControl
+                int addQuantity = us1.SoLuong; 
 
                 foreach (DataGridViewRow item in dgvDanhSachDatHang.Rows)
                 {
@@ -93,20 +91,16 @@ namespace Trang_chủ_Main_Page_
 
         private void DatHang_Load(object sender, EventArgs e)
         {
-            //  AddItem("Hàng 1", "Campuchai", 7.75, "z6338454431504_88b6a5b9be1edce907298e1dbea998ea.jpg");
             BLLQuanLyKho bll = new BLLQuanLyKho();
             List<DTO_Hanghoa> listHangHoa = bll.hangHoa_NhapHang();
 
             foreach (DTO_Hanghoa hh in listHangHoa)
             {
-                // Gọi AddItem với các thuộc tính từ DTO
                 AddItem(hh.TenHangHoa, hh.NhaCC, hh.GiaNhap, hh.HinhAnh);
             }
         }
-        //private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
         public void AddItem_Dgv(string tenHang, string tenNCC, int soLuong, double giaGoc)
         {
-            // Duyệt qua danh sách để kiểm tra hàng đã tồn tại chưa
             foreach (DataGridViewRow item in dgvDanhSachDatHang.Rows)
             {
                 if (item.Cells.Count > 0 && item.Cells[0].Value != null &&
@@ -123,7 +117,6 @@ namespace Trang_chủ_Main_Page_
                 }
             }
 
-            // Nếu hàng chưa có, thêm mới vào danh sách
             double thanhTien = soLuong * giaGoc;
             dgvDanhSachDatHang.Rows.Add(
                 tenHang,
@@ -145,8 +138,6 @@ namespace Trang_chủ_Main_Page_
         private void Btn_DHBang_AI_Click(object sender, EventArgs e)
         {
             GoiYNhapHangBangAI goiYNhapHangBangAI = new GoiYNhapHangBangAI();
-            //goiYNhapHangBangAI.Dock = DockStyle.Fill;
-            //guna2Panel3.Controls.Add(goiYNhapHangBangAI);
             goiYNhapHangBangAI.Show();
           
 
@@ -200,6 +191,27 @@ namespace Trang_chủ_Main_Page_
                 MessageBox.Show("Vui lòng chọn dòng cần xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+        private void btnLuuDonHang_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có muốn đặt đơn hàng này?", "Xác nhận",
+                                                  MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                int totalQuantity = int.Parse(lblTotal.Text);
+                string totalAmountStr = lblTotal.Text.Replace("đ", "").Replace(",", "").Trim();
+                float totalAmount = float.Parse(totalAmountStr);
+
+                BLLQuanLyKho orderBLL = new BLLQuanLyKho();
+                bool isSuccess = orderBLL.datHang(totalQuantity, totalAmount);
+
+                if (isSuccess)
+                    MessageBox.Show("Cập nhật tổng số lượng và tổng tiền thành công!");
+                else
+                    MessageBox.Show("Cập nhật thất bại, vui lòng kiểm tra lại!");
+            }
+        }
+
 
     }
 }

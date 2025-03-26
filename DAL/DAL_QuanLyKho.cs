@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DTO;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -14,7 +15,18 @@ namespace DAL
         {
             return DataProvider.Instance.ExecuteQuery("SELECT h.Mahanghoa, h.Tenhanghoa, h.Tiennhap, h.Tendanhmuc, h.Tienban, h.ImageData, h.Soluong, h.Uudai, n.TenNCC, h.THSD FROM Hanghoa h JOIN Nhacungcap n ON h.MaNCC = n.MaNCC WHERE h.Xoa = 1");
         }
+        public bool datHang(DTO_Hanghoa hh)
+        {
 
+           /* int line = DataProvider.Instance.ExecuteNonQuery(
+                "exec tthemMaHDNH @Sodienthoai , @Hoten , @Diachi , @Gioitinh", new object[] { hh.soDienThoai, kh.hoTen, kh.diaChi, kh.gioiTinh }
+            );
+            if (line != 0)
+            {
+                return true;
+            }*/
+            return false;
+        }
         public void AutoUpdateTrangThaiNhapHang()
         {
             try

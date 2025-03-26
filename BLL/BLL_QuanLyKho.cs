@@ -12,6 +12,7 @@ namespace BLL
 {
     public class BLLQuanLyKho
     {
+        //private DonHangDAL dal = new DonHangDAL();
         private readonly DAL_QuanLyKho dAL_QuanLyKho = new DAL_QuanLyKho();
         public List<DTO_Hanghoa> hangHoa_NhapHang()
         {
@@ -35,6 +36,11 @@ namespace BLL
             }
 
             return list;
+        }
+        public bool datHang(int orderID, int totalQuantity, float totalAmount)
+        {
+            int result = dal.UpdateOrderTotal(orderID, totalQuantity, totalAmount);
+            return result > 0;
         }
 
         // Auto update trạng thái nhập hàng
