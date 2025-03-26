@@ -43,13 +43,17 @@
             this.btnEmployeeShift = new Guna.UI2.WinForms.Guna2Button();
             this.pn_Customer = new System.Windows.Forms.Panel();
             this.btnCustomer = new Guna.UI2.WinForms.Guna2Button();
-            this.pn_Menu_Financial = new System.Windows.Forms.FlowLayoutPanel();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.btn_FinancialManagement = new Guna.UI2.WinForms.Guna2Button();
             this.pn_Report = new Guna.UI2.WinForms.Guna2Panel();
             this.btn_Statistic = new Guna.UI2.WinForms.Guna2Button();
+            this.pn_Menu_Financial = new System.Windows.Forms.FlowLayoutPanel();
             this.pn_AddData = new Guna.UI2.WinForms.Guna2Panel();
             this.btn_AddData = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btn_AddData_ChamCong = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btn_AddData_banHang = new Guna.UI2.WinForms.Guna2Button();
             this.btn_SignOut = new Guna.UI2.WinForms.Guna2Button();
             this.sidebarContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
@@ -58,10 +62,12 @@
             this.pn_EmployeeList.SuspendLayout();
             this.pn_EmployeeShift.SuspendLayout();
             this.pn_Customer.SuspendLayout();
-            this.pn_Menu_Financial.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
             this.pn_Report.SuspendLayout();
+            this.pn_Menu_Financial.SuspendLayout();
             this.pn_AddData.SuspendLayout();
+            this.guna2Panel1.SuspendLayout();
+            this.guna2Panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2Elipse1
@@ -93,6 +99,8 @@
             this.sidebarContainer.Controls.Add(this.guna2PictureBox1);
             this.sidebarContainer.Controls.Add(this.menuEmployeeContainer);
             this.sidebarContainer.Controls.Add(this.pn_Customer);
+            this.sidebarContainer.Controls.Add(this.guna2Panel3);
+            this.sidebarContainer.Controls.Add(this.pn_Report);
             this.sidebarContainer.Controls.Add(this.pn_Menu_Financial);
             this.sidebarContainer.Controls.Add(this.btn_SignOut);
             this.sidebarContainer.Dock = System.Windows.Forms.DockStyle.Left;
@@ -101,7 +109,6 @@
             this.sidebarContainer.Name = "sidebarContainer";
             this.sidebarContainer.Size = new System.Drawing.Size(200, 842);
             this.sidebarContainer.TabIndex = 3;
-            this.sidebarContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.sidebarContainer_Paint);
             // 
             // guna2PictureBox2
             // 
@@ -115,7 +122,6 @@
             this.guna2PictureBox2.TabIndex = 2;
             this.guna2PictureBox2.TabStop = false;
             this.guna2PictureBox2.UseTransparentBackground = true;
-            this.guna2PictureBox2.Click += new System.EventHandler(this.guna2PictureBox2_Click);
             // 
             // guna2PictureBox1
             // 
@@ -129,7 +135,6 @@
             this.guna2PictureBox1.TabIndex = 0;
             this.guna2PictureBox1.TabStop = false;
             this.guna2PictureBox1.UseTransparentBackground = true;
-            this.guna2PictureBox1.Click += new System.EventHandler(this.guna2PictureBox1_Click);
             // 
             // menuEmployeeContainer
             // 
@@ -140,7 +145,6 @@
             this.menuEmployeeContainer.Name = "menuEmployeeContainer";
             this.menuEmployeeContainer.Size = new System.Drawing.Size(200, 144);
             this.menuEmployeeContainer.TabIndex = 2;
-            this.menuEmployeeContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
             // 
             // pn_EmployeeList
             // 
@@ -241,22 +245,11 @@
             this.btnCustomer.TextOffset = new System.Drawing.Point(-1, 0);
             this.btnCustomer.Click += new System.EventHandler(this.btnCustomer_Click);
             // 
-            // pn_Menu_Financial
-            // 
-            this.pn_Menu_Financial.BackColor = System.Drawing.Color.Transparent;
-            this.pn_Menu_Financial.Controls.Add(this.guna2Panel3);
-            this.pn_Menu_Financial.Controls.Add(this.pn_Report);
-            this.pn_Menu_Financial.Controls.Add(this.pn_AddData);
-            this.pn_Menu_Financial.Location = new System.Drawing.Point(3, 358);
-            this.pn_Menu_Financial.Name = "pn_Menu_Financial";
-            this.pn_Menu_Financial.Size = new System.Drawing.Size(200, 234);
-            this.pn_Menu_Financial.TabIndex = 5;
-            // 
             // guna2Panel3
             // 
             this.guna2Panel3.BackColor = System.Drawing.Color.Transparent;
             this.guna2Panel3.Controls.Add(this.btn_FinancialManagement);
-            this.guna2Panel3.Location = new System.Drawing.Point(3, 3);
+            this.guna2Panel3.Location = new System.Drawing.Point(3, 358);
             this.guna2Panel3.Name = "guna2Panel3";
             this.guna2Panel3.Size = new System.Drawing.Size(200, 70);
             this.guna2Panel3.TabIndex = 11;
@@ -291,7 +284,7 @@
             // 
             this.pn_Report.BackColor = System.Drawing.Color.Transparent;
             this.pn_Report.Controls.Add(this.btn_Statistic);
-            this.pn_Report.Location = new System.Drawing.Point(3, 79);
+            this.pn_Report.Location = new System.Drawing.Point(3, 434);
             this.pn_Report.Name = "pn_Report";
             this.pn_Report.Size = new System.Drawing.Size(200, 70);
             this.pn_Report.TabIndex = 11;
@@ -320,11 +313,22 @@
             this.btn_Statistic.Text = "Xem Báo Cáo";
             this.btn_Statistic.Click += new System.EventHandler(this.btn_Statistic_Click);
             // 
+            // pn_Menu_Financial
+            // 
+            this.pn_Menu_Financial.BackColor = System.Drawing.Color.Transparent;
+            this.pn_Menu_Financial.Controls.Add(this.pn_AddData);
+            this.pn_Menu_Financial.Controls.Add(this.guna2Panel1);
+            this.pn_Menu_Financial.Controls.Add(this.guna2Panel2);
+            this.pn_Menu_Financial.Location = new System.Drawing.Point(3, 510);
+            this.pn_Menu_Financial.Name = "pn_Menu_Financial";
+            this.pn_Menu_Financial.Size = new System.Drawing.Size(200, 230);
+            this.pn_Menu_Financial.TabIndex = 5;
+            // 
             // pn_AddData
             // 
             this.pn_AddData.BackColor = System.Drawing.Color.Transparent;
             this.pn_AddData.Controls.Add(this.btn_AddData);
-            this.pn_AddData.Location = new System.Drawing.Point(3, 155);
+            this.pn_AddData.Location = new System.Drawing.Point(3, 3);
             this.pn_AddData.Name = "pn_AddData";
             this.pn_AddData.Size = new System.Drawing.Size(200, 70);
             this.pn_AddData.TabIndex = 11;
@@ -353,6 +357,74 @@
             this.btn_AddData.Text = "Thêm Dữ Liệu";
             this.btn_AddData.TextOffset = new System.Drawing.Point(1, 0);
             // 
+            // guna2Panel1
+            // 
+            this.guna2Panel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Panel1.Controls.Add(this.btn_AddData_ChamCong);
+            this.guna2Panel1.Location = new System.Drawing.Point(3, 79);
+            this.guna2Panel1.Name = "guna2Panel1";
+            this.guna2Panel1.Size = new System.Drawing.Size(200, 70);
+            this.guna2Panel1.TabIndex = 11;
+            // 
+            // btn_AddData_ChamCong
+            // 
+            this.btn_AddData_ChamCong.Animated = true;
+            this.btn_AddData_ChamCong.BackColor = System.Drawing.Color.Transparent;
+            this.btn_AddData_ChamCong.BorderRadius = 15;
+            this.btn_AddData_ChamCong.CheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.btn_AddData_ChamCong.CustomImages.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btn_AddData_ChamCong.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_AddData_ChamCong.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_AddData_ChamCong.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_AddData_ChamCong.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_AddData_ChamCong.FillColor = System.Drawing.Color.Transparent;
+            this.btn_AddData_ChamCong.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.btn_AddData_ChamCong.ForeColor = System.Drawing.Color.White;
+            this.btn_AddData_ChamCong.Image = ((System.Drawing.Image)(resources.GetObject("btn_AddData_ChamCong.Image")));
+            this.btn_AddData_ChamCong.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btn_AddData_ChamCong.Location = new System.Drawing.Point(0, 0);
+            this.btn_AddData_ChamCong.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_AddData_ChamCong.Name = "btn_AddData_ChamCong";
+            this.btn_AddData_ChamCong.Size = new System.Drawing.Size(200, 60);
+            this.btn_AddData_ChamCong.TabIndex = 7;
+            this.btn_AddData_ChamCong.Text = "Chấm Công";
+            this.btn_AddData_ChamCong.TextOffset = new System.Drawing.Point(1, 0);
+            this.btn_AddData_ChamCong.Click += new System.EventHandler(this.btn_AddData_ChamCong_Click);
+            // 
+            // guna2Panel2
+            // 
+            this.guna2Panel2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Panel2.Controls.Add(this.btn_AddData_banHang);
+            this.guna2Panel2.Location = new System.Drawing.Point(3, 155);
+            this.guna2Panel2.Name = "guna2Panel2";
+            this.guna2Panel2.Size = new System.Drawing.Size(200, 70);
+            this.guna2Panel2.TabIndex = 11;
+            // 
+            // btn_AddData_banHang
+            // 
+            this.btn_AddData_banHang.Animated = true;
+            this.btn_AddData_banHang.BackColor = System.Drawing.Color.Transparent;
+            this.btn_AddData_banHang.BorderRadius = 15;
+            this.btn_AddData_banHang.CheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.btn_AddData_banHang.CustomImages.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btn_AddData_banHang.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_AddData_banHang.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_AddData_banHang.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_AddData_banHang.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_AddData_banHang.FillColor = System.Drawing.Color.Transparent;
+            this.btn_AddData_banHang.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.btn_AddData_banHang.ForeColor = System.Drawing.Color.White;
+            this.btn_AddData_banHang.Image = ((System.Drawing.Image)(resources.GetObject("btn_AddData_banHang.Image")));
+            this.btn_AddData_banHang.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btn_AddData_banHang.Location = new System.Drawing.Point(0, 0);
+            this.btn_AddData_banHang.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_AddData_banHang.Name = "btn_AddData_banHang";
+            this.btn_AddData_banHang.Size = new System.Drawing.Size(200, 60);
+            this.btn_AddData_banHang.TabIndex = 7;
+            this.btn_AddData_banHang.Text = "bán Hàng";
+            this.btn_AddData_banHang.TextOffset = new System.Drawing.Point(1, 0);
+            this.btn_AddData_banHang.Click += new System.EventHandler(this.btn_AddData_banHang_Click);
+            // 
             // btn_SignOut
             // 
             this.btn_SignOut.Animated = true;
@@ -370,7 +442,7 @@
             this.btn_SignOut.Image = ((System.Drawing.Image)(resources.GetObject("btn_SignOut.Image")));
             this.btn_SignOut.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_SignOut.ImageOffset = new System.Drawing.Point(7, 0);
-            this.btn_SignOut.Location = new System.Drawing.Point(0, 595);
+            this.btn_SignOut.Location = new System.Drawing.Point(0, 743);
             this.btn_SignOut.Margin = new System.Windows.Forms.Padding(0);
             this.btn_SignOut.Name = "btn_SignOut";
             this.btn_SignOut.Size = new System.Drawing.Size(200, 60);
@@ -399,10 +471,12 @@
             this.pn_EmployeeList.ResumeLayout(false);
             this.pn_EmployeeShift.ResumeLayout(false);
             this.pn_Customer.ResumeLayout(false);
-            this.pn_Menu_Financial.ResumeLayout(false);
             this.guna2Panel3.ResumeLayout(false);
             this.pn_Report.ResumeLayout(false);
+            this.pn_Menu_Financial.ResumeLayout(false);
             this.pn_AddData.ResumeLayout(false);
+            this.guna2Panel1.ResumeLayout(false);
+            this.guna2Panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -430,5 +504,9 @@
         private Guna.UI2.WinForms.Guna2Button btn_AddData;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
         private Guna.UI2.WinForms.Guna2Button btn_SignOut;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        private Guna.UI2.WinForms.Guna2Button btn_AddData_ChamCong;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
+        private Guna.UI2.WinForms.Guna2Button btn_AddData_banHang;
     }
 }
