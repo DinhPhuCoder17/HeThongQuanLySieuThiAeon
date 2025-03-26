@@ -32,5 +32,10 @@ namespace Trang_chủ_Main_Page_
         {
 
         }
+
+        private void btnTaoTaiKhoan_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

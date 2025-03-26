@@ -35,7 +35,7 @@ def main(csv_file):
     data = pd.read_csv(csv_file)
 
     # Tham so lead_time (so ky de nhan hang)
-    lead_time = 2
+    lead_time = 1
 
     # Tai mo hinh da huan luyen
     reg_model = joblib.load(model_path)

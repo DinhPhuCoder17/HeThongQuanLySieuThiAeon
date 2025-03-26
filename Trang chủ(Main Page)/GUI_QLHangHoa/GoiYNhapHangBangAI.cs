@@ -74,5 +74,30 @@ namespace Trang_chủ_Main_Page_
         {
 
         }
+        private void btnNhapHang_Click(object sender, EventArgs e)
+        {
+            DatHang datHangForm = Application.OpenForms.OfType<DatHang>().FirstOrDefault();
+
+            if (datHangForm != null)
+            {
+                foreach (DataGridViewRow row in dgvGoiYNhapHang.SelectedRows)
+                {
+                    string tenHang = row.Cells["Column11"].Value.ToString();
+                    string tenNCC = row.Cells["Column5"].Value.ToString();
+                    int soLuong = Convert.ToInt32(row.Cells["Column12"].Value);
+                    double giaGoc = Convert.ToDouble(row.Cells["Column13"].Value);
+
+                    datHangForm.AddItem_Dgv(tenHang, tenNCC, soLuong, giaGoc);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Không có dữ liệu.");
+            }
+
+            this.Close();
+        }
+
+
     }
 }

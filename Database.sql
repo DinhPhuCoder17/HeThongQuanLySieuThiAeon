@@ -693,6 +693,7 @@ VALUES
     ('HH0008', N'Kem đánh răng P/S', 25000, N'Hóa phẩm', 35000, NULL, 500, '10%', 'NCC0008', '2025-05-18', 1),
     ('HH0009', N'Nước mắm Nam Ngư 500ml', 32000, N'Thực phẩm', 45000, NULL, 500, '6%', 'NCC0009', '2025-04-10', 1),
     ('HH0010', N'Khẩu trang y tế 50 cái', 45000, N'Chăm sóc sức khỏe', 60000, NULL, 500, '20%', 'NCC0010', '2025-03-01', 1);
+	
 
 
 INSERT INTO Hoadonbanhang (Mahoadon, Thoigianban, Manhanvien, Sodienthoai, Thanhtien) VALUES
@@ -742,3 +743,6 @@ EXEC themChamCong '2025-03-15', '09:30:00', '15:30:00', 'CL0001', 'NV0003';
 Select * From Chamcong
 
 
+UPDATE Hanghoa  
+SET ImageData = (SELECT * FROM OPENROWSET(BULK 'C:\Users\ducx3\OneDrive\QuanLySinhVien\anh1.png', SINGLE_BLOB) AS ImageFile)  
+WHERE Mahanghoa = 'HH0001';
