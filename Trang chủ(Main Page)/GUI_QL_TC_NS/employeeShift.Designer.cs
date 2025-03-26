@@ -119,6 +119,7 @@
             // 
             // btnPrevCalendar
             // 
+            this.btnPrevCalendar.Animated = true;
             this.btnPrevCalendar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnPrevCalendar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnPrevCalendar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -137,6 +138,7 @@
             // 
             // btn_NextCalendar
             // 
+            this.btn_NextCalendar.Animated = true;
             this.btn_NextCalendar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btn_NextCalendar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btn_NextCalendar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));

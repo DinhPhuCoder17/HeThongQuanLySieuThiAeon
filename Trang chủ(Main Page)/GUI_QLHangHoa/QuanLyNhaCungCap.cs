@@ -88,5 +88,10 @@ namespace Trang_chu_Main_Page_.GUI_QLHangHoa
         {
             t_Supplier_Add.Stop();
         }
+
+        private void btnLuuNCC_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

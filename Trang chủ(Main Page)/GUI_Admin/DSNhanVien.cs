@@ -74,9 +74,6 @@ namespace Trang_chủ_Main_Page_
         }
 
 
-        private void btnLuu_Click(object sender, EventArgs e)
-        {
-
-        }
+     
     }
 }
