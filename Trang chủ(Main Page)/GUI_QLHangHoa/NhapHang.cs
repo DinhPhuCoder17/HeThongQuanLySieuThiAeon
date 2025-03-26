@@ -53,5 +53,11 @@ namespace Trang_chủ_Main_Page_
 
 
         }
+
+        private void dgvNhapHang_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Form CTDH = new CTDH();
+            CTDH.ShowDialog();
+        }
     }
 }
