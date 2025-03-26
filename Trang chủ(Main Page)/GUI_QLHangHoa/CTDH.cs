@@ -124,5 +124,17 @@ namespace Trang_chủ_Main_Page_
             KhieuNai kN = new KhieuNai();
             kN.Show();
         }
+
+        // Xử lý sự kiện khi người dùng chọn một dòng trên bảng hóa đơn đặt hàng
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        //Cập nhật lại mã đặt hàng
+        public void UpdateMaDH(string maDH)
+        {
+           lbMaDH.Text = maDH;
+        }
     }
 }

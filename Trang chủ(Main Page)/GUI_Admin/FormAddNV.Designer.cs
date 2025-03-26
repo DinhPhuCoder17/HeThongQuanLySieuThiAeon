@@ -94,6 +94,7 @@
             this.btnTaoTaiKhoan.Size = new System.Drawing.Size(200, 58);
             this.btnTaoTaiKhoan.TabIndex = 32;
             this.btnTaoTaiKhoan.Text = "Thêm nhân viên";
+            this.btnTaoTaiKhoan.Click += new System.EventHandler(this.btnTaoTaiKhoan_Click);
             // 
             // txtDiaChi
             // 

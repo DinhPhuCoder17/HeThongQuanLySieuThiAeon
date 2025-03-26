@@ -36,7 +36,7 @@ CREATE TABLE Quanly (
 
 CREATE TABLE HD_Nhaphang (
     Sohd varchar(10) CONSTRAINT PK_HD_Nhaphang PRIMARY KEY,
-    Ngaydat DATE,
+    Ngaydat DATETIME,
     Trangthai NVARCHAR(50),
     Tongtien DECIMAL(18, 2),
 	Soluong INT,
@@ -161,38 +161,8 @@ CREATE TABLE Batbuoc(
 
 
 --Trigger--
---Trigger doi trang thai nhap hang, cap nhat so luong ton kho--
-go
-Create trigger tg_TTNhapHang
-on HD_HH
-For Update
-As
-Begin
-	--Doi trang thai--
-	if exists(
-		Select *
-		From HD_HH
-		Where Soluongnhan != Soluongdat
-	)
-	Begin
-		Update HD_Nhaphang set Trangthai = N'Chưa xử lý'
-	End
-	Else
-	Begin
-		Update HD_Nhaphang set Trangthai = N'Đã xử lý'
-	End
-
-	--Them so luong trong kho--
-	Declare @soluongbd int, @soluongmoi int
-	Select @soluongbd = Soluongnhan From deleted
-	Select @soluongmoi = Soluongnhan From inserted
-
-	UPDATE Hanghoa
-    SET Soluong = Soluong + (@soluongmoi - @soluongbd)
-    FROM Hanghoa hh
-    JOIN deleted d ON hh.Mahanghoa = d.Mahanghoa
-End
--- End Trigger doi trang thai nhap hang, cap nhat so luong ton kho--
+--Trigger đếm giờ chuyển trạng thái xác nhận--
+-- End Trigger đếm giờ chuyển trạng thái xác nhận--
 
 --Trigger tranh nhan vien cham cong 2 lan--
 go
@@ -494,8 +464,6 @@ End;
 --Procedure thêm mã hoá đơn nhập hàng--
 go
 create proc themMaHDNH
-	@Ngaydat DATE,
-    @Trangthai NVARCHAR(50),
     @Tongtien DECIMAL(18, 2),
 	@Soluong INT
 As
@@ -504,7 +472,7 @@ Declare @newMaHDNH varchar(10);
 Declare @maxMaHDNH varchar(10);
 Declare @soMoi int;
 	--Lấy mã hoá đơn nhập hàng lớn nhất hiện tại
-Select @maxMaHDNH = MAX(Macalam) from Calam;
+Select @maxMaHDNH = MAX(Sohd) from HD_Nhaphang
 	--Nếu chưa có hoá đơn nhập hàng, mã đầu tiên là NH0001
 	If @maxMaHDNH is null
 		Set @newMaHDNH = 'NH0001';
@@ -516,7 +484,7 @@ Select @maxMaHDNH = MAX(Macalam) from Calam;
 	End
 	--Insert
 	Insert into HD_Nhaphang(Sohd, Ngaydat, Trangthai, Tongtien, Soluong, Hanthanhtoan)
-	Values (@newMaHDNH, @Ngaydat, @Trangthai, @Tongtien, @Soluong, DATEADD(MONTH, 1, @Ngaydat));
+	Values (@newMaHDNH, getDate(), N'Chờ Xác Nhận', @Tongtien, @Soluong, DATEADD(MONTH, 1, GETDATE()));
 	print 'adding successfully: ' + @newMaHDNH;
 End;
 
@@ -693,6 +661,7 @@ VALUES
     ('HH0008', N'Kem đánh răng P/S', 25000, N'Hóa phẩm', 35000, NULL, 500, '10%', 'NCC0008', '2025-05-18', 1),
     ('HH0009', N'Nước mắm Nam Ngư 500ml', 32000, N'Thực phẩm', 45000, NULL, 500, '6%', 'NCC0009', '2025-04-10', 1),
     ('HH0010', N'Khẩu trang y tế 50 cái', 45000, N'Chăm sóc sức khỏe', 60000, NULL, 500, '20%', 'NCC0010', '2025-03-01', 1);
+	
 
 
 INSERT INTO Hoadonbanhang (Mahoadon, Thoigianban, Manhanvien, Sodienthoai, Thanhtien) VALUES
@@ -726,7 +695,7 @@ exec themMacalam N'Ca thường', '2024-03-15 16:30:00', '2024-03-15 21:30:00', 
 exec themMacalam N'Ca thường', '2025-03-14 16:30:00', '2024-03-15 21:30:00', 3
 exec themMacalam N'Ca thường', '2025-03-13 08:30:00', '2025-03-13 15:30:00', 3
 
-Select * From Calam
+
 Insert into Batbuoc values('CL0001', 'NV0001')
 Insert into Batbuoc values('CL0001', 'NV0002')
 Insert into Batbuoc values('CL0001', 'NV0003')
@@ -739,6 +708,9 @@ EXEC themChamCong '2025-03-15', '08:30:00', '15:30:00', 'CL0001', 'NV0001';
 EXEC themChamCong '2025-03-15', '10:30:00', '17:30:00', 'CL0001', 'NV0002';
 EXEC themChamCong '2025-03-15', '09:30:00', '15:30:00', 'CL0001', 'NV0003';
 
-Select * From Chamcong
+
+Select * From HD_Nhaphang
+Delete from HD_Nhaphang
+exec themMaHDNH 10000, 10
 
 

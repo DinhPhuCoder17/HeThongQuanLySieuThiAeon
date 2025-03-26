@@ -1,4 +1,5 @@
-﻿using Guna.UI2.WinForms;
+﻿using BLL;
+using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -106,6 +107,8 @@ namespace Trang_chủ_Main_Page_
         private void btnNhapHang_Click(object sender, EventArgs e)
         {
             container(new NhapHang());
+            BLLQuanLyKho bll_QuanLyKho = new BLLQuanLyKho();
+            bll_QuanLyKho.AutoUpdateTrangThaiNhapHang();
         }
 
         private void guna2Panel3_Paint(object sender, PaintEventArgs e)
