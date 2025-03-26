@@ -23,59 +23,6 @@ namespace Trang_chủ_Main_Page_
         {
             InitializeComponent();
         }
-        bool menuEmployeeExpand=false;
-        bool sidebarExpand = true;
-        bool menuCustomerExpand=false;
-        private void guna2ControlBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2CustomGradientPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void guna2Button1_Click(object sender, EventArgs e)
-        {
-
-
-        }
-
-        private void guna2CustomGradientPanel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void guna2PictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void menuTrainsition_Tick(object sender, EventArgs e)
-        {
-          
-        }
-
-        private void btnMenu_Click(object sender, EventArgs e)
-        {
-              
-        }
-
-        private void sidebarTransition_Tick(object sender, EventArgs e)
-        {
-          
-        }
-
-        private void guna2PictureBox2_Click(object sender, EventArgs e)
-        {
-            
-        }
 
         private void EmployeeMainPage_Load(object sender, EventArgs e)
         {
@@ -93,10 +40,7 @@ namespace Trang_chủ_Main_Page_
             }
         }
 
-        private void sidebarContainer_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+     
 
         private void btnEmployeeAdd_Click(object sender, EventArgs e)
         {
@@ -121,15 +65,7 @@ namespace Trang_chủ_Main_Page_
             financialManagement = null;
         }
 
-        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void guna2VSeparator1_Click(object sender, EventArgs e)
-        {
-                    }
-
+      
         private void btnEmployeeShift_Click(object sender, EventArgs e)
         {
             if (employeeShift == null)
@@ -146,24 +82,6 @@ namespace Trang_chủ_Main_Page_
             }
         }
 
-        private void guna2Button5_Click(object sender, EventArgs e)
-        {
-     
-        }
-
-     
-
-       
-
-        private void menuCustomerTransiton_Tick(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void menuEmployeeTransition_Tick(object sender, EventArgs e)
-        {
-           
-        }
 
         private void btnCustomer_Click(object sender, EventArgs e)
         {
@@ -197,10 +115,7 @@ namespace Trang_chủ_Main_Page_
             }
         }
 
-        private void guna2Separator5_Click(object sender, EventArgs e)
-        {
-
-        }
+      
 
         private void btn_Statistic_Click(object sender, EventArgs e)
         {
@@ -218,22 +133,16 @@ namespace Trang_chủ_Main_Page_
             }
         }
 
-        private void guna2Button1_Click_1(object sender, EventArgs e)
+      
+
+        private void btn_AddData_banHang_Click(object sender, EventArgs e)
         {
-            using (OpenFileDialog openFileDialog = new OpenFileDialog())
-            {
-                openFileDialog.Title = "Chọn file Excel";
-                openFileDialog.Filter = "Excel Files|*.xls;*.xlsx";
+            
+        }
 
-                if (openFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    string excelPath = openFileDialog.FileName;
-                    MessageBox.Show("Đã chọn file: " + excelPath, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    // Thực hiện đọc file Excel (có thể dùng EPPlus hoặc OpenXml)
-                }
-            }
-
+        private void btn_AddData_ChamCong_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }

@@ -27,6 +27,7 @@ namespace Trang_chủ_Main_Page_
 
         private void employeeFilterOut_Load(object sender, EventArgs e)
         {
+            dtg_DSCC.DataSource = bLL_QuanlyTCNS.xemDSCC();
             dtg_Employee.DataSource = bLL_QuanlyTCNS.xemDSNV();
             dtg_Employee.Columns[0].HeaderText = "Mã nhân viên";
             dtg_Employee.Columns[1].HeaderText = "Họ tên";

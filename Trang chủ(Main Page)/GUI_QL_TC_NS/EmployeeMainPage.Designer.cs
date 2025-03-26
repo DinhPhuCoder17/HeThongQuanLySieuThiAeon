@@ -53,7 +53,7 @@
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.btn_AddData_ChamCong = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            this.btn_AddData_banHang = new Guna.UI2.WinForms.Guna2Button();
             this.btn_SignOut = new Guna.UI2.WinForms.Guna2Button();
             this.sidebarContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
@@ -109,7 +109,6 @@
             this.sidebarContainer.Name = "sidebarContainer";
             this.sidebarContainer.Size = new System.Drawing.Size(200, 842);
             this.sidebarContainer.TabIndex = 3;
-            this.sidebarContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.sidebarContainer_Paint);
             // 
             // guna2PictureBox2
             // 
@@ -123,7 +122,6 @@
             this.guna2PictureBox2.TabIndex = 2;
             this.guna2PictureBox2.TabStop = false;
             this.guna2PictureBox2.UseTransparentBackground = true;
-            this.guna2PictureBox2.Click += new System.EventHandler(this.guna2PictureBox2_Click);
             // 
             // guna2PictureBox1
             // 
@@ -137,7 +135,6 @@
             this.guna2PictureBox1.TabIndex = 0;
             this.guna2PictureBox1.TabStop = false;
             this.guna2PictureBox1.UseTransparentBackground = true;
-            this.guna2PictureBox1.Click += new System.EventHandler(this.guna2PictureBox1_Click);
             // 
             // menuEmployeeContainer
             // 
@@ -148,7 +145,6 @@
             this.menuEmployeeContainer.Name = "menuEmployeeContainer";
             this.menuEmployeeContainer.Size = new System.Drawing.Size(200, 144);
             this.menuEmployeeContainer.TabIndex = 2;
-            this.menuEmployeeContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
             // 
             // pn_EmployeeList
             // 
@@ -393,40 +389,41 @@
             this.btn_AddData_ChamCong.TabIndex = 7;
             this.btn_AddData_ChamCong.Text = "Chấm Công";
             this.btn_AddData_ChamCong.TextOffset = new System.Drawing.Point(1, 0);
-            this.btn_AddData_ChamCong.Click += new System.EventHandler(this.guna2Button1_Click_1);
+            this.btn_AddData_ChamCong.Click += new System.EventHandler(this.btn_AddData_ChamCong_Click);
             // 
             // guna2Panel2
             // 
             this.guna2Panel2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Panel2.Controls.Add(this.guna2Button2);
+            this.guna2Panel2.Controls.Add(this.btn_AddData_banHang);
             this.guna2Panel2.Location = new System.Drawing.Point(3, 155);
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.Size = new System.Drawing.Size(200, 70);
             this.guna2Panel2.TabIndex = 11;
             // 
-            // guna2Button2
+            // btn_AddData_banHang
             // 
-            this.guna2Button2.Animated = true;
-            this.guna2Button2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button2.BorderRadius = 15;
-            this.guna2Button2.CheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button2.CustomImages.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button2.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.guna2Button2.ForeColor = System.Drawing.Color.White;
-            this.guna2Button2.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button2.Image")));
-            this.guna2Button2.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button2.Location = new System.Drawing.Point(0, 0);
-            this.guna2Button2.Margin = new System.Windows.Forms.Padding(0);
-            this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.Size = new System.Drawing.Size(200, 60);
-            this.guna2Button2.TabIndex = 7;
-            this.guna2Button2.Text = "bán Hàng";
-            this.guna2Button2.TextOffset = new System.Drawing.Point(1, 0);
+            this.btn_AddData_banHang.Animated = true;
+            this.btn_AddData_banHang.BackColor = System.Drawing.Color.Transparent;
+            this.btn_AddData_banHang.BorderRadius = 15;
+            this.btn_AddData_banHang.CheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.btn_AddData_banHang.CustomImages.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btn_AddData_banHang.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_AddData_banHang.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_AddData_banHang.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_AddData_banHang.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_AddData_banHang.FillColor = System.Drawing.Color.Transparent;
+            this.btn_AddData_banHang.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.btn_AddData_banHang.ForeColor = System.Drawing.Color.White;
+            this.btn_AddData_banHang.Image = ((System.Drawing.Image)(resources.GetObject("btn_AddData_banHang.Image")));
+            this.btn_AddData_banHang.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btn_AddData_banHang.Location = new System.Drawing.Point(0, 0);
+            this.btn_AddData_banHang.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_AddData_banHang.Name = "btn_AddData_banHang";
+            this.btn_AddData_banHang.Size = new System.Drawing.Size(200, 60);
+            this.btn_AddData_banHang.TabIndex = 7;
+            this.btn_AddData_banHang.Text = "bán Hàng";
+            this.btn_AddData_banHang.TextOffset = new System.Drawing.Point(1, 0);
+            this.btn_AddData_banHang.Click += new System.EventHandler(this.btn_AddData_banHang_Click);
             // 
             // btn_SignOut
             // 
@@ -510,6 +507,6 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2Button btn_AddData_ChamCong;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
-        private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private Guna.UI2.WinForms.Guna2Button btn_AddData_banHang;
     }
 }

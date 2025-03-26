@@ -17,7 +17,11 @@ namespace BLL
 
         private readonly DAL_QuanlyTCNS dAL_QuanlyTCNS = new DAL_QuanlyTCNS();
 
-
+        //Xem danh sách chấm công
+        public DataTable xemDSCC()
+        {
+            return dAL_QuanlyTCNS.xemDSCC();
+        }
         //Xem danh sách nhân viên
         public DataTable xemDSNV()
         {

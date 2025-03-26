@@ -12,7 +12,11 @@ namespace DAL
 {
     public class DAL_QuanlyTCNS
     {
-
+        // Xem Danh Sách Chấm Công
+        public DataTable xemDSCC()
+        {
+            return DataProvider.Instance.ExecuteQuery("Select ID, ThoigianCN, Checkin, Checkout, Socong, Trangthai, Macalam, Manhanvien From Chamcong");
+        }
         //Xem danh sách nhân viên
         public DataTable xemDSKH()
         {

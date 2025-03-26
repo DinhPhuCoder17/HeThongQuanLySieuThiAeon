@@ -1646,7 +1646,7 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1u3/ANwaLKEidHJSAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="guna2Button2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btn_AddData_banHang.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAfQAAAH0CAYAAADL1t+KAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         vAAADrwBlbxySQAAFeBJREFUeF7t3XusbGV9x2HwjoCoofEaaUVrVdQqVVHRamtQrKhpbRtKK40oVsQL
@@ -1748,7 +1748,7 @@
   <data name="btn_SignOut.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAfQAAAH0CAYAAADL1t+KAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vgAADr4B6kKxwAAAHkBJREFUeF7t3Xm0rXdd33GDA2QQQcYEQ2kYEpJWQYZASJkklkCWEpHlEJlkMNqy
+        vAAADrwBlbxySQAAHkBJREFUeF7t3Xm0rXdd33GDA2QQQcYEQ2kYEpJWQYZASJkklkCWEpHlEJlkMNqy
         NNiuhYshgBUh2AUyiIaFgmCRWobKUEtAE8ChwWK7KrWpSxuEMIRAIJckTMmn67nZ93ruN/eee4a99/M8
         v9/rtdb579xz9v79fs/vfZ/n7L2fb/kWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA5ijJ7ZJ8b5J/meTpSc5PcmGS9ya52Nf+r4uSvDXJq5M8N8mP
