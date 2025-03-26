@@ -48,5 +48,16 @@ namespace BLL
         {
             return dAL_QuanLyKho.xemDSNH();
         }
+
+        // Hủy hóa đơn
+        public Boolean huyHD(String soHD)
+        {
+            return dAL_QuanLyKho.huyHD(soHD);
+        }
+
+        public Boolean capNhatTTDH(DTO_HDNhapHang hDNhapHang)
+        {
+            return dAL_QuanLyKho.capNhatTTDH(hDNhapHang);
+        }
 }
 }
