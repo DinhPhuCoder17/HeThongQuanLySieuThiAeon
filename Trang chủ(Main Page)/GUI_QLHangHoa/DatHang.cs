@@ -51,7 +51,7 @@ namespace Trang_chủ_Main_Page_
                 Title = name,
                 Supplier = Supplier,
                 Cost = cost,
-                Icon = icon 
+                Icon = icon
             };
 
            // c.Load_Data((byte[])DataProvider.Instance.ExecuteScalar("SELECT ImageData FROM Hanghoa WHERE Mahanghoa = 'HH0001'"));

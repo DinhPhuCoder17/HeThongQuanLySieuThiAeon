@@ -10,7 +10,11 @@ namespace DAL
 {
     public class DataProvider
     {
+<<<<<<<<< Temporary merge branch 1
+        private String connectionStr = @"Data Source=DESKTOP-9UCJD9K;Initial Catalog=QuanLySieuThiAEON;Integrated Security=True;TrustServerCertificate=True";
+=========
         private String connectionStr = @"Data Source=.\SQLEXPRESS;Initial Catalog=QuanLySieuThiAEON;Integrated Security=True";
+>>>>>>>>> Temporary merge branch 2
         
         //Tạo singleton
         private static DataProvider instance;

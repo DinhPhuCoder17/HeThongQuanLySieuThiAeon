@@ -7,19 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DTO;
-using BLL;
 
 namespace Trang_chủ_Main_Page_
 {
     public partial class Mainpage : Form
     {
         public static int pageSelection = 1;
-
-        DTO_Account account = new DTO_Account();
         public Mainpage()
         {
             InitializeComponent();
+            bll_QuanLyKho.AutoUpdateTrangThaiNhapHang();
         }
 
         private void Form1_Load(object sender, EventArgs e)

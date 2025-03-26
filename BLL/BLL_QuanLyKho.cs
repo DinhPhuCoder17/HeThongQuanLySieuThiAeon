@@ -12,6 +12,7 @@ namespace BLL
 {
     public class BLLQuanLyKho
     {
+        private readonly DAL_QuanLyKho dAL_QuanLyKho = new DAL_QuanLyKho();
         public List<DTO_Hanghoa> hangHoa_NhapHang()
         {
             DataTable dt = DAL_QuanLyKho.hangHoa_NhapHang();
@@ -35,5 +36,28 @@ namespace BLL
 
             return list;
         }
-    }
+
+        // Auto update trạng thái nhập hàng
+        public void AutoUpdateTrangThaiNhapHang()
+        {
+            dAL_QuanLyKho.AutoUpdateTrangThaiNhapHang();
+        }
+
+        // Xem danh sách nhập hàng
+        public DataTable xemDSNH()
+        {
+            return dAL_QuanLyKho.xemDSNH();
+        }
+
+        // Hủy hóa đơn
+        public Boolean huyHD(String soHD)
+        {
+            return dAL_QuanLyKho.huyHD(soHD);
+        }
+
+        public Boolean capNhatTTDH(DTO_HDNhapHang hDNhapHang)
+        {
+            return dAL_QuanLyKho.capNhatTTDH(hDNhapHang);
+        }
+}
 }
