@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Data;
 using System.Text;
 using System.Data.SqlClient;
+using DTO;
+using Microsoft.Identity.Client;
 
 namespace DAL
 {
@@ -138,5 +140,7 @@ namespace DAL
             }
             return dt;
         }
+
+
     }
 }
