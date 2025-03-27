@@ -195,7 +195,7 @@
             this.btnLuu.Size = new System.Drawing.Size(163, 58);
             this.btnLuu.TabIndex = 30;
             this.btnLuu.Text = "Lưu";
-            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
+            //this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // guna2DataGridView2
             // 

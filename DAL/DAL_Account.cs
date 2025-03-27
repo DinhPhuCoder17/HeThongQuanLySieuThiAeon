@@ -28,7 +28,7 @@ namespace DAL
         {
             string querry = "Select * from Quanly where Username = @username and Password = @password ";
             object result = DataProvider.Instance.ExecuteScalar(querry, new object[] { username, password });
-            return (int)result > 0;
+            return result != null;
         }
 
         public DTO_Account GetAccountByUsername(string username)

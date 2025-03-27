@@ -7,12 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BLL;
 
 namespace Trang_chủ_Main_Page_
 {
     public partial class Mainpage : Form
     {
         public static int pageSelection = 1;
+
+        BLLQuanLyKho bll_QuanLyKho = new BLLQuanLyKho();
         public Mainpage()
         {
             InitializeComponent();
@@ -43,12 +46,13 @@ namespace Trang_chủ_Main_Page_
             if(bll_account.Login (userName, password))
             {
                 loading load = new loading();
+                pageSelection = int.Parse(userName);
                 load.Show();
                 this.Hide();
             }
             else
             {
-                MessageBox.Show("Sike! That's the wrong number!");
+                MessageBox.Show("Tên đăng nhập hoặc mật khẩu sai", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
