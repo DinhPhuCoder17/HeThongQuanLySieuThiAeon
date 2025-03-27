@@ -119,6 +119,7 @@ CREATE TABLE HD_HH (
 	Ngaysanxuat DATE,
 	Hansudung DATE,
 	Thanhtien Decimal(18,2),
+	Trangthai nvarchar(100),
     CONSTRAINT PK_HD_HH PRIMARY KEY (Mahanghoa, Sohd),
     CONSTRAINT FK_HD_HH_Mahanghoa FOREIGN KEY (Mahanghoa) REFERENCES Hanghoa(Mahanghoa),
     CONSTRAINT FK_HD_HH_Sohd FOREIGN KEY (Sohd) REFERENCES HD_Nhaphang(Sohd)
@@ -623,7 +624,7 @@ Begin
 	Select @Thanhtien = @Soluongdat * Tiennhap
 	From Hanghoa
 
-	Insert into HD_HH values (@Mahanghoa, @Sohd, getDate(), @Soluongdat, 0, null, null, @Thanhtien)
+	Insert into HD_HH values (@Mahanghoa, @Sohd, getDate(), @Soluongdat, 0, null, null, @Thanhtien, N'Chưa Nhập Kho')
 End
 --Thêm vào chi tiết HDNH--
 
@@ -729,7 +730,7 @@ EXEC themChamCong '2025-03-15', '09:30:00', '15:30:00', 'CL0001', 'NV0003';
 --Select * From HD_HH
 --Delete from HD_Nhaphang
 exec themMaHDNH 10000, 10
-exec themHD_HH 'HH0002', 'NH0001', 100, '2025/03/27'
+exec themHD_HH 'HH0002', 'NH0001', 100
 
 Insert into Quanly values
 ('NV0001', '1', '123'),

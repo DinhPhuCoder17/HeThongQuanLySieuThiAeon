@@ -834,16 +834,12 @@
       <Project>{1f0d01dc-9590-4b16-9d69-43a3b01ba9f9}</Project>
       <Name>BLL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DAL\DAL.csproj">
-      <Project>{F165EB70-DABB-4490-B04E-E1213B9B22C8}</Project>
-      <Name>DAL</Name>
-    </ProjectReference>
     <ProjectReference Include="..\DTO\DTO.csproj">
       <Project>{eadb2919-dc31-4986-b668-1678aeeeab32}</Project>
       <Name>DTO</Name>
     </ProjectReference>
     <ProjectReference Include="..\PythonModel\PythonModel.csproj">
-      <Project>{ac3f8483-b95d-4964-8644-711a1d63908a}</Project>
+      <Project>{647aa272-310b-4d4f-8f3a-b2b5475a524a}</Project>
       <Name>PythonModel</Name>
     </ProjectReference>
   </ItemGroup>
@@ -858,6 +854,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Exit_Icon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Data.SqlClient.SNI.6.0.2\build\net462\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('..\packages\Microsoft.Data.SqlClient.SNI.6.0.2\build\net462\Microsoft.Data.SqlClient.SNI.targets')" />

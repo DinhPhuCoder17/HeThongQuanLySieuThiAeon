@@ -159,11 +159,6 @@ namespace Trang_chủ_Main_Page_
 
         }
 
-        private void guna2GradientButton2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void splitContainer1_SplitterMoved(object sender, SplitterEventArgs e)
         {
 
@@ -202,21 +197,33 @@ namespace Trang_chủ_Main_Page_
                 MessageBox.Show("Vui lòng chọn dòng cần xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-       /* private void btnLuuDonHang_Click(object sender, EventArgs e)
+        private void btnLuuDonHang_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Bạn có muốn đặt đơn hàng này?", "Xác nhận",
-                                                  MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
+                                                      MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                bool isSuccess = orderBLL.datHang(tongGiaTri, tongSoLuong);
+                List<DTO_HH_HDNH> dsChiTiet = GetHangHoaFromDGV();
+                BLLQuanLyKho QuanLyKho = new BLLQuanLyKho();
+
+                int tongSoLuong;
+                double tongTien;
+                List<Tuple<string, int>> listMaHangSoLuong;
+
+                bool isSuccess = QuanLyKho.datHang(dsChiTiet, out tongSoLuong, out tongTien, out listMaHangSoLuong);
 
                 if (isSuccess)
-                    MessageBox.Show("Cập nhật tổng số lượng và tổng tiền thành công!");
+                {
+                    MessageBox.Show("Cập nhật thành công!\nTổng số lượng: " + tongSoLuong +
+                                    "\nTổng tiền: " + tongTien.ToString("#,##0") + " đ");
+                }
                 else
+                {
                     MessageBox.Show("Cập nhật thất bại, vui lòng kiểm tra lại!");
+                }
             }
-        }*/
+        }
+
         public List<DTO_HH_HDNH> GetHangHoaFromDGV()
         {
             List<DTO_HH_HDNH> list = new List<DTO_HH_HDNH>();
@@ -227,21 +234,21 @@ namespace Trang_chủ_Main_Page_
                 {
                     string maHang = row.Cells["MaHangHoa"].Value.ToString();
 
-                    string tenHang = row.Cells["TenHangHoa"].Value != null
-                                     ? row.Cells["TenHangHoa"].Value.ToString()
+                    string tenHang = row.Cells["Column6"].Value != null
+                                     ? row.Cells["Column6"].Value.ToString()
                                      : "";
 
                     int soLuongDat = 0;
-                    if (row.Cells["SoLuong"].Value != null
-                        && int.TryParse(row.Cells["SoLuong"].Value.ToString(), out int tempSoLuong))
+                    if (row.Cells["Column8"].Value != null
+                        && int.TryParse(row.Cells["Column8"].Value.ToString(), out int tempSoLuong))
                     {
                         soLuongDat = tempSoLuong;
                     }
 
                     float giaNhap = 0f;
-                    if (row.Cells["DonGia"].Value != null)
+                    if (row.Cells["Column9"].Value != null)
                     {
-                        string donGiaStr = row.Cells["DonGia"].Value
+                        string donGiaStr = row.Cells["Column9"].Value
                             .ToString()
                             .Replace("đ", "")
                             .Replace(",", "")
@@ -277,9 +284,6 @@ namespace Trang_chủ_Main_Page_
 
             return list;
         }
-
-
-
 
 
     }
