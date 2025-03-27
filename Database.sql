@@ -117,7 +117,8 @@ CREATE TABLE HD_HH (
 	Soluongdat INT,
 	Soluongnhan INT,
 	Ngaysanxuat DATE,
-	Hansudung DATE
+	Hansudung DATE,
+	Thanhtien Decimal(18,2),
     CONSTRAINT PK_HD_HH PRIMARY KEY (Mahanghoa, Sohd),
     CONSTRAINT FK_HD_HH_Mahanghoa FOREIGN KEY (Mahanghoa) REFERENCES Hanghoa(Mahanghoa),
     CONSTRAINT FK_HD_HH_Sohd FOREIGN KEY (Sohd) REFERENCES HD_Nhaphang(Sohd)
@@ -619,11 +620,11 @@ Create proc themHD_HH
 	@Ngaysanxuat date
 As
 Begin
-	Declare @Hansudung date
-	Select @Hansudung = DATEADD(day, THSD, @Ngaysanxuat)
+	Declare @Hansudung date, @Thanhtien Decimal(18,2)
+	Select @Hansudung = DATEADD(day, THSD, @Ngaysanxuat), @Thanhtien = @Soluongdat * Tiennhap
 	From Hanghoa
 
-	Insert into HD_HH values (@Mahanghoa, @Sohd, getDate(), @Soluongdat, 0, @Ngaysanxuat, @Hansudung)
+	Insert into HD_HH values (@Mahanghoa, @Sohd, getDate(), @Soluongdat, 0, @Ngaysanxuat, @Hansudung, @Thanhtien)
 End
 --Thêm vào chi tiết HDNH--
 

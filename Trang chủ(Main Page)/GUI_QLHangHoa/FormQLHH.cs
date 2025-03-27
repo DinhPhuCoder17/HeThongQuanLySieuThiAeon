@@ -80,6 +80,11 @@ namespace Trang_chủ_Main_Page_
             MessageBoxButtons.OKCancel,
             MessageBoxIcon.Question 
             );
+
+            if(result == DialogResult.OK)
+            {
+                Application.Exit();
+            }
         }
 
         private void btnDSTonKho_Click(object sender, EventArgs e)

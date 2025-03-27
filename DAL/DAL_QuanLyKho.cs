@@ -74,5 +74,10 @@ namespace DAL
                 return false;
             }
         }
+
+        public DataTable xemCTDHBySohd(String soHD)
+        {
+            return DataProvider.Instance.ExecuteQuery("Select * From HD_HH Where Sohd = @soHD ", new object[] { soHD });
+        }
     }
 }

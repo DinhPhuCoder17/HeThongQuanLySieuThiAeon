@@ -59,5 +59,10 @@ namespace BLL
         {
             return dAL_QuanLyKho.capNhatTTDH(hDNhapHang);
         }
+
+        public DataTable xemCTDHBySohd(String soHD)
+        {
+            return dAL_QuanLyKho.xemCTDHBySohd(soHD);
+        }
 }
 }

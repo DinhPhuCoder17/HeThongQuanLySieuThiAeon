@@ -75,6 +75,7 @@ namespace Trang_chủ_Main_Page_
 
                 // Tạo form CTDH và truyền Mã đơn hàng
                 CTDH cTDH = new CTDH();
+                cTDH.loadCTHDGridview(soHDSelect);
                 cTDH.UpdateMaDH(maDH); // Gọi phương thức cập nhật trên CTDH
                 cTDH.ShowDialog(); // Hiển thị form chi tiết
             }
