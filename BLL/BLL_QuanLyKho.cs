@@ -103,5 +103,10 @@ namespace BLL
         {
             return dAL_QuanLyKho.xemCTDHBySohd(soHD);
         }
-}
+
+        public Boolean nhapKho(DTO_HDNhapHang hDNhapHang)
+        {
+            return dAL_QuanLyKho.nhapKho(hDNhapHang);
+        }
+    }
 }
