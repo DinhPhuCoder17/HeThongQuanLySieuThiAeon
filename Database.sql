@@ -616,15 +616,14 @@ go
 Create proc themHD_HH
 	@Mahanghoa varchar(10),
 	@Sohd varchar(10),
-	@Soluongdat int,
-	@Ngaysanxuat date
+	@Soluongdat int
 As
 Begin
-	Declare @Hansudung date, @Thanhtien Decimal(18,2)
-	Select @Hansudung = DATEADD(day, THSD, @Ngaysanxuat), @Thanhtien = @Soluongdat * Tiennhap
+	Declare @Thanhtien Decimal(18,2)
+	Select @Thanhtien = @Soluongdat * Tiennhap
 	From Hanghoa
 
-	Insert into HD_HH values (@Mahanghoa, @Sohd, getDate(), @Soluongdat, 0, @Ngaysanxuat, @Hansudung, @Thanhtien)
+	Insert into HD_HH values (@Mahanghoa, @Sohd, getDate(), @Soluongdat, 0, null, null, @Thanhtien)
 End
 --Thêm vào chi tiết HDNH--
 
