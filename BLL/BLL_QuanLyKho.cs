@@ -26,6 +26,7 @@ namespace BLL
             {
                 DTO_Hanghoa hangHoa = new DTO_Hanghoa
                 {
+                    MaHangHoa = row["MaHangHoa"].ToString(),
                     TenHangHoa = row["Tenhanghoa"].ToString(),
                     NhaCC = row["TenNCC"].ToString(),
                     GiaNhap = Convert.ToSingle(row["Tiennhap"]),
@@ -37,11 +38,11 @@ namespace BLL
 
             return list;
         }
-        public bool datHang(int orderID, int totalQuantity, float totalAmount)
+      /*  public bool datHang(int orderID, int totalQuantity, float totalAmount)
         {
             int result = dal.UpdateOrderTotal(orderID, totalQuantity, totalAmount);
             return result > 0;
-        }
+        }*/
 
         // Auto update trạng thái nhập hàng
         public void AutoUpdateTrangThaiNhapHang()

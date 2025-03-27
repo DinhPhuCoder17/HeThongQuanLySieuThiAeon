@@ -35,6 +35,11 @@ namespace Trang_chu_Main_Page_.DSHangHoa_Dat
 
         }
 
+        public string MaHH
+        {
+            get => label2.Text; 
+            set => label2.Text = value;
+        }
         public string Title //label1
         {
             get => label1.Text;
@@ -56,20 +61,6 @@ namespace Trang_chu_Main_Page_.DSHangHoa_Dat
             get => label3.Text;
             set => label3.Text = value;
         }
-
-        /*    public Image Icon
-           {
-               get => imgImage.Image;
-               set => imgImage.Image = value;
-           }
-           public void Load_Data(byte[] imgdata)
-           {
-               using (MemoryStream ms = new MemoryStream(imgdata))
-               {
-                   imgImage.Image = Image.FromStream(ms);
-               }
-           }*/
-
         public object Icon
         {
             get => imgImage.Image;
@@ -124,6 +115,11 @@ namespace Trang_chu_Main_Page_.DSHangHoa_Dat
         }
 
         private void txtSoLuong_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSoLuong_TextChanged_1(object sender, EventArgs e)
         {
 
         }
