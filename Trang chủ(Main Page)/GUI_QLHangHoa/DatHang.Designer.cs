@@ -60,6 +60,7 @@
             this.guna2AnimateWindow2 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2Elipse2 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.MaHangHoa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -288,6 +289,7 @@
             this.dgvDanhSachDatHang.ColumnHeadersHeight = 60;
             this.dgvDanhSachDatHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dgvDanhSachDatHang.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.MaHangHoa,
             this.Column6,
             this.Column7,
             this.Column8,
@@ -493,6 +495,13 @@
             this.guna2Elipse2.BorderRadius = 15;
             this.guna2Elipse2.TargetControl = this.label1;
             // 
+            // MaHangHoa
+            // 
+            this.MaHangHoa.HeaderText = "Mã Hàng Hóa";
+            this.MaHangHoa.MinimumWidth = 6;
+            this.MaHangHoa.Name = "MaHangHoa";
+            this.MaHangHoa.ReadOnly = true;
+            // 
             // Column6
             // 
             this.Column6.FillWeight = 109.6257F;
@@ -582,6 +591,7 @@
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox2;
         private System.Windows.Forms.Label label4;
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaHangHoa;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;

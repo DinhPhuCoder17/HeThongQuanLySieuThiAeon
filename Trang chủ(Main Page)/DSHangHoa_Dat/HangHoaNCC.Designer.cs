@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.label2 = new System.Windows.Forms.Label();
             this.txtSoLuong = new Guna.UI2.WinForms.Guna2TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.imgImage = new Guna.UI2.WinForms.Guna2PictureBox();
@@ -43,6 +44,7 @@
             this.guna2CustomGradientPanel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.guna2CustomGradientPanel1.BorderRadius = 15;
             this.guna2CustomGradientPanel1.BorderThickness = 1;
+            this.guna2CustomGradientPanel1.Controls.Add(this.label2);
             this.guna2CustomGradientPanel1.Controls.Add(this.txtSoLuong);
             this.guna2CustomGradientPanel1.Controls.Add(this.label3);
             this.guna2CustomGradientPanel1.Controls.Add(this.imgImage);
@@ -53,6 +55,15 @@
             this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(255, 324);
             this.guna2CustomGradientPanel1.TabIndex = 0;
             this.guna2CustomGradientPanel1.Click += new System.EventHandler(this.guna2PictureBox1_Click);
+            // 
+            // label2
+            // 
+            this.label2.Location = new System.Drawing.Point(139, 3);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(113, 44);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "label2";
+            this.label2.Visible = false;
             // 
             // txtSoLuong
             // 
@@ -73,6 +84,7 @@
             this.txtSoLuong.Size = new System.Drawing.Size(100, 36);
             this.txtSoLuong.TabIndex = 10;
             this.txtSoLuong.Tag = "";
+            this.txtSoLuong.TextChanged += new System.EventHandler(this.txtSoLuong_TextChanged_1);
             // 
             // label3
             // 
@@ -136,5 +148,6 @@
         public System.Windows.Forms.Label label4;
         public System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2TextBox txtSoLuong;
+        public System.Windows.Forms.Label label2;
     }
 }

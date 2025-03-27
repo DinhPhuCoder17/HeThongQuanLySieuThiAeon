@@ -7,14 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using BLL;
 
 namespace Trang_chủ_Main_Page_
 {
     public partial class Mainpage : Form
     {
         public static int pageSelection = 1;
-        private readonly BLLQuanLyKho bll_QuanLyKho = new BLLQuanLyKho();
         public Mainpage()
         {
             InitializeComponent();
@@ -36,11 +34,23 @@ namespace Trang_chủ_Main_Page_
 
         }
 
+        private BLL_Account bll_account = new BLL_Account();
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            loading load=new loading();
-            load.Show();
-            this.Hide();
+            string userName = guna2TextBox1.Text;
+            string password = guna2TextBox2.Text;
+
+            if(bll_account.Login (userName, password))
+            {
+                loading load = new loading();
+                load.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Sike! That's the wrong number!");
+            }
+
         }
 
         private void lblTk_Click(object sender, EventArgs e)

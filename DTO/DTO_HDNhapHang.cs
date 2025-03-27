@@ -19,7 +19,10 @@ namespace DTO
         public float tongTien { get; set; }
 
         public List<DTO_HH_HDNH> CT_HDNH { get; set; }
-
+        public DTO_HDNhapHang()
+        {
+            List<DTO_HH_HDNH> CT_HDNH = new List<DTO_HH_HDNH>();
+        }
         public DTO_HDNhapHang(String soHD, int soLuong, String trangThai, DateTime ngayDat, float tongTien, List<DTO_HH_HDNH> CT_HDNH)
         {
             this.soHD = soHD;
@@ -30,9 +33,5 @@ namespace DTO
             this.CT_HDNH = CT_HDNH;
         }
 
-        public DTO_HDNhapHang()
-        {
-            CT_HDNH = new List<DTO_HH_HDNH>();
-        }
     }
 }
