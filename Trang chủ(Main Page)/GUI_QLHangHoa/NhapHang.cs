@@ -68,30 +68,37 @@ namespace Trang_chủ_Main_Page_
 
         private void dgvNhapHang_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            dgvNhapHang_CellClick(sender, e);
             if (e.RowIndex >= 0)
             {
                 // Lấy giá trị cột đầu tiên (ví dụ: Mã đơn hàng)
                 string maDH = dgvNhapHang.Rows[e.RowIndex].Cells[0].Value.ToString();
+                String TrangThaiDHLon = dgvNhapHang.Rows[e.RowIndex].Cells[3].Value.ToString();
 
                 // Tạo form CTDH và truyền Mã đơn hàng
                 CTDH cTDH = new CTDH();
                 cTDH.loadCTHDGridview(soHDSelect);
-                cTDH.UpdateMaDH(maDH); // Gọi phương thức cập nhật trên CTDH
+                cTDH.UpdateMaDH(maDH, TrangThaiDHLon); // Gọi phương thức cập nhật trên CTDH
                 cTDH.ShowDialog(); // Hiển thị form chi tiết
+                dgvNhapHang.DataSource = bll_QuanLyKho.xemDSNH();
             }
         }
 
         private void dgvNhapHang_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(dgvNhapHang.Rows[e.RowIndex].Cells[3].Value.ToString() == "Chờ Xác Nhận")
+            if (e.RowIndex >= 0)
             {
-                btn_HuyHD.Enabled = true;
-            } else
-            {
-                btn_HuyHD.Enabled = false;
+                if(dgvNhapHang.Rows[e.RowIndex].Cells[3].Value.ToString() == "Chờ Xác Nhận")
+                {
+                    btn_HuyHD.Enabled = true;
+                } else
+                {
+                    btn_HuyHD.Enabled = false;
+                }
+                soHDSelect = dgvNhapHang.Rows[e.RowIndex].Cells[0].Value.ToString();
+                btn_MoveOn.Enabled = true;
             }
-            soHDSelect = dgvNhapHang.Rows[e.RowIndex].Cells[0].Value.ToString();
-            btn_MoveOn.Enabled = true;
+
         }
 
         private void btn_HuyHD_Click(object sender, EventArgs e)

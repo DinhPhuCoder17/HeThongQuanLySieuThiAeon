@@ -268,7 +268,7 @@ namespace Trang_chủ_Main_Page_
                         NgayNhan = DateTime.Now,        
                         HanThanhToan = DateTime.Now,    
                         NSX = DateTime.Now,            
-                        HSD = "2025-12-31"              
+                        HSD = DateTime.Parse("2025-12-31")           
                     };
 
                     list.Add(dtoCT);

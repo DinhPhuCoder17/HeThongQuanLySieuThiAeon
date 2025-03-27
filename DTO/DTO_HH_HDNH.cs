@@ -14,11 +14,13 @@ namespace DTO
         public DateTime NgayNhan { get; set; }
         public DateTime HanThanhToan { get; set; }
         public DateTime NSX { get; set; } 
-        public string HSD { get; set; } 
+        public DateTime HSD { get; set; } 
+
+        public String TrangThai { get; set; }
 
         public DTO_HH_HDNH() { }
         public DTO_HH_HDNH(DTO_Hanghoa hangHoa, int soLuongDat, int soLuongNhan, DateTime ngayNhan,
-                           DateTime hanThanhToan, DateTime nsx, string hsd)
+                           DateTime hanThanhToan, DateTime nsx, DateTime hsd)
         {
             HangHoa = hangHoa;
             SoLuongDat = soLuongDat;

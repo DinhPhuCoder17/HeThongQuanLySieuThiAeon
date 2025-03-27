@@ -89,7 +89,35 @@ namespace DAL
 
         public DataTable xemCTDHBySohd(String soHD)
         {
-            return DataProvider.Instance.ExecuteQuery("Select * From HD_HH Where Sohd = @soHD ", new object[] { soHD });
+            return DataProvider.Instance.ExecuteQuery("Select Sohd, hh.Mahanghoa, Tenhanghoa, Ngaynhap, Soluongdat, Soluongnhan, Ngaysanxuat, Hansudung, Thanhtien, THSD, Trangthai From HD_HH join Hanghoa hh on HD_HH.Mahanghoa = hh.Mahanghoa Where Sohd = @soHD ", new object[] { soHD });
+        }
+
+        public Boolean nhapKho(DTO_HDNhapHang hDNhapHang)
+        {
+            try
+            {
+                int lineFirst = DataProvider.Instance.ExecuteNonQuery("Update HD_Nhaphang set Trangthai = @Trangthai ", new object[] {hDNhapHang.trangThai});
+                foreach (DTO_HH_HDNH hh in hDNhapHang.CT_HDNH)
+                {
+                    int line = DataProvider.Instance.ExecuteNonQuery("UPDATE Hanghoa SET Soluong = Soluong + @soluongnhan  WHERE Mahanghoa = @mahanghoa", new object[] { hh.SoLuongNhan, hh.HangHoa.MaHangHoa });
+                    if(line != 0)
+                    {
+                        int lineNext = DataProvider.Instance.ExecuteNonQuery("UPDATE HD_HH SET Soluongnhan = @soluongnhan , Ngaysanxuat = @Ngaysanxuat , Hansudung = @Hansudung , Trangthai = @Trangthai  WHERE Mahanghoa = @mahanghoa", new object[] { hh.SoLuongNhan, hh.NSX, hh.HSD, hh.TrangThai, hh.HangHoa.MaHangHoa });
+                        if (lineNext == 0)
+                        {
+                            return false;
+                        }
+                    }else
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }
