@@ -3,13 +3,21 @@ using System.Collections.Generic;
 using System.Data;
 using System.Text;
 using System.Data.SqlClient;
+using DTO;
+using Microsoft.Identity.Client;
 
 namespace DAL
 {
     public class DataProvider
     {
-        private String connectionStr = @"Data Source=DESKTOP-9UCJD9K;Initial Catalog=QuanLySieuThiAEON;Integrated Security=True;TrustServerCertificate=True";
-        
+        //private String connectionStr = @"Data Source=DESKTOP-9UCJD9K;Initial Catalog=QuanLySieuThiAEON;Integrated Security=True;TrustServerCertificate=True";
+
+        //Liêm
+        //private String connectionStr = @"Data Source=LAPTOP-CKE458TU;Initial Catalog=QuanLySieuThiAEON;Integrated Security=True;Encrypt=True";
+
+        private String connectionStr = @"Data Source=.\SQLEXPRESS;Initial Catalog=QuanLySieuThiAEON;Integrated Security=True";
+
+
         //Tạo singleton
         private static DataProvider instance;
 
@@ -132,5 +140,7 @@ namespace DAL
             }
             return dt;
         }
+
+
     }
 }

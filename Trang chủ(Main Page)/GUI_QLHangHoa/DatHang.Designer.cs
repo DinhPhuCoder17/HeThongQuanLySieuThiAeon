@@ -49,6 +49,7 @@
             this.btnThemMatHang = new Guna.UI2.WinForms.Guna2GradientButton();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.dgvDanhSachDatHang = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.MaHangHoa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -255,20 +256,21 @@
             this.btnThemMatHang.Size = new System.Drawing.Size(149, 42);
             this.btnThemMatHang.TabIndex = 1;
             this.btnThemMatHang.Text = "Thêm mặt hàng";
-            this.btnThemMatHang.Click += new System.EventHandler(this.btnThemMatHang_Click);
+            this.btnThemMatHang.Click += new System.EventHandler(this.Btn_ThemMatHang_Click);
             // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 130);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(810, 709);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(810, 700);
             this.flowLayoutPanel1.TabIndex = 0;
-            this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
             // 
             // dgvDanhSachDatHang
             // 
             this.dgvDanhSachDatHang.AllowUserToAddRows = false;
+            this.dgvDanhSachDatHang.AllowUserToDeleteRows = false;
+            this.dgvDanhSachDatHang.AllowUserToResizeColumns = false;
             this.dgvDanhSachDatHang.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dgvDanhSachDatHang.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
@@ -286,6 +288,7 @@
             this.dgvDanhSachDatHang.ColumnHeadersHeight = 60;
             this.dgvDanhSachDatHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dgvDanhSachDatHang.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.MaHangHoa,
             this.Column6,
             this.Column7,
             this.Column8,
@@ -341,8 +344,16 @@
             this.dgvDanhSachDatHang.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.OrangeRed;
             this.dgvDanhSachDatHang.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             // 
+            // MaHangHoa
+            // 
+            this.MaHangHoa.HeaderText = "Mã Hàng Hóa";
+            this.MaHangHoa.MinimumWidth = 6;
+            this.MaHangHoa.Name = "MaHangHoa";
+            this.MaHangHoa.ReadOnly = true;
+            // 
             // Column6
             // 
+            this.Column6.FillWeight = 109.6257F;
             this.Column6.HeaderText = "Tên Hàng Hóa";
             this.Column6.MinimumWidth = 6;
             this.Column6.Name = "Column6";
@@ -350,6 +361,7 @@
             // 
             // Column7
             // 
+            this.Column7.FillWeight = 109.6257F;
             this.Column7.HeaderText = "Tên Nhà Cung Cấp";
             this.Column7.MinimumWidth = 6;
             this.Column7.Name = "Column7";
@@ -357,6 +369,7 @@
             // 
             // Column8
             // 
+            this.Column8.FillWeight = 61.49733F;
             this.Column8.HeaderText = "Số Lượng";
             this.Column8.MinimumWidth = 6;
             this.Column8.Name = "Column8";
@@ -364,6 +377,7 @@
             // 
             // Column9
             // 
+            this.Column9.FillWeight = 109.6257F;
             this.Column9.HeaderText = "Giá Gốc ";
             this.Column9.MinimumWidth = 6;
             this.Column9.Name = "Column9";
@@ -371,6 +385,7 @@
             // 
             // Column10
             // 
+            this.Column10.FillWeight = 109.6257F;
             this.Column10.HeaderText = "Thành Tiền";
             this.Column10.MinimumWidth = 6;
             this.Column10.Name = "Column10";
@@ -460,7 +475,7 @@
             this.guna2GradientButton2.Size = new System.Drawing.Size(187, 45);
             this.guna2GradientButton2.TabIndex = 5;
             this.guna2GradientButton2.Text = "Đặt hàng";
-            this.guna2GradientButton2.Click += new System.EventHandler(this.guna2GradientButton2_Click);
+            this.guna2GradientButton2.Click += new System.EventHandler(this.btnLuuDonHang_Click);
             // 
             // lblTotal
             // 
@@ -470,7 +485,7 @@
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(249, 41);
             this.lblTotal.TabIndex = 4;
-            this.lblTotal.Text = "$25.01";
+            this.lblTotal.Text = "0đ";
             this.lblTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // guna2GradientButton1
@@ -491,6 +506,7 @@
             this.guna2GradientButton1.Size = new System.Drawing.Size(84, 45);
             this.guna2GradientButton1.TabIndex = 1;
             this.guna2GradientButton1.Text = "Xóa";
+            this.guna2GradientButton1.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // label2
             // 
@@ -568,16 +584,17 @@
         private Guna.UI2.WinForms.Guna2ComboBox cmbLoc_DatHang;
         private System.Windows.Forms.Label label3;
         private Guna.UI2.WinForms.Guna2DataGridView dgvDanhSachDatHang;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse2;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox2;
         private System.Windows.Forms.Label label4;
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaHangHoa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
     }
 }

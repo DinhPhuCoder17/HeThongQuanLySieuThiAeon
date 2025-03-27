@@ -846,7 +846,7 @@
       <Name>DTO</Name>
     </ProjectReference>
     <ProjectReference Include="..\PythonModel\PythonModel.csproj">
-      <Project>{ac3f8483-b95d-4964-8644-711a1d63908a}</Project>
+      <Project>{647aa272-310b-4d4f-8f3a-b2b5475a524a}</Project>
       <Name>PythonModel</Name>
     </ProjectReference>
   </ItemGroup>
@@ -855,6 +855,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\roiii.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Exit_Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Exit_Icon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Data.SqlClient.SNI.6.0.2\build\net462\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('..\packages\Microsoft.Data.SqlClient.SNI.6.0.2\build\net462\Microsoft.Data.SqlClient.SNI.targets')" />

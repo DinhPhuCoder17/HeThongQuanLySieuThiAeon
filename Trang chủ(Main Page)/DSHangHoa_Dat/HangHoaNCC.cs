@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,19 +35,24 @@ namespace Trang_chu_Main_Page_.DSHangHoa_Dat
 
         }
 
+        public string MaHH
+        {
+            get => label2.Text; 
+            set => label2.Text = value;
+        }
         public string Title //label1
         {
             get => label1.Text;
             set => label1.Text = value;
         }
 
-        public double Cost //label4
+        public double Cost // label4
         {
             get => cost;
             set
             {
                 cost = value;
-                label4.Text = cost.ToString("C2");
+                label4.Text = cost.ToString("#,##0") + "đ";
             }
         }
 
@@ -55,11 +61,30 @@ namespace Trang_chu_Main_Page_.DSHangHoa_Dat
             get => label3.Text;
             set => label3.Text = value;
         }
-        public Image Icon
+        public object Icon
         {
             get => imgImage.Image;
-            set => imgImage.Image = value;
+            set
+            {
+                if (value is byte[] imgData)
+                {
+                    using (MemoryStream ms = new MemoryStream(imgData))
+                    {
+                        imgImage.Image = Image.FromStream(ms);
+                    }
+                }
+                else if (value is Image img)
+                {
+                    imgImage.Image = img;
+                }
+                else
+                {
+                    throw new ArgumentException("Dữ liệu không hợp lệ. Phải là Image hoặc byte[].");
+                }
+            }
         }
+
+
 
 
         private void UserControl1_Load(object sender, EventArgs e)
@@ -90,6 +115,11 @@ namespace Trang_chu_Main_Page_.DSHangHoa_Dat
         }
 
         private void txtSoLuong_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSoLuong_TextChanged_1(object sender, EventArgs e)
         {
 
         }

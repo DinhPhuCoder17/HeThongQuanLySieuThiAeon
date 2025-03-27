@@ -282,7 +282,7 @@
             this.guna2Button1.Location = new System.Drawing.Point(0, 581);
             this.guna2Button1.Margin = new System.Windows.Forms.Padding(0);
             this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(200, 128);
+            this.guna2Button1.Size = new System.Drawing.Size(200, 91);
             this.guna2Button1.TabIndex = 13;
             this.guna2Button1.Text = "Nút vô Khiếu Nại bữa sau xóa";
             this.guna2Button1.TextOffset = new System.Drawing.Point(-15, 0);

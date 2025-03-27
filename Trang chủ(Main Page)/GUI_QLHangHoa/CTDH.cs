@@ -8,12 +8,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BLL;
 using Trang_chu_Main_Page_.GUI_QLHangHoa;
 
 namespace Trang_chủ_Main_Page_
 {
     public partial class CTDH : Form
     {
+        public BLLQuanLyKho bLL_QuanLyKho = new BLLQuanLyKho();
         public CTDH()
         {
             InitializeComponent();
@@ -96,33 +98,54 @@ namespace Trang_chủ_Main_Page_
 
         private void CTDH_Load(object sender, EventArgs e)
         {
-            // Xóa dữ liệu cũ (nếu cần)
-            dgvCTDH.Rows.Clear();
-
-            // Thêm 10 dòng dữ liệu mẫu
-            for (int i = 1; i <= 10; i++)
+            dgvCTDH.Columns[0].HeaderText = "Mã hàng hóa";
+            dgvCTDH.Columns[1].HeaderText = "Số hóa đơn";
+            dgvCTDH.Columns[2].HeaderText = "Ngày nhập";
+            dgvCTDH.Columns[3].HeaderText = "Số lượng đặt";
+            dgvCTDH.Columns[4].HeaderText = "Số lượng nhận";
+            dgvCTDH.Columns[6].HeaderText = "Ngày sản xuất";
+            dgvCTDH.Columns[6].HeaderText = "Hạn sử dụng";
+            dgvCTDH.Columns[7].HeaderText = "Thành tiền";
+            
+            //Khóa chức năng tự điều chỉnh bảng
+            foreach (DataGridViewColumn column in dgvCTDH.Columns)
             {
-                dgvCTDH.Rows.Add(
-                    "DH00" + i,                   // Mã Đơn Hàng
-                    "NCC00" + i,                  // Mã Nhà Cung Cấp
-                    "Nhà Cung Cấp " + i,          // Tên Nhà Cung Cấp
-                    "MST00" + i,                  // Mã Số Thuế
-                    "Địa chỉ NCC " + i,           // Địa Chỉ
-                    "012345678" + i,              // Số Điện Thoại
-                    "MH00" + i,                   // Mã Hàng Hóa
-                    "Hàng Hóa " + i,              // Tên Hàng Hóa
-                    10 + i,                       // Số Lượng Đặt
-                    8 + i,                        // Số Lượng Nhận
-                    (10 + i) * 50000              // Thành Tiền (Giá giả định)
-                );
+                column.SortMode = DataGridViewColumnSortMode.NotSortable;
             }
 
+            foreach (DataGridViewColumn column in dgvCTDH.Columns)
+            {
+                column.Resizable = DataGridViewTriState.False;
+            }
+            
+            //foreach (DataGridViewColumn column in dgvCTDH.Columns)
+
+
+
+
+        }
+
+        public void loadCTHDGridview(String soHD)
+        {
+            dgvCTDH.DataSource = bLL_QuanLyKho.xemCTDHBySohd(soHD);
         }
 
         private void btnKhieuNai_Click(object sender, EventArgs e)
         {
             KhieuNai kN = new KhieuNai();
             kN.Show();
+        }
+
+        // Xử lý sự kiện khi người dùng chọn một dòng trên bảng hóa đơn đặt hàng
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        //Cập nhật lại mã đặt hàng
+        public void UpdateMaDH(string maDH)
+        {
+           lbMaDH.Text = maDH;
         }
     }
 }

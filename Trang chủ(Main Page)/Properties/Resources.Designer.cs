@@ -123,6 +123,26 @@ namespace Trang_chu_Main_Page_.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Exit_Icon {
+            get {
+                object obj = ResourceManager.GetObject("Exit_Icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Exit_Icon1 {
+            get {
+                object obj = ResourceManager.GetObject("Exit_Icon1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap freepik__an_abstract_background_with_a_gradient_of_colors_s__56418 {
             get {
                 object obj = ResourceManager.GetObject("freepik__an-abstract-background-with-a-gradient-of-colors-s__56418", resourceCulture);

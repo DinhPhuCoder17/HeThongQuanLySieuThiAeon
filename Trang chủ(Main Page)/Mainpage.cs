@@ -7,15 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BLL;
 
 namespace Trang_chủ_Main_Page_
 {
     public partial class Mainpage : Form
     {
         public static int pageSelection = 1;
+
+        BLLQuanLyKho bll_QuanLyKho = new BLLQuanLyKho();
         public Mainpage()
         {
             InitializeComponent();
+            bll_QuanLyKho.AutoUpdateTrangThaiNhapHang();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -33,11 +37,24 @@ namespace Trang_chủ_Main_Page_
 
         }
 
+        private BLL_Account bll_account = new BLL_Account();
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            loading load=new loading();
-            load.Show();
-            this.Hide();
+            string userName = guna2TextBox1.Text;
+            string password = guna2TextBox2.Text;
+
+            if(bll_account.Login (userName, password))
+            {
+                loading load = new loading();
+                pageSelection = int.Parse(userName);
+                load.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Tên đăng nhập hoặc mật khẩu sai", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         private void lblTk_Click(object sender, EventArgs e)
