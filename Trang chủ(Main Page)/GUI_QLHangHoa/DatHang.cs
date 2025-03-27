@@ -101,35 +101,44 @@ namespace Trang_chủ_Main_Page_
                 AddItem(hh.MaHangHoa, hh.TenHangHoa, hh.NhaCC, hh.GiaNhap, hh.HinhAnh);
             }
         }
-        public void AddItem_Dgv(string tenHang, string tenNCC, int soLuong, double giaGoc)
+        public void AddItem_Dgv(string maHang, string tenHang, string tenNCC, int soLuong, double giaGoc)
         {
             foreach (DataGridViewRow item in dgvDanhSachDatHang.Rows)
             {
                 if (item.Cells.Count > 0 && item.Cells[0].Value != null &&
-                    item.Cells[0].Value.ToString() == tenHang) 
+                    item.Cells[0].Value.ToString() == maHang)
                 {
-                    int currentQuantity = int.Parse(item.Cells[2].Value.ToString());
+                    int currentQuantity = int.Parse(item.Cells[3].Value.ToString());
                     int newQuantity = currentQuantity + soLuong;
-                    item.Cells[2].Value = newQuantity;
-                    double costValue = double.Parse(item.Cells[3].Value.ToString().Replace("đ", "").Replace(",", "").Trim());
-                    item.Cells[4].Value = (newQuantity * costValue).ToString("#,##0") + " đ";
+                    item.Cells[3].Value = newQuantity;
+
+                    double unitPrice = double.Parse(
+                        item.Cells[4].Value.ToString()
+                            .Replace("đ", "")
+                            .Replace(",", "")
+                            .Trim()
+                    );
+
+                    item.Cells[5].Value = (newQuantity * unitPrice).ToString("#,##0") + " đ";
 
                     CalculateTotal();
-                    return; 
+                    return;
                 }
             }
 
             double thanhTien = soLuong * giaGoc;
             dgvDanhSachDatHang.Rows.Add(
-                tenHang,
-                tenNCC,
-                soLuong,
-                giaGoc.ToString("#,##0") + " đ", 
-                thanhTien.ToString("#,##0") + " đ" 
+                 maHang,                                  
+                 tenHang,                                 
+                 tenNCC,                                 
+                 soLuong,                                 
+                 giaGoc.ToString("#,##0") + " đ",         
+                 thanhTien.ToString("#,##0") + " đ"         
             );
 
-            CalculateTotal(); 
+            CalculateTotal();
         }
+
 
 
         private void Btn_ThemMatHang_Click(object sender, EventArgs e)

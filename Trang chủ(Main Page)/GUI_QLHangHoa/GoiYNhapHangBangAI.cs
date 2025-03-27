@@ -82,12 +82,13 @@ namespace Trang_chủ_Main_Page_
             {
                 foreach (DataGridViewRow row in dgvGoiYNhapHang.SelectedRows)
                 {
+                    string maHH = row.Cells["Column9"].Value.ToString();
                     string tenHang = row.Cells["Column11"].Value.ToString();
                     string tenNCC = row.Cells["Column5"].Value.ToString();
                     int soLuong = Convert.ToInt32(row.Cells["Column12"].Value);
                     double giaGoc = Convert.ToDouble(row.Cells["Column13"].Value);
 
-                    datHangForm.AddItem_Dgv(tenHang, tenNCC, soLuong, giaGoc);
+                    datHangForm.AddItem_Dgv(maHH, tenHang, tenNCC, soLuong, giaGoc);
                 }
             }
             else
