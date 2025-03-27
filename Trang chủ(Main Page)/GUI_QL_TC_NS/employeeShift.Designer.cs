@@ -30,13 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(employeeShift));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.btnPrevCalendar = new Guna.UI2.WinForms.Guna2CircleButton();
-            this.btn_NextCalendar = new Guna.UI2.WinForms.Guna2CircleButton();
             this.label24 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
@@ -94,6 +92,8 @@
             this.btn_Shift_Confirm = new Guna.UI2.WinForms.Guna2GradientButton();
             this.btn_Shift_Remove = new Guna.UI2.WinForms.Guna2GradientButton();
             this.txt_TenCa = new Guna.UI2.WinForms.Guna2TextBox();
+            this.btnPrevCalendar = new Guna.UI2.WinForms.Guna2GradientCircleButton();
+            this.btn_NextCalendar = new Guna.UI2.WinForms.Guna2GradientCircleButton();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -105,8 +105,8 @@
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.White;
-            this.guna2Panel1.Controls.Add(this.btnPrevCalendar);
             this.guna2Panel1.Controls.Add(this.btn_NextCalendar);
+            this.guna2Panel1.Controls.Add(this.btnPrevCalendar);
             this.guna2Panel1.Controls.Add(this.label24);
             this.guna2Panel1.Controls.Add(this.label26);
             this.guna2Panel1.Controls.Add(this.guna2CirclePictureBox1);
@@ -116,44 +116,6 @@
             this.guna2Panel1.Size = new System.Drawing.Size(1181, 68);
             this.guna2Panel1.TabIndex = 7;
             this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
-            // 
-            // btnPrevCalendar
-            // 
-            this.btnPrevCalendar.Animated = true;
-            this.btnPrevCalendar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnPrevCalendar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnPrevCalendar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnPrevCalendar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnPrevCalendar.FillColor = System.Drawing.Color.OrangeRed;
-            this.btnPrevCalendar.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnPrevCalendar.ForeColor = System.Drawing.Color.White;
-            this.btnPrevCalendar.Image = global::Trang_chu_Main_Page_.Properties.Resources.roiii;
-            this.btnPrevCalendar.ImageSize = new System.Drawing.Size(80, 60);
-            this.btnPrevCalendar.Location = new System.Drawing.Point(211, 8);
-            this.btnPrevCalendar.Name = "btnPrevCalendar";
-            this.btnPrevCalendar.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.btnPrevCalendar.Size = new System.Drawing.Size(55, 50);
-            this.btnPrevCalendar.TabIndex = 25;
-            this.btnPrevCalendar.Click += new System.EventHandler(this.btnPrevCalendar_Click);
-            // 
-            // btn_NextCalendar
-            // 
-            this.btn_NextCalendar.Animated = true;
-            this.btn_NextCalendar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn_NextCalendar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn_NextCalendar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_NextCalendar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_NextCalendar.FillColor = System.Drawing.Color.OrangeRed;
-            this.btn_NextCalendar.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btn_NextCalendar.ForeColor = System.Drawing.Color.White;
-            this.btn_NextCalendar.Image = global::Trang_chu_Main_Page_.Properties.Resources._1_ht;
-            this.btn_NextCalendar.ImageSize = new System.Drawing.Size(80, 60);
-            this.btn_NextCalendar.Location = new System.Drawing.Point(315, 8);
-            this.btn_NextCalendar.Name = "btn_NextCalendar";
-            this.btn_NextCalendar.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.btn_NextCalendar.Size = new System.Drawing.Size(55, 50);
-            this.btn_NextCalendar.TabIndex = 16;
-            this.btn_NextCalendar.Click += new System.EventHandler(this.btn_NextCalendar_Click);
             // 
             // label24
             // 
@@ -741,26 +703,26 @@
             this.dtg_ChooseEmployee.AllowUserToDeleteRows = false;
             this.dtg_ChooseEmployee.AllowUserToResizeColumns = false;
             this.dtg_ChooseEmployee.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dtg_ChooseEmployee.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtg_ChooseEmployee.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.dtg_ChooseEmployee.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtg_ChooseEmployee.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dtg_ChooseEmployee.ColumnHeadersHeight = 4;
             this.dtg_ChooseEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtg_ChooseEmployee.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtg_ChooseEmployee.DefaultCellStyle = dataGridViewCellStyle6;
             this.dtg_ChooseEmployee.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dtg_ChooseEmployee.Location = new System.Drawing.Point(3, 4);
             this.dtg_ChooseEmployee.Name = "dtg_ChooseEmployee";
@@ -888,6 +850,52 @@
             this.txt_TenCa.Size = new System.Drawing.Size(118, 36);
             this.txt_TenCa.TabIndex = 30;
             // 
+            // btnPrevCalendar
+            // 
+            this.btnPrevCalendar.Animated = true;
+            this.btnPrevCalendar.BackColor = System.Drawing.Color.Transparent;
+            this.btnPrevCalendar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnPrevCalendar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnPrevCalendar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnPrevCalendar.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnPrevCalendar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnPrevCalendar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.btnPrevCalendar.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
+            this.btnPrevCalendar.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnPrevCalendar.ForeColor = System.Drawing.Color.White;
+            this.btnPrevCalendar.Image = global::Trang_chu_Main_Page_.Properties.Resources.roiii;
+            this.btnPrevCalendar.ImageSize = new System.Drawing.Size(50, 50);
+            this.btnPrevCalendar.Location = new System.Drawing.Point(186, 8);
+            this.btnPrevCalendar.Name = "btnPrevCalendar";
+            this.btnPrevCalendar.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.btnPrevCalendar.Size = new System.Drawing.Size(55, 55);
+            this.btnPrevCalendar.TabIndex = 26;
+            this.btnPrevCalendar.UseTransparentBackground = true;
+            this.btnPrevCalendar.Click += new System.EventHandler(this.btnPrevCalendar_Click);
+            // 
+            // btn_NextCalendar
+            // 
+            this.btn_NextCalendar.Animated = true;
+            this.btn_NextCalendar.BackColor = System.Drawing.Color.Transparent;
+            this.btn_NextCalendar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_NextCalendar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_NextCalendar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_NextCalendar.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_NextCalendar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_NextCalendar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.btn_NextCalendar.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
+            this.btn_NextCalendar.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btn_NextCalendar.ForeColor = System.Drawing.Color.White;
+            this.btn_NextCalendar.Image = global::Trang_chu_Main_Page_.Properties.Resources._1_ht;
+            this.btn_NextCalendar.ImageSize = new System.Drawing.Size(50, 50);
+            this.btn_NextCalendar.Location = new System.Drawing.Point(268, 8);
+            this.btn_NextCalendar.Name = "btn_NextCalendar";
+            this.btn_NextCalendar.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.btn_NextCalendar.Size = new System.Drawing.Size(55, 55);
+            this.btn_NextCalendar.TabIndex = 26;
+            this.btn_NextCalendar.UseTransparentBackground = true;
+            this.btn_NextCalendar.Click += new System.EventHandler(this.btn_NextCalendar_Click);
+            // 
             // employeeShift
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
@@ -975,8 +983,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label7;
-        private Guna.UI2.WinForms.Guna2CircleButton btn_NextCalendar;
-        private Guna.UI2.WinForms.Guna2CircleButton btnPrevCalendar;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private Guna.UI2.WinForms.Guna2GradientButton btnChooseEmployee;
         private Guna.UI2.WinForms.Guna2DataGridView dtg_ChooseEmployee;
@@ -986,6 +992,8 @@
         private Guna.UI2.WinForms.Guna2GradientButton btn_Shift_Edit;
         private Guna.UI2.WinForms.Guna2GradientButton btn_Shift_Remove;
         private Guna.UI2.WinForms.Guna2TextBox txt_TenCa;
+        private Guna.UI2.WinForms.Guna2GradientCircleButton btnPrevCalendar;
+        private Guna.UI2.WinForms.Guna2GradientCircleButton btn_NextCalendar;
     }
 }
 
