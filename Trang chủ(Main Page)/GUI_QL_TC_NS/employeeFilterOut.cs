@@ -160,6 +160,106 @@ namespace Trang_chủ_Main_Page_
         {
 
         }
+
+        private void btn_BuCong_Send_Click_Click(object sender, EventArgs e)
+        {
+            if (txt_ThoiGianCapNhat.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập thời gian cập nhật!");
+            }
+            else if (txt_MaCalam.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập mã ca làm!");
+            }
+            else if (txt_CheckIn.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập thời gian check In");
+            }
+            else if (txt_CheckOut.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập thời gian check Out");
+            }
+            else if (txt_MaNhanVien.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập mã nhân viên");
+            }
+            else
+            {
+                // Chuyển đổi thời gian cập nhật (DateTime)
+                if (!DateTime.TryParse(txt_ThoiGianCapNhat.Text, out DateTime thoiGianCN))
+                {
+                    MessageBox.Show("Thời gian cập nhật không hợp lệ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Chuyển đổi thời gian Check-in
+                if (!TimeSpan.TryParse(txt_CheckIn.Text, out TimeSpan checkIn))
+                {
+                    MessageBox.Show("Giờ Check-in không hợp lệ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Chuyển đổi thời gian Check-out
+                if (!TimeSpan.TryParse(txt_CheckOut.Text, out TimeSpan checkOut))
+                {
+                    MessageBox.Show("Giờ Check-out không hợp lệ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                // Chuyển đổi chuỗi thành TimeSpan
+                if (TimeSpan.TryParse(txt_CheckIn.Text, out TimeSpan checkIn1) &&
+                    TimeSpan.TryParse(txt_CheckOut.Text, out TimeSpan checkOut1))
+                {
+                    // Kiểm tra CheckIn phải nhỏ hơn CheckOut
+                    if (checkIn1 >= checkOut1)
+                    {
+                        MessageBox.Show("Giờ Check-in phải nhỏ hơn giờ Check-out!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Giờ Check-in hoặc Check-out không hợp lệ! Định dạng hợp lệ: HH:mm:ss", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+
+                // Gọi phương thức thêm chấm công với dữ liệu đúng kiểu
+                bool result = bLL_QuanlyTCNS.ThemChamCong(thoiGianCN, checkIn, checkOut, txt_MaCalam.Text, txt_MaNhanVien.Text );
+
+                // Kiểm tra kết quả
+                if (result)
+                {
+                    MessageBox.Show("Thêm chấm công thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Thêm chấm công thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                if (result)
+                {
+                    MessageBox.Show("Thêm chấm công thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    employeeFilterOut_Load(sender, e);
+                    logTransition.Start();
+                    txt_CheckIn.Text = "";
+                    txt_CheckOut.Text = "";
+                    txt_MaCalam.Text = "";
+                    txt_MaNhanVien.Text = "";
+                    txt_ThoiGianCapNhat.Text = "";
+                
+                }
+                else
+                {
+                    MessageBox.Show("Thêm chấm công thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    logTransition.Start();
+                    txt_CheckIn.Text = "";
+                    txt_CheckOut.Text = "";
+                    txt_MaCalam.Text = "";
+                    txt_MaNhanVien.Text = "";
+                    txt_ThoiGianCapNhat.Text = "";
+                }
+            }
+        }
     }
 }
 

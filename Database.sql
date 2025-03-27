@@ -728,13 +728,13 @@ EXEC themChamCong '2025-03-15', '13:45:00', '15:30:00', 'CL0001', 'NV0003';
 EXEC themChamCong '2025-03-15', '10:30:00', '17:30:00', 'CL0001', 'NV0002';
 EXEC themChamCong '2025-03-15', '09:30:00', '15:30:00', 'CL0001', 'NV0003';
 
-
+go
 --Select * From HD_Nhaphang
 --Select * From HD_HH
 --Delete from HD_Nhaphang
 exec themMaHDNH 10000, 10
 exec themHD_HH 'HH0002', 'NH0001', 100
-
+go 
 Insert into Quanly values
 ('NV0001', '1', '123'),
 ('NV0002', '2', '123'),

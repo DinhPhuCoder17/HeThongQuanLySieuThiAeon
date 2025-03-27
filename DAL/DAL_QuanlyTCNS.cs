@@ -12,6 +12,7 @@ namespace DAL
 {
     public class DAL_QuanlyTCNS
     {
+
         // Xem Danh Sách Chấm Công
         public DataTable xemDSCC()
         {
