@@ -12,6 +12,7 @@ namespace DAL
 {
     public class DAL_QuanlyTCNS
     {
+
         // Xem Danh Sách Chấm Công
         public DataTable xemDSCC()
         {
@@ -28,6 +29,30 @@ namespace DAL
         public DataTable xemDSNV()
         {
             return DataProvider.Instance.ExecuteQuery("Select Manhanvien, Hoten, CCCD, Ngaysinh, Gioitinh, Diachi, Sodienthoai From Nhanvien where Xoa = 1");
+        }
+
+        public bool ThemChamCong(DTO_Chamcong chamCong)
+        {
+            try
+            {
+         
+
+                int line = DataProvider.Instance.ExecuteNonQuery("exec themChamCong @ThoigianCN , @Checkin , @Checkout , @Macalam , @Manhanvien", new object[]
+                {
+            chamCong.thoiGianCN,
+            chamCong.checkIn ,
+            chamCong.checkOut ,
+            chamCong.maCaLam ,
+            chamCong.maNhanVien
+                });
+
+                return line > 0;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi khi thêm chấm công: " + ex.Message);
+                return false;
+            }
         }
 
         //Thêm khách hàng

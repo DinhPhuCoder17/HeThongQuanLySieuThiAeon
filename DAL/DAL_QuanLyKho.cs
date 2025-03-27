@@ -16,18 +16,31 @@ namespace DAL
         {
             return DataProvider.Instance.ExecuteQuery("SELECT h.Mahanghoa, h.Tenhanghoa, h.Tiennhap, h.Tendanhmuc, h.Tienban, h.ImageData, h.Soluong, h.Uudai, n.TenNCC, h.THSD FROM Hanghoa h JOIN Nhacungcap n ON h.MaNCC = n.MaNCC WHERE h.Xoa = 1");
         }
-        public bool datHang(DTO_Hanghoa hh)
+        public string themMaHDNH(double tongTien, int tongSoLuong)
         {
-
-           /* int line = DataProvider.Instance.ExecuteNonQuery(
-                "exec tthemMaHDNH @Sodienthoai , @Hoten , @Diachi , @Gioitinh", new object[] { hh.soDienThoai, kh.hoTen, kh.diaChi, kh.gioiTinh }
-            );
-            if (line != 0)
+            string queryThemMaHDNH = "EXEC themMaHDNH @Tongtien , @Soluong";
+            int rowAffected = DataProvider.Instance.ExecuteNonQuery(queryThemMaHDNH, new object[] { tongTien, tongSoLuong });
+            if (rowAffected <= 0)
             {
-                return true;
-            }*/
-            return false;
+                return null;
+            }
+
+            string queryGetSohd = "SELECT MAX(Sohd) FROM HD_Nhaphang";
+            object sohdObj = DataProvider.Instance.ExecuteScalar(queryGetSohd);
+            if (sohdObj == null)
+                return null;
+
+            return sohdObj.ToString();
         }
+
+        public bool themHD_HH(string maHangHoa, string sohd, int soLuongDat)
+        {
+            string queryThemHD_HH = "EXEC themHD_HH @Mahanghoa , @Sohd , @Soluongdat";
+            int rowAffected = DataProvider.Instance.ExecuteNonQuery(queryThemHD_HH, new object[] { maHangHoa, sohd, soLuongDat });
+
+            return (rowAffected > 0);
+        }
+
         public void AutoUpdateTrangThaiNhapHang()
         {
             try

@@ -12,7 +12,6 @@ namespace BLL
 {
     public class BLLQuanLyKho
     {
-        //private DonHangDAL dal = new DonHangDAL();
         private readonly DAL_QuanLyKho dAL_QuanLyKho = new DAL_QuanLyKho();
         public List<DTO_Hanghoa> hangHoa_NhapHang()
         {
@@ -38,11 +37,44 @@ namespace BLL
 
             return list;
         }
-      /*  public bool datHang(int orderID, int totalQuantity, float totalAmount)
+        public bool datHang(
+         List<DTO_HH_HDNH> dsChiTiet,
+        out int tongSoLuong,
+        out double tongTien,
+        out List<Tuple<string, int>> listMaHangSoLuong)
         {
-            int result = dal.UpdateOrderTotal(orderID, totalQuantity, totalAmount);
-            return result > 0;
-        }*/
+            tongSoLuong = 0;
+            tongTien = 0;
+            listMaHangSoLuong = new List<Tuple<string, int>>();
+
+            if (dsChiTiet == null || dsChiTiet.Count == 0)
+                return false;
+
+            foreach (var ct in dsChiTiet)
+            {
+                tongSoLuong += ct.SoLuongDat;
+                tongTien += ct.SoLuongDat * ct.HangHoa.GiaNhap;
+                listMaHangSoLuong.Add(new Tuple<string, int>(ct.HangHoa.MaHangHoa, ct.SoLuongDat));
+            }
+
+            string sohdMoi = dAL_QuanLyKho.themMaHDNH(tongTien, tongSoLuong);
+            if (string.IsNullOrEmpty(sohdMoi))
+            {
+                return false;
+            }
+
+            foreach (var item in listMaHangSoLuong)
+            {
+                bool isInserted = dAL_QuanLyKho.themHD_HH(item.Item1, sohdMoi, item.Item2);
+                if (!isInserted)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
 
         // Auto update trạng thái nhập hàng
         public void AutoUpdateTrangThaiNhapHang()

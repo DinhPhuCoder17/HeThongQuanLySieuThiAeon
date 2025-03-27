@@ -49,6 +49,12 @@
             this.btnThemMatHang = new Guna.UI2.WinForms.Guna2GradientButton();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.dgvDanhSachDatHang = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.MaHangHoa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.guna2GradientButton2 = new Guna.UI2.WinForms.Guna2GradientButton();
@@ -60,12 +66,6 @@
             this.guna2AnimateWindow2 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2Elipse2 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.MaHangHoa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -265,7 +265,6 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(810, 700);
             this.flowLayoutPanel1.TabIndex = 0;
-            this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
             // 
             // dgvDanhSachDatHang
             // 
@@ -344,6 +343,53 @@
             this.dgvDanhSachDatHang.ThemeStyle.RowsStyle.Height = 40;
             this.dgvDanhSachDatHang.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.OrangeRed;
             this.dgvDanhSachDatHang.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
+            // 
+            // MaHangHoa
+            // 
+            this.MaHangHoa.HeaderText = "Mã Hàng Hóa";
+            this.MaHangHoa.MinimumWidth = 6;
+            this.MaHangHoa.Name = "MaHangHoa";
+            this.MaHangHoa.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.FillWeight = 109.6257F;
+            this.Column6.HeaderText = "Tên Hàng Hóa";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.FillWeight = 109.6257F;
+            this.Column7.HeaderText = "Tên Nhà Cung Cấp";
+            this.Column7.MinimumWidth = 6;
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // Column8
+            // 
+            this.Column8.FillWeight = 61.49733F;
+            this.Column8.HeaderText = "Số Lượng";
+            this.Column8.MinimumWidth = 6;
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            // 
+            // Column9
+            // 
+            this.Column9.FillWeight = 109.6257F;
+            this.Column9.HeaderText = "Giá Gốc ";
+            this.Column9.MinimumWidth = 6;
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            // 
+            // Column10
+            // 
+            this.Column10.FillWeight = 109.6257F;
+            this.Column10.HeaderText = "Thành Tiền";
+            this.Column10.MinimumWidth = 6;
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
             // 
             // guna2DataGridView1
             // 
@@ -429,7 +475,7 @@
             this.guna2GradientButton2.Size = new System.Drawing.Size(187, 45);
             this.guna2GradientButton2.TabIndex = 5;
             this.guna2GradientButton2.Text = "Đặt hàng";
-            this.guna2GradientButton2.Click += new System.EventHandler(this.guna2GradientButton2_Click);
+            this.guna2GradientButton2.Click += new System.EventHandler(this.btnLuuDonHang_Click);
             // 
             // lblTotal
             // 
@@ -494,53 +540,6 @@
             // 
             this.guna2Elipse2.BorderRadius = 15;
             this.guna2Elipse2.TargetControl = this.label1;
-            // 
-            // MaHangHoa
-            // 
-            this.MaHangHoa.HeaderText = "Mã Hàng Hóa";
-            this.MaHangHoa.MinimumWidth = 6;
-            this.MaHangHoa.Name = "MaHangHoa";
-            this.MaHangHoa.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.FillWeight = 109.6257F;
-            this.Column6.HeaderText = "Tên Hàng Hóa";
-            this.Column6.MinimumWidth = 6;
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            // 
-            // Column7
-            // 
-            this.Column7.FillWeight = 109.6257F;
-            this.Column7.HeaderText = "Tên Nhà Cung Cấp";
-            this.Column7.MinimumWidth = 6;
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            // 
-            // Column8
-            // 
-            this.Column8.FillWeight = 61.49733F;
-            this.Column8.HeaderText = "Số Lượng";
-            this.Column8.MinimumWidth = 6;
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            // 
-            // Column9
-            // 
-            this.Column9.FillWeight = 109.6257F;
-            this.Column9.HeaderText = "Giá Gốc ";
-            this.Column9.MinimumWidth = 6;
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            // 
-            // Column10
-            // 
-            this.Column10.FillWeight = 109.6257F;
-            this.Column10.HeaderText = "Thành Tiền";
-            this.Column10.MinimumWidth = 6;
-            this.Column10.Name = "Column10";
-            this.Column10.ReadOnly = true;
             // 
             // DatHang
             // 

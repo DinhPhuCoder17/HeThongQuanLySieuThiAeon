@@ -356,6 +356,7 @@
             this.btn_AddData.TabIndex = 7;
             this.btn_AddData.Text = "Thêm Dữ Liệu";
             this.btn_AddData.TextOffset = new System.Drawing.Point(1, 0);
+            this.btn_AddData.Click += new System.EventHandler(this.btn_AddData_Click);
             // 
             // guna2Panel1
             // 
