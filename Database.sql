@@ -732,3 +732,4 @@ Delete from HD_Nhaphang
 exec themMaHDNH 10000, 10
 exec themHD_HH 'HH0002', 'NH0001', 100, '2025/03/27'
 
+DELETE FROM HD_HH WHERE Sohd = 'NH0001'

@@ -106,8 +106,7 @@ namespace Trang_chủ_Main_Page_
             dgvCTDH.Columns[6].HeaderText = "Ngày sản xuất";
             dgvCTDH.Columns[6].HeaderText = "Hạn sử dụng";
             dgvCTDH.Columns[7].HeaderText = "Thành tiền";
-            
-            //Khóa chức năng tự điều chỉnh bảng
+
             foreach (DataGridViewColumn column in dgvCTDH.Columns)
             {
                 column.SortMode = DataGridViewColumnSortMode.NotSortable;
@@ -117,10 +116,6 @@ namespace Trang_chủ_Main_Page_
             {
                 column.Resizable = DataGridViewTriState.False;
             }
-            
-            //foreach (DataGridViewColumn column in dgvCTDH.Columns)
-
-
 
 
         }
