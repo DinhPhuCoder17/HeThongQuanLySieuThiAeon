@@ -9,6 +9,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.UI.WebControls.Adapters;
 using System.Windows.Forms;
+using BLL;
+using OfficeOpenXml;
+using Microsoft.Office.Interop.Excel;
 namespace Trang_chủ_Main_Page_
 {
     public partial class EmployeeMainPage : Form
@@ -142,7 +145,30 @@ namespace Trang_chủ_Main_Page_
 
         private void btn_AddData_ChamCong_Click(object sender, EventArgs e)
         {
-           
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Filter = "Excel Files|*.xls;*.xlsx;",
+                Title = "Chọn file Excel"
+            };
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = openFileDialog.FileName;
+                BLL_QuanlyTCNS bLL_QuanLyTCNS = new BLL_QuanlyTCNS();
+
+                bool result = bLL_QuanLyTCNS.ImportChamCongFromExcel(filePath);
+
+                if (result)
+                    MessageBox.Show("Import dữ liệu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else
+                    MessageBox.Show("Import dữ liệu thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
+        }
+
+        private void btn_AddData_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

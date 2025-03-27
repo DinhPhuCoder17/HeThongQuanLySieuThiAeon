@@ -17,7 +17,7 @@ namespace Trang_chủ_Main_Page_
     {
         bool menuExpand = false;
         bool menuExpand_2=false;
-
+        BLL_QuanlyTCNS bLL_QuanLyTCNS = new BLL_QuanlyTCNS();
         private readonly BLL_QuanlyTCNS bLL_QuanlyTCNS = new BLL_QuanlyTCNS();
 
         public employeeFilterOut()
@@ -27,7 +27,8 @@ namespace Trang_chủ_Main_Page_
 
         private void employeeFilterOut_Load(object sender, EventArgs e)
         {
-            dtg_DSCC.DataSource = bLL_QuanlyTCNS.xemDSCC();
+           
+            //Datagridview bảng nhân viên
             dtg_Employee.DataSource = bLL_QuanlyTCNS.xemDSNV();
             dtg_Employee.Columns[0].HeaderText = "Mã nhân viên";
             dtg_Employee.Columns[1].HeaderText = "Họ tên";
@@ -108,6 +109,16 @@ namespace Trang_chủ_Main_Page_
 
         private void guna2GradientButton1_Click(object sender, EventArgs e)
         {
+            //Datagridview bảng chấm công
+            dtg_DSCC.DataSource = bLL_QuanlyTCNS.xemDSCC();
+            dtg_DSCC.Columns[0].HeaderText = "ID";
+            dtg_DSCC.Columns[1].HeaderText = "Thời Gian CN";
+            dtg_DSCC.Columns[2].HeaderText = "CheckIn";
+            dtg_DSCC.Columns[3].HeaderText = "CheckOut";
+            dtg_DSCC.Columns[4].HeaderText = "Số Công";
+            dtg_DSCC.Columns[5].HeaderText = "Trạng Thái";
+            dtg_DSCC.Columns[6].HeaderText = "Mã Ca Làm";
+            dtg_DSCC.Columns[7].HeaderText = "Mã Nhân Viên";
             logTransition_2.Start();
         }
 
@@ -116,7 +127,7 @@ namespace Trang_chủ_Main_Page_
             if (menuExpand_2 == false)
             {
                 guna2Panel2.Height += 25;
-                if (guna2Panel2.Height >= 600)
+                if (guna2Panel2.Height >= 900)
                 {
                     logTransition_2.Stop();
                     menuExpand_2 = true;
@@ -143,6 +154,11 @@ namespace Trang_chủ_Main_Page_
             {
                 dtg_Employee.DataSource = bLL_QuanlyTCNS.timKiemNV(txt_Employee_SearchBar.Text);
             }
+        }
+
+        private void dtg_DSCC_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

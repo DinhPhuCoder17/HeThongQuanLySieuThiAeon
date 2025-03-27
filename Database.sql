@@ -734,11 +734,14 @@ Insert into Batbuoc values('CL0002', 'NV0004')
 Insert into Batbuoc values('CL0002', 'NV0005')
 Insert into Batbuoc values('CL0004', 'NV0004')
 
+DELETE FROM Batbuoc;
+DELETE FROM ChamCong;
 
-EXEC themChamCong '2025-03-15', '08:30:00', '15:30:00', 'CL0001', 'NV0001';
+
+EXEC themChamCong '2025-03-15', '13:45:00', '15:30:00', 'CL0001', 'NV0003';
 EXEC themChamCong '2025-03-15', '10:30:00', '17:30:00', 'CL0001', 'NV0002';
 EXEC themChamCong '2025-03-15', '09:30:00', '15:30:00', 'CL0001', 'NV0003';
-
+EXEC themChamCong '2025-03-15', '09:30:00', '15:30:00', 'CL0003', 'NV0003';
 Select * From Chamcong
 
 
