@@ -32,5 +32,10 @@ namespace DTO
             this.tongTien = tongTien;
             this.CT_HDNH = CT_HDNH;
         }
+
+        public DTO_HDNhapHang()
+        {
+            CT_HDNH = new List<DTO_HH_HDNH>();
+        }
     }
 }

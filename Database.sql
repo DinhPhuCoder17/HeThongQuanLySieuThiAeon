@@ -94,7 +94,7 @@ CREATE TABLE Hanghoa (
 	Soluong INT,
     Uudai NVARCHAR(255),
     MaNCC varchar(10),
-	THSD varchar(50)
+	THSD int
     CONSTRAINT FK_Hanghoa_MaNCC FOREIGN KEY (MaNCC) REFERENCES Nhacungcap(MaNCC),
 	Xoa int
 );
@@ -116,7 +116,6 @@ CREATE TABLE HD_HH (
 	Ngaynhap date,
 	Soluongdat INT,
 	Soluongnhan INT,
-	Hanthanhtoan DATE,
 	Ngaysanxuat DATE,
 	Hansudung DATE
     CONSTRAINT PK_HD_HH PRIMARY KEY (Mahanghoa, Sohd),
@@ -342,7 +341,7 @@ create proc themMaHanghoa
 	@Soluong INT,
     @Uudai NVARCHAR(255),
     @MaNCC varchar(10),
-	@THSD varchar(50)
+	@THSD int
 As
 Begin 
 Declare @newMaHanghoa varchar(10);
@@ -612,6 +611,23 @@ Begin
 End
 
 go
+--Thêm vào chi tiết HDNH--
+Create proc themHD_HH
+	@Mahanghoa varchar(10),
+	@Sohd varchar(10),
+	@Soluongdat int,
+	@Ngaysanxuat date
+As
+Begin
+	Declare @Hansudung date
+	Select @Hansudung = DATEADD(day, THSD, @Ngaysanxuat)
+	From Hanghoa
+
+	Insert into HD_HH values (@Mahanghoa, @Sohd, getDate(), @Soluongdat, 0, @Ngaysanxuat, @Hansudung)
+End
+--Thêm vào chi tiết HDNH--
+
+go
 INSERT INTO Nhanvien (Manhanvien, Hoten, CCCD, Ngaysinh, Gioitinh, Diachi, Sodienthoai, Xoa) 
 VALUES 
 ('NV0001', N'Nguyễn Văn A', '123456789012', '1990-01-01', N'Nam', N'Hà Nội', '0987654321', 1),
@@ -651,16 +667,16 @@ VALUES
 
 INSERT INTO Hanghoa (Mahanghoa, Tenhanghoa, Tiennhap, Tendanhmuc, Tienban, ImageData, Soluong, Uudai, MaNCC, THSD, Xoa)
 VALUES
-    ('HH0001', N'Gạo ST25', 15000, N'Thực phẩm', 20000, NULL, 500, '5%', 'NCC0001', '2025-12-31', 1),
-    ('HH0002', N'Dầu ăn Simply 1L', 45000, N'Thực phẩm', 55000, NULL, 500, '10%', 'NCC0002', '2025-11-30', 1),
-    ('HH0003', N'Sữa Vinamilk 180ml', 6500, N'Đồ uống', 9000, NULL, 500, '7%', 'NCC0003', '2025-10-15', 1),
-    ('HH0004', N'Mì Hảo Hảo', 3500, N'Thực phẩm', 5000, NULL, 500, '3%', 'NCC0004', '2025-09-25', 1),
-    ('HH0005', N'Nước suối La Vie 500ml', 4000, N'Đồ uống', 6000, NULL, 500, '8%', 'NCC0005', '2025-08-20', 1),
-    ('HH0006', N'Bánh Chocopie', 75000, N'Bánh kẹo', 95000, NULL, 500, '12%', 'NCC0006', '2025-07-12', 1),
-    ('HH0007', N'Bột giặt Omo 4.5kg', 120000, N'Hóa phẩm', 145000, NULL, 500, '15%', 'NCC0007', '2025-06-30', 1),
-    ('HH0008', N'Kem đánh răng P/S', 25000, N'Hóa phẩm', 35000, NULL, 500, '10%', 'NCC0008', '2025-05-18', 1),
-    ('HH0009', N'Nước mắm Nam Ngư 500ml', 32000, N'Thực phẩm', 45000, NULL, 500, '6%', 'NCC0009', '2025-04-10', 1),
-    ('HH0010', N'Khẩu trang y tế 50 cái', 45000, N'Chăm sóc sức khỏe', 60000, NULL, 500, '20%', 'NCC0010', '2025-03-01', 1);
+    ('HH0001', N'Gạo ST25', 15000, N'Thực phẩm', 20000, NULL, 500, '5%', 'NCC0001', 30, 1),
+    ('HH0002', N'Dầu ăn Simply 1L', 45000, N'Thực phẩm', 55000, NULL, 500, '10%', 'NCC0002', 120, 1),
+    ('HH0003', N'Sữa Vinamilk 180ml', 6500, N'Đồ uống', 9000, NULL, 500, '7%', 'NCC0003', 90, 1),
+    ('HH0004', N'Mì Hảo Hảo', 3500, N'Thực phẩm', 5000, NULL, 500, '3%', 'NCC0004', 180, 1),
+    ('HH0005', N'Nước suối La Vie 500ml', 4000, N'Đồ uống', 6000, NULL, 500, '8%', 'NCC0005', 90, 1),
+    ('HH0006', N'Bánh Chocopie', 75000, N'Bánh kẹo', 95000, NULL, 500, '12%', 'NCC0006', 30, 1),
+    ('HH0007', N'Bột giặt Omo 4.5kg', 120000, N'Hóa phẩm', 145000, NULL, 500, '15%', 'NCC0007', 120, 1),
+    ('HH0008', N'Kem đánh răng P/S', 25000, N'Hóa phẩm', 35000, NULL, 500, '10%', 'NCC0008', 480, 1),
+    ('HH0009', N'Nước mắm Nam Ngư 500ml', 32000, N'Thực phẩm', 45000, NULL, 500, '6%', 'NCC0009', 90, 1),
+    ('HH0010', N'Khẩu trang y tế 50 cái', 45000, N'Chăm sóc sức khỏe', 60000, NULL, 500, '20%', 'NCC0010', 270, 1);
 	
 
 
@@ -710,7 +726,9 @@ EXEC themChamCong '2025-03-15', '09:30:00', '15:30:00', 'CL0001', 'NV0003';
 
 
 Select * From HD_Nhaphang
+Select * From HD_HH
 Delete from HD_Nhaphang
 exec themMaHDNH 10000, 10
+exec themHD_HH 'HH0002', 'NH0001', 100, '2025/03/27'
 
-
+DELETE FROM HD_HH WHERE Sohd = 'NH0001'
