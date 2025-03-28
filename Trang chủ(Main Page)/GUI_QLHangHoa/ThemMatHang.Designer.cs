@@ -124,6 +124,7 @@
             this.guna2Panel1.Size = new System.Drawing.Size(1158, 633);
             this.guna2Panel1.TabIndex = 9;
             this.guna2Panel1.UseTransparentBackground = true;
+            this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
             // 
             // btnThemMatHang
             // 
@@ -424,14 +425,14 @@
             // 
             // ThemMatHang
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1182, 753);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.guna2Panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ThemMatHang";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ThemMatHang";
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel2.PerformLayout();
