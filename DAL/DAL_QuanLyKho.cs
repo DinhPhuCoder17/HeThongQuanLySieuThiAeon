@@ -109,10 +109,11 @@ namespace DAL
         {
             try
             {
-                int lineFirst = DataProvider.Instance.ExecuteNonQuery("Update HD_Nhaphang set Trangthai = @Trangthai ", new object[] {hDNhapHang.trangThai});
+
+                int lineFirst = DataProvider.Instance.ExecuteNonQuery("Update HD_Nhaphang set Trangthai = @Trangthai where Sohd = @Sohd ", new object[] {hDNhapHang.trangThai, hDNhapHang.soHD});
                 foreach (DTO_HH_HDNH hh in hDNhapHang.CT_HDNH)
                 {
-                    int line = DataProvider.Instance.ExecuteNonQuery("UPDATE Hanghoa SET Soluong = Soluong + @soluongnhan  WHERE Mahanghoa = @mahanghoa", new object[] { hh.SoLuongNhan, hh.HangHoa.MaHangHoa });
+                    int line = DataProvider.Instance.ExecuteNonQuery("UPDATE Hanghoa SET Soluong = Soluong + @soluongnhan  WHERE Mahanghoa = @mahanghoa", new object[] { hh.SoLuongNhan > hh.SoLuongDat ? hh.SoLuongDat: hh.SoLuongNhan, hh.HangHoa.MaHangHoa });
                     if(line != 0)
                     {
                         int lineNext = DataProvider.Instance.ExecuteNonQuery("UPDATE HD_HH SET Soluongnhan = @soluongnhan , Ngaysanxuat = @Ngaysanxuat , Hansudung = @Hansudung , Trangthai = @Trangthai  WHERE Mahanghoa = @mahanghoa", new object[] { hh.SoLuongNhan, hh.NSX, hh.HSD, hh.TrangThai, hh.HangHoa.MaHangHoa });
@@ -130,6 +131,29 @@ namespace DAL
             catch
             {
                 return false;
+            }
+        }
+
+        public DataTable xemDSKN(String soHD)
+        {
+            return DataProvider.Instance.ExecuteQuery("Select HD_HH.Sohd, HD_HH.Mahanghoa, Tenhanghoa, Ngaynhap, Soluongdat, Soluongnhan, Luongchenhlech, Loaikhieunai, Lydochitiet From HD_HH left join Khieunai KN on HD_HH.Mahanghoa = KN.Mahanghoa and HD_HH.Sohd = KN.Sohd left join Hanghoa HH on HD_HH.Mahanghoa = HH.Mahanghoa Where HD_HH.Sohd = @Sohd", new object[] {soHD});
+        }
+
+        public Boolean themKN(DTO_Khieunai kn)
+        {
+            try
+            {
+                int line = DataProvider.Instance.ExecuteNonQuery("Exec themKhieuNai @Mahanghoa , @Sohd , @Loaikhieunai , @Lydochitiet , @Luongchenhlech ", new object[] { kn.MaHH, kn.SoHD, kn.Loaikhieunai, kn.Lydochitiet, kn.Luongchenhlech});
+                if(line != 0)
+                {
+                    return true;
+                }
+                return false;
+            }
+
+            catch {
+                MessageBox.Show("Không tồn tại hóa đơn này!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false; 
             }
         }
     }

@@ -10,12 +10,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
 using DTO;
+using Microsoft.Office.Interop.Excel;
 using Trang_chu_Main_Page_.GUI_QLHangHoa;
 
 namespace Trang_chủ_Main_Page_
 {
     public partial class CTDH : Form
     {
+        private String Trangthai;
         public BLLQuanLyKho bLL_QuanLyKho = new BLLQuanLyKho();
         public CTDH()
         {
@@ -102,6 +104,7 @@ namespace Trang_chủ_Main_Page_
                         DTO_HH_HDNH dto_HH_HDNH = new DTO_HH_HDNH()
                         {
                             HangHoa = new DTO_Hanghoa() { MaHangHoa = row.Cells[1].Value.ToString() },
+                            SoLuongDat = int.Parse(row.Cells[4].Value.ToString()),
                             SoLuongNhan = int.Parse(row.Cells[5].Value.ToString()),
                             NSX = DateTime.Parse(row.Cells[6].Value.ToString()),
                             HSD = DateTime.Parse(row.Cells[7].Value.ToString()),
@@ -210,20 +213,41 @@ namespace Trang_chủ_Main_Page_
             dgvCTDH.Columns[5].ReadOnly = false;
             dgvCTDH.Columns[6].ReadOnly = false;
 
-
+            if(Trangthai == "Nhập Kho Một Phần")
+            {
+                foreach (DataGridViewRow row in dgvCTDH.Rows)
+                {
+                    if (int.Parse(row.Cells[4].Value.ToString()) != int.Parse(row.Cells[5].Value.ToString()))
+                    {
+                        row.Cells[5].Style.BackColor = Color.DarkRed;
+                        row.Cells[5].Style.ForeColor = Color.White;
+                        row.Cells[5].Style.SelectionBackColor = Color.DarkRed;
+                        row.Cells[5].Style.SelectionForeColor = Color.White;
+                    }
+                }
+            }
 
         }
 
-        public void loadCTHDGridview(String soHD)
+        public void loadCTHDGridview(String soHD, String Trangthai)
         {
             dgvCTDH.DataSource = bLL_QuanLyKho.xemCTDHBySohd(soHD);
             dgvCTDH.Columns["THSD"].Visible = false;
             dgvCTDH.Columns["Sohd"].Visible = false;
+            this.Trangthai = Trangthai;
         }
 
         private void btnKhieuNai_Click(object sender, EventArgs e)
         {
+            System.Data.DataTable dt = bLL_QuanLyKho.xemDSKN(lbMaDH.Text);
+            foreach (DataRow row in dt.Select("Soluongnhan = Soluongdat"))
+            {
+                dt.Rows.Remove(row);
+            }
+
+
             KhieuNai kN = new KhieuNai();
+            kN.giveDataGridView(dt);
             kN.ShowDialog();
         }
 
@@ -236,12 +260,13 @@ namespace Trang_chủ_Main_Page_
         //Cập nhật lại mã đặt hàng
         public void UpdateMaDH(string maDH, String TrangThaiDHLon)
         {
-           lbMaDH.Text = maDH;
+            btnKhieuNai.Enabled = false;
+            lbMaDH.Text = maDH;
             if (TrangThaiDHLon == "Chờ Xác Nhận" || TrangThaiDHLon == "Đang Vận Chuyển" || TrangThaiDHLon == "Đã Xử Lý" || TrangThaiDHLon == "Đã Nhập Một Phần")
             {
                 btnNhapVaoKho.Enabled = false;
-                btnKhieuNai.Enabled = false;
                 btnXacNhanDuTatCa.Enabled = false;
+                btnKhieuNai.Enabled = false;
                 dgvCTDH.ReadOnly = true;
 
                 dgvCTDH.CellEndEdit -= dgvCTDH_CellEndEdit;
@@ -257,15 +282,8 @@ namespace Trang_chủ_Main_Page_
                 dgvCTDH.ReadOnly = true;
                 dgvCTDH.CellEndEdit += dgvCTDH_CellEndEdit;
                 dgvCTDH.CellValidating += dgvCTDH_CellValidating;
-
-                foreach (DataGridViewRow row in dgvCTDH.Rows)
-                {
-                    if (int.Parse(row.Cells[4].Value.ToString()) != int.Parse(row.Cells[5].Value.ToString()))
-                    {
-                        row.DefaultCellStyle.BackColor = Color.DarkBlue;
-                    }
-                }
             }
+
         }
 
         private void dgvCTDH_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -286,7 +304,7 @@ namespace Trang_chủ_Main_Page_
         {
             if(e.ColumnIndex == 5)
             {
-                if (!int.TryParse(e.FormattedValue.ToString(), out int result) || result < 0 || result > int.Parse(dgvCTDH.Rows[e.RowIndex].Cells[5].Value.ToString()))
+                if (!int.TryParse(e.FormattedValue.ToString(), out int result) || result < 0 )
                 {
                     MessageBox.Show("Số lượng không hợp lệ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     e.Cancel = true; // Ngăn không cho rời khỏi ô nếu nhập sai

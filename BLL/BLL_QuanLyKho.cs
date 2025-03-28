@@ -108,5 +108,15 @@ namespace BLL
         {
             return dAL_QuanLyKho.nhapKho(hDNhapHang);
         }
+
+        public DataTable xemDSKN(String soHD)
+        {
+            return dAL_QuanLyKho.xemDSKN(soHD);
+        }
+
+        public Boolean themKN(DTO_Khieunai kn)
+        {
+            return dAL_QuanLyKho.themKN(kn);
+        }
     }
 }

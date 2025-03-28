@@ -157,8 +157,16 @@ CREATE TABLE Batbuoc(
     CONSTRAINT FK_Batbuoc_Manhanvien FOREIGN KEY (Manhanvien) REFERENCES Nhanvien(Manhanvien)
 );
 
-
-
+CREATE TABLE Khieunai (
+    Mahanghoa VARCHAR(10),
+    Sohd VARCHAR(10),
+    Loaikhieunai NVARCHAR(100),
+    Lydochitiet NVARCHAR(1000),
+	Luongchenhlech int,
+    CONSTRAINT PK_Khieunai PRIMARY KEY (Mahanghoa, Sohd),
+    CONSTRAINT FK_KN_Mahanghoa_Sohd_HDHH FOREIGN KEY (Mahanghoa, Sohd) 
+        REFERENCES HD_HH (Mahanghoa, Sohd)
+);
 
 
 --Trigger--
@@ -629,6 +637,31 @@ End
 --Thêm vào chi tiết HDNH--
 
 go
+--Procedure thêm Khiếu Nại--
+Create proc themKhieuNai
+	@Mahanghoa varchar(10),
+	@Sohd varchar(10),
+	@Loaikhieunai nvarchar(100),
+	@Lydochitiet nvarchar(1000),
+	@Luongchenhlech int
+As
+Begin
+	if exists(
+		Select 1
+		From Khieunai
+		Where Mahanghoa = @Mahanghoa and @Sohd = Sohd
+	)
+	Begin
+		Update Khieunai set Loaikhieunai = @Loaikhieunai, Lydochitiet = @Lydochitiet, Luongchenhlech = @Luongchenhlech
+		Where Mahanghoa = @Mahanghoa and Sohd = @Sohd
+	End
+	Else
+	Begin
+		Insert into Khieunai values(@Mahanghoa, @Sohd, @Loaikhieunai, @Lydochitiet, @Luongchenhlech)
+	End
+End
+
+go
 INSERT INTO Nhanvien (Manhanvien, Hoten, CCCD, Ngaysinh, Gioitinh, Diachi, Sodienthoai, Xoa) 
 VALUES 
 ('NV0001', N'Nguyễn Văn A', '123456789012', '1990-01-01', N'Nam', N'Hà Nội', '0987654321', 1),
@@ -739,3 +772,9 @@ Insert into Quanly values
 ('NV0001', '1', '123'),
 ('NV0002', '2', '123'),
 ('NV0003', '3', '123')
+
+Select * From HD_HH left join Khieunai KN on HD_HH.Sohd = KN.Sohd 
+where HD_HH.Sohd = 'NH0008'
+Select * From hd_hh
+Select * From khieunai
+
