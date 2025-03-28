@@ -39,10 +39,6 @@
             this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.txt_Bill_SearchBar = new Guna.UI2.WinForms.Guna2TextBox();
             this.dtg_Bill = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.Col_MaHoaDon = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Col_Thoi_Gian_Ban = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Col_Ma_Nhan_Vien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Col_Chi_Tiet_Hoa_Don = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.label11 = new System.Windows.Forms.Label();
             this.dtp_Bill_Start = new Guna.UI2.WinForms.Guna2DateTimePicker();
@@ -136,11 +132,6 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dtg_Bill.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dtg_Bill.ColumnHeadersHeight = 40;
-            this.dtg_Bill.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Col_MaHoaDon,
-            this.Col_Thoi_Gian_Ban,
-            this.Col_Ma_Nhan_Vien,
-            this.Col_Chi_Tiet_Hoa_Don});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -191,34 +182,6 @@
             this.dtg_Bill.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.OrangeRed;
             this.dtg_Bill.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             this.dtg_Bill.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.guna2DataGridView1_CellContentClick);
-            // 
-            // Col_MaHoaDon
-            // 
-            this.Col_MaHoaDon.HeaderText = "Mã Hóa Đơn";
-            this.Col_MaHoaDon.MinimumWidth = 6;
-            this.Col_MaHoaDon.Name = "Col_MaHoaDon";
-            this.Col_MaHoaDon.ReadOnly = true;
-            // 
-            // Col_Thoi_Gian_Ban
-            // 
-            this.Col_Thoi_Gian_Ban.HeaderText = "Thời Gian Bán";
-            this.Col_Thoi_Gian_Ban.MinimumWidth = 6;
-            this.Col_Thoi_Gian_Ban.Name = "Col_Thoi_Gian_Ban";
-            this.Col_Thoi_Gian_Ban.ReadOnly = true;
-            // 
-            // Col_Ma_Nhan_Vien
-            // 
-            this.Col_Ma_Nhan_Vien.HeaderText = "Mã Nhân Viên";
-            this.Col_Ma_Nhan_Vien.MinimumWidth = 6;
-            this.Col_Ma_Nhan_Vien.Name = "Col_Ma_Nhan_Vien";
-            this.Col_Ma_Nhan_Vien.ReadOnly = true;
-            // 
-            // Col_Chi_Tiet_Hoa_Don
-            // 
-            this.Col_Chi_Tiet_Hoa_Don.HeaderText = "Chi Tiết Hóa Đơn";
-            this.Col_Chi_Tiet_Hoa_Don.MinimumWidth = 6;
-            this.Col_Chi_Tiet_Hoa_Don.Name = "Col_Chi_Tiet_Hoa_Don";
-            this.Col_Chi_Tiet_Hoa_Don.ReadOnly = true;
             // 
             // guna2Elipse1
             // 
@@ -339,9 +302,5 @@
         private Guna.UI2.WinForms.Guna2GradientButton btn_Bill_Cancel;
         private System.Windows.Forms.Label label4;
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Col_MaHoaDon;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Col_Thoi_Gian_Ban;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Col_Ma_Nhan_Vien;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Col_Chi_Tiet_Hoa_Don;
     }
 }

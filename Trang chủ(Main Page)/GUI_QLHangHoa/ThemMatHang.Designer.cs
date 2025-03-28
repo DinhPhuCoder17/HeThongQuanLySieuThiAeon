@@ -443,6 +443,7 @@
             this.Controls.Add(this.guna2Panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ThemMatHang";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ThemMatHang";
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel2.PerformLayout();

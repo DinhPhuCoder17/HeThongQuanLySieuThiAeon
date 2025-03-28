@@ -8,111 +8,128 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using static Jenga.Theme;
+using DTO;
+using BLL;
 
 namespace Trang_chu_Main_Page_.GUI_QLHangHoa
 {
     public partial class KhieuNai : Form
     {
+        private readonly BLLQuanLyKho bLL_QuanLyKho = new BLLQuanLyKho();
         public KhieuNai()
         {
             InitializeComponent();
-            InitializeDataGridView();
+        }
+
+        //Hàm truyền dữ liệu DataGridView từ form chính
+        public void giveDataGridView(System.Data.DataTable dataTable)
+        {
+            dgv_KhieuNai.DataSource = dataTable;
+            dgv_KhieuNai.Columns["Sohd"].HeaderText = "Số hóa đơn";
+            dgv_KhieuNai.Columns["Mahanghoa"].HeaderText = "Mã hàng hóa";
+            dgv_KhieuNai.Columns["Tenhanghoa"].HeaderText = "Tên hàng hóa";
+            dgv_KhieuNai.Columns["Ngaynhap"].HeaderText = "Ngày nhập";
+            dgv_KhieuNai.Columns["Soluongdat"].HeaderText = "Số lượng đặt";
+            dgv_KhieuNai.Columns["Soluongnhan"].HeaderText = "Số lượng nhận";
+            dgv_KhieuNai.Columns["Lydochitiet"].HeaderText = "Lý do chi tiết";
+            dgv_KhieuNai.Columns["Luongchenhlech"].HeaderText = "Lượng chênh lệch";
+            dgv_KhieuNai.Columns["LoaiKhieuNai"].Visible = false;
+
+            // Tạo cột ComboBox cho trường hợp nhận < đặt
+            DataGridViewComboBoxColumn lessReceive = new DataGridViewComboBoxColumn();
+            lessReceive.HeaderText = "Loại khiếu nại"; // Tiêu đề cột
+            lessReceive.Name = "LoaiKhieuNaiView"; // Tên cột
+            lessReceive.DataSource = new string[] { "Sai hàng", "Thiếu hàng", "Hàng lỗi", "Dư hàng" }; // Danh sách lựa chọn
+            lessReceive.AutoComplete = true; // Cho phép tự động điền
+
+            // Thêm cột vào DataGridView
+            dgv_KhieuNai.Columns.Add(lessReceive);
+            foreach (DataGridViewRow row in dgv_KhieuNai.Rows)
+            {
+                // Điền dữ liệu vào cột ComboBox
+                row.Cells["LoaiKhieuNaiView"].Value = row.Cells["LoaiKhieuNai"].Value;
+            }
+
+            foreach (DataGridViewColumn col in dgv_KhieuNai.Columns)
+            {
+                if (col.Name != "LoaiKhieuNaiView" && col.Name != "Lydochitiet" && col.Name != "Luongchenhlech")
+                {
+                    col.ReadOnly = true;
+                }
+
+            }
+        }
+
+        private bool kiemTraOTrong()
+        {
+            foreach (DataGridViewRow row in dgv_KhieuNai.Rows)
+            {
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    if (cell.Value == null)
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
         }
 
         private void btnTaoPhieuBoSung_Click(object sender, EventArgs e)
         {
-
-        }
-        private void InitializeDataGridView()
-        {
-            dgv_KhieuNai.Columns.Clear();
-
-            dgv_KhieuNai.ReadOnly = false;
-            dgv_KhieuNai.AllowUserToAddRows = false;
-            dgv_KhieuNai.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
-            dgv_KhieuNai.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular);
-
-            var colMaHH = new DataGridViewTextBoxColumn();
-            colMaHH.Name = "colMaHH";
-            colMaHH.HeaderText = "Mã Hàng Hóa";
-            dgv_KhieuNai.Columns.Add(colMaHH);
-            var colMaNCC = new DataGridViewTextBoxColumn();
-            colMaNCC.Name = "colMaNCC";
-            colMaNCC.HeaderText = "Mã Nhà Cung Cấp";
-            dgv_KhieuNai.Columns.Add(colMaNCC);
-            var colTenHH = new DataGridViewTextBoxColumn();
-            colTenHH.Name = "colTenHH";
-            colTenHH.HeaderText = "Tên Hàng Hóa";
-            dgv_KhieuNai.Columns.Add(colTenHH);
-            var colTenNCC = new DataGridViewTextBoxColumn();
-            colTenNCC.Name = "colTenNCC";
-            colTenNCC.HeaderText = "Tên Nhà Cung Cấp";
-            dgv_KhieuNai.Columns.Add(colTenNCC);
-            var colSoLuongChenh = new DataGridViewTextBoxColumn();
-            colSoLuongChenh.Name = "colSoLuongChenh";
-            colSoLuongChenh.HeaderText = "Số Lượng Chênh Lệch";
-            dgv_KhieuNai.Columns.Add(colSoLuongChenh);
-
-            var colTinhTrang = new DataGridViewComboBoxColumn();
-            colTinhTrang.Name = "colTinhTrang";
-            colTinhTrang.HeaderText = "Tình trạng";
-            colTinhTrang.Items.Add("Thiếu");
-            colTinhTrang.Items.Add("Hỏng");
-            colTinhTrang.Items.Add("Thừa");
-            dgv_KhieuNai.Columns.Add(colTinhTrang);
-
-            var colLyDo = new DataGridViewTextBoxColumn();
-            colLyDo.Name = "colLyDoChiTiet";
-            colLyDo.HeaderText = "Lý do chi tiết";
-            dgv_KhieuNai.Columns.Add(colLyDo);
-
-
-            AddRowData("HH001", "NCC001", "Bánh kẹo", "ABC Co.", -5);
-            AddRowData("HH002", "NCC002", "Nước ngọt", "XYZ Co.", 10);
-        }
-
-
-        private void AddRowData(string maHH, string maNCC, string tenHH, string tenNCC, int soLuongChenh, string lyDo = "")
-        {
-            bool isNegative = soLuongChenh < 0;
-            int displayedValue = Math.Abs(soLuongChenh);
-
-            int rowIndex = dgv_KhieuNai.Rows.Add();
-            DataGridViewRow row = dgv_KhieuNai.Rows[rowIndex];
-
-            row.Cells["colMaHH"].Value = maHH;
-            row.Cells["colMaNCC"].Value = maNCC;
-            row.Cells["colTenHH"].Value = tenHH;
-            row.Cells["colTenNCC"].Value = tenNCC;
-            row.Cells["colSoLuongChenh"].Value = displayedValue.ToString();
-            row.Cells["colLyDoChiTiet"].Value = lyDo;
-
-            var comboCell = row.Cells["colTinhTrang"] as DataGridViewComboBoxCell;
-            if (comboCell != null)
+            if(kiemTraOTrong())
             {
-                comboCell.Items.Clear(); 
+                foreach(DataGridViewRow row in dgv_KhieuNai.Rows)
+                {
+                    DTO_Khieunai kn = new DTO_Khieunai()
+                    {
+                        SoHD = row.Cells[1].Value.ToString(),
+                        MaHH = row.Cells[2].Value.ToString(),
+                        Luongchenhlech = int.Parse(row.Cells[7].Value.ToString()),
+                        Loaikhieunai = row.Cells[0].Value.ToString(),
+                        Lydochitiet = row.Cells[9].Value.ToString(),
+                    };
 
-                if (isNegative)
-                {
-                    comboCell.Items.Add("Thiếu");
-                    comboCell.Items.Add("Hỏng");
-                    comboCell.Value = "Thiếu";       
-                    comboCell.ReadOnly = false;      
+                    bLL_QuanLyKho.themKN(kn);
+                    
                 }
-                else
-                {
-                    comboCell.Items.Add("Thừa");
-                    comboCell.Value = "Thừa";        
-                    comboCell.ReadOnly = true;       
-                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng điền đầy đủ thông tin!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
-        [DllImport("user32.dll", CharSet = CharSet.Auto)]
-        private static extern IntPtr SendMessage(IntPtr hWnd, int msg, int wParam, string lParam);
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
-        private const int EM_SETCUEBANNER = 0x1501;
-        
+        private void dgv_KhieuNai_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+            if (e.ColumnIndex == 7)
+            {
+                // Lấy giá trị người dùng vừa nhập
+                string newValue = e.FormattedValue.ToString();
+
+                // Kiểm tra nếu không phải số nguyên
+                if (!int.TryParse(newValue, out _))
+                {
+                    MessageBox.Show("Vui lòng nhập một số hợp lệ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    e.Cancel = true; // Hủy bỏ thay đổi
+                }
+            }
+
+            if (dgv_KhieuNai.Columns[e.ColumnIndex] is DataGridViewComboBoxColumn)
+            {
+                // Kiểm tra nếu giá trị ô đang nhập là null hoặc rỗng
+                if (string.IsNullOrWhiteSpace(e.FormattedValue?.ToString()))
+                {
+                    MessageBox.Show("Vui lòng chọn một giá trị!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    e.Cancel = true; // Hủy bỏ thay đổi nếu không hợp lệ
+                }
+            }
+        }
     }
 }

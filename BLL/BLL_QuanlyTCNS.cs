@@ -2,6 +2,7 @@
 using System.CodeDom;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DAL;
 using DTO;
+using ExcelDataReader;
 
 namespace BLL
 {
@@ -17,6 +19,7 @@ namespace BLL
 
         private readonly DAL_QuanlyTCNS dAL_QuanlyTCNS = new DAL_QuanlyTCNS();
 
+      
         //Xem danh sách chấm công
         public DataTable xemDSCC()
         {
@@ -33,7 +36,85 @@ namespace BLL
         {
             return dAL_QuanlyTCNS.xemDSKH();
         }
+        public bool ImportChamCongFromExcel(string filePath)
+        {
+        DAL_QuanlyTCNS dal = new DAL_QuanlyTCNS();
+            try
+            {
+                // Đọc dữ liệu từ Excel
+                List<DTO_Chamcong> danhSachChamCong = ReadExcelFile(filePath);
 
+                // Duyệt danh sách và thêm vào CSDL
+                foreach (var chamCong in danhSachChamCong)
+                {
+                    bool success = dal.ThemChamCong(chamCong);
+                    if (!success) return false;
+                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi khi import file Excel: " + ex.Message);
+                return false;
+            }
+        }
+
+        private List<DTO_Chamcong> ReadExcelFile(string filePath)
+        {
+            List<DTO_Chamcong> listChamCong = new List<DTO_Chamcong>();
+
+            try
+            {
+                using (var stream = File.Open(filePath, FileMode.Open, FileAccess.Read))
+                {
+                    using (var reader = ExcelReaderFactory.CreateReader(stream))
+                    {
+                        var result = reader.AsDataSet();
+                        DataTable dataTable = result.Tables[0];
+
+                        for (int i = 1; i < dataTable.Rows.Count; i++) // Bỏ qua dòng tiêu đề
+                        {
+                            try
+                            {
+                                DTO_Chamcong chamCong = new DTO_Chamcong(
+                                  null, // ID
+                                  Convert.ToDateTime(dataTable.Rows[i][0]), // Thời gian chấm công
+                                  TimeSpan.TryParse(dataTable.Rows[i][1].ToString().Trim(), out TimeSpan checkIn) ? checkIn : TimeSpan.Zero, // Check-in (mặc định 00:00 nếu lỗi)
+                                  TimeSpan.TryParse(dataTable.Rows[i][2].ToString().Trim(), out TimeSpan checkOut) ? checkOut : TimeSpan.Zero, // Check-out (mặc định 00:00 nếu lỗi)
+                                  0, // Số công (mặc định là 0)
+                                  null, // Trạng thái (để null)
+                                  dataTable.Rows[i][3]?.ToString(), // Mã ca làm
+                                  dataTable.Rows[i][4]?.ToString() // Mã nhân viên
+  );
+
+                                listChamCong.Add(chamCong);
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine($"Lỗi đọc dữ liệu dòng {i + 1}: {ex.Message}");
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi khi mở file Excel: " + ex.Message);
+            }
+
+            return listChamCong;
+        }
+        //THêm Chấm Công
+        public bool ThemChamCong( DateTime thoiGianCN, TimeSpan CheckIn, TimeSpan checkOut, String maCaLam, String maNhanVien)
+        {
+            DTO_Chamcong cc = new DTO_Chamcong(null,thoiGianCN,CheckIn,checkOut,0,null,maCaLam,maNhanVien);
+            if (dAL_QuanlyTCNS.ThemChamCong(cc))
+            {
+                return true;
+            }
+            return false;
+        }
         //Thêm khách hàng
         public Boolean themKH(String Hoten, String Sodienthoai, String Diachi, String Gioitinh)
         {
