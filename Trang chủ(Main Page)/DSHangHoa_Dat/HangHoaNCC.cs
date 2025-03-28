@@ -40,6 +40,12 @@ namespace Trang_chu_Main_Page_.DSHangHoa_Dat
             get => label2.Text; 
             set => label2.Text = value;
         }
+
+        public string DanhMuc
+        {
+            get => lbDanhMuc.Text;
+            set => lbDanhMuc.Text = value;
+        }
         public string Title //label1
         {
             get => label1.Text;

@@ -14,16 +14,18 @@ namespace DTO
         public float GiaBan { get; set; }
         public byte[] HinhAnh { get; set; } 
         public int SoLuong { get; set; }
-        public float UuDai { get; set; }
+        public string UuDai { get; set; }
         public string NhaCC { get; set; } 
-        public DateTime NgayHetHan { get; set; }
+        public DateTime NgayHetHan { get; set; } // ko có trong database
+
+        public string DanhMuc { get; set; }
         public int THSD { get; set; }
         // Constructor không tham số
         public DTO_Hanghoa() { }
 
         // Constructor có tham số
         public DTO_Hanghoa(string maHangHoa, string tenHangHoa, float giaNhap, float giaBan,
-                          byte[] hinhAnh, int soLuong, float uuDai, string nhaCC, DateTime ngayHetHan, int HSD)
+                          byte[] hinhAnh, int soLuong, string uuDai, string nhaCC, DateTime ngayHetHan, string DM, int HSD)
         {
             MaHangHoa = maHangHoa;
             TenHangHoa = tenHangHoa;
@@ -35,6 +37,7 @@ namespace DTO
             NhaCC = nhaCC;
             NgayHetHan = ngayHetHan;
             THSD = HSD;
+            DanhMuc = DM;
         }
     }
 }
