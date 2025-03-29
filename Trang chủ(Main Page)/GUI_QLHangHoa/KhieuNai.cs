@@ -131,5 +131,13 @@ namespace Trang_chu_Main_Page_.GUI_QLHangHoa
                 }
             }
         }
+
+        private void dgv_KhieuNai_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true; // Chặn xuống dòng
+            }
+        }
     }
 }

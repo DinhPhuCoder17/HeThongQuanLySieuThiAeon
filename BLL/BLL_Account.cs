@@ -10,18 +10,24 @@ namespace BLL
 {
     public class BLL_Account
     {
-        private DAL_Account dal_account = new DAL_Account();
+        private static BLL_Account instance;
 
-        public bool Login (string username, string password)
+        public static BLL_Account Instance
         {
-            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
-                return false;
-            return dal_account.Login(username, password);
+            get
+            {
+                if (instance == null)
+                    instance = new BLL_Account();
+                return instance;
+            }
         }
 
-        public DTO_Account GetAccountInfo(string username)
+        private BLL_Account() { }
+
+        // Kiểm tra role từ database
+        public string GetRole(string username, string password)
         {
-            return dal_account.GetAccountByUsername(username);
+            return DAL_Account.Instance.GetRole(username, password);
         }
 
     }

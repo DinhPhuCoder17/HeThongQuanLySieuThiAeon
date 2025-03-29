@@ -5,17 +5,28 @@ go
 use QuanLySieuThiAEON
 go
 
+select * from Nhanvien
 
 CREATE TABLE Nhanvien (
     Manhanvien varchar(10) CONSTRAINT PK_Nhanvien PRIMARY KEY,
     Hoten NVARCHAR(100),
-    CCCD VARCHAR(20),
+    CCCD VARCHAR(100),
     Ngaysinh DATE,
     Gioitinh NVARCHAR(10),
     Diachi NVARCHAR(255),
-    Sodienthoai VARCHAR(15),
-	Xoa int
+    Sodienthoai VARCHAR(100),
+	Xoa int NULL
 );
+--Account
+CREATE TABLE Quanly (
+    Manhanvien varchar(10) CONSTRAINT PK_Quanly PRIMARY KEY,
+    Username VARCHAR(50),
+    Password VARCHAR(255),
+	Role VARCHAR(50),
+    CONSTRAINT FK_Quanly_Nhanvien FOREIGN KEY (Manhanvien) REFERENCES Nhanvien(Manhanvien)
+);
+--End Account
+
 
 CREATE TABLE Khachhang (
 	Sodienthoai varchar(10) CONSTRAINT PK_KH PRIMARY KEY,
@@ -27,12 +38,6 @@ CREATE TABLE Khachhang (
 	Xoa int default 1
 )
 
-CREATE TABLE Quanly (
-    Manhanvien varchar(10) CONSTRAINT PK_Quanly PRIMARY KEY,
-    Username VARCHAR(50),
-    Password VARCHAR(50),
-    CONSTRAINT FK_Quanly_Nhanvien FOREIGN KEY (Manhanvien) REFERENCES Nhanvien(Manhanvien)
-);
 
 CREATE TABLE HD_Nhaphang (
     Sohd varchar(10) CONSTRAINT PK_HD_Nhaphang PRIMARY KEY,
@@ -339,6 +344,9 @@ Select @maxMaNhanvien = MAX(Manhanvien) from Nhanvien;
 	Insert into Nhanvien(Manhanvien, Hoten, CCCD, Ngaysinh, Gioitinh, Diachi, Sodienthoai, Xoa)
 	Values (@newMaNhanvien, @Hoten, @CCCD, @Ngaysinh, @Gioitinh, @Diachi, @Sodienthoai, 1);
 	print 'adding successfully: ' + @newMaNhanvien;
+
+	-- Trả về mã nhân viên vừa thêm
+    SELECT @newMaNhanvien;
 End;
 
 --Procedure thêm mã cho hàng hoá mới--
@@ -747,6 +755,11 @@ VALUES
 ('NV0008', N'Ngô Thị H', '123456789019', '1996-08-08', N'Nữ', N'Vũng Tàu', '0941234567', 1),
 ('NV0009', N'Doãn Văn I', '123456789020', '1997-09-09', N'Nam', N'Thái Bình', '0931234567', 1),
 ('NV0010', N'Vũ Thị K', '123456789021', '1990-10-10', N'Nữ', N'An Giang', '0921234567', 1);
+
+Insert into Quanly values
+('NV0001', '1', '123', 'Admin'),
+('NV0002', '2', '123', 'Kho'),
+('NV0003', '3', '123', 'TCNS')
 
 INSERT INTO Khachhang (Sodienthoai, Hoten, Diachi, Diemthuong, Gioitinh, Hang, Xoa) VALUES
 ('0987654321', N'Nguyễn Văn An', N'Hà Nội', 100, N'Nam', N'Thành viên', 1),

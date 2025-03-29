@@ -24,9 +24,11 @@ namespace Trang_chủ_Main_Page_
         private void Timer_Click(object sender, EventArgs e)
         {
 
-            if (guna2CircleProgressBar1.Value == 1)
+            if (guna2CircleProgressBar1.Value == 100) // Khi progress bar đầy 100%
             {
                 timer1.Stop();
+
+                // Kiểm tra role để mở đúng trang
                 if (Mainpage.pageSelection == 1)
                 {
                     EmployeeMainPage employee = new EmployeeMainPage();
@@ -45,11 +47,10 @@ namespace Trang_chủ_Main_Page_
 
                 this.Hide();
             }
-            guna2CircleProgressBar1.Value += 1;
-            lbl_load_num.Text = (Convert.ToInt32(lbl_load_num.Text.Replace("%", ""))+1).ToString();
-            lbl_load_num.Text = lbl_load_num.Text + "%";
-           
 
+            // Cập nhật progress bar
+            guna2CircleProgressBar1.Value += 1;
+            lbl_load_num.Text = guna2CircleProgressBar1.Value.ToString() + "%";
         }
 
         private void loading_Load(object sender, EventArgs e)
