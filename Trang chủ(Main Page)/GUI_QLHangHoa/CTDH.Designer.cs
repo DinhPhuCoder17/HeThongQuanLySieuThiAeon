@@ -64,7 +64,7 @@
             this.btnXacNhanDuTatCa.Size = new System.Drawing.Size(185, 56);
             this.btnXacNhanDuTatCa.TabIndex = 1;
             this.btnXacNhanDuTatCa.Text = "Xác Nhận Đủ Tất Cả";
-            this.btnXacNhanDuTatCa.Click += new System.EventHandler(this.guna2GradientButton2_Click);
+            this.btnXacNhanDuTatCa.Click += new System.EventHandler(this.btnXacNhanDuTatCa_Click);
             // 
             // lbMaDH
             // 
@@ -98,11 +98,12 @@
             this.btnNhapVaoKho.Size = new System.Drawing.Size(198, 56);
             this.btnNhapVaoKho.TabIndex = 0;
             this.btnNhapVaoKho.Text = "Nhập Vào Kho";
-            this.btnNhapVaoKho.Click += new System.EventHandler(this.guna2GradientButton1_Click);
+            this.btnNhapVaoKho.Click += new System.EventHandler(this.nhapVaoKho_Click);
             // 
             // dgvCTDH
             // 
             this.dgvCTDH.AllowUserToAddRows = false;
+            this.dgvCTDH.AllowUserToDeleteRows = false;
             this.dgvCTDH.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dgvCTDH.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
@@ -126,12 +127,12 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvCTDH.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvCTDH.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke;
             this.dgvCTDH.EnableHeadersVisualStyles = true;
             this.dgvCTDH.GridColor = System.Drawing.Color.White;
             this.dgvCTDH.Location = new System.Drawing.Point(20, 153);
             this.dgvCTDH.Margin = new System.Windows.Forms.Padding(20);
             this.dgvCTDH.Name = "dgvCTDH";
-            this.dgvCTDH.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -159,7 +160,7 @@
             this.dgvCTDH.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.DimGray;
             this.dgvCTDH.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvCTDH.ThemeStyle.HeaderStyle.Height = 60;
-            this.dgvCTDH.ThemeStyle.ReadOnly = true;
+            this.dgvCTDH.ThemeStyle.ReadOnly = false;
             this.dgvCTDH.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvCTDH.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvCTDH.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -168,6 +169,9 @@
             this.dgvCTDH.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.OrangeRed;
             this.dgvCTDH.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             this.dgvCTDH.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.guna2DataGridView1_CellContentClick);
+            this.dgvCTDH.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCTDH_CellEndEdit);
+            this.dgvCTDH.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dgvCTDH_CellValidating);
+            this.dgvCTDH.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCTDH_CellValueChanged);
             // 
             // guna2Panel4
             // 

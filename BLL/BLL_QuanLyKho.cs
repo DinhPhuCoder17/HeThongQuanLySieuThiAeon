@@ -7,14 +7,41 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Collections;
 
 namespace BLL
 {
     public class BLLQuanLyKho
     {
         private readonly DAL_QuanLyKho dAL_QuanLyKho = new DAL_QuanLyKho();
-        public List<DTO_Hanghoa> hangHoa_NhapHang()
-        {
+            public List<DTO_Hanghoa> XemDSTonKho()
+            {
+                DataTable dt = dAL_QuanLyKho.XemDSTonKho();
+                List<DTO_Hanghoa> dsHangHoa = new List<DTO_Hanghoa>();
+
+                foreach (DataRow dr in dt.Rows)
+                {
+                    DTO_Hanghoa _list = new DTO_Hanghoa
+                    {
+                        MaHangHoa = dr["MaHangHoa"].ToString(),
+                        TenHangHoa = dr["TenHangHoa"].ToString(),
+                        GiaNhap = float.Parse(dr["TienNhap"].ToString()),
+                        GiaBan = float.Parse(dr["TienBan"].ToString()),
+                        HinhAnh = dr["ImageData"] == DBNull.Value ? null : (byte[])dr["ImageData"],
+                        SoLuong = int.Parse(dr["SoLuong"].ToString()),
+                        UuDai = dr["UuDai"].ToString(),
+                        NhaCC = dr["MaNCC"].ToString(),
+                        DanhMuc = dr["TenDanhMuc"].ToString(),
+                        THSD = (int)dr["THSD"]
+                    };
+
+                    dsHangHoa.Add(_list);
+                }         
+     
+                return dsHangHoa;
+            }
+            public List<DTO_Hanghoa> hangHoa_NhapHang()
+            {
             DataTable dt = DAL_QuanLyKho.hangHoa_NhapHang();
             List<DTO_Hanghoa> list = new List<DTO_Hanghoa>();
 
@@ -26,6 +53,7 @@ namespace BLL
                 DTO_Hanghoa hangHoa = new DTO_Hanghoa
                 {
                     MaHangHoa = row["MaHangHoa"].ToString(),
+                    DanhMuc = row["TenDanhMuc"].ToString(),
                     TenHangHoa = row["Tenhanghoa"].ToString(),
                     NhaCC = row["TenNCC"].ToString(),
                     GiaNhap = Convert.ToSingle(row["Tiennhap"]),
@@ -75,6 +103,29 @@ namespace BLL
             return true;
         }
 
+        public List<DTO_NhaCungCap> XemNCC()
+        {
+            DataTable dt = dAL_QuanLyKho.xemNCC(); 
+            List<DTO_NhaCungCap> list = new List<DTO_NhaCungCap>();
+
+            foreach (DataRow row in dt.Rows)
+            {
+                DTO_NhaCungCap ncc = new DTO_NhaCungCap
+                {
+                    MaNCC = row["MaNCC"].ToString(),
+                    TenNCC = row["TenNCC"].ToString()
+                };
+
+                list.Add(ncc);
+            }
+
+            return list;
+        }
+
+         public bool ThemMatHang(DTO_Hanghoa hangHoa)
+         {
+                return dAL_QuanLyKho.ThemHangHoa(hangHoa);
+         }
 
         // Auto update trạng thái nhập hàng
         public void AutoUpdateTrangThaiNhapHang()
@@ -103,5 +154,20 @@ namespace BLL
         {
             return dAL_QuanLyKho.xemCTDHBySohd(soHD);
         }
-}
+
+        public Boolean nhapKho(DTO_HDNhapHang hDNhapHang)
+        {
+            return dAL_QuanLyKho.nhapKho(hDNhapHang);
+        }
+
+        public DataTable xemDSKN(String soHD)
+        {
+            return dAL_QuanLyKho.xemDSKN(soHD);
+        }
+
+        public Boolean themKN(DTO_Khieunai kn)
+        {
+            return dAL_QuanLyKho.themKN(kn);
+        }
+    }
 }

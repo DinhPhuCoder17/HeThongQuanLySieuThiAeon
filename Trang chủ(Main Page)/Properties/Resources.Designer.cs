@@ -693,6 +693,16 @@ namespace Trang_chu_Main_Page_.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap vecteezy_warning_icon_png_transparent_9663747 {
+            get {
+                object obj = ResourceManager.GetObject("vecteezy_warning-icon-png-transparent_9663747", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap z6337298354173_6e29e312c0f5bb2790c6e3e14bd06be8 {
             get {
                 object obj = ResourceManager.GetObject("z6337298354173_6e29e312c0f5bb2790c6e3e14bd06be8", resourceCulture);

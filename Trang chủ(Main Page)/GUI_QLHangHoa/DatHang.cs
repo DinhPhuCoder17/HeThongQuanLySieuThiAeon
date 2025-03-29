@@ -15,17 +15,70 @@ using BLL;
 using DTO;
 
 
+
 namespace Trang_chủ_Main_Page_
 {
     public partial class DatHang : Form
     {
+        BLLQuanLyKho bll = new BLLQuanLyKho();
         public DatHang()
         {
+            List<DTO_Hanghoa> dsHH = bll.XemDSTonKho();
+
             InitializeComponent();
             this.Load += new System.EventHandler(this.DatHang_Load);
             dgvDanhSachDatHang.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dgvDanhSachDatHang.Columns["MaHangHoa"].Visible = false;
+
+
+            var unique = dsHH.GroupBy(dd => dd.DanhMuc)
+                     .Select(g => g.First())
+                     .ToList();
+            var tatCa = new DTO_Hanghoa
+            {
+                DanhMuc = "Tất cả"
+            };
+
+            unique.Insert(0, tatCa);
+
+            cmbLoc_DatHang.DataSource = unique;
+            cmbLoc_DatHang.DisplayMember = "DanhMuc";
+
         }
+
+
+        private void cmbLoc_DatHang_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedCategory = cmbLoc_DatHang.Text;
+
+            foreach (Control ctrl in flowLayoutPanel1.Controls)
+            {
+                var wdg = ctrl as HangHoaNCC;
+                if (wdg != null)
+                {
+                    if (selectedCategory == "Tất cả")
+                    {
+                        wdg.Visible = true;
+                    }
+                    else
+                    {
+                        wdg.Visible = (wdg.lbDanhMuc.Text == selectedCategory);
+                    }
+                }
+            }
+        }
+
+/*        private void txt_SearchBar_TextChanged(object sender, EventArgs e)
+        {
+            if (Search_DH.Text == null)
+            {
+                customerControl_Load(sender, e);
+            }
+            else
+            {
+                dtg_CustomerList.DataSource = bLL_QuanlyTCNS.timKiemKH(Search_DH.Text);
+            }
+        }*/
 
         private void CalculateTotal()
         {
@@ -44,11 +97,12 @@ namespace Trang_chủ_Main_Page_
 
             lblTotal.Text = total.ToString("#,##0") + " đ";
         }
-        public void AddItem(string MaHH, string name, string Supplier, double cost, byte[] icon)
+        public void AddItem(string MaHH, string DanhMuc, string name, string Supplier, double cost, byte[] icon)
         {
             var c = new HangHoaNCC()
             {
                 MaHH = MaHH,
+                DanhMuc = DanhMuc,
                 Title = name,
                 Supplier = Supplier,
                 Cost = cost,
@@ -98,7 +152,7 @@ namespace Trang_chủ_Main_Page_
 
             foreach (DTO_Hanghoa hh in listHangHoa)
             {
-                AddItem(hh.MaHangHoa, hh.TenHangHoa, hh.NhaCC, hh.GiaNhap, hh.HinhAnh);
+                AddItem(hh.MaHangHoa, hh.DanhMuc, hh.TenHangHoa, hh.NhaCC, hh.GiaNhap, hh.HinhAnh);
             }
         }
         public void AddItem_Dgv(string maHang, string tenHang, string tenNCC, int soLuong, double giaGoc)
@@ -275,7 +329,7 @@ namespace Trang_chủ_Main_Page_
                         NgayNhan = DateTime.Now,        
                         HanThanhToan = DateTime.Now,    
                         NSX = DateTime.Now,            
-                        HSD = "2025-12-31"              
+                        HSD = DateTime.Parse("2025-12-31")           
                     };
 
                     list.Add(dtoCT);
@@ -284,7 +338,5 @@ namespace Trang_chủ_Main_Page_
 
             return list;
         }
-
-
     }
 }
