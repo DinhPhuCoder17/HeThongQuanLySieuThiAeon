@@ -12,10 +12,15 @@ namespace DAL
 {
     public class DAL_QuanLyKho
     {
+        public DataTable XemDSTonKho()
+        {
+            return DataProvider.Instance.ExecuteQuery("SELECT h.Mahanghoa, h.Tenhanghoa, h.Tiennhap, h.Tendanhmuc, h.Tienban, h.ImageData, h.Soluong, h.Uudai, n.MaNCC, h.THSD FROM Hanghoa h JOIN Nhacungcap n ON h.MaNCC = n.MaNCC WHERE h.Xoa = 1");
+        }
         public static DataTable hangHoa_NhapHang()
         {
             return DataProvider.Instance.ExecuteQuery("SELECT h.Mahanghoa, h.Tenhanghoa, h.Tiennhap, h.Tendanhmuc, h.Tienban, h.ImageData, h.Soluong, h.Uudai, n.TenNCC, h.THSD FROM Hanghoa h JOIN Nhacungcap n ON h.MaNCC = n.MaNCC WHERE h.Xoa = 1");
         }
+
         public string themMaHDNH(double tongTien, int tongSoLuong)
         {
             string queryThemMaHDNH = "EXEC themMaHDNH @Tongtien , @Soluong";
@@ -41,6 +46,10 @@ namespace DAL
             return (rowAffected > 0);
         }
 
+        public DataTable xemNCC()
+        {
+            return DataProvider.Instance.ExecuteQuery("SELECT MaNCC, TenNCC, Diachi, Masothue, Sodienthoai FROM Nhacungcap WHERE Xoa = 1;");
+        }
         public void AutoUpdateTrangThaiNhapHang()
         {
             try
@@ -52,6 +61,27 @@ namespace DAL
 
             }
         }
+        public bool ThemHangHoa(DTO_Hanghoa hangHoa)
+        {
+            string query = "EXEC themMaHanghoa @Tenhanghoa , @Tiennhap , @Tendanhmuc , @Tienban , @ImageData , @Soluong , @Uudai , @MaNCC , @THSD";
+
+            int rowAffected = DataProvider.Instance.ExecuteNonQuery(query, new object[]
+            {
+        hangHoa.TenHangHoa,
+        hangHoa.GiaNhap,   // Giá nhập
+        hangHoa.DanhMuc,   
+        hangHoa.GiaBan,    
+        hangHoa.HinhAnh,  
+        0,                 
+        "0%",             
+        hangHoa.NhaCC,     
+        hangHoa.THSD       
+            });
+
+            return rowAffected > 0;
+        }
+
+
 
         public DataTable xemDSNH()
         {

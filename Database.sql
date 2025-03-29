@@ -773,8 +773,3 @@ Insert into Quanly values
 ('NV0002', '2', '123'),
 ('NV0003', '3', '123')
 
-Select * From HD_HH left join Khieunai KN on HD_HH.Sohd = KN.Sohd 
-where HD_HH.Sohd = 'NH0008'
-Select * From hd_hh
-Select * From khieunai
-

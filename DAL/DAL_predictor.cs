@@ -37,13 +37,45 @@ namespace DAL
 
 
 
-        public static List<DTO_predictor> GetProducts()
+        public static List<DTO_predictor> GetProducts_Week()
         {
             List<DTO_predictor> products = new List<DTO_predictor>();
 
             DataTable dtHangHoa = DataProvider.Instance.ExecuteQuery("SELECT Mahanghoa, Soluong FROM HangHoa where Xoa = 1");
 
-            DataTable dtBanHang = DataProvider.Instance.ExecuteQuery("SELECT Mahanghoa, SUM(Soluong) AS TongSoLuong FROM HH_HDBH GROUP BY Mahanghoa");
+            DataTable dtBanHang = DataProvider.Instance.ExecuteQuery("SELECT hh.Mahanghoa, SUM(hh.Soluong) AS TongSoLuong FROM HH_HDBH hh INNER JOIN Hoadonbanhang hd ON hh.Mahoadon = hd.Mahoadon WHERE hd.Thoigianban >= ( SELECT MIN(Thoigianban) FROM ( SELECT TOP 7 Thoigianban FROM Hoadonbanhang ORDER BY Thoigianban DESC ) AS sub ) GROUP BY hh.Mahanghoa");
+
+            foreach (DataRow row in dtHangHoa.Rows)
+            {
+                string maHang = row["Mahanghoa"].ToString();
+                int soLuongTon = Convert.ToInt32(row["Soluong"]);
+
+                int soLuongDaBan = 0;
+                DataRow[] foundRows = dtBanHang.Select($"Mahanghoa = '{maHang}'");
+                if (foundRows.Length > 0)
+                {
+                    soLuongDaBan = Convert.ToInt32(foundRows[0]["TongSoLuong"]);
+                }
+
+                // Thêm vào danh sách
+                products.Add(new DTO_predictor
+                {
+                    MaHang = maHang,
+                    SoLuongDaBan = soLuongDaBan,
+                    SoLuongTon = soLuongTon
+                });
+            }
+
+            return products;
+        }
+
+        public static List<DTO_predictor> GetProducts_Month()
+        {
+            List<DTO_predictor> products = new List<DTO_predictor>();
+
+            DataTable dtHangHoa = DataProvider.Instance.ExecuteQuery("SELECT Mahanghoa, Soluong FROM HangHoa where Xoa = 1");
+
+            DataTable dtBanHang = DataProvider.Instance.ExecuteQuery("SELECT hh.Mahanghoa, SUM(hh.Soluong) AS TongSoLuong FROM HH_HDBH hh INNER JOIN Hoadonbanhang hd ON hh.Mahoadon = hd.Mahoadon WHERE hd.Thoigianban >= ( SELECT MIN(Thoigianban) FROM ( SELECT TOP 30 Thoigianban FROM Hoadonbanhang ORDER BY Thoigianban DESC ) AS sub ) GROUP BY hh.Mahanghoa");
 
             foreach (DataRow row in dtHangHoa.Rows)
             {

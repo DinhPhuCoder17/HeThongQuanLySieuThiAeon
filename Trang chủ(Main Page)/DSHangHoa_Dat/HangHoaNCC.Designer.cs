@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.lbDanhMuc = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtSoLuong = new Guna.UI2.WinForms.Guna2TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -44,6 +45,7 @@
             this.guna2CustomGradientPanel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.guna2CustomGradientPanel1.BorderRadius = 15;
             this.guna2CustomGradientPanel1.BorderThickness = 1;
+            this.guna2CustomGradientPanel1.Controls.Add(this.lbDanhMuc);
             this.guna2CustomGradientPanel1.Controls.Add(this.label2);
             this.guna2CustomGradientPanel1.Controls.Add(this.txtSoLuong);
             this.guna2CustomGradientPanel1.Controls.Add(this.label3);
@@ -55,6 +57,15 @@
             this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(255, 324);
             this.guna2CustomGradientPanel1.TabIndex = 0;
             this.guna2CustomGradientPanel1.Click += new System.EventHandler(this.guna2PictureBox1_Click);
+            // 
+            // lbDanhMuc
+            // 
+            this.lbDanhMuc.Location = new System.Drawing.Point(139, 47);
+            this.lbDanhMuc.Name = "lbDanhMuc";
+            this.lbDanhMuc.Size = new System.Drawing.Size(113, 44);
+            this.lbDanhMuc.TabIndex = 12;
+            this.lbDanhMuc.Text = "label5";
+            this.lbDanhMuc.Visible = false;
             // 
             // label2
             // 
@@ -120,7 +131,7 @@
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(4, 173);
+            this.label1.Location = new System.Drawing.Point(1, 173);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(248, 64);
             this.label1.TabIndex = 5;
@@ -149,5 +160,6 @@
         public System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2TextBox txtSoLuong;
         public System.Windows.Forms.Label label2;
+        public System.Windows.Forms.Label lbDanhMuc;
     }
 }
