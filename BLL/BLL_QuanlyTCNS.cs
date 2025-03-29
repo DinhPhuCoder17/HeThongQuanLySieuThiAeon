@@ -19,6 +19,7 @@ namespace BLL
 
         private readonly DAL_QuanlyTCNS dAL_QuanlyTCNS = new DAL_QuanlyTCNS();
 
+      
         //Xem danh sách chấm công
         public DataTable xemDSCC()
         {
@@ -79,8 +80,8 @@ namespace BLL
                                 DTO_Chamcong chamCong = new DTO_Chamcong(
                                   null, // ID
                                   Convert.ToDateTime(dataTable.Rows[i][0]), // Thời gian chấm công
-                                  TimeSpan.TryParse(dataTable.Rows[i][1].ToString(), out TimeSpan checkIn) ? checkIn : TimeSpan.Zero, // Check-in (mặc định 00:00 nếu lỗi)
-                                  TimeSpan.TryParse(dataTable.Rows[i][2].ToString(), out TimeSpan checkOut) ? checkOut : TimeSpan.Zero, // Check-out (mặc định 00:00 nếu lỗi)
+                                  TimeSpan.TryParse(dataTable.Rows[i][1].ToString().Trim(), out TimeSpan checkIn) ? checkIn : TimeSpan.Zero, // Check-in (mặc định 00:00 nếu lỗi)
+                                  TimeSpan.TryParse(dataTable.Rows[i][2].ToString().Trim(), out TimeSpan checkOut) ? checkOut : TimeSpan.Zero, // Check-out (mặc định 00:00 nếu lỗi)
                                   0, // Số công (mặc định là 0)
                                   null, // Trạng thái (để null)
                                   dataTable.Rows[i][3]?.ToString(), // Mã ca làm
@@ -104,7 +105,16 @@ namespace BLL
 
             return listChamCong;
         }
-
+        //THêm Chấm Công
+        public bool ThemChamCong( DateTime thoiGianCN, TimeSpan CheckIn, TimeSpan checkOut, String maCaLam, String maNhanVien)
+        {
+            DTO_Chamcong cc = new DTO_Chamcong(null,thoiGianCN,CheckIn,checkOut,0,null,maCaLam,maNhanVien);
+            if (dAL_QuanlyTCNS.ThemChamCong(cc))
+            {
+                return true;
+            }
+            return false;
+        }
         //Thêm khách hàng
         public Boolean themKH(String Hoten, String Sodienthoai, String Diachi, String Gioitinh)
         {
