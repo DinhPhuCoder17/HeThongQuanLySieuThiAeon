@@ -19,7 +19,16 @@ namespace BLL
 
         private readonly DAL_QuanlyTCNS dAL_QuanlyTCNS = new DAL_QuanlyTCNS();
 
-      
+        //Xem danh sách hàng hóa bán
+        public DataTable xemChiTietHDBH(String maHoaDon)
+        {
+            return dAL_QuanlyTCNS.xemChiTietHDBH(maHoaDon);
+        }
+        // Xem danh sách hóa đơn  
+        public DataTable xemDSHD()
+        {
+            return dAL_QuanlyTCNS.xemDSHD();
+        }
         //Xem danh sách chấm công
         public DataTable xemDSCC()
         {

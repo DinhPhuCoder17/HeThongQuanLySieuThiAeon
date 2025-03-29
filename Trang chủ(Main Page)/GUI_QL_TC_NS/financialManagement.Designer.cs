@@ -182,6 +182,8 @@
             this.dtg_Bill.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.OrangeRed;
             this.dtg_Bill.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             this.dtg_Bill.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.guna2DataGridView1_CellContentClick);
+            this.dtg_Bill.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_Bill_CellContentDoubleClick);
+            this.dtg_Bill.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_Bill_CellDoubleClick);
             // 
             // guna2Elipse1
             // 
@@ -197,10 +199,12 @@
             this.label11.Size = new System.Drawing.Size(203, 36);
             this.label11.TabIndex = 1;
             this.label11.Text = "Quản Lí Hóa Đơn";
+            this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
             // dtp_Bill_Start
             // 
             this.dtp_Bill_Start.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.dtp_Bill_Start.Animated = true;
             this.dtp_Bill_Start.BackColor = System.Drawing.Color.Transparent;
             this.dtp_Bill_Start.BorderRadius = 8;
             this.dtp_Bill_Start.Checked = true;
@@ -219,6 +223,7 @@
             // dtp_Bill_End
             // 
             this.dtp_Bill_End.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.dtp_Bill_End.Animated = true;
             this.dtp_Bill_End.BackColor = System.Drawing.Color.Transparent;
             this.dtp_Bill_End.BorderRadius = 8;
             this.dtp_Bill_End.Checked = true;
