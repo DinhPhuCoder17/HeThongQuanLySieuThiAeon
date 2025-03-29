@@ -302,7 +302,16 @@ namespace Trang_chủ_Main_Page_
 
         private void dgvCTDH_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         {
-            if(e.ColumnIndex == 5)
+            string input = e.FormattedValue.ToString().Trim(); // Lấy giá trị người dùng nhập vào
+
+            // ✅ Nếu ô trống, không cần kiểm tra gì thêm
+            if (string.IsNullOrEmpty(input))
+            {
+                return;
+            }
+
+
+            if (e.ColumnIndex == 5)
             {
                 if (!int.TryParse(e.FormattedValue.ToString(), out int result) || result < 0 )
                 {
@@ -313,7 +322,6 @@ namespace Trang_chủ_Main_Page_
 
             if (e.ColumnIndex == 6)
             {
-                string input = e.FormattedValue.ToString(); // Lấy giá trị vừa nhập
 
                 if (!DateTime.TryParse(input, out _)) // Kiểm tra có đúng định dạng ngày không
                 {
@@ -326,13 +334,16 @@ namespace Trang_chủ_Main_Page_
 
         private void dgvCTDH_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            try
+            if(dgvCTDH.Rows[e.RowIndex].Cells[6].Value.ToString() != "")
             {
-                dgvCTDH.Rows[e.RowIndex].Cells[7].Value = DateTime.Parse(dgvCTDH.Rows[e.RowIndex].Cells[6].Value.ToString()).AddDays(int.Parse(dgvCTDH.Rows[e.RowIndex].Cells[9].Value.ToString())).ToString("yyyy/MM/dd");
-            }
-            catch
-            {
-                MessageBox.Show("Có lỗi xảy ra khi cập nhật hạn sử dụng", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                try
+                {
+                    dgvCTDH.Rows[e.RowIndex].Cells[7].Value = DateTime.Parse(dgvCTDH.Rows[e.RowIndex].Cells[6].Value.ToString()).AddDays(int.Parse(dgvCTDH.Rows[e.RowIndex].Cells[9].Value.ToString())).ToString("yyyy/MM/dd");
+                }
+                catch
+                {
+                    MessageBox.Show("Có lỗi xảy ra khi cập nhật hạn sử dụng", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
         }
     }

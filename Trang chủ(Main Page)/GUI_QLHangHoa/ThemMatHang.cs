@@ -139,9 +139,9 @@ namespace Trang_chủ_Main_Page_
             imgImage.Region = new Region(gp); // Áp dụng vùng bo tròn cho PictureBox
         }
 
-        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
-        {
+        //private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        //{
 
-        }
+        //}
     }
 }

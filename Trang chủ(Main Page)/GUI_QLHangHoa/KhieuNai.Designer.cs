@@ -171,6 +171,7 @@
             this.dgv_KhieuNai.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
             this.dgv_KhieuNai.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             this.dgv_KhieuNai.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dgv_KhieuNai_CellValidating);
+            this.dgv_KhieuNai.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgv_KhieuNai_KeyDown);
             // 
             // guna2Elipse1
             // 
