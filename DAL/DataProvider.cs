@@ -17,9 +17,10 @@ namespace DAL
 
         //private String connectionStr = @"Data Source=.\SQLEXPRESS;Initial Catalog=QuanLySieuThiAEON;Integrated Security=True";
 
-        //Phú
-        private String connectionStr = @"Data Source=LAPTOP-P1IHVTIA;Initial Catalog=QuanLySieuThiAEON;Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
-
+        //Phú laptop
+        //private String connectionStr = @"Data Source=LAPTOP-P1IHVTIA;Initial Catalog=QuanLySieuThiAEON;Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
+        //Phú pc
+        private String connectionStr = @"Data Source=ADMIN\MSSQLSERVER01;Initial Catalog=QuanLySieuThiAEON;Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
         //Tạo singleton
         private static DataProvider instance;
 
