@@ -10,44 +10,32 @@ namespace DAL
 {
     public class DAL_Account
     {
-            //private static DAL_Account instance;
+        private static DAL_Account instance;
 
-            //public static DAL_Account Instance
-            //{
-            //    get { 
-            //        if (instance == null) 
-            //        instance = new DAL_Account();  
-            //        return instance; 
-            //    }
-            //    private set { instance = value;  }
-            //}
-          
-            //private DAL_Account(){}
-
-        public bool Login(string username, string password)
+        public static DAL_Account Instance
         {
-            string querry = "Select * from Quanly where Username = @username and Password = @password ";
-            object result = DataProvider.Instance.ExecuteScalar(querry, new object[] { username, password });
-            return result != null;
+            get
+            {
+                if (instance == null)
+                    instance = new DAL_Account();
+                return instance;
+            }
         }
 
-        public DTO_Account GetAccountByUsername(string username)
-        {
-            string query = "SELECT * FROM Quanly WHERE Username = @username";
-            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { username });
+        private DAL_Account() { }
 
-            if (data.Rows.Count > 0)
+        // Lấy role từ database
+        public string GetRole(string username, string password)
+        {
+            string query = "SELECT Role FROM Quanly WHERE Username = @username AND Password = @password";
+            DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] { username, password });
+
+            if (result.Rows.Count > 0)
             {
-                DataRow row = data.Rows[0];
-                return new DTO_Account()
-                {
-                    Username = row["Username"].ToString(),
-                    Password = row["Password"].ToString(),
-                    Manhanvien = row["Manhanvien"].ToString()
-                };
+                return result.Rows[0]["Role"].ToString();
             }
 
-            return null; // Không tìm thấy tài khoản
+            return null; // Trả về null nếu không tìm thấy tài khoản
         }
     }
 }

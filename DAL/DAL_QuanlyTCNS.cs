@@ -12,7 +12,18 @@ namespace DAL
 {
     public class DAL_QuanlyTCNS
     {
-
+        // xem danh sách hóa đơn
+        public DataTable xemChiTietHDBH(String maHoaDon)
+        {
+            return DataProvider.Instance.ExecuteQuery("SELECT Mahoadon, Mahanghoa, Tenhanghoa, Soluong, Tongtien " +
+               "FROM HH_HDBH " +
+               "WHERE Mahoadon = @Mahoadon", new object[] { maHoaDon });
+        }
+        //Xem danh sách hóa đơn
+        public DataTable xemDSHD()
+        {
+            return DataProvider.Instance.ExecuteQuery("Select Mahoadon, Thoigianban, Manhanvien, Sodienthoai, Thanhtien From Hoadonbanhang");
+        }
         // Xem Danh Sách Chấm Công
         public DataTable xemDSCC()
         {

@@ -5,17 +5,28 @@ go
 use QuanLySieuThiAEON
 go
 
+select * from Nhanvien
 
 CREATE TABLE Nhanvien (
     Manhanvien varchar(10) CONSTRAINT PK_Nhanvien PRIMARY KEY,
     Hoten NVARCHAR(100),
-    CCCD VARCHAR(20),
+    CCCD VARCHAR(100),
     Ngaysinh DATE,
     Gioitinh NVARCHAR(10),
     Diachi NVARCHAR(255),
-    Sodienthoai VARCHAR(15),
-	Xoa int
+    Sodienthoai VARCHAR(100),
+	Xoa int NULL
 );
+--Account
+CREATE TABLE Quanly (
+    Manhanvien varchar(10) CONSTRAINT PK_Quanly PRIMARY KEY,
+    Username VARCHAR(50),
+    Password VARCHAR(255),
+	Role VARCHAR(50),
+    CONSTRAINT FK_Quanly_Nhanvien FOREIGN KEY (Manhanvien) REFERENCES Nhanvien(Manhanvien)
+);
+--End Account
+
 
 CREATE TABLE Khachhang (
 	Sodienthoai varchar(10) CONSTRAINT PK_KH PRIMARY KEY,
@@ -27,12 +38,6 @@ CREATE TABLE Khachhang (
 	Xoa int default 1
 )
 
-CREATE TABLE Quanly (
-    Manhanvien varchar(10) CONSTRAINT PK_Quanly PRIMARY KEY,
-    Username VARCHAR(50),
-    Password VARCHAR(50),
-    CONSTRAINT FK_Quanly_Nhanvien FOREIGN KEY (Manhanvien) REFERENCES Nhanvien(Manhanvien)
-);
 
 CREATE TABLE HD_Nhaphang (
     Sohd varchar(10) CONSTRAINT PK_HD_Nhaphang PRIMARY KEY,
@@ -140,6 +145,7 @@ CREATE TABLE Hoadonbanhang (
 CREATE TABLE HH_HDBH (
     Mahanghoa varchar(10),
     Mahoadon varchar(10),
+	 Tenhanghoa NVARCHAR(255),
 	Soluong INT,
     CONSTRAINT PK_HH_HDBH PRIMARY KEY (Mahanghoa, Mahoadon),
     CONSTRAINT FK_HH_HDBH_Mahanghoa FOREIGN KEY (Mahanghoa) REFERENCES Hanghoa(Mahanghoa),
@@ -338,6 +344,9 @@ Select @maxMaNhanvien = MAX(Manhanvien) from Nhanvien;
 	Insert into Nhanvien(Manhanvien, Hoten, CCCD, Ngaysinh, Gioitinh, Diachi, Sodienthoai, Xoa)
 	Values (@newMaNhanvien, @Hoten, @CCCD, @Ngaysinh, @Gioitinh, @Diachi, @Sodienthoai, 1);
 	print 'adding successfully: ' + @newMaNhanvien;
+
+	-- Trả về mã nhân viên vừa thêm
+    SELECT @newMaNhanvien;
 End;
 
 --Procedure thêm mã cho hàng hoá mới--
@@ -444,31 +453,103 @@ End;
 
 --Procedure thêm mã hoá đơn bán hàng--
 go
-create proc themMaHDBH
-	@Thoigianban DATETIME,
-    @Manhanvien varchar(10),
-    @Sodienthoai varchar(15)
-As
-Begin 
-Declare @newMaHDBH varchar(10);
-Declare @maxMaHDBH varchar(10);
-Declare @soMoi int;
-	--Lấy mã hoá đơn bán hàng lớn nhất hiện tại
-Select @maxMaHDBH = MAX(Macalam) from Calam;
-	--Nếu chưa có hoá đơn bán hàng, mã đầu tiên là BH0001
-	If @maxMaHDBH is null
-		Set @newMaHDBH = 'BH0001';
-	--Tiến hành tạo mã mới
-	Else
-	Begin
-	Set @soMoi = cast(substring(@maxMaHDBH, 3, 4) AS INT) + 1;
-	Set @newMaHDBH = 'BH' + right('0000' + cast(@soMoi as varchar(4)), 4)
-	End
-	--Insert
-	Insert into Hoadonbanhang(Mahoadon, Thoigianban, Manhanvien, Sodienthoai)
-	Values (@newMaHDBH, @Thoigianban, @Manhanvien, @Sodienthoai);
-	print 'adding successfully: ' + @newMaHDBH;
-End;
+CREATE PROCEDURE themMaHDBH
+    @Thoigianban DATETIME,
+    @Hoten NVARCHAR(255)  -- Chỉ cần truyền vào tên nhân viên
+AS
+BEGIN
+    DECLARE @newMaHDBH VARCHAR(10);
+    DECLARE @maxMaHDBH VARCHAR(10);
+    DECLARE @soMoi INT;
+    DECLARE @Manhanvien VARCHAR(10);
+    DECLARE @Sodienthoai VARCHAR(15);
+    DECLARE @Thanhtien DECIMAL(18,2);
+
+    -- Lấy mã nhân viên và số điện thoại từ bảng Nhanvien dựa vào Hoten
+    SELECT @Manhanvien = Manhanvien, @Sodienthoai = Sodienthoai 
+    FROM Nhanvien 
+    WHERE Hoten = @Hoten;
+
+    -- Kiểm tra nếu không tìm thấy nhân viên
+    IF @Manhanvien IS NULL
+    BEGIN
+        PRINT 'Error: Nhân viên không tồn tại!';
+        RETURN;
+    END
+
+    -- Lấy mã hóa đơn lớn nhất hiện tại
+    SELECT @maxMaHDBH = MAX(Mahoadon) FROM Hoadonbanhang;
+
+    -- Nếu chưa có hóa đơn nào, mã đầu tiên là HD0001
+    IF @maxMaHDBH IS NULL
+        SET @newMaHDBH = 'HD0001';
+    ELSE
+    BEGIN
+        SET @soMoi = CAST(SUBSTRING(@maxMaHDBH, 3, 4) AS INT) + 1;
+        SET @newMaHDBH = 'HD' + RIGHT('0000' + CAST(@soMoi AS VARCHAR(4)), 4);
+    END
+
+    -- Chèn dữ liệu vào bảng Hoadonbanhang
+    INSERT INTO Hoadonbanhang (Mahoadon, Thoigianban, Manhanvien, Sodienthoai, Thanhtien)
+    VALUES (@newMaHDBH, @Thoigianban, @Manhanvien, @Sodienthoai, 0);  -- Tạm thời để Thanhtien = 0
+
+    -- Tính tổng tiền của tất cả các dòng có cùng Mahoadon trong HH_HDBH
+    SELECT @Thanhtien = SUM(Tongtien) 
+    FROM HH_HDBH 
+    WHERE Mahoadon = @newMaHDBH;
+
+    -- Cập nhật Thanhtien trong Hoadonbanhang
+    UPDATE Hoadonbanhang 
+    SET Thanhtien = ISNULL(@Thanhtien, 0)
+    WHERE Mahoadon = @newMaHDBH;
+
+    PRINT 'Thêm hóa đơn thành công: ' + @newMaHDBH;
+END;
+
+--Thêm Hóa Đơn Chi Tiết Hóa Đơn---
+CREATE PROCEDURE themHH_HDBH
+    @Tenhanghoa NVARCHAR(255),
+    @Soluong INT
+AS
+BEGIN
+    DECLARE @Mahoadon VARCHAR(10);
+    DECLARE @Mahanghoa VARCHAR(10);
+    DECLARE @Tienban DECIMAL(18,2);
+    DECLARE @Tongtien DECIMAL(18,2);
+
+    -- Lấy mã hóa đơn mới nhất từ bảng Hoadonbanhang
+    SELECT TOP 1 @Mahoadon = Mahoadon 
+    FROM Hoadonbanhang 
+    ORDER BY Thoigianban DESC;
+
+    -- Kiểm tra nếu không tìm thấy hóa đơn nào
+    IF @Mahoadon IS NULL
+    BEGIN
+        PRINT 'Error: No existing Mahoadon in Hoadonbanhang!';
+        RETURN;
+    END
+
+    -- Lấy mã hàng hóa và giá bán từ bảng Hanghoa dựa trên Tenhanghoa
+    SELECT @Mahanghoa = Mahanghoa, @Tienban = Tienban 
+    FROM Hanghoa 
+    WHERE Tenhanghoa = @Tenhanghoa;
+
+    -- Kiểm tra nếu không tìm thấy mã hàng hóa
+    IF @Mahanghoa IS NULL
+    BEGIN
+        PRINT 'Error: Tenhanghoa does not exist!';
+        RETURN;
+    END
+
+    -- Tính tổng tiền
+    SET @Tongtien = @Soluong * @Tienban;
+
+    -- Thêm dữ liệu vào bảng HH_HDBH (bao gồm cả Tenhanghoa)
+    INSERT INTO HH_HDBH (Mahoadon, Mahanghoa, Tenhanghoa, Soluong, Tongtien)
+    VALUES (@Mahoadon, @Mahanghoa, @Tenhanghoa, @Soluong, @Tongtien);
+
+    PRINT 'Added successfully to HH_HDBH: ' + @Mahoadon + ' - ' + @Tenhanghoa;
+END;
 
 --Procedure thêm mã hoá đơn nhập hàng--
 go
@@ -675,6 +756,11 @@ VALUES
 ('NV0009', N'Doãn Văn I', '123456789020', '1997-09-09', N'Nam', N'Thái Bình', '0931234567', 1),
 ('NV0010', N'Vũ Thị K', '123456789021', '1990-10-10', N'Nữ', N'An Giang', '0921234567', 1);
 
+Insert into Quanly values
+('NV0001', '1', '123', 'Admin'),
+('NV0002', '2', '123', 'Kho'),
+('NV0003', '3', '123', 'TCNS')
+
 INSERT INTO Khachhang (Sodienthoai, Hoten, Diachi, Diemthuong, Gioitinh, Hang, Xoa) VALUES
 ('0987654321', N'Nguyễn Văn An', N'Hà Nội', 100, N'Nam', N'Thành viên', 1),
 ('0971122334', N'Trần Thị Bình', N'Hồ Chí Minh', 200, N'Nữ', N'Bạc', 1),
@@ -725,7 +811,7 @@ INSERT INTO Hoadonbanhang (Mahoadon, Thoigianban, Manhanvien, Sodienthoai, Thanh
 
 
 Insert into HH_HDBH values
-('HH0001', 'HD0001', 10, 200000)
+('HH0001', 'HD0001','Gạo ST25',10,200000)
 Insert into HH_HDBH values
 ('HH0010', 'HD0001', 10, 600000)
 Insert into HH_HDBH values

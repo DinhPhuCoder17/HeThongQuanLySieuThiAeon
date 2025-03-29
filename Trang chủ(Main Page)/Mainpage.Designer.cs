@@ -45,6 +45,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
@@ -117,6 +118,7 @@
             // 
             this.guna2Panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("guna2Panel2.BackgroundImage")));
             this.guna2Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.guna2Panel2.Controls.Add(this.checkBox1);
             this.guna2Panel2.Controls.Add(this.guna2GradientButton2);
             this.guna2Panel2.Controls.Add(this.guna2ComboBox1);
             this.guna2Panel2.Controls.Add(this.guna2HtmlLabel2);
@@ -128,6 +130,7 @@
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.Size = new System.Drawing.Size(584, 634);
             this.guna2Panel2.TabIndex = 1;
+            this.guna2Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel2_Paint);
             // 
             // guna2GradientButton2
             // 
@@ -186,6 +189,7 @@
             this.lblTk.Size = new System.Drawing.Size(155, 27);
             this.lblTk.TabIndex = 2;
             this.lblTk.Text = "Tên tài khoản";
+            this.lblTk.TextChanged += new System.EventHandler(this.guna2TextBox1_TextChanged);
             this.lblTk.Click += new System.EventHandler(this.lblTk_Click);
             // 
             // guna2TextBox2
@@ -209,6 +213,7 @@
             this.guna2TextBox2.SelectedText = "";
             this.guna2TextBox2.Size = new System.Drawing.Size(277, 38);
             this.guna2TextBox2.TabIndex = 1;
+            this.guna2TextBox2.UseSystemPasswordChar = true;
             // 
             // guna2TextBox1
             // 
@@ -231,7 +236,6 @@
             this.guna2TextBox1.SelectedText = "";
             this.guna2TextBox1.Size = new System.Drawing.Size(277, 38);
             this.guna2TextBox1.TabIndex = 1;
-            this.guna2TextBox1.TextChanged += new System.EventHandler(this.guna2TextBox1_TextChanged);
             // 
             // guna2PictureBox1
             // 
@@ -252,6 +256,17 @@
             this.guna2Elipse1.BorderRadius = 15;
             this.guna2Elipse1.TargetControl = this;
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(486, 299);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(57, 20);
+            this.checkBox1.TabIndex = 27;
+            this.checkBox1.Text = "Hiện";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
             // Mainpage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -271,6 +286,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
             this.guna2Panel2.ResumeLayout(false);
+            this.guna2Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -293,6 +309,7 @@
         private Guna.UI2.WinForms.Guna2AnimateWindow guna2AnimateWindow1;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton2;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
 

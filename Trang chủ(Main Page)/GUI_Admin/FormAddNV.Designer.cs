@@ -240,6 +240,10 @@
             this.cmbGioiTinh.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cmbGioiTinh.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cmbGioiTinh.ItemHeight = 30;
+            this.cmbGioiTinh.Items.AddRange(new object[] {
+            "Nam",
+            "Nữ",
+            "Khác"});
             this.cmbGioiTinh.Location = new System.Drawing.Point(656, 108);
             this.cmbGioiTinh.Name = "cmbGioiTinh";
             this.cmbGioiTinh.Size = new System.Drawing.Size(129, 36);
