@@ -9,12 +9,12 @@ go
 CREATE TABLE Nhanvien (
     Manhanvien varchar(10) CONSTRAINT PK_Nhanvien PRIMARY KEY,
     Hoten NVARCHAR(100),
-    CCCD VARCHAR(100),
+    CCCD VARCHAR(20),
     Ngaysinh DATE,
     Gioitinh NVARCHAR(10),
     Diachi NVARCHAR(255),
-    Sodienthoai VARCHAR(100),
-	Xoa int NULL
+    Sodienthoai VARCHAR(15),
+	Xoa int
 );
 --Account
 CREATE TABLE Quanly (
