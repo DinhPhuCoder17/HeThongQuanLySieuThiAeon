@@ -488,6 +488,7 @@ BEGIN
 END;
 
 go
+drop procedure themHH_HDBH
 --Thêm Hóa Đơn Chi Tiết Hóa Đơn---
 CREATE PROCEDURE themHH_HDBH
     @Tenhanghoa NVARCHAR(255),
@@ -498,6 +499,7 @@ BEGIN
     DECLARE @Mahanghoa VARCHAR(10);
     DECLARE @Tienban DECIMAL(18,2);
     DECLARE @Tongtien DECIMAL(18,2);
+    DECLARE @SoluongTonKho INT;
 
     -- Lấy mã hóa đơn mới nhất từ bảng Hoadonbanhang
     SELECT TOP 1 @Mahoadon = Mahoadon 
@@ -507,32 +509,65 @@ BEGIN
     -- Kiểm tra nếu không tìm thấy hóa đơn nào
     IF @Mahoadon IS NULL
     BEGIN
-        PRINT 'Error: No existing Mahoadon in Hoadonbanhang!';
+        PRINT ' Error: No existing Mahoadon in Hoadonbanhang!';
         RETURN;
     END
 
-    -- Lấy mã hàng hóa và giá bán từ bảng Hanghoa dựa trên Tenhanghoa
-    SELECT @Mahanghoa = Mahanghoa, @Tienban = Tienban 
+    -- Lấy mã hàng hóa, giá bán và số lượng tồn kho từ bảng Hanghoa
+    SELECT @Mahanghoa = Mahanghoa, @Tienban = Tienban, @SoluongTonKho = Soluong
     FROM Hanghoa 
     WHERE Tenhanghoa = @Tenhanghoa;
 
     -- Kiểm tra nếu không tìm thấy mã hàng hóa
     IF @Mahanghoa IS NULL
     BEGIN
-        PRINT 'Error: Tenhanghoa does not exist!';
+        PRINT ' Error: Tenhanghoa does not exist!';
+        RETURN;
+    END
+
+    -- Kiểm tra nếu số lượng tồn kho không đủ để bán
+    IF @SoluongTonKho < @Soluong
+    BEGIN
+        PRINT ' Error: Not enough stock for ' + @Tenhanghoa + '. Available: ' + CAST(@SoluongTonKho AS NVARCHAR);
         RETURN;
     END
 
     -- Tính tổng tiền
     SET @Tongtien = @Soluong * @Tienban;
 
-    -- Thêm dữ liệu vào bảng HH_HDBH (bao gồm cả Tenhanghoa)
+    -- Thêm dữ liệu vào bảng HH_HDBH
     INSERT INTO HH_HDBH (Mahoadon, Mahanghoa, Tenhanghoa, Soluong, Tongtien)
     VALUES (@Mahoadon, @Mahanghoa, @Tenhanghoa, @Soluong, @Tongtien);
 
-    PRINT 'Added successfully to HH_HDBH: ' + @Mahoadon + ' - ' + @Tenhanghoa;
+    -- Cập nhật tổng tiền trong Hoadonbanhang
+    UPDATE Hoadonbanhang 
+    SET Thanhtien = (SELECT SUM(Tongtien) FROM HH_HDBH WHERE Mahoadon = @Mahoadon)
+    WHERE Mahoadon = @Mahoadon;
+
+    -- Trừ đi số lượng hàng hóa đã bán từ bảng Hanghoa
+    UPDATE Hanghoa 
+    SET Soluong = Soluong - @Soluong
+    WHERE Mahanghoa = @Mahanghoa;
+
+    PRINT ' Added successfully to HH_HDBH and updated Thanhtien in Hoadonbanhang.';
+    PRINT ' Stock updated: ' + @Tenhanghoa + ' - Remaining: ' + CAST(@SoluongTonKho - @Soluong AS NVARCHAR);
 END;
 
+
+--xóa Hóa đơn
+CREATE PROCEDURE sp_XoaHoaDon
+    @MaHoaDon VARCHAR(10)
+AS
+BEGIN
+    -- Xóa chi tiết hóa đơn trước
+    DELETE FROM HH_HDBH WHERE Mahoadon = @MaHoaDon;
+    
+    -- Xóa hóa đơn chính
+    DELETE FROM Hoadonbanhang WHERE Mahoadon = @MaHoaDon;
+    
+    PRINT 'Đã xóa hóa đơn thành công!';
+END;
+DROP PROCEDURE sp_XoaHoaDon
 --Procedure thêm mã hoá đơn nhập hàng--
 go
 create proc themMaHDNH

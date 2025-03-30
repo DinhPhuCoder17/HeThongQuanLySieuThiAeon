@@ -122,21 +122,17 @@ namespace Trang_chủ_Main_Page_
 
         private void btn_Statistic_Click(object sender, EventArgs e)
         {
-            if (statistic == null)
-            {
+          
                 statistic = new Statistic();
                 statistic.FormClosed += employeeAdd_FormClose;
                 statistic.MdiParent = this;
                 statistic.Dock = DockStyle.Fill;
                 statistic.Show();
-            }
-            else
-            {
-                statistic.Activate();
-            }
+            
+          
         }
 
-      
+
 
         private void btn_AddData_banHang_Click(object sender, EventArgs e)
         {
@@ -154,9 +150,19 @@ namespace Trang_chủ_Main_Page_
                 bool result = bLL_QuanLyTCNS.ImportHoaDonFromExcel(filePath);
 
                 if (result)
+                {
                     MessageBox.Show("Import dữ liệu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    financialManagement = new financialManagement();
+                    financialManagement.FormClosed += employeeAdd_FormClose;
+                    financialManagement.MdiParent = this;
+                    financialManagement.Dock = DockStyle.Fill;
+                    financialManagement.Show();
+                }
                 else
+                {
                     MessageBox.Show("Import dữ liệu thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
             }
         }
 

@@ -19,6 +19,19 @@ namespace BLL
 
         private readonly DAL_QuanlyTCNS dAL_QuanlyTCNS = new DAL_QuanlyTCNS();
 
+
+        //loc   danh sach hóa đơn theo ngày
+        public DataTable locHoaDon(DateTime ngayBatDau, DateTime ngayKetThuc)
+        {
+            return dAL_QuanlyTCNS.locHoaDon(ngayBatDau, ngayKetThuc);
+        }
+
+        //xóa hóa đơn
+        public bool XoaHoaDon(string maHoaDon)
+        {
+            return dAL_QuanlyTCNS.XoaHoaDon(maHoaDon);
+        }
+
         //Xem danh sách hàng hóa bán
         public DataTable xemChiTietHDBH(String maHoaDon)
         {

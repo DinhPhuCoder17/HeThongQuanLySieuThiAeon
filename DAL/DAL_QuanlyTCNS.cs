@@ -12,6 +12,11 @@ namespace DAL
 {
     public class DAL_QuanlyTCNS
     {
+        // loc hoa don
+        public DataTable locHoaDon(DateTime startDate, DateTime endDate)
+        {
+            return DataProvider.Instance.ExecuteQuery("Select Mahoadon, Thoigianban, Manhanvien, Sodienthoai, Thanhtien From Hoadonbanhang where Thoigianban >= @startDate and Thoigianban <= @endDate", new object[] { startDate, endDate });
+        }
         // xem danh sách hóa đơn
         public DataTable xemChiTietHDBH(String maHoaDon)
         {
@@ -107,7 +112,24 @@ namespace DAL
                 return false;
             }
         }
+        //Xóa hóa đơn
+        public bool XoaHoaDon(string maHoaDon)
+        {
+            try
+            {
+                int result = DataProvider.Instance.ExecuteNonQuery(
+                    "EXEC sp_XoaHoaDon @MaHoaDon",
+                    new object[] { maHoaDon });
 
+                return result > 0;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi khi xóa hóa đơn: " + ex.Message);
+                return false;
+            }
+        }
+     
         //Thêm khách hàng
         public bool themKH(DTO_Khachhang kh)
         {

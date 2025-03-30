@@ -62,18 +62,18 @@ namespace Trang_chủ_Main_Page_
         }
         private void btn_DSNhanVien_Click(object sender, EventArgs e)
         {
-            //menuTransition_2.Start();
+            menuTransition_2.Start();
             // Kiểm tra nếu form đã mở rồi thì không mở nữa
-            foreach (Form frm in Application.OpenForms)
-            {
-                if (frm is DSNhanVien)
-                {
-                    frm.Activate(); // Đưa form lên foreground
-                    return;
-                }
-            }
-            DSNhanVien ds = new DSNhanVien();
-            ds.Show();
+            //foreach (Form frm in Application.OpenForms)
+            //{
+            //    if (frm is DSNhanVien)
+            //    {
+            //        frm.Activate(); // Đưa form lên foreground
+            //        return;
+            //    }
+            //}
+            //DSNhanVien ds = new DSNhanVien();
+            //ds.Show();
         }
 
         private void guna2CirclePictureBox1_Click(object sender, EventArgs e)

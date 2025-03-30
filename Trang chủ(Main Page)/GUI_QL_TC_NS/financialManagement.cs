@@ -55,7 +55,33 @@ namespace Trang_chủ_Main_Page_
 
         private void btn_Bill_Cancel_Click(object sender, EventArgs e)
         {
-            
+            if (dtg_Bill.SelectedRows.Count > 0)
+            {
+                string maHoaDon = dtg_Bill.SelectedRows[0].Cells["MaHoaDon"].Value.ToString();
+
+                DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa hóa đơn này?",
+                    "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
+                {
+                    if (bLL_QuanlyTCNS.XoaHoaDon(maHoaDon))
+                    {
+                        MessageBox.Show("Xóa hóa đơn thành công!");
+                        DataTable dataTable = bLL_QuanlyTCNS.xemDSHD();
+                        dtg_Bill.DataSource = dataTable;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Xóa thất bại, vui lòng thử lại.");
+                        
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn hóa đơn cần xóa!");
+            }
+
         }
 
         private void dtg_Bill_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -82,6 +108,20 @@ namespace Trang_chủ_Main_Page_
                 DataTable dataTable = bLL_QuanlyTCNS.xemDSHD();
                 dtg_Bill.DataSource = dataTable;
             }
+        }
+
+        private void btn_Bill_FilterDate_Click(object sender, EventArgs e)
+        {
+            DateTime fromDate = dtp_Bill_Start.Value.Date;
+            DateTime toDate = dtp_Bill_End.Value.Date.AddDays(1).AddSeconds(-1); // Lấy hết ngày đến 23:59:59
+            if (fromDate > toDate)
+            {
+                MessageBox.Show("Ngày kết thúc phải lớn hơn hoặc bằng ngày bắt đầu!", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return; // Dừng thực hiện nếu sai điều kiện
+            }
+            DataTable dt = bLL_QuanlyTCNS.locHoaDon(fromDate, toDate);
+
+            dtg_Bill.DataSource = dt; // Hiển thị trên DataGridView
         }
     }
 }
