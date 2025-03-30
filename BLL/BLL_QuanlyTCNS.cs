@@ -69,6 +69,7 @@ namespace BLL
             }
         }
 
+
         private List<DTO_Chamcong> ReadExcelFile(string filePath)
         {
             List<DTO_Chamcong> listChamCong = new List<DTO_Chamcong>();
@@ -124,15 +125,128 @@ namespace BLL
             }
             return false;
         }
+      
+
+        public bool ImportHoaDonFromExcel(string filePath)
+        {
+            DAL_QuanlyTCNS dal = new DAL_QuanlyTCNS();
+
+            try
+            {
+                // Đọc dữ liệu từ file Excel
+                var (danhSachHoaDon, danhSachCTHD) = ReadHoaDonExcelFile(filePath);
+
+                // Lưu hóa đơn vào CSDL
+                foreach (var hoaDon in danhSachHoaDon)
+                {
+                    bool success = dal.ThemHoaDon(hoaDon);
+                    if (!success) return false;
+                }
+
+                // Lưu chi tiết hóa đơn vào CSDL
+                foreach (var cthd in danhSachCTHD)
+                {
+                    bool success = dal.ThemChiTietHoaDon(cthd);
+                    if (!success) return false;
+                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi khi import file Excel: " + ex.Message);
+                return false;
+            }
+        }
+
+
+
+        private (List<DTO_HoaDonBanHang>, List<DTO_CT_HDBH>) ReadHoaDonExcelFile(string filePath)
+        {
+            List<DTO_HoaDonBanHang> listHoaDon = new List<DTO_HoaDonBanHang>();
+            List<DTO_CT_HDBH> listCTHD = new List<DTO_CT_HDBH>();
+
+            try
+            {
+                using (var stream = File.Open(filePath, FileMode.Open, FileAccess.Read))
+                {
+                    using (var reader = ExcelReaderFactory.CreateReader(stream))
+                    {
+                        var result = reader.AsDataSet();
+                        DataTable dataTable = result.Tables[0];
+
+                        for (int i = 1; i < dataTable.Rows.Count; i++) // Bỏ qua dòng tiêu đề
+                        {
+                            try
+                            {
+                                DTO_HoaDonBanHang hoadonbanhang = new DTO_HoaDonBanHang(
+                                    null, // Mã hóa đơn (có thể tạo mới)
+                                    Convert.ToDateTime(dataTable.Rows[i][0]), // Thời gian bán
+                                    dataTable.Rows[i][1]?.ToString(), // Mã nhân viên
+                                    int.TryParse(dataTable.Rows[i][2]?.ToString(), out int soDienThoai) ? soDienThoai : 0, // Số điện thoại
+                                    0
+                                );
+
+                                DTO_CT_HDBH cT_HDBH = new DTO_CT_HDBH(
+                                    null, // Mã hàng hóa
+                                    null, // Mã hóa đơn (có thể cần cập nhật sau)
+                                    dataTable.Rows[i][3]?.ToString(), // Tên hàng hóa
+                                    double.TryParse(dataTable.Rows[i][4]?.ToString(), out double soLuong) ? soLuong : 0.0, // Số lượng
+                                    0 // Tổng tiền
+                                );
+
+                                listHoaDon.Add(hoadonbanhang);
+                                listCTHD.Add(cT_HDBH);
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine($"Lỗi đọc dữ liệu dòng {i + 1}: {ex.Message}");
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi khi mở file Excel: " + ex.Message);
+            }
+
+            return (listHoaDon, listCTHD);
+        }
+
+        //THêm hóa đơn 
+        public bool ThemHoaDon(DateTime thoiGianBan, string maNhanVien, int soDienThoai, double thanhTien)
+        {
+            DTO_HoaDonBanHang hoaDon = new DTO_HoaDonBanHang(null, thoiGianBan, maNhanVien, soDienThoai,0);
+
+            if (dAL_QuanlyTCNS.ThemHoaDon(hoaDon))
+            {
+                return true;
+            }
+            return false;
+        }
+        //thêm  chi tiết hóa đơn
+        public bool ThemChiTietHoaDon(string tenHangHoa, double soLuong)
+        {
+            DTO_CT_HDBH chiTietHoaDon = new DTO_CT_HDBH(null,null, tenHangHoa, soLuong, 0);
+
+            if (dAL_QuanlyTCNS.ThemChiTietHoaDon(chiTietHoaDon))
+            {
+                return true;
+            }
+            return false;
+        }
+
+
         //Thêm khách hàng
         public Boolean themKH(String Hoten, String Sodienthoai, String Diachi, String Gioitinh)
         {
-            if(Regex.IsMatch(Hoten, "[0-9]"))
+            if (Regex.IsMatch(Hoten, "[0-9]"))
             {
                 MessageBox.Show("Họ tên không được chứa số");
                 return false;
             }
-            if(Regex.IsMatch(Sodienthoai, "[^0-9]"))
+            if (Regex.IsMatch(Sodienthoai, "[^0-9]"))
             {
                 MessageBox.Show("Số điện thoại không được chứa kí tự");
                 return false;
@@ -143,13 +257,12 @@ namespace BLL
                 return false;
             }
             DTO_Khachhang kh = new DTO_Khachhang(Hoten, Sodienthoai, Gioitinh, Diachi, 0, null, null);
-            if(dAL_QuanlyTCNS.themKH(kh))
+            if (dAL_QuanlyTCNS.themKH(kh))
             {
                 return true;
             }
             return false;
         }
-
         //Xóa khách hàng
         public Boolean xoaKH(String soDienThoai)
         {

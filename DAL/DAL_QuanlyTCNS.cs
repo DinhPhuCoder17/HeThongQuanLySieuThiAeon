@@ -65,6 +65,48 @@ namespace DAL
                 return false;
             }
         }
+        public bool ThemHoaDon(DTO_HoaDonBanHang hoaDon)
+        {
+            try
+            {
+                int line = DataProvider.Instance.ExecuteNonQuery(
+                    "EXEC themMaHDBH @Thoigianban, @Manhanvien, @Sodienthoai",
+                    new object[]
+                    {
+                hoaDon.thoiGianBan,    // Thời gian bán hàng
+                hoaDon.maNhanVien,     // Mã nhân viên
+                hoaDon.soDienThoai     // Số điện thoại
+                    });
+
+                return line > 0;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi khi thêm hóa đơn: " + ex.Message);
+                return false;
+            }
+        }
+        // them chi tieet hoa don
+        public bool ThemChiTietHoaDon(DTO_CT_HDBH chiTietHoaDon)
+        {
+            try
+            {
+                int line = DataProvider.Instance.ExecuteNonQuery(
+                    "EXEC themHH_HDBH @TenHangHoa, @SoLuong",
+                    new object[]
+                    {
+                chiTietHoaDon.tenHangHoa, // Tên hàng hóa
+                chiTietHoaDon.soLuong,   // Số lượng
+                    });
+
+                return line > 0;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi khi thêm chi tiết hóa đơn: " + ex.Message);
+                return false;
+            }
+        }
 
         //Thêm khách hàng
         public bool themKH(DTO_Khachhang kh)

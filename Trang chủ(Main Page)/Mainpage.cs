@@ -108,6 +108,11 @@ namespace Trang_chủ_Main_Page_
             }
         }
 
+        private void guna2CirclePictureBox1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
         // (Code vá của Liemp)
         //private void guna2TextBox1_TextChanged(object sender, EventArgs e)
         //{
