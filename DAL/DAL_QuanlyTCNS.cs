@@ -70,7 +70,7 @@ namespace DAL
             try
             {
                 int line = DataProvider.Instance.ExecuteNonQuery(
-                    "EXEC themMaHDBH @Thoigianban, @Manhanvien, @Sodienthoai",
+                    "EXEC themMaHDBH @Thoigianban , @Manhanvien , @Sodienthoai",
                     new object[]
                     {
                 hoaDon.thoiGianBan,    // Thời gian bán hàng
@@ -92,7 +92,7 @@ namespace DAL
             try
             {
                 int line = DataProvider.Instance.ExecuteNonQuery(
-                    "EXEC themHH_HDBH @TenHangHoa, @SoLuong",
+                    "EXEC themHH_HDBH @Tenhanghoa , @Soluong",
                     new object[]
                     {
                 chiTietHoaDon.tenHangHoa, // Tên hàng hóa

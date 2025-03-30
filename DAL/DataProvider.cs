@@ -8,6 +8,8 @@ using Microsoft.Identity.Client;
 
 namespace DAL
 {
+
+
     public class DataProvider
     {
         private String connectionStr = @"Data Source=DESKTOP-9UCJD9K;Initial Catalog=QuanLySieuThiAEON;Integrated Security=True;TrustServerCertificate=True";

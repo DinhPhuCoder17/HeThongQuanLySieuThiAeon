@@ -151,7 +151,7 @@ namespace Trang_chủ_Main_Page_
                 string filePath = openFileDialog.FileName;
                 BLL_QuanlyTCNS bLL_QuanLyTCNS = new BLL_QuanlyTCNS();
 
-                bool result = bLL_QuanLyTCNS.ImportChamCongFromExcel(filePath);
+                bool result = bLL_QuanLyTCNS.ImportHoaDonFromExcel(filePath);
 
                 if (result)
                     MessageBox.Show("Import dữ liệu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);

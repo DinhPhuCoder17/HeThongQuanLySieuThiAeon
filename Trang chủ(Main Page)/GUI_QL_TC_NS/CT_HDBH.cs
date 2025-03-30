@@ -62,6 +62,11 @@ namespace Trang_chu_Main_Page_.GUI_QL_TC_NS
         {
 
         }
+
+        private void btnExit_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
 

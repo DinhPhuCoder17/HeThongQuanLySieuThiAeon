@@ -5,7 +5,6 @@ go
 use QuanLySieuThiAEON
 go
 
-
 CREATE TABLE Nhanvien (
     Manhanvien varchar(10) CONSTRAINT PK_Nhanvien PRIMARY KEY,
     Hoten NVARCHAR(100),
@@ -523,7 +522,7 @@ BEGIN
         PRINT 'Error: Tenhanghoa does not exist!';
         RETURN;
     END
-go
+
     -- Tính tổng tiền
     SET @Tongtien = @Soluong * @Tienban;
 
@@ -795,19 +794,7 @@ INSERT INTO Hoadonbanhang (Mahoadon, Thoigianban, Manhanvien, Sodienthoai, Thanh
 DELETE FROM HH_HDBH
 Insert into HH_HDBH values
 ('HH0001', 'HD0001',N'Gạo ST25',10,200000)
-Insert into HH_HDBH values
-('HH0010', 'HD0001', 10, 600000)
-Insert into HH_HDBH values
-('HH0002', 'HD0002', 20, 1100000)
-Insert into HH_HDBH values
-('HH0005', 'HD0002', 200,1200000)
-Insert into HH_HDBH values
-('HH0002', 'HD0003', 20, 1100000)
-Insert into HH_HDBH values
-('HH0010', 'HD0003', 10,600000)
-Insert into HH_HDBH values
-('HH0009', 'HD0004', 400,450000)
-
+delete from Hoadonbanhang
 
 exec themMacalam N'Ca thường', '2024-03-15 08:30:00', '2024-03-15 15:30:00', 3
 exec themMacalam N'Ca thường', '2024-03-15 16:30:00', '2024-03-15 21:30:00', 3
@@ -837,11 +824,5 @@ go
 exec themMaHDNH 10000, 10
 exec themHD_HH 'HH0002', 'NH0001', 100
 go 
-Insert into Quanly values
-('NV0001', '1', '123'),
-('NV0002', '2', '123'),
-('NV0003', '3', '123')
-
-
 
 --comment--

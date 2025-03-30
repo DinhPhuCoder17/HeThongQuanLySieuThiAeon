@@ -72,6 +72,7 @@
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(41, 34);
             this.btnExit.TabIndex = 5;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click_1);
             // 
             // dtg_CTDH
             // 
@@ -85,7 +86,8 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dtg_CTDH.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dtg_CTDH.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtg_CTDH.ColumnHeadersHeight = 4;
+            this.dtg_CTDH.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -113,7 +115,7 @@
             this.dtg_CTDH.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dtg_CTDH.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtg_CTDH.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.dtg_CTDH.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtg_CTDH.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dtg_CTDH.ThemeStyle.HeaderStyle.Height = 4;
             this.dtg_CTDH.ThemeStyle.ReadOnly = false;
             this.dtg_CTDH.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
