@@ -5,7 +5,6 @@ go
 use QuanLySieuThiAEON
 go
 
-select * from Nhanvien
 
 CREATE TABLE Nhanvien (
     Manhanvien varchar(10) CONSTRAINT PK_Nhanvien PRIMARY KEY,
@@ -26,8 +25,6 @@ CREATE TABLE Quanly (
     CONSTRAINT FK_Quanly_Nhanvien FOREIGN KEY (Manhanvien) REFERENCES Nhanvien(Manhanvien)
 );
 --End Account
-
-
 CREATE TABLE Khachhang (
 	Sodienthoai varchar(10) CONSTRAINT PK_KH PRIMARY KEY,
 	Hoten nvarchar(255),
@@ -344,9 +341,6 @@ Select @maxMaNhanvien = MAX(Manhanvien) from Nhanvien;
 	Insert into Nhanvien(Manhanvien, Hoten, CCCD, Ngaysinh, Gioitinh, Diachi, Sodienthoai, Xoa)
 	Values (@newMaNhanvien, @Hoten, @CCCD, @Ngaysinh, @Gioitinh, @Diachi, @Sodienthoai, 1);
 	print 'adding successfully: ' + @newMaNhanvien;
-
-	-- Trả về mã nhân viên vừa thêm
-    SELECT @newMaNhanvien;
 End;
 
 --Procedure thêm mã cho hàng hoá mới--
@@ -452,30 +446,18 @@ Declare @soMoi int;
 End;
 
 --Procedure thêm mã hoá đơn bán hàng--
+ delete from Hoadonbanhang
 go
 CREATE PROCEDURE themMaHDBH
     @Thoigianban DATETIME,
-    @Hoten NVARCHAR(255)  -- Chỉ cần truyền vào tên nhân viên
+    @Manhanvien VARCHAR(10),
+    @Sodienthoai VARCHAR(15)
 AS
 BEGIN
     DECLARE @newMaHDBH VARCHAR(10);
     DECLARE @maxMaHDBH VARCHAR(10);
     DECLARE @soMoi INT;
-    DECLARE @Manhanvien VARCHAR(10);
-    DECLARE @Sodienthoai VARCHAR(15);
     DECLARE @Thanhtien DECIMAL(18,2);
-
-    -- Lấy mã nhân viên và số điện thoại từ bảng Nhanvien dựa vào Hoten
-    SELECT @Manhanvien = Manhanvien, @Sodienthoai = Sodienthoai 
-    FROM Nhanvien 
-    WHERE Hoten = @Hoten;
-
-    -- Kiểm tra nếu không tìm thấy nhân viên
-    IF @Manhanvien IS NULL
-    BEGIN
-        PRINT 'Error: Nhân viên không tồn tại!';
-        RETURN;
-    END
 
     -- Lấy mã hóa đơn lớn nhất hiện tại
     SELECT @maxMaHDBH = MAX(Mahoadon) FROM Hoadonbanhang;
@@ -506,6 +488,7 @@ BEGIN
     PRINT 'Thêm hóa đơn thành công: ' + @newMaHDBH;
 END;
 
+go
 --Thêm Hóa Đơn Chi Tiết Hóa Đơn---
 CREATE PROCEDURE themHH_HDBH
     @Tenhanghoa NVARCHAR(255),
@@ -540,7 +523,7 @@ BEGIN
         PRINT 'Error: Tenhanghoa does not exist!';
         RETURN;
     END
-
+go
     -- Tính tổng tiền
     SET @Tongtien = @Soluong * @Tienban;
 
@@ -809,9 +792,9 @@ INSERT INTO Hoadonbanhang (Mahoadon, Thoigianban, Manhanvien, Sodienthoai, Thanh
 INSERT INTO Hoadonbanhang (Mahoadon, Thoigianban, Manhanvien, Sodienthoai, Thanhtien) VALUES
 ('HD0004', '2024-03-04 14:20:00', 'NV0003', '0962233445', 100000)
 
-
+DELETE FROM HH_HDBH
 Insert into HH_HDBH values
-('HH0001', 'HD0001','Gạo ST25',10,200000)
+('HH0001', 'HD0001',N'Gạo ST25',10,200000)
 Insert into HH_HDBH values
 ('HH0010', 'HD0001', 10, 600000)
 Insert into HH_HDBH values
