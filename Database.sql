@@ -5,7 +5,6 @@ go
 use QuanLySieuThiAEON
 go
 
-select * from Nhanvien
 
 CREATE TABLE Nhanvien (
     Manhanvien varchar(10) CONSTRAINT PK_Nhanvien PRIMARY KEY,
@@ -26,6 +25,7 @@ CREATE TABLE Quanly (
     CONSTRAINT FK_Quanly_Nhanvien FOREIGN KEY (Manhanvien) REFERENCES Nhanvien(Manhanvien)
 );
 --End Account
+
 
 
 CREATE TABLE Khachhang (
@@ -344,8 +344,7 @@ Select @maxMaNhanvien = MAX(Manhanvien) from Nhanvien;
 	Insert into Nhanvien(Manhanvien, Hoten, CCCD, Ngaysinh, Gioitinh, Diachi, Sodienthoai, Xoa)
 	Values (@newMaNhanvien, @Hoten, @CCCD, @Ngaysinh, @Gioitinh, @Diachi, @Sodienthoai, 1);
 	print 'adding successfully: ' + @newMaNhanvien;
-
-	-- Trả về mã nhân viên vừa thêm
+-- Trả về mã nhân viên vừa thêm
     SELECT @newMaNhanvien;
 End;
 
@@ -452,30 +451,18 @@ Declare @soMoi int;
 End;
 
 --Procedure thêm mã hoá đơn bán hàng--
+ delete from Hoadonbanhang
 go
 CREATE PROCEDURE themMaHDBH
     @Thoigianban DATETIME,
-    @Hoten NVARCHAR(255)  -- Chỉ cần truyền vào tên nhân viên
+    @Manhanvien VARCHAR(10),
+    @Sodienthoai VARCHAR(15)
 AS
 BEGIN
     DECLARE @newMaHDBH VARCHAR(10);
     DECLARE @maxMaHDBH VARCHAR(10);
     DECLARE @soMoi INT;
-    DECLARE @Manhanvien VARCHAR(10);
-    DECLARE @Sodienthoai VARCHAR(15);
     DECLARE @Thanhtien DECIMAL(18,2);
-
-    -- Lấy mã nhân viên và số điện thoại từ bảng Nhanvien dựa vào Hoten
-    SELECT @Manhanvien = Manhanvien, @Sodienthoai = Sodienthoai 
-    FROM Nhanvien 
-    WHERE Hoten = @Hoten;
-
-    -- Kiểm tra nếu không tìm thấy nhân viên
-    IF @Manhanvien IS NULL
-    BEGIN
-        PRINT 'Error: Nhân viên không tồn tại!';
-        RETURN;
-    END
 
     -- Lấy mã hóa đơn lớn nhất hiện tại
     SELECT @maxMaHDBH = MAX(Mahoadon) FROM Hoadonbanhang;
@@ -505,6 +492,7 @@ BEGIN
 
     PRINT 'Thêm hóa đơn thành công: ' + @newMaHDBH;
 END;
+
 
 --Thêm Hóa Đơn Chi Tiết Hóa Đơn---
 CREATE PROCEDURE themHH_HDBH
@@ -755,12 +743,10 @@ VALUES
 ('NV0008', N'Ngô Thị H', '123456789019', '1996-08-08', N'Nữ', N'Vũng Tàu', '0941234567', 1),
 ('NV0009', N'Doãn Văn I', '123456789020', '1997-09-09', N'Nam', N'Thái Bình', '0931234567', 1),
 ('NV0010', N'Vũ Thị K', '123456789021', '1990-10-10', N'Nữ', N'An Giang', '0921234567', 1);
-
 Insert into Quanly values
 ('NV0001', '1', '123', 'Admin'),
 ('NV0002', '2', '123', 'Kho'),
 ('NV0003', '3', '123', 'TCNS')
-
 INSERT INTO Khachhang (Sodienthoai, Hoten, Diachi, Diemthuong, Gioitinh, Hang, Xoa) VALUES
 ('0987654321', N'Nguyễn Văn An', N'Hà Nội', 100, N'Nam', N'Thành viên', 1),
 ('0971122334', N'Trần Thị Bình', N'Hồ Chí Minh', 200, N'Nữ', N'Bạc', 1),
@@ -809,9 +795,9 @@ INSERT INTO Hoadonbanhang (Mahoadon, Thoigianban, Manhanvien, Sodienthoai, Thanh
 INSERT INTO Hoadonbanhang (Mahoadon, Thoigianban, Manhanvien, Sodienthoai, Thanhtien) VALUES
 ('HD0004', '2024-03-04 14:20:00', 'NV0003', '0962233445', 100000)
 
-
+DELETE FROM HH_HDBH
 Insert into HH_HDBH values
-('HH0001', 'HD0001','Gạo ST25',10,200000)
+('HH0001', 'HD0001',N'Gạo ST25',10,200000)
 Insert into HH_HDBH values
 ('HH0010', 'HD0001', 10, 600000)
 Insert into HH_HDBH values
