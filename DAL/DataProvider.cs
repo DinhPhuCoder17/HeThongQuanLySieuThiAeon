@@ -8,18 +8,21 @@ using Microsoft.Identity.Client;
 
 namespace DAL
 {
+
+
     public class DataProvider
     {
-        //private String connectionStr = @"Data Source=LAPTOP-P1IHVTIA;Initial Catalog=QuanLySieuThiAEON;Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
+        private String connectionStr = @"Data Source=DESKTOP-9UCJD9K;Initial Catalog=QuanLySieuThiAEON;Integrated Security=True;TrustServerCertificate=True";
 
         //Liêm
         private String connectionStr = @"Data Source=LAPTOP-CKE458TU;Initial Catalog=QuanLySieuThiAEON;Integrated Security=True;Encrypt=True";
 
         //private String connectionStr = @"Data Source=.\SQLEXPRESS;Initial Catalog=QuanLySieuThiAEON;Integrated Security=True";
 
-        //Phú
+        //Phú laptop
         //private String connectionStr = @"Data Source=LAPTOP-P1IHVTIA;Initial Catalog=QuanLySieuThiAEON;Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
-
+        //Phú pc
+        //private String connectionStr = @"Data Source=ADMIN\MSSQLSERVER01;Initial Catalog=QuanLySieuThiAEON;Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
         //Tạo singleton
         private static DataProvider instance;
 

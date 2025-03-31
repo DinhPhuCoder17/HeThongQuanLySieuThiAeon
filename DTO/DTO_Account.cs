@@ -12,5 +12,12 @@ namespace DTO
         public string Password { get; set; }
         public string Manhanvien { get; set; }
 
+        public DTO_Account(string manhanvien, string username, string password)
+        {
+            this.Manhanvien = manhanvien;
+            this.Username = username;
+            this.Password = password;
+        }
+
     }
 }

@@ -19,9 +19,11 @@ namespace Trang_chủ_Main_Page_
         public Statistic()
         {
             InitializeComponent();
+            selectedMonth = DateTime.Now.AddMonths(-1); // Bắt đầu từ tháng trước
+            UpdateMonthLabel();
         }
 
-
+        DateTime selectedMonth = DateTime.Now.AddMonths(-1); // Bắt đầu từ tháng trước
         private void Statistic_Load(object sender, EventArgs e)
         {
             cProfit.FillColors= new Guna.Charts.WinForms.ColorCollection()
@@ -101,6 +103,35 @@ namespace Trang_chủ_Main_Page_
         private void guna2Panel10_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void c_Satistic_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_NextCalendar1_Click(object sender, EventArgs e)
+        {
+            DateTime lastMonth = DateTime.Now.AddMonths(-1); // Tháng giới hạn cuối
+            if (selectedMonth.Month <= lastMonth.Month - 1) // Chặn tiến nếu đã đến tháng trước
+            {
+                selectedMonth = selectedMonth.AddMonths(1);
+                UpdateMonthLabel();
+            }
+        }
+
+        private void btnPrevCalendar1_Click(object sender, EventArgs e)
+        {
+            if (selectedMonth.Month > 1) // Chặn lùi nếu đã là tháng 1
+            {
+                selectedMonth = selectedMonth.AddMonths(-1);
+                UpdateMonthLabel();
+            }
+        }
+        private void UpdateMonthLabel()
+        {
+            lbl_Month_Display.Text = $"Tháng {selectedMonth.Month}"; // Định dạng "Tháng X"
+           
         }
     }
 }

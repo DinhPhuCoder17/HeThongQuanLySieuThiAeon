@@ -12,7 +12,23 @@ namespace DAL
 {
     public class DAL_QuanlyTCNS
     {
-
+        // loc hoa don
+        public DataTable locHoaDon(DateTime startDate, DateTime endDate)
+        {
+            return DataProvider.Instance.ExecuteQuery("Select Mahoadon, Thoigianban, Manhanvien, Sodienthoai, Thanhtien From Hoadonbanhang where Thoigianban >= @startDate and Thoigianban <= @endDate", new object[] { startDate, endDate });
+        }
+        // xem danh sách hóa đơn
+        public DataTable xemChiTietHDBH(String maHoaDon)
+        {
+            return DataProvider.Instance.ExecuteQuery("SELECT Mahoadon, Mahanghoa, Tenhanghoa, Soluong, Tongtien " +
+               "FROM HH_HDBH " +
+               "WHERE Mahoadon = @Mahoadon", new object[] { maHoaDon });
+        }
+        //Xem danh sách hóa đơn
+        public DataTable xemDSHD()
+        {
+            return DataProvider.Instance.ExecuteQuery("Select Mahoadon, Thoigianban, Manhanvien, Sodienthoai, Thanhtien From Hoadonbanhang");
+        }
         // Xem Danh Sách Chấm Công
         public DataTable xemDSCC()
         {
@@ -54,7 +70,66 @@ namespace DAL
                 return false;
             }
         }
+        public bool ThemHoaDon(DTO_HoaDonBanHang hoaDon)
+        {
+            try
+            {
+                int line = DataProvider.Instance.ExecuteNonQuery(
+                    "EXEC themMaHDBH @Thoigianban , @Manhanvien , @Sodienthoai",
+                    new object[]
+                    {
+                hoaDon.thoiGianBan,    // Thời gian bán hàng
+                hoaDon.maNhanVien,     // Mã nhân viên
+                hoaDon.soDienThoai     // Số điện thoại
+                    });
 
+                return line > 0;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi khi thêm hóa đơn: " + ex.Message);
+                return false;
+            }
+        }
+        // them chi tieet hoa don
+        public bool ThemChiTietHoaDon(DTO_CT_HDBH chiTietHoaDon)
+        {
+            try
+            {
+                int line = DataProvider.Instance.ExecuteNonQuery(
+                    "EXEC themHH_HDBH @Tenhanghoa , @Soluong",
+                    new object[]
+                    {
+                chiTietHoaDon.tenHangHoa, // Tên hàng hóa
+                chiTietHoaDon.soLuong,   // Số lượng
+                    });
+
+                return line > 0;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi khi thêm chi tiết hóa đơn: " + ex.Message);
+                return false;
+            }
+        }
+        //Xóa hóa đơn
+        public bool XoaHoaDon(string maHoaDon)
+        {
+            try
+            {
+                int result = DataProvider.Instance.ExecuteNonQuery(
+                    "EXEC sp_XoaHoaDon @MaHoaDon",
+                    new object[] { maHoaDon });
+
+                return result > 0;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi khi xóa hóa đơn: " + ex.Message);
+                return false;
+            }
+        }
+     
         //Thêm khách hàng
         public bool themKH(DTO_Khachhang kh)
         {
