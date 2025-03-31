@@ -632,7 +632,7 @@ Begin
 	Select @Thanhtien = @Soluongdat * Tiennhap
 	From Hanghoa
 
-	Insert into HD_HH values (@Mahanghoa, @Sohd, getDate(), @Soluongdat, 0, null, null, @Thanhtien, N'Chưa Nhập Kho')
+	Insert into HD_HH values (@Mahanghoa, @Sohd, null, @Soluongdat, 0, null, null, @Thanhtien, N'Chưa Nhập Kho')
 End
 --Thêm vào chi tiết HDNH--
 
@@ -767,12 +767,8 @@ go
 --Delete from HD_Nhaphang
 exec themMaHDNH 10000, 10
 exec themHD_HH 'HH0002', 'NH0001', 100
-go 
-Insert into Quanly values
-('NV0001', '1', '123'),
-('NV0002', '2', '123'),
-('NV0003', '3', '123')
 
 
-
+Select * From hanghoa
+Select HD_HH.Mahanghoa, hh.soluong - (Soluongnhan - Soluongdat) as Hieu From HD_HH left join HangHoa hh on HD_HH.Mahanghoa = hh.Mahanghoa Where Sohd = 'NH0004' AND Soluongnhan < Soluongdat
 --comment--

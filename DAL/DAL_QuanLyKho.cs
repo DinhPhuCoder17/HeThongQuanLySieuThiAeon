@@ -118,10 +118,30 @@ namespace DAL
                 switch (hDNhapHang.trangThai)
                 {
                     case "Đang Vận Chuyển":
-                        return DataProvider.Instance.ExecuteNonQuery("UPDATE HD_NhapHang SET TrangThai = N'Kiểm Kho' WHERE Sohd = @soHD", new object[] { hDNhapHang.soHD }) != 0;
+                        return DataProvider.Instance.ExecuteNonQuery("UPDATE HD_NhapHang SET TrangThai = N'Kiểm Kê' WHERE Sohd = @soHD", new object[] { hDNhapHang.soHD }) != 0;
                     case "Chờ Xác Nhận":
                         return DataProvider.Instance.ExecuteNonQuery("UPDATE HD_NhapHang SET TrangThai = N'Đang Vận Chuyển' WHERE Sohd = @soHD", new object[] { hDNhapHang.soHD }) != 0;
+                    case "Chờ Xử Lý Bổ Sung":
+                        DataTable kn = DataProvider.Instance.ExecuteQuery("Select * From Khieunai Where Sohd = @Sohd ", new object[] {hDNhapHang.soHD});
+                        if (kn == null || kn.Rows.Count == 0)  // Kiểm tra null hoặc DataTable không có dữ liệu
+                        {
+                            MessageBox.Show("Chưa xử lý khiếu nại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return false;
+                        }
+                        int FirstCommand = DataProvider.Instance.ExecuteNonQuery("UPDATE HD_NhapHang SET TrangThai = N'Đã Xử Lý' WHERE Sohd = @soHD", new object[] { hDNhapHang.soHD});
+                        if (FirstCommand != 0)
+                        {
+                            DataTable dt = DataProvider.Instance.ExecuteQuery("Select HD_HH.Mahanghoa, hh.soluong - (Soluongnhan - Soluongdat) as Hieu From HD_HH left join HangHoa hh on HD_HH.Mahanghoa = hh.Mahanghoa Where Sohd = @Sohd AND Soluongnhan < Soluongdat", new object[] { hDNhapHang.soHD });
+                            foreach(DataRow row in dt.Rows)
+                            {
+                                DataProvider.Instance.ExecuteNonQuery("Update Hanghoa set Soluong = @Soluong Where Mahanghoa = @Mahanghoa ", new object[] { int.Parse(row[1].ToString()), row[0].ToString() });
+                            }
+                            DataProvider.Instance.ExecuteNonQuery("Update HD_HH set Soluongnhan = Soluongdat Where Sohd = @Sohd", new object[] { hDNhapHang.soHD });
+                            return true;
+                        }
+                        return false;
                 }
+
                 return false;
             }
             catch
@@ -146,7 +166,7 @@ namespace DAL
                     int line = DataProvider.Instance.ExecuteNonQuery("UPDATE Hanghoa SET Soluong = Soluong + @soluongnhan  WHERE Mahanghoa = @mahanghoa", new object[] { hh.SoLuongNhan > hh.SoLuongDat ? hh.SoLuongDat: hh.SoLuongNhan, hh.HangHoa.MaHangHoa });
                     if(line != 0)
                     {
-                        int lineNext = DataProvider.Instance.ExecuteNonQuery("UPDATE HD_HH SET Soluongnhan = @soluongnhan , Ngaysanxuat = @Ngaysanxuat , Hansudung = @Hansudung , Trangthai = @Trangthai  WHERE Mahanghoa = @mahanghoa", new object[] { hh.SoLuongNhan, hh.NSX, hh.HSD, hh.TrangThai, hh.HangHoa.MaHangHoa });
+                        int lineNext = DataProvider.Instance.ExecuteNonQuery("UPDATE HD_HH SET Soluongnhan = @soluongnhan , Ngaysanxuat = @Ngaysanxuat , Hansudung = @Hansudung , Trangthai = @Trangthai , Ngaynhap = @Ngaynhap  WHERE Mahanghoa = @mahanghoa", new object[] { hh.SoLuongNhan, hh.NSX, hh.HSD, hh.TrangThai, hh.NgayNhan, hh.HangHoa.MaHangHoa });
                         if (lineNext == 0)
                         {
                             return false;
@@ -169,6 +189,16 @@ namespace DAL
             return DataProvider.Instance.ExecuteQuery("Select HD_HH.Sohd, HD_HH.Mahanghoa, Tenhanghoa, Ngaynhap, Soluongdat, Soluongnhan, Luongchenhlech, Loaikhieunai, Lydochitiet From HD_HH left join Khieunai KN on HD_HH.Mahanghoa = KN.Mahanghoa and HD_HH.Sohd = KN.Sohd left join Hanghoa HH on HD_HH.Mahanghoa = HH.Mahanghoa Where HD_HH.Sohd = @Sohd", new object[] {soHD});
         }
 
+        public DataTable xemDSKNvaNCC(String soHD)
+        {
+            return DataProvider.Instance.ExecuteQuery("Select HD_HH.Sohd, HD_HH.Mahanghoa, Tenhanghoa, TenNCC, Ngaynhap, Soluongdat, Soluongnhan, Luongchenhlech, Loaikhieunai, Lydochitiet From HD_HH left join Khieunai KN on HD_HH.Mahanghoa = KN.Mahanghoa and HD_HH.Sohd = KN.Sohd left join Hanghoa HH on HD_HH.Mahanghoa = HH.Mahanghoa left join Nhacungcap NCC on HH.Mancc = NCC.Mancc  Where HD_HH.Sohd = @Sohd", new object[] { soHD });
+        }
+
+        public DataTable xemDSNHvaNCC(String soHD)
+        {
+            return DataProvider.Instance.ExecuteQuery("Select HD_HH.Sohd, HD_HH.Mahanghoa, Tenhanghoa, TenNCC, Tiennhap, Soluongdat, Thanhtien From HD_HH left join Hanghoa HH on HD_HH.Mahanghoa = HH.Mahanghoa left join Nhacungcap NCC on HH.Mancc = NCC.Mancc  Where HD_HH.Sohd = @Sohd", new object[] { soHD });
+        }
+
         public Boolean themKN(DTO_Khieunai kn)
         {
             try
@@ -185,6 +215,16 @@ namespace DAL
                 MessageBox.Show("Không tồn tại hóa đơn này!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false; 
             }
+        }
+
+        public DateTime xemNgayDatHang(String maNH)
+        {
+            return DateTime.Parse(DataProvider.Instance.ExecuteScalar("Select Ngaydat From HD_Nhaphang Where Sohd = @Sohd", new object[] { maNH }).ToString());
+        }
+
+        public DataTable timKiemHDNH(String tukhoa)
+        {
+            return DataProvider.Instance.ExecuteQueryOneParameter("Select Sohd, Ngaydat, Tongtien, Trangthai FROM HD_Nhaphang where (Sohd LIKE '%' + @tukhoa + '%' or convert(nvarchar, Ngaydat, 103) LIKE '%' + @tukhoa + '%'  or FORMAT(TongTien, 'N0') LIKE '%' + @tukhoa + '%' or Trangthai LIKE '%' + @tukhoa + '%')", new object[] { tukhoa });
         }
     }
 }
