@@ -37,7 +37,7 @@
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtAI = new Guna.UI2.WinForms.Guna2TextBox();
             this.cmbLocTheoDanhMuc_GoiYNhapHang = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -71,7 +71,7 @@
             this.guna2Panel2.BackColor = System.Drawing.Color.White;
             this.guna2Panel2.Controls.Add(this.label4);
             this.guna2Panel2.Controls.Add(this.guna2CirclePictureBox1);
-            this.guna2Panel2.Controls.Add(this.guna2TextBox2);
+            this.guna2Panel2.Controls.Add(this.txtAI);
             this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2Panel2.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel2.Name = "guna2Panel2";
@@ -102,32 +102,32 @@
             this.guna2CirclePictureBox1.TabIndex = 14;
             this.guna2CirclePictureBox1.TabStop = false;
             // 
-            // guna2TextBox2
+            // txtAI
             // 
-            this.guna2TextBox2.Animated = true;
-            this.guna2TextBox2.BackColor = System.Drawing.Color.White;
-            this.guna2TextBox2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.guna2TextBox2.BorderRadius = 8;
-            this.guna2TextBox2.BorderThickness = 0;
-            this.guna2TextBox2.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox2.DefaultText = "";
-            this.guna2TextBox2.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
-            this.guna2TextBox2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2TextBox2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox2.Location = new System.Drawing.Point(29, 30);
-            this.guna2TextBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.guna2TextBox2.Name = "guna2TextBox2";
-            this.guna2TextBox2.PlaceholderForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox2.PlaceholderText = "Tìm Kiếm";
-            this.guna2TextBox2.SelectedText = "";
-            this.guna2TextBox2.Size = new System.Drawing.Size(651, 39);
-            this.guna2TextBox2.TabIndex = 9;
-            this.guna2TextBox2.TextChanged += new System.EventHandler(this.guna2TextBox2_TextChanged);
+            this.txtAI.Animated = true;
+            this.txtAI.BackColor = System.Drawing.Color.White;
+            this.txtAI.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.txtAI.BorderRadius = 8;
+            this.txtAI.BorderThickness = 0;
+            this.txtAI.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtAI.DefaultText = "";
+            this.txtAI.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtAI.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtAI.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtAI.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtAI.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
+            this.txtAI.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtAI.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtAI.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtAI.Location = new System.Drawing.Point(29, 30);
+            this.txtAI.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtAI.Name = "txtAI";
+            this.txtAI.PlaceholderForeColor = System.Drawing.Color.Black;
+            this.txtAI.PlaceholderText = "Tìm Kiếm";
+            this.txtAI.SelectedText = "";
+            this.txtAI.Size = new System.Drawing.Size(651, 39);
+            this.txtAI.TabIndex = 9;
+            this.txtAI.TextChanged += new System.EventHandler(this.guna2TextBox2_TextChanged);
             // 
             // cmbLocTheoDanhMuc_GoiYNhapHang
             // 
@@ -144,6 +144,7 @@
             this.cmbLocTheoDanhMuc_GoiYNhapHang.Name = "cmbLocTheoDanhMuc_GoiYNhapHang";
             this.cmbLocTheoDanhMuc_GoiYNhapHang.Size = new System.Drawing.Size(164, 36);
             this.cmbLocTheoDanhMuc_GoiYNhapHang.TabIndex = 20;
+            this.cmbLocTheoDanhMuc_GoiYNhapHang.SelectedIndexChanged += new System.EventHandler(this.cmbSelectedIndexChanged);
             // 
             // label3
             // 
@@ -378,6 +379,7 @@
             this.DanhMuc.MinimumWidth = 6;
             this.DanhMuc.Name = "DanhMuc";
             this.DanhMuc.ReadOnly = true;
+            this.DanhMuc.Visible = false;
             // 
             // guna2Elipse2
             // 
@@ -415,6 +417,7 @@
             this.cmbTGTTHH.Name = "cmbTGTTHH";
             this.cmbTGTTHH.Size = new System.Drawing.Size(164, 36);
             this.cmbTGTTHH.TabIndex = 36;
+            this.cmbTGTTHH.SelectedIndexChanged += new System.EventHandler(this.cmbTGTTHH_SelectedIndexChanged);
             // 
             // guna2GradientButton4
             // 
@@ -472,7 +475,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private Guna.UI2.WinForms.Guna2ComboBox cmbLocTheoDanhMuc_GoiYNhapHang;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox2;
+        private Guna.UI2.WinForms.Guna2TextBox txtAI;
         private Guna.UI2.WinForms.Guna2GradientButton btnXoa;
         private Guna.UI2.WinForms.Guna2GradientButton btnSua;
         private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton2;

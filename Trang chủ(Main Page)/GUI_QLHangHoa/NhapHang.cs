@@ -161,7 +161,7 @@ namespace Trang_chủ_Main_Page_
         private void xuatHoaDonNhapHang(String Sohd)
         {
 
-            DataTable dt = bll_QuanLyKho.xemDSNHvaNCC(Sohd);            
+            DataTable dt = BLLQuanLyKho.Instance.xemDSNHvaNCC(Sohd);            
             dt.Columns["Sohd"].ColumnName = "Số hóa đơn";
             dt.Columns["Mahanghoa"].ColumnName = "Mã hàng hóa";
             dt.Columns["Tenhanghoa"].ColumnName = "Tên hàng hóa";
@@ -224,7 +224,7 @@ namespace Trang_chủ_Main_Page_
                         soHD.Alignment = Element.ALIGN_RIGHT;
                         soHD.Add(new Chunk(String.Format("Số hóa đơn: {0}", dgvNhapHang.CurrentRow.Cells[0].Value.ToString()), boldFont));
                         soHD.Add(Chunk.NEWLINE);
-                        soHD.Add(new Chunk(String.Format("Ngày đặt: {0}", bll_QuanLyKho.xemNgayDatHang(dgvNhapHang.CurrentRow.Cells[0].Value.ToString()).ToString("dd/MM/yyyy")), boldFont));
+// soHD.Add(new Chunk(String.Format("Ngày đặt: {0}", BLLQuanLyKho.Instance.xemNgayDatHang(dgvNhapHang.CurrentRow.Cells[0].Value.ToString()).ToString("dd/MM/yyyy")), boldFont));
 
                         doc.Add(soHD);
 
@@ -376,7 +376,7 @@ namespace Trang_chủ_Main_Page_
 
         }
 
-        private void txt_Searching_HDNH_TextChanged(object sender, EventArgs e)
+       /* private void txt_Searching_HDNH_TextChanged(object sender, EventArgs e)
         {
             if (txt_Searching_HDNH.Text == null)
             {
@@ -384,7 +384,7 @@ namespace Trang_chủ_Main_Page_
             }
             else
             {
-                DataTable dataTable = bll_QuanLyKho.timKiemHDNH(txt_Searching_HDNH.Text);
+               DataTable dataTable = BLLQuanLyKho.Instance.timKiemHDNH(txt_Searching_HDNH.Text);
                 dgvNhapHang.DataSource = dataTable;
                 dgvNhapHang.Columns[0].HeaderText = "Mã đơn hàng";
                 dgvNhapHang.Columns[1].HeaderText = "Thời gian đặt";
@@ -401,7 +401,7 @@ namespace Trang_chủ_Main_Page_
                     column.Resizable = DataGridViewTriState.False;
                 }
             }
-        }
+        }*/
 
         private void guna2Panel1_Paint_1(object sender, PaintEventArgs e)
         {

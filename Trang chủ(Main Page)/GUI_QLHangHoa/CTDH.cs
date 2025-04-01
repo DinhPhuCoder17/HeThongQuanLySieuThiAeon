@@ -260,7 +260,7 @@ namespace Trang_chủ_Main_Page_
         //Cập nhật lại mã đặt hàng
         public void UpdateMaDH(string maDH, String TrangThaiDHLon)
         {
-            soHD = maDH;
+            string soHD = maDH;
             btnKhieuNai.Enabled = false;
             lbMaDH.Text = maDH;
             if (TrangThaiDHLon == "Chờ Xác Nhận" || TrangThaiDHLon == "Đang Vận Chuyển" || TrangThaiDHLon == "Đã Xử Lý" || TrangThaiDHLon == "Đã Nhập Một Phần")
