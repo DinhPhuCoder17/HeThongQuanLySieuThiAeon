@@ -5,7 +5,7 @@ go
 use QuanLySieuThiAEON
 go
 
-select * from Nhanvien
+--select * from Quanly
 
 CREATE TABLE Nhanvien (
     Manhanvien varchar(10) CONSTRAINT PK_Nhanvien PRIMARY KEY,
@@ -20,7 +20,7 @@ CREATE TABLE Nhanvien (
 --Account
 CREATE TABLE Quanly (
     Manhanvien varchar(10) CONSTRAINT PK_Quanly PRIMARY KEY,
-    Username VARCHAR(50),
+    Username VARCHAR(50) UNIQUE,
     Password VARCHAR(255),
 	Role VARCHAR(50),
     CONSTRAINT FK_Quanly_Nhanvien FOREIGN KEY (Manhanvien) REFERENCES Nhanvien(Manhanvien)
@@ -409,6 +409,8 @@ Select @maxMaNCC = MAX(MaNCC) from Nhacungcap;
 	Insert into Nhacungcap(MaNCC, TenNCC, Diachi, Masothue, Sodienthoai, Xoa)
 	Values (@newMaNCC, @TenNCC, @Diachi, @Masothue, @Sodienthoai, 1);
 	print 'adding successfully: ' + @newMaNCC;
+	-- Trả về mã NCC vừa thêm
+    SELECT @newMaNCC;
 End;
 
 --Procedure thêm mã ca làm mới--
@@ -684,9 +686,11 @@ VALUES
 ('NV0010', N'Vũ Thị K', '123456789021', '1990-10-10', N'Nữ', N'An Giang', '0921234567', 1);
 
 Insert into Quanly values
-('NV0001', '1', '123', 'Admin'),
+('NV0001', '1', '$2a$11$z9zAD5bZeEbk81MyEfUwQuRITnMDNuctPaACjDsbdWqf/rRzIZ1fy', 'Admin'),
 ('NV0002', '2', '123', 'Kho'),
 ('NV0003', '3', '123', 'TCNS')
+select * from Quanly
+--UPDATE Quanly SET Password = '$2a$11$z9zAD5bZeEbk81MyEfUwQuRITnMDNuctPaACjDsbdWqf/rRzIZ1fy' WHERE Username = '1';
 
 INSERT INTO Khachhang (Sodienthoai, Hoten, Diachi, Diemthuong, Gioitinh, Hang, Xoa) VALUES
 ('0987654321', N'Nguyễn Văn An', N'Hà Nội', 100, N'Nam', N'Thành viên', 1),
@@ -701,16 +705,16 @@ INSERT INTO Khachhang (Sodienthoai, Hoten, Diachi, Diemthuong, Gioitinh, Hang, X
 
 INSERT INTO Nhacungcap (MaNCC, TenNCC, Diachi, Masothue, Sodienthoai, Xoa)
 VALUES
-    ('NCC0001', N'Công ty TNHH Thực Phẩm An Phát', N'123 Lê Lợi, Hà Nội', '0101234567', '0912345678', 1),
-    ('NCC0002', N'Công ty CP Hóa Mỹ Phẩm Việt', N'456 Trần Hưng Đạo, TP.HCM', '0202345678', '0923456789', 1),
-    ('NCC0003', N'Công ty TNHH Dịch Vụ Thương Mại Minh Khang', N'789 Lý Thường Kiệt, Đà Nẵng', '0303456789', '0934567890', 1),
-    ('NCC0004', N'Công ty CP Sản Xuất Hòa Bình', N'12 Nguyễn Huệ, Huế', '0404567890', '0945678901', 1),
-    ('NCC0005', N'Công ty TNHH Nông Sản Việt', N'34 Quang Trung, Hải Phòng', '0505678901', '0956789012', 1),
-    ('NCC0006', N'Công ty CP Công Nghệ Thịnh Vượng', N'56 Lê Lai, Cần Thơ', '0606789012', '0967890123', 1),
-    ('NCC0007', N'Công ty TNHH Xuất Nhập Khẩu Thành Công', N'78 Hai Bà Trưng, Nha Trang', '0707890123', '0978901234', 1),
-    ('NCC0008', N'Công ty CP Thương Mại Đại Phát', N'90 Phạm Ngũ Lão, Quy Nhơn', '0808901234', '0989012345', 1),
-    ('NCC0009', N'Công ty TNHH Dược Phẩm An Bình', N'102 Nguyễn Trãi, Vũng Tàu', '0909012345', '0990123456', 1),
-    ('NCC0010', N'Công ty CP Phân Phối Nam Việt', N'114 Đống Đa, Bình Định', '1001234567', '0901234567', 1);
+    ('NC0001', N'Công ty TNHH Thực Phẩm An Phát', N'123 Lê Lợi, Hà Nội', '0101234567', '0912345678', 1),
+    ('NC0002', N'Công ty CP Hóa Mỹ Phẩm Việt', N'456 Trần Hưng Đạo, TP.HCM', '0202345678', '0923456789', 1),
+    ('NC0003', N'Công ty TNHH Dịch Vụ Thương Mại Minh Khang', N'789 Lý Thường Kiệt, Đà Nẵng', '0303456789', '0934567890', 1),
+    ('NC0004', N'Công ty CP Sản Xuất Hòa Bình', N'12 Nguyễn Huệ, Huế', '0404567890', '0945678901', 1),
+    ('NC0005', N'Công ty TNHH Nông Sản Việt', N'34 Quang Trung, Hải Phòng', '0505678901', '0956789012', 1),
+    ('NC0006', N'Công ty CP Công Nghệ Thịnh Vượng', N'56 Lê Lai, Cần Thơ', '0606789012', '0967890123', 1),
+    ('NC0007', N'Công ty TNHH Xuất Nhập Khẩu Thành Công', N'78 Hai Bà Trưng, Nha Trang', '0707890123', '0978901234', 1),
+    ('NC0008', N'Công ty CP Thương Mại Đại Phát', N'90 Phạm Ngũ Lão, Quy Nhơn', '0808901234', '0989012345', 1),
+    ('NC0009', N'Công ty TNHH Dược Phẩm An Bình', N'102 Nguyễn Trãi, Vũng Tàu', '0909012345', '0990123456', 1),
+    ('NC0010', N'Công ty CP Phân Phối Nam Việt', N'114 Đống Đa, Bình Định', '1001234567', '0901234567', 1);
 
 INSERT INTO Hanghoa (Mahanghoa, Tenhanghoa, Tiennhap, Tendanhmuc, Tienban, ImageData, Soluong, Uudai, MaNCC, THSD, Xoa)
 VALUES
@@ -781,10 +785,7 @@ go
 exec themMaHDNH 10000, 10
 exec themHD_HH 'HH0002', 'NH0001', 100
 go 
-Insert into Quanly values
-('NV0001', '1', '123'),
-('NV0002', '2', '123'),
-('NV0003', '3', '123')
+
 
 
 

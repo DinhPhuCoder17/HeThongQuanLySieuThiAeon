@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BLL;
 using Guna.UI2.WinForms;
 
 namespace Trang_chủ_Main_Page_
@@ -14,6 +15,8 @@ namespace Trang_chủ_Main_Page_
     public partial class Admin : Form
     {
         bool menuExpand_3=false;
+        private bool isEditing = false; // Kiểm tra có đang sửa không
+
         public Admin()
         {
             InitializeComponent();
@@ -47,8 +50,7 @@ namespace Trang_chủ_Main_Page_
 
             if (!string.IsNullOrEmpty(role))
             {
-                FormAddQL form = new FormAddQL(role);
-                container(form);
+                container(new FormAddQL(role));
             }
             else if (selectedRole.Contains("Nhân Viên"))
             {
@@ -62,18 +64,7 @@ namespace Trang_chủ_Main_Page_
         }
         private void btn_DSNhanVien_Click(object sender, EventArgs e)
         {
-            //menuTransition_2.Start();
-            // Kiểm tra nếu form đã mở rồi thì không mở nữa
-            foreach (Form frm in Application.OpenForms)
-            {
-                if (frm is DSNhanVien)
-                {
-                    frm.Activate(); // Đưa form lên foreground
-                    return;
-                }
-            }
-            DSNhanVien ds = new DSNhanVien();
-            ds.Show();
+            menuTransition_2.Start();
         }
 
         private void guna2CirclePictureBox1_Click(object sender, EventArgs e)
@@ -86,24 +77,28 @@ namespace Trang_chủ_Main_Page_
 
         }
 
+
+        private void LoadEmployeeList()
+        {
+            guna2DataGridView2.DataSource = BLL_Nhanvien.Instance.GetAllEmployees();
+            if (guna2DataGridView2.DataSource != null)
+            {
+                guna2DataGridView2.Columns["Manhanvien"].HeaderText = "Mã nhân viên";
+                guna2DataGridView2.Columns["Hoten"].HeaderText = "Họ Tên";
+                guna2DataGridView2.Columns["CCCD"].HeaderText = "CCCD";
+                guna2DataGridView2.Columns["Ngaysinh"].HeaderText = "Ngày sinh";
+                guna2DataGridView2.Columns["Gioitinh"].HeaderText = "Giới Tính";
+                guna2DataGridView2.Columns["Diachi"].HeaderText = "Địa Chỉ";
+                guna2DataGridView2.Columns["Sodienthoai"].HeaderText = "Số Điện Thoại";
+                guna2DataGridView2.Columns["VaiTro"].HeaderText = "Vai Trò";
+            }
+            guna2DataGridView2.ReadOnly = true; // Ban đầu không cho chỉnh sửa
+
+        }
         private void Admin_Load(object sender, EventArgs e)
         {
-            //guna2DataGridView2.Rows.Add(1, "Nguyễn Văn B", "15/05/1990", "Nam", "Hà Nội", "012345678901", "nguyenvana@example.com", "0987654321", "Nhân viên");
-            //guna2DataGridView2.Rows.Add(2, "Trần Thị B", "20/07/1995", "Nữ", "TP.HCM", "098765432109", "tranthib@example.com", "0912345678", "Nhân viên");
-            //guna2DataGridView2.Rows.Add(3, "Lê Văn C", "10/02/1992", "Nam", "Đà Nẵng", "123456789012", "levanc@example.com", "0978123456", "Nhân viên");
-            //guna2DataGridView2.Rows.Add(4, "Phạm Thị D", "05/11/1993", "Nữ", "Cần Thơ", "987654321098", "phamthid@example.com", "0965234789", "Nhân viên");
-            //guna2DataGridView2.Rows.Add(5, "Hoàng Văn E", "25/12/1985", "Nam", "Hải Phòng", "567890123456", "hoangvane@example.com", "0956781234", "Nhân viên");
-            //guna2DataGridView2.Rows.Add(6, "Đặng Thị F", "30/03/1998", "Nữ", "Bình Dương", "234567890123", "dangthif@example.com", "0945678123", "Nhân viên");
-            //guna2DataGridView2.Rows.Add(7, "Vũ Văn G", "18/08/1996", "Nam", "Nghệ An", "345678901234", "vuvang@example.com", "0934567890", "Nhân viên");
-            //guna2DataGridView2.Rows.Add(8, "Nguyễn Thị H", "09/09/1997", "Nữ", "Huế", "456789012345", "nguyenthih@example.com", "0923456789", "Nhân viên");
-            //guna2DataGridView2.Rows.Add(9, "Bùi Văn I", "14/06/1994", "Nam", "Quảng Ninh", "567890123457", "buivani@example.com", "0912345670", "Nhân viên");
-            //guna2DataGridView2.Rows.Add(10, "Dương Thị K", "22/04/1991", "Nữ", "Vũng Tàu", "678901234568", "duongthik@example.com", "0909876543", "Nhân viên");
-            //guna2DataGridView2.Rows.Add(11, "Lý Văn L", "10/01/1987", "Nam", "Bắc Giang", "789012345678", "lyvanl@example.com", "0897654321", "Nhân viên");
-            //guna2DataGridView2.Rows.Add(12, "Mai Thị M", "08/03/1992", "Nữ", "Bến Tre", "890123456789", "maithim@example.com", "0886543210", "Nhân viên");
-            //guna2DataGridView2.Rows.Add(13, "Đỗ Hoàng N", "12/07/1995", "Nam", "Quảng Nam", "901234567890", "dohoangn@example.com", "0875432109", "Nhân viên");
-            //guna2DataGridView2.Rows.Add(14, "Phan Thanh O", "28/09/1989", "Nam", "Gia Lai", "012345678901", "phanthanho@example.com", "0864321098", "Nhân viên");
-            //guna2DataGridView2.Rows.Add(15, "Trịnh Thị P", "05/12/1994", "Nữ", "Kiên Giang", "123456789012", "trinhthip@example.com", "0853210987", "Nhân viên");
-
+            LoadEmployeeList();
+            btnLuu.Enabled = false; // Nút Lưu bị vô hiệu hóa ban đầu
         }
 
         private void menuTransition_2_Tick(object sender, EventArgs e)
@@ -141,6 +136,86 @@ namespace Trang_chủ_Main_Page_
         private void guna2Panel2_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void guna2DataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            if (guna2DataGridView2.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn một nhân viên để sửa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            isEditing = true;
+            guna2DataGridView2.ReadOnly = false; // Cho phép chỉnh sửa
+            btnLuu.Enabled = true; // Kích hoạt nút Lưu
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            if (guna2DataGridView2.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn một nhân viên để xóa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            DialogResult dialog = MessageBox.Show("Bạn có chắc chắn muốn xóa nhân viên này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialog == DialogResult.No) return;
+
+            string maNhanVien = guna2DataGridView2.SelectedRows[0].Cells["Manhanvien"].Value.ToString();
+
+            bool result = BLL_Nhanvien.Instance.DeleteEmployee(maNhanVien);
+
+            if (result)
+            {
+                MessageBox.Show("Nhân viên đã được xóa (ẩn).", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoadEmployeeList(); // Cập nhật lại danh sách
+            }
+            else
+            {
+                MessageBox.Show("Xóa thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        // Sự kiện nhấn nút Lưu
+        private void btnLuu_Click(object sender, EventArgs e)
+        {
+            if (!isEditing) return;
+            try
+            {
+                DataGridViewRow row = guna2DataGridView2.SelectedRows[0];
+                string maNhanVien = row.Cells["Manhanvien"].Value.ToString();
+                string hoTen = row.Cells["Hoten"].Value.ToString();
+                string cccd = row.Cells["CCCD"].Value.ToString();
+                DateTime ngaySinh = Convert.ToDateTime(row.Cells["Ngaysinh"].Value);
+                string gioiTinh = row.Cells["Gioitinh"].Value.ToString();
+                string diaChi = row.Cells["Diachi"].Value.ToString();
+                string soDienThoai = row.Cells["Sodienthoai"].Value.ToString();
+
+                bool result = BLL_Nhanvien.Instance.UpdateEmployee(maNhanVien, hoTen, cccd, ngaySinh, gioiTinh, diaChi, soDienThoai);
+
+                if (result)
+                {
+                    MessageBox.Show("Cập nhật thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadEmployeeList(); // Cập nhật lại danh sách
+                }
+                else
+                {
+                    MessageBox.Show("Cập nhật thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            isEditing = false;
+            guna2DataGridView2.ReadOnly = true; // Không cho chỉnh sửa nữa
+            btnLuu.Enabled = false; // Vô hiệu hóa nút Lưu
         }
     }
 }

@@ -25,7 +25,7 @@ namespace DAL
 
         private DAL_Nhanvien() { }
 
-        //Hàm thêm nhân viên (làm cho cả thêm quản lý)
+        //Hàm thêm nhân viên (dùng cho cả thêm quản lý)
         public bool InsertEmployee(string hoTen, string cccd, DateTime ngaySinh, string gioiTinh, string diaChi, string sdt, string username, string password, string role)
         {
 

@@ -14,7 +14,6 @@ namespace Trang_chủ_Main_Page_
 {
     public partial class NhapHang : Form
     {
-        private readonly BLLQuanLyKho bll_QuanLyKho = new BLLQuanLyKho();
         private String soHDSelect;
         public NhapHang()
         {
@@ -43,7 +42,7 @@ namespace Trang_chủ_Main_Page_
 
         private void NhapHang_Load(object sender, EventArgs e)
         {
-            DataTable dataTable = bll_QuanLyKho.xemDSNH();
+            DataTable dataTable = BLLQuanLyKho.Instance.xemDSNH();
             dgvNhapHang.DataSource = dataTable;
             dgvNhapHang.Columns[0].HeaderText = "Mã đơn hàng";
             dgvNhapHang.Columns[1].HeaderText = "Ngày nhập";
@@ -80,7 +79,7 @@ namespace Trang_chủ_Main_Page_
                 cTDH.loadCTHDGridview(soHDSelect, TrangThaiDHLon);
                 cTDH.UpdateMaDH(maDH, TrangThaiDHLon); // Gọi phương thức cập nhật trên CTDH
                 cTDH.ShowDialog(); // Hiển thị form chi tiết
-                dgvNhapHang.DataSource = bll_QuanLyKho.xemDSNH();
+                dgvNhapHang.DataSource = BLLQuanLyKho.Instance.xemDSNH();
             }
         }
 
@@ -106,10 +105,10 @@ namespace Trang_chủ_Main_Page_
             DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn hủy đơn hàng này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (result == DialogResult.Yes)
             {
-                if (bll_QuanLyKho.huyHD(soHDSelect))
+                if (BLLQuanLyKho.Instance.huyHD(soHDSelect))
                 {
                     MessageBox.Show("Hủy đơn hàng thành công");
-                    dgvNhapHang.DataSource = bll_QuanLyKho.xemDSNH();
+                    dgvNhapHang.DataSource = BLLQuanLyKho.Instance.xemDSNH();
                 }
                 else
                 {
@@ -128,10 +127,10 @@ namespace Trang_chủ_Main_Page_
                     soHD = soHDSelect,
                     trangThai = dgvNhapHang.Rows[dgvNhapHang.CurrentCell.RowIndex].Cells[3].Value.ToString()
                 };
-                if (bll_QuanLyKho.capNhatTTDH(hDNhapHang))
+                if (BLLQuanLyKho.Instance.capNhatTTDH(hDNhapHang))
                 {
                     MessageBox.Show("Chuyển tiếp trạng thái đơn hàng thành công");
-                    dgvNhapHang.DataSource = bll_QuanLyKho.xemDSNH();
+                    dgvNhapHang.DataSource = BLLQuanLyKho.Instance.xemDSNH();
                 }
                 else
                 {

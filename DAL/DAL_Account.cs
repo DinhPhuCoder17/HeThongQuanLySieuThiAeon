@@ -27,12 +27,18 @@ namespace DAL
         // Lấy role từ database
         public string GetRole(string username, string password)
         {
-            string query = "SELECT Role FROM Quanly WHERE Username = @username AND Password = @password";
-            DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] { username, password });
+            string query = "SELECT Role, Password FROM Quanly WHERE Username = @username";
+            DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] { username });
 
             if (result.Rows.Count > 0)
             {
-                return result.Rows[0]["Role"].ToString();
+                string storedHashedPassword = result.Rows[0]["Password"].ToString();
+
+                // Kiểm tra mật khẩu nhập vào có khớp với mật khẩu đã lưu không
+                if (BCrypt.Net.BCrypt.Verify(password, storedHashedPassword))
+                {
+                    return result.Rows[0]["Role"].ToString(); // Đăng nhập thành công
+                }
             }
 
             return null; // Trả về null nếu không tìm thấy tài khoản

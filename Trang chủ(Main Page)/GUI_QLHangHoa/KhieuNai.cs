@@ -16,7 +16,6 @@ namespace Trang_chu_Main_Page_.GUI_QLHangHoa
 {
     public partial class KhieuNai : Form
     {
-        private readonly BLLQuanLyKho bLL_QuanLyKho = new BLLQuanLyKho();
         public KhieuNai()
         {
             InitializeComponent();
@@ -91,7 +90,7 @@ namespace Trang_chu_Main_Page_.GUI_QLHangHoa
                         Lydochitiet = row.Cells[9].Value.ToString(),
                     };
 
-                    bLL_QuanLyKho.themKN(kn);
+                    BLLQuanLyKho.Instance.themKN(kn);
                     
                 }
             }

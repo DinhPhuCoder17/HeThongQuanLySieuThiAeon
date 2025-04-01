@@ -16,11 +16,9 @@ using System.Windows.Forms;
 namespace Trang_chủ_Main_Page_
 {
     public partial class ThemMatHang : Form
-    {
-        BLLQuanLyKho bll = new BLLQuanLyKho();
-        public ThemMatHang()
+    {        public ThemMatHang()
         {
-            List<DTO_NhaCungCap> dsNCC = bll.XemNCC();
+            List<DTO_NhaCungCap> dsNCC = BLLQuanLyKho.Instance.XemNCC();
 
             InitializeComponent();
 
@@ -94,7 +92,7 @@ namespace Trang_chủ_Main_Page_
                     hangHoa.HinhAnh = null;
                 }
 
-                bool kq = bll.ThemMatHang(hangHoa);
+                bool kq = BLLQuanLyKho.Instance.ThemMatHang(hangHoa);
                 if (kq)
                 {
                     MessageBox.Show("Thêm mặt hàng thành công!");
@@ -142,5 +140,3 @@ namespace Trang_chủ_Main_Page_
 }
 
 
-    }
-}

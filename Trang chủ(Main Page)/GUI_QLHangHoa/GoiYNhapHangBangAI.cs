@@ -14,7 +14,6 @@ namespace Trang_chủ_Main_Page_
 {
     public partial class GoiYNhapHangBangAI : Form
     {
-        BLLQuanLyKho bll = new BLLQuanLyKho();
         private bool isEdited = false;             
         private DataGridViewRow rowEdited = null;    
         private object[] originalRowValues = null;     

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,7 +19,6 @@ namespace Trang_chủ_Main_Page_
     public partial class CTDH : Form
     {
         private String Trangthai;
-        public BLLQuanLyKho bLL_QuanLyKho = new BLLQuanLyKho();
         public CTDH()
         {
             InitializeComponent();
@@ -114,7 +114,7 @@ namespace Trang_chủ_Main_Page_
                         hDNhapHang.CT_HDNH.Add(dto_HH_HDNH);
                     }
 
-                    if (bLL_QuanLyKho.nhapKho(hDNhapHang))
+                    if (BLLQuanLyKho.Instance.nhapKho(hDNhapHang))
                     {
                         MessageBox.Show("Nhập hàng thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         btnNhapVaoKho.Enabled = false;
@@ -200,6 +200,8 @@ namespace Trang_chủ_Main_Page_
             dgvCTDH.Columns[7].HeaderText = "Hạn sử dụng";
             dgvCTDH.Columns[8].HeaderText = "Thành tiền";
 
+            
+
             //Khóa chức năng tự điều chỉnh bảng
             foreach (DataGridViewColumn column in dgvCTDH.Columns)
             {
@@ -231,7 +233,7 @@ namespace Trang_chủ_Main_Page_
 
         public void loadCTHDGridview(String soHD, String Trangthai)
         {
-            dgvCTDH.DataSource = bLL_QuanLyKho.xemCTDHBySohd(soHD);
+            dgvCTDH.DataSource = BLLQuanLyKho.Instance.xemCTDHBySohd(soHD);
             dgvCTDH.Columns["THSD"].Visible = false;
             dgvCTDH.Columns["Sohd"].Visible = false;
             this.Trangthai = Trangthai;
@@ -239,7 +241,7 @@ namespace Trang_chủ_Main_Page_
 
         private void btnKhieuNai_Click(object sender, EventArgs e)
         {
-            System.Data.DataTable dt = bLL_QuanLyKho.xemDSKN(lbMaDH.Text);
+            System.Data.DataTable dt = BLLQuanLyKho.Instance.xemDSKN(lbMaDH.Text);
             foreach (DataRow row in dt.Select("Soluongnhan = Soluongdat"))
             {
                 dt.Rows.Remove(row);
@@ -300,6 +302,7 @@ namespace Trang_chủ_Main_Page_
             //}
         }
 
+
         private void dgvCTDH_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         {
             string input = e.FormattedValue.ToString().Trim(); // Lấy giá trị người dùng nhập vào
@@ -319,16 +322,23 @@ namespace Trang_chủ_Main_Page_
                     e.Cancel = true; // Ngăn không cho rời khỏi ô nếu nhập sai
                 }
             }
+            MessageBox.Show(dgvCTDH.Columns[6].ValueType.ToString());
+
 
             if (e.ColumnIndex == 6)
             {
+                string formats = "dd/MM/yyyy";
+                CultureInfo culture = new CultureInfo("vi-VN"); // Định dạng ngày của Việt Nam
+                dgvCTDH.Columns["Ngaysanxuat"].ValueType = typeof(String);
 
-                if (!DateTime.TryParse(input, out _)) // Kiểm tra có đúng định dạng ngày không
+                if (!DateTime.TryParseExact(input, formats, culture, DateTimeStyles.None, out _)) // Kiểm tra có đúng định dạng ngày không
                 {
                     MessageBox.Show("Vui lòng nhập đúng định dạng ngày (dd/MM/yyyy hoặc yyyy-MM-dd)!",
                         "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     e.Cancel = true; // Ngăn không cho rời khỏi ô nếu nhập sai
                 }
+
+                dgvCTDH.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = DateTime.TryParseExact(input, formats, culture, DateTimeStyles.None, out _);
             }
         }
 
@@ -344,6 +354,15 @@ namespace Trang_chủ_Main_Page_
                 {
                     MessageBox.Show("Có lỗi xảy ra khi cập nhật hạn sử dụng", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
+            }
+        }
+
+        private void dgvCTDH_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            if(e.Exception is FormatException)
+            {
+                e.Cancel = true;
+
             }
         }
     }
