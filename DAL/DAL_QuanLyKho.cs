@@ -228,6 +228,17 @@ namespace DAL
             }
         }
 
+        //Liemp
+        public DateTime xemNgayDatHang(String maNH)
+        {
+            return DateTime.Parse(DataProvider.Instance.ExecuteScalar("Select Ngaydat From HD_Nhaphang Where Sohd = @Sohd", new object[] { maNH }).ToString());
+        }
+
+        public DataTable timKiemHDNH(String tukhoa)
+        {
+            return DataProvider.Instance.ExecuteQueryOneParameter("Select Sohd, Ngaydat, Tongtien, Trangthai FROM HD_Nhaphang where (Sohd LIKE '%' + @tukhoa + '%' or convert(nvarchar, Ngaydat, 103) LIKE '%' + @tukhoa + '%'  or FORMAT(TongTien, 'N0') LIKE '%' + @tukhoa + '%' or Trangthai LIKE '%' + @tukhoa + '%')", new object[] { tukhoa });
+        }
+
         // -------------------------------- Nhà Cung cấp ------------------------------------
 
         //Hàm thêm nhà cung cấp

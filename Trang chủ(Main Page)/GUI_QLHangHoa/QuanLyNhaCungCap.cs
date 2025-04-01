@@ -18,11 +18,6 @@ namespace Trang_chu_Main_Page_.GUI_QLHangHoa
 {
     public partial class QuanLyNhaCungCap : Form
     {
-        String maNCCSelected = "";
-        bool menu_NCC_Add_Expand = false;
-        bool isEdited = false;  // Biến kiểm tra xem có đang ở chế độ chỉnh sửa hay không
-        DataGridViewRow rowEdited = null; // Dòng đang chỉnh sửa
-
         bool pn_supplier_Add_Expand=false;
         public QuanLyNhaCungCap()
         {
@@ -98,10 +93,7 @@ namespace Trang_chu_Main_Page_.GUI_QLHangHoa
 
         private void pn_Supplier_Add_Paint(object sender, PaintEventArgs e)
         {
-            //if (txt_maNCC.Text == "" || txt_tenNCC.Text == "" || txt_mst.Text == "" || txt_diachi.Text == "" || txt_sdt.Text == "")
-            //{
-            //    MessageBox.Show("Vui lòng nhập đầy đủ thông tin");
-            //}
+            
         }
 
         private void btn_Them_Click(object sender, EventArgs e)
@@ -167,7 +159,6 @@ namespace Trang_chu_Main_Page_.GUI_QLHangHoa
                     MessageBox.Show("Vui lòng chọn một dòng để sửa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-                isEdited = true;
                 dgvNhaCungCap.ReadOnly = false; // Cho phép chỉnh sửa
                 anNutSua = true;
             }
@@ -199,7 +190,6 @@ namespace Trang_chu_Main_Page_.GUI_QLHangHoa
                     MessageBox.Show("Lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
-                isEdited = false;
                 dgvNhaCungCap.ReadOnly = true; // Không cho chỉnh sửa nữa
                 anNutSua = false; // ấn nút sửa lần 2 là lưu
             }

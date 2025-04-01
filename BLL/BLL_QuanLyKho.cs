@@ -191,6 +191,16 @@ namespace BLL
         {
             return DAL_QuanLyKho.Instance.themKN(kn);
         }
+        public DateTime xemNgayDatHang(String MaNH)
+        {
+            return DAL_QuanLyKho.Instance.xemNgayDatHang(MaNH);
+        }
+
+
+        public DataTable timKiemHDNH(String tukhoa)
+        {
+            return DAL_QuanLyKho.Instance.timKiemHDNH(tukhoa);
+        }
 
         // -------------------------------- Nhà Cung cấp ------------------------------------
         public bool AddNCC(string tenNCC, string diaChi, string maSoThue, string sdt)
@@ -212,17 +222,6 @@ namespace BLL
             return DAL_QuanLyKho.Instance.DeleteNCC(maNCC);
         }
 
-        //public DateTime xemNgayDatHang(String MaNH)
-        //{
-        //    return dAL_QuanLyKho.xemNgayDatHang(MaNH);
-        //}
 
-
-        //public DataTable timKiemHDNH(String tukhoa)
-        //{
-        //    return DAL_QuanLyKho.Instance.timKiemHDNH(tukhoa);
-        //}
-
-        
     }
 }
