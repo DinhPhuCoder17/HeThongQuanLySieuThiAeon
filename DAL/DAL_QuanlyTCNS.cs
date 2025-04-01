@@ -12,6 +12,13 @@ namespace DAL
 {
     public class DAL_QuanlyTCNS
     {
+        //  Them du lieu bieu do cot tong chi
+        public DataTable LoadDuLieuChartChi( int currentYear, int currentMonth)
+        {
+            string query = "EXEC usp_GetWeeklyExpense @Year , @Month";
+            DataTable dt = DataProvider.Instance.ExecuteQuery(query, new object[] { currentYear, currentMonth });
+            return dt;
+        }
         // loc hoa don
         public DataTable locHoaDon(DateTime startDate, DateTime endDate)
         {

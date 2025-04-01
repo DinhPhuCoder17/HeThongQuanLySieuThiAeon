@@ -19,7 +19,11 @@ namespace BLL
 
         private readonly DAL_QuanlyTCNS dAL_QuanlyTCNS = new DAL_QuanlyTCNS();
 
-
+        //Them du lieu bieu do cot chi
+        public DataTable LoadDuLieuChartChi(int currentYear, int currentMonth)
+        {
+            return dAL_QuanlyTCNS.LoadDuLieuChartChi( currentYear,  currentMonth);
+        }
         //loc   danh sach hóa đơn theo ngày
         public DataTable locHoaDon(DateTime ngayBatDau, DateTime ngayKetThuc)
         {
