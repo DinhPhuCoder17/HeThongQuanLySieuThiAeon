@@ -376,32 +376,32 @@ namespace Trang_chủ_Main_Page_
 
         }
 
-       /* private void txt_Searching_HDNH_TextChanged(object sender, EventArgs e)
-        {
-            if (txt_Searching_HDNH.Text == null)
-            {
-                NhapHang_Load(sender, e);
-            }
-            else
-            {
-               DataTable dataTable = BLLQuanLyKho.Instance.timKiemHDNH(txt_Searching_HDNH.Text);
-                dgvNhapHang.DataSource = dataTable;
-                dgvNhapHang.Columns[0].HeaderText = "Mã đơn hàng";
-                dgvNhapHang.Columns[1].HeaderText = "Thời gian đặt";
-                dgvNhapHang.Columns[2].HeaderText = "Tổng tiền";
-                dgvNhapHang.Columns[3].HeaderText = "Trạng Thái";
+        private void txt_Searching_HDNH_TextChanged(object sender, EventArgs e)
+         {
+             if (txt_Searching_HDNH.Text == null)
+             {
+                 NhapHang_Load(sender, e);
+             }
+             else
+             {
+                DataTable dataTable = BLLQuanLyKho.Instance.timKiemHDNH(txt_Searching_HDNH.Text);
+                 dgvNhapHang.DataSource = dataTable;
+                 dgvNhapHang.Columns[0].HeaderText = "Mã đơn hàng";
+                 dgvNhapHang.Columns[1].HeaderText = "Thời gian đặt";
+                 dgvNhapHang.Columns[2].HeaderText = "Tổng tiền";
+                 dgvNhapHang.Columns[3].HeaderText = "Trạng Thái";
 
-                foreach (DataGridViewColumn column in dgvNhapHang.Columns)
-                {
-                    column.SortMode = DataGridViewColumnSortMode.NotSortable;
-                }
+                 foreach (DataGridViewColumn column in dgvNhapHang.Columns)
+                 {
+                     column.SortMode = DataGridViewColumnSortMode.NotSortable;
+                 }
 
-                foreach (DataGridViewColumn column in dgvNhapHang.Columns)
-                {
-                    column.Resizable = DataGridViewTriState.False;
-                }
-            }
-        }*/
+                 foreach (DataGridViewColumn column in dgvNhapHang.Columns)
+                 {
+                     column.Resizable = DataGridViewTriState.False;
+                 }
+             }
+         }
 
         private void guna2Panel1_Paint_1(object sender, PaintEventArgs e)
         {

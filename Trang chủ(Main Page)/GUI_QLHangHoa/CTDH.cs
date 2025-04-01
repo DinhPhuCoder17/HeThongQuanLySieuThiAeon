@@ -321,7 +321,6 @@ namespace Trang_chủ_Main_Page_
                     e.Cancel = true; // Ngăn không cho rời khỏi ô nếu nhập sai
                 }
             }
-            MessageBox.Show(dgvCTDH.Columns[6].ValueType.ToString());
 
 
             if (e.ColumnIndex == 6)
@@ -330,14 +329,12 @@ namespace Trang_chủ_Main_Page_
                 CultureInfo culture = new CultureInfo("vi-VN"); // Định dạng ngày của Việt Nam
                 dgvCTDH.Columns["Ngaysanxuat"].ValueType = typeof(String);
 
-                if (!DateTime.TryParseExact(input, formats, culture, DateTimeStyles.None, out _)) // Kiểm tra có đúng định dạng ngày không
+                if (!DateTime.TryParse(input.ToString(), out DateTime result)) // Kiểm tra có đúng định dạng ngày không
                 {
                     MessageBox.Show("Vui lòng nhập đúng định dạng ngày (dd/MM/yyyy hoặc yyyy-MM-dd)!",
                         "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     e.Cancel = true; // Ngăn không cho rời khỏi ô nếu nhập sai
                 }
-
-                dgvCTDH.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = DateTime.TryParseExact(input, formats, culture, DateTimeStyles.None, out _);
             }
         }
 
