@@ -14,6 +14,7 @@ namespace BLL
 {
     public class BLL_predictor
     {
+        DAL_predictor dAL_Predictor = new DAL_predictor();  
 
         public static void Predict(DataGridView dgvPredictor, string timeRange = "week")
         {
@@ -97,6 +98,9 @@ namespace BLL
             }
         }
 
-
+        public DataTable timKiem(String tukhoa)
+        {
+            return dAL_Predictor.timKiem(tukhoa);
+        }
     }
 }

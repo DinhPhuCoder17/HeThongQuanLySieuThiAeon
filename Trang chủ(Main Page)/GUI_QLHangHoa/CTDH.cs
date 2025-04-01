@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,7 +19,6 @@ namespace Trang_chủ_Main_Page_
     public partial class CTDH : Form
     {
         private String Trangthai;
-        public BLLQuanLyKho bLL_QuanLyKho = new BLLQuanLyKho();
         public CTDH()
         {
             InitializeComponent();
@@ -86,7 +86,7 @@ namespace Trang_chủ_Main_Page_
                     {
                         if (int.Parse(row.Cells[4].Value.ToString()) != int.Parse(row.Cells[5].Value.ToString()))
                         {
-                            status = "Nhập Kho Một Phần";
+                            status = "Chờ Xử Lý Bổ Sung";
                         }
                     }
                     DTO_HDNhapHang hDNhapHang = new DTO_HDNhapHang()
@@ -106,6 +106,7 @@ namespace Trang_chủ_Main_Page_
                             HangHoa = new DTO_Hanghoa() { MaHangHoa = row.Cells[1].Value.ToString() },
                             SoLuongDat = int.Parse(row.Cells[4].Value.ToString()),
                             SoLuongNhan = int.Parse(row.Cells[5].Value.ToString()),
+                            NgayNhan = DateTime.Parse(row.Cells[3].Value.ToString()),
                             NSX = DateTime.Parse(row.Cells[6].Value.ToString()),
                             HSD = DateTime.Parse(row.Cells[7].Value.ToString()),
                             TrangThai = "Đã Nhập Kho"
@@ -114,7 +115,7 @@ namespace Trang_chủ_Main_Page_
                         hDNhapHang.CT_HDNH.Add(dto_HH_HDNH);
                     }
 
-                    if (bLL_QuanLyKho.nhapKho(hDNhapHang))
+                    if (BLLQuanLyKho.Instance.nhapKho(hDNhapHang))
                     {
                         MessageBox.Show("Nhập hàng thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         btnNhapVaoKho.Enabled = false;
@@ -143,8 +144,6 @@ namespace Trang_chủ_Main_Page_
             foreach(DataGridViewRow row in dgvCTDH.Rows)
             {
                 row.Cells[5].Value = row.Cells[4].Value;
-                row.Cells[6].Value = DateTime.Now.ToString("yyyy/MM/dd");
-                row.Cells[7].Value = DateTime.Now.AddDays(int.Parse(row.Cells[9].Value.ToString())).ToString("yyyy/MM/dd");
             }
         }
 
@@ -178,15 +177,7 @@ namespace Trang_chủ_Main_Page_
 
         }
 
-        private void guna2TextBox2_TextChanged(object sender, EventArgs e)
-        {
 
-        }
-
-        private void guna2CirclePictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void CTDH_Load(object sender, EventArgs e)
         {
@@ -199,6 +190,15 @@ namespace Trang_chủ_Main_Page_
             dgvCTDH.Columns[6].HeaderText = "Ngày sản xuất";
             dgvCTDH.Columns[7].HeaderText = "Hạn sử dụng";
             dgvCTDH.Columns[8].HeaderText = "Thành tiền";
+
+            //Tự động điền ngày hôm nay là ngày nhập hàng nếu chưa có dữ liệu
+            foreach(DataGridViewRow row in dgvCTDH.Rows)
+            {
+                if (row.Cells[3].Value.ToString() == "")
+                {
+                    row.Cells[3].Value = DateTime.Now.ToString("dd/MM/yyyy");
+                }
+            }
 
             //Khóa chức năng tự điều chỉnh bảng
             foreach (DataGridViewColumn column in dgvCTDH.Columns)
@@ -231,7 +231,7 @@ namespace Trang_chủ_Main_Page_
 
         public void loadCTHDGridview(String soHD, String Trangthai)
         {
-            dgvCTDH.DataSource = bLL_QuanLyKho.xemCTDHBySohd(soHD);
+            dgvCTDH.DataSource = BLLQuanLyKho.Instance.xemCTDHBySohd(soHD);
             dgvCTDH.Columns["THSD"].Visible = false;
             dgvCTDH.Columns["Sohd"].Visible = false;
             this.Trangthai = Trangthai;
@@ -239,7 +239,7 @@ namespace Trang_chủ_Main_Page_
 
         private void btnKhieuNai_Click(object sender, EventArgs e)
         {
-            System.Data.DataTable dt = bLL_QuanLyKho.xemDSKN(lbMaDH.Text);
+            System.Data.DataTable dt = BLLQuanLyKho.Instance.xemDSKN(lbMaDH.Text);
             foreach (DataRow row in dt.Select("Soluongnhan = Soluongdat"))
             {
                 dt.Rows.Remove(row);
@@ -260,6 +260,7 @@ namespace Trang_chủ_Main_Page_
         //Cập nhật lại mã đặt hàng
         public void UpdateMaDH(string maDH, String TrangThaiDHLon)
         {
+            string soHD = maDH;
             btnKhieuNai.Enabled = false;
             lbMaDH.Text = maDH;
             if (TrangThaiDHLon == "Chờ Xác Nhận" || TrangThaiDHLon == "Đang Vận Chuyển" || TrangThaiDHLon == "Đã Xử Lý" || TrangThaiDHLon == "Đã Nhập Một Phần")
@@ -274,7 +275,7 @@ namespace Trang_chủ_Main_Page_
 
             }
 
-            if(TrangThaiDHLon == "Nhập Kho Một Phần")
+            if(TrangThaiDHLon == "Chờ Xử Lý Bổ Sung")
             {
                 btnNhapVaoKho.Enabled = false;
                 btnKhieuNai.Enabled = true;
@@ -300,6 +301,7 @@ namespace Trang_chủ_Main_Page_
             //}
         }
 
+
         private void dgvCTDH_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         {
             string input = e.FormattedValue.ToString().Trim(); // Lấy giá trị người dùng nhập vào
@@ -320,10 +322,14 @@ namespace Trang_chủ_Main_Page_
                 }
             }
 
+
             if (e.ColumnIndex == 6)
             {
+                string formats = "dd/MM/yyyy";
+                CultureInfo culture = new CultureInfo("vi-VN"); // Định dạng ngày của Việt Nam
+                dgvCTDH.Columns["Ngaysanxuat"].ValueType = typeof(String);
 
-                if (!DateTime.TryParse(input, out _)) // Kiểm tra có đúng định dạng ngày không
+                if (!DateTime.TryParse(input.ToString(), out DateTime result)) // Kiểm tra có đúng định dạng ngày không
                 {
                     MessageBox.Show("Vui lòng nhập đúng định dạng ngày (dd/MM/yyyy hoặc yyyy-MM-dd)!",
                         "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -344,6 +350,15 @@ namespace Trang_chủ_Main_Page_
                 {
                     MessageBox.Show("Có lỗi xảy ra khi cập nhật hạn sử dụng", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
+            }
+        }
+
+        private void dgvCTDH_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            if(e.Exception is FormatException)
+            {
+                e.Cancel = true;
+
             }
         }
     }

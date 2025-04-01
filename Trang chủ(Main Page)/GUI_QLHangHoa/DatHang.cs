@@ -20,10 +20,9 @@ namespace Trang_chủ_Main_Page_
 {
     public partial class DatHang : Form
     {
-        BLLQuanLyKho bll = new BLLQuanLyKho();
         public DatHang()
         {
-            List<DTO_Hanghoa> dsHH = bll.XemDSTonKho();
+            List<DTO_Hanghoa> dsHH = BLLQuanLyKho.Instance.XemDSTonKho();
 
             InitializeComponent();
             this.Load += new System.EventHandler(this.DatHang_Load);
@@ -68,26 +67,14 @@ namespace Trang_chủ_Main_Page_
             }
         }
 
-/*        private void txt_SearchBar_TextChanged(object sender, EventArgs e)
-        {
-            if (Search_DH.Text == null)
-            {
-                customerControl_Load(sender, e);
-            }
-            else
-            {
-                dtg_CustomerList.DataSource = bLL_QuanlyTCNS.timKiemKH(Search_DH.Text);
-            }
-        }*/
-
         private void CalculateTotal()
         {
             double total = 0;
             foreach (DataGridViewRow row in dgvDanhSachDatHang.Rows)
             {
-                if (row.Cells[4].Value != null)
+                if (row.Cells[5].Value != null)
                 {
-                    string value = row.Cells[4].Value.ToString().Replace("đ", "").Replace(",", "").Trim();
+                    string value = row.Cells[5].Value.ToString().Replace("đ", "").Replace(",", "").Trim();
                     if (double.TryParse(value, out double price))
                     {
                         total += price;
@@ -147,8 +134,7 @@ namespace Trang_chủ_Main_Page_
 
         private void DatHang_Load(object sender, EventArgs e)
         {
-            BLLQuanLyKho bll = new BLLQuanLyKho();
-            List<DTO_Hanghoa> listHangHoa = bll.hangHoa_NhapHang();
+            List<DTO_Hanghoa> listHangHoa = BLLQuanLyKho.Instance.hangHoa_NhapHang();
 
             foreach (DTO_Hanghoa hh in listHangHoa)
             {
@@ -258,13 +244,11 @@ namespace Trang_chủ_Main_Page_
             if (result == DialogResult.Yes)
             {
                 List<DTO_HH_HDNH> dsChiTiet = GetHangHoaFromDGV();
-                BLLQuanLyKho QuanLyKho = new BLLQuanLyKho();
-
                 int tongSoLuong;
                 double tongTien;
                 List<Tuple<string, int>> listMaHangSoLuong;
 
-                bool isSuccess = QuanLyKho.datHang(dsChiTiet, out tongSoLuong, out tongTien, out listMaHangSoLuong);
+                bool isSuccess = BLLQuanLyKho.Instance.datHang(dsChiTiet, out tongSoLuong, out tongTien, out listMaHangSoLuong);
 
                 if (isSuccess)
                 {
@@ -274,6 +258,32 @@ namespace Trang_chủ_Main_Page_
                 else
                 {
                     MessageBox.Show("Cập nhật thất bại, vui lòng kiểm tra lại!");
+                }
+            }
+        }
+        private void txt_DatHang_SearchBar_TextChanged(object sender, EventArgs e)
+        {
+            string searchText = Search_DH.Text.Trim().ToLower();
+
+            foreach (Control ctrl in flowLayoutPanel1.Controls)
+            {
+                var wdg = ctrl as HangHoaNCC;
+                if (wdg != null)
+                {
+                    if (string.IsNullOrEmpty(searchText))
+                    {
+                        wdg.Visible = true; 
+                    }
+                    else
+                    {
+                        bool isMatch = wdg.lbDanhMuc.Text.ToLower().Contains(searchText) ||
+                                       wdg.label1.Text.ToLower().Contains(searchText) ||
+                                       wdg.label2.Text.ToLower().Contains(searchText) ||
+                                       wdg.label3.Text.ToLower().Contains(searchText) ||
+                                       wdg.label4.Text.ToLower().Contains(searchText);
+
+                        wdg.Visible = isMatch;
+                    }
                 }
             }
         }

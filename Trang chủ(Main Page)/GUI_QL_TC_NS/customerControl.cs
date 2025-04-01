@@ -52,11 +52,6 @@ namespace Trang_chủ_Main_Page_
            
         }
 
-        private void btnCustomerAdd_Click(object sender, EventArgs e)
-        {
-            Timer_Customer_Add.Start();
-        }
-
         private void logTransition_Tick(object sender, EventArgs e)
         {
 

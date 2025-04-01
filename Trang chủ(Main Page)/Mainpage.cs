@@ -15,12 +15,13 @@ namespace Trang_chủ_Main_Page_
     public partial class Mainpage : Form
     {
         public static int pageSelection = 1;
-
-        BLLQuanLyKho bll_QuanLyKho = new BLLQuanLyKho();
         public Mainpage()
         {
+            //string password = "123";
+            //string hashedPassword = BCrypt.Net.BCrypt.HashPassword(password);
+            //System.Diagnostics.Debug.WriteLine("Hashed Password: " + hashedPassword);
             InitializeComponent();
-            bll_QuanLyKho.AutoUpdateTrangThaiNhapHang();
+            BLLQuanLyKho.Instance.AutoUpdateTrangThaiNhapHang();
         }
 
         private void Form1_Load(object sender, EventArgs e)
