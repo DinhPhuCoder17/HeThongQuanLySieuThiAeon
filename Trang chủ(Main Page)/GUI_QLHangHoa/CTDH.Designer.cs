@@ -171,6 +171,7 @@
             this.dgvCTDH.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCTDH_CellEndEdit);
             this.dgvCTDH.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dgvCTDH_CellValidating);
             this.dgvCTDH.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCTDH_CellValueChanged);
+            this.dgvCTDH.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgvCTDH_DataError);
             // 
             // guna2Panel4
             // 

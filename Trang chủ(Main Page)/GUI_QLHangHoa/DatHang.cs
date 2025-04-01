@@ -20,10 +20,9 @@ namespace Trang_chủ_Main_Page_
 {
     public partial class DatHang : Form
     {
-        BLLQuanLyKho bll = new BLLQuanLyKho();
         public DatHang()
         {
-            List<DTO_Hanghoa> dsHH = bll.XemDSTonKho();
+            List<DTO_Hanghoa> dsHH = BLLQuanLyKho.Instance.XemDSTonKho();
 
             InitializeComponent();
             this.Load += new System.EventHandler(this.DatHang_Load);
@@ -135,8 +134,7 @@ namespace Trang_chủ_Main_Page_
 
         private void DatHang_Load(object sender, EventArgs e)
         {
-            BLLQuanLyKho bll = new BLLQuanLyKho();
-            List<DTO_Hanghoa> listHangHoa = bll.hangHoa_NhapHang();
+            List<DTO_Hanghoa> listHangHoa = BLLQuanLyKho.Instance.hangHoa_NhapHang();
 
             foreach (DTO_Hanghoa hh in listHangHoa)
             {
@@ -246,13 +244,11 @@ namespace Trang_chủ_Main_Page_
             if (result == DialogResult.Yes)
             {
                 List<DTO_HH_HDNH> dsChiTiet = GetHangHoaFromDGV();
-                BLLQuanLyKho QuanLyKho = new BLLQuanLyKho();
-
                 int tongSoLuong;
                 double tongTien;
                 List<Tuple<string, int>> listMaHangSoLuong;
 
-                bool isSuccess = QuanLyKho.datHang(dsChiTiet, out tongSoLuong, out tongTien, out listMaHangSoLuong);
+                bool isSuccess = BLLQuanLyKho.Instance.datHang(dsChiTiet, out tongSoLuong, out tongTien, out listMaHangSoLuong);
 
                 if (isSuccess)
                 {
