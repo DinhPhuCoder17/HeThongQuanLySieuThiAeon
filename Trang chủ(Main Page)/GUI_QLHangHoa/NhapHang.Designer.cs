@@ -188,7 +188,6 @@
             this.txt_Searching_HDNH.SelectedText = "";
             this.txt_Searching_HDNH.Size = new System.Drawing.Size(651, 39);
             this.txt_Searching_HDNH.TabIndex = 0;
-            this.txt_Searching_HDNH.TextChanged += new System.EventHandler(this.txt_Searching_HDNH_TextChanged);
             // 
             // btn_MoveOn
             // 

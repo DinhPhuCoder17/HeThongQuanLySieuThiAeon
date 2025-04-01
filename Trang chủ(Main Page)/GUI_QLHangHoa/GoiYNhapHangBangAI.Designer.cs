@@ -458,7 +458,6 @@
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(54, 45);
             this.btnExit.TabIndex = 48;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // GoiYNhapHangBangAI
             // 
