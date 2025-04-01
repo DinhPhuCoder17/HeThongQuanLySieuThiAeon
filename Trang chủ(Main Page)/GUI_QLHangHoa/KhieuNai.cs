@@ -44,6 +44,7 @@ namespace Trang_chu_Main_Page_.GUI_QLHangHoa
             dgv_KhieuNai.Columns["Soluongnhan"].HeaderText = "Số lượng nhận";
             dgv_KhieuNai.Columns["Lydochitiet"].HeaderText = "Lý do chi tiết";
             dgv_KhieuNai.Columns["Luongchenhlech"].HeaderText = "Lượng chênh lệch";
+            dgv_KhieuNai.Columns["Yeucauxuly"].HeaderText = "Yêu cầu xử lý";
             dgv_KhieuNai.Columns["LoaiKhieuNai"].Visible = false;
 
             // Tạo cột ComboBox cho trường hợp nhận < đặt
@@ -67,7 +68,7 @@ namespace Trang_chu_Main_Page_.GUI_QLHangHoa
 
             foreach (DataGridViewColumn col in dgv_KhieuNai.Columns)
             {
-                if (col.Name != "LoaiKhieuNaiView" && col.Name != "Lydochitiet" && col.Name != "Luongchenhlech")
+                if (col.Name != "LoaiKhieuNaiView" && col.Name != "Lydochitiet" && col.Name != "Luongchenhlech" && col.Name != "Yeucauxuly")
                 {
                     col.ReadOnly = true;
                 }
@@ -103,6 +104,7 @@ namespace Trang_chu_Main_Page_.GUI_QLHangHoa
                         Luongchenhlech = int.Parse(row.Cells[7].Value.ToString()),
                         Loaikhieunai = row.Cells[0].Value.ToString(),
                         Lydochitiet = row.Cells[9].Value.ToString(),
+                        Yeucauxuly = row.Cells[10].Value.ToString(),
                     };
 
                     bLL_QuanLyKho.themKN(kn);
@@ -133,6 +135,7 @@ namespace Trang_chu_Main_Page_.GUI_QLHangHoa
             dt.Columns["Luongchenhlech"].ColumnName = "Lượng chênh lệch";
             dt.Columns["Loaikhieunai"].ColumnName = "Loại khiếu nại";
             dt.Columns["Lydochitiet"].ColumnName = "Lý do chi tiết";
+            dt.Columns["Ngaynhap"].ColumnName = "Ngày nhập";
             dt.Columns["TenNCC"].ColumnName = "Tên nhà cung cấp";
 
 
@@ -220,7 +223,7 @@ namespace Trang_chu_Main_Page_.GUI_QLHangHoa
                         table.WidthPercentage = 100; // Bảng chiếm toàn bộ chiều rộng trang
                         foreach (DataColumn col in dt.Columns)
                         {
-                            if (col.ColumnName != "Sohd")
+                            if (col.ColumnName != "Sohd" && col.ColumnName != "Yeucauxuly")
                             {
                                 PdfPCell cell = new PdfPCell(new Phrase(col.ColumnName, boldFont));
                                 cell.HorizontalAlignment = Element.ALIGN_CENTER;
@@ -237,10 +240,10 @@ namespace Trang_chu_Main_Page_.GUI_QLHangHoa
                         {
                             foreach (DataColumn col in dt.Columns)
                             {
-                                if (col.ColumnName != "Sohd")
+                                if (col.ColumnName != "Sohd" && col.ColumnName != "Yeucauxuly")
                                 {
                                     PdfPCell cell;
-                                    if (col.ColumnName == "Ngaynhap")
+                                    if (col.ColumnName == "Ngày nhập")
                                     {
                                         DateTime ngayNhap = DateTime.Parse(row[col].ToString());
                                         cell = new PdfPCell(new Phrase(ngayNhap.ToString("dd/MM/yyyy"), normalFont));
@@ -248,8 +251,19 @@ namespace Trang_chu_Main_Page_.GUI_QLHangHoa
                                     {
                                         cell = new PdfPCell(new Phrase(row[col].ToString(), normalFont));
                                     }
-                                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
-                                    cell.VerticalAlignment = Element.ALIGN_MIDDLE;
+
+                                    if(col.ColumnName == "Lý do chi tiết")
+                                    {
+                                        cell.HorizontalAlignment = Element.ALIGN_LEFT;
+                                        cell.VerticalAlignment = Element.ALIGN_LEFT;
+                                    }
+                                    else
+                                    {
+                                        cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                                        cell.VerticalAlignment = Element.ALIGN_MIDDLE;
+                                    }
+
+                                    
                                     cell.NoWrap = false; // Cho phép xuống dòng
                                     cell.Padding = 10f;
                                     table.AddCell(cell);
@@ -264,13 +278,14 @@ namespace Trang_chu_Main_Page_.GUI_QLHangHoa
                         //Section 2
                         Paragraph section_2 = new Paragraph();
                         section_2.Alignment = Element.ALIGN_LEFT;
-                        section_2.Add(new Chunk("Yêu cầu xử lý:", boldFont));
+                        section_2.Add(new Chunk("Yêu cầu xử lý:", titleFont));
                         section_2.Add(Chunk.NEWLINE);
-                        section_2.Add(new Chunk("- Gửi lại hàng thay thế", normalFont));
-                        section_2.Add(Chunk.NEWLINE);
-                        section_2.Add(new Chunk("- Hoàn tiền", normalFont));
-                        section_2.Add(Chunk.NEWLINE);
-                        section_2.Add(new Chunk("Khác: ___________________________________", normalFont));
+                        foreach(DataRow row in dt.Rows)
+                        {
+                            section_2.Add(new Chunk(row["Mã hàng hóa"].ToString() + ": ", normalFont));
+                            section_2.Add(new Chunk(row[10].ToString(), normalFont));
+                            section_2.Add(Chunk.NEWLINE);
+                        }
                         doc.Add(section_2);
 
                         doc.Add(Chunk.NEWLINE);

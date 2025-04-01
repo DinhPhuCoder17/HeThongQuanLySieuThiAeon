@@ -533,6 +533,12 @@
     <Compile Include="GUI_QL_TC_NS\financialManagement.Designer.cs">
       <DependentUpon>financialManagement.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI_QL_TC_NS\LichSuKH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI_QL_TC_NS\LichSuKH.Designer.cs">
+      <DependentUpon>LichSuKH.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI_QL_TC_NS\UserControlDateNum.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -639,6 +645,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI_QL_TC_NS\financialManagement.resx">
       <DependentUpon>financialManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI_QL_TC_NS\LichSuKH.resx">
+      <DependentUpon>LichSuKH.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI_QL_TC_NS\UserControlDateNum.resx">
       <DependentUpon>UserControlDateNum.cs</DependentUpon>

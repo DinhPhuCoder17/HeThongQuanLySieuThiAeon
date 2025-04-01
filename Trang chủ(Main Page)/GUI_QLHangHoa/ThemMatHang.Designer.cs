@@ -32,7 +32,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ThemMatHang));
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.imgImage = new Guna.UI2.WinForms.Guna2PictureBox();
             this.label11 = new System.Windows.Forms.Label();
             this.lbTenNcc = new System.Windows.Forms.Label();
             this.cmbTenNcc = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -51,20 +55,18 @@
             this.txtTienNhap = new Guna.UI2.WinForms.Guna2TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.label7 = new System.Windows.Forms.Label();
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.imgImage = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.btnExit = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgImage)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Panel2
             // 
             this.guna2Panel2.BackColor = System.Drawing.Color.White;
+            this.guna2Panel2.Controls.Add(this.btnExit);
             this.guna2Panel2.Controls.Add(this.label1);
             this.guna2Panel2.Controls.Add(this.guna2CirclePictureBox1);
             this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -82,6 +84,20 @@
             this.label1.Size = new System.Drawing.Size(112, 20);
             this.label1.TabIndex = 15;
             this.label1.Text = "Phan Đình Phú";
+            // 
+            // guna2CirclePictureBox1
+            // 
+            this.guna2CirclePictureBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.guna2CirclePictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2CirclePictureBox1.Image")));
+            this.guna2CirclePictureBox1.ImageRotate = 0F;
+            this.guna2CirclePictureBox1.InitialImage = null;
+            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(103, 25);
+            this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
+            this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(54, 46);
+            this.guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2CirclePictureBox1.TabIndex = 14;
+            this.guna2CirclePictureBox1.TabStop = false;
             // 
             // guna2Panel1
             // 
@@ -116,6 +132,40 @@
             this.guna2Panel1.TabIndex = 9;
             this.guna2Panel1.UseTransparentBackground = true;
             this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
+            // 
+            // guna2PictureBox1
+            // 
+            this.guna2PictureBox1.BorderRadius = 15;
+            this.guna2PictureBox1.Image = global::Trang_chu_Main_Page_.Properties.Resources.vecteezy_warning_icon_png_transparent_9663747;
+            this.guna2PictureBox1.ImageRotate = 0F;
+            this.guna2PictureBox1.Location = new System.Drawing.Point(683, 327);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.Size = new System.Drawing.Size(60, 56);
+            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox1.TabIndex = 39;
+            this.guna2PictureBox1.TabStop = false;
+            // 
+            // label7
+            // 
+            this.label7.BackColor = System.Drawing.Color.White;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Location = new System.Drawing.Point(740, 337);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(362, 46);
+            this.label7.TabIndex = 38;
+            this.label7.Text = "- Ảnh gợi ý nên phù hợp với khung ảnh ở dưới.\r\n- Tỉ lệ khuyến nghị 15:1\r\n\r\n";
+            // 
+            // imgImage
+            // 
+            this.imgImage.BorderRadius = 15;
+            this.imgImage.ImageRotate = 0F;
+            this.imgImage.Location = new System.Drawing.Point(698, 407);
+            this.imgImage.Name = "imgImage";
+            this.imgImage.Size = new System.Drawing.Size(249, 167);
+            this.imgImage.TabIndex = 37;
+            this.imgImage.TabStop = false;
+            this.imgImage.Click += new System.EventHandler(this.guna2PictureBox1_Click);
             // 
             // label11
             // 
@@ -386,53 +436,23 @@
             // 
             this.guna2Elipse1.BorderRadius = 20;
             // 
-            // label7
+            // btnExit
             // 
-            this.label7.BackColor = System.Drawing.Color.White;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(740, 337);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(362, 46);
-            this.label7.TabIndex = 38;
-            this.label7.Text = "- Ảnh gợi ý nên phù hợp với khung ảnh ở dưới.\r\n- Tỉ lệ khuyến nghị 15:1\r\n\r\n";
-            // 
-            // guna2PictureBox1
-            // 
-            this.guna2PictureBox1.BorderRadius = 15;
-            this.guna2PictureBox1.Image = global::Trang_chu_Main_Page_.Properties.Resources.vecteezy_warning_icon_png_transparent_9663747;
-            this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(683, 327);
-            this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(60, 56);
-            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2PictureBox1.TabIndex = 39;
-            this.guna2PictureBox1.TabStop = false;
-            // 
-            // imgImage
-            // 
-            this.imgImage.BorderRadius = 15;
-            this.imgImage.ImageRotate = 0F;
-            this.imgImage.Location = new System.Drawing.Point(698, 407);
-            this.imgImage.Name = "imgImage";
-            this.imgImage.Size = new System.Drawing.Size(249, 167);
-            this.imgImage.TabIndex = 37;
-            this.imgImage.TabStop = false;
-            this.imgImage.Click += new System.EventHandler(this.guna2PictureBox1_Click);
-            // 
-            // guna2CirclePictureBox1
-            // 
-            this.guna2CirclePictureBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.guna2CirclePictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2CirclePictureBox1.Image")));
-            this.guna2CirclePictureBox1.ImageRotate = 0F;
-            this.guna2CirclePictureBox1.InitialImage = null;
-            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(103, 25);
-            this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
-            this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(54, 46);
-            this.guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2CirclePictureBox1.TabIndex = 14;
-            this.guna2CirclePictureBox1.TabStop = false;
+            this.btnExit.BackColor = System.Drawing.Color.Transparent;
+            this.btnExit.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnExit.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnExit.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnExit.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnExit.FillColor = System.Drawing.Color.Transparent;
+            this.btnExit.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnExit.ForeColor = System.Drawing.Color.White;
+            this.btnExit.Image = global::Trang_chu_Main_Page_.Properties.Resources.Exit_Icon;
+            this.btnExit.ImageSize = new System.Drawing.Size(190, 120);
+            this.btnExit.Location = new System.Drawing.Point(1116, 12);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(54, 45);
+            this.btnExit.TabIndex = 48;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // ThemMatHang
             // 
@@ -447,10 +467,10 @@
             this.Text = "ThemMatHang";
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
             this.guna2Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgImage)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -482,5 +502,6 @@
         private Guna.UI2.WinForms.Guna2PictureBox imgImage;
         private System.Windows.Forms.Label label7;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
+        private Guna.UI2.WinForms.Guna2Button btnExit;
     }
 }

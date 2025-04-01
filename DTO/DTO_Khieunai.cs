@@ -16,5 +16,7 @@ namespace DTO
         public String Lydochitiet { get; set; }
 
         public int Luongchenhlech { get; set; }
+
+        public String Yeucauxuly { get; set; }
     }
 }

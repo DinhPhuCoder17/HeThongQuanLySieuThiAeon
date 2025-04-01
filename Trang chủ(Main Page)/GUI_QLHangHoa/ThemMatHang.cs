@@ -138,6 +138,11 @@ namespace Trang_chủ_Main_Page_
             gp.CloseFigure(); // Đóng đường dẫn thành một hình liên tục
             imgImage.Region = new Region(gp); // Áp dụng vùng bo tròn cho PictureBox
         }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
 

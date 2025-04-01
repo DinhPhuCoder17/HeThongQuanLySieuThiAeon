@@ -186,12 +186,12 @@ namespace DAL
 
         public DataTable xemDSKN(String soHD)
         {
-            return DataProvider.Instance.ExecuteQuery("Select HD_HH.Sohd, HD_HH.Mahanghoa, Tenhanghoa, Ngaynhap, Soluongdat, Soluongnhan, Luongchenhlech, Loaikhieunai, Lydochitiet From HD_HH left join Khieunai KN on HD_HH.Mahanghoa = KN.Mahanghoa and HD_HH.Sohd = KN.Sohd left join Hanghoa HH on HD_HH.Mahanghoa = HH.Mahanghoa Where HD_HH.Sohd = @Sohd", new object[] {soHD});
+            return DataProvider.Instance.ExecuteQuery("Select HD_HH.Sohd, HD_HH.Mahanghoa, Tenhanghoa, Ngaynhap, Soluongdat, Soluongnhan, Luongchenhlech, Loaikhieunai, Lydochitiet, Yeucauxuly From HD_HH left join Khieunai KN on HD_HH.Mahanghoa = KN.Mahanghoa and HD_HH.Sohd = KN.Sohd left join Hanghoa HH on HD_HH.Mahanghoa = HH.Mahanghoa Where HD_HH.Sohd = @Sohd", new object[] {soHD});
         }
 
         public DataTable xemDSKNvaNCC(String soHD)
         {
-            return DataProvider.Instance.ExecuteQuery("Select HD_HH.Sohd, HD_HH.Mahanghoa, Tenhanghoa, TenNCC, Ngaynhap, Soluongdat, Soluongnhan, Luongchenhlech, Loaikhieunai, Lydochitiet From HD_HH left join Khieunai KN on HD_HH.Mahanghoa = KN.Mahanghoa and HD_HH.Sohd = KN.Sohd left join Hanghoa HH on HD_HH.Mahanghoa = HH.Mahanghoa left join Nhacungcap NCC on HH.Mancc = NCC.Mancc  Where HD_HH.Sohd = @Sohd", new object[] { soHD });
+            return DataProvider.Instance.ExecuteQuery("Select HD_HH.Sohd, HD_HH.Mahanghoa, Tenhanghoa, TenNCC, Ngaynhap, Soluongdat, Soluongnhan, Luongchenhlech, Loaikhieunai, Lydochitiet, Yeucauxuly From HD_HH left join Khieunai KN on HD_HH.Mahanghoa = KN.Mahanghoa and HD_HH.Sohd = KN.Sohd left join Hanghoa HH on HD_HH.Mahanghoa = HH.Mahanghoa left join Nhacungcap NCC on HH.Mancc = NCC.Mancc  Where HD_HH.Sohd = @Sohd", new object[] { soHD });
         }
 
         public DataTable xemDSNHvaNCC(String soHD)
@@ -203,7 +203,7 @@ namespace DAL
         {
             try
             {
-                int line = DataProvider.Instance.ExecuteNonQuery("Exec themKhieuNai @Mahanghoa , @Sohd , @Loaikhieunai , @Lydochitiet , @Luongchenhlech ", new object[] { kn.MaHH, kn.SoHD, kn.Loaikhieunai, kn.Lydochitiet, kn.Luongchenhlech});
+                int line = DataProvider.Instance.ExecuteNonQuery("Exec themKhieuNai @Mahanghoa , @Sohd , @Loaikhieunai , @Lydochitiet , @Luongchenhlech , @Yeucauxuly", new object[] { kn.MaHH, kn.SoHD, kn.Loaikhieunai, kn.Lydochitiet, kn.Luongchenhlech, kn.Yeucauxuly});
                 if(line != 0)
                 {
                     return true;

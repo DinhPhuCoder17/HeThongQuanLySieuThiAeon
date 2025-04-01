@@ -165,6 +165,7 @@ CREATE TABLE Khieunai (
     Loaikhieunai NVARCHAR(100),
     Lydochitiet NVARCHAR(1000),
 	Luongchenhlech int,
+	Yeucauxuly NVARCHAR(1000),
     CONSTRAINT PK_Khieunai PRIMARY KEY (Mahanghoa, Sohd),
     CONSTRAINT FK_KN_Mahanghoa_Sohd_HDHH FOREIGN KEY (Mahanghoa, Sohd) 
         REFERENCES HD_HH (Mahanghoa, Sohd)
@@ -488,8 +489,8 @@ BEGIN
 END;
 
 go
-drop procedure themHH_HDBH
 --Thêm Hóa Đơn Chi Tiết Hóa Đơn---
+go
 CREATE PROCEDURE themHH_HDBH
     @Tenhanghoa NVARCHAR(255),
     @Soluong INT
@@ -553,7 +554,7 @@ BEGIN
     PRINT ' Stock updated: ' + @Tenhanghoa + ' - Remaining: ' + CAST(@SoluongTonKho - @Soluong AS NVARCHAR);
 END;
 
-
+go
 --xóa Hóa đơn
 CREATE PROCEDURE sp_XoaHoaDon
     @MaHoaDon VARCHAR(10)
@@ -741,7 +742,8 @@ Create proc themKhieuNai
 	@Sohd varchar(10),
 	@Loaikhieunai nvarchar(100),
 	@Lydochitiet nvarchar(1000),
-	@Luongchenhlech int
+	@Luongchenhlech int,
+	@Yeucauxuly nvarchar(1000)
 As
 Begin
 	if exists(
@@ -750,12 +752,12 @@ Begin
 		Where Mahanghoa = @Mahanghoa and @Sohd = Sohd
 	)
 	Begin
-		Update Khieunai set Loaikhieunai = @Loaikhieunai, Lydochitiet = @Lydochitiet, Luongchenhlech = @Luongchenhlech
+		Update Khieunai set Loaikhieunai = @Loaikhieunai, Lydochitiet = @Lydochitiet, Luongchenhlech = @Luongchenhlech , Yeucauxuly = @Yeucauxuly
 		Where Mahanghoa = @Mahanghoa and Sohd = @Sohd
 	End
 	Else
 	Begin
-		Insert into Khieunai values(@Mahanghoa, @Sohd, @Loaikhieunai, @Lydochitiet, @Luongchenhlech)
+		Insert into Khieunai values(@Mahanghoa, @Sohd, @Loaikhieunai, @Lydochitiet, @Luongchenhlech, @Yeucauxuly)
 	End
 End
 
@@ -826,10 +828,8 @@ INSERT INTO Hoadonbanhang (Mahoadon, Thoigianban, Manhanvien, Sodienthoai, Thanh
 INSERT INTO Hoadonbanhang (Mahoadon, Thoigianban, Manhanvien, Sodienthoai, Thanhtien) VALUES
 ('HD0004', '2024-03-04 14:20:00', 'NV0003', '0962233445', 100000)
 
-DELETE FROM HH_HDBH
 Insert into HH_HDBH values
 ('HH0001', 'HD0001',N'Gạo ST25',10,200000)
-delete from Hoadonbanhang
 
 exec themMacalam N'Ca thường', '2024-03-15 08:30:00', '2024-03-15 15:30:00', 3
 exec themMacalam N'Ca thường', '2024-03-15 16:30:00', '2024-03-15 21:30:00', 3
@@ -843,9 +843,6 @@ Insert into Batbuoc values('CL0001', 'NV0003')
 Insert into Batbuoc values('CL0002', 'NV0004')
 Insert into Batbuoc values('CL0002', 'NV0005')
 Insert into Batbuoc values('CL0004', 'NV0004')
-
-DELETE FROM Batbuoc;
-DELETE FROM ChamCong;
 
 
 EXEC themChamCong '2025-03-15', '13:45:00', '15:30:00', 'CL0001', 'NV0003';
