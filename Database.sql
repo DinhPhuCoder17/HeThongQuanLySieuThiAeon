@@ -445,7 +445,6 @@ Declare @soMoi int;
 End;
 
 --Procedure thêm mã hoá đơn bán hàng--
- delete from Hoadonbanhang
 go
 CREATE PROCEDURE themMaHDBH
     @Thoigianban DATETIME,
@@ -488,7 +487,7 @@ BEGIN
 END;
 
 go
-drop procedure themHH_HDBH
+--drop procedure themHH_HDBH
 --Thêm Hóa Đơn Chi Tiết Hóa Đơn---
 CREATE PROCEDURE themHH_HDBH
     @Tenhanghoa NVARCHAR(255),
@@ -567,7 +566,7 @@ BEGIN
     
     PRINT 'Đã xóa hóa đơn thành công!';
 END;
-DROP PROCEDURE sp_XoaHoaDon
+--DROP PROCEDURE sp_XoaHoaDon
 --Procedure thêm mã hoá đơn nhập hàng--
 go
 create proc themMaHDNH
@@ -826,10 +825,8 @@ INSERT INTO Hoadonbanhang (Mahoadon, Thoigianban, Manhanvien, Sodienthoai, Thanh
 INSERT INTO Hoadonbanhang (Mahoadon, Thoigianban, Manhanvien, Sodienthoai, Thanhtien) VALUES
 ('HD0004', '2024-03-04 14:20:00', 'NV0003', '0962233445', 100000)
 
-DELETE FROM HH_HDBH
 Insert into HH_HDBH values
 ('HH0001', 'HD0001',N'Gạo ST25',10,200000)
-delete from Hoadonbanhang
 
 exec themMacalam N'Ca thường', '2024-03-15 08:30:00', '2024-03-15 15:30:00', 3
 exec themMacalam N'Ca thường', '2024-03-15 16:30:00', '2024-03-15 21:30:00', 3
@@ -844,8 +841,6 @@ Insert into Batbuoc values('CL0002', 'NV0004')
 Insert into Batbuoc values('CL0002', 'NV0005')
 Insert into Batbuoc values('CL0004', 'NV0004')
 
-DELETE FROM Batbuoc;
-DELETE FROM ChamCong;
 
 
 EXEC themChamCong '2025-03-15', '13:45:00', '15:30:00', 'CL0001', 'NV0003';
