@@ -9,19 +9,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Trang_chu_Main_Page_.DSHangHoa_Dat;
 
 namespace Trang_chủ_Main_Page_
 {
     public partial class GoiYNhapHangBangAI : Form
     {
-        BLLQuanLyKho bll = new BLLQuanLyKho();
         private bool isEdited = false;             
         private DataGridViewRow rowEdited = null;    
-        private object[] originalRowValues = null;     
-
+        private object[] originalRowValues = null;    
+        BLL_predictor bLL_Predictor = new BLL_predictor();  
 
         public GoiYNhapHangBangAI()
         {
+            List<DTO_Hanghoa> dsHH = BLLQuanLyKho.Instance.XemDSTonKho();
             InitializeComponent();
 
             cmbTGTTHH.Items.Clear();
@@ -31,6 +32,20 @@ namespace Trang_chủ_Main_Page_
             cmbTGTTHH.SelectedIndexChanged += cmbTGTTHH_SelectedIndexChanged;
 
             BLL_predictor.Predict(dgvGoiYNhapHang, "week");
+
+
+            var unique = dsHH.GroupBy(dd => dd.DanhMuc)
+                     .Select(g => g.First())
+                     .ToList();
+            var tatCa = new DTO_Hanghoa
+            {
+                DanhMuc = "Tất cả"
+            };
+
+            unique.Insert(0, tatCa);
+
+            cmbLocTheoDanhMuc_GoiYNhapHang.DataSource = unique;
+            cmbLocTheoDanhMuc_GoiYNhapHang.DisplayMember = "DanhMuc";
         }
 
         private void cmbTGTTHH_SelectedIndexChanged(object sender, EventArgs e)
@@ -237,6 +252,42 @@ namespace Trang_chủ_Main_Page_
             {
                 MessageBox.Show("Vui lòng chọn dòng cần xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void txt_AI_SearchBar_TextChanged(object sender, EventArgs e)
+        {
+            if (txtAI.Text == "")
+            {
+                cmbTGTTHH_SelectedIndexChanged(sender, e);
+            }
+            else
+            {
+                dgvGoiYNhapHang.DataSource = bLL_Predictor.timKiem(txtAI.Text);
+            }
+        }
+
+        private void cmbSelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedCategory = cmbLocTheoDanhMuc_GoiYNhapHang.Text;
+
+            // Giả sử DataSource của dgvGoiYNhapHang là một DataTable
+            DataTable dt = dgvGoiYNhapHang.DataSource as DataTable;
+            if (dt != null)
+            {
+                if (selectedCategory == "Tất cả")
+                {
+                    dt.DefaultView.RowFilter = ""; // Hiển thị toàn bộ dữ liệu
+                }
+                else
+                {
+                    // Lọc theo cột "Tendanhmuc" với giá trị được chọn
+                    dt.DefaultView.RowFilter = $"Tendanhmuc = '{selectedCategory}'";
+                }
+            }
+        }
+
+    }
+}
         }
 
         private void btnExit_Click(object sender, EventArgs e)

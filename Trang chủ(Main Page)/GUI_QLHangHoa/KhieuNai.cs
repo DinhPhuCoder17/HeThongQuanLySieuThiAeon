@@ -26,7 +26,6 @@ namespace Trang_chu_Main_Page_.GUI_QLHangHoa
 {
     public partial class KhieuNai : Form
     {
-        private readonly BLLQuanLyKho bLL_QuanLyKho = new BLLQuanLyKho();
         public KhieuNai()
         {
             InitializeComponent();
@@ -107,7 +106,7 @@ namespace Trang_chu_Main_Page_.GUI_QLHangHoa
                         Yeucauxuly = row.Cells[10].Value.ToString(),
                     };
 
-                    bLL_QuanLyKho.themKN(kn);
+                    BLLQuanLyKho.Instance.themKN(kn);
                     
                 }
 
@@ -122,7 +121,7 @@ namespace Trang_chu_Main_Page_.GUI_QLHangHoa
         private void xuatHoaDonKhieuNai()
         {
             
-            DataTable dt = bLL_QuanLyKho.xemDSKNvaNCC(dgv_KhieuNai.Rows[0].Cells[1].Value.ToString());
+            DataTable dt = BLLQuanLyKho.Instance.xemDSKNvaNCC(dgv_KhieuNai.Rows[0].Cells[1].Value.ToString());
             var rowsToDelete = dt.Select("Soluongnhan = Soluongdat"); // Chọn các dòng cần xóa
             foreach (var row in rowsToDelete)
             {
@@ -191,7 +190,7 @@ namespace Trang_chu_Main_Page_.GUI_QLHangHoa
                         soHD.Alignment = Element.ALIGN_RIGHT;
                         soHD.Add(new Chunk(String.Format("Số hóa đơn: {0}", dgv_KhieuNai.Rows[0].Cells[1].Value.ToString()), boldFont));
                         soHD.Add(Chunk.NEWLINE);
-                        soHD.Add(new Chunk(String.Format("Ngày đặt: {0}", bLL_QuanLyKho.xemNgayDatHang(dgv_KhieuNai.Rows[0].Cells[1].Value.ToString()).ToString("dd/MM/yyyy")), boldFont));
+// soHD.Add(new Chunk(String.Format("Ngày đặt: {0}", BLLQuanLyKho.Instance.xemNgayDatHang(dgv_KhieuNai.Rows[0].Cells[1].Value.ToString()).ToString("dd/MM/yyyy")), boldFont));
 
                         doc.Add(soHD);
                         

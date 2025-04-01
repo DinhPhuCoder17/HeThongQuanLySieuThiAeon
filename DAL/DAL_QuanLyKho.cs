@@ -12,6 +12,17 @@ namespace DAL
 {
     public class DAL_QuanLyKho
     {
+        private static DAL_QuanLyKho instance;
+        public static DAL_QuanLyKho Instance
+        {
+            get
+            {
+                if (instance == null)
+                    instance = new DAL_QuanLyKho();
+                return instance;
+            }
+        }
+        private DAL_QuanLyKho() { }
         public DataTable XemDSTonKho()
         {
             return DataProvider.Instance.ExecuteQuery("SELECT h.Mahanghoa, h.Tenhanghoa, h.Tiennhap, h.Tendanhmuc, h.Tienban, h.ImageData, h.Soluong, h.Uudai, n.MaNCC, h.THSD FROM Hanghoa h JOIN Nhacungcap n ON h.MaNCC = n.MaNCC WHERE h.Xoa = 1");
@@ -217,6 +228,7 @@ namespace DAL
             }
         }
 
+        //Liemp
         public DateTime xemNgayDatHang(String maNH)
         {
             return DateTime.Parse(DataProvider.Instance.ExecuteScalar("Select Ngaydat From HD_Nhaphang Where Sohd = @Sohd", new object[] { maNH }).ToString());
@@ -226,5 +238,64 @@ namespace DAL
         {
             return DataProvider.Instance.ExecuteQueryOneParameter("Select Sohd, Ngaydat, Tongtien, Trangthai FROM HD_Nhaphang where (Sohd LIKE '%' + @tukhoa + '%' or convert(nvarchar, Ngaydat, 103) LIKE '%' + @tukhoa + '%'  or FORMAT(TongTien, 'N0') LIKE '%' + @tukhoa + '%' or Trangthai LIKE '%' + @tukhoa + '%')", new object[] { tukhoa });
         }
+
+        // -------------------------------- Nhà Cung cấp ------------------------------------
+
+        //Hàm thêm nhà cung cấp
+        public bool AddNCC(string tenNCC, string diaChi, string maSoThue, string sdt)
+        {
+
+            // Gọi stored procedure và lấy mã nhà cung cấp
+            string query = "EXEC themMaNhacungcap @TenNCC , @Diachi , @Masothue , @Sodienthoai ";
+            object[] parameters =
+            {
+            tenNCC,
+            diaChi,
+            maSoThue,
+            sdt
+            };
+
+            object result = DataProvider.Instance.ExecuteScalar(query, parameters);
+            if (result == null) return false; // Thêm thất bại
+
+            string maNCCMoi = result.ToString(); // Lấy mã NCC vừa được tạo tự động từ procedure
+
+            return true;
+        }
+
+        //Lấy danh sách NCC từ database
+        public DataTable GetNCCList()
+        {
+            string query = @"
+        SELECT ncc.MaNCC, ncc.TenNCC, ncc.Diachi, ncc.Masothue, ncc.Sodienthoai
+        FROM Nhacungcap ncc
+        Where ncc.Xoa = 1";
+
+            return DataProvider.Instance.ExecuteQuery(query);
+        }
+
+        //Update Nha cung cap
+        public bool UpdateNCC(string maNCC, string tenNCC, string diaChi, string maSoThue, string sdt)
+        {
+            string query = "UPDATE Nhacungcap SET TenNCC = @TenNCC , Diachi = @Diachi , Masothue = @Masothue, Sodienthoai = @Sodienthoai WHERE MaNCC = @MaNCC ";
+
+            object[] parameters = { maNCC, diaChi, maSoThue, sdt, maNCC };
+
+            return DataProvider.Instance.ExecuteNonQuery(query, parameters) > 0;
+        }
+
+        //Delete Nha cung cap
+        public bool DeleteNCC(string maNCC)
+        {
+            string query = "UPDATE Nhacungcap SET Xoa = 0 WHERE MaNCC = @MaNCC ";
+            object[] parameters = { maNCC };
+
+            return DataProvider.Instance.ExecuteNonQuery(query, parameters) > 0;
+        }
+        public DataTable timKiemDH(String tukhoa)
+        {
+            return DataProvider.Instance.ExecuteQueryOneParameter("SELECT h.Mahanghoa, h.Tenhanghoa, h.Tiennhap, h.Tendanhmuc, h.Tienban, h.ImageData, h.Soluong, h.Uudai, n.MaNCC, h.THSD FROM Hanghoa h JOIN Nhacungcap n ON h.MaNCC = n.MaNCC WHERE h.Xoa = 1 AND ( h.Mahanghoa    LIKE '%' + @tukhoa + '%' OR h.Tenhanghoa  LIKE '%' +'%' OR n.MaNCC LIKE '%' + '%' OR h.Tiennhap LIKE '%' + @tukhoa + '%'OR h.Tendanhmuc  LIKE '%' + @tukhoa + '%')", new object[] { tukhoa });
+        }
+
     }
 }
