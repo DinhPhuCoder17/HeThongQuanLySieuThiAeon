@@ -17,6 +17,7 @@ namespace Trang_chủ_Main_Page_
     {
         bool menuExpand = false;
         bool menuExpand_2=false;
+        bool menuExpand_3 = false;
         BLL_QuanlyTCNS bLL_QuanLyTCNS = new BLL_QuanlyTCNS();
         private readonly BLL_QuanlyTCNS bLL_QuanlyTCNS = new BLL_QuanlyTCNS();
 
@@ -269,6 +270,33 @@ namespace Trang_chủ_Main_Page_
         private void txt_Shift_Number_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void tm_InforChanges_Tick(object sender, EventArgs e)
+        {
+            if (menuExpand_3 == false)
+            {
+                pn_infoChanges.Height += 20;
+                if (pn_infoChanges.Height >= 280)
+                {
+                    tm_InforChanges.Stop();
+                    menuExpand_3 = true;
+                }
+            }
+            else
+            {
+                pn_infoChanges.Height -= 20;
+                if (pn_infoChanges.Height <= 0)
+                {
+                    tm_InforChanges.Stop();
+                    menuExpand_3 = false;
+                }
+            }
+        }
+
+        private void pb_Avatar_Click(object sender, EventArgs e)
+        {
+            tm_InforChanges.Start();
         }
     }
 }
