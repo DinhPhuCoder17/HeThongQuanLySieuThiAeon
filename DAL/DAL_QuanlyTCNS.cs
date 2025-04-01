@@ -11,7 +11,13 @@ using Microsoft.Identity.Client;
 namespace DAL
 {
     public class DAL_QuanlyTCNS
-    {
+    {   // Them du lieu bieu do cot tong thu
+        public DataTable LoadDuLieuChartThu(int currentYear, int currentMonth)
+        {
+            string query = "EXEC usp_GetWeeklyRevenue @Year , @Month";
+            DataTable dt = DataProvider.Instance.ExecuteQuery(query, new object[] { currentYear, currentMonth });
+            return dt;
+        }
         //  Them du lieu bieu do cot tong chi
         public DataTable LoadDuLieuChartChi( int currentYear, int currentMonth)
         {

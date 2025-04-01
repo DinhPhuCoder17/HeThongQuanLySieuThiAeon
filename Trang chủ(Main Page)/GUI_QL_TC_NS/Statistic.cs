@@ -44,66 +44,98 @@ namespace Trang_chủ_Main_Page_
             LoadData();
 
         }
-        
 
 
-    
+
+
         public void LoadData()
         {
             UpdateMonthLabel();
             int totalExpense = 0;
+            int totalRevenue = 0;
+            int totalProfit = 0; // Tổng lợi nhuận
+
             int selectedYear = selectedMonth.Year;
             int selectedMonthValue = selectedMonth.Month;
 
-            List<string> labels = new List<string> { "Tuần 1", "Tuần 2", "Tuần 3", "Tuần 4" }; // Đặt nhãn cố định cho các tuần
-            double[] expenseData = new double[4]; // Mảng lưu trữ dữ liệu chi phí cho từng tuần
+            List<string> labels = new List<string> { "Tuần 1", "Tuần 2", "Tuần 3", "Tuần 4" };
 
-            // Giả sử bLL_QuanlyTCNS.LoadDuLieuChartChi trả về một DataTable chứa các dữ liệu chi phí
+            double[] expenseData = new double[4];
+            double[] revenueData = new double[4];
+            double[] profitData = new double[4]; // Mảng lưu lợi nhuận
+
             DataTable dt = bLL_QuanlyTCNS.LoadDuLieuChartChi(selectedYear, selectedMonthValue);
+            DataTable dt1 = bLL_QuanlyTCNS.LoadDuLieuChartThu(selectedYear, selectedMonthValue);
 
-            // Khởi tạo mảng chi phí là 0 (tránh giá trị mặc định NaN hoặc không xác định)
+            // Khởi tạo mảng dữ liệu với giá trị 0
             for (int i = 0; i < 4; i++)
             {
                 expenseData[i] = 0;
+                revenueData[i] = 0;
+                profitData[i] = 0;
             }
 
+            // Xóa dữ liệu cũ trước khi cập nhật mới
+            cRevenue.DataPoints.Clear();
+            cExpense.DataPoints.Clear();
+            cProfit.DataPoints.Clear();
+            // Lấy dữ liệu doanh thu
+            foreach (DataRow row in dt1.Rows)
+            {
+                int week = Convert.ToInt32(row["WeekNumber"]);
+                double revenue = Convert.ToDouble(row["TotalRevenue"]);
+                if (week >= 1 && week <= 4)
+                {
+                    revenueData[week - 1] = revenue;
+                }
+            }
+
+            // Lấy dữ liệu chi phí
             foreach (DataRow row in dt.Rows)
             {
                 int week = Convert.ToInt32(row["WeekNumber"]);
                 double expense = Convert.ToDouble(row["TotalExpense"]);
-
-                // Cập nhật dữ liệu cho tuần tương ứng
                 if (week >= 1 && week <= 4)
                 {
-                    expenseData[week - 1] = expense; // Cập nhật chi phí cho tuần
+                    expenseData[week - 1] = expense;
                 }
             }
 
-            // Xóa các điểm dữ liệu cũ trong biểu đồ
-            cExpense.DataPoints.Clear();
-
-            // Cập nhật biểu đồ với dữ liệu mới
+            // Tính lợi nhuận = Doanh thu - Chi phí
             for (int i = 0; i < 4; i++)
             {
-                cExpense.DataPoints.Add(labels[i], expenseData[i]); // Gắn nhãn cố định vào biểu đồ
-                totalExpense += Convert.ToInt32(expenseData[i]); // Tính tổng chi phí
+                profitData[i] = revenueData[i] - expenseData[i]; // Lợi nhuận của từng tuần
+                totalRevenue += Convert.ToInt32(revenueData[i]);
+                totalExpense += Convert.ToInt32(expenseData[i]);
+                totalProfit += Convert.ToInt32(profitData[i]); // Tính tổng lợi nhuận
             }
 
-            //lblTotalProfit.Text = totalProfit.ToString();
-            //lblTotalRevenue.Text = totalRevenue.ToString();
+            // Cập nhật dữ liệu lên biểu đồ
+            for (int i = 0; i < 4; i++)
+            {
+                cRevenue.DataPoints.Add(labels[i], revenueData[i]);
+                cExpense.DataPoints.Add(labels[i], expenseData[i]);
+                cProfit.DataPoints.Add(labels[i], profitData[i]); // Thêm cột lợi nhuận
+            }
+
+            // Cập nhật tổng giá trị vào giao diện
+            lblTotalRevenue.Text = totalRevenue.ToString();
             lblTotalExpense.Text = totalExpense.ToString();
-            // Cập nhật giao diện
+            lblTotalProfit.Text = totalProfit.ToString(); // Hiển thị tổng lợi nhuận
+
+            // Cập nhật giao diện biểu đồ
             c_Satistic.Update();
         }
 
 
-      
-
-    
 
 
 
-    
+
+
+
+
+
 
 
 

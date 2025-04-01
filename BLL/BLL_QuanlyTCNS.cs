@@ -19,6 +19,12 @@ namespace BLL
 
         private readonly DAL_QuanlyTCNS dAL_QuanlyTCNS = new DAL_QuanlyTCNS();
 
+        // theem du lieu bieu do cot thu
+
+        public DataTable LoadDuLieuChartThu(int currentYear, int currentMonth)
+        {
+            return dAL_QuanlyTCNS.LoadDuLieuChartThu(currentYear, currentMonth);
+        }
         //Them du lieu bieu do cot chi
         public DataTable LoadDuLieuChartChi(int currentYear, int currentMonth)
         {
