@@ -18,12 +18,11 @@ namespace Trang_chủ_Main_Page_
         private bool isEdited = false;             
         private DataGridViewRow rowEdited = null;    
         private object[] originalRowValues = null;    
-        BLL_predictor bLL_Predictor = new BLL_predictor();
-
+        BLL_predictor bLL_Predictor = new BLL_predictor();  
 
         public GoiYNhapHangBangAI()
         {
-            List<DTO_Hanghoa> dsHH = bll.XemDSTonKho();
+            List<DTO_Hanghoa> dsHH = BLLQuanLyKho.Instance.XemDSTonKho();
             InitializeComponent();
 
             cmbTGTTHH.Items.Clear();
