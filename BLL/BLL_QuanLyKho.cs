@@ -190,5 +190,10 @@ namespace BLL
         {
             return dAL_QuanLyKho.timKiemHDNH(tukhoa);
         }
+
+        public DataTable timKiemDH(String tukhoa)
+        {
+            return dAL_QuanLyKho.timKiemDH(tukhoa);
+        }
     }
 }

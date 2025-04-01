@@ -68,18 +68,6 @@ namespace Trang_chủ_Main_Page_
             }
         }
 
-/*        private void txt_SearchBar_TextChanged(object sender, EventArgs e)
-        {
-            if (Search_DH.Text == null)
-            {
-                customerControl_Load(sender, e);
-            }
-            else
-            {
-                dtg_CustomerList.DataSource = bLL_QuanlyTCNS.timKiemKH(Search_DH.Text);
-            }
-        }*/
-
         private void CalculateTotal()
         {
             double total = 0;
@@ -274,6 +262,32 @@ namespace Trang_chủ_Main_Page_
                 else
                 {
                     MessageBox.Show("Cập nhật thất bại, vui lòng kiểm tra lại!");
+                }
+            }
+        }
+        private void txt_DatHang_SearchBar_TextChanged(object sender, EventArgs e)
+        {
+            string searchText = Search_DH.Text.Trim().ToLower();
+
+            foreach (Control ctrl in flowLayoutPanel1.Controls)
+            {
+                var wdg = ctrl as HangHoaNCC;
+                if (wdg != null)
+                {
+                    if (string.IsNullOrEmpty(searchText))
+                    {
+                        wdg.Visible = true; 
+                    }
+                    else
+                    {
+                        bool isMatch = wdg.lbDanhMuc.Text.ToLower().Contains(searchText) ||
+                                       wdg.label1.Text.ToLower().Contains(searchText) ||
+                                       wdg.label2.Text.ToLower().Contains(searchText) ||
+                                       wdg.label3.Text.ToLower().Contains(searchText) ||
+                                       wdg.label4.Text.ToLower().Contains(searchText);
+
+                        wdg.Visible = isMatch;
+                    }
                 }
             }
         }

@@ -22,7 +22,12 @@ namespace Trang_chu_Main_Page_.DSHangHoa_Dat
                 if (int.TryParse(txtSoLuong.Text, out result) && result > 0)
                     return result;
                 else
-                    return 1;
+                    MessageBox.Show("Bạn vui lòng hãy nhập giá trị lớn hơn 0, không có kí tự đặc biệt và chữ cái",
+                "Thông báo",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Warning);
+
+                return 0;
             }
         }
 
