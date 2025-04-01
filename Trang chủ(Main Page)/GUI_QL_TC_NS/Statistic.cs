@@ -20,8 +20,7 @@ namespace Trang_chủ_Main_Page_
         public Statistic()
         {
             InitializeComponent();
-            selectedMonth = DateTime.Now.AddMonths(-1); // Bắt đầu từ tháng trước
-            UpdateMonthLabel();
+            
         }
         private readonly BLL_QuanlyTCNS bLL_QuanlyTCNS = new BLL_QuanlyTCNS();
         DateTime selectedMonth = DateTime.Now.AddMonths(-1); // Bắt đầu từ tháng trước
@@ -42,91 +41,65 @@ namespace Trang_chủ_Main_Page_
                 Color.FromArgb(255, 0, 79)
             };
 
+            LoadData();
 
-            DateTime selectedMonth = DateTime.Now.AddMonths(-1); // Mặc định là tháng trước
+        }
+        
 
+
+    
+        public void LoadData()
+        {
+            UpdateMonthLabel();
+            int totalExpense = 0;
             int selectedYear = selectedMonth.Year;
             int selectedMonthValue = selectedMonth.Month;
 
-            List<string> labels = new List<string>();
-            double[] expenseData = new double[4];
+            List<string> labels = new List<string> { "Tuần 1", "Tuần 2", "Tuần 3", "Tuần 4" }; // Đặt nhãn cố định cho các tuần
+            double[] expenseData = new double[4]; // Mảng lưu trữ dữ liệu chi phí cho từng tuần
+
+            // Giả sử bLL_QuanlyTCNS.LoadDuLieuChartChi trả về một DataTable chứa các dữ liệu chi phí
             DataTable dt = bLL_QuanlyTCNS.LoadDuLieuChartChi(selectedYear, selectedMonthValue);
+
+            // Khởi tạo mảng chi phí là 0 (tránh giá trị mặc định NaN hoặc không xác định)
+            for (int i = 0; i < 4; i++)
+            {
+                expenseData[i] = 0;
+            }
+
             foreach (DataRow row in dt.Rows)
             {
                 int week = Convert.ToInt32(row["WeekNumber"]);
                 double expense = Convert.ToDouble(row["TotalExpense"]);
 
+                // Cập nhật dữ liệu cho tuần tương ứng
                 if (week >= 1 && week <= 4)
                 {
-                    expenseData[week - 1] = expense;
+                    expenseData[week - 1] = expense; // Cập nhật chi phí cho tuần
                 }
             }
+
+            // Xóa các điểm dữ liệu cũ trong biểu đồ
             cExpense.DataPoints.Clear();
 
             // Cập nhật biểu đồ với dữ liệu mới
             for (int i = 0; i < 4; i++)
             {
-                cExpense.DataPoints.Add(labels[i], expenseData[i]);
+                cExpense.DataPoints.Add(labels[i], expenseData[i]); // Gắn nhãn cố định vào biểu đồ
+                totalExpense += Convert.ToInt32(expenseData[i]); // Tính tổng chi phí
             }
 
+            //lblTotalProfit.Text = totalProfit.ToString();
+            //lblTotalRevenue.Text = totalRevenue.ToString();
+            lblTotalExpense.Text = totalExpense.ToString();
             // Cập nhật giao diện
             c_Satistic.Update();
         }
-        //List<string> labels = new List<string>();
-        //double[] profitData = { 1000, 1200, 1100, 1500 };   // Lợi nhuận mỗi tuần
-        //double[] revenueData = { 5000, 5200, 5100, 5500 };  // Doanh thu mỗi tuần
-        //double[] expenseData = { 4000, 4000, 4000, 4000 };  // Chi phí mỗi tuần
 
-        //double totalProfit = 0, totalRevenue = 0, totalExpense = 0;
 
-        //// Lấy tháng từ biến selectedMonth thay vì DateTime.Now
-        //int currentMonth = selectedMonth.Month;
-        //int currentYear = selectedMonth.Year;
+      
 
-        //// Xác định số ngày trong tháng được chọn
-        //int daysInMonth = DateTime.DaysInMonth(currentYear, currentMonth);
-
-        //// Tạo nhãn cho 4 tuần
-        //labels.Clear();
-        //for (int i = 1; i <= 4; i++)
-        //{
-        //    labels.Add($"Week {i}");
-        //}
-
-        //// Xóa dữ liệu cũ trước khi thêm mới
-        //cProfit.DataPoints.Clear();
-        //cRevenue.DataPoints.Clear();
-        //cExpense.DataPoints.Clear();
-
-        //// Thêm dữ liệu theo từng tuần
-        //for (int i = 0; i < 4; i++)
-        //{
-        //    cProfit.DataPoints.Add(labels[i], profitData[i]);
-        //    totalProfit += profitData[i];
-        //}
-
-        //for (int i = 0; i < 4; i++)
-        //{
-        //    cRevenue.DataPoints.Add(labels[i], revenueData[i]);
-        //    totalRevenue += revenueData[i];
-        //}
-
-        //for (int i = 0; i < 4; i++)
-        //{
-        //    cExpense.DataPoints.Add(labels[i], expenseData[i]);
-        //    totalExpense += expenseData[i];
-        //}
-
-        //// Cập nhật biểu đồ
-        //c_Satistic.Update();
-
-        //// Cập nhật tổng giá trị
-        //lblTotalProfit.Text = totalProfit.ToString();
-        //lblTotalRevenue.Text = totalRevenue.ToString();
-        //lblTotalExpense.Text = totalExpense.ToString();
-
-        //// Cập nhật tiêu đề tháng
-        //lbl_Month_Display.Text = $"Tháng {selectedMonth.Month}";
+    
 
 
 
@@ -161,6 +134,7 @@ namespace Trang_chủ_Main_Page_
             {
                 selectedMonth = selectedMonth.AddMonths(1);
                 UpdateMonthLabel();
+                LoadData();
             }
         }
 
@@ -170,6 +144,7 @@ namespace Trang_chủ_Main_Page_
             {
                 selectedMonth = selectedMonth.AddMonths(-1);
                 UpdateMonthLabel();
+                LoadData(); 
             }
         }
         private void UpdateMonthLabel()

@@ -58,6 +58,7 @@
             this.btn_NextCalendar = new Guna.UI2.WinForms.Guna2GradientCircleButton();
             this.c_Satistic = new Guna.Charts.WinForms.GunaChart();
             this.cRevenue = new Guna.Charts.WinForms.GunaBarDataset();
+            this.cExpense = new Guna.Charts.WinForms.GunaBarDataset();
             this.cProfit = new Guna.Charts.WinForms.GunaBarDataset();
             this.lbl_Month_Display = new System.Windows.Forms.Label();
             this.guna2Panel10 = new Guna.UI2.WinForms.Guna2Panel();
@@ -84,8 +85,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.lblTotalRevenue = new System.Windows.Forms.Label();
             this.lbl1 = new System.Windows.Forms.Label();
-            this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.cExpense = new Guna.Charts.WinForms.GunaBarDataset();
             this.guna2Panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).BeginInit();
             this.guna2Panel8.SuspendLayout();
@@ -282,6 +281,12 @@
             this.cRevenue.CornerRadius = 8;
             this.cRevenue.Label = "Tổng Thu";
             this.cRevenue.TargetChart = this.c_Satistic;
+            // 
+            // cExpense
+            // 
+            this.cExpense.CornerRadius = 8;
+            this.cExpense.Label = "Tổng Chi";
+            this.cExpense.TargetChart = this.c_Satistic;
             // 
             // cProfit
             // 
@@ -593,37 +598,10 @@
             this.lbl1.TabIndex = 1;
             this.lbl1.Text = "Tổng Thu";
             // 
-            // guna2ComboBox1
-            // 
-            this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ComboBox1.BorderRadius = 8;
-            this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.guna2ComboBox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.guna2ComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.guna2ComboBox1.ItemHeight = 30;
-            this.guna2ComboBox1.Items.AddRange(new object[] {
-            "Theo Tháng",
-            "Theo Năm"});
-            this.guna2ComboBox1.Location = new System.Drawing.Point(696, 124);
-            this.guna2ComboBox1.Name = "guna2ComboBox1";
-            this.guna2ComboBox1.Size = new System.Drawing.Size(163, 36);
-            this.guna2ComboBox1.StartIndex = 0;
-            this.guna2ComboBox1.TabIndex = 28;
-            // 
-            // cExpense
-            // 
-            this.cExpense.CornerRadius = 8;
-            this.cExpense.Label = "Tổng Chi";
-            this.cExpense.TargetChart = this.c_Satistic;
-            // 
             // Statistic
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.ClientSize = new System.Drawing.Size(1181, 842);
-            this.Controls.Add(this.guna2ComboBox1);
             this.Controls.Add(this.guna2GradientPanel3);
             this.Controls.Add(this.guna2GradientPanel2);
             this.Controls.Add(this.guna2GradientPanel1);
@@ -699,7 +677,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblTotalRevenue;
         private System.Windows.Forms.Label lbl1;
-        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
         private Guna.UI2.WinForms.Guna2GradientCircleButton btnPrevCalendar1;
         private System.Windows.Forms.Label lbl_Month_Display;
         private Guna.UI2.WinForms.Guna2GradientCircleButton btn_NextCalendar;
