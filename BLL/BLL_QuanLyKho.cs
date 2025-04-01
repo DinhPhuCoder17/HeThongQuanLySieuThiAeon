@@ -177,6 +177,16 @@ namespace BLL
             return DAL_QuanLyKho.Instance.xemDSKN(soHD);
         }
 
+        public DataTable xemDSKNvaNCC(String soHD)
+        {
+            return dAL_QuanLyKho.xemDSKNvaNCC(soHD);
+        }
+
+        public DataTable xemDSNHvaNCC(String soHD)
+        {
+            return dAL_QuanLyKho.xemDSNHvaNCC(soHD);
+        }
+
         public Boolean themKN(DTO_Khieunai kn)
         {
             return DAL_QuanLyKho.Instance.themKN(kn);
@@ -202,5 +212,15 @@ namespace BLL
             return DAL_QuanLyKho.Instance.DeleteNCC(maNCC);
         }
 
+        public DateTime xemNgayDatHang(String MaNH)
+        {
+            return dAL_QuanLyKho.xemNgayDatHang(MaNH);
+        }
+
+
+        public DataTable timKiemHDNH(String tukhoa)
+        {
+            return dAL_QuanLyKho.timKiemHDNH(tukhoa);
+        }
     }
 }

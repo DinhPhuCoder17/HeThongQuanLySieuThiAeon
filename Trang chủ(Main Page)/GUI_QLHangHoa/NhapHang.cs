@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
 using DTO;
+using iTextSharp.text.pdf;
+using iTextSharp.text;
+using Font = iTextSharp.text.Font;
 
 namespace Trang_chủ_Main_Page_
 {
@@ -45,7 +49,7 @@ namespace Trang_chủ_Main_Page_
             DataTable dataTable = BLLQuanLyKho.Instance.xemDSNH();
             dgvNhapHang.DataSource = dataTable;
             dgvNhapHang.Columns[0].HeaderText = "Mã đơn hàng";
-            dgvNhapHang.Columns[1].HeaderText = "Ngày nhập";
+            dgvNhapHang.Columns[1].HeaderText = "Thời gian đặt";
             dgvNhapHang.Columns[2].HeaderText = "Tổng tiền";
             dgvNhapHang.Columns[3].HeaderText = "Trạng Thái";
 
@@ -96,6 +100,7 @@ namespace Trang_chủ_Main_Page_
                 }
                 soHDSelect = dgvNhapHang.Rows[e.RowIndex].Cells[0].Value.ToString();
                 btn_MoveOn.Enabled = true;
+                btn_PrintExportPDF.Enabled = true;
             }
 
         }
@@ -137,6 +142,269 @@ namespace Trang_chủ_Main_Page_
                     MessageBox.Show("Chuyển tiếp trạng thái đơn hàng thất bại");
                 }
             }
+
+        }
+
+        private void btn_PrintExportPDF_Click(object sender, EventArgs e)
+        {
+            if (dgvNhapHang.CurrentCell != null)
+            {
+                string SoHD = dgvNhapHang.CurrentRow.Cells[0].Value.ToString();
+                xuatHoaDonNhapHang(SoHD);
+            }
+            else
+            {
+                MessageBox.Show("Không có ô nào đang được chọn!");
+            }
+        }
+
+        private void xuatHoaDonNhapHang(String Sohd)
+        {
+
+            DataTable dt = bll_QuanLyKho.xemDSNHvaNCC(Sohd);            
+            dt.Columns["Sohd"].ColumnName = "Số hóa đơn";
+            dt.Columns["Mahanghoa"].ColumnName = "Mã hàng hóa";
+            dt.Columns["Tenhanghoa"].ColumnName = "Tên hàng hóa";
+            dt.Columns["Soluongdat"].ColumnName = "Số lượng đặt";
+            dt.Columns["Thanhtien"].ColumnName = "Thành tiền";
+            dt.Columns["TenNCC"].ColumnName = "Tên nhà cung cấp";
+            dt.Columns["Tiennhap"].ColumnName = "Giá";
+
+
+
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "PDF Files|*.pdf|All Files|*.*";
+            saveFileDialog.Title = "Chọn nơi lưu file";
+            saveFileDialog.FileName = "HoaDonDatHang.pdf"; // Tên file mặc định
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    using (FileStream fs = new FileStream(saveFileDialog.FileName, FileMode.Create))
+                    {
+                        Document doc = new Document(PageSize.A4.Rotate(), 30, 30, 20, 20);
+                        PdfWriter writer = PdfWriter.GetInstance(doc, fs);
+                        doc.Open();
+
+                        //Lấy đường dẫn FOnt Time New Roman
+                        string fontPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Fonts), "times.ttf");
+
+                        if (!File.Exists(fontPath))
+                        {
+                            MessageBox.Show("Không tìm thấy phông Times New Roman! Vui lòng kiểm tra.");
+                            return;
+                        }
+
+                        // ✅ Đúng cách để nhúng font Unicode
+                        BaseFont bf = BaseFont.CreateFont(fontPath, BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
+                        iTextSharp.text.Font titleFont = new Font(bf, 16, iTextSharp.text.Font.BOLD);
+                        Font normalFont = new Font(bf, 12, iTextSharp.text.Font.NORMAL);
+                        Font boldFont = new Font(bf, 12, iTextSharp.text.Font.BOLD);
+                        Font italicFont = new Font(bf, 12, iTextSharp.text.Font.ITALIC);
+
+                        //Title
+                        Paragraph title = new Paragraph("HÓA ĐƠN ĐẶT HÀNG", titleFont);
+                        title.Alignment = Element.ALIGN_CENTER;
+                        doc.Add(title);
+
+                        //Break
+                        doc.Add(Chunk.NEWLINE);
+
+                        //DateCreated
+                        Paragraph dateCreate = new Paragraph(String.Format("Ngày {0} Tháng {1} Năm {2}", DateTime.Now.ToString("dd"), DateTime.Now.ToString("MM"), DateTime.Now.ToString("yyyy")), italicFont);
+                        dateCreate.Alignment = Element.ALIGN_CENTER;
+                        doc.Add(dateCreate);
+
+                        //Break
+                        doc.Add(Chunk.NEWLINE);
+
+                        //Số hóa đơn
+                        Paragraph soHD = new Paragraph();
+                        soHD.Alignment = Element.ALIGN_RIGHT;
+                        soHD.Add(new Chunk(String.Format("Số hóa đơn: {0}", dgvNhapHang.CurrentRow.Cells[0].Value.ToString()), boldFont));
+                        soHD.Add(Chunk.NEWLINE);
+                        soHD.Add(new Chunk(String.Format("Ngày đặt: {0}", bll_QuanLyKho.xemNgayDatHang(dgvNhapHang.CurrentRow.Cells[0].Value.ToString()).ToString("dd/MM/yyyy")), boldFont));
+
+                        doc.Add(soHD);
+
+                        //Break
+                        doc.Add(Chunk.NEWLINE);
+
+                        //Section 1
+                        Paragraph section_1 = new Paragraph();
+                        section_1.Alignment = Element.ALIGN_LEFT;
+                        section_1.Add(new Chunk("Đơn vị: ", boldFont));
+                        section_1.Add(new Chunk("Công ty Trách nhiệm Hữu Hạn AEON Việt Nam", normalFont));
+                        section_1.Add(Chunk.NEWLINE);
+                        section_1.Add(new Chunk("Địa chỉ: ", boldFont));
+                        section_1.Add(new Chunk("243 Chu Văn An, P. 12, Q. Bình Thạnh, TP. HCM.", normalFont));
+                        section_1.Add(Chunk.NEWLINE);
+                        section_1.Add(new Chunk("Số điện thoại: ", boldFont));
+                        section_1.Add(new Chunk("0366-565454", normalFont));
+                        section_1.Add(Chunk.NEWLINE);
+                        section_1.Add(new Chunk("Mã số thuế: ", boldFont));
+                        section_1.Add(new Chunk("0311241512", normalFont));
+                        doc.Add(section_1);
+
+                        //Break
+                        doc.Add(Chunk.NEWLINE);
+
+
+                        //Table
+                        PdfPTable table = new PdfPTable(6);
+                        table.WidthPercentage = 100; // Bảng chiếm toàn bộ chiều rộng trang
+                        foreach (DataColumn col in dt.Columns)
+                        {
+                            if(col.ColumnName != "Số hóa đơn")
+                            {
+                                PdfPCell cell = new PdfPCell(new Phrase(col.ColumnName, boldFont));
+                                cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                                cell.VerticalAlignment = Element.ALIGN_MIDDLE;
+                                cell.BackgroundColor = BaseColor.LIGHT_GRAY; // Đổi màu nền tiêu đề
+                                cell.NoWrap = false; // Cho phép xuống dòng
+                                cell.Padding = 10f;
+                                table.AddCell(cell);
+                            }
+                        }
+
+                        foreach (DataRow row in dt.Rows)
+                        {
+                            foreach (DataColumn col in dt.Columns)
+                            {
+                                if (col.ColumnName != "Số hóa đơn")
+                                {
+                                    PdfPCell cell;
+                                    cell = new PdfPCell(new Phrase(row[col].ToString(), normalFont));
+                                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                                    cell.VerticalAlignment = Element.ALIGN_MIDDLE;
+                                    cell.NoWrap = false; // Cho phép xuống dòng
+                                    cell.Padding = 10f;
+                                    table.AddCell(cell);
+                                }
+                            }
+                        }
+
+                        PdfPCell mergedCell = new PdfPCell(new Phrase("TỔNG CỘNG", boldFont));
+                        mergedCell.Colspan = 4; // Gộp 4 cột
+                        mergedCell.HorizontalAlignment = Element.ALIGN_CENTER; // Căn giữa
+                        mergedCell.VerticalAlignment = Element.ALIGN_MIDDLE;
+                        mergedCell.BackgroundColor = BaseColor.LIGHT_GRAY;
+                        mergedCell.Padding = 10f;
+                        table.AddCell(mergedCell);
+
+                        int Quantity = dt.AsEnumerable().Sum(row => row.Field<int>("Số lượng đặt"));
+                        float Price = 0;
+                        foreach(DataRow row in dt.Rows)
+                        {
+                            foreach (DataColumn col in dt.Columns)
+                            {
+                                if(col.ColumnName == "Thành tiền")
+                                {
+                                    Price += Convert.ToSingle(row["Thành tiền"]);
+                                }
+                            }
+                        }
+
+                        PdfPCell totalQuantity = new PdfPCell(new Phrase(Quantity.ToString(), boldFont));
+                        totalQuantity.HorizontalAlignment = Element.ALIGN_CENTER; // Căn giữa
+                        totalQuantity.VerticalAlignment = Element.ALIGN_MIDDLE;
+                        totalQuantity.BackgroundColor = BaseColor.LIGHT_GRAY;
+                        totalQuantity.Padding = 10f;
+                        table.AddCell(totalQuantity);
+
+                        PdfPCell totalPrice = new PdfPCell(new Phrase(Price.ToString(), boldFont));
+                        totalPrice.HorizontalAlignment = Element.ALIGN_CENTER; // Căn giữa
+                        totalPrice.VerticalAlignment = Element.ALIGN_MIDDLE;
+                        totalPrice.BackgroundColor = BaseColor.LIGHT_GRAY;
+                        totalPrice.Padding = 10f;
+                        table.AddCell(totalPrice);
+
+                        doc.Add(table);
+
+                        doc.Add(Chunk.NEWLINE);
+
+                        //Section 2
+                        Paragraph section_2 = new Paragraph();
+                        section_2.Alignment = Element.ALIGN_LEFT;
+                        section_2.Add(new Chunk("Ghi chú:", boldFont));
+                        section_2.Add(Chunk.NEWLINE);
+                        section_2.Add(new Chunk("- Công nợ sẽ được thanh toán sau 30 ngày kể từ ngày đặt hàng", boldFont));
+                        section_2.Add(Chunk.NEWLINE);
+                        doc.Add(section_2);
+
+                        doc.Add(Chunk.NEWLINE);
+
+                        //Section 3
+                        PdfPTable infoTable = new PdfPTable(3); // 3 cột
+                        infoTable.WidthPercentage = 100;
+                        infoTable.SetWidths(new float[] { 1f, 1f, 1f }); // Chia đều 3 cột
+
+                        // Thêm ô "Người lập hóa đơn"
+                        infoTable.AddCell(new PdfPCell(new Phrase("NGƯỜI LẬP HÓA ĐƠN", boldFont))
+                        {
+                            Border = iTextSharp.text.Rectangle.NO_BORDER,
+                            HorizontalAlignment = Element.ALIGN_CENTER
+                        });
+
+                        // Thêm ô "Nhà cung cấp"
+                        infoTable.AddCell(new PdfPCell(new Phrase("NHÀ CUNG CẤP", boldFont))
+                        {
+                            Border = iTextSharp.text.Rectangle.NO_BORDER,
+                            HorizontalAlignment = Element.ALIGN_CENTER
+                        });
+
+                        // Thêm ô "Bộ phận kiểm tra"
+                        infoTable.AddCell(new PdfPCell(new Phrase("BỘ PHẦN KIỂM TRA", boldFont))
+                        {
+                            Border = iTextSharp.text.Rectangle.NO_BORDER,
+                            HorizontalAlignment = Element.ALIGN_CENTER
+                        });
+
+                        // Thêm bảng vào tài liệu
+                        doc.Add(infoTable);
+
+                        doc.Close();
+                    }
+                    MessageBox.Show("File đã được lưu thành công: " + saveFileDialog.FileName);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi khi lưu file: " + ex.Message);
+                }
+            }
+
+        }
+
+        private void txt_Searching_HDNH_TextChanged(object sender, EventArgs e)
+        {
+            if (txt_Searching_HDNH.Text == null)
+            {
+                NhapHang_Load(sender, e);
+            }
+            else
+            {
+                DataTable dataTable = bll_QuanLyKho.timKiemHDNH(txt_Searching_HDNH.Text);
+                dgvNhapHang.DataSource = dataTable;
+                dgvNhapHang.Columns[0].HeaderText = "Mã đơn hàng";
+                dgvNhapHang.Columns[1].HeaderText = "Thời gian đặt";
+                dgvNhapHang.Columns[2].HeaderText = "Tổng tiền";
+                dgvNhapHang.Columns[3].HeaderText = "Trạng Thái";
+
+                foreach (DataGridViewColumn column in dgvNhapHang.Columns)
+                {
+                    column.SortMode = DataGridViewColumnSortMode.NotSortable;
+                }
+
+                foreach (DataGridViewColumn column in dgvNhapHang.Columns)
+                {
+                    column.Resizable = DataGridViewTriState.False;
+                }
+            }
+        }
+
+        private void guna2Panel1_Paint_1(object sender, PaintEventArgs e)
+        {
 
         }
     }

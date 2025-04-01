@@ -86,7 +86,7 @@ namespace Trang_chủ_Main_Page_
                     {
                         if (int.Parse(row.Cells[4].Value.ToString()) != int.Parse(row.Cells[5].Value.ToString()))
                         {
-                            status = "Nhập Kho Một Phần";
+                            status = "Chờ Xử Lý Bổ Sung";
                         }
                     }
                     DTO_HDNhapHang hDNhapHang = new DTO_HDNhapHang()
@@ -106,6 +106,7 @@ namespace Trang_chủ_Main_Page_
                             HangHoa = new DTO_Hanghoa() { MaHangHoa = row.Cells[1].Value.ToString() },
                             SoLuongDat = int.Parse(row.Cells[4].Value.ToString()),
                             SoLuongNhan = int.Parse(row.Cells[5].Value.ToString()),
+                            NgayNhan = DateTime.Parse(row.Cells[3].Value.ToString()),
                             NSX = DateTime.Parse(row.Cells[6].Value.ToString()),
                             HSD = DateTime.Parse(row.Cells[7].Value.ToString()),
                             TrangThai = "Đã Nhập Kho"
@@ -143,8 +144,6 @@ namespace Trang_chủ_Main_Page_
             foreach(DataGridViewRow row in dgvCTDH.Rows)
             {
                 row.Cells[5].Value = row.Cells[4].Value;
-                row.Cells[6].Value = DateTime.Now.ToString("yyyy/MM/dd");
-                row.Cells[7].Value = DateTime.Now.AddDays(int.Parse(row.Cells[9].Value.ToString())).ToString("yyyy/MM/dd");
             }
         }
 
@@ -178,15 +177,7 @@ namespace Trang_chủ_Main_Page_
 
         }
 
-        private void guna2TextBox2_TextChanged(object sender, EventArgs e)
-        {
 
-        }
-
-        private void guna2CirclePictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void CTDH_Load(object sender, EventArgs e)
         {
@@ -200,7 +191,14 @@ namespace Trang_chủ_Main_Page_
             dgvCTDH.Columns[7].HeaderText = "Hạn sử dụng";
             dgvCTDH.Columns[8].HeaderText = "Thành tiền";
 
-            
+            //Tự động điền ngày hôm nay là ngày nhập hàng nếu chưa có dữ liệu
+            foreach(DataGridViewRow row in dgvCTDH.Rows)
+            {
+                if (row.Cells[3].Value.ToString() == "")
+                {
+                    row.Cells[3].Value = DateTime.Now.ToString("dd/MM/yyyy");
+                }
+            }
 
             //Khóa chức năng tự điều chỉnh bảng
             foreach (DataGridViewColumn column in dgvCTDH.Columns)
@@ -262,6 +260,7 @@ namespace Trang_chủ_Main_Page_
         //Cập nhật lại mã đặt hàng
         public void UpdateMaDH(string maDH, String TrangThaiDHLon)
         {
+            soHD = maDH;
             btnKhieuNai.Enabled = false;
             lbMaDH.Text = maDH;
             if (TrangThaiDHLon == "Chờ Xác Nhận" || TrangThaiDHLon == "Đang Vận Chuyển" || TrangThaiDHLon == "Đã Xử Lý" || TrangThaiDHLon == "Đã Nhập Một Phần")
@@ -276,7 +275,7 @@ namespace Trang_chủ_Main_Page_
 
             }
 
-            if(TrangThaiDHLon == "Nhập Kho Một Phần")
+            if(TrangThaiDHLon == "Chờ Xử Lý Bổ Sung")
             {
                 btnNhapVaoKho.Enabled = false;
                 btnKhieuNai.Enabled = true;

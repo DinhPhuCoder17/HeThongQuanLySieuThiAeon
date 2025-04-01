@@ -58,8 +58,6 @@
             this.cRevenue = new Guna.Charts.WinForms.GunaBarDataset();
             this.cProfit = new Guna.Charts.WinForms.GunaBarDataset();
             this.cExpense = new Guna.Charts.WinForms.GunaBarDataset();
-            this.dtp_Statistic_Start = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.dtp_Statistic_End = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.guna2Panel10 = new Guna.UI2.WinForms.Guna2Panel();
             this.label15 = new System.Windows.Forms.Label();
             this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
@@ -84,6 +82,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.lblTotalRevenue = new System.Windows.Forms.Label();
             this.lbl1 = new System.Windows.Forms.Label();
+            this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.btnPrevCalendar1 = new Guna.UI2.WinForms.Guna2GradientCircleButton();
+            this.btn_NextCalendar = new Guna.UI2.WinForms.Guna2GradientCircleButton();
+            this.lbl_Month_Display = new System.Windows.Forms.Label();
             this.guna2Panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).BeginInit();
             this.guna2Panel8.SuspendLayout();
@@ -128,9 +130,9 @@
             this.guna2Panel6.Controls.Add(this.label8);
             this.guna2Panel6.Controls.Add(this.lblTotalExpense);
             this.guna2Panel6.FillColor = System.Drawing.Color.White;
-            this.guna2Panel6.Location = new System.Drawing.Point(-1, 33);
+            this.guna2Panel6.Location = new System.Drawing.Point(-1, 32);
             this.guna2Panel6.Name = "guna2Panel6";
-            this.guna2Panel6.Size = new System.Drawing.Size(312, 118);
+            this.guna2Panel6.Size = new System.Drawing.Size(222, 120);
             this.guna2Panel6.TabIndex = 0;
             // 
             // guna2PictureBox3
@@ -167,8 +169,8 @@
             // label11
             // 
             this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(7, 90);
+            this.label11.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(15, 85);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(203, 36);
             this.label11.TabIndex = 1;
@@ -180,11 +182,14 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2Panel8.BorderRadius = 22;
+            this.guna2Panel8.Controls.Add(this.btnPrevCalendar1);
+            this.guna2Panel8.Controls.Add(this.btn_NextCalendar);
             this.guna2Panel8.Controls.Add(this.c_Satistic);
+            this.guna2Panel8.Controls.Add(this.lbl_Month_Display);
             this.guna2Panel8.FillColor = System.Drawing.Color.White;
-            this.guna2Panel8.Location = new System.Drawing.Point(12, 299);
+            this.guna2Panel8.Location = new System.Drawing.Point(12, 284);
             this.guna2Panel8.Name = "guna2Panel8";
-            this.guna2Panel8.Size = new System.Drawing.Size(972, 430);
+            this.guna2Panel8.Size = new System.Drawing.Size(850, 476);
             this.guna2Panel8.TabIndex = 1;
             // 
             // c_Satistic
@@ -195,9 +200,9 @@
             this.cExpense});
             chartFont1.FontName = "Arial";
             this.c_Satistic.Legend.LabelFont = chartFont1;
-            this.c_Satistic.Location = new System.Drawing.Point(3, 23);
+            this.c_Satistic.Location = new System.Drawing.Point(8, 75);
             this.c_Satistic.Name = "c_Satistic";
-            this.c_Satistic.Size = new System.Drawing.Size(966, 403);
+            this.c_Satistic.Size = new System.Drawing.Size(833, 387);
             this.c_Satistic.TabIndex = 0;
             chartFont2.FontName = "Arial";
             chartFont2.Size = 12;
@@ -224,6 +229,7 @@
             chartFont8.FontName = "Arial";
             tick3.Font = chartFont8;
             this.c_Satistic.ZAxes.Ticks = tick3;
+            this.c_Satistic.Load += new System.EventHandler(this.c_Satistic_Load);
             // 
             // cRevenue
             // 
@@ -242,40 +248,6 @@
             this.cExpense.CornerRadius = 8;
             this.cExpense.Label = "Tổng Chi";
             this.cExpense.TargetChart = this.c_Satistic;
-            // 
-            // dtp_Statistic_Start
-            // 
-            this.dtp_Statistic_Start.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.dtp_Statistic_Start.BackColor = System.Drawing.Color.Transparent;
-            this.dtp_Statistic_Start.BorderRadius = 8;
-            this.dtp_Statistic_Start.Checked = true;
-            this.dtp_Statistic_Start.FillColor = System.Drawing.Color.White;
-            this.dtp_Statistic_Start.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.dtp_Statistic_Start.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.dtp_Statistic_Start.Location = new System.Drawing.Point(12, 746);
-            this.dtp_Statistic_Start.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.dtp_Statistic_Start.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.dtp_Statistic_Start.Name = "dtp_Statistic_Start";
-            this.dtp_Statistic_Start.Size = new System.Drawing.Size(211, 36);
-            this.dtp_Statistic_Start.TabIndex = 2;
-            this.dtp_Statistic_Start.Value = new System.DateTime(2025, 3, 3, 14, 48, 32, 894);
-            // 
-            // dtp_Statistic_End
-            // 
-            this.dtp_Statistic_End.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.dtp_Statistic_End.BackColor = System.Drawing.Color.Transparent;
-            this.dtp_Statistic_End.BorderRadius = 8;
-            this.dtp_Statistic_End.Checked = true;
-            this.dtp_Statistic_End.FillColor = System.Drawing.Color.White;
-            this.dtp_Statistic_End.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.dtp_Statistic_End.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.dtp_Statistic_End.Location = new System.Drawing.Point(289, 746);
-            this.dtp_Statistic_End.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.dtp_Statistic_End.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.dtp_Statistic_End.Name = "dtp_Statistic_End";
-            this.dtp_Statistic_End.Size = new System.Drawing.Size(214, 36);
-            this.dtp_Statistic_End.TabIndex = 2;
-            this.dtp_Statistic_End.Value = new System.DateTime(2025, 3, 3, 14, 48, 32, 894);
             // 
             // guna2Panel10
             // 
@@ -347,9 +319,9 @@
             this.pn_Statistic_DanhMucThu.BorderRadius = 22;
             this.pn_Statistic_DanhMucThu.Controls.Add(this.label12);
             this.pn_Statistic_DanhMucThu.FillColor = System.Drawing.Color.White;
-            this.pn_Statistic_DanhMucThu.Location = new System.Drawing.Point(1000, 130);
+            this.pn_Statistic_DanhMucThu.Location = new System.Drawing.Point(868, 124);
             this.pn_Statistic_DanhMucThu.Name = "pn_Statistic_DanhMucThu";
-            this.pn_Statistic_DanhMucThu.Size = new System.Drawing.Size(169, 269);
+            this.pn_Statistic_DanhMucThu.Size = new System.Drawing.Size(301, 315);
             this.pn_Statistic_DanhMucThu.TabIndex = 1;
             // 
             // label12
@@ -389,9 +361,9 @@
             this.pn_Statistic_DanhMucChi.BorderRadius = 22;
             this.pn_Statistic_DanhMucChi.Controls.Add(this.label14);
             this.pn_Statistic_DanhMucChi.FillColor = System.Drawing.Color.White;
-            this.pn_Statistic_DanhMucChi.Location = new System.Drawing.Point(1000, 416);
+            this.pn_Statistic_DanhMucChi.Location = new System.Drawing.Point(868, 445);
             this.pn_Statistic_DanhMucChi.Name = "pn_Statistic_DanhMucChi";
-            this.pn_Statistic_DanhMucChi.Size = new System.Drawing.Size(169, 269);
+            this.pn_Statistic_DanhMucChi.Size = new System.Drawing.Size(301, 315);
             this.pn_Statistic_DanhMucChi.TabIndex = 1;
             // 
             // label14
@@ -418,9 +390,9 @@
             this.btn_Statistic_Print.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
             this.btn_Statistic_Print.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btn_Statistic_Print.ForeColor = System.Drawing.Color.White;
-            this.btn_Statistic_Print.Location = new System.Drawing.Point(1006, 711);
+            this.btn_Statistic_Print.Location = new System.Drawing.Point(697, 227);
             this.btn_Statistic_Print.Name = "btn_Statistic_Print";
-            this.btn_Statistic_Print.Size = new System.Drawing.Size(163, 58);
+            this.btn_Statistic_Print.Size = new System.Drawing.Size(163, 48);
             this.btn_Statistic_Print.TabIndex = 26;
             this.btn_Statistic_Print.Text = "Xuất";
             // 
@@ -431,9 +403,9 @@
             this.guna2GradientPanel1.Controls.Add(this.lbl2);
             this.guna2GradientPanel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
             this.guna2GradientPanel1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            this.guna2GradientPanel1.Location = new System.Drawing.Point(667, 124);
+            this.guna2GradientPanel1.Location = new System.Drawing.Point(470, 124);
             this.guna2GradientPanel1.Name = "guna2GradientPanel1";
-            this.guna2GradientPanel1.Size = new System.Drawing.Size(310, 151);
+            this.guna2GradientPanel1.Size = new System.Drawing.Size(220, 151);
             this.guna2GradientPanel1.TabIndex = 27;
             // 
             // guna2GradientPanel2
@@ -445,7 +417,7 @@
             this.guna2GradientPanel2.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
             this.guna2GradientPanel2.Location = new System.Drawing.Point(15, 124);
             this.guna2GradientPanel2.Name = "guna2GradientPanel2";
-            this.guna2GradientPanel2.Size = new System.Drawing.Size(310, 151);
+            this.guna2GradientPanel2.Size = new System.Drawing.Size(220, 151);
             this.guna2GradientPanel2.TabIndex = 27;
             // 
             // guna2Panel1
@@ -456,9 +428,9 @@
             this.guna2Panel1.Controls.Add(this.label1);
             this.guna2Panel1.Controls.Add(this.lblTotalProfit);
             this.guna2Panel1.FillColor = System.Drawing.Color.White;
-            this.guna2Panel1.Location = new System.Drawing.Point(-1, 33);
+            this.guna2Panel1.Location = new System.Drawing.Point(-1, 32);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(312, 118);
+            this.guna2Panel1.Size = new System.Drawing.Size(222, 120);
             this.guna2Panel1.TabIndex = 0;
             // 
             // guna2PictureBox1
@@ -510,9 +482,9 @@
             this.guna2GradientPanel3.Controls.Add(this.lbl1);
             this.guna2GradientPanel3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
             this.guna2GradientPanel3.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            this.guna2GradientPanel3.Location = new System.Drawing.Point(340, 124);
+            this.guna2GradientPanel3.Location = new System.Drawing.Point(241, 124);
             this.guna2GradientPanel3.Name = "guna2GradientPanel3";
-            this.guna2GradientPanel3.Size = new System.Drawing.Size(310, 151);
+            this.guna2GradientPanel3.Size = new System.Drawing.Size(220, 151);
             this.guna2GradientPanel3.TabIndex = 27;
             // 
             // guna2Panel2
@@ -523,9 +495,9 @@
             this.guna2Panel2.Controls.Add(this.label4);
             this.guna2Panel2.Controls.Add(this.lblTotalRevenue);
             this.guna2Panel2.FillColor = System.Drawing.Color.White;
-            this.guna2Panel2.Location = new System.Drawing.Point(-1, 33);
+            this.guna2Panel2.Location = new System.Drawing.Point(-1, 32);
             this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(312, 118);
+            this.guna2Panel2.Size = new System.Drawing.Size(222, 120);
             this.guna2Panel2.TabIndex = 0;
             // 
             // guna2PictureBox2
@@ -570,10 +542,88 @@
             this.lbl1.TabIndex = 1;
             this.lbl1.Text = "Tổng Thu";
             // 
+            // guna2ComboBox1
+            // 
+            this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ComboBox1.BorderRadius = 8;
+            this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.guna2ComboBox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2ComboBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2ComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.guna2ComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.guna2ComboBox1.ItemHeight = 30;
+            this.guna2ComboBox1.Items.AddRange(new object[] {
+            "Theo Tháng",
+            "Theo Năm"});
+            this.guna2ComboBox1.Location = new System.Drawing.Point(696, 124);
+            this.guna2ComboBox1.Name = "guna2ComboBox1";
+            this.guna2ComboBox1.Size = new System.Drawing.Size(163, 36);
+            this.guna2ComboBox1.StartIndex = 0;
+            this.guna2ComboBox1.TabIndex = 28;
+            // 
+            // btnPrevCalendar1
+            // 
+            this.btnPrevCalendar1.Animated = true;
+            this.btnPrevCalendar1.BackColor = System.Drawing.Color.Transparent;
+            this.btnPrevCalendar1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnPrevCalendar1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnPrevCalendar1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnPrevCalendar1.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnPrevCalendar1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnPrevCalendar1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.btnPrevCalendar1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
+            this.btnPrevCalendar1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnPrevCalendar1.ForeColor = System.Drawing.Color.White;
+            this.btnPrevCalendar1.Image = global::Trang_chu_Main_Page_.Properties.Resources.roiii;
+            this.btnPrevCalendar1.ImageSize = new System.Drawing.Size(50, 50);
+            this.btnPrevCalendar1.Location = new System.Drawing.Point(15, 14);
+            this.btnPrevCalendar1.Name = "btnPrevCalendar1";
+            this.btnPrevCalendar1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.btnPrevCalendar1.Size = new System.Drawing.Size(55, 55);
+            this.btnPrevCalendar1.TabIndex = 29;
+            this.btnPrevCalendar1.UseTransparentBackground = true;
+            this.btnPrevCalendar1.Click += new System.EventHandler(this.btnPrevCalendar1_Click);
+            // 
+            // btn_NextCalendar
+            // 
+            this.btn_NextCalendar.Animated = true;
+            this.btn_NextCalendar.BackColor = System.Drawing.Color.Transparent;
+            this.btn_NextCalendar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_NextCalendar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_NextCalendar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_NextCalendar.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_NextCalendar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_NextCalendar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.btn_NextCalendar.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
+            this.btn_NextCalendar.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btn_NextCalendar.ForeColor = System.Drawing.Color.White;
+            this.btn_NextCalendar.Image = global::Trang_chu_Main_Page_.Properties.Resources._1_ht;
+            this.btn_NextCalendar.ImageSize = new System.Drawing.Size(50, 50);
+            this.btn_NextCalendar.Location = new System.Drawing.Point(777, 14);
+            this.btn_NextCalendar.Name = "btn_NextCalendar";
+            this.btn_NextCalendar.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.btn_NextCalendar.Size = new System.Drawing.Size(55, 55);
+            this.btn_NextCalendar.TabIndex = 30;
+            this.btn_NextCalendar.UseTransparentBackground = true;
+            this.btn_NextCalendar.Click += new System.EventHandler(this.btn_NextCalendar1_Click);
+            // 
+            // lbl_Month_Display
+            // 
+            this.lbl_Month_Display.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_Month_Display.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Month_Display.Location = new System.Drawing.Point(334, 14);
+            this.lbl_Month_Display.Name = "lbl_Month_Display";
+            this.lbl_Month_Display.Size = new System.Drawing.Size(170, 52);
+            this.lbl_Month_Display.TabIndex = 1;
+            this.lbl_Month_Display.Text = "Tháng 1";
+            this.lbl_Month_Display.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Statistic
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.ClientSize = new System.Drawing.Size(1181, 842);
+            this.Controls.Add(this.guna2ComboBox1);
             this.Controls.Add(this.guna2GradientPanel3);
             this.Controls.Add(this.guna2GradientPanel2);
             this.Controls.Add(this.guna2GradientPanel1);
@@ -581,8 +631,6 @@
             this.Controls.Add(this.btn_Statistic_Print);
             this.Controls.Add(this.guna2Panel13);
             this.Controls.Add(this.guna2Panel10);
-            this.Controls.Add(this.dtp_Statistic_End);
-            this.Controls.Add(this.dtp_Statistic_Start);
             this.Controls.Add(this.guna2Panel8);
             this.Controls.Add(this.pn_Statistic_DanhMucChi);
             this.Controls.Add(this.pn_Statistic_DanhMucThu);
@@ -623,8 +671,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label lblTotalExpense;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel8;
-        private Guna.UI2.WinForms.Guna2DateTimePicker dtp_Statistic_Start;
-        private Guna.UI2.WinForms.Guna2DateTimePicker dtp_Statistic_End;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel10;
         private Guna.UI2.WinForms.Guna2TextBox txt_Finacial_SearchBar;
         private Guna.UI2.WinForms.Guna2Panel pn_Statistic_DanhMucThu;
@@ -654,5 +700,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblTotalRevenue;
         private System.Windows.Forms.Label lbl1;
+        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
+        private Guna.UI2.WinForms.Guna2GradientCircleButton btnPrevCalendar1;
+        private System.Windows.Forms.Label lbl_Month_Display;
+        private Guna.UI2.WinForms.Guna2GradientCircleButton btn_NextCalendar;
     }
 }

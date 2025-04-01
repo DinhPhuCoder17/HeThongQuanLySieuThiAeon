@@ -84,9 +84,9 @@ namespace Trang_chủ_Main_Page_
             double total = 0;
             foreach (DataGridViewRow row in dgvDanhSachDatHang.Rows)
             {
-                if (row.Cells[4].Value != null)
+                if (row.Cells[5].Value != null)
                 {
-                    string value = row.Cells[4].Value.ToString().Replace("đ", "").Replace(",", "").Trim();
+                    string value = row.Cells[5].Value.ToString().Replace("đ", "").Replace(",", "").Trim();
                     if (double.TryParse(value, out double price))
                     {
                         total += price;

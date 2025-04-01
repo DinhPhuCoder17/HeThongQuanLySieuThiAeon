@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(financialManagement));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
@@ -45,6 +45,7 @@
             this.dtp_Bill_End = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.lblCustomerList = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.btn_Bill_Cancel = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.btn_Bill_FilterDate = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_Bill)).BeginInit();
@@ -118,42 +119,42 @@
             this.dtg_Bill.AllowUserToAddRows = false;
             this.dtg_Bill.AllowUserToResizeColumns = false;
             this.dtg_Bill.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dtg_Bill.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            this.dtg_Bill.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
             this.dtg_Bill.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtg_Bill.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtg_Bill.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dtg_Bill.ColumnHeadersHeight = 40;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.OrangeRed;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtg_Bill.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.OrangeRed;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtg_Bill.DefaultCellStyle = dataGridViewCellStyle11;
             this.dtg_Bill.EnableHeadersVisualStyles = true;
             this.dtg_Bill.GridColor = System.Drawing.Color.White;
             this.dtg_Bill.Location = new System.Drawing.Point(29, 143);
             this.dtg_Bill.Margin = new System.Windows.Forms.Padding(20);
             this.dtg_Bill.Name = "dtg_Bill";
             this.dtg_Bill.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtg_Bill.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtg_Bill.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dtg_Bill.RowHeadersVisible = false;
             this.dtg_Bill.RowHeadersWidth = 51;
             this.dtg_Bill.RowTemplate.DividerHeight = 5;
@@ -182,6 +183,8 @@
             this.dtg_Bill.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.OrangeRed;
             this.dtg_Bill.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             this.dtg_Bill.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.guna2DataGridView1_CellContentClick);
+            this.dtg_Bill.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_Bill_CellContentDoubleClick);
+            this.dtg_Bill.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_Bill_CellDoubleClick);
             // 
             // guna2Elipse1
             // 
@@ -197,21 +200,23 @@
             this.label11.Size = new System.Drawing.Size(203, 36);
             this.label11.TabIndex = 1;
             this.label11.Text = "Quản Lí Hóa Đơn";
+            this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
             // dtp_Bill_Start
             // 
             this.dtp_Bill_Start.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.dtp_Bill_Start.Animated = true;
             this.dtp_Bill_Start.BackColor = System.Drawing.Color.Transparent;
             this.dtp_Bill_Start.BorderRadius = 8;
             this.dtp_Bill_Start.Checked = true;
             this.dtp_Bill_Start.FillColor = System.Drawing.Color.White;
             this.dtp_Bill_Start.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.dtp_Bill_Start.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.dtp_Bill_Start.Location = new System.Drawing.Point(769, 89);
+            this.dtp_Bill_Start.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtp_Bill_Start.Location = new System.Drawing.Point(809, 89);
             this.dtp_Bill_Start.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtp_Bill_Start.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtp_Bill_Start.Name = "dtp_Bill_Start";
-            this.dtp_Bill_Start.Size = new System.Drawing.Size(179, 36);
+            this.dtp_Bill_Start.Size = new System.Drawing.Size(132, 36);
             this.dtp_Bill_Start.TabIndex = 20;
             this.dtp_Bill_Start.Value = new System.DateTime(2025, 3, 3, 14, 48, 32, 894);
             this.dtp_Bill_Start.ValueChanged += new System.EventHandler(this.guna2DateTimePicker2_ValueChanged);
@@ -219,17 +224,18 @@
             // dtp_Bill_End
             // 
             this.dtp_Bill_End.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.dtp_Bill_End.Animated = true;
             this.dtp_Bill_End.BackColor = System.Drawing.Color.Transparent;
             this.dtp_Bill_End.BorderRadius = 8;
             this.dtp_Bill_End.Checked = true;
             this.dtp_Bill_End.FillColor = System.Drawing.Color.White;
             this.dtp_Bill_End.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.dtp_Bill_End.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.dtp_Bill_End.Location = new System.Drawing.Point(954, 89);
+            this.dtp_Bill_End.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtp_Bill_End.Location = new System.Drawing.Point(947, 89);
             this.dtp_Bill_End.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtp_Bill_End.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtp_Bill_End.Name = "dtp_Bill_End";
-            this.dtp_Bill_End.Size = new System.Drawing.Size(179, 36);
+            this.dtp_Bill_End.Size = new System.Drawing.Size(121, 36);
             this.dtp_Bill_End.TabIndex = 20;
             this.dtp_Bill_End.Value = new System.DateTime(2025, 3, 3, 14, 48, 32, 894);
             // 
@@ -237,7 +243,7 @@
             // 
             this.lblCustomerList.BackColor = System.Drawing.Color.Transparent;
             this.lblCustomerList.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCustomerList.Location = new System.Drawing.Point(611, 87);
+            this.lblCustomerList.Location = new System.Drawing.Point(671, 91);
             this.lblCustomerList.Name = "lblCustomerList";
             this.lblCustomerList.Padding = new System.Windows.Forms.Padding(10);
             this.lblCustomerList.Size = new System.Drawing.Size(152, 42);
@@ -265,11 +271,33 @@
             this.btn_Bill_Cancel.Text = "Hủy Hóa Đơn";
             this.btn_Bill_Cancel.Click += new System.EventHandler(this.btn_Bill_Cancel_Click);
             // 
+            // btn_Bill_FilterDate
+            // 
+            this.btn_Bill_FilterDate.Animated = true;
+            this.btn_Bill_FilterDate.BackColor = System.Drawing.Color.Transparent;
+            this.btn_Bill_FilterDate.BorderRadius = 8;
+            this.btn_Bill_FilterDate.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_Bill_FilterDate.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_Bill_FilterDate.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_Bill_FilterDate.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_Bill_FilterDate.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_Bill_FilterDate.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
+            this.btn_Bill_FilterDate.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.btn_Bill_FilterDate.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.btn_Bill_FilterDate.ForeColor = System.Drawing.Color.White;
+            this.btn_Bill_FilterDate.Location = new System.Drawing.Point(1074, 83);
+            this.btn_Bill_FilterDate.Name = "btn_Bill_FilterDate";
+            this.btn_Bill_FilterDate.Size = new System.Drawing.Size(78, 50);
+            this.btn_Bill_FilterDate.TabIndex = 25;
+            this.btn_Bill_FilterDate.Text = "Lọc";
+            this.btn_Bill_FilterDate.Click += new System.EventHandler(this.btn_Bill_FilterDate_Click);
+            // 
             // financialManagement
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.ClientSize = new System.Drawing.Size(1181, 842);
             this.Controls.Add(this.label11);
+            this.Controls.Add(this.btn_Bill_FilterDate);
             this.Controls.Add(this.btn_Bill_Cancel);
             this.Controls.Add(this.lblCustomerList);
             this.Controls.Add(this.dtp_Bill_End);
@@ -302,5 +330,6 @@
         private Guna.UI2.WinForms.Guna2GradientButton btn_Bill_Cancel;
         private System.Windows.Forms.Label label4;
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
+        private Guna.UI2.WinForms.Guna2GradientButton btn_Bill_FilterDate;
     }
 }
