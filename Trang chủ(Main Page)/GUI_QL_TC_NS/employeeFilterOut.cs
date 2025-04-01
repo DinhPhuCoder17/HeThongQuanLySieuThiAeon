@@ -260,6 +260,16 @@ namespace Trang_chủ_Main_Page_
                 }
             }
         }
+
+        private void guna2HtmlLabel3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_Shift_Number_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
