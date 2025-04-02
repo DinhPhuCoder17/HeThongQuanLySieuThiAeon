@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Trang_chu_Main_Page_.GUI_QLHangHoa;
 
 namespace Trang_chủ_Main_Page_
 {
@@ -122,6 +123,32 @@ namespace Trang_chủ_Main_Page_
         {
 
         }
+        private void dgv_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgvDSTonKho.Rows[e.RowIndex];
+
+                string mahh = row.Cells["colMahang"].Value.ToString();
+
+                DataTable dt = BLLQuanLyKho.Instance.XemCTHH(mahh);
+
+                if (dt.Rows.Count > 0)
+                {
+                    CTHH formCTHH = new CTHH
+                    {
+                        DataCTHH = dt
+                    };
+                    formCTHH.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Không tìm thấy dữ liệu cho mã hàng: " + mahh);
+                }
+            }
+        }
+
+
 
 
         private void txt_HH_SearchBar_TextChanged(object sender, EventArgs e)
@@ -170,24 +197,7 @@ namespace Trang_chủ_Main_Page_
             }
         }
 
-        private void btnXoa_Click(object sender, EventArgs e)
-        {
-            if (dgvDSTonKho.SelectedRows.Count > 0)
-            {
-                foreach (DataGridViewRow row in dgvDSTonKho.SelectedRows)
-                {
-                    if (!row.IsNewRow)
-                    {
-                        dgvDSTonKho.Rows.Remove(row);
-                    }
-                }
-
-            }
-            else
-            {
-                MessageBox.Show("Vui lòng chọn dòng cần xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
+       
         private void guna2CustomGradientPanel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -220,6 +230,11 @@ namespace Trang_chủ_Main_Page_
         }
 
         private void btnLuu_DSTonKho_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblTongSoLuongSanPham_Click(object sender, EventArgs e)
         {
 
         }

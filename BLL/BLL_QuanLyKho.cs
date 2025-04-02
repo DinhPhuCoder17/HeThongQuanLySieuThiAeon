@@ -52,6 +52,11 @@ namespace BLL
      
                 return dsHangHoa;
             }
+        public DataTable XemCTHH(string mahh)
+        {
+            return DAL_QuanLyKho.Instance.XemCTHH(mahh);
+        }
+
 
         public List<DTO_Hanghoa> hangHoa_NhapHang()
             {
