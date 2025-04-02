@@ -28,11 +28,6 @@ namespace DAL
             return DataProvider.Instance.ExecuteQuery("SELECT h.Mahanghoa, h.Tenhanghoa, h.Tiennhap, h.Tendanhmuc, h.Tienban, h.ImageData, h.Soluong, h.Uudai, n.MaNCC, h.THSD FROM Hanghoa h JOIN Nhacungcap n ON h.MaNCC = n.MaNCC WHERE h.Xoa = 1");
         }
 
-        public DataTable timKiemHH(String tukhoa)
-        {
-            return DataProvider.Instance.ExecuteQueryOneParameter("SELECT h.Mahanghoa, h.Tenhanghoa, h.Tiennhap, h.Tendanhmuc, h.Tienban, h.ImageData, h.Soluong, h.Uudai, n.MaNCC, h.THSD FROM Hanghoa h JOIN Nhacungcap n ON h.MaNCC = n.MaNCC WHERE h.Xoa = 1 AND ( h.Mahanghoa    LIKE '%' + @tukhoa + '%' OR h.Tenhanghoa  LIKE '%' +'%' OR n.MaNCC LIKE '%' + '%' OR h.Tiennhap LIKE '%' +'%' OR h.Tienban LIKE '%'+ @tukhoa + '%'OR h.Tendanhmuc  LIKE '%'+ '%'OR h.Soluong  LIKE '%' + @tukhoa + '%'+ '%'OR h.THSD  LIKE '%')", new object[] { tukhoa });
-        }
-
         public static DataTable hangHoa_NhapHang()
         {
             return DataProvider.Instance.ExecuteQuery("SELECT h.Mahanghoa, h.Tenhanghoa, h.Tiennhap, h.Tendanhmuc, h.Tienban, h.ImageData, h.Soluong, h.Uudai, n.TenNCC, h.THSD FROM Hanghoa h JOIN Nhacungcap n ON h.MaNCC = n.MaNCC WHERE h.Xoa = 1");

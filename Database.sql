@@ -1,4 +1,5 @@
 ﻿--drop database QuanLySieuThiAEON
+--select * from HD_HH;
 go
 create database QuanLySieuThiAEON
 go
@@ -127,7 +128,7 @@ CREATE TABLE HD_HH (
 );
 
 
---delete from Hoadonbanhang
+
 CREATE TABLE Hoadonbanhang (
     Mahoadon varchar(10) CONSTRAINT PK_Hoadonbanhang PRIMARY KEY,
     Thoigianban DATETIME,
@@ -138,11 +139,10 @@ CREATE TABLE Hoadonbanhang (
 );
 
 
---select * from Hoadonbanhang
 CREATE TABLE HH_HDBH (
     Mahanghoa varchar(10),
     Mahoadon varchar(10),
-	 Tenhanghoa NVARCHAR(4000),
+	 Tenhanghoa NVARCHAR(255),
 	Soluong INT,
     CONSTRAINT PK_HH_HDBH PRIMARY KEY (Mahanghoa, Mahoadon),
     CONSTRAINT FK_HH_HDBH_Mahanghoa FOREIGN KEY (Mahanghoa) REFERENCES Hanghoa(Mahanghoa),
@@ -151,7 +151,7 @@ CREATE TABLE HH_HDBH (
 );
 
 
---select * from HH_HDBH
+
 CREATE TABLE Batbuoc(
 	Macalam varchar(10),
 	Manhanvien varchar(10),
@@ -494,29 +494,21 @@ go
 --drop procedure themHH_HDBH
 --Thêm Hóa Đơn Chi Tiết Hóa Đơn---
 go
---delete From themHH_HDBH
---drop  PROCEDURE themHH_HDBH
 CREATE PROCEDURE themHH_HDBH
-    @Tenhanghoa NVARCHAR(4000),
-    @Soluong NVARCHAR(8)  -- Tham số vẫn nhận dưới dạng string
+    @Tenhanghoa NVARCHAR(255),
+    @Soluong INT
 AS
 BEGIN
     DECLARE @Mahoadon VARCHAR(10);
     DECLARE @Mahanghoa VARCHAR(10);
     DECLARE @Tienban DECIMAL(18,2);
     DECLARE @Tongtien DECIMAL(18,2);
-    DECLARE @Uudai FLOAT;  -- Đổi kiểu @Uudai thành FLOAT
     DECLARE @SoluongTonKho INT;
 
-    -- Chuyển @Soluong từ string (NVARCHAR) thành INT
-    DECLARE @SoluongInt INT;
-    SET @SoluongInt = CAST(@Soluong AS INT);  -- Chuyển đổi @Soluong sang INT
-
     -- Lấy mã hóa đơn mới nhất từ bảng Hoadonbanhang
-  SELECT TOP 1 @Mahoadon = Mahoadon
-FROM Hoadonbanhang
-ORDER BY CAST(SUBSTRING(Mahoadon, 3, LEN(Mahoadon) - 2) AS INT) DESC;
-
+    SELECT TOP 1 @Mahoadon = Mahoadon 
+    FROM Hoadonbanhang 
+    ORDER BY Thoigianban DESC;
 
     -- Kiểm tra nếu không tìm thấy hóa đơn nào
     IF @Mahoadon IS NULL
@@ -525,11 +517,8 @@ ORDER BY CAST(SUBSTRING(Mahoadon, 3, LEN(Mahoadon) - 2) AS INT) DESC;
         RETURN;
     END
 
-    -- Lấy mã hàng hóa, giá bán, số lượng tồn kho và ưu đãi từ bảng Hanghoa
-    SELECT @Mahanghoa = Mahanghoa, 
-           @Tienban = Tienban, 
-           @Uudai = TRY_CAST(REPLACE(Uudai, '%', '') AS FLOAT),  -- Loại bỏ ký tự '%' và chuyển thành FLOAT
-           @SoluongTonKho = Soluong
+    -- Lấy mã hàng hóa, giá bán và số lượng tồn kho từ bảng Hanghoa
+    SELECT @Mahanghoa = Mahanghoa, @Tienban = Tienban, @SoluongTonKho = Soluong
     FROM Hanghoa 
     WHERE Tenhanghoa = @Tenhanghoa;
 
@@ -541,25 +530,18 @@ ORDER BY CAST(SUBSTRING(Mahoadon, 3, LEN(Mahoadon) - 2) AS INT) DESC;
     END
 
     -- Kiểm tra nếu số lượng tồn kho không đủ để bán
-    IF @SoluongTonKho < @SoluongInt
+    IF @SoluongTonKho < @Soluong
     BEGIN
         PRINT ' Error: Not enough stock for ' + @Tenhanghoa + '. Available: ' + CAST(@SoluongTonKho AS NVARCHAR);
         RETURN;
     END
 
-    -- Kiểm tra nếu @Uudai không phải là giá trị hợp lệ
-    IF @Uudai IS NULL
-    BEGIN
-        PRINT ' Error: Uudai is not a valid number!';
-        RETURN;
-    END
-
     -- Tính tổng tiền
-    SET @Tongtien = @SoluongInt * (@Tienban - (@Tienban * @Uudai / 100));
+    SET @Tongtien = @Soluong * @Tienban;
 
     -- Thêm dữ liệu vào bảng HH_HDBH
     INSERT INTO HH_HDBH (Mahoadon, Mahanghoa, Tenhanghoa, Soluong, Tongtien)
-    VALUES (@Mahoadon, @Mahanghoa, @Tenhanghoa, @SoluongInt, @Tongtien);
+    VALUES (@Mahoadon, @Mahanghoa, @Tenhanghoa, @Soluong, @Tongtien);
 
     -- Cập nhật tổng tiền trong Hoadonbanhang
     UPDATE Hoadonbanhang 
@@ -568,15 +550,13 @@ ORDER BY CAST(SUBSTRING(Mahoadon, 3, LEN(Mahoadon) - 2) AS INT) DESC;
 
     -- Trừ đi số lượng hàng hóa đã bán từ bảng Hanghoa
     UPDATE Hanghoa 
-    SET Soluong = Soluong - @SoluongInt
+    SET Soluong = Soluong - @Soluong
     WHERE Mahanghoa = @Mahanghoa;
 
     PRINT ' Added successfully to HH_HDBH and updated Thanhtien in Hoadonbanhang.';
-    PRINT ' Stock updated: ' + @Tenhanghoa + ' - Remaining: ' + CAST(@SoluongTonKho - @SoluongInt AS NVARCHAR);
+    PRINT ' Stock updated: ' + @Tenhanghoa + ' - Remaining: ' + CAST(@SoluongTonKho - @Soluong AS NVARCHAR);
 END;
 
-
---exec themHH_HDBH N'Gạo ST25' , '1'
 go
 --xóa Hóa đơn
 CREATE PROCEDURE sp_XoaHoaDon
@@ -618,59 +598,6 @@ Select @maxMaHDNH = MAX(Sohd) from HD_Nhaphang
 	Values (@newMaHDNH, getDate(), N'Chờ Xác Nhận', @Tongtien, @Soluong, DATEADD(MONTH, 1, GETDATE()));
 	print 'adding successfully: ' + @newMaHDNH;
 End;
---DROP PROCEDURE usp_GetWeeklyExpense
-CREATE PROCEDURE usp_GetWeeklyExpense
-    @Year INT,
-    @Month INT
-AS
-BEGIN
-    SET NOCOUNT ON;
-
-    WITH WeeklyData AS (
-        SELECT 
-            -- Tính số tuần trong tháng
-            ((DAY(Ngaynhap) - 1) / 7) + 1 AS WeekNumber,
-            SUM(Thanhtien) AS TotalExpense
-        FROM HD_HH
-        WHERE YEAR(Ngaynhap) = @Year 
-              AND MONTH(Ngaynhap) = @Month
-              AND Trangthai = N'Đã Nhập Kho'
-        GROUP BY ((DAY(Ngaynhap) - 1) / 7) + 1
-    )
-    SELECT 
-        WeekNumber, 
-        COALESCE(TotalExpense, 0) AS TotalExpense
-    FROM WeeklyData
-    ORDER BY WeekNumber;
-END;
-
-CREATE PROCEDURE usp_GetWeeklyRevenue
-    @Year INT,
-    @Month INT
-AS
-BEGIN
-    SET NOCOUNT ON;
-
-    WITH WeeklyData AS (
-        SELECT 
-            -- Tính số tuần trong tháng
-            ((DAY(Thoigianban) - 1) / 7) + 1 AS WeekNumber,
-            SUM(Thanhtien) AS TotalRevenue
-        FROM Hoadonbanhang
-        WHERE YEAR(Thoigianban) = @Year 
-              AND MONTH(Thoigianban) = @Month
-             
-        GROUP BY ((DAY(Thoigianban) - 1) / 7) + 1
-    )
-    SELECT 
-        WeekNumber, 
-        COALESCE(TotalRevenue, 0) AS TotalRevenue
-    FROM WeeklyData
-    ORDER BY WeekNumber;
-END;
-GO
-
-
 
 -- Procedure thêm dữ liệu bảng chấm công
 	-- Tự động thêm khoá chính
@@ -933,118 +860,8 @@ go
 --Select * From HD_HH
 --Delete from HD_Nhaphang
 exec themMaHDNH 10000, 10
-select * from HD_Nhaphang
---delete from HD_Nhaphang
---delete from HD_HH
 exec themHD_HH 'HH0002', 'NH0001', 100
 go 
-INSERT INTO HD_HH (Mahanghoa, Sohd, Ngaynhap, Soluongdat, Soluongnhan, Ngaysanxuat, Hansudung, Thanhtien, Trangthai)
-VALUES
-('HH0001', 'HD0001', '2025-01-05', 10, 10, '2024-01-05', '2027-01-05', 500000, N'Đã Nhập Kho'),
-('HH0002', 'HD0002', '2025-01-12', 8, 8, '2024-01-12', '2027-01-12', 450000, N'Đã Nhập Kho'),
-('HH0003', 'HD0003', '2025-01-18', 15, 15, '2024-01-18', '2027-01-18', 700000, N'Đã Nhập Kho'),
-('HH0004', 'HD0004', '2025-01-25', 5, 5, '2024-01-25', '2027-01-25', 300000, N'Đã Nhập Kho'),
-('HH0005', 'HD0005', '2025-02-03', 20, 20, '2024-02-03', '2027-02-03', 800000, N'Đã Nhập Kho'),
-('HH0006', 'HD0006', '2025-02-10', 12, 12, '2024-02-10', '2027-02-10', 600000, N'Đã Nhập Kho'),
-('HH0007', 'HD0007', '2025-02-15', 7, 7, '2024-02-15', '2027-02-15', 350000, N'Đã Nhập Kho'),
-('HH0008', 'HD0008', '2025-02-22', 18, 18, '2024-02-22', '2027-02-22', 900000, N'Đã Nhập Kho'),
-('HH0009', 'HD0009', '2025-02-28', 13, 13, '2024-02-28', '2027-02-28', 650000, N'Đã Nhập Kho'),
-('HH0010', 'HD0010', '2025-03-02', 14, 14, '2024-03-02', '2027-03-02', 720000, N'Đã Nhập Kho'),
-('HH0010', 'HD0011', '2025-03-09', 11, 11, '2024-03-09', '2027-03-09', 530000, N'Đã Nhập Kho'),
-('HH0010', 'HD0012', '2025-03-16', 9, 9, '2024-03-16', '2027-03-16', 460000, N'Đã Nhập Kho'),
-('HH0010', 'HD0013', '2025-03-21', 22, 22, '2024-03-21', '2027-03-21', 880000, N'Đã Nhập Kho'),
-('HH0010', 'HD0014', '2025-03-25', 10, 10, '2024-03-25', '2027-03-25', 590000, N'Đã Nhập Kho'),
-('HH0010', 'HD0015', '2025-01-08', 6, 6, '2024-01-08', '2027-01-08', 400000, N'Đã Nhập Kho'),
-('HH0010', 'HD0016', '2025-01-14', 16, 16, '2024-01-14', '2027-01-14', 670000, N'Đã Nhập Kho'),
-('HH0010', 'HD0017', '2025-01-20', 18, 18, '2024-01-20', '2027-01-20', 780000, N'Đã Nhập Kho'),
-('HH0010', 'HD0018', '2025-02-05', 25, 25, '2024-02-05', '2027-02-05', 910000, N'Đã Nhập Kho'),
-('HH0010', 'HD0019', '2025-02-18', 13, 13, '2024-02-18', '2027-02-18', 620000, N'Đã Nhập Kho'),
-('HH0010', 'HD0020', '2025-03-28', 15, 15, '2024-03-28', '2027-03-28', 740000, N'Đã Nhập Kho');
-
-INSERT INTO HD_HH (Mahanghoa, Sohd, Ngaynhap, Soluongdat, Soluongnhan, Ngaysanxuat, Hansudung, Thanhtien, Trangthai)
-VALUES
-('HH0010', 'HD0021', '2025-01-05', 9, 9, '2024-01-05', '2027-01-05', 480000, N'Đã Nhập Kho'),
-('HH0009', 'HD0022', '2025-01-12', 7, 7, '2024-01-12', '2027-01-12', 420000, N'Đã Nhập Kho'),
-('HH0008', 'HD0023', '2025-01-18', 14, 14, '2024-01-18', '2027-01-18', 680000, N'Đã Nhập Kho'),
-('HH0007', 'HD0024', '2025-01-25', 6, 6, '2024-01-25', '2027-01-25', 320000, N'Đã Nhập Kho'),
-('HH0006', 'HD0025', '2025-02-03', 19, 19, '2024-02-03', '2027-02-03', 790000, N'Đã Nhập Kho'),
-('HH0005', 'HD0026', '2025-02-10', 11, 11, '2024-02-10', '2027-02-10', 580000, N'Đã Nhập Kho'),
-('HH0004', 'HD0027', '2025-02-15', 8, 8, '2024-02-15', '2027-02-15', 370000, N'Đã Nhập Kho'),
-('HH0003', 'HD0028', '2025-02-22', 17, 17, '2024-02-22', '2027-02-22', 890000, N'Đã Nhập Kho'),
-('HH0004', 'HD0029', '2025-02-28', 12, 12, '2024-02-28', '2027-02-28', 640000, N'Đã Nhập Kho'),
-('HH0006', 'HD0030', '2025-03-02', 13, 13, '2024-03-02', '2027-03-02', 710000, N'Đã Nhập Kho'),
-('HH0010', 'HD0031', '2025-03-09', 10, 10, '2024-03-09', '2027-03-09', 520000, N'Đã Nhập Kho'),
-('HH0003', 'HD0032', '2025-03-16', 8, 8, '2024-03-16', '2027-03-16', 450000, N'Đã Nhập Kho'),
-('HH0003', 'HD0033', '2025-03-21', 21, 21, '2024-03-21', '2027-03-21', 860000, N'Đã Nhập Kho'),
-('HH0004', 'HD0034', '2025-03-25', 9, 9, '2024-03-25', '2027-03-25', 570000, N'Đã Nhập Kho'),
-('HH0005', 'HD0035', '2025-01-08', 5, 5, '2024-01-08', '2027-01-08', 390000, N'Đã Nhập Kho'),
-('HH0006', 'HD0036', '2025-01-14', 15, 15, '2024-01-14', '2027-01-14', 660000, N'Đã Nhập Kho'),
-('HH0007', 'HD0037', '2025-01-20', 17, 17, '2024-01-20', '2027-01-20', 770000, N'Đã Nhập Kho'),
-('HH0008', 'HD0038', '2025-02-05', 24, 24, '2024-02-05', '2027-02-05', 900000, N'Đã Nhập Kho'),
-('HH0009', 'HD0039', '2025-02-18', 12, 12, '2024-02-18', '2027-02-18', 610000, N'Đã Nhập Kho'),
-('HH0010', 'HD0040', '2025-03-28', 14, 14, '2024-03-28', '2027-03-28', 730000, N'Đã Nhập Kho');
-
-
-
-
--- Tiếp tục với 90 dòng còn lại...
-
-INSERT INTO HD_HH (Mahanghoa, Sohd, Ngaynhap, Soluongdat, Soluongnhan, Ngaysanxuat, Hansudung, Thanhtien, Trangthai)
-VALUES
-('HH011', 'HD011', '2024-03-03', 40, 40, '2023-02-15', '2025-02-15', 40000, 'Đã Nhập Kho'),
-('HH012', 'HD012', '2024-03-09', 50, 50, '2023-01-20', '2025-01-20', 50000, 'Đã Nhập Kho'),
-('HH013', 'HD013', '2024-03-15', 60, 60, '2022-12-25', '2024-12-25', 60000, 'Đã Nhập Kho'),
-('HH014', 'HD014', '2024-03-21', 70, 70, '2022-11-30', '2024-11-30', 70000, 'Đã Nhập Kho'),
-('HH015', 'HD015', '2024-03-27', 45, 45, '2022-10-10', '2024-10-10', 45000, 'Đã Nhập Kho');
-
--- Lặp lại với các mã hàng hóa khác nhau đến đủ 100 dòng
-
-INSERT INTO HD_Nhaphang (Sohd, Ngaydat, Trangthai, Tongtien, Soluong, Hanthanhtoan )
-VALUES
-    ('HD0001', '2025-01-05', N'Đã Xử Lý', 500000, 10, '2025-02-05'),
-    ('HD0002', '2025-01-12', N'Đã Xử Lý', 450000, 8, '2025-02-12'),
-    ('HD0003', '2025-01-18', N'Đã Xử Lý', 700000, 15, '2025-02-18'),
-    ('HD0004', '2025-01-25', N'Đã Xử Lý', 300000, 5, '2025-02-25'),
-    ('HD0005', '2025-02-03', N'Đã Xử Lý', 800000, 20, '2025-03-03'),
-    ('HD0006', '2025-02-10', N'Đã Xử Lý', 600000, 12, '2025-03-10'),
-    ('HD0007', '2025-02-15', N'Đã Xử Lý', 350000, 7, '2025-03-15'),
-    ('HD0008', '2025-02-22', N'Đã Xử Lý', 900000, 18, '2025-03-22'),
-    ('HD0009', '2025-02-28', N'Đã Xử Lý', 650000, 13, '2025-03-28'),
-    ('HD0010', '2025-03-02', N'Đã Xử Lý', 720000, 14, '2025-04-02'),
-    ('HD0011', '2025-03-09', N'Đã Xử Lý', 530000, 11, '2025-04-09'),
-    ('HD0012', '2025-03-16', N'Đã Xử Lý', 460000, 9, '2025-04-16'),
-    ('HD0013', '2025-03-21', N'Đã Xử Lý', 880000, 22, '2025-04-21'),
-    ('HD0014', '2025-03-25', N'Đã Xử Lý', 590000, 10, '2025-04-25'),
-    ('HD0015', '2025-01-08', N'Đã Xử Lý', 400000, 6, '2025-02-08'),
-    ('HD0016', '2025-01-14', N'Đã Xử Lý', 670000, 16, '2025-02-14'),
-    ('HD0017', '2025-01-20', N'Đã Xử Lý', 780000, 18, '2025-02-20'),
-    ('HD0018', '2025-02-05', N'Đã Xử Lý', 910000, 25, '2025-03-05'),
-    ('HD0019', '2025-02-18', N'Đã Xử Lý', 620000, 13, '2025-03-18'),
-    ('HD0020', '2025-03-28', N'Đã Xử Lý', 740000, 15, '2025-04-28');
-
-
-	INSERT INTO HD_Nhaphang (Sohd, Ngaydat, Trangthai, Tongtien, Soluong, Hanthanhtoan )
-VALUES
-    ('HD0021', '2025-01-05', N'Đã Xử Lý', 510000, 9, '2025-02-05'),
-    ('HD0022', '2025-01-12', N'Đã Xử Lý', 460000, 7, '2025-02-12'),
-    ('HD0023', '2025-01-18', N'Đã Xử Lý', 710000, 14, '2025-02-18'),
-    ('HD0024', '2025-01-25', N'Đã Xử Lý', 310000, 6, '2025-02-25'),
-    ('HD0025', '2025-02-03', N'Đã Xử Lý', 810000, 19, '2025-03-03'),
-    ('HD0026', '2025-02-10', N'Đã Xử Lý', 610000, 11, '2025-03-10'),
-    ('HD0027', '2025-02-15', N'Đã Xử Lý', 360000, 8, '2025-03-15'),
-    ('HD0028', '2025-02-22', N'Đã Xử Lý', 910000, 17, '2025-03-22'),
-    ('HD0029', '2025-02-28', N'Đã Xử Lý', 660000, 12, '2025-03-28'),
-    ('HD0030', '2025-03-02', N'Đã Xử Lý', 730000, 13, '2025-04-02'),
-    ('HD0031', '2025-03-09', N'Đã Xử Lý', 540000, 10, '2025-04-09'),
-    ('HD0032', '2025-03-16', N'Đã Xử Lý', 470000, 8, '2025-04-16'),
-    ('HD0033', '2025-03-21', N'Đã Xử Lý', 890000, 21, '2025-04-21'),
-    ('HD0034', '2025-03-25', N'Đã Xử Lý', 600000, 9, '2025-04-25'),
-    ('HD0035', '2025-01-08', N'Đã Xử Lý', 410000, 5, '2025-02-08'),
-    ('HD0036', '2025-01-14', N'Đã Xử Lý', 680000, 15, '2025-02-14'),
-    ('HD0037', '2025-01-20', N'Đã Xử Lý', 790000, 17, '2025-02-20'),
-    ('HD0038', '2025-02-05', N'Đã Xử Lý', 920000, 24, '2025-03-05'),
-    ('HD0039', '2025-02-18', N'Đã Xử Lý', 630000, 12, '2025-03-18'),
-    ('HD0040', '2025-03-28', N'Đã Xử Lý', 750000, 14, '2025-04-28');
 
 
 
