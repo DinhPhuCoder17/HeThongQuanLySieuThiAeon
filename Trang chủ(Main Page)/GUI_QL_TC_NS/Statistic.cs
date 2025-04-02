@@ -127,18 +127,6 @@ namespace Trang_chủ_Main_Page_
             c_Satistic.Update();
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
         private void guna2Button1_Click(object sender, EventArgs e)
         {
 
@@ -183,6 +171,16 @@ namespace Trang_chủ_Main_Page_
         {
             lbl_Month_Display.Text = $"Tháng {selectedMonth.Month}"; // Định dạng "Tháng X"
            
+        }
+
+        private void label14_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -361,7 +361,11 @@ namespace BLL
             }
             return false;
         }
-
+        //tim kiem Hoa Don
+        public DataTable timKiemHoaDon( String tukhoa)
+        {
+            return dAL_QuanlyTCNS.timKiemHoaDon(tukhoa);
+        }
 
         //Tìm kiếm khách hàng
         public DataTable timKiemKH(String tukhoa)

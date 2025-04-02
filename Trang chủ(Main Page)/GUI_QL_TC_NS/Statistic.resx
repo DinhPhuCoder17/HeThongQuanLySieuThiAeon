@@ -8879,6 +8879,12 @@
         AElFTkSuQmCC
 </value>
   </data>
+  <metadata name="gunaPieDataset2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>797, 21</value>
+  </metadata>
+  <metadata name="gunaPieDataset3.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>965, 21</value>
+  </metadata>
   <data name="guna2PictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAfQAAAH0CAYAAADL1t+KAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
@@ -9189,4 +9195,7 @@
         Z6f6vwtgXP4fsvwKq1+NgBYAAAAASUVORK5CYII=
 </value>
   </data>
+  <metadata name="gunaPieDataset1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>629, 21</value>
+  </metadata>
 </root>
