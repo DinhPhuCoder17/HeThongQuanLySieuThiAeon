@@ -6,6 +6,8 @@ go
 use QuanLySieuThiAEON
 go
 
+--select * from Quangly
+
 CREATE TABLE Nhanvien (
     Manhanvien varchar(10) CONSTRAINT PK_Nhanvien PRIMARY KEY,
     Hoten NVARCHAR(100),
@@ -314,6 +316,7 @@ End
 
 ----------------------------Procedure-----------------------------
 --Procedure thêm mã cho nhân viên mới--
+drop proc themMaNhanvien
 go
 create proc themMaNhanvien 
 	@Hoten NVARCHAR(100),
@@ -342,6 +345,8 @@ Select @maxMaNhanvien = MAX(Manhanvien) from Nhanvien;
 	Insert into Nhanvien(Manhanvien, Hoten, CCCD, Ngaysinh, Gioitinh, Diachi, Sodienthoai, Xoa)
 	Values (@newMaNhanvien, @Hoten, @CCCD, @Ngaysinh, @Gioitinh, @Diachi, @Sodienthoai, 1);
 	print 'adding successfully: ' + @newMaNhanvien;
+	-- Trả về mã nhân viên vừa thêm
+	SELECT @newMaNhanvien;
 End;
 
 --Procedure thêm mã cho hàng hoá mới--
