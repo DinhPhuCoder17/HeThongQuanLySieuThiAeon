@@ -13,6 +13,7 @@ CREATE TABLE Nhanvien (
     Gioitinh NVARCHAR(10),
     Diachi NVARCHAR(255),
     Sodienthoai VARCHAR(15),
+	Vaitro nvarchar(100),
 	Xoa int
 );
 --Account
@@ -320,7 +321,8 @@ create proc themMaNhanvien
     @Ngaysinh DATE,
     @Gioitinh NVARCHAR(10),
     @Diachi NVARCHAR(255),
-    @Sodienthoai VARCHAR(15)
+    @Sodienthoai VARCHAR(15),
+	@Vaitro nvarchar(100)
 As
 Begin 
 Declare @newMaNhanvien varchar(10);
@@ -339,7 +341,7 @@ Select @maxMaNhanvien = MAX(Manhanvien) from Nhanvien;
 	End
 	--Insert
 	Insert into Nhanvien(Manhanvien, Hoten, CCCD, Ngaysinh, Gioitinh, Diachi, Sodienthoai, Xoa)
-	Values (@newMaNhanvien, @Hoten, @CCCD, @Ngaysinh, @Gioitinh, @Diachi, @Sodienthoai, 1);
+	Values (@newMaNhanvien, @Hoten, @CCCD, @Ngaysinh, @Gioitinh, @Diachi, @Sodienthoai, @Vaitro, 1);
 	print 'adding successfully: ' + @newMaNhanvien;
 End;
 
@@ -764,18 +766,18 @@ Begin
 End
 
 go
-INSERT INTO Nhanvien (Manhanvien, Hoten, CCCD, Ngaysinh, Gioitinh, Diachi, Sodienthoai, Xoa) 
+INSERT INTO Nhanvien (Manhanvien, Hoten, CCCD, Ngaysinh, Gioitinh, Diachi, Sodienthoai, Vaitro, Xoa) 
 VALUES 
-('NV0001', N'Nguyễn Văn A', '123456789012', '1990-01-01', N'Nam', N'Hà Nội', '0987654321', 1),
-('NV0002', N'Trần Thị B', '123456789013', '1992-02-02', N'Nữ', N'Hồ Chí Minh', '0912345678', 1),
-('NV0003', N'Lê Văn C', '123456789014', '1995-03-03', N'Nam', N'Đà Nẵng', '0901234567', 1),
-('NV0004', N'Phạm Thị D', '123456789015', '1998-04-04', N'Nữ', N'Hải Phòng', '0988123456', 1),
-('NV0005', N'Hồ Văn E', '123456789016', '1991-05-05', N'Nam', N'Cần Thơ', '0971234567', 1),
-('NV0006', N'Đinh Thị F', '123456789017', '1994-06-06', N'Nữ', N'Bình Dương', '0961234567', 1),
-('NV0007', N'Bùi Văn G', '123456789018', '1993-07-07', N'Nam', N'Quảng Ninh', '0951234567', 1),
-('NV0008', N'Ngô Thị H', '123456789019', '1996-08-08', N'Nữ', N'Vũng Tàu', '0941234567', 1),
-('NV0009', N'Doãn Văn I', '123456789020', '1997-09-09', N'Nam', N'Thái Bình', '0931234567', 1),
-('NV0010', N'Vũ Thị K', '123456789021', '1990-10-10', N'Nữ', N'An Giang', '0921234567', 1);
+('NV0001', N'Nguyễn Văn A', '123456789012', '1990-01-01', N'Nam', N'Hà Nội', '0987654321', N'Lao công', 1),
+('NV0002', N'Trần Thị B', '123456789013', '1992-02-02', N'Nữ', N'Hồ Chí Minh', '0912345678', N'Bảo vệ', 1),
+('NV0003', N'Lê Văn C', '123456789014', '1995-03-03', N'Nam', N'Đà Nẵng', '0901234567', N'Bảo vệ',  1),
+('NV0004', N'Phạm Thị D', '123456789015', '1998-04-04', N'Nữ', N'Hải Phòng', '0988123456', N'Nhân viên tài chính', 1),
+('NV0005', N'Hồ Văn E', '123456789016', '1991-05-05', N'Nam', N'Cần Thơ', '0971234567', N'Nhân viên kho', 1),
+('NV0006', N'Đinh Thị F', '123456789017', '1994-06-06', N'Nữ', N'Bình Dương', '0961234567', N'Thu ngân', 1),
+('NV0007', N'Bùi Văn G', '123456789018', '1993-07-07', N'Nam', N'Quảng Ninh', '0951234567', N'PG', 1),
+('NV0008', N'Ngô Thị H', '123456789019', '1996-08-08', N'Nữ', N'Vũng Tàu', '0941234567', N'Kiểm soát chất lượng', 1),
+('NV0009', N'Doãn Văn I', '123456789020', '1997-09-09', N'Nam', N'Thái Bình', '0931234567', N'Kế toán', 1),
+('NV0010', N'Vũ Thị K', '123456789021', '1990-10-10', N'Nữ', N'An Giang', '0921234567', N'Nhân viên bán hàng', 1);
 
 Insert into Quanly values
 ('NV0001', '1', '$2a$11$z9zAD5bZeEbk81MyEfUwQuRITnMDNuctPaACjDsbdWqf/rRzIZ1fy', 'Admin'),
@@ -862,7 +864,12 @@ exec themMaHDNH 10000, 10
 exec themHD_HH 'HH0002', 'NH0001', 100
 go 
 
-
-
-
 --comment--
+Select * From hanghoa
+
+Select bb.Manhanvien, Hoten, Vaitro, ThoigianBD, ThoigianKT  
+From Calam cl left join Batbuoc bb 
+	on cl.Macalam = bb.Macalam 
+	inner join Nhanvien nv on nv.Manhanvien = bb.Manhanvien 
+Where ThoigianBD > '2025/3/30' and ThoigianKT < '2025/4/7'
+Group by bb.Manhanvien, Hoten, Vaitro, ThoigianBD, ThoigianKT  

@@ -374,5 +374,18 @@ namespace DAL
                 return false;
             }
         }
+
+        public DataTable xemLSKH(String soDienThoai)
+        {
+            return DataProvider.Instance.ExecuteQuery("Select * From Hoadonbanhang Where sodienthoai = @sodienthoai ", new object[] {soDienThoai});
+        }
+
+        public DataTable xemLichLamViecTheoNV(DateTime tgBD, DateTime tgKT)
+        {
+            return DataProvider.Instance.ExecuteQuery(
+                "Select bb.Manhanvien, Hoten, Vaitro, ThoigianBD, ThoigianKT From Calam cl left join Batbuoc bb on cl.Macalam = bb.Macalam inner join Nhanvien nv on nv.Manhanvien = bb.Manhanvien Where ThoigianBD > @tgBD and ThoigianKT < @tgKT Group by bb.Manhanvien, Hoten, Vaitro, ThoigianBD, ThoigianKT "
+                , new object[] { tgBD, tgKT }
+                );
+        }
     }
 }

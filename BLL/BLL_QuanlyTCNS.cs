@@ -415,6 +415,16 @@ namespace BLL
             MessageBox.Show("Số lượng nhân viên không hợp lệ");
             return false;
         }
+
+        public DataTable xemLSKH(String soDienThoai)
+        {
+            return dAL_QuanlyTCNS.xemLSKH(soDienThoai);
+        }
         
+
+        public DataTable xemLichLamViecTheoNV(DateTime tgBD, DateTime tgKT)
+        {
+            return dAL_QuanlyTCNS.xemLichLamViecTheoNV(tgBD, tgKT);
+        }
     }
 }

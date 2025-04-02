@@ -12,6 +12,7 @@ using BLL;
 using ServiceStack.OrmLite.Converters;
 using System.Text.RegularExpressions;
 using static Jenga.Theme;
+using Trang_chu_Main_Page_.GUI_QL_TC_NS;
 
 namespace Trang_chủ_Main_Page_
 {
@@ -283,6 +284,18 @@ namespace Trang_chủ_Main_Page_
             if (cb_Customer_Filter.SelectedIndex != -1)
             {
                 dtg_CustomerList.DataSource = bLL_QuanlyTCNS.sapXepKH(cb_Customer_Filter.SelectedIndex);
+            }
+        }
+
+        private void dtg_CustomerList_DoubleClick(object sender, EventArgs e)
+        {
+            if (dtg_CustomerList.CurrentRow != null) // Kiểm tra có dòng nào được chọn không
+            {
+                string customerId = dtg_CustomerList.CurrentRow.Cells[0].Value.ToString(); // Lấy giá trị cột đầu tiên
+
+                LichSuKH lichSuKH = new LichSuKH();
+                lichSuKH.load_in_Datagridview(customerId); // Truyền giá trị vào phương thức
+                lichSuKH.ShowDialog();
             }
         }
     }

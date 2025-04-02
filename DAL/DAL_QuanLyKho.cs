@@ -177,7 +177,7 @@ namespace DAL
                     int line = DataProvider.Instance.ExecuteNonQuery("UPDATE Hanghoa SET Soluong = Soluong + @soluongnhan  WHERE Mahanghoa = @mahanghoa", new object[] { hh.SoLuongNhan > hh.SoLuongDat ? hh.SoLuongDat: hh.SoLuongNhan, hh.HangHoa.MaHangHoa });
                     if(line != 0)
                     {
-                        int lineNext = DataProvider.Instance.ExecuteNonQuery("UPDATE HD_HH SET Soluongnhan = @soluongnhan , Ngaysanxuat = @Ngaysanxuat , Hansudung = @Hansudung , Trangthai = @Trangthai , Ngaynhap = @Ngaynhap  WHERE Mahanghoa = @mahanghoa", new object[] { hh.SoLuongNhan, hh.NSX, hh.HSD, hh.TrangThai, hh.NgayNhan, hh.HangHoa.MaHangHoa });
+                        int lineNext = DataProvider.Instance.ExecuteNonQuery("UPDATE HD_HH SET Soluongnhan = @soluongnhan , Ngaysanxuat = @Ngaysanxuat , Hansudung = @Hansudung , Trangthai = @Trangthai , Ngaynhap = @Ngaynhap  WHERE Mahanghoa = @mahanghoa and Sohd = @Sohd", new object[] { hh.SoLuongNhan, hh.NSX, hh.HSD, hh.TrangThai, hh.NgayNhan, hh.HangHoa.MaHangHoa, hDNhapHang.soHD });
                         if (lineNext == 0)
                         {
                             return false;

@@ -35,6 +35,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btn_NextCalendar = new Guna.UI2.WinForms.Guna2GradientCircleButton();
+            this.btnPrevCalendar = new Guna.UI2.WinForms.Guna2GradientCircleButton();
             this.label24 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
@@ -82,6 +84,7 @@
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
+            this.label27 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.container_Date = new System.Windows.Forms.FlowLayoutPanel();
             this.btnChooseEmployee = new Guna.UI2.WinForms.Guna2GradientButton();
@@ -92,8 +95,7 @@
             this.btn_Shift_Confirm = new Guna.UI2.WinForms.Guna2GradientButton();
             this.btn_Shift_Remove = new Guna.UI2.WinForms.Guna2GradientButton();
             this.txt_TenCa = new Guna.UI2.WinForms.Guna2TextBox();
-            this.btnPrevCalendar = new Guna.UI2.WinForms.Guna2GradientCircleButton();
-            this.btn_NextCalendar = new Guna.UI2.WinForms.Guna2GradientCircleButton();
+            this.btn_exportFile = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -116,6 +118,52 @@
             this.guna2Panel1.Size = new System.Drawing.Size(1181, 68);
             this.guna2Panel1.TabIndex = 7;
             this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
+            // 
+            // btn_NextCalendar
+            // 
+            this.btn_NextCalendar.Animated = true;
+            this.btn_NextCalendar.BackColor = System.Drawing.Color.Transparent;
+            this.btn_NextCalendar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_NextCalendar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_NextCalendar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_NextCalendar.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_NextCalendar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_NextCalendar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.btn_NextCalendar.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
+            this.btn_NextCalendar.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btn_NextCalendar.ForeColor = System.Drawing.Color.White;
+            this.btn_NextCalendar.Image = global::Trang_chu_Main_Page_.Properties.Resources._1_ht;
+            this.btn_NextCalendar.ImageSize = new System.Drawing.Size(50, 50);
+            this.btn_NextCalendar.Location = new System.Drawing.Point(268, 8);
+            this.btn_NextCalendar.Name = "btn_NextCalendar";
+            this.btn_NextCalendar.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.btn_NextCalendar.Size = new System.Drawing.Size(55, 55);
+            this.btn_NextCalendar.TabIndex = 26;
+            this.btn_NextCalendar.UseTransparentBackground = true;
+            this.btn_NextCalendar.Click += new System.EventHandler(this.btn_NextCalendar_Click);
+            // 
+            // btnPrevCalendar
+            // 
+            this.btnPrevCalendar.Animated = true;
+            this.btnPrevCalendar.BackColor = System.Drawing.Color.Transparent;
+            this.btnPrevCalendar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnPrevCalendar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnPrevCalendar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnPrevCalendar.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnPrevCalendar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnPrevCalendar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.btnPrevCalendar.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
+            this.btnPrevCalendar.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnPrevCalendar.ForeColor = System.Drawing.Color.White;
+            this.btnPrevCalendar.Image = global::Trang_chu_Main_Page_.Properties.Resources.roiii;
+            this.btnPrevCalendar.ImageSize = new System.Drawing.Size(50, 50);
+            this.btnPrevCalendar.Location = new System.Drawing.Point(186, 8);
+            this.btnPrevCalendar.Name = "btnPrevCalendar";
+            this.btnPrevCalendar.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.btnPrevCalendar.Size = new System.Drawing.Size(55, 55);
+            this.btnPrevCalendar.TabIndex = 26;
+            this.btnPrevCalendar.UseTransparentBackground = true;
+            this.btnPrevCalendar.Click += new System.EventHandler(this.btnPrevCalendar_Click);
             // 
             // label24
             // 
@@ -364,7 +412,7 @@
             this.btn_Shift_Add.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
             this.btn_Shift_Add.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btn_Shift_Add.ForeColor = System.Drawing.Color.White;
-            this.btn_Shift_Add.Location = new System.Drawing.Point(229, 758);
+            this.btn_Shift_Add.Location = new System.Drawing.Point(321, 759);
             this.btn_Shift_Add.Name = "btn_Shift_Add";
             this.btn_Shift_Add.Size = new System.Drawing.Size(163, 47);
             this.btn_Shift_Add.TabIndex = 24;
@@ -611,6 +659,7 @@
             this.guna2Panel3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.guna2Panel3.BackColor = System.Drawing.Color.Transparent;
             this.guna2Panel3.BorderRadius = 22;
+            this.guna2Panel3.Controls.Add(this.label27);
             this.guna2Panel3.Controls.Add(this.tableLayoutPanel1);
             this.guna2Panel3.Controls.Add(this.container_Date);
             this.guna2Panel3.Controls.Add(this.label23);
@@ -636,6 +685,15 @@
             this.guna2Panel3.Size = new System.Drawing.Size(1157, 601);
             this.guna2Panel3.TabIndex = 9;
             this.guna2Panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel3_Paint_2);
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(6, 585);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(28, 16);
+            this.label27.TabIndex = 15;
+            this.label27.Text = "22h";
             // 
             // tableLayoutPanel1
             // 
@@ -781,7 +839,7 @@
             this.btn_Shift_Edit.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
             this.btn_Shift_Edit.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btn_Shift_Edit.ForeColor = System.Drawing.Color.White;
-            this.btn_Shift_Edit.Location = new System.Drawing.Point(416, 758);
+            this.btn_Shift_Edit.Location = new System.Drawing.Point(508, 759);
             this.btn_Shift_Edit.Name = "btn_Shift_Edit";
             this.btn_Shift_Edit.Size = new System.Drawing.Size(163, 47);
             this.btn_Shift_Edit.TabIndex = 27;
@@ -802,7 +860,7 @@
             this.btn_Shift_Confirm.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
             this.btn_Shift_Confirm.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btn_Shift_Confirm.ForeColor = System.Drawing.Color.White;
-            this.btn_Shift_Confirm.Location = new System.Drawing.Point(780, 758);
+            this.btn_Shift_Confirm.Location = new System.Drawing.Point(872, 759);
             this.btn_Shift_Confirm.Name = "btn_Shift_Confirm";
             this.btn_Shift_Confirm.Size = new System.Drawing.Size(163, 47);
             this.btn_Shift_Confirm.TabIndex = 28;
@@ -823,7 +881,7 @@
             this.btn_Shift_Remove.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
             this.btn_Shift_Remove.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btn_Shift_Remove.ForeColor = System.Drawing.Color.White;
-            this.btn_Shift_Remove.Location = new System.Drawing.Point(600, 758);
+            this.btn_Shift_Remove.Location = new System.Drawing.Point(692, 759);
             this.btn_Shift_Remove.Name = "btn_Shift_Remove";
             this.btn_Shift_Remove.Size = new System.Drawing.Size(163, 47);
             this.btn_Shift_Remove.TabIndex = 29;
@@ -850,57 +908,33 @@
             this.txt_TenCa.Size = new System.Drawing.Size(118, 36);
             this.txt_TenCa.TabIndex = 30;
             // 
-            // btnPrevCalendar
+            // btn_exportFile
             // 
-            this.btnPrevCalendar.Animated = true;
-            this.btnPrevCalendar.BackColor = System.Drawing.Color.Transparent;
-            this.btnPrevCalendar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnPrevCalendar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnPrevCalendar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnPrevCalendar.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnPrevCalendar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnPrevCalendar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            this.btnPrevCalendar.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
-            this.btnPrevCalendar.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnPrevCalendar.ForeColor = System.Drawing.Color.White;
-            this.btnPrevCalendar.Image = global::Trang_chu_Main_Page_.Properties.Resources.roiii;
-            this.btnPrevCalendar.ImageSize = new System.Drawing.Size(50, 50);
-            this.btnPrevCalendar.Location = new System.Drawing.Point(186, 8);
-            this.btnPrevCalendar.Name = "btnPrevCalendar";
-            this.btnPrevCalendar.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.btnPrevCalendar.Size = new System.Drawing.Size(55, 55);
-            this.btnPrevCalendar.TabIndex = 26;
-            this.btnPrevCalendar.UseTransparentBackground = true;
-            this.btnPrevCalendar.Click += new System.EventHandler(this.btnPrevCalendar_Click);
-            // 
-            // btn_NextCalendar
-            // 
-            this.btn_NextCalendar.Animated = true;
-            this.btn_NextCalendar.BackColor = System.Drawing.Color.Transparent;
-            this.btn_NextCalendar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn_NextCalendar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn_NextCalendar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_NextCalendar.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_NextCalendar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_NextCalendar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            this.btn_NextCalendar.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
-            this.btn_NextCalendar.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btn_NextCalendar.ForeColor = System.Drawing.Color.White;
-            this.btn_NextCalendar.Image = global::Trang_chu_Main_Page_.Properties.Resources._1_ht;
-            this.btn_NextCalendar.ImageSize = new System.Drawing.Size(50, 50);
-            this.btn_NextCalendar.Location = new System.Drawing.Point(268, 8);
-            this.btn_NextCalendar.Name = "btn_NextCalendar";
-            this.btn_NextCalendar.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.btn_NextCalendar.Size = new System.Drawing.Size(55, 55);
-            this.btn_NextCalendar.TabIndex = 26;
-            this.btn_NextCalendar.UseTransparentBackground = true;
-            this.btn_NextCalendar.Click += new System.EventHandler(this.btn_NextCalendar_Click);
+            this.btn_exportFile.Animated = true;
+            this.btn_exportFile.BackColor = System.Drawing.Color.Transparent;
+            this.btn_exportFile.BorderRadius = 8;
+            this.btn_exportFile.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_exportFile.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_exportFile.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_exportFile.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_exportFile.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_exportFile.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
+            this.btn_exportFile.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.btn_exportFile.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.btn_exportFile.ForeColor = System.Drawing.Color.White;
+            this.btn_exportFile.Location = new System.Drawing.Point(134, 759);
+            this.btn_exportFile.Name = "btn_exportFile";
+            this.btn_exportFile.Size = new System.Drawing.Size(163, 47);
+            this.btn_exportFile.TabIndex = 31;
+            this.btn_exportFile.Text = "Xuất lịch làm";
+            this.btn_exportFile.Click += new System.EventHandler(this.btn_ExportCalendar_Click);
             // 
             // employeeShift
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1181, 842);
+            this.Controls.Add(this.btn_exportFile);
             this.Controls.Add(this.txt_TenCa);
             this.Controls.Add(this.btn_Shift_Remove);
             this.Controls.Add(this.btn_Shift_Confirm);
@@ -994,6 +1028,8 @@
         private Guna.UI2.WinForms.Guna2TextBox txt_TenCa;
         private Guna.UI2.WinForms.Guna2GradientCircleButton btnPrevCalendar;
         private Guna.UI2.WinForms.Guna2GradientCircleButton btn_NextCalendar;
+        private System.Windows.Forms.Label label27;
+        private Guna.UI2.WinForms.Guna2GradientButton btn_exportFile;
     }
 }
 

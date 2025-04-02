@@ -387,6 +387,7 @@
             this.dtg_CustomerList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_CustomerList_CellClick);
             this.dtg_CustomerList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgCustomerList_CellContentClick);
             this.dtg_CustomerList.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dtg_CustomerList_DataError);
+            this.dtg_CustomerList.DoubleClick += new System.EventHandler(this.dtg_CustomerList_DoubleClick);
             // 
             // Timer_Customer_Add
             // 
