@@ -12,6 +12,20 @@ namespace DAL
 {
     public class DAL_QuanlyTCNS
     {
+        // Them du lieu bieu do tron
+        public DataTable LoadDuLieuPieChart(int currentYear, int currentMonth)
+        {
+            string query = "EXEC usp_GetMonthlyBestSeller @Year , @Month";
+            DataTable dt = DataProvider.Instance.ExecuteQuery(query, new object[] { currentYear, currentMonth });
+            return dt;
+        }
+        // Them du lieu bieu do cot tong thu
+        public DataTable LoadDuLieuChartThu(int currentYear, int currentMonth)
+        {
+            string query = "EXEC usp_GetWeeklyRevenue @Year , @Month";
+            DataTable dt = DataProvider.Instance.ExecuteQuery(query, new object[] { currentYear, currentMonth });
+            return dt;
+        }
         //  Them du lieu bieu do cot tong chi
         public DataTable LoadDuLieuChartChi( int currentYear, int currentMonth)
         {
@@ -104,9 +118,10 @@ namespace DAL
             try
             {
                 int line = DataProvider.Instance.ExecuteNonQuery(
-                    "EXEC themHH_HDBH @Tenhanghoa , @Soluong",
+                    "EXEC themHH_HDBH  @Tenhanghoa , @Soluong",
                     new object[]
                     {
+                
                 chiTietHoaDon.tenHangHoa, // Tên hàng hóa
                 chiTietHoaDon.soLuong,   // Số lượng
                     });
@@ -195,7 +210,11 @@ namespace DAL
                 return false;
             }
         }
-
+        // tim kiem Hoa Don
+        public DataTable timKiemHoaDon(String tukhoa)
+        {
+            return DataProvider.Instance.ExecuteQueryOneParameter("Select Mahoadon, Thoigianban, Manhanvien, Sodienthoai, Thanhtien  From Hoadonbanhang where (Mahoadon LIKE '%' + @tukhoa + '%' or Thoigianban LIKE '%' + @tukhoa + '%' or Manhanvien  LIKE '%' + @tukhoa + '%' or Sodienthoai  LIKE '%' + @tukhoa + '%' or Thanhtien  LIKE '%' + @tukhoa + '%' ) ", new object[] { tukhoa });
+        }
         //Tìm kiếm khách hàng
         public DataTable timKiemKH(String tukhoa)
         {

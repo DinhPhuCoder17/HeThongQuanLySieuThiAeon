@@ -25,11 +25,20 @@ namespace DAL
         private DAL_QuanLyKho() { }
         public DataTable XemDSTonKho()
         {
-            return DataProvider.Instance.ExecuteQuery("SELECT h.Mahanghoa, h.Tenhanghoa, h.Tiennhap, h.Tendanhmuc, h.Tienban, h.ImageData, h.Soluong, h.Uudai, n.MaNCC, h.THSD FROM Hanghoa h JOIN Nhacungcap n ON h.MaNCC = n.MaNCC WHERE h.Xoa = 1");
+            return DataProvider.Instance.ExecuteQuery("SELECT h.Mahanghoa, h.Tenhanghoa, h.Tiennhap, h.Tendanhmuc, h.Tienban, h.ImageData, h.Soluong, h.Uudai, n.MaNCC, h.THSD FROM Hanghoa h JOIN Nhacungcap n ON h.MaNCC = n.MaNCC WHERE h.Xoa = 1 and h.Soluong > = 0");
         }
+
         public static DataTable hangHoa_NhapHang()
         {
             return DataProvider.Instance.ExecuteQuery("SELECT h.Mahanghoa, h.Tenhanghoa, h.Tiennhap, h.Tendanhmuc, h.Tienban, h.ImageData, h.Soluong, h.Uudai, n.TenNCC, h.THSD FROM Hanghoa h JOIN Nhacungcap n ON h.MaNCC = n.MaNCC WHERE h.Xoa = 1");
+        }
+
+        public DataTable XemCTHH(string mahh)
+        {
+            string query = @"SELECT Mahanghoa, NgaySanXuat, Hansudung, Soluongnhan FROM HD_HH WHERE Mahanghoa = @mahh AND Trangthai = N'Đã Nhập Kho'";
+
+            DataTable dt = DataProvider.Instance.ExecuteQuery(query, new object[] { mahh });
+            return dt;
         }
 
         public string themMaHDNH(double tongTien, int tongSoLuong)

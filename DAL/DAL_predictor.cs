@@ -13,7 +13,7 @@ namespace DAL
     {
         public static List<DTO_predictorHelper> GetAllProducts()
         {
-            DataTable dt = DataProvider.Instance.ExecuteQuery("SELECT H.Mahanghoa, H.Tenhanghoa, N.MaNCC, N.TenNCC, H.Tiennhap FROM Hanghoa H JOIN Nhacungcap N ON H.MaNCC = N.MaNCC WHERE H.Xoa = 1");
+            DataTable dt = DataProvider.Instance.ExecuteQuery("SELECT H.TenDanhMuc, H.Mahanghoa, H.Tenhanghoa, N.MaNCC, N.TenNCC, H.Tiennhap FROM Hanghoa H JOIN Nhacungcap N ON H.MaNCC = N.MaNCC WHERE H.Xoa = 1");
             
             List <DTO_predictorHelper> list = new List<DTO_predictorHelper>();
 
@@ -26,6 +26,7 @@ namespace DAL
                     MaNCC = row["MaNCC"].ToString(),
                     TenNCC = row["TenNCC"].ToString(),
                     Tiennhap = row.Field<decimal>("Tiennhap"),
+                    DanhMuc = row["TenDanhMuc"].ToString(),
                 };
 
                 list.Add(product);

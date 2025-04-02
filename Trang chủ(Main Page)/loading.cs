@@ -24,7 +24,7 @@ namespace Trang_chủ_Main_Page_
         private void Timer_Click(object sender, EventArgs e)
         {
 
-            if (guna2CircleProgressBar1.Value == 1) // Khi progress bar đầy 100%
+            if (guna2CircleProgressBar1.Value == 100) // Khi progress bar đầy 100%
             {
                 timer1.Stop();
 

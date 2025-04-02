@@ -142,7 +142,7 @@ namespace Trang_chủ_Main_Page_
 
         private void guna2Button1_Click_1(object sender, EventArgs e)
         {
-            KhieuNai kN = new KhieuNai();
+            CTHH kN = new CTHH();
             kN.Show();
         }
     }
