@@ -52,7 +52,12 @@ namespace BLL
      
                 return dsHangHoa;
             }
-            public List<DTO_Hanghoa> hangHoa_NhapHang()
+
+        public DataTable timKiemHH(String tukhoa)
+        {
+            return DAL_QuanLyKho.Instance.timKiemHH(tukhoa);
+        }
+        public List<DTO_Hanghoa> hangHoa_NhapHang()
             {
             DataTable dt = DAL_QuanLyKho.hangHoa_NhapHang();
             List<DTO_Hanghoa> list = new List<DTO_Hanghoa>();

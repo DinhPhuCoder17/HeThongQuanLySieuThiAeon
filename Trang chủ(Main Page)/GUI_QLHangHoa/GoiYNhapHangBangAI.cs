@@ -18,7 +18,8 @@ namespace Trang_chủ_Main_Page_
         private bool isEdited = false;             
         private DataGridViewRow rowEdited = null;    
         private object[] originalRowValues = null;    
-        BLL_predictor bLL_Predictor = new BLL_predictor();  
+        BLL_predictor bLL_Predictor = new BLL_predictor();
+        BindingSource bindingSource = new BindingSource();
 
         public GoiYNhapHangBangAI()
         {
@@ -256,35 +257,42 @@ namespace Trang_chủ_Main_Page_
 
         private void txt_AI_SearchBar_TextChanged(object sender, EventArgs e)
         {
-            if (txtAI.Text == "")
+            string keyword = txtAI.Text.Trim().ToLower();
+
+            foreach (DataGridViewRow row in dgvGoiYNhapHang.Rows)
             {
-                cmbTGTTHH_SelectedIndexChanged(sender, e);
-            }
-            else
-            {
-                dgvGoiYNhapHang.DataSource = bLL_Predictor.timKiem(txtAI.Text);
+                if (row.IsNewRow) continue; // Bỏ qua hàng trống cuối cùng
+
+                bool match = false;
+                for (int i = 0; i < row.Cells.Count; i++)
+                {
+                    object cellValue = row.Cells[i].Value;
+                    if (cellValue != null && cellValue.ToString().ToLower().Contains(keyword))
+                    {
+                        match = true;
+                        break;
+                    }
+                }
+                row.Visible = match;
             }
         }
+
+
 
         private void cmbSelectedIndexChanged(object sender, EventArgs e)
         {
-            string selectedCategory = cmbLocTheoDanhMuc_GoiYNhapHang.Text;
+            string selectedCategory = cmbLocTheoDanhMuc_GoiYNhapHang.Text.ToLower();
 
-            // Giả sử DataSource của dgvGoiYNhapHang là một DataTable
-            DataTable dt = dgvGoiYNhapHang.DataSource as DataTable;
-            if (dt != null)
+            foreach (DataGridViewRow row in dgvGoiYNhapHang.Rows)
             {
-                if (selectedCategory == "Tất cả")
-                {
-                    dt.DefaultView.RowFilter = ""; // Hiển thị toàn bộ dữ liệu
-                }
-                else
-                {
-                    // Lọc theo cột "Tendanhmuc" với giá trị được chọn
-                    dt.DefaultView.RowFilter = $"Tendanhmuc = '{selectedCategory}'";
-                }
+                if (row.IsNewRow) continue; // Bỏ qua hàng trống cuối cùng
+
+                string danhMuc = row.Cells["DanhMuc"].Value?.ToString().ToLower() ?? "";
+                row.Visible = (selectedCategory == "tất cả" || danhMuc == selectedCategory);
             }
         }
+
+
 
     }
 }
