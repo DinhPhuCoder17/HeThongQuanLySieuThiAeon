@@ -66,6 +66,7 @@ namespace DAL
             return true;
         }
 
+        //Lấy danh sách nhân viên
         public DataTable GetEmployeeList()
         {
             string query = @"

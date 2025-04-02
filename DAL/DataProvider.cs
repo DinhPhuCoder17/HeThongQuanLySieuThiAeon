@@ -15,9 +15,9 @@ namespace DAL
         //private String connectionStr = @"Data Source=DESKTOP-9UCJD9K;Initial Catalog=QuanLySieuThiAEON;Integrated Security=True;TrustServerCertificate=True";
 
         //Liêm
-        private String connectionStr = @"Data Source=LAPTOP-CKE458TU;Initial Catalog=QuanLySieuThiAEON;Integrated Security=True;Encrypt=True";
+        //private String connectionStr = @"Data Source=LAPTOP-CKE458TU;Initial Catalog=QuanLySieuThiAEON;Integrated Security=True;Encrypt=True";
 
-        //private String connectionStr = @"Data Source=.\SQLEXPRESS;Initial Catalog=QuanLySieuThiAEON;Integrated Security=True";
+        private String connectionStr = @"Data Source=.\SQLEXPRESS;Initial Catalog=QuanLySieuThiAEON;Integrated Security=True";
 
         //Phú
         //private String connectionStr = @"Data Source=LAPTOP-P1IHVTIA;Initial Catalog=QuanLySieuThiAEON;Integrated Security=True;Encrypt=True;TrustServerCertificate=True";

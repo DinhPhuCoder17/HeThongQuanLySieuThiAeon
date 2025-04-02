@@ -14,11 +14,11 @@ namespace DTO
         public string TenNCC { get; set; }
         public decimal Tiennhap { get; set; }
         public string Hang { get; set; }
-
+        public string DanhMuc { get; set; }
         public DTO_predictorHelper()
         {
         }
-        public DTO_predictorHelper(string mahanghoa, string tenhanghoa, string maNCC, string tenNCC, decimal tiennhap, string hang)
+        public DTO_predictorHelper(string mahanghoa, string tenhanghoa, string maNCC, string tenNCC, decimal tiennhap, string hang, string danhMuc)
         {
             Mahanghoa = mahanghoa;
             Tenhanghoa = tenhanghoa;
@@ -26,6 +26,7 @@ namespace DTO
             TenNCC = tenNCC;
             Tiennhap = tiennhap;
             Hang = hang;
+            DanhMuc = danhMuc;
         }
     }
 }
