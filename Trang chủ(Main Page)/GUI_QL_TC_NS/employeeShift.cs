@@ -4,11 +4,13 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Management;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
+using ClosedXML.Excel;
 using DTO;
 using Guna.UI2.WinForms;
 using ServiceStack.OrmLite.Converters;
@@ -560,6 +562,10 @@ namespace Trang_chủ_Main_Page_
                 {
                     MessageBox.Show("Thời gian bắt đầu và kết thúc không hợp lệ");
                 }
+                else if (dtp_Shift_Start.Value < DateTime.Now)
+                {
+                    MessageBox.Show("Không thể xếp ca làm trong quá khứ");
+                }
                 else if (txt_Shift_Number.Text == "")
                 {
                     MessageBox.Show("Số lượng nhân viên trống");
@@ -723,6 +729,205 @@ namespace Trang_chủ_Main_Page_
             {
                 MessageBox.Show("Đang ở chế độ thêm", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void btn_ExportCalendar_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Excel Files|*.xlsx";
+            saveFileDialog.Title = "Chọn nơi lưu file Excel";
+            saveFileDialog.FileName = "DanhSach.xlsx"; // Tên file mặc địn
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    using (var workbook = new XLWorkbook())
+                    {
+                        var worksheet = workbook.Worksheets.Add("Sheet1");
+
+                        
+
+                        String[] columnLetterInfo = { "A", "B", "C" };
+                        String[] columnLetter = { "D", "E", "F", "G", "H", "I", "J" };
+                        String[] columnLetterGeneral = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J" };
+
+                        String[] columnDayOfWeek = { "Mon", "Tue", "Wed", "Thur", "Fri", "Sat", "Sun" };
+                        String[] columnInfor = { "STT", "Họ Tên", "Vai Trò"};
+
+
+                        DateTime monday = today.AddDays(-(int)today.DayOfWeek + 1);
+
+                        // Nếu hôm nay là Chủ Nhật, lùi về Thứ Hai tuần trước
+                        if (today.DayOfWeek == DayOfWeek.Sunday)
+                        {
+                            monday = today.AddDays(-6);
+                        }
+
+                        DateTime sunday = monday;
+
+                        var range = worksheet.Range("A1:J1"); // Gộp ô A1 đến C1
+                        range.Merge(); // Gộp ô
+                                       // Thêm nội dung
+                        range.Value = $"{monday.ToString("dd/MM/yyyy")} - {sunday.AddDays(7).ToString("dd/MM/yyyy")}";
+
+                        // Căn giữa nội dung
+                        range.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+                        range.Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
+
+                        // In đậm chữ
+                        range.Style.Font.Bold = true;
+
+                        // Tăng cỡ chữ (tuỳ chọn)
+                        range.Style.Font.FontSize = 14;
+                        String cellAddress = "";
+                        int i = 0;
+
+                        //Add các ngày trong thứ của 1 tuần
+                        foreach(String text in columnLetter)
+                        {
+                            cellAddress = $"{text}2";
+                            worksheet.Cell(cellAddress).Value = columnDayOfWeek[i];
+                            worksheet.Cell(cellAddress).Style.Font.Bold = true;
+                            worksheet.Cell(cellAddress).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center; // Căn giữa ngang
+                            worksheet.Cell(cellAddress).Style.Alignment.Vertical = XLAlignmentVerticalValues.Center; // Căn giữa dọc
+                            worksheet.Cell(cellAddress).Style.Border.OutsideBorder = XLBorderStyleValues.Thin; // Thêm viền ngoài
+
+                            cellAddress = $"{text}3";
+                            worksheet.Cell(cellAddress).Value = sunday.ToString("MMM dd");
+                            worksheet.Cell(cellAddress).Style.Font.Bold = true;
+                            worksheet.Cell(cellAddress).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center; // Căn giữa ngang
+                            worksheet.Cell(cellAddress).Style.Alignment.Vertical = XLAlignmentVerticalValues.Center; // Căn giữa dọc
+                            worksheet.Cell(cellAddress).Style.Border.OutsideBorder = XLBorderStyleValues.Thin; // Thêm viền ngoài
+                            sunday = sunday.AddDays(1);
+                            i++;
+                        }
+
+                        i = 0;
+                        //Add cột STT, Họ tên, Vai trò
+                        foreach(String text in columnLetterInfo)
+                        {
+                            cellAddress = $"{text}3";
+                            worksheet.Cell(cellAddress).Value = columnInfor[i];
+                            worksheet.Cell(cellAddress).Style.Font.Bold = true;
+                            worksheet.Cell(cellAddress).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center; // Căn giữa ngang
+                            worksheet.Cell(cellAddress).Style.Alignment.Vertical = XLAlignmentVerticalValues.Center; // Căn giữa dọc
+                            worksheet.Cell(cellAddress).Style.Border.OutsideBorder = XLBorderStyleValues.Thin; // Thêm viền ngoài
+                            i++;
+                        }
+
+                        DataTable dt = bLL_QuanlyTCNS.xemLichLamViecTheoNV(monday, sunday);
+                        List<DTO_Nhanvien> listNV = new List<DTO_Nhanvien>();
+
+                        foreach(DataRow row in dt.Rows)
+                        {
+                            DTO_Calam cl = new DTO_Calam()
+                            {
+                                tgBatDau = DateTime.Parse(row[3].ToString()),
+                                tgKetThuc = DateTime.Parse(row[4].ToString()),
+                            };
+
+                            DTO_Nhanvien nv = new DTO_Nhanvien();
+                            {
+                                nv.maNhanvien = row[0].ToString();
+                                nv.hoTen = row[1].ToString();
+                                nv.vaiTro = row[2].ToString();
+                                nv.lichLam.Add(cl);
+                            }
+
+                            if(listNV.Count != 0)
+                            {
+                                bool isExists = false;
+                                foreach (DTO_Nhanvien nvCursor in listNV)
+                                {
+                                    if (nvCursor.MaNhanvien == nv.maNhanvien)
+                                    {
+                                        nvCursor.lichLam.Add(cl);
+                                        isExists = true;
+                                        break;
+                                    }
+                                }
+                                if(!isExists)
+                                {
+                                    listNV.Add(nv);
+                                }
+                            }
+                            else
+                            {
+                                listNV.Add(nv);
+                            }
+                        }
+
+                        int stt = 1;
+                        int j = 4;
+                        i = 0;
+                        int maxRow = 4;
+                        foreach(DTO_Nhanvien nvWrite in listNV)
+                        {
+                            j = maxRow;
+                            worksheet.Cell($"A{j}").Value = stt;
+                            worksheet.Cell($"B{j}").Value = nvWrite.HoTen;
+                            worksheet.Cell($"C{j}").Value = nvWrite.vaiTro;
+
+                            foreach(DTO_Calam cl in nvWrite.lichLam)
+                            {
+                                int tmp = j;
+                                var cell = worksheet.Cell(addressExcel(cl.tgBatDau, j));
+                                while (!cell.IsEmpty())
+                                {
+                                    j++;
+                                    cell = worksheet.Cell(addressExcel(cl.tgBatDau, j));
+                                }
+                                worksheet.Cell(addressExcel(cl.tgBatDau, j)).Value = $"{cl.tgBatDau.ToString("HH:mm")} - {cl.tgKetThuc.ToString("HH:mm")}";
+                                if(maxRow < j)
+                                {
+                                    maxRow = j;
+                                }
+                                j = tmp;
+                            }
+                            worksheet.Range($"A{stt}:J{maxRow}").Style.Border.OutsideBorder = XLBorderStyleValues.Thin; // Thêm viền ngoài
+                            
+                            foreach(String key in columnLetterGeneral)
+                            {
+                                worksheet.Range($"{key}3:{key}{maxRow}").Style.Border.OutsideBorder = XLBorderStyleValues.Thin; // Thêm viền ngoài
+                            }
+                            stt++;
+                            maxRow++;
+                        }
+
+                        worksheet.Columns().AdjustToContents(); // Tự động điều chỉnh chiều rộng cột
+                        worksheet.Rows().AdjustToContents();
+                        workbook.SaveAs(saveFileDialog.FileName);
+
+                        Console.WriteLine("File Excel đã được tạo với dữ liệu tự động chuyển cột tại: " + saveFileDialog.FileName);
+                    }
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show("Lỗi khi xuất Excel: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+        }
+        private String addressExcel(DateTime date,int row)
+        {
+            switch(date.DayOfWeek)
+            {
+                case DayOfWeek.Monday:
+                    return $"D{row}";
+                case DayOfWeek.Tuesday:
+                    return $"E{row}";
+                case DayOfWeek.Wednesday:
+                    return $"F{row}";
+                case DayOfWeek.Thursday:
+                    return $"G{row}";
+                case DayOfWeek.Friday:
+                    return $"H{row}";
+                case DayOfWeek.Saturday:
+                    return $"I{row}";
+                case DayOfWeek.Sunday:
+                    return $"J{row}";
+            }
+            return "";
         }
     }
 }

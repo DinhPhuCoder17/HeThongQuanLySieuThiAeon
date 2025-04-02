@@ -27,5 +27,7 @@ namespace DTO
             this.soLuongNhanVien = soLuongNhanVien;
             PC_Nhanvien = pC_Nhanvien;
         }
+
+        public DTO_Calam() { }
     }
 }
