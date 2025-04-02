@@ -38,7 +38,8 @@ namespace BLL
                         info.Tenhanghoa,
                         pred.SoLuongCanDat,
                         info.Tiennhap,
-                        thanhTien
+                        thanhTien,
+                        info.DanhMuc
                     );
                 }
             }

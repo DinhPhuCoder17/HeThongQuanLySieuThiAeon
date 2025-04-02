@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BLL;
+using DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,34 +9,109 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Trang_chu_Main_Page_.GUI_QLHangHoa;
 
 namespace Trang_chủ_Main_Page_
 {
     public partial class DSTonKho : Form
     {
+        private DataTable dtHangHoa;
+        BindingSource bindingSource = new BindingSource();
         public DSTonKho()
         {
+            List<DTO_Hanghoa> danhSachTonKho = BLLQuanLyKho.Instance.XemDSTonKho();
+            List<DTO_Hanghoa> dsHH = BLLQuanLyKho.Instance.XemDSTonKho();
             InitializeComponent();
+
+            int count = danhSachTonKho.Count(item => item.GetType() == typeof(DTO_Hanghoa));
+            lblTongSoLuongSanPham.Text = $"Tổng số lượng hàng hóa: {count}";
+
+            var unique = dsHH.GroupBy(dd => dd.DanhMuc)
+                     .Select(g => g.First())
+                     .ToList();
+            var tatCa = new DTO_Hanghoa
+            {
+                DanhMuc = "Tất cả"
+            };
+
+            unique.Insert(0, tatCa);
+
+            cmb_SapXepDM_DSTK.DataSource = unique;
+            cmb_SapXepDM_DSTK.DisplayMember = "DanhMuc";
+            ;
         }
 
-        private void DSTonKho_Load(object sender, EventArgs e)
+         private void DSTonKho_Load(object sender, EventArgs e)
         {
 
-            // Thêm 10 dòng dữ liệu vào guna2DataGridView2
-            dgvDSTonKHo.Rows.Add("DH001", "Sản phẩm A", "Điện tử", 5, "10%", 500000, 550000);
-            dgvDSTonKHo.Rows.Add("DH002", "Sản phẩm B", "Gia dụng", 2, "5%", 200000, 210000);
-            dgvDSTonKHo.Rows.Add("DH003", "Sản phẩm C", "Thực phẩm", 10, "5%", 100000, 120000);
-            dgvDSTonKHo.Rows.Add("DH004", "Sản phẩm D", "Thời trang", 3, "15%", 300000, 350000);
-            dgvDSTonKHo.Rows.Add("DH005", "Sản phẩm E", "Sức khỏe", 7, "20%", 150000, 180000);
-            dgvDSTonKHo.Rows.Add("DH006", "Sản phẩm F", "Đồ chơi", 4, "25%", 250000, 300000);
-            dgvDSTonKHo.Rows.Add("DH007", "Sản phẩm G", "Máy móc", 1, "8%", 800000, 900000);
-            dgvDSTonKHo.Rows.Add("DH008", "Sản phẩm H", "Văn phòng phẩm", 6, "12%", 120000, 140000);
-            dgvDSTonKHo.Rows.Add("DH009", "Sản phẩm I", "Làm đẹp", 9, "18%", 180000, 200000);
-            dgvDSTonKHo.Rows.Add("DH010", "Sản phẩm J", "Công nghệ", 8, "22%", 220000, 250000);
+            dgvDSTonKho.AutoGenerateColumns = false;
+            dgvDSTonKho.Columns.Clear();
+
+            var colMaHang = new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "MaHangHoa",
+                HeaderText = "Mã hàng",
+                Name = "colMaHang"
+            };
+            dgvDSTonKho.Columns.Add(colMaHang);
+            var colTenHang = new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "TenHangHoa",
+                HeaderText = "Tên hàng",
+                Name = "colTenHang"
+            };
+            dgvDSTonKho.Columns.Add(colTenHang);
+            var colDanhMuc = new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "DanhMuc",
+                HeaderText = "Danh mục",
+                Name = "colDanhMuc"
+            };
+            dgvDSTonKho.Columns.Add(colDanhMuc);
+            var colSoLuong = new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "SoLuong",
+                HeaderText = "Số lượng",
+                Name = "colSoLuong"
+            };
+            dgvDSTonKho.Columns.Add(colSoLuong);
+            var colGiaBan = new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "GiaBan",
+                HeaderText = "Giá bán",
+                Name = "colGiaBan"
+            };
+            dgvDSTonKho.Columns.Add(colGiaBan);
+            var colGiaNhap = new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "GiaNhap",
+                HeaderText = "Giá Nhập",
+                Name = "colGiaNhap"
+            };
+            dgvDSTonKho.Columns.Add(colGiaNhap);
+            var colNhaCC = new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "NhaCC",
+                HeaderText = "Nhà Cung Cấp",
+                Name = "colNhaCC"
+            };
+            dgvDSTonKho.Columns.Add(colNhaCC);
+            var colTHSD = new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "THSD",
+                HeaderText = "Thời Hạn Sử Dụng",
+                Name = "colTHSD"
+            };
+            dgvDSTonKho.Columns.Add(colTHSD);
+            LoadData();
+        }
 
 
 
-
+        private void LoadData()
+        {
+            List<DTO_Hanghoa> danhSachTonKho = BLLQuanLyKho.Instance.XemDSTonKho();
+            dgvDSTonKho.DataSource = danhSachTonKho;
         }
 
         private void guna2HtmlLabel1_Click(object sender, EventArgs e)
@@ -46,7 +123,81 @@ namespace Trang_chủ_Main_Page_
         {
 
         }
+        private void dgv_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgvDSTonKho.Rows[e.RowIndex];
 
+                string mahh = row.Cells["colMahang"].Value.ToString();
+
+                DataTable dt = BLLQuanLyKho.Instance.XemCTHH(mahh);
+
+                if (dt.Rows.Count > 0)
+                {
+                    CTHH formCTHH = new CTHH
+                    {
+                        DataCTHH = dt
+                    };
+                    formCTHH.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Không tìm thấy dữ liệu cho mã hàng: " + mahh);
+                }
+            }
+        }
+
+
+
+
+        private void txt_HH_SearchBar_TextChanged(object sender, EventArgs e)
+        {
+            string keyword = txtSearchDSTonKho.Text.Trim().ToLower();
+
+            if (!string.IsNullOrEmpty(keyword))
+            {
+                var filteredList = BLLQuanLyKho.Instance.XemDSTonKho()
+                    .Where(hh => hh.MaHangHoa.ToLower().Contains(keyword) ||
+                                 hh.TenHangHoa.ToLower().Contains(keyword) ||
+                                 hh.DanhMuc.ToLower().Contains(keyword) ||
+                                 hh.NhaCC.ToLower().Contains(keyword) ||
+                                 hh.SoLuong.ToString().Contains(keyword) ||
+                                 hh.GiaBan.ToString().Contains(keyword) ||
+                                 hh.GiaNhap.ToString().Contains(keyword) ||
+                                 hh.THSD.ToString().Contains(keyword))
+                    .ToList();
+
+                bindingSource.DataSource = filteredList;
+            }
+            else
+            {
+                bindingSource.DataSource = BLLQuanLyKho.Instance.XemDSTonKho();
+            }
+
+            dgvDSTonKho.DataSource = bindingSource;
+        }
+
+
+        private void cmbSelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedCategory = cmb_SapXepDM_DSTK.Text;
+            List<DTO_Hanghoa> danhSachTonKho = BLLQuanLyKho.Instance.XemDSTonKho();
+
+            if (selectedCategory == "Tất cả")
+            {
+                dgvDSTonKho.DataSource = danhSachTonKho;
+            }
+            else
+            {
+                var filterList = danhSachTonKho
+                    .Where(hh => hh.DanhMuc == selectedCategory)
+                    .ToList();
+                dgvDSTonKho.DataSource = filterList;
+            }
+        }
+
+       
         private void guna2CustomGradientPanel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -74,6 +225,16 @@ namespace Trang_chủ_Main_Page_
         }
 
         private void guna2GradientTileButton3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLuu_DSTonKho_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblTongSoLuongSanPham_Click(object sender, EventArgs e)
         {
 
         }

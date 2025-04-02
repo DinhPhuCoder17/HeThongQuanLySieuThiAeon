@@ -28,7 +28,7 @@ namespace Trang_chủ_Main_Page_
             cmbTenNcc.DisplayMember = "TenNCC";
             cmbTenNcc.ValueMember = "MaNCC";
 
-            lbTenNcc.Text = "NCC0001";
+            lbTenNcc.Text = "NC0001";
 
             this.StartPosition = FormStartPosition.CenterScreen;
         }
@@ -71,12 +71,12 @@ namespace Trang_chủ_Main_Page_
             {
                 DTO_Hanghoa hangHoa = new DTO_Hanghoa
                 {
-                    TenHangHoa = txtTenHangHoa.Text,
-                    DanhMuc = txtTenDanhMuc.Text,
-                    THSD = int.Parse(txtTHSD.Text),
-                    GiaNhap = float.Parse(txtTienNhap.Text),
-                    GiaBan = float.Parse(txtTienBan.Text),
-                    NhaCC = lbTenNcc.Text
+                    TenHangHoa = txtTenHangHoa.Text.Trim(),
+                    DanhMuc = txtTenDanhMuc.Text.Trim(),
+                    THSD = int.Parse(txtTHSD.Text.Trim()),
+                    GiaNhap = float.Parse(txtTienNhap.Text.Trim()),
+                    GiaBan = float.Parse(txtTienBan.Text.Trim()),
+                    NhaCC = lbTenNcc.Text.Trim()
                 };
 
                 if (imgImage.Image != null)

@@ -12,13 +12,13 @@ namespace DTO
 
         public String maHoaDon { get; set; }
         public String tenHangHoa { get; set; }
-        public double soLuong { get; set; }
+        public String  soLuong { get; set; }
         public double tongTien { get; set; }
 
         public List<DTO_CT_HDBH> CTHD { get; set; }
 
 
-        public DTO_CT_HDBH(String maHoadon, String maHangHoa, String tenHangHoa,double soLuong, double tongTien)
+        public DTO_CT_HDBH(String maHoadon, String maHangHoa, String tenHangHoa,String soLuong, double tongTien)
         {
             this.maHangHoa = maHangHoa;
             this.maHoaDon = maHoadon;

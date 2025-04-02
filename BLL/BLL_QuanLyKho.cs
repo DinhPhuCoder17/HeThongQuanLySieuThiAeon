@@ -52,7 +52,14 @@ namespace BLL
      
                 return dsHangHoa;
             }
-            public List<DTO_Hanghoa> hangHoa_NhapHang()
+        public DataTable XemCTHH(string mahh)
+        {
+            return DAL_QuanLyKho.Instance.XemCTHH(mahh);
+        }
+
+
+      
+        public List<DTO_Hanghoa> hangHoa_NhapHang()
             {
             DataTable dt = DAL_QuanLyKho.hangHoa_NhapHang();
             List<DTO_Hanghoa> list = new List<DTO_Hanghoa>();
@@ -195,8 +202,6 @@ namespace BLL
         {
             return DAL_QuanLyKho.Instance.xemNgayDatHang(MaNH);
         }
-
-
         public DataTable timKiemHDNH(String tukhoa)
         {
             return DAL_QuanLyKho.Instance.timKiemHDNH(tukhoa);

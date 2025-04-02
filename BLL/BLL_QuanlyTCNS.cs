@@ -19,7 +19,21 @@ namespace BLL
 
         private readonly DAL_QuanlyTCNS dAL_QuanlyTCNS = new DAL_QuanlyTCNS();
 
+        public DataTable LoadDuLieuPieChart(int currentYear, int currentMonth)
+        {
+            return dAL_QuanlyTCNS.LoadDuLieuPieChart(currentYear, currentMonth);
+        }
+        // theem du lieu bieu do cot thu
 
+        public DataTable LoadDuLieuChartThu(int currentYear, int currentMonth)
+        {
+            return dAL_QuanlyTCNS.LoadDuLieuChartThu(currentYear, currentMonth);
+        }
+        //Them du lieu bieu do cot chi
+        public DataTable LoadDuLieuChartChi(int currentYear, int currentMonth)
+        {
+            return dAL_QuanlyTCNS.LoadDuLieuChartChi( currentYear,  currentMonth);
+        }
         //loc   danh sach hóa đơn theo ngày
         public DataTable locHoaDon(DateTime ngayBatDau, DateTime ngayKetThuc)
         {
@@ -148,20 +162,27 @@ namespace BLL
             {
                 // Đọc dữ liệu từ file Excel
                 var (danhSachHoaDon, danhSachCTHD) = ReadHoaDonExcelFile(filePath);
-
+                int count = 0;
                 // Lưu hóa đơn vào CSDL
-                foreach (var hoaDon in danhSachHoaDon)
+                foreach (var hoaDon in danhSachHoaDon )
                 {
                     bool success = dal.ThemHoaDon(hoaDon);
                     if (!success) return false;
+                    var item = danhSachCTHD[count];
+                    item.maHoaDon = hoaDon.maHoaDon;
+                    count++;
+                    string danhSachSanPham = item.tenHangHoa; ;  // Chuỗi sản phẩm
+                    string danhSachSoLuong = item.soLuong;
+                    var chiTietHoaDons = TachSanPhamVaSoLuong(danhSachSanPham, danhSachSoLuong);
+                foreach (var cthd in chiTietHoaDons)
+                {
+                    bool success1 = dal.ThemChiTietHoaDon(cthd);
+                    if (!success) return false;
+                }
+
                 }
 
                 // Lưu chi tiết hóa đơn vào CSDL
-                foreach (var cthd in danhSachCTHD)
-                {
-                    bool success = dal.ThemChiTietHoaDon(cthd);
-                    if (!success) return false;
-                }
 
                 return true;
             }
@@ -204,7 +225,7 @@ namespace BLL
                                     null, // Mã hàng hóa
                                     null, // Mã hóa đơn (có thể cần cập nhật sau)
                                     dataTable.Rows[i][3]?.ToString(), // Tên hàng hóa
-                                    double.TryParse(dataTable.Rows[i][4]?.ToString(), out double soLuong) ? soLuong : 0.0, // Số lượng
+                                    dataTable.Rows[i][4]?.ToString(), // Số lượng
                                     0 // Tổng tiền
                                 );
 
@@ -227,6 +248,33 @@ namespace BLL
             return (listHoaDon, listCTHD);
         }
 
+        public List<DTO_CT_HDBH> TachSanPhamVaSoLuong(string danhSachSanPham, string danhSachSoLuong)
+        {
+            List<DTO_CT_HDBH> danhSachCTHD = new List<DTO_CT_HDBH>();
+
+            string[] sanPhams = danhSachSanPham.Split(',');
+            string[] soLuongs = danhSachSoLuong.Split(',');
+
+            if (sanPhams.Length != soLuongs.Length)
+            {
+                throw new Exception("Số lượng sản phẩm và số lượng không khớp!");
+            }
+
+            for (int i = 0; i < sanPhams.Length; i++)
+            {
+                DTO_CT_HDBH cT_HDB = new DTO_CT_HDBH(
+                                   null, // Mã hàng hóa
+                                   null, // Mã hóa đơn (có thể cần cập nhật sau)
+                                   sanPhams[i].Trim(),
+                                   soLuongs[i].Trim(),// Số lượng
+                                   0 // Tổng tiền
+                               );
+                danhSachCTHD.Add(cT_HDB);
+            }
+
+            return danhSachCTHD;
+        }
+
         //THêm hóa đơn 
         public bool ThemHoaDon(DateTime thoiGianBan, string maNhanVien, int soDienThoai, double thanhTien)
         {
@@ -239,7 +287,7 @@ namespace BLL
             return false;
         }
         //thêm  chi tiết hóa đơn
-        public bool ThemChiTietHoaDon(string tenHangHoa, double soLuong)
+        public bool ThemChiTietHoaDon(string tenHangHoa, String  soLuong)
         {
             DTO_CT_HDBH chiTietHoaDon = new DTO_CT_HDBH(null,null, tenHangHoa, soLuong, 0);
 
@@ -317,7 +365,11 @@ namespace BLL
             }
             return false;
         }
-
+        //tim kiem Hoa Don
+        public DataTable timKiemHoaDon( String tukhoa)
+        {
+            return dAL_QuanlyTCNS.timKiemHoaDon(tukhoa);
+        }
 
         //Tìm kiếm khách hàng
         public DataTable timKiemKH(String tukhoa)

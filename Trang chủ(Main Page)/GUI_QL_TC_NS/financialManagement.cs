@@ -123,5 +123,17 @@ namespace Trang_chủ_Main_Page_
 
             dtg_Bill.DataSource = dt; // Hiển thị trên DataGridView
         }
+
+        private void txt_Bill_SearchBar_TextChanged(object sender, EventArgs e)
+        {
+            if (txt_Bill_SearchBar.Text == "")
+            {
+                financialManagement_Load(sender, e);
+            }
+            else
+            {
+                dtg_Bill.DataSource = bLL_QuanlyTCNS.timKiemHoaDon(txt_Bill_SearchBar.Text);
+            }
+        }
     }
 }
