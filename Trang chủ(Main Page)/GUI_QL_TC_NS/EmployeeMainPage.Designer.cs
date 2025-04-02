@@ -450,6 +450,7 @@
             this.btn_SignOut.TabIndex = 8;
             this.btn_SignOut.Text = "Đăng Xuất";
             this.btn_SignOut.TextOffset = new System.Drawing.Point(1, 0);
+            this.btn_SignOut.Click += new System.EventHandler(this.btn_SignOut_Click);
             // 
             // EmployeeMainPage
             // 

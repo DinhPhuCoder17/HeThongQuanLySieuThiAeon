@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
+using Guna.UI2.WinForms;
 
 namespace Trang_chủ_Main_Page_
 {
@@ -39,7 +40,9 @@ namespace Trang_chủ_Main_Page_
 
         }
 
-        
+
+        private int soLanNhap = 3; //Số lần nhập sai tối đa
+        private int countdown = 30; //Thời gian chờ 30s
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             string username = guna2TextBox1.Text;
@@ -57,6 +60,9 @@ namespace Trang_chủ_Main_Page_
 
             if (role != null)
             {
+                soLanNhap = 3; //Đặt lại soLanNhap nếu đăng nhập thành công
+                lblWarning.Text = ""; //Xóa cảnh báo nếu có
+
                 // Gán giá trị cho pageSelection dựa vào role lấy từ database
                 if (role == "Admin")
                     Mainpage.pageSelection = 3;
@@ -73,8 +79,40 @@ namespace Trang_chủ_Main_Page_
             else
             {
                 MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                soLanNhap--;
+                if(soLanNhap > 0)
+                {
+                    lblWarning.Text = "Sai mật khẩu hoặc tên tài khoản! Còn " + soLanNhap + " lần nhập.";
+                }
+                else
+                {
+                    lblWarning.Text = "Bạn đã nhập sai quá 3 lần. Vui lòng đợi 30s...";
+                    guna2GradientButton2.Enabled = false;
+                    StartLockTimer();
+                }
             }
+        }
+        // Hàm bắt đầu khóa đăng nhập
+        private void StartLockTimer()
+        {
+            countdown = 30;
+            timer1.Interval = 1000; // 1 giây
+            timer1.Tick += timer1_Tick;
+            timer1.Start();
+        }
+        //Hàm xử lý đếm ngược
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            countdown--;
+            lblWarning.Text = "Bạn đã nhập sai quá 3 lần. Vui lòng đợi " + countdown + "s...";
 
+            if (countdown <= 0)
+            {
+                timer1.Stop();
+                guna2GradientButton2.Enabled = true;
+                lblWarning.Text = ""; // Xóa cảnh báo
+                soLanNhap = 3; // Reset số lần nhập sai
+            }
         }
 
         private void lblTk_Click(object sender, EventArgs e)
@@ -113,6 +151,7 @@ namespace Trang_chủ_Main_Page_
         {
 
         }
+
 
         // (Code vá của Liemp)
         //private void guna2TextBox1_TextChanged(object sender, EventArgs e)

@@ -75,15 +75,19 @@ namespace Trang_chủ_Main_Page_
         private void ButtonDangXuat_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show(
-            "Bạn có chắc chắn muốn đăng xuất?", 
+            "Bạn có chắc chắn muốn đăng xuất?",
             "Xác nhận đăng xuất",
             MessageBoxButtons.OKCancel,
-            MessageBoxIcon.Question 
+            MessageBoxIcon.Question
             );
 
-            if(result == DialogResult.OK)
+            if (result == DialogResult.OK)
             {
-                Application.Exit();
+                this.Hide();
+                Mainpage mainpage = new Mainpage();
+                mainpage.Show();
+
+                this.Close();
             }
         }
 
