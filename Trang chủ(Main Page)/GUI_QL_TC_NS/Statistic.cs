@@ -46,7 +46,14 @@ namespace Trang_chủ_Main_Page_
         }
 
 
+        public void LoadPieChartData()
+        {
+            UpdateMonthLabel();
+            int selectedYear = selectedMonth.Year;
+            int selectedMonthValue = selectedMonth.Month;
+            DataTable dt = bLL_QuanlyTCNS.LoadDuLieuPieChart(selectedYear, selectedMonthValue);
 
+        }
 
         public void LoadData()
         {

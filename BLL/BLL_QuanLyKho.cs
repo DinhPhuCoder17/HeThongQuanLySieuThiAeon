@@ -58,6 +58,7 @@ namespace BLL
         }
 
 
+      
         public List<DTO_Hanghoa> hangHoa_NhapHang()
             {
             DataTable dt = DAL_QuanLyKho.hangHoa_NhapHang();
