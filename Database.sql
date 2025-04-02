@@ -618,6 +618,7 @@ Select @maxMaHDNH = MAX(Sohd) from HD_Nhaphang
 	Values (@newMaHDNH, getDate(), N'Chờ Xác Nhận', @Tongtien, @Soluong, DATEADD(MONTH, 1, GETDATE()));
 	print 'adding successfully: ' + @newMaHDNH;
 End;
+go
 --DROP PROCEDURE usp_GetWeeklyExpense
 CREATE PROCEDURE usp_GetWeeklyExpense
     @Year INT,
@@ -643,7 +644,7 @@ BEGIN
     FROM WeeklyData
     ORDER BY WeekNumber;
 END;
-
+go
 CREATE PROCEDURE usp_GetWeeklyRevenue
     @Year INT,
     @Month INT
@@ -670,7 +671,7 @@ BEGIN
 END;
 GO
 
-
+go
 
 -- Procedure thêm dữ liệu bảng chấm công
 	-- Tự động thêm khoá chính
@@ -989,15 +990,7 @@ VALUES
 
 -- Tiếp tục với 90 dòng còn lại...
 
-INSERT INTO HD_HH (Mahanghoa, Sohd, Ngaynhap, Soluongdat, Soluongnhan, Ngaysanxuat, Hansudung, Thanhtien, Trangthai)
-VALUES
-('HH011', 'HD011', '2024-03-03', 40, 40, '2023-02-15', '2025-02-15', 40000, 'Đã Nhập Kho'),
-('HH012', 'HD012', '2024-03-09', 50, 50, '2023-01-20', '2025-01-20', 50000, 'Đã Nhập Kho'),
-('HH013', 'HD013', '2024-03-15', 60, 60, '2022-12-25', '2024-12-25', 60000, 'Đã Nhập Kho'),
-('HH014', 'HD014', '2024-03-21', 70, 70, '2022-11-30', '2024-11-30', 70000, 'Đã Nhập Kho'),
-('HH015', 'HD015', '2024-03-27', 45, 45, '2022-10-10', '2024-10-10', 45000, 'Đã Nhập Kho');
 
--- Lặp lại với các mã hàng hóa khác nhau đến đủ 100 dòng
 
 INSERT INTO HD_Nhaphang (Sohd, Ngaydat, Trangthai, Tongtien, Soluong, Hanthanhtoan )
 VALUES
