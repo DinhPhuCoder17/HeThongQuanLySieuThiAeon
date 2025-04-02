@@ -11,7 +11,20 @@ using Microsoft.Identity.Client;
 namespace DAL
 {
     public class DAL_QuanlyTCNS
-    {
+    {   // Them du lieu bieu do cot tong thu
+        public DataTable LoadDuLieuChartThu(int currentYear, int currentMonth)
+        {
+            string query = "EXEC usp_GetWeeklyRevenue @Year , @Month";
+            DataTable dt = DataProvider.Instance.ExecuteQuery(query, new object[] { currentYear, currentMonth });
+            return dt;
+        }
+        //  Them du lieu bieu do cot tong chi
+        public DataTable LoadDuLieuChartChi( int currentYear, int currentMonth)
+        {
+            string query = "EXEC usp_GetWeeklyExpense @Year , @Month";
+            DataTable dt = DataProvider.Instance.ExecuteQuery(query, new object[] { currentYear, currentMonth });
+            return dt;
+        }
         // loc hoa don
         public DataTable locHoaDon(DateTime startDate, DateTime endDate)
         {
@@ -97,9 +110,10 @@ namespace DAL
             try
             {
                 int line = DataProvider.Instance.ExecuteNonQuery(
-                    "EXEC themHH_HDBH @Tenhanghoa , @Soluong",
+                    "EXEC themHH_HDBH  @Tenhanghoa , @Soluong",
                     new object[]
                     {
+                
                 chiTietHoaDon.tenHangHoa, // Tên hàng hóa
                 chiTietHoaDon.soLuong,   // Số lượng
                     });

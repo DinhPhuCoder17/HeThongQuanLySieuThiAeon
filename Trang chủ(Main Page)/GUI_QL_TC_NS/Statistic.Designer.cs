@@ -30,21 +30,21 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Statistic));
-            Guna.Charts.WinForms.ChartFont chartFont1 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.ChartFont chartFont2 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.ChartFont chartFont3 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.ChartFont chartFont4 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Grid grid1 = new Guna.Charts.WinForms.Grid();
-            Guna.Charts.WinForms.Tick tick1 = new Guna.Charts.WinForms.Tick();
-            Guna.Charts.WinForms.ChartFont chartFont5 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Grid grid2 = new Guna.Charts.WinForms.Grid();
-            Guna.Charts.WinForms.Tick tick2 = new Guna.Charts.WinForms.Tick();
-            Guna.Charts.WinForms.ChartFont chartFont6 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Grid grid3 = new Guna.Charts.WinForms.Grid();
-            Guna.Charts.WinForms.PointLabel pointLabel1 = new Guna.Charts.WinForms.PointLabel();
-            Guna.Charts.WinForms.ChartFont chartFont7 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Tick tick3 = new Guna.Charts.WinForms.Tick();
-            Guna.Charts.WinForms.ChartFont chartFont8 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont9 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont10 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont11 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont12 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Grid grid4 = new Guna.Charts.WinForms.Grid();
+            Guna.Charts.WinForms.Tick tick4 = new Guna.Charts.WinForms.Tick();
+            Guna.Charts.WinForms.ChartFont chartFont13 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Grid grid5 = new Guna.Charts.WinForms.Grid();
+            Guna.Charts.WinForms.Tick tick5 = new Guna.Charts.WinForms.Tick();
+            Guna.Charts.WinForms.ChartFont chartFont14 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Grid grid6 = new Guna.Charts.WinForms.Grid();
+            Guna.Charts.WinForms.PointLabel pointLabel2 = new Guna.Charts.WinForms.PointLabel();
+            Guna.Charts.WinForms.ChartFont chartFont15 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Tick tick6 = new Guna.Charts.WinForms.Tick();
+            Guna.Charts.WinForms.ChartFont chartFont16 = new Guna.Charts.WinForms.ChartFont();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2Elipse2 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.lbl2 = new System.Windows.Forms.Label();
@@ -54,10 +54,13 @@
             this.lblTotalExpense = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.guna2Panel8 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnPrevCalendar1 = new Guna.UI2.WinForms.Guna2GradientCircleButton();
+            this.btn_NextCalendar = new Guna.UI2.WinForms.Guna2GradientCircleButton();
             this.c_Satistic = new Guna.Charts.WinForms.GunaChart();
             this.cRevenue = new Guna.Charts.WinForms.GunaBarDataset();
-            this.cProfit = new Guna.Charts.WinForms.GunaBarDataset();
             this.cExpense = new Guna.Charts.WinForms.GunaBarDataset();
+            this.cProfit = new Guna.Charts.WinForms.GunaBarDataset();
+            this.lbl_Month_Display = new System.Windows.Forms.Label();
             this.guna2Panel10 = new Guna.UI2.WinForms.Guna2Panel();
             this.label15 = new System.Windows.Forms.Label();
             this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
@@ -82,10 +85,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.lblTotalRevenue = new System.Windows.Forms.Label();
             this.lbl1 = new System.Windows.Forms.Label();
-            this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.btnPrevCalendar1 = new Guna.UI2.WinForms.Guna2GradientCircleButton();
-            this.btn_NextCalendar = new Guna.UI2.WinForms.Guna2GradientCircleButton();
-            this.lbl_Month_Display = new System.Windows.Forms.Label();
             this.guna2Panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).BeginInit();
             this.guna2Panel8.SuspendLayout();
@@ -192,43 +191,89 @@
             this.guna2Panel8.Size = new System.Drawing.Size(850, 476);
             this.guna2Panel8.TabIndex = 1;
             // 
+            // btnPrevCalendar1
+            // 
+            this.btnPrevCalendar1.Animated = true;
+            this.btnPrevCalendar1.BackColor = System.Drawing.Color.Transparent;
+            this.btnPrevCalendar1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnPrevCalendar1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnPrevCalendar1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnPrevCalendar1.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnPrevCalendar1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnPrevCalendar1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.btnPrevCalendar1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
+            this.btnPrevCalendar1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnPrevCalendar1.ForeColor = System.Drawing.Color.White;
+            this.btnPrevCalendar1.Image = global::Trang_chu_Main_Page_.Properties.Resources.roiii;
+            this.btnPrevCalendar1.ImageSize = new System.Drawing.Size(50, 50);
+            this.btnPrevCalendar1.Location = new System.Drawing.Point(15, 14);
+            this.btnPrevCalendar1.Name = "btnPrevCalendar1";
+            this.btnPrevCalendar1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.btnPrevCalendar1.Size = new System.Drawing.Size(55, 55);
+            this.btnPrevCalendar1.TabIndex = 29;
+            this.btnPrevCalendar1.UseTransparentBackground = true;
+            this.btnPrevCalendar1.Click += new System.EventHandler(this.btnPrevCalendar1_Click);
+            // 
+            // btn_NextCalendar
+            // 
+            this.btn_NextCalendar.Animated = true;
+            this.btn_NextCalendar.BackColor = System.Drawing.Color.Transparent;
+            this.btn_NextCalendar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_NextCalendar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_NextCalendar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_NextCalendar.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_NextCalendar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_NextCalendar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.btn_NextCalendar.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
+            this.btn_NextCalendar.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btn_NextCalendar.ForeColor = System.Drawing.Color.White;
+            this.btn_NextCalendar.Image = global::Trang_chu_Main_Page_.Properties.Resources._1_ht;
+            this.btn_NextCalendar.ImageSize = new System.Drawing.Size(50, 50);
+            this.btn_NextCalendar.Location = new System.Drawing.Point(777, 14);
+            this.btn_NextCalendar.Name = "btn_NextCalendar";
+            this.btn_NextCalendar.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.btn_NextCalendar.Size = new System.Drawing.Size(55, 55);
+            this.btn_NextCalendar.TabIndex = 30;
+            this.btn_NextCalendar.UseTransparentBackground = true;
+            this.btn_NextCalendar.Click += new System.EventHandler(this.btn_NextCalendar1_Click);
+            // 
             // c_Satistic
             // 
             this.c_Satistic.Datasets.AddRange(new Guna.Charts.Interfaces.IGunaDataset[] {
             this.cRevenue,
-            this.cProfit,
-            this.cExpense});
-            chartFont1.FontName = "Arial";
-            this.c_Satistic.Legend.LabelFont = chartFont1;
+            this.cExpense,
+            this.cProfit});
+            chartFont9.FontName = "Arial";
+            this.c_Satistic.Legend.LabelFont = chartFont9;
             this.c_Satistic.Location = new System.Drawing.Point(8, 75);
             this.c_Satistic.Name = "c_Satistic";
             this.c_Satistic.Size = new System.Drawing.Size(833, 387);
             this.c_Satistic.TabIndex = 0;
-            chartFont2.FontName = "Arial";
-            chartFont2.Size = 12;
-            chartFont2.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
-            this.c_Satistic.Title.Font = chartFont2;
-            chartFont3.FontName = "Arial";
-            this.c_Satistic.Tooltips.BodyFont = chartFont3;
-            chartFont4.FontName = "Arial";
-            chartFont4.Size = 9;
-            chartFont4.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
-            this.c_Satistic.Tooltips.TitleFont = chartFont4;
-            this.c_Satistic.XAxes.GridLines = grid1;
-            chartFont5.FontName = "Arial";
-            tick1.Font = chartFont5;
-            this.c_Satistic.XAxes.Ticks = tick1;
-            this.c_Satistic.YAxes.GridLines = grid2;
-            chartFont6.FontName = "Arial";
-            tick2.Font = chartFont6;
-            this.c_Satistic.YAxes.Ticks = tick2;
-            this.c_Satistic.ZAxes.GridLines = grid3;
-            chartFont7.FontName = "Arial";
-            pointLabel1.Font = chartFont7;
-            this.c_Satistic.ZAxes.PointLabels = pointLabel1;
-            chartFont8.FontName = "Arial";
-            tick3.Font = chartFont8;
-            this.c_Satistic.ZAxes.Ticks = tick3;
+            chartFont10.FontName = "Arial";
+            chartFont10.Size = 12;
+            chartFont10.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
+            this.c_Satistic.Title.Font = chartFont10;
+            chartFont11.FontName = "Arial";
+            this.c_Satistic.Tooltips.BodyFont = chartFont11;
+            chartFont12.FontName = "Arial";
+            chartFont12.Size = 9;
+            chartFont12.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
+            this.c_Satistic.Tooltips.TitleFont = chartFont12;
+            this.c_Satistic.XAxes.GridLines = grid4;
+            chartFont13.FontName = "Arial";
+            tick4.Font = chartFont13;
+            this.c_Satistic.XAxes.Ticks = tick4;
+            this.c_Satistic.YAxes.GridLines = grid5;
+            chartFont14.FontName = "Arial";
+            tick5.Font = chartFont14;
+            this.c_Satistic.YAxes.Ticks = tick5;
+            this.c_Satistic.ZAxes.GridLines = grid6;
+            chartFont15.FontName = "Arial";
+            pointLabel2.Font = chartFont15;
+            this.c_Satistic.ZAxes.PointLabels = pointLabel2;
+            chartFont16.FontName = "Arial";
+            tick6.Font = chartFont16;
+            this.c_Satistic.ZAxes.Ticks = tick6;
             this.c_Satistic.Load += new System.EventHandler(this.c_Satistic_Load);
             // 
             // cRevenue
@@ -237,17 +282,28 @@
             this.cRevenue.Label = "Tổng Thu";
             this.cRevenue.TargetChart = this.c_Satistic;
             // 
+            // cExpense
+            // 
+            this.cExpense.CornerRadius = 8;
+            this.cExpense.Label = "Tổng Chi";
+            this.cExpense.TargetChart = this.c_Satistic;
+            // 
             // cProfit
             // 
             this.cProfit.CornerRadius = 8;
             this.cProfit.Label = "Lợi Nhuận";
             this.cProfit.TargetChart = this.c_Satistic;
             // 
-            // cExpense
+            // lbl_Month_Display
             // 
-            this.cExpense.CornerRadius = 8;
-            this.cExpense.Label = "Tổng Chi";
-            this.cExpense.TargetChart = this.c_Satistic;
+            this.lbl_Month_Display.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_Month_Display.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Month_Display.Location = new System.Drawing.Point(334, 14);
+            this.lbl_Month_Display.Name = "lbl_Month_Display";
+            this.lbl_Month_Display.Size = new System.Drawing.Size(170, 52);
+            this.lbl_Month_Display.TabIndex = 1;
+            this.lbl_Month_Display.Text = "Tháng 1";
+            this.lbl_Month_Display.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // guna2Panel10
             // 
@@ -542,88 +598,10 @@
             this.lbl1.TabIndex = 1;
             this.lbl1.Text = "Tổng Thu";
             // 
-            // guna2ComboBox1
-            // 
-            this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ComboBox1.BorderRadius = 8;
-            this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.guna2ComboBox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.guna2ComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.guna2ComboBox1.ItemHeight = 30;
-            this.guna2ComboBox1.Items.AddRange(new object[] {
-            "Theo Tháng",
-            "Theo Năm"});
-            this.guna2ComboBox1.Location = new System.Drawing.Point(696, 124);
-            this.guna2ComboBox1.Name = "guna2ComboBox1";
-            this.guna2ComboBox1.Size = new System.Drawing.Size(163, 36);
-            this.guna2ComboBox1.StartIndex = 0;
-            this.guna2ComboBox1.TabIndex = 28;
-            // 
-            // btnPrevCalendar1
-            // 
-            this.btnPrevCalendar1.Animated = true;
-            this.btnPrevCalendar1.BackColor = System.Drawing.Color.Transparent;
-            this.btnPrevCalendar1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnPrevCalendar1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnPrevCalendar1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnPrevCalendar1.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnPrevCalendar1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnPrevCalendar1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            this.btnPrevCalendar1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
-            this.btnPrevCalendar1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnPrevCalendar1.ForeColor = System.Drawing.Color.White;
-            this.btnPrevCalendar1.Image = global::Trang_chu_Main_Page_.Properties.Resources.roiii;
-            this.btnPrevCalendar1.ImageSize = new System.Drawing.Size(50, 50);
-            this.btnPrevCalendar1.Location = new System.Drawing.Point(15, 14);
-            this.btnPrevCalendar1.Name = "btnPrevCalendar1";
-            this.btnPrevCalendar1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.btnPrevCalendar1.Size = new System.Drawing.Size(55, 55);
-            this.btnPrevCalendar1.TabIndex = 29;
-            this.btnPrevCalendar1.UseTransparentBackground = true;
-            this.btnPrevCalendar1.Click += new System.EventHandler(this.btnPrevCalendar1_Click);
-            // 
-            // btn_NextCalendar
-            // 
-            this.btn_NextCalendar.Animated = true;
-            this.btn_NextCalendar.BackColor = System.Drawing.Color.Transparent;
-            this.btn_NextCalendar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn_NextCalendar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn_NextCalendar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_NextCalendar.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_NextCalendar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_NextCalendar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            this.btn_NextCalendar.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
-            this.btn_NextCalendar.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btn_NextCalendar.ForeColor = System.Drawing.Color.White;
-            this.btn_NextCalendar.Image = global::Trang_chu_Main_Page_.Properties.Resources._1_ht;
-            this.btn_NextCalendar.ImageSize = new System.Drawing.Size(50, 50);
-            this.btn_NextCalendar.Location = new System.Drawing.Point(777, 14);
-            this.btn_NextCalendar.Name = "btn_NextCalendar";
-            this.btn_NextCalendar.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.btn_NextCalendar.Size = new System.Drawing.Size(55, 55);
-            this.btn_NextCalendar.TabIndex = 30;
-            this.btn_NextCalendar.UseTransparentBackground = true;
-            this.btn_NextCalendar.Click += new System.EventHandler(this.btn_NextCalendar1_Click);
-            // 
-            // lbl_Month_Display
-            // 
-            this.lbl_Month_Display.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_Month_Display.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Month_Display.Location = new System.Drawing.Point(334, 14);
-            this.lbl_Month_Display.Name = "lbl_Month_Display";
-            this.lbl_Month_Display.Size = new System.Drawing.Size(170, 52);
-            this.lbl_Month_Display.TabIndex = 1;
-            this.lbl_Month_Display.Text = "Tháng 1";
-            this.lbl_Month_Display.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // Statistic
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.ClientSize = new System.Drawing.Size(1181, 842);
-            this.Controls.Add(this.guna2ComboBox1);
             this.Controls.Add(this.guna2GradientPanel3);
             this.Controls.Add(this.guna2GradientPanel2);
             this.Controls.Add(this.guna2GradientPanel1);
@@ -637,7 +615,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Statistic";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Statistic";
+            this.Text = "v";
             this.Load += new System.EventHandler(this.Statistic_Load);
             this.guna2Panel6.ResumeLayout(false);
             this.guna2Panel6.PerformLayout();
@@ -685,7 +663,6 @@
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
         private Guna.Charts.WinForms.GunaChart c_Satistic;
         private Guna.Charts.WinForms.GunaBarDataset cRevenue;
-        private Guna.Charts.WinForms.GunaBarDataset cExpense;
         private Guna.Charts.WinForms.GunaBarDataset cProfit;
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel1;
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel2;
@@ -700,9 +677,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblTotalRevenue;
         private System.Windows.Forms.Label lbl1;
-        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
         private Guna.UI2.WinForms.Guna2GradientCircleButton btnPrevCalendar1;
         private System.Windows.Forms.Label lbl_Month_Display;
         private Guna.UI2.WinForms.Guna2GradientCircleButton btn_NextCalendar;
+        private Guna.Charts.WinForms.GunaBarDataset cExpense;
     }
 }
