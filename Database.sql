@@ -1,9 +1,12 @@
 ﻿--drop database QuanLySieuThiAEON
+--select * from HD_HH;
 go
 create database QuanLySieuThiAEON
 go
 use QuanLySieuThiAEON
 go
+
+--select * from Quangly
 
 CREATE TABLE Nhanvien (
     Manhanvien varchar(10) CONSTRAINT PK_Nhanvien PRIMARY KEY,
@@ -127,7 +130,7 @@ CREATE TABLE HD_HH (
 );
 
 
---delete from Hoadonbanhang
+
 CREATE TABLE Hoadonbanhang (
     Mahoadon varchar(10) CONSTRAINT PK_Hoadonbanhang PRIMARY KEY,
     Thoigianban DATETIME,
@@ -138,11 +141,10 @@ CREATE TABLE Hoadonbanhang (
 );
 
 
---select * from Hoadonbanhang
 CREATE TABLE HH_HDBH (
     Mahanghoa varchar(10),
     Mahoadon varchar(10),
-	 Tenhanghoa NVARCHAR(4000),
+	 Tenhanghoa NVARCHAR(255),
 	Soluong INT,
     CONSTRAINT PK_HH_HDBH PRIMARY KEY (Mahanghoa, Mahoadon),
     CONSTRAINT FK_HH_HDBH_Mahanghoa FOREIGN KEY (Mahanghoa) REFERENCES Hanghoa(Mahanghoa),
@@ -151,7 +153,7 @@ CREATE TABLE HH_HDBH (
 );
 
 
---select * from HH_HDBH
+
 CREATE TABLE Batbuoc(
 	Macalam varchar(10),
 	Manhanvien varchar(10),
@@ -314,6 +316,7 @@ End
 
 ----------------------------Procedure-----------------------------
 --Procedure thêm mã cho nhân viên mới--
+drop proc themMaNhanvien
 go
 create proc themMaNhanvien 
 	@Hoten NVARCHAR(100),
@@ -342,6 +345,8 @@ Select @maxMaNhanvien = MAX(Manhanvien) from Nhanvien;
 	Insert into Nhanvien(Manhanvien, Hoten, CCCD, Ngaysinh, Gioitinh, Diachi, Sodienthoai, Xoa)
 	Values (@newMaNhanvien, @Hoten, @CCCD, @Ngaysinh, @Gioitinh, @Diachi, @Sodienthoai, 1);
 	print 'adding successfully: ' + @newMaNhanvien;
+	-- Trả về mã nhân viên vừa thêm
+	SELECT @newMaNhanvien;
 End;
 
 --Procedure thêm mã cho hàng hoá mới--
@@ -494,29 +499,21 @@ go
 --drop procedure themHH_HDBH
 --Thêm Hóa Đơn Chi Tiết Hóa Đơn---
 go
---delete From themHH_HDBH
---drop  PROCEDURE themHH_HDBH
 CREATE PROCEDURE themHH_HDBH
-    @Tenhanghoa NVARCHAR(4000),
-    @Soluong NVARCHAR(8)  -- Tham số vẫn nhận dưới dạng string
+    @Tenhanghoa NVARCHAR(255),
+    @Soluong INT
 AS
 BEGIN
     DECLARE @Mahoadon VARCHAR(10);
     DECLARE @Mahanghoa VARCHAR(10);
     DECLARE @Tienban DECIMAL(18,2);
     DECLARE @Tongtien DECIMAL(18,2);
-    DECLARE @Uudai FLOAT;  -- Đổi kiểu @Uudai thành FLOAT
     DECLARE @SoluongTonKho INT;
 
-    -- Chuyển @Soluong từ string (NVARCHAR) thành INT
-    DECLARE @SoluongInt INT;
-    SET @SoluongInt = CAST(@Soluong AS INT);  -- Chuyển đổi @Soluong sang INT
-
     -- Lấy mã hóa đơn mới nhất từ bảng Hoadonbanhang
-  SELECT TOP 1 @Mahoadon = Mahoadon
-FROM Hoadonbanhang
-ORDER BY CAST(SUBSTRING(Mahoadon, 3, LEN(Mahoadon) - 2) AS INT) DESC;
-
+    SELECT TOP 1 @Mahoadon = Mahoadon 
+    FROM Hoadonbanhang 
+    ORDER BY Thoigianban DESC;
 
     -- Kiểm tra nếu không tìm thấy hóa đơn nào
     IF @Mahoadon IS NULL
@@ -525,11 +522,8 @@ ORDER BY CAST(SUBSTRING(Mahoadon, 3, LEN(Mahoadon) - 2) AS INT) DESC;
         RETURN;
     END
 
-    -- Lấy mã hàng hóa, giá bán, số lượng tồn kho và ưu đãi từ bảng Hanghoa
-    SELECT @Mahanghoa = Mahanghoa, 
-           @Tienban = Tienban, 
-           @Uudai = TRY_CAST(REPLACE(Uudai, '%', '') AS FLOAT),  -- Loại bỏ ký tự '%' và chuyển thành FLOAT
-           @SoluongTonKho = Soluong
+    -- Lấy mã hàng hóa, giá bán và số lượng tồn kho từ bảng Hanghoa
+    SELECT @Mahanghoa = Mahanghoa, @Tienban = Tienban, @SoluongTonKho = Soluong
     FROM Hanghoa 
     WHERE Tenhanghoa = @Tenhanghoa;
 
@@ -541,25 +535,18 @@ ORDER BY CAST(SUBSTRING(Mahoadon, 3, LEN(Mahoadon) - 2) AS INT) DESC;
     END
 
     -- Kiểm tra nếu số lượng tồn kho không đủ để bán
-    IF @SoluongTonKho < @SoluongInt
+    IF @SoluongTonKho < @Soluong
     BEGIN
         PRINT ' Error: Not enough stock for ' + @Tenhanghoa + '. Available: ' + CAST(@SoluongTonKho AS NVARCHAR);
         RETURN;
     END
 
-    -- Kiểm tra nếu @Uudai không phải là giá trị hợp lệ
-    IF @Uudai IS NULL
-    BEGIN
-        PRINT ' Error: Uudai is not a valid number!';
-        RETURN;
-    END
-
     -- Tính tổng tiền
-    SET @Tongtien = @SoluongInt * (@Tienban - (@Tienban * @Uudai / 100));
+    SET @Tongtien = @Soluong * @Tienban;
 
     -- Thêm dữ liệu vào bảng HH_HDBH
     INSERT INTO HH_HDBH (Mahoadon, Mahanghoa, Tenhanghoa, Soluong, Tongtien)
-    VALUES (@Mahoadon, @Mahanghoa, @Tenhanghoa, @SoluongInt, @Tongtien);
+    VALUES (@Mahoadon, @Mahanghoa, @Tenhanghoa, @Soluong, @Tongtien);
 
     -- Cập nhật tổng tiền trong Hoadonbanhang
     UPDATE Hoadonbanhang 
@@ -568,15 +555,13 @@ ORDER BY CAST(SUBSTRING(Mahoadon, 3, LEN(Mahoadon) - 2) AS INT) DESC;
 
     -- Trừ đi số lượng hàng hóa đã bán từ bảng Hanghoa
     UPDATE Hanghoa 
-    SET Soluong = Soluong - @SoluongInt
+    SET Soluong = Soluong - @Soluong
     WHERE Mahanghoa = @Mahanghoa;
 
     PRINT ' Added successfully to HH_HDBH and updated Thanhtien in Hoadonbanhang.';
-    PRINT ' Stock updated: ' + @Tenhanghoa + ' - Remaining: ' + CAST(@SoluongTonKho - @SoluongInt AS NVARCHAR);
+    PRINT ' Stock updated: ' + @Tenhanghoa + ' - Remaining: ' + CAST(@SoluongTonKho - @Soluong AS NVARCHAR);
 END;
 
-
---exec themHH_HDBH N'Gạo ST25' , '1'
 go
 --xóa Hóa đơn
 CREATE PROCEDURE sp_XoaHoaDon
@@ -934,9 +919,6 @@ go
 --Select * From HD_HH
 --Delete from HD_Nhaphang
 exec themMaHDNH 10000, 10
-select * from HD_Nhaphang
---delete from HD_Nhaphang
---delete from HD_HH
 exec themHD_HH 'HH0002', 'NH0001', 100
 go 
 INSERT INTO HD_HH (Mahanghoa, Sohd, Ngaynhap, Soluongdat, Soluongnhan, Ngaysanxuat, Hansudung, Thanhtien, Trangthai)
