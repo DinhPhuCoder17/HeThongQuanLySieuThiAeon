@@ -124,10 +124,10 @@
             this.guna2Panel1.SuspendLayout();
             this.guna2GradientPanel3.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
+            //((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
+            //((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
+            //((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).BeginInit();
+            //((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Elipse1
@@ -593,10 +593,10 @@
             this.guna2GradientPanel3.ResumeLayout(false);
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
