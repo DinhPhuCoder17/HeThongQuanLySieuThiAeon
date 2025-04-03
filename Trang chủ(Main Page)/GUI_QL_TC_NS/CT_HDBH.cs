@@ -23,10 +23,18 @@ namespace Trang_chu_Main_Page_.GUI_QL_TC_NS
 
         private void CT_HDBH_Load(object sender, EventArgs e)
         {
-          
+            if (dtg_HistoryMH.Columns.Count == 0)
+            {
+                // Tạo các cột cho DataGridView
+                dtg_HistoryMH.Columns.Add("InvoiceCode", "Mã Hóa Đơn");
+                dtg_HistoryMH.Columns.Add("ProductCode", "Mã Hàng Hóa");
+                dtg_HistoryMH.Columns.Add("ProductName", "Tên Hàng Hóa");
+                dtg_HistoryMH.Columns.Add("Quantity", "Số Lượng");
+                dtg_HistoryMH.Columns.Add("TotalAmount", "Tổng Tiền");
+            }
 
 
-     
+
         }
         public void LoadCTHDBH(string maHoaDon)
         {
@@ -35,6 +43,7 @@ namespace Trang_chu_Main_Page_.GUI_QL_TC_NS
             DataTable dataTable = bLL_QuanlyTCNS.xemChiTietHDBH(maHoaDon);
             if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
             {
+                dtg_HistoryMH.DataSource = dataTable;
                 // Tiếng Việt
                 dtg_HistoryMH.Columns[0].HeaderText = "Mã Hóa Đơn";
                 dtg_HistoryMH.Columns[1].HeaderText = "Mã Hàng Hóa";
@@ -44,6 +53,7 @@ namespace Trang_chu_Main_Page_.GUI_QL_TC_NS
             }
             else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
             {
+                dtg_HistoryMH.DataSource = dataTable;
                 // Tiếng Anh
                 dtg_HistoryMH.Columns[0].HeaderText = "Invoice Code";
                 dtg_HistoryMH.Columns[1].HeaderText = "Product Code";

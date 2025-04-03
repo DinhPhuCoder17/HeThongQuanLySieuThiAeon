@@ -131,7 +131,7 @@ CREATE TABLE HD_HH (
 );
 
 --delete from Hoadonbanhang
-
+--select * from Hoadonbanhang
 CREATE TABLE Hoadonbanhang (
     Mahoadon varchar(10) CONSTRAINT PK_Hoadonbanhang PRIMARY KEY,
     Thoigianban DATETIME,
