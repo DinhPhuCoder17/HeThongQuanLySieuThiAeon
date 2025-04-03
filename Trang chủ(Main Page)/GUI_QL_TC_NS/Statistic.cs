@@ -461,8 +461,10 @@ namespace Trang_chủ_Main_Page_
             }
         }
 
+        private void guna2Panel8_Paint(object sender, PaintEventArgs e)
+        {
 
-
+        }
     }
 }
 

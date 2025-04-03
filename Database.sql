@@ -100,7 +100,8 @@ CREATE TABLE Hanghoa (
     MaNCC varchar(10),
 	THSD int
     CONSTRAINT FK_Hanghoa_MaNCC FOREIGN KEY (MaNCC) REFERENCES Nhacungcap(MaNCC),
-	Xoa int
+	Xoa int,
+	Barcode VARCHAR(20) not null
 );
 
 --CREATE TABLE Hansudung (
@@ -933,18 +934,18 @@ VALUES
     ('NC0009', N'Công ty TNHH Dược Phẩm An Bình', N'102 Nguyễn Trãi, Vũng Tàu', '0909012345', '0990123456', 1),
     ('NC0010', N'Công ty CP Phân Phối Nam Việt', N'114 Đống Đa, Bình Định', '1001234567', '0901234567', 1);
 
-INSERT INTO Hanghoa (Mahanghoa, Tenhanghoa, Tiennhap, Tendanhmuc, Tienban, ImageData, Soluong, Uudai, MaNCC, THSD, Xoa)
+INSERT INTO Hanghoa (Mahanghoa, Tenhanghoa, Tiennhap, Tendanhmuc, Tienban, ImageData, Soluong, Uudai, MaNCC, THSD, Xoa, Barcode) 
 VALUES
-    ('HH0001', N'Gạo ST25', 15000, N'Thực phẩm', 20000, NULL, 500, '5%', 'NC0001', 30, 1),
-    ('HH0002', N'Dầu ăn Simply 1L', 45000, N'Thực phẩm', 55000, NULL, 500, '10%', 'NC0002', 120, 1),
-    ('HH0003', N'Sữa Vinamilk 180ml', 6500, N'Đồ uống', 9000, NULL, 500, '7%', 'NC0003', 90, 1),
-    ('HH0004', N'Mì Hảo Hảo', 3500, N'Thực phẩm', 5000, NULL, 500, '3%', 'NC0004', 180, 1),
-    ('HH0005', N'Nước suối La Vie 500ml', 4000, N'Đồ uống', 6000, NULL, 500, '8%', 'NC0005', 90, 1),
-    ('HH0006', N'Bánh Chocopie', 75000, N'Bánh kẹo', 95000, NULL, 500, '12%', 'NC0006', 30, 1),
-    ('HH0007', N'Bột giặt Omo 4.5kg', 120000, N'Hóa phẩm', 145000, NULL, 500, '15%', 'NC0007', 120, 1),
-    ('HH0008', N'Kem đánh răng P/S', 25000, N'Hóa phẩm', 35000, NULL, 500, '10%', 'NC0008', 480, 1),
-    ('HH0009', N'Nước mắm Nam Ngư 500ml', 32000, N'Thực phẩm', 45000, NULL, 500, '6%', 'NC0009', 90, 1),
-    ('HH0010', N'Khẩu trang y tế 50 cái', 45000, N'Chăm sóc sức khỏe', 60000, NULL, 500, '20%', 'NC0010', 270, 1);
+    ('HH0001', N'Gạo ST25', 15000, N'Thực phẩm', 20000, NULL, 500, '5%', 'NC0001', 30, 1, '1000000000001'),
+    ('HH0002', N'Dầu ăn Simply 1L', 45000, N'Thực phẩm', 55000, NULL, 500, '10%', 'NC0002', 120, 1, '1000000000002'),
+    ('HH0003', N'Sữa Vinamilk 180ml', 6500, N'Đồ uống', 9000, NULL, 500, '7%', 'NC0003', 90, 1, '1000000000003'),
+    ('HH0004', N'Mì Hảo Hảo', 3500, N'Thực phẩm', 5000, NULL, 500, '3%', 'NC0004', 180, 1, '1000000000004'),
+    ('HH0005', N'Nước suối La Vie 500ml', 4000, N'Đồ uống', 6000, NULL, 500, '8%', 'NC0005', 90, 1, '1000000000005'),
+    ('HH0006', N'Bánh Chocopie', 75000, N'Bánh kẹo', 95000, NULL, 500, '12%', 'NC0006', 30, 1, '1000000000006'),
+    ('HH0007', N'Bột giặt Omo 4.5kg', 120000, N'Hóa phẩm', 145000, NULL, 500, '15%', 'NC0007', 120, 1, '1000000000007'),
+    ('HH0008', N'Kem đánh răng P/S', 25000, N'Hóa phẩm', 35000, NULL, 500, '10%', 'NC0008', 480, 1, '1000000000008'),
+    ('HH0009', N'Nước mắm Nam Ngư 500ml', 32000, N'Thực phẩm', 45000, NULL, 500, '6%', 'NC0009', 90, 1, '1000000000009'),
+    ('HH0010', N'Khẩu trang y tế 50 cái', 45000, N'Chăm sóc sức khỏe', 60000, NULL, 500, '20%', 'NC0010', 270, 1, '1000000000010');
 	
 
 	

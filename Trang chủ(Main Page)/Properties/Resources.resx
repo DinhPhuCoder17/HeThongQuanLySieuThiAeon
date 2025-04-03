@@ -124,8 +124,8 @@
   <data name="Thiết kế chưa có tên (13)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Thiết kế chưa có tên (13).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Thiết kế chưa có tên (1)2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Thiết kế chưa có tên (1)2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Thiết kế chưa có tên (10)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Thiết kế chưa có tên (10).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="isolated-soap-oil-bubbles-watery-background" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\isolated-soap-oil-bubbles-watery-background.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -138,6 +138,9 @@
   </data>
   <data name="Thiết kế chưa có tên (14)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Thiết kế chưa có tên (14).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Thiết kế chưa có tên (9)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Thiết kế chưa có tên (9).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Thiết kế chưa có tên (5)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Thiết kế chưa có tên (5).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -154,11 +157,20 @@
   <data name="Thiết kế chưa có tên (15)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Thiết kế chưa có tên (15)1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="z6469758499596_c1f7280b95d601fd68a5ae5e8f1adb0a" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\z6469758499596_c1f7280b95d601fd68a5ae5e8f1adb0a.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="roiii" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\roiii.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="abstract-coloured-background-with-variety-transparent-raindrops2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\abstract-coloured-background-with-variety-transparent-raindrops2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Thiết kế chưa có tên (1)2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Thiết kế chưa có tên (1)2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Thiết kế chưa có tên (7)2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Thiết kế chưa có tên (7)2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="abstract-coloured-background-with-variety-transparent-raindrops1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\abstract-coloured-background-with-variety-transparent-raindrops1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -208,26 +220,23 @@
   <data name="z6337298354173_6e29e312c0f5bb2790c6e3e14bd06be8" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\z6337298354173_6e29e312c0f5bb2790c6e3e14bd06be8.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Thiết kế chưa có tên (15)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Thiết kế chưa có tên (15).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Thiết kế chưa có tên (1)4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Thiết kế chưa có tên (1)4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Thiết kế chưa có tên (10)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Thiết kế chưa có tên (10).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Thiết kế chưa có tên (15)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Thiết kế chưa có tên (15).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="abstract-coloured-background-with-variety-transparent-raindrops" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\abstract-coloured-background-with-variety-transparent-raindrops.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="logo nhân viên hover1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logo nhân viên hover1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Thiết kế chưa có tên (9)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Thiết kế chưa có tên (9).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Thiết kế chưa có tên (2)4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Thiết kế chưa có tên (2)4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Thiết kế chưa có tên (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Thiết kế chưa có tên (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="abstract-coloured-background-with-variety-transparent-raindrops" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\abstract-coloured-background-with-variety-transparent-raindrops.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Thiết kế chưa có tên (2)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Thiết kế chưa có tên (2)1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -243,9 +252,6 @@
   </data>
   <data name="Thiết kế chưa có tên (2)5" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Thiết kế chưa có tên (2)5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Thiết kế chưa có tên (2)4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Thiết kế chưa có tên (2)4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="452921" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\452921.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -313,7 +319,7 @@
   <data name="isolated-soap-oil-bubbles-watery-background1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\isolated-soap-oil-bubbles-watery-background1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="z6469758499596_c1f7280b95d601fd68a5ae5e8f1adb0a" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\z6469758499596_c1f7280b95d601fd68a5ae5e8f1adb0a.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Thiết kế chưa có tên (6)2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Thiết kế chưa có tên (6)2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -65,8 +65,8 @@
             // 
             // guna2CirclePictureBox1
             // 
-            resources.ApplyResources(this.guna2CirclePictureBox1, "guna2CirclePictureBox1");
             this.guna2CirclePictureBox1.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.guna2CirclePictureBox1, "guna2CirclePictureBox1");
             this.guna2CirclePictureBox1.ImageRotate = 0F;
             this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
             this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
@@ -76,13 +76,13 @@
             // 
             // guna2ComboBox2
             // 
-            resources.ApplyResources(this.guna2ComboBox2, "guna2ComboBox2");
             this.guna2ComboBox2.BackColor = System.Drawing.Color.Linen;
             this.guna2ComboBox2.BorderRadius = 10;
             this.guna2ComboBox2.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.guna2ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.guna2ComboBox2.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2ComboBox2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            resources.ApplyResources(this.guna2ComboBox2, "guna2ComboBox2");
             this.guna2ComboBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.guna2ComboBox2.Items.AddRange(new object[] {
             resources.GetString("guna2ComboBox2.Items"),
@@ -93,8 +93,8 @@
             // 
             // guna2PictureBox2
             // 
-            resources.ApplyResources(this.guna2PictureBox2, "guna2PictureBox2");
             this.guna2PictureBox2.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.guna2PictureBox2, "guna2PictureBox2");
             this.guna2PictureBox2.ImageRotate = 0F;
             this.guna2PictureBox2.Name = "guna2PictureBox2";
             this.guna2PictureBox2.TabStop = false;
@@ -122,7 +122,6 @@
             // 
             // guna2GradientButton2
             // 
-            resources.ApplyResources(this.guna2GradientButton2, "guna2GradientButton2");
             this.guna2GradientButton2.Animated = true;
             this.guna2GradientButton2.BackColor = System.Drawing.Color.Transparent;
             this.guna2GradientButton2.BorderRadius = 20;
@@ -133,18 +132,19 @@
             this.guna2GradientButton2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.guna2GradientButton2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
             this.guna2GradientButton2.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            resources.ApplyResources(this.guna2GradientButton2, "guna2GradientButton2");
             this.guna2GradientButton2.ForeColor = System.Drawing.Color.White;
             this.guna2GradientButton2.Name = "guna2GradientButton2";
             this.guna2GradientButton2.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // guna2ComboBox1
             // 
-            resources.ApplyResources(this.guna2ComboBox1, "guna2ComboBox1");
             this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
             this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.guna2ComboBox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2ComboBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            resources.ApplyResources(this.guna2ComboBox1, "guna2ComboBox1");
             this.guna2ComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.guna2ComboBox1.Name = "guna2ComboBox1";
             // 
@@ -164,7 +164,6 @@
             // 
             // guna2TextBox2
             // 
-            resources.ApplyResources(this.guna2TextBox2, "guna2TextBox2");
             this.guna2TextBox2.BackColor = System.Drawing.Color.Transparent;
             this.guna2TextBox2.BorderRadius = 10;
             this.guna2TextBox2.BorderThickness = 2;
@@ -175,6 +174,7 @@
             this.guna2TextBox2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.guna2TextBox2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.guna2TextBox2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            resources.ApplyResources(this.guna2TextBox2, "guna2TextBox2");
             this.guna2TextBox2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBox2.Name = "guna2TextBox2";
             this.guna2TextBox2.PlaceholderText = "Password...";
@@ -183,7 +183,6 @@
             // 
             // guna2TextBox1
             // 
-            resources.ApplyResources(this.guna2TextBox1, "guna2TextBox1");
             this.guna2TextBox1.BackColor = System.Drawing.Color.Transparent;
             this.guna2TextBox1.BorderRadius = 10;
             this.guna2TextBox1.BorderThickness = 2;
@@ -194,6 +193,7 @@
             this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            resources.ApplyResources(this.guna2TextBox1, "guna2TextBox1");
             this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBox1.Name = "guna2TextBox1";
             this.guna2TextBox1.PlaceholderText = "User name...";
@@ -201,9 +201,10 @@
             // 
             // guna2PictureBox1
             // 
-            resources.ApplyResources(this.guna2PictureBox1, "guna2PictureBox1");
             this.guna2PictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2PictureBox1.Image = global::Trang_chu_Main_Page_.Properties.Resources.Thiết_kế_chưa_có_tên__6_2;
             this.guna2PictureBox1.ImageRotate = 0F;
+            resources.ApplyResources(this.guna2PictureBox1, "guna2PictureBox1");
             this.guna2PictureBox1.Name = "guna2PictureBox1";
             this.guna2PictureBox1.TabStop = false;
             this.guna2PictureBox1.UseTransparentBackground = true;
@@ -211,9 +212,9 @@
             // 
             // lblWarning
             // 
-            resources.ApplyResources(this.lblWarning, "lblWarning");
             this.lblWarning.BackColor = System.Drawing.Color.Transparent;
             this.lblWarning.ForeColor = System.Drawing.Color.Red;
+            resources.ApplyResources(this.lblWarning, "lblWarning");
             this.lblWarning.Name = "lblWarning";
             // 
             // timer1
