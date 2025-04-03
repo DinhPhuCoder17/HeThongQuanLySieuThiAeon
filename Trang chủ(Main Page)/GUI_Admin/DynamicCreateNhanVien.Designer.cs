@@ -34,10 +34,11 @@
             this.txtUsername = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtPassword = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtRePassword = new Guna.UI2.WinForms.Guna2TextBox();
-            this.btnHuy = new Guna.UI2.WinForms.Guna2Button();
             this.cbRole = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.btnCreate = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.guna2Elipse2 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.btnTaoTaiKhoan = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.guna2GradientButton1 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.SuspendLayout();
             // 
             // guna2BorderlessForm1
@@ -58,6 +59,7 @@
             // 
             // txtUsername
             // 
+            this.txtUsername.BorderRadius = 8;
             this.txtUsername.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtUsername.DefaultText = "";
             this.txtUsername.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -72,11 +74,12 @@
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.PlaceholderText = "Tên đăng nhập";
             this.txtUsername.SelectedText = "";
-            this.txtUsername.Size = new System.Drawing.Size(219, 48);
+            this.txtUsername.Size = new System.Drawing.Size(243, 48);
             this.txtUsername.TabIndex = 1;
             // 
             // txtPassword
             // 
+            this.txtPassword.BorderRadius = 8;
             this.txtPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtPassword.DefaultText = "";
             this.txtPassword.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -97,6 +100,7 @@
             // 
             // txtRePassword
             // 
+            this.txtRePassword.BorderRadius = 8;
             this.txtRePassword.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtRePassword.DefaultText = "";
             this.txtRePassword.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -115,26 +119,10 @@
             this.txtRePassword.TabIndex = 3;
             this.txtRePassword.UseSystemPasswordChar = true;
             // 
-            // btnHuy
-            // 
-            this.btnHuy.BorderRadius = 20;
-            this.btnHuy.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnHuy.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnHuy.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnHuy.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnHuy.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnHuy.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnHuy.ForeColor = System.Drawing.Color.White;
-            this.btnHuy.Location = new System.Drawing.Point(91, 263);
-            this.btnHuy.Name = "btnHuy";
-            this.btnHuy.Size = new System.Drawing.Size(180, 45);
-            this.btnHuy.TabIndex = 4;
-            this.btnHuy.Text = "Hủy";
-            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
-            // 
             // cbRole
             // 
             this.cbRole.BackColor = System.Drawing.Color.Transparent;
+            this.cbRole.BorderRadius = 8;
             this.cbRole.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbRole.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
@@ -147,39 +135,69 @@
             "Quản Lý Tài Chính - Nhân Sự"});
             this.cbRole.Location = new System.Drawing.Point(52, 180);
             this.cbRole.Name = "cbRole";
-            this.cbRole.Size = new System.Drawing.Size(219, 36);
+            this.cbRole.Size = new System.Drawing.Size(243, 36);
             this.cbRole.TabIndex = 5;
-            // 
-            // btnCreate
-            // 
-            this.btnCreate.BorderRadius = 20;
-            this.btnCreate.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnCreate.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnCreate.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnCreate.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnCreate.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnCreate.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnCreate.ForeColor = System.Drawing.Color.White;
-            this.btnCreate.Location = new System.Drawing.Point(307, 263);
-            this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(180, 45);
-            this.btnCreate.TabIndex = 6;
-            this.btnCreate.Text = "Tạo Tài Khoản";
-            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
             // guna2Elipse1
             // 
             this.guna2Elipse1.BorderRadius = 20;
             this.guna2Elipse1.TargetControl = this;
             // 
+            // guna2Elipse2
+            // 
+            this.guna2Elipse2.BorderRadius = 20;
+            this.guna2Elipse2.TargetControl = this;
+            // 
+            // btnTaoTaiKhoan
+            // 
+            this.btnTaoTaiKhoan.Animated = true;
+            this.btnTaoTaiKhoan.BackColor = System.Drawing.Color.Transparent;
+            this.btnTaoTaiKhoan.BorderRadius = 8;
+            this.btnTaoTaiKhoan.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnTaoTaiKhoan.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnTaoTaiKhoan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnTaoTaiKhoan.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnTaoTaiKhoan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnTaoTaiKhoan.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
+            this.btnTaoTaiKhoan.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.btnTaoTaiKhoan.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.btnTaoTaiKhoan.ForeColor = System.Drawing.Color.White;
+            this.btnTaoTaiKhoan.Location = new System.Drawing.Point(307, 269);
+            this.btnTaoTaiKhoan.Name = "btnTaoTaiKhoan";
+            this.btnTaoTaiKhoan.Size = new System.Drawing.Size(156, 48);
+            this.btnTaoTaiKhoan.TabIndex = 46;
+            this.btnTaoTaiKhoan.Text = "Tạo Tài Khoản";
+            this.btnTaoTaiKhoan.Click += new System.EventHandler(this.btnCreate_Click);
+            // 
+            // guna2GradientButton1
+            // 
+            this.guna2GradientButton1.Animated = true;
+            this.guna2GradientButton1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2GradientButton1.BorderRadius = 8;
+            this.guna2GradientButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2GradientButton1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2GradientButton1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2GradientButton1.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2GradientButton1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2GradientButton1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
+            this.guna2GradientButton1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.guna2GradientButton1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.guna2GradientButton1.ForeColor = System.Drawing.Color.White;
+            this.guna2GradientButton1.Location = new System.Drawing.Point(98, 269);
+            this.guna2GradientButton1.Name = "guna2GradientButton1";
+            this.guna2GradientButton1.Size = new System.Drawing.Size(156, 48);
+            this.guna2GradientButton1.TabIndex = 47;
+            this.guna2GradientButton1.Text = "Hủy";
+            this.guna2GradientButton1.Click += new System.EventHandler(this.btnHuy_Click);
+            // 
             // DynamicCreateNhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(605, 352);
-            this.Controls.Add(this.btnCreate);
+            this.Controls.Add(this.guna2GradientButton1);
+            this.Controls.Add(this.btnTaoTaiKhoan);
             this.Controls.Add(this.cbRole);
-            this.Controls.Add(this.btnHuy);
             this.Controls.Add(this.txtRePassword);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUsername);
@@ -197,12 +215,13 @@
 
         private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
         private Guna.UI2.WinForms.Guna2ComboBox cbRole;
-        private Guna.UI2.WinForms.Guna2Button btnHuy;
         private Guna.UI2.WinForms.Guna2TextBox txtRePassword;
         private Guna.UI2.WinForms.Guna2TextBox txtPassword;
         private Guna.UI2.WinForms.Guna2TextBox txtUsername;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
-        private Guna.UI2.WinForms.Guna2Button btnCreate;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
+        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse2;
+        private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton1;
+        private Guna.UI2.WinForms.Guna2GradientButton btnTaoTaiKhoan;
     }
 }

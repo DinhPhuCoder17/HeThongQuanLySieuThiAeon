@@ -619,6 +619,9 @@
     <EmbeddedResource Include="GUI_Admin\DSNhanVien.en.resx">
       <DependentUpon>DSNhanVien.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI_Admin\DynamicCreateNhanVien.resx">
+      <DependentUpon>DynamicCreateNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI_Admin\FormAddNV.en.resx">
       <DependentUpon>FormAddNV.cs</DependentUpon>
     </EmbeddedResource>

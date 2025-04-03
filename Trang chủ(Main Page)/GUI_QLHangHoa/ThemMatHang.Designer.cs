@@ -32,8 +32,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ThemMatHang));
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.imgImage = new Guna.UI2.WinForms.Guna2PictureBox();
             this.label11 = new System.Windows.Forms.Label();
             this.lbTenNcc = new System.Windows.Forms.Label();
             this.cmbTenNcc = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -52,24 +55,22 @@
             this.txtTienNhap = new Guna.UI2.WinForms.Guna2TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.imgImage = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.btnExit = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.guna2Elipse2 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2Panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgImage)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Panel2
             // 
-            resources.ApplyResources(this.guna2Panel2, "guna2Panel2");
             this.guna2Panel2.BackColor = System.Drawing.Color.White;
-            this.guna2Panel2.Controls.Add(this.btnExit);
+            this.guna2Panel2.Controls.Add(this.guna2ControlBox1);
             this.guna2Panel2.Controls.Add(this.label1);
             this.guna2Panel2.Controls.Add(this.guna2CirclePictureBox1);
+            resources.ApplyResources(this.guna2Panel2, "guna2Panel2");
             this.guna2Panel2.Name = "guna2Panel2";
             // 
             // label1
@@ -77,9 +78,17 @@
             resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
             // 
+            // guna2CirclePictureBox1
+            // 
+            this.guna2CirclePictureBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            resources.ApplyResources(this.guna2CirclePictureBox1, "guna2CirclePictureBox1");
+            this.guna2CirclePictureBox1.ImageRotate = 0F;
+            this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
+            this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.guna2CirclePictureBox1.TabStop = false;
+            // 
             // guna2Panel1
             // 
-            resources.ApplyResources(this.guna2Panel1, "guna2Panel1");
             this.guna2Panel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2Panel1.BorderColor = System.Drawing.Color.Transparent;
             this.guna2Panel1.BorderRadius = 20;
@@ -105,21 +114,39 @@
             this.guna2Panel1.Controls.Add(this.label2);
             this.guna2Panel1.CustomBorderColor = System.Drawing.Color.White;
             this.guna2Panel1.FillColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.guna2Panel1, "guna2Panel1");
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.UseTransparentBackground = true;
             this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
             // 
+            // guna2PictureBox1
+            // 
+            this.guna2PictureBox1.BorderRadius = 15;
+            this.guna2PictureBox1.ImageRotate = 0F;
+            resources.ApplyResources(this.guna2PictureBox1, "guna2PictureBox1");
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.TabStop = false;
+            // 
             // label7
             // 
-            resources.ApplyResources(this.label7, "label7");
             this.label7.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.label7, "label7");
             this.label7.ForeColor = System.Drawing.Color.Black;
             this.label7.Name = "label7";
             // 
+            // imgImage
+            // 
+            this.imgImage.BorderRadius = 15;
+            this.imgImage.ImageRotate = 0F;
+            resources.ApplyResources(this.imgImage, "imgImage");
+            this.imgImage.Name = "imgImage";
+            this.imgImage.TabStop = false;
+            this.imgImage.Click += new System.EventHandler(this.guna2PictureBox1_Click);
+            // 
             // label11
             // 
-            resources.ApplyResources(this.label11, "label11");
             this.label11.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.label11, "label11");
             this.label11.ForeColor = System.Drawing.Color.Black;
             this.label11.Name = "label11";
             // 
@@ -130,20 +157,19 @@
             // 
             // cmbTenNcc
             // 
-            resources.ApplyResources(this.cmbTenNcc, "cmbTenNcc");
             this.cmbTenNcc.BackColor = System.Drawing.Color.Transparent;
             this.cmbTenNcc.BorderRadius = 8;
             this.cmbTenNcc.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cmbTenNcc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTenNcc.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cmbTenNcc.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            resources.ApplyResources(this.cmbTenNcc, "cmbTenNcc");
             this.cmbTenNcc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cmbTenNcc.Name = "cmbTenNcc";
             this.cmbTenNcc.SelectedIndexChanged += new System.EventHandler(this.cmbTenNcc_Chon);
             // 
             // btnThemMatHang
             // 
-            resources.ApplyResources(this.btnThemMatHang, "btnThemMatHang");
             this.btnThemMatHang.Animated = true;
             this.btnThemMatHang.BackColor = System.Drawing.Color.Transparent;
             this.btnThemMatHang.BorderRadius = 8;
@@ -154,13 +180,13 @@
             this.btnThemMatHang.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnThemMatHang.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
             this.btnThemMatHang.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            resources.ApplyResources(this.btnThemMatHang, "btnThemMatHang");
             this.btnThemMatHang.ForeColor = System.Drawing.Color.White;
             this.btnThemMatHang.Name = "btnThemMatHang";
             this.btnThemMatHang.Click += new System.EventHandler(this.btnThemMatHang_Click);
             // 
             // btnThemAnhHangHoa
             // 
-            resources.ApplyResources(this.btnThemAnhHangHoa, "btnThemAnhHangHoa");
             this.btnThemAnhHangHoa.Animated = true;
             this.btnThemAnhHangHoa.BackColor = System.Drawing.Color.Transparent;
             this.btnThemAnhHangHoa.BorderRadius = 8;
@@ -171,20 +197,20 @@
             this.btnThemAnhHangHoa.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnThemAnhHangHoa.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
             this.btnThemAnhHangHoa.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            resources.ApplyResources(this.btnThemAnhHangHoa, "btnThemAnhHangHoa");
             this.btnThemAnhHangHoa.ForeColor = System.Drawing.Color.White;
             this.btnThemAnhHangHoa.Name = "btnThemAnhHangHoa";
             this.btnThemAnhHangHoa.Click += new System.EventHandler(this.btnUpload_Click);
             // 
             // label6
             // 
-            resources.ApplyResources(this.label6, "label6");
             this.label6.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.label6, "label6");
             this.label6.ForeColor = System.Drawing.Color.Black;
             this.label6.Name = "label6";
             // 
             // txtTienBan
             // 
-            resources.ApplyResources(this.txtTienBan, "txtTienBan");
             this.txtTienBan.BorderColor = System.Drawing.Color.Silver;
             this.txtTienBan.BorderRadius = 8;
             this.txtTienBan.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -194,6 +220,7 @@
             this.txtTienBan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtTienBan.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtTienBan.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            resources.ApplyResources(this.txtTienBan, "txtTienBan");
             this.txtTienBan.ForeColor = System.Drawing.Color.Gray;
             this.txtTienBan.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtTienBan.Name = "txtTienBan";
@@ -202,14 +229,13 @@
             // 
             // label10
             // 
-            resources.ApplyResources(this.label10, "label10");
             this.label10.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.label10, "label10");
             this.label10.ForeColor = System.Drawing.Color.Black;
             this.label10.Name = "label10";
             // 
             // txtTenHangHoa
             // 
-            resources.ApplyResources(this.txtTenHangHoa, "txtTenHangHoa");
             this.txtTenHangHoa.BorderColor = System.Drawing.Color.Silver;
             this.txtTenHangHoa.BorderRadius = 8;
             this.txtTenHangHoa.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -219,6 +245,7 @@
             this.txtTenHangHoa.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtTenHangHoa.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtTenHangHoa.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            resources.ApplyResources(this.txtTenHangHoa, "txtTenHangHoa");
             this.txtTenHangHoa.ForeColor = System.Drawing.Color.Gray;
             this.txtTenHangHoa.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtTenHangHoa.Name = "txtTenHangHoa";
@@ -227,14 +254,13 @@
             // 
             // label9
             // 
-            resources.ApplyResources(this.label9, "label9");
             this.label9.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.label9, "label9");
             this.label9.ForeColor = System.Drawing.Color.Black;
             this.label9.Name = "label9";
             // 
             // txtTHSD
             // 
-            resources.ApplyResources(this.txtTHSD, "txtTHSD");
             this.txtTHSD.BorderColor = System.Drawing.Color.Silver;
             this.txtTHSD.BorderRadius = 8;
             this.txtTHSD.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -244,6 +270,7 @@
             this.txtTHSD.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtTHSD.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtTHSD.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            resources.ApplyResources(this.txtTHSD, "txtTHSD");
             this.txtTHSD.ForeColor = System.Drawing.Color.Gray;
             this.txtTHSD.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtTHSD.Name = "txtTHSD";
@@ -252,21 +279,20 @@
             // 
             // label8
             // 
-            resources.ApplyResources(this.label8, "label8");
             this.label8.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.label8, "label8");
             this.label8.ForeColor = System.Drawing.Color.Black;
             this.label8.Name = "label8";
             // 
             // label5
             // 
-            resources.ApplyResources(this.label5, "label5");
             this.label5.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.label5, "label5");
             this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Name = "label5";
             // 
             // txtTenDanhMuc
             // 
-            resources.ApplyResources(this.txtTenDanhMuc, "txtTenDanhMuc");
             this.txtTenDanhMuc.BorderColor = System.Drawing.Color.Silver;
             this.txtTenDanhMuc.BorderRadius = 8;
             this.txtTenDanhMuc.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -276,6 +302,7 @@
             this.txtTenDanhMuc.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtTenDanhMuc.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtTenDanhMuc.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            resources.ApplyResources(this.txtTenDanhMuc, "txtTenDanhMuc");
             this.txtTenDanhMuc.ForeColor = System.Drawing.Color.Gray;
             this.txtTenDanhMuc.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtTenDanhMuc.Name = "txtTenDanhMuc";
@@ -284,14 +311,13 @@
             // 
             // label3
             // 
-            resources.ApplyResources(this.label3, "label3");
             this.label3.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.label3, "label3");
             this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Name = "label3";
             // 
             // txtTienNhap
             // 
-            resources.ApplyResources(this.txtTienNhap, "txtTienNhap");
             this.txtTienNhap.BorderColor = System.Drawing.Color.Silver;
             this.txtTienNhap.BorderRadius = 8;
             this.txtTienNhap.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -301,6 +327,7 @@
             this.txtTienNhap.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtTienNhap.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtTienNhap.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            resources.ApplyResources(this.txtTienNhap, "txtTienNhap");
             this.txtTienNhap.ForeColor = System.Drawing.Color.Gray;
             this.txtTienNhap.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtTienNhap.Name = "txtTienNhap";
@@ -309,8 +336,8 @@
             // 
             // label2
             // 
-            resources.ApplyResources(this.label2, "label2");
             this.label2.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.label2, "label2");
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Name = "label2";
             // 
@@ -318,62 +345,33 @@
             // 
             this.guna2Elipse1.BorderRadius = 20;
             // 
-            // guna2PictureBox1
+            // guna2Elipse2
             // 
-            resources.ApplyResources(this.guna2PictureBox1, "guna2PictureBox1");
-            this.guna2PictureBox1.BorderRadius = 15;
-            this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.TabStop = false;
+            this.guna2Elipse2.BorderRadius = 20;
+            this.guna2Elipse2.TargetControl = this;
             // 
-            // imgImage
+            // guna2ControlBox1
             // 
-            resources.ApplyResources(this.imgImage, "imgImage");
-            this.imgImage.BorderRadius = 15;
-            this.imgImage.ImageRotate = 0F;
-            this.imgImage.Name = "imgImage";
-            this.imgImage.TabStop = false;
-            this.imgImage.Click += new System.EventHandler(this.guna2PictureBox1_Click);
-            // 
-            // btnExit
-            // 
-            resources.ApplyResources(this.btnExit, "btnExit");
-            this.btnExit.BackColor = System.Drawing.Color.Transparent;
-            this.btnExit.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnExit.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnExit.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnExit.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnExit.FillColor = System.Drawing.Color.Transparent;
-            this.btnExit.ForeColor = System.Drawing.Color.White;
-            this.btnExit.Image = global::Trang_chu_Main_Page_.Properties.Resources.Exit_Icon;
-            this.btnExit.ImageSize = new System.Drawing.Size(190, 120);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // guna2CirclePictureBox1
-            // 
-            resources.ApplyResources(this.guna2CirclePictureBox1, "guna2CirclePictureBox1");
-            this.guna2CirclePictureBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.guna2CirclePictureBox1.ImageRotate = 0F;
-            this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
-            this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox1.TabStop = false;
+            resources.ApplyResources(this.guna2ControlBox1, "guna2ControlBox1");
+            this.guna2ControlBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
+            this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
+            this.guna2ControlBox1.Name = "guna2ControlBox1";
             // 
             // ThemMatHang
             // 
-            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.Control;
+            resources.ApplyResources(this, "$this");
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.guna2Panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ThemMatHang";
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
             this.guna2Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgImage)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -405,6 +403,7 @@
         private Guna.UI2.WinForms.Guna2PictureBox imgImage;
         private System.Windows.Forms.Label label7;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
-        private Guna.UI2.WinForms.Guna2Button btnExit;
+        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
+        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse2;
     }
 }

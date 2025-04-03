@@ -8725,7 +8725,4 @@
   <data name="btnTaoPhieuBoSung.Text" xml:space="preserve">
     <value>Create Supplementary Voucher</value>
   </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
 </root>

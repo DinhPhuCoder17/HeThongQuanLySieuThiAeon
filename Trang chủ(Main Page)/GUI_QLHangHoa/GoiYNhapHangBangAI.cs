@@ -328,5 +328,10 @@ namespace Trang_chủ_Main_Page_
         {
             this.Close();
         }
+
+        private void guna2ControlBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -35,16 +35,16 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lbMaDH = new System.Windows.Forms.Label();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.btnExit = new Guna.UI2.WinForms.Guna2Button();
             this.dtg_HistoryMH = new Guna.UI2.WinForms.Guna2DataGridView();
             this.guna2Elipse2 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_HistoryMH)).BeginInit();
             this.SuspendLayout();
             // 
             // lbMaDH
             // 
-            resources.ApplyResources(this.lbMaDH, "lbMaDH");
             this.lbMaDH.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.lbMaDH, "lbMaDH");
             this.lbMaDH.ForeColor = System.Drawing.Color.Black;
             this.lbMaDH.Name = "lbMaDH";
             // 
@@ -53,24 +53,8 @@
             this.guna2Elipse1.BorderRadius = 20;
             this.guna2Elipse1.TargetControl = this;
             // 
-            // btnExit
-            // 
-            resources.ApplyResources(this.btnExit, "btnExit");
-            this.btnExit.BackColor = System.Drawing.Color.Transparent;
-            this.btnExit.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnExit.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnExit.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnExit.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnExit.FillColor = System.Drawing.Color.Transparent;
-            this.btnExit.ForeColor = System.Drawing.Color.White;
-            this.btnExit.Image = global::Trang_chu_Main_Page_.Properties.Resources.Exit_Icon;
-            this.btnExit.ImageSize = new System.Drawing.Size(190, 120);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click_1);
-            // 
             // dtg_HistoryMH
             // 
-            resources.ApplyResources(this.dtg_HistoryMH, "dtg_HistoryMH");
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dtg_HistoryMH.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -81,6 +65,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dtg_HistoryMH.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            resources.ApplyResources(this.dtg_HistoryMH, "dtg_HistoryMH");
             this.dtg_HistoryMH.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
@@ -122,12 +107,19 @@
             this.guna2Elipse2.BorderRadius = 20;
             this.guna2Elipse2.TargetControl = this.dtg_HistoryMH;
             // 
+            // guna2ControlBox1
+            // 
+            resources.ApplyResources(this.guna2ControlBox1, "guna2ControlBox1");
+            this.guna2ControlBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
+            this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
+            this.guna2ControlBox1.Name = "guna2ControlBox1";
+            // 
             // CT_HDBH
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.guna2ControlBox1);
             this.Controls.Add(this.dtg_HistoryMH);
-            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.lbMaDH);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CT_HDBH";
@@ -141,8 +133,8 @@
 
         private System.Windows.Forms.Label lbMaDH;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
-        private Guna.UI2.WinForms.Guna2Button btnExit;
         private Guna.UI2.WinForms.Guna2DataGridView dtg_HistoryMH;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse2;
+        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
     }
 }

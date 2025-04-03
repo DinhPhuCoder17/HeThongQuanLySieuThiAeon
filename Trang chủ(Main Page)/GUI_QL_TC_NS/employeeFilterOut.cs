@@ -11,6 +11,9 @@ using System.Data.SqlClient;
 using BLL;
 using static Jenga.Theme;
 using System.Threading;
+using iTextSharp.text.pdf;
+using iTextSharp.text;
+using System.IO;
 
 namespace Trang_chủ_Main_Page_
 {
@@ -311,6 +314,112 @@ namespace Trang_chủ_Main_Page_
         private void pb_Avatar_Click(object sender, EventArgs e)
         {
             tm_InforChanges.Start();
+        }
+
+        private void btn_Employ_Report_Click(object sender, EventArgs e)
+        {
+            // Kiểm tra xem DataGridView có dữ liệu không
+            if (dtg_DSCC.DataSource == null || ((DataTable)dtg_DSCC.DataSource).Rows.Count == 0)
+            {
+                MessageBox.Show("Không có dữ liệu để xuất!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Mở SaveFileDialog để chọn nơi lưu file
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "PDF Files|*.pdf|All Files|*.*";
+            saveFileDialog.Title = "Chọn nơi lưu báo cáo chấm công";
+            saveFileDialog.FileName = "Bao_Cao_Cham_Cong_" + DateTime.Now.ToString("dd_MM_yyyy") + ".pdf"; // Tên file mặc định
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    // Lấy dữ liệu từ DataGridView
+                    DataTable dt = (DataTable)dtg_DSCC.DataSource;
+
+                    // Tạo file PDF
+                    using (FileStream fs = new FileStream(saveFileDialog.FileName, FileMode.Create))
+                    {
+                        Document doc = new Document(PageSize.A4);
+                        PdfWriter writer = PdfWriter.GetInstance(doc, fs);
+                        doc.Open();
+
+                        // Đường dẫn font Times New Roman
+                        string fontPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Fonts), "times.ttf");
+
+                        if (!File.Exists(fontPath))
+                        {
+                            MessageBox.Show("Không tìm thấy phông Times New Roman! Vui lòng kiểm tra.");
+                            return;
+                        }
+
+                        // Nhúng font vào tài liệu
+                        BaseFont bf = BaseFont.CreateFont(fontPath, BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
+                        iTextSharp.text.Font titleFont = new iTextSharp.text.Font(bf, 16, iTextSharp.text.Font.BOLD);
+                        iTextSharp.text.Font normalFont = new iTextSharp.text.Font(bf, 12, iTextSharp.text.Font.NORMAL);
+                        iTextSharp.text.Font boldFont = new iTextSharp.text.Font(bf, 12, iTextSharp.text.Font.BOLD);
+
+                        // Tiêu đề báo cáo
+                        Paragraph title = new Paragraph("BÁO CÁO CHẤM CÔNG", titleFont)
+                        {
+                            Alignment = Element.ALIGN_CENTER
+                        };
+                        doc.Add(title);
+
+                        // Thêm ngày tạo báo cáo
+                        doc.Add(Chunk.NEWLINE);
+                        Paragraph dateCreated = new Paragraph($"Ngày {DateTime.Now:dd/MM/yyyy}", normalFont)
+                        {
+                            Alignment = Element.ALIGN_CENTER
+                        };
+                        doc.Add(dateCreated);
+
+                        // Thêm một khoảng cách giữa tiêu đề và bảng
+                        doc.Add(Chunk.NEWLINE);
+
+                        // Tạo bảng dữ liệu chấm công
+                        PdfPTable timesheetTable = new PdfPTable(dt.Columns.Count); // Số cột bằng số cột trong DataTable
+                        timesheetTable.WidthPercentage = 100; // Đặt bảng chiếm toàn bộ chiều rộng trang
+
+                        // Thêm tiêu đề cột vào bảng
+                        foreach (DataColumn column in dt.Columns)
+                        {
+                            timesheetTable.AddCell(new PdfPCell(new Phrase(column.ColumnName, boldFont))
+                            {
+                                HorizontalAlignment = Element.ALIGN_CENTER,
+                                VerticalAlignment = Element.ALIGN_MIDDLE
+                            });
+                        }
+
+                        // Thêm dữ liệu chấm công vào bảng
+                        foreach (DataRow row in dt.Rows)
+                        {
+                            foreach (var cell in row.ItemArray)
+                            {
+                                timesheetTable.AddCell(new PdfPCell(new Phrase(cell.ToString(), normalFont))
+                                {
+                                    HorizontalAlignment = Element.ALIGN_CENTER,
+                                    VerticalAlignment = Element.ALIGN_MIDDLE
+                                });
+                            }
+                        }
+
+                        // Thêm bảng vào tài liệu PDF
+                        doc.Add(timesheetTable);
+
+                        // Đóng tài liệu PDF
+                        doc.Close();
+
+                        // Thông báo thành công
+                        MessageBox.Show("Báo cáo chấm công đã được xuất thành công!\n" + saveFileDialog.FileName);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi khi xuất báo cáo: " + ex.Message);
+                }
+            }
         }
     }
 }

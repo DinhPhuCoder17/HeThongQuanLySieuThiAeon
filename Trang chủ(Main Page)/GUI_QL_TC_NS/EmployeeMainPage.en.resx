@@ -1566,6 +1566,9 @@
   <data name="btn_AddData.Text" xml:space="preserve">
     <value>Add Data</value>
   </data>
+  <data name="btn_AddData_ChamCong.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
   <data name="btn_AddData_ChamCong.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAfQAAAH0CAYAAADL1t+KAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
@@ -1667,6 +1670,9 @@
   </data>
   <data name="btn_AddData_ChamCong.Text" xml:space="preserve">
     <value>Time Attendance</value>
+  </data>
+  <data name="btn_AddData_banHang.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
   </data>
   <data name="btn_AddData_banHang.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

@@ -29,13 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GoiYNhapHangBangAI));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GoiYNhapHangBangAI));
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.btnExit = new Guna.UI2.WinForms.Guna2Button();
             this.label4 = new System.Windows.Forms.Label();
             this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.txtAI = new Guna.UI2.WinForms.Guna2TextBox();
@@ -61,6 +60,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cmbTGTTHH = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2GradientButton4 = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             this.guna2Panel1.SuspendLayout();
@@ -69,28 +69,13 @@
             // 
             // guna2Panel2
             // 
-            resources.ApplyResources(this.guna2Panel2, "guna2Panel2");
             this.guna2Panel2.BackColor = System.Drawing.Color.White;
-            this.guna2Panel2.Controls.Add(this.btnExit);
+            this.guna2Panel2.Controls.Add(this.guna2ControlBox1);
             this.guna2Panel2.Controls.Add(this.label4);
             this.guna2Panel2.Controls.Add(this.guna2CirclePictureBox1);
             this.guna2Panel2.Controls.Add(this.txtAI);
+            resources.ApplyResources(this.guna2Panel2, "guna2Panel2");
             this.guna2Panel2.Name = "guna2Panel2";
-            // 
-            // btnExit
-            // 
-            resources.ApplyResources(this.btnExit, "btnExit");
-            this.btnExit.BackColor = System.Drawing.Color.Transparent;
-            this.btnExit.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnExit.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnExit.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnExit.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnExit.FillColor = System.Drawing.Color.Transparent;
-            this.btnExit.ForeColor = System.Drawing.Color.White;
-            this.btnExit.Image = global::Trang_chu_Main_Page_.Properties.Resources.Exit_Icon;
-            this.btnExit.ImageSize = new System.Drawing.Size(190, 120);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click_1);
             // 
             // label4
             // 
@@ -99,8 +84,8 @@
             // 
             // guna2CirclePictureBox1
             // 
-            resources.ApplyResources(this.guna2CirclePictureBox1, "guna2CirclePictureBox1");
             this.guna2CirclePictureBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            resources.ApplyResources(this.guna2CirclePictureBox1, "guna2CirclePictureBox1");
             this.guna2CirclePictureBox1.ImageRotate = 0F;
             this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
             this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
@@ -108,7 +93,6 @@
             // 
             // txtAI
             // 
-            resources.ApplyResources(this.txtAI, "txtAI");
             this.txtAI.Animated = true;
             this.txtAI.BackColor = System.Drawing.Color.White;
             this.txtAI.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
@@ -122,6 +106,7 @@
             this.txtAI.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtAI.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
             this.txtAI.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            resources.ApplyResources(this.txtAI, "txtAI");
             this.txtAI.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtAI.Name = "txtAI";
             this.txtAI.PlaceholderForeColor = System.Drawing.Color.Black;
@@ -131,21 +116,21 @@
             // 
             // cmbLocTheoDanhMuc_GoiYNhapHang
             // 
-            resources.ApplyResources(this.cmbLocTheoDanhMuc_GoiYNhapHang, "cmbLocTheoDanhMuc_GoiYNhapHang");
             this.cmbLocTheoDanhMuc_GoiYNhapHang.BackColor = System.Drawing.Color.Transparent;
             this.cmbLocTheoDanhMuc_GoiYNhapHang.BorderRadius = 8;
             this.cmbLocTheoDanhMuc_GoiYNhapHang.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cmbLocTheoDanhMuc_GoiYNhapHang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbLocTheoDanhMuc_GoiYNhapHang.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cmbLocTheoDanhMuc_GoiYNhapHang.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            resources.ApplyResources(this.cmbLocTheoDanhMuc_GoiYNhapHang, "cmbLocTheoDanhMuc_GoiYNhapHang");
             this.cmbLocTheoDanhMuc_GoiYNhapHang.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cmbLocTheoDanhMuc_GoiYNhapHang.Name = "cmbLocTheoDanhMuc_GoiYNhapHang";
             this.cmbLocTheoDanhMuc_GoiYNhapHang.SelectedIndexChanged += new System.EventHandler(this.cmbSelectedIndexChanged);
             // 
             // label3
             // 
-            resources.ApplyResources(this.label3, "label3");
             this.label3.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.label3, "label3");
             this.label3.Name = "label3";
             // 
             // label2
@@ -155,7 +140,6 @@
             // 
             // btnXoa
             // 
-            resources.ApplyResources(this.btnXoa, "btnXoa");
             this.btnXoa.Animated = true;
             this.btnXoa.BackColor = System.Drawing.Color.Transparent;
             this.btnXoa.BorderRadius = 8;
@@ -166,13 +150,13 @@
             this.btnXoa.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnXoa.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
             this.btnXoa.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            resources.ApplyResources(this.btnXoa, "btnXoa");
             this.btnXoa.ForeColor = System.Drawing.Color.White;
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnSua
             // 
-            resources.ApplyResources(this.btnSua, "btnSua");
             this.btnSua.Animated = true;
             this.btnSua.BackColor = System.Drawing.Color.Transparent;
             this.btnSua.BorderRadius = 8;
@@ -183,13 +167,13 @@
             this.btnSua.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnSua.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
             this.btnSua.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            resources.ApplyResources(this.btnSua, "btnSua");
             this.btnSua.ForeColor = System.Drawing.Color.White;
             this.btnSua.Name = "btnSua";
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // guna2GradientButton2
             // 
-            resources.ApplyResources(this.guna2GradientButton2, "guna2GradientButton2");
             this.guna2GradientButton2.Animated = true;
             this.guna2GradientButton2.BackColor = System.Drawing.Color.Transparent;
             this.guna2GradientButton2.BorderRadius = 8;
@@ -200,17 +184,18 @@
             this.guna2GradientButton2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.guna2GradientButton2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
             this.guna2GradientButton2.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            resources.ApplyResources(this.guna2GradientButton2, "guna2GradientButton2");
             this.guna2GradientButton2.ForeColor = System.Drawing.Color.White;
             this.guna2GradientButton2.Name = "guna2GradientButton2";
             this.guna2GradientButton2.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // guna2Panel1
             // 
-            resources.ApplyResources(this.guna2Panel1, "guna2Panel1");
             this.guna2Panel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2Panel1.BorderRadius = 15;
             this.guna2Panel1.Controls.Add(this.label2);
             this.guna2Panel1.FillColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.guna2Panel1, "guna2Panel1");
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
             // 
@@ -220,12 +205,12 @@
             // 
             // dgvGoiYNhapHang
             // 
-            resources.ApplyResources(this.dgvGoiYNhapHang, "dgvGoiYNhapHang");
             this.dgvGoiYNhapHang.AllowUserToAddRows = false;
             this.dgvGoiYNhapHang.AllowUserToDeleteRows = false;
             this.dgvGoiYNhapHang.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dgvGoiYNhapHang.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            resources.ApplyResources(this.dgvGoiYNhapHang, "dgvGoiYNhapHang");
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -349,26 +334,25 @@
             // 
             // label1
             // 
-            resources.ApplyResources(this.label1, "label1");
             this.label1.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
             // 
             // cmbTGTTHH
             // 
-            resources.ApplyResources(this.cmbTGTTHH, "cmbTGTTHH");
             this.cmbTGTTHH.BackColor = System.Drawing.Color.Transparent;
             this.cmbTGTTHH.BorderRadius = 8;
             this.cmbTGTTHH.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cmbTGTTHH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTGTTHH.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cmbTGTTHH.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            resources.ApplyResources(this.cmbTGTTHH, "cmbTGTTHH");
             this.cmbTGTTHH.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cmbTGTTHH.Name = "cmbTGTTHH";
             this.cmbTGTTHH.SelectedIndexChanged += new System.EventHandler(this.cmbTGTTHH_SelectedIndexChanged);
             // 
             // guna2GradientButton4
             // 
-            resources.ApplyResources(this.guna2GradientButton4, "guna2GradientButton4");
             this.guna2GradientButton4.Animated = true;
             this.guna2GradientButton4.BackColor = System.Drawing.Color.Transparent;
             this.guna2GradientButton4.BorderRadius = 8;
@@ -379,14 +363,23 @@
             this.guna2GradientButton4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.guna2GradientButton4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
             this.guna2GradientButton4.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            resources.ApplyResources(this.guna2GradientButton4, "guna2GradientButton4");
             this.guna2GradientButton4.ForeColor = System.Drawing.Color.White;
             this.guna2GradientButton4.Name = "guna2GradientButton4";
             this.guna2GradientButton4.Click += new System.EventHandler(this.btnNhapHang_Click);
             // 
+            // guna2ControlBox1
+            // 
+            resources.ApplyResources(this.guna2ControlBox1, "guna2ControlBox1");
+            this.guna2ControlBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
+            this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
+            this.guna2ControlBox1.Name = "guna2ControlBox1";
+            this.guna2ControlBox1.Click += new System.EventHandler(this.guna2ControlBox1_Click);
+            // 
             // GoiYNhapHangBangAI
             // 
-            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
+            resources.ApplyResources(this, "$this");
             this.Controls.Add(this.guna2GradientButton4);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbTGTTHH);
@@ -430,7 +423,6 @@
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2ComboBox cmbTGTTHH;
         private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton4;
-        private Guna.UI2.WinForms.Guna2Button btnExit;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
@@ -439,5 +431,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
         private System.Windows.Forms.DataGridViewTextBoxColumn DanhMuc;
+        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
     }
 }

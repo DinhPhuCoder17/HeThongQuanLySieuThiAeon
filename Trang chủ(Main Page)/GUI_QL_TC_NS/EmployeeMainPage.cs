@@ -26,7 +26,7 @@ namespace Trang_chủ_Main_Page_
 
         public EmployeeMainPage()
         {
-
+           
             InitializeComponent();
             if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
             {
@@ -58,7 +58,7 @@ namespace Trang_chủ_Main_Page_
                 btn_SignOut.TextOffset = new Point(1, 0);
             }
         }
-
+        bool menuExpand = false;
         private void EmployeeMainPage_Load(object sender, EventArgs e)
         {
             if (employeeFilterOut == null)
@@ -223,7 +223,7 @@ namespace Trang_chủ_Main_Page_
 
         private void btn_AddData_Click(object sender, EventArgs e)
         {
-
+            logTransition.Start();
         }
 
         private void btn_SignOut_Click(object sender, EventArgs e)
@@ -242,6 +242,28 @@ namespace Trang_chủ_Main_Page_
                 mainpage.Show();
 
                 this.Close();
+            }
+        }
+
+        private void logTransition_Tick(object sender, EventArgs e)
+        {
+            if (menuExpand == false)
+            {
+                pn_Menu_Financial.Height += 15;
+                if (pn_Menu_Financial.Height >= 150)
+                {
+                    logTransition.Stop();
+                    menuExpand = true;
+                }
+            }
+            else
+            {
+                pn_Menu_Financial.Height -= 15;
+                if (pn_Menu_Financial.Height <= 0)
+                {
+                    logTransition.Stop();
+                    menuExpand = false;
+                }
             }
         }
     }
