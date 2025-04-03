@@ -604,8 +604,20 @@
     <EmbeddedResource Include="DSHangHoa_Dat\HangHoaNCC.resx">
       <DependentUpon>HangHoaNCC.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI_Admin\Admin.en.resx">
+      <DependentUpon>Admin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI_Admin\Admin.resx">
       <DependentUpon>Admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI_Admin\DSNhanVien.en.resx">
+      <DependentUpon>DSNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI_Admin\FormAddNV.en.resx">
+      <DependentUpon>FormAddNV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI_Admin\FormAddQL.en.resx">
+      <DependentUpon>FormAddQL.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI_QLHangHoa\CTDH.en.resx">
       <DependentUpon>CTDH.cs</DependentUpon>
@@ -667,6 +679,9 @@
     <EmbeddedResource Include="GUI_QLHangHoa\QuanLyNhaCungCap.resx">
       <DependentUpon>QuanLyNhaCungCap.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI_QLHangHoa\ThemMatHang.en.resx">
+      <DependentUpon>ThemMatHang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI_QLHangHoa\ThemMatHang.resx">
       <DependentUpon>ThemMatHang.cs</DependentUpon>
     </EmbeddedResource>
@@ -685,11 +700,20 @@
     <EmbeddedResource Include="GUI_QL_TC_NS\CT_HDBH.resx">
       <DependentUpon>CT_HDBH.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI_QL_TC_NS\customerControl.en.resx">
+      <DependentUpon>customerControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI_QL_TC_NS\customerControl.resx">
       <DependentUpon>customerControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI_QL_TC_NS\employeeFilterOut.en.resx">
+      <DependentUpon>employeeFilterOut.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI_QL_TC_NS\employeeFilterOut.resx">
       <DependentUpon>employeeFilterOut.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI_QL_TC_NS\EmployeeMainPage.en.resx">
+      <DependentUpon>EmployeeMainPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI_QL_TC_NS\EmployeeMainPage.resx">
       <DependentUpon>EmployeeMainPage.cs</DependentUpon>
@@ -697,11 +721,20 @@
     <EmbeddedResource Include="GUI_QL_TC_NS\employeeShift.resx">
       <DependentUpon>employeeShift.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI_QL_TC_NS\financialManagement.en.resx">
+      <DependentUpon>financialManagement.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI_QL_TC_NS\financialManagement.resx">
       <DependentUpon>financialManagement.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI_QL_TC_NS\LichSuKH.en.resx">
+      <DependentUpon>LichSuKH.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI_QL_TC_NS\LichSuKH.resx">
       <DependentUpon>LichSuKH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI_QL_TC_NS\Statistic.en.resx">
+      <DependentUpon>Statistic.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI_QL_TC_NS\UserControlDateNum.resx">
       <DependentUpon>UserControlDateNum.cs</DependentUpon>
@@ -955,7 +988,9 @@
   <ItemGroup>
     <None Include="Resources\vecteezy_warning-icon-png-transparent_9663747.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\z6469758499596_c1f7280b95d601fd68a5ae5e8f1adb0a.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Data.SqlClient.SNI.6.0.2\build\net462\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('..\packages\Microsoft.Data.SqlClient.SNI.6.0.2\build\net462\Microsoft.Data.SqlClient.SNI.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

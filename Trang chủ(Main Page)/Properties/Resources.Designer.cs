@@ -709,5 +709,15 @@ namespace Trang_chu_Main_Page_.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap z6469758499596_c1f7280b95d601fd68a5ae5e8f1adb0a {
+            get {
+                object obj = ResourceManager.GetObject("z6469758499596_c1f7280b95d601fd68a5ae5e8f1adb0a", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

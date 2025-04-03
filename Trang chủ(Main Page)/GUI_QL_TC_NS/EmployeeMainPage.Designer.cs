@@ -77,24 +77,19 @@
             // 
             // panel2
             // 
+            resources.ApplyResources(this.panel2, "panel2");
             this.panel2.BackColor = System.Drawing.Color.Transparent;
-            this.panel2.Location = new System.Drawing.Point(737, 491);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(200, 52);
-            this.panel2.TabIndex = 6;
             // 
             // panel3
             // 
+            resources.ApplyResources(this.panel3, "panel3");
             this.panel3.BackColor = System.Drawing.Color.Transparent;
-            this.panel3.Location = new System.Drawing.Point(396, 660);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(200, 45);
-            this.panel3.TabIndex = 7;
             // 
             // sidebarContainer
             // 
-            this.sidebarContainer.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("sidebarContainer.BackgroundImage")));
-            this.sidebarContainer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            resources.ApplyResources(this.sidebarContainer, "sidebarContainer");
             this.sidebarContainer.Controls.Add(this.guna2PictureBox2);
             this.sidebarContainer.Controls.Add(this.guna2PictureBox1);
             this.sidebarContainer.Controls.Add(this.menuEmployeeContainer);
@@ -103,60 +98,46 @@
             this.sidebarContainer.Controls.Add(this.pn_Report);
             this.sidebarContainer.Controls.Add(this.pn_Menu_Financial);
             this.sidebarContainer.Controls.Add(this.btn_SignOut);
-            this.sidebarContainer.Dock = System.Windows.Forms.DockStyle.Left;
-            this.sidebarContainer.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.sidebarContainer.Location = new System.Drawing.Point(0, 0);
             this.sidebarContainer.Name = "sidebarContainer";
-            this.sidebarContainer.Size = new System.Drawing.Size(200, 842);
-            this.sidebarContainer.TabIndex = 3;
             // 
             // guna2PictureBox2
             // 
+            resources.ApplyResources(this.guna2PictureBox2, "guna2PictureBox2");
             this.guna2PictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.guna2PictureBox2.FillColor = System.Drawing.Color.Transparent;
             this.guna2PictureBox2.ImageRotate = 0F;
-            this.guna2PictureBox2.Location = new System.Drawing.Point(3, 3);
             this.guna2PictureBox2.Name = "guna2PictureBox2";
-            this.guna2PictureBox2.Size = new System.Drawing.Size(37, 38);
-            this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2PictureBox2.TabIndex = 2;
             this.guna2PictureBox2.TabStop = false;
             this.guna2PictureBox2.UseTransparentBackground = true;
             // 
             // guna2PictureBox1
             // 
+            resources.ApplyResources(this.guna2PictureBox1, "guna2PictureBox1");
             this.guna2PictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.guna2PictureBox1.Image = global::Trang_chu_Main_Page_.Properties.Resources.Thiết_kế_chưa_có_tên__12_;
             this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(3, 47);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(193, 79);
-            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2PictureBox1.TabIndex = 0;
             this.guna2PictureBox1.TabStop = false;
             this.guna2PictureBox1.UseTransparentBackground = true;
             // 
             // menuEmployeeContainer
             // 
+            resources.ApplyResources(this.menuEmployeeContainer, "menuEmployeeContainer");
             this.menuEmployeeContainer.BackColor = System.Drawing.Color.Transparent;
             this.menuEmployeeContainer.Controls.Add(this.pn_EmployeeList);
             this.menuEmployeeContainer.Controls.Add(this.pn_EmployeeShift);
-            this.menuEmployeeContainer.Location = new System.Drawing.Point(3, 132);
             this.menuEmployeeContainer.Name = "menuEmployeeContainer";
-            this.menuEmployeeContainer.Size = new System.Drawing.Size(200, 144);
-            this.menuEmployeeContainer.TabIndex = 2;
             // 
             // pn_EmployeeList
             // 
+            resources.ApplyResources(this.pn_EmployeeList, "pn_EmployeeList");
             this.pn_EmployeeList.BackColor = System.Drawing.Color.Transparent;
             this.pn_EmployeeList.Controls.Add(this.btnEmployeeAdd);
-            this.pn_EmployeeList.Location = new System.Drawing.Point(3, 3);
             this.pn_EmployeeList.Name = "pn_EmployeeList";
-            this.pn_EmployeeList.Size = new System.Drawing.Size(200, 61);
-            this.pn_EmployeeList.TabIndex = 6;
             // 
             // btnEmployeeAdd
             // 
+            resources.ApplyResources(this.btnEmployeeAdd, "btnEmployeeAdd");
             this.btnEmployeeAdd.Animated = true;
             this.btnEmployeeAdd.BackColor = System.Drawing.Color.Transparent;
             this.btnEmployeeAdd.BorderRadius = 15;
@@ -165,30 +146,23 @@
             this.btnEmployeeAdd.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnEmployeeAdd.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnEmployeeAdd.FillColor = System.Drawing.Color.Transparent;
-            this.btnEmployeeAdd.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btnEmployeeAdd.ForeColor = System.Drawing.Color.White;
             this.btnEmployeeAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnEmployeeAdd.Image")));
-            this.btnEmployeeAdd.ImageOffset = new System.Drawing.Point(-7, 0);
-            this.btnEmployeeAdd.Location = new System.Drawing.Point(-6, 6);
-            this.btnEmployeeAdd.Margin = new System.Windows.Forms.Padding(0);
+            this.btnEmployeeAdd.ImageOffset = new System.Drawing.Point(-25, 0);
             this.btnEmployeeAdd.Name = "btnEmployeeAdd";
-            this.btnEmployeeAdd.Size = new System.Drawing.Size(200, 50);
-            this.btnEmployeeAdd.TabIndex = 3;
-            this.btnEmployeeAdd.Text = "Danh Sách Nhân Sự";
-            this.btnEmployeeAdd.TextOffset = new System.Drawing.Point(5, 0);
+            this.btnEmployeeAdd.TextOffset = new System.Drawing.Point(-12, 0);
             this.btnEmployeeAdd.Click += new System.EventHandler(this.btnEmployeeAdd_Click);
             // 
             // pn_EmployeeShift
             // 
+            resources.ApplyResources(this.pn_EmployeeShift, "pn_EmployeeShift");
             this.pn_EmployeeShift.BackColor = System.Drawing.Color.Transparent;
             this.pn_EmployeeShift.Controls.Add(this.btnEmployeeShift);
-            this.pn_EmployeeShift.Location = new System.Drawing.Point(3, 70);
             this.pn_EmployeeShift.Name = "pn_EmployeeShift";
-            this.pn_EmployeeShift.Size = new System.Drawing.Size(200, 70);
-            this.pn_EmployeeShift.TabIndex = 6;
             // 
             // btnEmployeeShift
             // 
+            resources.ApplyResources(this.btnEmployeeShift, "btnEmployeeShift");
             this.btnEmployeeShift.Animated = true;
             this.btnEmployeeShift.BackColor = System.Drawing.Color.Transparent;
             this.btnEmployeeShift.BorderRadius = 15;
@@ -197,31 +171,23 @@
             this.btnEmployeeShift.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnEmployeeShift.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnEmployeeShift.FillColor = System.Drawing.Color.Transparent;
-            this.btnEmployeeShift.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btnEmployeeShift.ForeColor = System.Drawing.Color.White;
             this.btnEmployeeShift.Image = ((System.Drawing.Image)(resources.GetObject("btnEmployeeShift.Image")));
             this.btnEmployeeShift.ImageOffset = new System.Drawing.Point(-13, 0);
-            this.btnEmployeeShift.Location = new System.Drawing.Point(-5, 9);
-            this.btnEmployeeShift.Margin = new System.Windows.Forms.Padding(0);
             this.btnEmployeeShift.Name = "btnEmployeeShift";
-            this.btnEmployeeShift.Size = new System.Drawing.Size(200, 50);
-            this.btnEmployeeShift.TabIndex = 3;
-            this.btnEmployeeShift.Text = "Sắp Xếp Ca Làm";
             this.btnEmployeeShift.TextOffset = new System.Drawing.Point(-1, 0);
             this.btnEmployeeShift.Click += new System.EventHandler(this.btnEmployeeShift_Click);
             // 
             // pn_Customer
             // 
+            resources.ApplyResources(this.pn_Customer, "pn_Customer");
             this.pn_Customer.BackColor = System.Drawing.Color.Transparent;
             this.pn_Customer.Controls.Add(this.btnCustomer);
-            this.pn_Customer.Location = new System.Drawing.Point(3, 282);
             this.pn_Customer.Name = "pn_Customer";
-            this.pn_Customer.Size = new System.Drawing.Size(200, 70);
-            this.pn_Customer.TabIndex = 10;
             // 
             // btnCustomer
             // 
-            this.btnCustomer.Anchor = System.Windows.Forms.AnchorStyles.None;
+            resources.ApplyResources(this.btnCustomer, "btnCustomer");
             this.btnCustomer.Animated = true;
             this.btnCustomer.BackColor = System.Drawing.Color.Transparent;
             this.btnCustomer.BorderRadius = 15;
@@ -232,30 +198,23 @@
             this.btnCustomer.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnCustomer.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnCustomer.FillColor = System.Drawing.Color.Transparent;
-            this.btnCustomer.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.btnCustomer.ForeColor = System.Drawing.Color.White;
             this.btnCustomer.Image = ((System.Drawing.Image)(resources.GetObject("btnCustomer.Image")));
             this.btnCustomer.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnCustomer.Location = new System.Drawing.Point(0, 1);
-            this.btnCustomer.Margin = new System.Windows.Forms.Padding(0);
             this.btnCustomer.Name = "btnCustomer";
-            this.btnCustomer.Size = new System.Drawing.Size(200, 60);
-            this.btnCustomer.TabIndex = 2;
-            this.btnCustomer.Text = "Khách Hàng";
-            this.btnCustomer.TextOffset = new System.Drawing.Point(-1, 0);
+            this.btnCustomer.TextOffset = new System.Drawing.Point(3, 0);
             this.btnCustomer.Click += new System.EventHandler(this.btnCustomer_Click);
             // 
             // guna2Panel3
             // 
+            resources.ApplyResources(this.guna2Panel3, "guna2Panel3");
             this.guna2Panel3.BackColor = System.Drawing.Color.Transparent;
             this.guna2Panel3.Controls.Add(this.btn_FinancialManagement);
-            this.guna2Panel3.Location = new System.Drawing.Point(3, 358);
             this.guna2Panel3.Name = "guna2Panel3";
-            this.guna2Panel3.Size = new System.Drawing.Size(200, 70);
-            this.guna2Panel3.TabIndex = 11;
             // 
             // btn_FinancialManagement
             // 
+            resources.ApplyResources(this.btn_FinancialManagement, "btn_FinancialManagement");
             this.btn_FinancialManagement.Animated = true;
             this.btn_FinancialManagement.BackColor = System.Drawing.Color.Transparent;
             this.btn_FinancialManagement.BorderRadius = 15;
@@ -266,31 +225,24 @@
             this.btn_FinancialManagement.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btn_FinancialManagement.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btn_FinancialManagement.FillColor = System.Drawing.Color.Transparent;
-            this.btn_FinancialManagement.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.btn_FinancialManagement.ForeColor = System.Drawing.Color.White;
             this.btn_FinancialManagement.Image = ((System.Drawing.Image)(resources.GetObject("btn_FinancialManagement.Image")));
             this.btn_FinancialManagement.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_FinancialManagement.ImageOffset = new System.Drawing.Point(-2, 0);
-            this.btn_FinancialManagement.Location = new System.Drawing.Point(-1, 0);
-            this.btn_FinancialManagement.Margin = new System.Windows.Forms.Padding(0);
             this.btn_FinancialManagement.Name = "btn_FinancialManagement";
-            this.btn_FinancialManagement.Size = new System.Drawing.Size(200, 60);
-            this.btn_FinancialManagement.TabIndex = 7;
-            this.btn_FinancialManagement.Text = "Tài chính";
-            this.btn_FinancialManagement.TextOffset = new System.Drawing.Point(-15, 0);
+            this.btn_FinancialManagement.TextOffset = new System.Drawing.Point(-13, 0);
             this.btn_FinancialManagement.Click += new System.EventHandler(this.btn_FinancialManagement_Click);
             // 
             // pn_Report
             // 
+            resources.ApplyResources(this.pn_Report, "pn_Report");
             this.pn_Report.BackColor = System.Drawing.Color.Transparent;
             this.pn_Report.Controls.Add(this.btn_Statistic);
-            this.pn_Report.Location = new System.Drawing.Point(3, 434);
             this.pn_Report.Name = "pn_Report";
-            this.pn_Report.Size = new System.Drawing.Size(200, 70);
-            this.pn_Report.TabIndex = 11;
             // 
             // btn_Statistic
             // 
+            resources.ApplyResources(this.btn_Statistic, "btn_Statistic");
             this.btn_Statistic.Animated = true;
             this.btn_Statistic.BackColor = System.Drawing.Color.Transparent;
             this.btn_Statistic.BorderRadius = 15;
@@ -301,40 +253,31 @@
             this.btn_Statistic.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btn_Statistic.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btn_Statistic.FillColor = System.Drawing.Color.Transparent;
-            this.btn_Statistic.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btn_Statistic.ForeColor = System.Drawing.Color.White;
             this.btn_Statistic.Image = ((System.Drawing.Image)(resources.GetObject("btn_Statistic.Image")));
             this.btn_Statistic.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_Statistic.Location = new System.Drawing.Point(0, 0);
-            this.btn_Statistic.Margin = new System.Windows.Forms.Padding(0);
             this.btn_Statistic.Name = "btn_Statistic";
-            this.btn_Statistic.Size = new System.Drawing.Size(200, 60);
-            this.btn_Statistic.TabIndex = 7;
-            this.btn_Statistic.Text = "Xem Báo Cáo";
             this.btn_Statistic.Click += new System.EventHandler(this.btn_Statistic_Click);
             // 
             // pn_Menu_Financial
             // 
+            resources.ApplyResources(this.pn_Menu_Financial, "pn_Menu_Financial");
             this.pn_Menu_Financial.BackColor = System.Drawing.Color.Transparent;
             this.pn_Menu_Financial.Controls.Add(this.pn_AddData);
             this.pn_Menu_Financial.Controls.Add(this.guna2Panel1);
             this.pn_Menu_Financial.Controls.Add(this.guna2Panel2);
-            this.pn_Menu_Financial.Location = new System.Drawing.Point(3, 510);
             this.pn_Menu_Financial.Name = "pn_Menu_Financial";
-            this.pn_Menu_Financial.Size = new System.Drawing.Size(200, 230);
-            this.pn_Menu_Financial.TabIndex = 5;
             // 
             // pn_AddData
             // 
+            resources.ApplyResources(this.pn_AddData, "pn_AddData");
             this.pn_AddData.BackColor = System.Drawing.Color.Transparent;
             this.pn_AddData.Controls.Add(this.btn_AddData);
-            this.pn_AddData.Location = new System.Drawing.Point(3, 3);
             this.pn_AddData.Name = "pn_AddData";
-            this.pn_AddData.Size = new System.Drawing.Size(200, 70);
-            this.pn_AddData.TabIndex = 11;
             // 
             // btn_AddData
             // 
+            resources.ApplyResources(this.btn_AddData, "btn_AddData");
             this.btn_AddData.Animated = true;
             this.btn_AddData.BackColor = System.Drawing.Color.Transparent;
             this.btn_AddData.BorderRadius = 15;
@@ -345,30 +288,23 @@
             this.btn_AddData.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btn_AddData.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btn_AddData.FillColor = System.Drawing.Color.Transparent;
-            this.btn_AddData.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btn_AddData.ForeColor = System.Drawing.Color.White;
             this.btn_AddData.Image = ((System.Drawing.Image)(resources.GetObject("btn_AddData.Image")));
             this.btn_AddData.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_AddData.Location = new System.Drawing.Point(0, 0);
-            this.btn_AddData.Margin = new System.Windows.Forms.Padding(0);
             this.btn_AddData.Name = "btn_AddData";
-            this.btn_AddData.Size = new System.Drawing.Size(200, 60);
-            this.btn_AddData.TabIndex = 7;
-            this.btn_AddData.Text = "Thêm Dữ Liệu";
-            this.btn_AddData.TextOffset = new System.Drawing.Point(1, 0);
+            this.btn_AddData.TextOffset = new System.Drawing.Point(-7, 0);
             this.btn_AddData.Click += new System.EventHandler(this.btn_AddData_Click);
             // 
             // guna2Panel1
             // 
+            resources.ApplyResources(this.guna2Panel1, "guna2Panel1");
             this.guna2Panel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2Panel1.Controls.Add(this.btn_AddData_ChamCong);
-            this.guna2Panel1.Location = new System.Drawing.Point(3, 79);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(200, 70);
-            this.guna2Panel1.TabIndex = 11;
             // 
             // btn_AddData_ChamCong
             // 
+            resources.ApplyResources(this.btn_AddData_ChamCong, "btn_AddData_ChamCong");
             this.btn_AddData_ChamCong.Animated = true;
             this.btn_AddData_ChamCong.BackColor = System.Drawing.Color.Transparent;
             this.btn_AddData_ChamCong.BorderRadius = 15;
@@ -379,30 +315,23 @@
             this.btn_AddData_ChamCong.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btn_AddData_ChamCong.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btn_AddData_ChamCong.FillColor = System.Drawing.Color.Transparent;
-            this.btn_AddData_ChamCong.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btn_AddData_ChamCong.ForeColor = System.Drawing.Color.White;
             this.btn_AddData_ChamCong.Image = ((System.Drawing.Image)(resources.GetObject("btn_AddData_ChamCong.Image")));
             this.btn_AddData_ChamCong.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_AddData_ChamCong.Location = new System.Drawing.Point(0, 0);
-            this.btn_AddData_ChamCong.Margin = new System.Windows.Forms.Padding(0);
             this.btn_AddData_ChamCong.Name = "btn_AddData_ChamCong";
-            this.btn_AddData_ChamCong.Size = new System.Drawing.Size(200, 60);
-            this.btn_AddData_ChamCong.TabIndex = 7;
-            this.btn_AddData_ChamCong.Text = "Chấm Công";
-            this.btn_AddData_ChamCong.TextOffset = new System.Drawing.Point(1, 0);
+            this.btn_AddData_ChamCong.TextOffset = new System.Drawing.Point(14, 0);
             this.btn_AddData_ChamCong.Click += new System.EventHandler(this.btn_AddData_ChamCong_Click);
             // 
             // guna2Panel2
             // 
+            resources.ApplyResources(this.guna2Panel2, "guna2Panel2");
             this.guna2Panel2.BackColor = System.Drawing.Color.Transparent;
             this.guna2Panel2.Controls.Add(this.btn_AddData_banHang);
-            this.guna2Panel2.Location = new System.Drawing.Point(3, 155);
             this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(200, 70);
-            this.guna2Panel2.TabIndex = 11;
             // 
             // btn_AddData_banHang
             // 
+            resources.ApplyResources(this.btn_AddData_banHang, "btn_AddData_banHang");
             this.btn_AddData_banHang.Animated = true;
             this.btn_AddData_banHang.BackColor = System.Drawing.Color.Transparent;
             this.btn_AddData_banHang.BorderRadius = 15;
@@ -413,21 +342,16 @@
             this.btn_AddData_banHang.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btn_AddData_banHang.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btn_AddData_banHang.FillColor = System.Drawing.Color.Transparent;
-            this.btn_AddData_banHang.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btn_AddData_banHang.ForeColor = System.Drawing.Color.White;
             this.btn_AddData_banHang.Image = ((System.Drawing.Image)(resources.GetObject("btn_AddData_banHang.Image")));
             this.btn_AddData_banHang.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_AddData_banHang.Location = new System.Drawing.Point(0, 0);
-            this.btn_AddData_banHang.Margin = new System.Windows.Forms.Padding(0);
             this.btn_AddData_banHang.Name = "btn_AddData_banHang";
-            this.btn_AddData_banHang.Size = new System.Drawing.Size(200, 60);
-            this.btn_AddData_banHang.TabIndex = 7;
-            this.btn_AddData_banHang.Text = "bán Hàng";
-            this.btn_AddData_banHang.TextOffset = new System.Drawing.Point(1, 0);
+            this.btn_AddData_banHang.TextOffset = new System.Drawing.Point(-18, 0);
             this.btn_AddData_banHang.Click += new System.EventHandler(this.btn_AddData_banHang_Click);
             // 
             // btn_SignOut
             // 
+            resources.ApplyResources(this.btn_SignOut, "btn_SignOut");
             this.btn_SignOut.Animated = true;
             this.btn_SignOut.BackColor = System.Drawing.Color.Transparent;
             this.btn_SignOut.BorderRadius = 15;
@@ -438,33 +362,24 @@
             this.btn_SignOut.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btn_SignOut.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btn_SignOut.FillColor = System.Drawing.Color.Transparent;
-            this.btn_SignOut.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btn_SignOut.ForeColor = System.Drawing.Color.White;
             this.btn_SignOut.Image = ((System.Drawing.Image)(resources.GetObject("btn_SignOut.Image")));
             this.btn_SignOut.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_SignOut.ImageOffset = new System.Drawing.Point(7, 0);
-            this.btn_SignOut.Location = new System.Drawing.Point(0, 743);
-            this.btn_SignOut.Margin = new System.Windows.Forms.Padding(0);
             this.btn_SignOut.Name = "btn_SignOut";
-            this.btn_SignOut.Size = new System.Drawing.Size(200, 60);
-            this.btn_SignOut.TabIndex = 8;
-            this.btn_SignOut.Text = "Đăng Xuất";
-            this.btn_SignOut.TextOffset = new System.Drawing.Point(1, 0);
+            this.btn_SignOut.TextOffset = new System.Drawing.Point(-8, 0);
             this.btn_SignOut.Click += new System.EventHandler(this.btn_SignOut_Click);
             // 
             // EmployeeMainPage
             // 
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1381, 842);
             this.Controls.Add(this.sidebarContainer);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.IsMdiContainer = true;
             this.Name = "EmployeeMainPage";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "EmployeeMainPage";
             this.Load += new System.EventHandler(this.EmployeeMainPage_Load);
             this.sidebarContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();

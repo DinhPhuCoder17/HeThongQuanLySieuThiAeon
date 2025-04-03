@@ -11,7 +11,9 @@ using System.Web.UI.WebControls.Adapters;
 using System.Windows.Forms;
 using BLL;
 using OfficeOpenXml;
-using Microsoft.Office.Interop.Excel;
+using System.Threading;
+using System.Drawing; 
+
 namespace Trang_chủ_Main_Page_
 {
     public partial class EmployeeMainPage : Form
@@ -24,7 +26,37 @@ namespace Trang_chủ_Main_Page_
 
         public EmployeeMainPage()
         {
+
             InitializeComponent();
+            if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+            {
+                btnEmployeeAdd.ImageOffset = new Point(-7, 0);
+                btnEmployeeAdd.TextOffset = new Point(5, 0);
+
+                btnEmployeeShift.ImageOffset = new Point(-13, 0);
+                btnEmployeeShift.TextOffset = new Point(-1, 0);
+
+                btnCustomer.ImageOffset = new Point(0, 0);
+                btnCustomer.TextOffset = new Point(-1, 0);
+
+                btn_FinancialManagement.ImageOffset = new Point(-2, 0);
+                btn_FinancialManagement.TextOffset = new Point(-15, 0);
+
+                btn_Statistic.ImageOffset = new Point(0, 0);
+                btn_Statistic.TextOffset = new Point(0, 0);
+
+                btn_AddData.ImageOffset = new Point(0, 0);
+                btn_AddData.TextOffset = new Point(1, 0);
+
+                btn_AddData_ChamCong.ImageOffset = new Point(20, 0);
+                btn_AddData_ChamCong.TextOffset = new Point(1, 0);
+
+                btn_AddData_banHang.ImageOffset = new Point(20, 0);
+                btn_AddData_banHang.TextOffset = new Point(1, 0);
+
+                btn_SignOut.ImageOffset = new Point(7, 0);
+                btn_SignOut.TextOffset = new Point(1, 0);
+            }
         }
 
         private void EmployeeMainPage_Load(object sender, EventArgs e)

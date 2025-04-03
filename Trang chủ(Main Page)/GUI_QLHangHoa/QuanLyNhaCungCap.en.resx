@@ -8758,6 +8758,9 @@
   <data name="label8.Text" xml:space="preserve">
     <value>Supplier Name</value>
   </data>
+  <data name="pn_Supplier_Add.Size" type="System.Drawing.Size, System.Drawing">
+    <value>600, 0</value>
+  </data>
   <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>

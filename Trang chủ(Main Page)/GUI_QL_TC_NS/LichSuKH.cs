@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
@@ -22,11 +23,25 @@ namespace Trang_chu_Main_Page_.GUI_QL_TC_NS
         public void load_in_Datagridview(String soDienThoai)
         {
             dtg_LichSuMH.DataSource = bLLQuanLyKho.xemLSKH(soDienThoai);
-            dtg_LichSuMH.Columns["Mahoadon"].HeaderText = "Mã hóa đơn";
-            dtg_LichSuMH.Columns["Thoigianban"].HeaderText = "Thời gian bán";
-            dtg_LichSuMH.Columns["Manhanvien"].HeaderText = "Mã nhân viên";
-            dtg_LichSuMH.Columns["Sodienthoai"].HeaderText = "Số điện thoại";
-            dtg_LichSuMH.Columns["Thanhtien"].HeaderText = "Thành tiền";
+            if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+            {
+                // Tiếng Việt
+                dtg_LichSuMH.Columns["Mahoadon"].HeaderText = "Mã hóa đơn";
+                dtg_LichSuMH.Columns["Thoigianban"].HeaderText = "Thời gian bán";
+                dtg_LichSuMH.Columns["Manhanvien"].HeaderText = "Mã nhân viên";
+                dtg_LichSuMH.Columns["Sodienthoai"].HeaderText = "Số điện thoại";
+                dtg_LichSuMH.Columns["Thanhtien"].HeaderText = "Thành tiền";
+            }
+            else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+            {
+                // Tiếng Anh
+                dtg_LichSuMH.Columns["Mahoadon"].HeaderText = "Invoice Code";
+                dtg_LichSuMH.Columns["Thoigianban"].HeaderText = "Sale Time";
+                dtg_LichSuMH.Columns["Manhanvien"].HeaderText = "Employee Code";
+                dtg_LichSuMH.Columns["Sodienthoai"].HeaderText = "Phone Number";
+                dtg_LichSuMH.Columns["Thanhtien"].HeaderText = "Total Amount";
+            }
+
 
         }
 

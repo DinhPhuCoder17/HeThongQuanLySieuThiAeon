@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
@@ -34,11 +35,24 @@ namespace Trang_chủ_Main_Page_
         {
             DataTable dataTable = bLL_QuanlyTCNS.xemDSHD();
             dtg_Bill.DataSource = dataTable;
-            dtg_Bill.Columns[0].HeaderText = "Mã Hóa Đơn";
-            dtg_Bill.Columns[1].HeaderText = "Thời Gian Bán";
-            dtg_Bill.Columns[2].HeaderText = "Mã Nhân Viên";
-            dtg_Bill.Columns[3].HeaderText = "Số Điện Thoại";
-            dtg_Bill.Columns[4].HeaderText = "Thành Tiền";
+            if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+            {
+                // Tiếng Việt
+                dtg_Bill.Columns[0].HeaderText = "Mã Hóa Đơn";
+                dtg_Bill.Columns[1].HeaderText = "Thời Gian Bán";
+                dtg_Bill.Columns[2].HeaderText = "Mã Nhân Viên";
+                dtg_Bill.Columns[3].HeaderText = "Số Điện Thoại";
+                dtg_Bill.Columns[4].HeaderText = "Thành Tiền";
+            }
+            else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+            {
+                // Tiếng Anh
+                dtg_Bill.Columns[0].HeaderText = "Invoice Code";
+                dtg_Bill.Columns[1].HeaderText = "Sale Time";
+                dtg_Bill.Columns[2].HeaderText = "Employee Code";
+                dtg_Bill.Columns[3].HeaderText = "Phone Number";
+                dtg_Bill.Columns[4].HeaderText = "Total Amount";
+            }
 
 
             foreach (DataGridViewColumn column in dtg_Bill.Columns)
@@ -59,27 +73,71 @@ namespace Trang_chủ_Main_Page_
             {
                 string maHoaDon = dtg_Bill.SelectedRows[0].Cells["MaHoaDon"].Value.ToString();
 
-                DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa hóa đơn này?",
-                    "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                string confirmMessage = "";
+                string titleMessage = "";
+
+                if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                {
+                   
+                    confirmMessage = "Bạn có chắc chắn muốn xóa hóa đơn này?";
+                    titleMessage = "Xác nhận xóa";
+                }
+                else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                {
+                    
+                    confirmMessage = "Are you sure you want to delete this invoice?";
+                    titleMessage = "Delete Confirmation";
+                }
+                DialogResult result = MessageBox.Show(confirmMessage, titleMessage, MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
 
                 if (result == DialogResult.Yes)
                 {
                     if (bLL_QuanlyTCNS.XoaHoaDon(maHoaDon))
                     {
-                        MessageBox.Show("Xóa hóa đơn thành công!");
+                        if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                        {
+                            MessageBox.Show("Xóa hóa đơn thành công!");
+                        }
+                        else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                        {
+                            MessageBox.Show("Invoice deleted successfully!");
+                        }
+
+
                         DataTable dataTable = bLL_QuanlyTCNS.xemDSHD();
                         dtg_Bill.DataSource = dataTable;
                     }
                     else
                     {
-                        MessageBox.Show("Xóa thất bại, vui lòng thử lại.");
-                        
+                        if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                        {
+                            // Tiếng Việt
+                            MessageBox.Show("Xóa thất bại, vui lòng thử lại.");
+                        }
+                        else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                        {
+                            // Tiếng Anh
+                            MessageBox.Show("Deletion failed, please try again.");
+                        }
+
+
                     }
                 }
             }
             else
             {
-                MessageBox.Show("Vui lòng chọn hóa đơn cần xóa!");
+                if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                {
+                    // Tiếng Việt
+                    MessageBox.Show("Vui lòng chọn hóa đơn cần xóa!");
+                }
+                else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                {
+                    // Tiếng Anh
+                    MessageBox.Show("Please select an invoice to delete!");
+                }
+
             }
 
         }
@@ -116,7 +174,17 @@ namespace Trang_chủ_Main_Page_
             DateTime toDate = dtp_Bill_End.Value.Date.AddDays(1).AddSeconds(-1); // Lấy hết ngày đến 23:59:59
             if (fromDate > toDate)
             {
-                MessageBox.Show("Ngày kết thúc phải lớn hơn hoặc bằng ngày bắt đầu!", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                {
+                    // Tiếng Việt
+                    MessageBox.Show("Ngày kết thúc phải lớn hơn hoặc bằng ngày bắt đầu!", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                {
+                    // Tiếng Anh
+                    MessageBox.Show("The end date must be greater than or equal to the start date!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
                 return; // Dừng thực hiện nếu sai điều kiện
             }
             DataTable dt = bLL_QuanlyTCNS.locHoaDon(fromDate, toDate);

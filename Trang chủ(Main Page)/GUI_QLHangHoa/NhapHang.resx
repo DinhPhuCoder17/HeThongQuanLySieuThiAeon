@@ -128,6 +128,9 @@
   <data name="dgvNhapHang.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
   </data>
+  <data name="guna2Panel4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1182, 68</value>
+  </data>
   <data name="&gt;&gt;btn_MoveOn.Type" xml:space="preserve">
     <value>Guna.UI2.WinForms.Guna2GradientButton, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
   </data>
@@ -174,9 +177,6 @@
   <data name="guna2CirclePictureBox1.Location" type="System.Drawing.Point, System.Drawing">
     <value>711, 6</value>
   </data>
-  <data name="guna2Panel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
   <data name="guna2Panel1.TabIndex" type="System.Int32, mscorlib">
     <value>17</value>
   </data>
@@ -188,6 +188,12 @@
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
     <value>112, 20</value>
+  </data>
+  <data name="&gt;&gt;btn_PrintExportPDF.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2GradientButton, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="guna2Panel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
   </data>
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
     <value>765, 17</value>
@@ -210,9 +216,6 @@
   <data name="&gt;&gt;btn_HuyHD.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="btn_HuyHD.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 56</value>
-  </data>
   <data name="label4.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -221,6 +224,135 @@
   </data>
   <data name="dgvNhapHang.ColumnHeadersHeight" type="System.Int32, mscorlib">
     <value>40</value>
+  </data>
+  <data name="guna2Panel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1182, 827</value>
+  </data>
+  <data name="btn_PrintExportPDF.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 56</value>
+  </data>
+  <data name="&gt;&gt;btn_MoveOn.Name" xml:space="preserve">
+    <value>btn_MoveOn</value>
+  </data>
+  <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="dgvNhapHang.RowHeadersWidth" type="System.Int32, mscorlib">
+    <value>51</value>
+  </data>
+  <data name="&gt;&gt;label4.Name" xml:space="preserve">
+    <value>label4</value>
+  </data>
+  <data name="&gt;&gt;guna2CirclePictureBox1.Name" xml:space="preserve">
+    <value>guna2CirclePictureBox1</value>
+  </data>
+  <data name="&gt;&gt;guna2Panel1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;txt_Searching_HDNH.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;guna2CirclePictureBox1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="dgvNhapHang.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 91</value>
+  </data>
+  <data name="&gt;&gt;guna2Elipse1.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2Elipse, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="dgvNhapHang.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1158, 612</value>
+  </data>
+  <data name="txt_Searching_HDNH.Size" type="System.Drawing.Size, System.Drawing">
+    <value>651, 39</value>
+  </data>
+  <data name="&gt;&gt;guna2Elipse1.Name" xml:space="preserve">
+    <value>guna2Elipse1</value>
+  </data>
+  <data name="&gt;&gt;guna2Panel4.Name" xml:space="preserve">
+    <value>guna2Panel4</value>
+  </data>
+  <data name="&gt;&gt;btn_MoveOn.Parent" xml:space="preserve">
+    <value>guna2Panel1</value>
+  </data>
+  <data name="&gt;&gt;guna2Panel1.Name" xml:space="preserve">
+    <value>guna2Panel1</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1182, 827</value>
+  </data>
+  <data name="btn_MoveOn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 56</value>
+  </data>
+  <data name="&gt;&gt;guna2Panel1.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2Panel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="btn_PrintExportPDF.Location" type="System.Drawing.Point, System.Drawing">
+    <value>583, 726</value>
+  </data>
+  <data name="guna2Panel4.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="btn_PrintExportPDF.Text" xml:space="preserve">
+    <value>Phiếu Nhập Hàng</value>
+  </data>
+  <data name="&gt;&gt;dgvNhapHang.Parent" xml:space="preserve">
+    <value>guna2Panel1</value>
+  </data>
+  <data name="&gt;&gt;label4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_HuyHD.Parent" xml:space="preserve">
+    <value>guna2Panel1</value>
+  </data>
+  <data name="&gt;&gt;btn_PrintExportPDF.Name" xml:space="preserve">
+    <value>btn_PrintExportPDF</value>
+  </data>
+  <data name="&gt;&gt;dgvNhapHang.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2DataGridView, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="btn_HuyHD.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="btn_MoveOn.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;guna2Panel4.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="btn_HuyHD.Location" type="System.Drawing.Point, System.Drawing">
+    <value>955, 726</value>
+  </data>
+  <data name="guna2Panel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="btn_MoveOn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10pt</value>
+  </data>
+  <data name="btn_HuyHD.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 56</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>NhapHang</value>
+  </data>
+  <data name="&gt;&gt;guna2Panel1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;guna2CirclePictureBox1.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2CirclePictureBox, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="guna2CirclePictureBox1.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="&gt;&gt;dgvNhapHang.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;guna2CirclePictureBox1.Parent" xml:space="preserve">
+    <value>guna2Panel4</value>
+  </data>
+  <data name="guna2Panel4.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
   </data>
   <data name="guna2CirclePictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -8813,152 +8945,20 @@
         AElFTkSuQmCC
 </value>
   </data>
-  <data name="guna2Panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1182, 827</value>
-  </data>
-  <data name="btn_PrintExportPDF.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 56</value>
-  </data>
-  <data name="&gt;&gt;btn_MoveOn.Name" xml:space="preserve">
-    <value>btn_MoveOn</value>
-  </data>
-  <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="dgvNhapHang.RowHeadersWidth" type="System.Int32, mscorlib">
-    <value>51</value>
-  </data>
-  <data name="&gt;&gt;label4.Name" xml:space="preserve">
-    <value>label4</value>
-  </data>
-  <data name="&gt;&gt;guna2CirclePictureBox1.Name" xml:space="preserve">
-    <value>guna2CirclePictureBox1</value>
-  </data>
-  <data name="&gt;&gt;guna2Panel1.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;txt_Searching_HDNH.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="dgvNhapHang.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 91</value>
-  </data>
-  <data name="&gt;&gt;guna2Elipse1.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2Elipse, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="dgvNhapHang.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1158, 612</value>
-  </data>
-  <data name="txt_Searching_HDNH.Size" type="System.Drawing.Size, System.Drawing">
-    <value>651, 39</value>
-  </data>
-  <data name="&gt;&gt;guna2Elipse1.Name" xml:space="preserve">
-    <value>guna2Elipse1</value>
-  </data>
-  <data name="&gt;&gt;guna2Panel4.Name" xml:space="preserve">
-    <value>guna2Panel4</value>
-  </data>
-  <data name="&gt;&gt;btn_MoveOn.Parent" xml:space="preserve">
-    <value>guna2Panel1</value>
-  </data>
-  <data name="&gt;&gt;guna2Panel1.Name" xml:space="preserve">
-    <value>guna2Panel1</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1182, 827</value>
-  </data>
-  <data name="btn_MoveOn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 56</value>
-  </data>
-  <data name="&gt;&gt;guna2Panel1.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2Panel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="guna2Panel4.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="btn_PrintExportPDF.Text" xml:space="preserve">
-    <value>Phiếu Nhập Hàng</value>
-  </data>
-  <data name="&gt;&gt;txt_Searching_HDNH.Parent" xml:space="preserve">
-    <value>guna2Panel4</value>
-  </data>
-  <data name="&gt;&gt;dgvNhapHang.Parent" xml:space="preserve">
-    <value>guna2Panel1</value>
-  </data>
-  <data name="&gt;&gt;label4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btn_HuyHD.Parent" xml:space="preserve">
-    <value>guna2Panel1</value>
-  </data>
-  <data name="&gt;&gt;btn_PrintExportPDF.Name" xml:space="preserve">
-    <value>btn_PrintExportPDF</value>
-  </data>
-  <data name="&gt;&gt;dgvNhapHang.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2DataGridView, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="btn_HuyHD.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
-  <data name="btn_MoveOn.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
-  </data>
-  <data name="&gt;&gt;guna2Panel4.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="btn_HuyHD.Location" type="System.Drawing.Point, System.Drawing">
-    <value>955, 726</value>
-  </data>
-  <data name="guna2Panel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="btn_MoveOn.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 10pt</value>
-  </data>
-  <data name="guna2Panel4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1182, 68</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>NhapHang</value>
-  </data>
-  <data name="&gt;&gt;guna2Panel1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;guna2CirclePictureBox1.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2CirclePictureBox, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="guna2CirclePictureBox1.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>Zoom</value>
-  </data>
-  <data name="&gt;&gt;dgvNhapHang.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;guna2CirclePictureBox1.Parent" xml:space="preserve">
-    <value>guna2Panel4</value>
-  </data>
-  <data name="guna2Panel4.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
+  <data name="&gt;&gt;txt_Searching_HDNH.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2TextBox, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
   </data>
   <data name="txt_Searching_HDNH.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 4, 3, 4</value>
   </data>
-  <data name="label4.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI Semibold, 9pt, style=Bold</value>
-  </data>
-  <data name="&gt;&gt;txt_Searching_HDNH.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2TextBox, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  <data name="txt_Searching_HDNH.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="txt_Searching_HDNH.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9pt</value>
   </data>
-  <data name="txt_Searching_HDNH.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;btn_PrintExportPDF.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2GradientButton, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="btn_PrintExportPDF.Location" type="System.Drawing.Point, System.Drawing">
-    <value>583, 726</value>
+  <data name="&gt;&gt;txt_Searching_HDNH.Parent" xml:space="preserve">
+    <value>guna2Panel4</value>
   </data>
   <data name="txt_Searching_HDNH.Location" type="System.Drawing.Point, System.Drawing">
     <value>39, 13</value>
@@ -8969,8 +8969,8 @@
   <data name="btn_HuyHD.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 10pt</value>
   </data>
-  <data name="&gt;&gt;guna2CirclePictureBox1.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="label4.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI Semibold, 9pt, style=Bold</value>
   </data>
   <data name="&gt;&gt;btn_HuyHD.Type" xml:space="preserve">
     <value>Guna.UI2.WinForms.Guna2GradientButton, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
@@ -8980,8 +8980,5 @@
   </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>en</value>
   </metadata>
 </root>

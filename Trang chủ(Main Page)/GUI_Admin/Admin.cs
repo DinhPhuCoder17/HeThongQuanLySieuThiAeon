@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
@@ -83,14 +84,28 @@ namespace Trang_chủ_Main_Page_
             guna2DataGridView2.DataSource = BLL_Nhanvien.Instance.GetAllEmployees();
             if (guna2DataGridView2.DataSource != null)
             {
-                guna2DataGridView2.Columns["Manhanvien"].HeaderText = "Mã nhân viên";
-                guna2DataGridView2.Columns["Hoten"].HeaderText = "Họ Tên";
-                guna2DataGridView2.Columns["CCCD"].HeaderText = "CCCD";
-                guna2DataGridView2.Columns["Ngaysinh"].HeaderText = "Ngày sinh";
-                guna2DataGridView2.Columns["Gioitinh"].HeaderText = "Giới Tính";
-                guna2DataGridView2.Columns["Diachi"].HeaderText = "Địa Chỉ";
-                guna2DataGridView2.Columns["Sodienthoai"].HeaderText = "Số Điện Thoại";
-                guna2DataGridView2.Columns["VaiTro"].HeaderText = "Vai Trò";
+                if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                {
+                    guna2DataGridView2.Columns["Manhanvien"].HeaderText = "Mã nhân viên";
+                    guna2DataGridView2.Columns["Hoten"].HeaderText = "Họ Tên";
+                    guna2DataGridView2.Columns["CCCD"].HeaderText = "CCCD";
+                    guna2DataGridView2.Columns["Ngaysinh"].HeaderText = "Ngày sinh";
+                    guna2DataGridView2.Columns["Gioitinh"].HeaderText = "Giới Tính";
+                    guna2DataGridView2.Columns["Diachi"].HeaderText = "Địa Chỉ";
+                    guna2DataGridView2.Columns["Sodienthoai"].HeaderText = "Số Điện Thoại";
+                    guna2DataGridView2.Columns["VaiTro"].HeaderText = "Vai Trò";
+                }
+                else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                {
+                    guna2DataGridView2.Columns["Manhanvien"].HeaderText = "Employee ID";
+                    guna2DataGridView2.Columns["Hoten"].HeaderText = "Full Name";
+                    guna2DataGridView2.Columns["CCCD"].HeaderText = "ID Card";
+                    guna2DataGridView2.Columns["Ngaysinh"].HeaderText = "Date of Birth";
+                    guna2DataGridView2.Columns["Gioitinh"].HeaderText = "Gender";
+                    guna2DataGridView2.Columns["Diachi"].HeaderText = "Address";
+                    guna2DataGridView2.Columns["Sodienthoai"].HeaderText = "Phone Number";
+                    guna2DataGridView2.Columns["VaiTro"].HeaderText = "Role";
+                }
             }
             guna2DataGridView2.ReadOnly = true; // Ban đầu không cho chỉnh sửa
 
@@ -149,7 +164,20 @@ namespace Trang_chủ_Main_Page_
         {
             if (guna2DataGridView2.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Vui lòng chọn một nhân viên để sửa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                string message, title;
+
+                if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                {
+                    message = "Vui lòng chọn một nhân viên để sửa.";
+                    title = "Thông báo";
+                }
+                else // Mặc định là tiếng Anh
+                {
+                    message = "Please select an employee to edit.";
+                    title = "Notification";
+                }
+
+                MessageBox.Show(message, title, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             isEditing = true;
@@ -161,12 +189,46 @@ namespace Trang_chủ_Main_Page_
         {
             if (guna2DataGridView2.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Vui lòng chọn một nhân viên để xóa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                string _message, _title;
+
+                if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                {
+                    _message = "Vui lòng chọn một nhân viên để xóa.";
+                    _title = "Thông báo";
+                }
+                else // Mặc định là tiếng Anh
+                {
+                    _message = "Please select an employee to delete.";
+                    _title = "Notification";
+                }
+
+                MessageBox.Show(_message, _title, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
                 return;
             }
 
-            DialogResult dialog = MessageBox.Show("Bạn có chắc chắn muốn xóa nhân viên này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dialog == DialogResult.No) return;
+            string message, title;
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult dialog;
+
+            if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+            {
+                message = "Bạn có chắc chắn muốn xóa nhân viên này?";
+                title = "Xác nhận";
+            }
+            else 
+            {
+                message = "Are you sure you want to delete this employee?";
+                title = "Confirmation";
+            }
+
+            dialog = MessageBox.Show(message, title, buttons, MessageBoxIcon.Question);
+
+            if (dialog == DialogResult.No)
+            {
+                return; 
+            }
+
 
             string maNhanVien = guna2DataGridView2.SelectedRows[0].Cells["Manhanvien"].Value.ToString();
 
@@ -174,12 +236,28 @@ namespace Trang_chủ_Main_Page_
 
             if (result)
             {
-                MessageBox.Show("Nhân viên đã được xóa (ẩn).", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                {
+                    MessageBox.Show("Nhân viên đã được xóa (ẩn).", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else // Mặc định là tiếng Anh
+                {
+                    MessageBox.Show("The employee has been deleted (hidden).", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
                 LoadEmployeeList(); // Cập nhật lại danh sách
             }
             else
             {
-                MessageBox.Show("Xóa thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                {
+                    MessageBox.Show("Xóa thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else // Mặc định là tiếng Anh
+                {
+                    MessageBox.Show("Deletion failed!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
             }
         }
 
@@ -202,17 +280,41 @@ namespace Trang_chủ_Main_Page_
 
                 if (result)
                 {
-                    MessageBox.Show("Cập nhật thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                    {
+                        MessageBox.Show("Cập nhật thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else // Mặc định là tiếng Anh
+                    {
+                        MessageBox.Show("Update successful!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+
                     LoadEmployeeList(); // Cập nhật lại danh sách
                 }
                 else
                 {
-                    MessageBox.Show("Cập nhật thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                    {
+                        MessageBox.Show("Cập nhật thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else // Mặc định là tiếng Anh
+                    {
+                        MessageBox.Show("Update failed!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                {
+                    MessageBox.Show("Lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else // Mặc định là tiếng Anh
+                {
+                    MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
             }
 
             isEditing = false;
