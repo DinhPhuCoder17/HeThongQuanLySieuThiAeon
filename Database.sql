@@ -1,12 +1,11 @@
 ﻿--drop database QuanLySieuThiAEON
---select * from HD_HH;
 go
 create database QuanLySieuThiAEON
 go
 use QuanLySieuThiAEON
 go
 
---select * from Quangly
+--select * from Quanly
 
 CREATE TABLE Nhanvien (
     Manhanvien varchar(10) CONSTRAINT PK_Nhanvien PRIMARY KEY,

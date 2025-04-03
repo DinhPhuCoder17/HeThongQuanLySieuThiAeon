@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
 using DTO;
+using System.Threading;
 
 
 
@@ -234,13 +235,33 @@ namespace Trang_chủ_Main_Page_
             }
             else
             {
-                MessageBox.Show("Vui lòng chọn dòng cần xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                {
+                    MessageBox.Show("Vui lòng chọn dòng cần xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                {
+                    MessageBox.Show("Please select the row to delete!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
             }
         }
         private void btnLuuDonHang_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Bạn có muốn đặt đơn hàng này?", "Xác nhận",
-                                                      MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = DialogResult.None;
+
+            // Kiểm tra ngôn ngữ của ứng dụng
+            if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+            {
+                result = MessageBox.Show("Do you want to place this order?", "Confirmation",
+                                         MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            }
+            else if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+            {
+                result = MessageBox.Show("Bạn có muốn đặt đơn hàng này?", "Xác nhận",
+                                         MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            }
+
             if (result == DialogResult.Yes)
             {
                 List<DTO_HH_HDNH> dsChiTiet = GetHangHoaFromDGV();
@@ -248,19 +269,36 @@ namespace Trang_chủ_Main_Page_
                 double tongTien;
                 List<Tuple<string, int>> listMaHangSoLuong;
 
+                // Thực hiện đặt hàng
                 bool isSuccess = BLLQuanLyKho.Instance.datHang(dsChiTiet, out tongSoLuong, out tongTien, out listMaHangSoLuong);
 
                 if (isSuccess)
                 {
-                    MessageBox.Show("Cập nhật thành công!\nTổng số lượng: " + tongSoLuong +
-                                    "\nTổng tiền: " + tongTien.ToString("#,##0") + " đ");
+                    if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                    {
+                        MessageBox.Show("Update successful!\nTotal quantity: " + tongSoLuong +
+                                        "\nTotal amount: " + tongTien.ToString("#,##0") + " VND");
+                    }
+                    else if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                    {
+                        MessageBox.Show("Cập nhật thành công!\nTổng số lượng: " + tongSoLuong +
+                                        "\nTổng tiền: " + tongTien.ToString("#,##0") + " đ");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Cập nhật thất bại, vui lòng kiểm tra lại!");
+                    if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                    {
+                        MessageBox.Show("Update failed, please check again!");
+                    }
+                    else if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                    {
+                        MessageBox.Show("Cập nhật thất bại, vui lòng kiểm tra lại!");
+                    }
                 }
             }
         }
+
         private void txt_DatHang_SearchBar_TextChanged(object sender, EventArgs e)
         {
             string searchText = Search_DH.Text.Trim().ToLower();

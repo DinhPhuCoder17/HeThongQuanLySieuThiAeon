@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -55,10 +56,8 @@ namespace Trang_chủ_Main_Page_
 
         private void DSNhanVien_Load(object sender, EventArgs e)
         {
-
             LoadEmployeeList();
             btnLuu.Enabled = false; // Nút Lưu bị vô hiệu hóa ban đầu
-
         }
 
         private void guna2Panel2_Paint(object sender, PaintEventArgs e)
@@ -66,17 +65,44 @@ namespace Trang_chủ_Main_Page_
 
         }
 
+
+        private DataGridViewRow selectedRow = null; // Lưu dòng đang chỉnh sửa
         private void btnSua_Click(object sender, EventArgs e)
         {
-            if (guna2DataGridView2.SelectedRows.Count == 0)
+            if (guna2DataGridView2.CurrentRow == null)
             {
                 MessageBox.Show("Vui lòng chọn một nhân viên để sửa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+
+            if (isEditing)
+            {
+                MessageBox.Show("Bạn đang chỉnh sửa một dòng. Hãy lưu hoặc hủy trước khi chọn dòng khác.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             isEditing = true;
-            guna2DataGridView2.ReadOnly = false; // Cho phép chỉnh sửa
+            selectedRow = guna2DataGridView2.CurrentRow; // Lưu dòng đang sửa
+
+            // Mở khóa chỉ dòng được chọn, khóa tất cả các dòng khác
+            foreach (DataGridViewRow row in guna2DataGridView2.Rows)
+            {
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    if (row == selectedRow)
+                    {
+                        cell.ReadOnly = false; // Chỉ mở khóa ô của dòng đang chỉnh sửa
+                    }
+                    else
+                    {
+                        cell.ReadOnly = true; // Khóa tất cả ô của các dòng khác
+                    }
+                }
+            }
+
             btnLuu.Enabled = true; // Kích hoạt nút Lưu
         }
+
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
@@ -131,7 +157,7 @@ namespace Trang_chủ_Main_Page_
 
             if (result)
             {
-                MessageBox.Show("Nhân viên đã được xóa (ẩn).", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Nhân viên đã được xóa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoadEmployeeList(); // Cập nhật lại danh sách
             }
             else

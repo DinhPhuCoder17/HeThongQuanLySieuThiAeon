@@ -13,6 +13,8 @@ using DTO;
 using iTextSharp.text.pdf;
 using iTextSharp.text;
 using Font = iTextSharp.text.Font;
+using System.Threading;
+using System.Security.Policy;
 
 namespace Trang_chủ_Main_Page_
 {
@@ -107,24 +109,59 @@ namespace Trang_chủ_Main_Page_
 
         private void btn_HuyHD_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn hủy đơn hàng này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            DialogResult result = DialogResult.None;
+
+            if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+            {
+                result = MessageBox.Show("Are you sure you want to cancel this order?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            }
+            else if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+            {
+                result = MessageBox.Show("Bạn có chắc chắn muốn hủy đơn hàng này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            }
+
             if (result == DialogResult.Yes)
             {
                 if (BLLQuanLyKho.Instance.huyHD(soHDSelect))
                 {
-                    MessageBox.Show("Hủy đơn hàng thành công");
+                    if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                    {
+                        MessageBox.Show("Order cancellation successful");
+                    }
+                    else if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                    {
+                        MessageBox.Show("Hủy đơn hàng thành công");
+                    }
                     dgvNhapHang.DataSource = BLLQuanLyKho.Instance.xemDSNH();
                 }
                 else
                 {
-                    MessageBox.Show("Hủy đơn hàng thất bại");
+                    if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                    {
+                        MessageBox.Show("Order cancellation failed");
+                    }
+                    else if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                    {
+                        MessageBox.Show("Hủy đơn hàng thất bại");
+                    }
                 }
             }
         }
 
+
         private void btn_MoveOn_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Bạn có muốn chuyển tiếp trạng thái đơn hàng?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            DialogResult result=DialogResult.None;
+
+            if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+            {
+                result = MessageBox.Show("Do you want to forward the order status?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            }
+            else if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+            {
+                result = MessageBox.Show("Bạn có muốn chuyển tiếp trạng thái đơn hàng?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            }
+
             if (result == DialogResult.Yes)
             {
                 DTO_HDNhapHang hDNhapHang = new DTO_HDNhapHang
@@ -132,18 +169,33 @@ namespace Trang_chủ_Main_Page_
                     soHD = soHDSelect,
                     trangThai = dgvNhapHang.Rows[dgvNhapHang.CurrentCell.RowIndex].Cells[3].Value.ToString()
                 };
+
                 if (BLLQuanLyKho.Instance.capNhatTTDH(hDNhapHang))
                 {
-                    MessageBox.Show("Chuyển tiếp trạng thái đơn hàng thành công");
+                    if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                    {
+                        MessageBox.Show("Order status forwarded successfully");
+                    }
+                    else if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                    {
+                        MessageBox.Show("Chuyển tiếp trạng thái đơn hàng thành công");
+                    }
                     dgvNhapHang.DataSource = BLLQuanLyKho.Instance.xemDSNH();
                 }
                 else
                 {
-                    MessageBox.Show("Chuyển tiếp trạng thái đơn hàng thất bại");
+                    if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                    {
+                        MessageBox.Show("Order status forwarding failed");
+                    }
+                    else if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                    {
+                        MessageBox.Show("Chuyển tiếp trạng thái đơn hàng thất bại");
+                    }
                 }
             }
-
         }
+
 
         private void btn_PrintExportPDF_Click(object sender, EventArgs e)
         {
@@ -154,7 +206,15 @@ namespace Trang_chủ_Main_Page_
             }
             else
             {
-                MessageBox.Show("Không có ô nào đang được chọn!");
+                if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                {
+                    MessageBox.Show("No cell is currently selected!");
+                }
+                else if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                {
+                    MessageBox.Show("Không có ô nào đang được chọn!");
+                }
+
             }
         }
 

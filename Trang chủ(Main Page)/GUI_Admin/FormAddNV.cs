@@ -39,14 +39,21 @@ namespace Trang_chủ_Main_Page_
             string hoTen = txtHoTen.Text;
             string cccd = txtCCCD.Text;
             DateTime ngaySinh = guna2DateTimePicker1.Value;
-            string gioiTinh = cmbGioiTinh.SelectedItem.ToString();
+            string gioiTinh = null;
             string diaChi = txtDiaChi.Text;
             string sdt = txtSDT.Text;
             string rolenv = txtVaiTro.Text;
 
             //Bắt đầu check nhập dữ liệu
-            if (string.IsNullOrEmpty(hoTen) || string.IsNullOrEmpty(cccd) || string.IsNullOrEmpty(diaChi) || string.IsNullOrEmpty(sdt) ||
-    cmbGioiTinh.SelectedIndex == -1)
+            if(cmbGioiTinh.SelectedItem == null)
+            {
+                MessageBox.Show("Vui lòng chọn giới tính!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                gioiTinh = cmbGioiTinh.SelectedItem.ToString();
+            }
+            if (string.IsNullOrEmpty(hoTen) || string.IsNullOrEmpty(cccd) || string.IsNullOrEmpty(diaChi) || string.IsNullOrEmpty(sdt))
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -97,7 +104,7 @@ namespace Trang_chủ_Main_Page_
         //Check Họ tên hợp lệ
         public static bool IsValidFullName(string fullName)
         {
-            string pattern = @"^([A-ZĐ][a-zàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]+)(\s[A-ZĐ][a-zàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]+){1,49}$";
+            string pattern = @"^([A-ZĐ][a-zàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]+)(\s+[A-ZĐ][a-zàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]+){0,49}$";
             return Regex.IsMatch(fullName, pattern);
         }
         //Check tuổi
@@ -123,7 +130,7 @@ namespace Trang_chủ_Main_Page_
         //Check địa chỉ hợp lệ
         public static bool IsValidAddress(string address)
         {
-            string pattern = @"^[a-zA-ZĐđàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹ0-9,.\- ]{5,500}$";
+            string pattern = @"^[a-zA-ZĐđàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹ0-9,./\- ]{5,500}$";
             return Regex.IsMatch(address, pattern);
         }
 
