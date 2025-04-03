@@ -32,14 +32,31 @@ namespace BLL
             return DAL_Nhanvien.Instance.GetEmployeeList();
         }
 
-        public bool UpdateEmployee(string maNhanVien, string hoTen, string cccd, DateTime ngaySinh, string gioiTinh, string diaChi, string soDienThoai)
+        public bool UpdateEmployee(string maNhanVien, string hoTen, string cccd, DateTime ngaySinh, string gioiTinh, string diaChi, string soDienThoai, string vaiTro)
         {
-            return DAL_Nhanvien.Instance.UpdateEmployee(maNhanVien, hoTen, cccd, ngaySinh, gioiTinh, diaChi, soDienThoai);
+            return DAL_Nhanvien.Instance.UpdateEmployee(maNhanVien, hoTen, cccd, ngaySinh, gioiTinh, diaChi, soDienThoai, vaiTro);
         }
 
         public bool DeleteEmployee(string maNhanVien)
         {
             return DAL_Nhanvien.Instance.DeleteEmployee(maNhanVien);
+        }
+
+        public bool AddManager(string maNhanVien, string userName, string passWord, string role)
+        {
+            switch (role)
+            {
+                case "Quản Lý Tài Chính Nhân Sự":
+                    role = "TCNS";
+                    break;
+                case "Admin":
+                    role = "Admin";
+                    break;
+                case "Quản Lý Kho":
+                    role = "Kho";
+                    break;
+            }
+            return DAL_Nhanvien.Instance.AddManager(maNhanVien, userName, passWord, role);
         }
 
     }

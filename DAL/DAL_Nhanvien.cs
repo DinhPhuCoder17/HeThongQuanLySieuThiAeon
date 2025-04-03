@@ -46,11 +46,11 @@ namespace DAL
             object[] parameters =
             {
             hoTen,
-            SecurityHelper.Encrypt(cccd), // Mã hóa CCCD
+            cccd, // Mã hóa CCCD
             ngaySinh,
             gioiTinh,
             diaChi,     
-            SecurityHelper.Encrypt(sdt), //Mã hoá SĐT
+            sdt, //Mã hoá SĐT
             rolenv
             };
 
@@ -91,11 +91,11 @@ namespace DAL
         }
 
         //Update Nhan vien
-        public bool UpdateEmployee(string maNhanVien, string hoTen, string cccd, DateTime ngaySinh, string gioiTinh, string diaChi, string soDienThoai)
+        public bool UpdateEmployee(string maNhanVien, string hoTen, string cccd, DateTime ngaySinh, string gioiTinh, string diaChi, string soDienThoai, string vaiTro)
         {
-            string query = "UPDATE Nhanvien SET Hoten = @Hoten , CCCD = @CCCD , Ngaysinh = @Ngaysinh , Gioitinh = @Gioitinh , Diachi = @Diachi , Sodienthoai = @Sodienthoai WHERE Manhanvien = @Manhanvien ";
+            string query = "UPDATE Nhanvien SET Hoten = @Hoten , CCCD = @CCCD , Ngaysinh = @Ngaysinh , Gioitinh = @Gioitinh , Diachi = @Diachi , Sodienthoai = @Sodienthoai , Vaitro = @Vaitro WHERE Manhanvien = @Manhanvien ";
 
-            object[] parameters = { hoTen, cccd, ngaySinh, gioiTinh, diaChi, soDienThoai, maNhanVien };
+            object[] parameters = { hoTen, cccd, ngaySinh, gioiTinh, diaChi, soDienThoai, vaiTro, maNhanVien };
 
             return DataProvider.Instance.ExecuteNonQuery(query, parameters) > 0;
         }
@@ -107,6 +107,23 @@ namespace DAL
             object[] parameters = { maNhanVien };
 
             return DataProvider.Instance.ExecuteNonQuery(query, parameters) > 0;
+        }
+
+        public bool AddManager(string maNhanVien, string userName, string passWord, string role)
+        {
+            string hashedPassword = BCrypt.Net.BCrypt.HashPassword(passWord); // Hash mật khẩu
+
+            string queryQL = "INSERT INTO Quanly (Manhanvien, Username, Password, Role) " +
+                             "VALUES ( @Manhanvien , @Username , @Password , @Role )";
+
+            object[] parametersQL =
+            {
+                    maNhanVien, // Dùng mã nhân viên vừa lấy được
+                    userName,
+                    hashedPassword,
+                    role
+                };
+            return DataProvider.Instance.ExecuteNonQuery(queryQL, parametersQL) > 0;
         }
 
 
