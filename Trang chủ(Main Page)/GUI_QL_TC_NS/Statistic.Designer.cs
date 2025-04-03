@@ -150,7 +150,7 @@
             resources.ApplyResources(this.guna2Panel6, "guna2Panel6");
             this.guna2Panel6.BackColor = System.Drawing.Color.Transparent;
             this.guna2Panel6.BorderRadius = 22;
-            this.guna2Panel6.Controls.Add(this.guna2PictureBox3);
+//            this.guna2Panel6.Controls.Add(this.guna2PictureBox3);
             this.guna2Panel6.Controls.Add(this.label8);
             this.guna2Panel6.Controls.Add(this.lblTotalExpense);
             this.guna2Panel6.FillColor = System.Drawing.Color.White;
@@ -181,8 +181,8 @@
             // 
             resources.ApplyResources(this.guna2Panel8, "guna2Panel8");
             this.guna2Panel8.BorderRadius = 22;
-            this.guna2Panel8.Controls.Add(this.btnPrevCalendar1);
-            this.guna2Panel8.Controls.Add(this.btn_NextCalendar);
+//            this.guna2Panel8.Controls.Add(this.btnPrevCalendar1);
+//            this.guna2Panel8.Controls.Add(this.btn_NextCalendar);
             this.guna2Panel8.Controls.Add(this.c_Satistic);
             this.guna2Panel8.Controls.Add(this.lbl_Month_Display);
             this.guna2Panel8.FillColor = System.Drawing.Color.White;
@@ -489,7 +489,7 @@
             resources.ApplyResources(this.guna2Panel1, "guna2Panel1");
             this.guna2Panel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2Panel1.BorderRadius = 22;
-            this.guna2Panel1.Controls.Add(this.guna2PictureBox1);
+//            this.guna2Panel1.Controls.Add(this.guna2PictureBox1);
             this.guna2Panel1.Controls.Add(this.label1);
             this.guna2Panel1.Controls.Add(this.lblTotalProfit);
             this.guna2Panel1.FillColor = System.Drawing.Color.White;
@@ -532,7 +532,7 @@
             resources.ApplyResources(this.guna2Panel2, "guna2Panel2");
             this.guna2Panel2.BackColor = System.Drawing.Color.Transparent;
             this.guna2Panel2.BorderRadius = 22;
-            this.guna2Panel2.Controls.Add(this.guna2PictureBox2);
+//            this.guna2Panel2.Controls.Add(this.guna2PictureBox2);
             this.guna2Panel2.Controls.Add(this.label4);
             this.guna2Panel2.Controls.Add(this.lblTotalRevenue);
             this.guna2Panel2.FillColor = System.Drawing.Color.White;

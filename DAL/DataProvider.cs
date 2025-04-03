@@ -12,7 +12,7 @@ namespace DAL
 
     public class DataProvider
     {
-        private String connectionStr = @"Data Source=DESKTOP-9UCJD9K;Initial Catalog=QuanLySieuThiAEON;Integrated Security=True;TrustServerCertificate=True";
+        //private String connectionStr = @"Data Source=DESKTOP-9UCJD9K;Initial Catalog=QuanLySieuThiAEON;Integrated Security=True;TrustServerCertificate=True";
         private readonly static string computerName = Environment.MachineName;
         //Liêm
         //String connectionStr = $"Data Source=" + computerName + @";Initial Catalog=QuanLySieuThiAEON;Integrated Security=True;Encrypt=True";
