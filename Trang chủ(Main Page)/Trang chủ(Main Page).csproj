@@ -1006,6 +1006,9 @@
   <ItemGroup>
     <None Include="Resources\Thiết kế chưa có tên %286%292.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Thiết kế chưa có tên %286%293.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Data.SqlClient.SNI.6.0.2\build\net462\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('..\packages\Microsoft.Data.SqlClient.SNI.6.0.2\build\net462\Microsoft.Data.SqlClient.SNI.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

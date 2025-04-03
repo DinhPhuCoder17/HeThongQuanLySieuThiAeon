@@ -202,7 +202,7 @@
             // guna2PictureBox1
             // 
             this.guna2PictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox1.Image = global::Trang_chu_Main_Page_.Properties.Resources.Thiết_kế_chưa_có_tên__6_2;
+            this.guna2PictureBox1.Image = global::Trang_chu_Main_Page_.Properties.Resources.Thiết_kế_chưa_có_tên__6_3;
             this.guna2PictureBox1.ImageRotate = 0F;
             resources.ApplyResources(this.guna2PictureBox1, "guna2PictureBox1");
             this.guna2PictureBox1.Name = "guna2PictureBox1";
