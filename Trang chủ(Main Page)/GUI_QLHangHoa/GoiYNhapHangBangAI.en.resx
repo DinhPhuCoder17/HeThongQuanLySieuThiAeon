@@ -8755,7 +8755,4 @@
   <data name="label1.Text" xml:space="preserve">
     <value>Product Consumption Time:</value>
   </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
 </root>
