@@ -323,5 +323,10 @@ namespace Trang_chủ_Main_Page_
         {
             this.Close();
         }
+
+        private void btnExit_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

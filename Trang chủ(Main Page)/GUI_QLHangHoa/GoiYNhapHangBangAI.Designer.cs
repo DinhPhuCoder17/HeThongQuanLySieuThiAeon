@@ -61,6 +61,11 @@
             this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DanhMuc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.guna2Elipse2 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.guna2Elipse3 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.cmbTGTTHH = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.guna2GradientButton4 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2Panel2.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGoiYNhapHang)).BeginInit();
@@ -264,6 +269,54 @@
             this.dgvGoiYNhapHang.ThemeStyle.RowsStyle.Height = 40;
             this.dgvGoiYNhapHang.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.OrangeRed;
             this.dgvGoiYNhapHang.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
+            // 
+            // Column4
+            // 
+            resources.ApplyResources(this.Column4, "Column4");
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            resources.ApplyResources(this.Column5, "Column5");
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column9
+            // 
+            resources.ApplyResources(this.Column9, "Column9");
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            // 
+            // Column11
+            // 
+            resources.ApplyResources(this.Column11, "Column11");
+            this.Column11.Name = "Column11";
+            this.Column11.ReadOnly = true;
+            // 
+            // Column12
+            // 
+            resources.ApplyResources(this.Column12, "Column12");
+            this.Column12.Name = "Column12";
+            this.Column12.ReadOnly = true;
+            // 
+            // Column13
+            // 
+            resources.ApplyResources(this.Column13, "Column13");
+            this.Column13.Name = "Column13";
+            this.Column13.ReadOnly = true;
+            // 
+            // Column14
+            // 
+            resources.ApplyResources(this.Column14, "Column14");
+            this.Column14.Name = "Column14";
+            this.Column14.ReadOnly = true;
+            // 
+            // DanhMuc
+            // 
+            resources.ApplyResources(this.DanhMuc, "DanhMuc");
+            this.DanhMuc.Name = "DanhMuc";
+            this.DanhMuc.ReadOnly = true;
             // 
             // guna2Elipse2
             // 

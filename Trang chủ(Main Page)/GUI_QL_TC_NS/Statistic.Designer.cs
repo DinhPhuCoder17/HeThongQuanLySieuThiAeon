@@ -30,51 +30,51 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Statistic));
-            Guna.Charts.WinForms.ChartFont chartFont25 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.ChartFont chartFont26 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.ChartFont chartFont27 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.ChartFont chartFont28 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Grid grid10 = new Guna.Charts.WinForms.Grid();
-            Guna.Charts.WinForms.Tick tick10 = new Guna.Charts.WinForms.Tick();
-            Guna.Charts.WinForms.ChartFont chartFont29 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Grid grid11 = new Guna.Charts.WinForms.Grid();
-            Guna.Charts.WinForms.Tick tick11 = new Guna.Charts.WinForms.Tick();
-            Guna.Charts.WinForms.ChartFont chartFont30 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Grid grid12 = new Guna.Charts.WinForms.Grid();
-            Guna.Charts.WinForms.PointLabel pointLabel4 = new Guna.Charts.WinForms.PointLabel();
-            Guna.Charts.WinForms.ChartFont chartFont31 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Tick tick12 = new Guna.Charts.WinForms.Tick();
-            Guna.Charts.WinForms.ChartFont chartFont32 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.ChartFont chartFont33 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.ChartFont chartFont34 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.ChartFont chartFont35 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.ChartFont chartFont36 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Grid grid13 = new Guna.Charts.WinForms.Grid();
-            Guna.Charts.WinForms.Tick tick13 = new Guna.Charts.WinForms.Tick();
-            Guna.Charts.WinForms.ChartFont chartFont37 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Grid grid14 = new Guna.Charts.WinForms.Grid();
-            Guna.Charts.WinForms.Tick tick14 = new Guna.Charts.WinForms.Tick();
-            Guna.Charts.WinForms.ChartFont chartFont38 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Grid grid15 = new Guna.Charts.WinForms.Grid();
-            Guna.Charts.WinForms.PointLabel pointLabel5 = new Guna.Charts.WinForms.PointLabel();
-            Guna.Charts.WinForms.ChartFont chartFont39 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Tick tick15 = new Guna.Charts.WinForms.Tick();
-            Guna.Charts.WinForms.ChartFont chartFont40 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.ChartFont chartFont41 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.ChartFont chartFont42 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.ChartFont chartFont43 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.ChartFont chartFont44 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Grid grid16 = new Guna.Charts.WinForms.Grid();
-            Guna.Charts.WinForms.Tick tick16 = new Guna.Charts.WinForms.Tick();
-            Guna.Charts.WinForms.ChartFont chartFont45 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Grid grid17 = new Guna.Charts.WinForms.Grid();
-            Guna.Charts.WinForms.Tick tick17 = new Guna.Charts.WinForms.Tick();
-            Guna.Charts.WinForms.ChartFont chartFont46 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Grid grid18 = new Guna.Charts.WinForms.Grid();
-            Guna.Charts.WinForms.PointLabel pointLabel6 = new Guna.Charts.WinForms.PointLabel();
-            Guna.Charts.WinForms.ChartFont chartFont47 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Tick tick18 = new Guna.Charts.WinForms.Tick();
-            Guna.Charts.WinForms.ChartFont chartFont48 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont49 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont50 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont51 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont52 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Grid grid19 = new Guna.Charts.WinForms.Grid();
+            Guna.Charts.WinForms.Tick tick19 = new Guna.Charts.WinForms.Tick();
+            Guna.Charts.WinForms.ChartFont chartFont53 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Grid grid20 = new Guna.Charts.WinForms.Grid();
+            Guna.Charts.WinForms.Tick tick20 = new Guna.Charts.WinForms.Tick();
+            Guna.Charts.WinForms.ChartFont chartFont54 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Grid grid21 = new Guna.Charts.WinForms.Grid();
+            Guna.Charts.WinForms.PointLabel pointLabel7 = new Guna.Charts.WinForms.PointLabel();
+            Guna.Charts.WinForms.ChartFont chartFont55 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Tick tick21 = new Guna.Charts.WinForms.Tick();
+            Guna.Charts.WinForms.ChartFont chartFont56 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont57 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont58 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont59 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont60 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Grid grid22 = new Guna.Charts.WinForms.Grid();
+            Guna.Charts.WinForms.Tick tick22 = new Guna.Charts.WinForms.Tick();
+            Guna.Charts.WinForms.ChartFont chartFont61 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Grid grid23 = new Guna.Charts.WinForms.Grid();
+            Guna.Charts.WinForms.Tick tick23 = new Guna.Charts.WinForms.Tick();
+            Guna.Charts.WinForms.ChartFont chartFont62 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Grid grid24 = new Guna.Charts.WinForms.Grid();
+            Guna.Charts.WinForms.PointLabel pointLabel8 = new Guna.Charts.WinForms.PointLabel();
+            Guna.Charts.WinForms.ChartFont chartFont63 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Tick tick24 = new Guna.Charts.WinForms.Tick();
+            Guna.Charts.WinForms.ChartFont chartFont64 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont65 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont66 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont67 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont68 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Grid grid25 = new Guna.Charts.WinForms.Grid();
+            Guna.Charts.WinForms.Tick tick25 = new Guna.Charts.WinForms.Tick();
+            Guna.Charts.WinForms.ChartFont chartFont69 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Grid grid26 = new Guna.Charts.WinForms.Grid();
+            Guna.Charts.WinForms.Tick tick26 = new Guna.Charts.WinForms.Tick();
+            Guna.Charts.WinForms.ChartFont chartFont70 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Grid grid27 = new Guna.Charts.WinForms.Grid();
+            Guna.Charts.WinForms.PointLabel pointLabel9 = new Guna.Charts.WinForms.PointLabel();
+            Guna.Charts.WinForms.ChartFont chartFont71 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Tick tick27 = new Guna.Charts.WinForms.Tick();
+            Guna.Charts.WinForms.ChartFont chartFont72 = new Guna.Charts.WinForms.ChartFont();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2Elipse2 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.lbl2 = new System.Windows.Forms.Label();
@@ -90,18 +90,16 @@
             this.lbl_Month_Display = new System.Windows.Forms.Label();
             this.guna2Panel10 = new Guna.UI2.WinForms.Guna2Panel();
             this.label15 = new System.Windows.Forms.Label();
+            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.pn_Statistic_DanhMucThu = new Guna.UI2.WinForms.Guna2Panel();
             this.c_BestSeller = new Guna.Charts.WinForms.GunaChart();
-            this.c_No2 = new Guna.Charts.WinForms.GunaPieDataset();
             this.c_No1 = new Guna.Charts.WinForms.GunaPieDataset();
-            this.c_No3 = new Guna.Charts.WinForms.GunaPieDataset();
-            this.c_No4 = new Guna.Charts.WinForms.GunaPieDataset();
-            this.c_No5 = new Guna.Charts.WinForms.GunaPieDataset();
             this.label12 = new System.Windows.Forms.Label();
             this.guna2Panel13 = new Guna.UI2.WinForms.Guna2Panel();
             this.label13 = new System.Windows.Forms.Label();
             this.pn_Statistic_DanhMucChi = new Guna.UI2.WinForms.Guna2Panel();
-            this.gunaChart2 = new Guna.Charts.WinForms.GunaChart();
+            this.c_MostPayment = new Guna.Charts.WinForms.GunaChart();
+            this.c_No2 = new Guna.Charts.WinForms.GunaPieDataset();
             this.label14 = new System.Windows.Forms.Label();
             this.btn_Statistic_Print = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
@@ -115,13 +113,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.lblTotalRevenue = new System.Windows.Forms.Label();
             this.lbl1 = new System.Windows.Forms.Label();
-            this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2PictureBox3 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.txt_Finacial_SearchBar = new Guna.UI2.WinForms.Guna2TextBox();
-            this.btnPrevCalendar1 = new Guna.UI2.WinForms.Guna2GradientCircleButton();
-            this.btn_NextCalendar = new Guna.UI2.WinForms.Guna2GradientCircleButton();
             this.guna2Panel6.SuspendLayout();
             this.guna2Panel8.SuspendLayout();
             this.guna2Panel10.SuspendLayout();
@@ -172,8 +163,13 @@
             // 
             // lblTotalExpense
             // 
-            resources.ApplyResources(this.lblTotalExpense, "lblTotalExpense");
+            this.lblTotalExpense.AutoSize = true;
+            this.lblTotalExpense.Font = new System.Drawing.Font("Segoe UI Semibold", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalExpense.Location = new System.Drawing.Point(44, 27);
             this.lblTotalExpense.Name = "lblTotalExpense";
+            this.lblTotalExpense.Size = new System.Drawing.Size(123, 46);
+            this.lblTotalExpense.TabIndex = 0;
+            this.lblTotalExpense.Text = "999.99";
             // 
             // label11
             // 
@@ -199,34 +195,37 @@
             this.cRevenue,
             this.cExpense,
             this.cProfit});
-            chartFont25.FontName = "Arial";
-            this.c_Satistic.Legend.LabelFont = chartFont25;
+            chartFont49.FontName = "Arial";
+            this.c_Satistic.Legend.LabelFont = chartFont49;
+            this.c_Satistic.Location = new System.Drawing.Point(8, 78);
             this.c_Satistic.Name = "c_Satistic";
-            chartFont26.FontName = "Arial";
-            chartFont26.Size = 12;
-            chartFont26.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
-            this.c_Satistic.Title.Font = chartFont26;
-            chartFont27.FontName = "Arial";
-            this.c_Satistic.Tooltips.BodyFont = chartFont27;
-            chartFont28.FontName = "Arial";
-            chartFont28.Size = 9;
-            chartFont28.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
-            this.c_Satistic.Tooltips.TitleFont = chartFont28;
-            this.c_Satistic.XAxes.GridLines = grid10;
-            chartFont29.FontName = "Arial";
-            tick10.Font = chartFont29;
-            this.c_Satistic.XAxes.Ticks = tick10;
-            this.c_Satistic.YAxes.GridLines = grid11;
-            chartFont30.FontName = "Arial";
-            tick11.Font = chartFont30;
-            this.c_Satistic.YAxes.Ticks = tick11;
-            this.c_Satistic.ZAxes.GridLines = grid12;
-            chartFont31.FontName = "Arial";
-            pointLabel4.Font = chartFont31;
-            this.c_Satistic.ZAxes.PointLabels = pointLabel4;
-            chartFont32.FontName = "Arial";
-            tick12.Font = chartFont32;
-            this.c_Satistic.ZAxes.Ticks = tick12;
+            this.c_Satistic.Size = new System.Drawing.Size(833, 421);
+            this.c_Satistic.TabIndex = 0;
+            chartFont50.FontName = "Arial";
+            chartFont50.Size = 12;
+            chartFont50.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
+            this.c_Satistic.Title.Font = chartFont50;
+            chartFont51.FontName = "Arial";
+            this.c_Satistic.Tooltips.BodyFont = chartFont51;
+            chartFont52.FontName = "Arial";
+            chartFont52.Size = 9;
+            chartFont52.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
+            this.c_Satistic.Tooltips.TitleFont = chartFont52;
+            this.c_Satistic.XAxes.GridLines = grid19;
+            chartFont53.FontName = "Arial";
+            tick19.Font = chartFont53;
+            this.c_Satistic.XAxes.Ticks = tick19;
+            this.c_Satistic.YAxes.GridLines = grid20;
+            chartFont54.FontName = "Arial";
+            tick20.Font = chartFont54;
+            this.c_Satistic.YAxes.Ticks = tick20;
+            this.c_Satistic.ZAxes.GridLines = grid21;
+            chartFont55.FontName = "Arial";
+            pointLabel7.Font = chartFont55;
+            this.c_Satistic.ZAxes.PointLabels = pointLabel7;
+            chartFont56.FontName = "Arial";
+            tick21.Font = chartFont56;
+            this.c_Satistic.ZAxes.Ticks = tick21;
             this.c_Satistic.Load += new System.EventHandler(this.c_Satistic_Load);
             // 
             // cRevenue
@@ -259,14 +258,31 @@
             this.guna2Panel10.BackColor = System.Drawing.Color.White;
             this.guna2Panel10.Controls.Add(this.label15);
             this.guna2Panel10.Controls.Add(this.guna2CirclePictureBox1);
-            this.guna2Panel10.Controls.Add(this.txt_Finacial_SearchBar);
+            this.guna2Panel10.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2Panel10.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel10.Name = "guna2Panel10";
             this.guna2Panel10.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel10_Paint);
             // 
             // label15
             // 
-            resources.ApplyResources(this.label15, "label15");
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(69, 23);
             this.label15.Name = "label15";
+            // 
+            // guna2CirclePictureBox1
+            // 
+            this.guna2CirclePictureBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.guna2CirclePictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2CirclePictureBox1.Image")));
+            this.guna2CirclePictureBox1.ImageRotate = 0F;
+            this.guna2CirclePictureBox1.InitialImage = null;
+            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(15, 12);
+            this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
+            this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(54, 46);
+            this.guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2CirclePictureBox1.TabIndex = 14;
+            this.guna2CirclePictureBox1.TabStop = false;
             // 
             // pn_Statistic_DanhMucThu
             // 
@@ -283,39 +299,8 @@
             this.c_BestSeller.Datasets.AddRange(new Guna.Charts.Interfaces.IGunaDataset[] {
             this.c_No2,
             this.c_No1,
-            this.c_No3,
-            this.c_No4,
-            this.c_No5});
-            chartFont33.FontName = "Arial";
-            this.c_BestSeller.Legend.LabelFont = chartFont33;
-            this.c_BestSeller.Name = "c_BestSeller";
-            chartFont34.FontName = "Arial";
-            chartFont34.Size = 12;
-            chartFont34.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
-            this.c_BestSeller.Title.Font = chartFont34;
-            chartFont35.FontName = "Arial";
-            this.c_BestSeller.Tooltips.BodyFont = chartFont35;
-            chartFont36.FontName = "Arial";
-            chartFont36.Size = 9;
-            chartFont36.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
-            this.c_BestSeller.Tooltips.TitleFont = chartFont36;
-            this.c_BestSeller.XAxes.Display = false;
-            this.c_BestSeller.XAxes.GridLines = grid13;
-            chartFont37.FontName = "Arial";
-            tick13.Font = chartFont37;
-            this.c_BestSeller.XAxes.Ticks = tick13;
-            this.c_BestSeller.YAxes.Display = false;
-            this.c_BestSeller.YAxes.GridLines = grid14;
-            chartFont38.FontName = "Arial";
-            tick14.Font = chartFont38;
-            this.c_BestSeller.YAxes.Ticks = tick14;
-            this.c_BestSeller.ZAxes.GridLines = grid15;
-            chartFont39.FontName = "Arial";
-            pointLabel5.Font = chartFont39;
-            this.c_BestSeller.ZAxes.PointLabels = pointLabel5;
-            chartFont40.FontName = "Arial";
-            tick15.Font = chartFont40;
-            this.c_BestSeller.ZAxes.Ticks = tick15;
+            });
+           
             // 
             // c_No2
             // 
@@ -329,18 +314,51 @@
             // 
             // c_No3
             // 
-            this.c_No3.Label = "Pie3";
-            this.c_No3.TargetChart = this.c_BestSeller;
+           
             // 
-            // c_No4
+            // c_BestSeller
             // 
-            this.c_No4.Label = "Pie1";
-            this.c_No4.TargetChart = this.c_BestSeller;
+            this.c_BestSeller.Datasets.AddRange(new Guna.Charts.Interfaces.IGunaDataset[] {
+            this.c_No1});
+            chartFont57.FontName = "Arial";
+            this.c_BestSeller.Legend.LabelFont = chartFont57;
+            this.c_BestSeller.Location = new System.Drawing.Point(3, 43);
+            this.c_BestSeller.Name = "c_BestSeller";
+            this.c_BestSeller.Size = new System.Drawing.Size(295, 269);
+            this.c_BestSeller.TabIndex = 2;
+            chartFont58.FontName = "Arial";
+            chartFont58.Size = 12;
+            chartFont58.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
+            this.c_BestSeller.Title.Font = chartFont58;
+            chartFont59.FontName = "Arial";
+            this.c_BestSeller.Tooltips.BodyFont = chartFont59;
+            chartFont60.FontName = "Arial";
+            chartFont60.Size = 9;
+            chartFont60.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
+            this.c_BestSeller.Tooltips.TitleFont = chartFont60;
+            this.c_BestSeller.XAxes.Display = false;
+            this.c_BestSeller.XAxes.GridLines = grid22;
+            chartFont61.FontName = "Arial";
+            tick22.Font = chartFont61;
+            this.c_BestSeller.XAxes.Ticks = tick22;
+            this.c_BestSeller.YAxes.Display = false;
+            this.c_BestSeller.YAxes.GridLines = grid23;
+            chartFont62.FontName = "Arial";
+            tick23.Font = chartFont62;
+            this.c_BestSeller.YAxes.Ticks = tick23;
+            this.c_BestSeller.ZAxes.GridLines = grid24;
+            chartFont63.FontName = "Arial";
+            pointLabel8.Font = chartFont63;
+            this.c_BestSeller.ZAxes.PointLabels = pointLabel8;
+            chartFont64.FontName = "Arial";
+            tick24.Font = chartFont64;
+            this.c_BestSeller.ZAxes.Ticks = tick24;
+            this.c_BestSeller.Load += new System.EventHandler(this.c_BestSeller_Load);
             // 
-            // c_No5
+            // c_No1
             // 
-            this.c_No5.Label = "Pie2";
-            this.c_No5.TargetChart = this.c_BestSeller;
+            this.c_No1.Label = "Pie1";
+            this.c_No1.TargetChart = this.c_BestSeller;
             // 
             // label12
             // 
@@ -367,44 +385,57 @@
             // 
             resources.ApplyResources(this.pn_Statistic_DanhMucChi, "pn_Statistic_DanhMucChi");
             this.pn_Statistic_DanhMucChi.BorderRadius = 22;
-            this.pn_Statistic_DanhMucChi.Controls.Add(this.gunaChart2);
+            this.pn_Statistic_DanhMucChi.Controls.Add(this.c_MostPayment);
             this.pn_Statistic_DanhMucChi.Controls.Add(this.label14);
             this.pn_Statistic_DanhMucChi.FillColor = System.Drawing.Color.White;
             this.pn_Statistic_DanhMucChi.Name = "pn_Statistic_DanhMucChi";
             // 
             // gunaChart2
             // 
-            resources.ApplyResources(this.gunaChart2, "gunaChart2");
-            chartFont41.FontName = "Arial";
-            this.gunaChart2.Legend.LabelFont = chartFont41;
-            this.gunaChart2.Name = "gunaChart2";
-            chartFont42.FontName = "Arial";
-            chartFont42.Size = 12;
-            chartFont42.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
-            this.gunaChart2.Title.Font = chartFont42;
-            chartFont43.FontName = "Arial";
-            this.gunaChart2.Tooltips.BodyFont = chartFont43;
-            chartFont44.FontName = "Arial";
-            chartFont44.Size = 9;
-            chartFont44.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
-            this.gunaChart2.Tooltips.TitleFont = chartFont44;
-            this.gunaChart2.XAxes.Display = false;
-            this.gunaChart2.XAxes.GridLines = grid16;
-            chartFont45.FontName = "Arial";
-            tick16.Font = chartFont45;
-            this.gunaChart2.XAxes.Ticks = tick16;
-            this.gunaChart2.YAxes.Display = false;
-            this.gunaChart2.YAxes.GridLines = grid17;
-            chartFont46.FontName = "Arial";
-            tick17.Font = chartFont46;
-            this.gunaChart2.YAxes.Ticks = tick17;
-            this.gunaChart2.ZAxes.GridLines = grid18;
-            chartFont47.FontName = "Arial";
-            pointLabel6.Font = chartFont47;
-            this.gunaChart2.ZAxes.PointLabels = pointLabel6;
-            chartFont48.FontName = "Arial";
-            tick18.Font = chartFont48;
-            this.gunaChart2.ZAxes.Ticks = tick18;
+            
+            // 
+            // c_MostPayment
+            // 
+            this.c_MostPayment.Datasets.AddRange(new Guna.Charts.Interfaces.IGunaDataset[] {
+            this.c_No2});
+            chartFont65.FontName = "Arial";
+            this.c_MostPayment.Legend.LabelFont = chartFont65;
+            this.c_MostPayment.Location = new System.Drawing.Point(4, 53);
+            this.c_MostPayment.Name = "c_MostPayment";
+            this.c_MostPayment.Size = new System.Drawing.Size(295, 269);
+            this.c_MostPayment.TabIndex = 2;
+            chartFont66.FontName = "Arial";
+            chartFont66.Size = 12;
+            chartFont66.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
+            this.c_MostPayment.Title.Font = chartFont66;
+            chartFont67.FontName = "Arial";
+            this.c_MostPayment.Tooltips.BodyFont = chartFont67;
+            chartFont68.FontName = "Arial";
+            chartFont68.Size = 9;
+            chartFont68.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
+            this.c_MostPayment.Tooltips.TitleFont = chartFont68;
+            this.c_MostPayment.XAxes.Display = false;
+            this.c_MostPayment.XAxes.GridLines = grid25;
+            chartFont69.FontName = "Arial";
+            tick25.Font = chartFont69;
+            this.c_MostPayment.XAxes.Ticks = tick25;
+            this.c_MostPayment.YAxes.Display = false;
+            this.c_MostPayment.YAxes.GridLines = grid26;
+            chartFont70.FontName = "Arial";
+            tick26.Font = chartFont70;
+            this.c_MostPayment.YAxes.Ticks = tick26;
+            this.c_MostPayment.ZAxes.GridLines = grid27;
+            chartFont71.FontName = "Arial";
+            pointLabel9.Font = chartFont71;
+            this.c_MostPayment.ZAxes.PointLabels = pointLabel9;
+            chartFont72.FontName = "Arial";
+            tick27.Font = chartFont72;
+            this.c_MostPayment.ZAxes.Ticks = tick27;
+            // 
+            // c_No2
+            // 
+            this.c_No2.Label = "Pie2";
+            this.c_No2.TargetChart = this.c_MostPayment;
             // 
             // label14
             // 
@@ -428,6 +459,10 @@
             this.btn_Statistic_Print.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
             this.btn_Statistic_Print.ForeColor = System.Drawing.Color.White;
             this.btn_Statistic_Print.Name = "btn_Statistic_Print";
+            this.btn_Statistic_Print.Size = new System.Drawing.Size(163, 48);
+            this.btn_Statistic_Print.TabIndex = 26;
+            this.btn_Statistic_Print.Text = "Xuất";
+            this.btn_Statistic_Print.Click += new System.EventHandler(this.btn_Statistic_Print_Click);
             // 
             // guna2GradientPanel1
             // 
@@ -467,8 +502,13 @@
             // 
             // lblTotalProfit
             // 
-            resources.ApplyResources(this.lblTotalProfit, "lblTotalProfit");
+            this.lblTotalProfit.AutoSize = true;
+            this.lblTotalProfit.Font = new System.Drawing.Font("Segoe UI Semibold", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalProfit.Location = new System.Drawing.Point(43, 27);
             this.lblTotalProfit.Name = "lblTotalProfit";
+            this.lblTotalProfit.Size = new System.Drawing.Size(123, 46);
+            this.lblTotalProfit.TabIndex = 0;
+            this.lblTotalProfit.Text = "999.99";
             // 
             // label3
             // 
@@ -505,8 +545,14 @@
             // 
             // lblTotalRevenue
             // 
-            resources.ApplyResources(this.lblTotalRevenue, "lblTotalRevenue");
+            this.lblTotalRevenue.AutoSize = true;
+            this.lblTotalRevenue.Font = new System.Drawing.Font("Segoe UI Semibold", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalRevenue.Location = new System.Drawing.Point(44, 27);
             this.lblTotalRevenue.Name = "lblTotalRevenue";
+            this.lblTotalRevenue.Size = new System.Drawing.Size(123, 46);
+            this.lblTotalRevenue.TabIndex = 0;
+            this.lblTotalRevenue.Text = "999.99";
+            this.lblTotalRevenue.Click += new System.EventHandler(this.lblTotalRevenue_Click);
             // 
             // lbl1
             // 
@@ -514,99 +560,6 @@
             this.lbl1.BackColor = System.Drawing.Color.Transparent;
             this.lbl1.ForeColor = System.Drawing.Color.White;
             this.lbl1.Name = "lbl1";
-            // 
-            // guna2PictureBox2
-            // 
-            resources.ApplyResources(this.guna2PictureBox2, "guna2PictureBox2");
-            this.guna2PictureBox2.ImageRotate = 0F;
-            this.guna2PictureBox2.Name = "guna2PictureBox2";
-            this.guna2PictureBox2.TabStop = false;
-            // 
-            // guna2PictureBox1
-            // 
-            resources.ApplyResources(this.guna2PictureBox1, "guna2PictureBox1");
-            this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.TabStop = false;
-            // 
-            // guna2PictureBox3
-            // 
-            resources.ApplyResources(this.guna2PictureBox3, "guna2PictureBox3");
-            this.guna2PictureBox3.ImageRotate = 0F;
-            this.guna2PictureBox3.Name = "guna2PictureBox3";
-            this.guna2PictureBox3.TabStop = false;
-            // 
-            // guna2CirclePictureBox1
-            // 
-            resources.ApplyResources(this.guna2CirclePictureBox1, "guna2CirclePictureBox1");
-            this.guna2CirclePictureBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.guna2CirclePictureBox1.ImageRotate = 0F;
-            this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
-            this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox1.TabStop = false;
-            // 
-            // txt_Finacial_SearchBar
-            // 
-            resources.ApplyResources(this.txt_Finacial_SearchBar, "txt_Finacial_SearchBar");
-            this.txt_Finacial_SearchBar.Animated = true;
-            this.txt_Finacial_SearchBar.BackColor = System.Drawing.Color.White;
-            this.txt_Finacial_SearchBar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.txt_Finacial_SearchBar.BorderRadius = 8;
-            this.txt_Finacial_SearchBar.BorderThickness = 0;
-            this.txt_Finacial_SearchBar.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_Finacial_SearchBar.DefaultText = "";
-            this.txt_Finacial_SearchBar.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txt_Finacial_SearchBar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txt_Finacial_SearchBar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txt_Finacial_SearchBar.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txt_Finacial_SearchBar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
-            this.txt_Finacial_SearchBar.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_Finacial_SearchBar.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_Finacial_SearchBar.IconLeft = global::Trang_chu_Main_Page_.Properties.Resources.Thiết_kế_chưa_có_tên__14_;
-            this.txt_Finacial_SearchBar.Name = "txt_Finacial_SearchBar";
-            this.txt_Finacial_SearchBar.PlaceholderForeColor = System.Drawing.Color.Black;
-            this.txt_Finacial_SearchBar.PlaceholderText = "Search";
-            this.txt_Finacial_SearchBar.SelectedText = "";
-            // 
-            // btnPrevCalendar1
-            // 
-            resources.ApplyResources(this.btnPrevCalendar1, "btnPrevCalendar1");
-            this.btnPrevCalendar1.Animated = true;
-            this.btnPrevCalendar1.BackColor = System.Drawing.Color.Transparent;
-            this.btnPrevCalendar1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnPrevCalendar1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnPrevCalendar1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnPrevCalendar1.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnPrevCalendar1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnPrevCalendar1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            this.btnPrevCalendar1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
-            this.btnPrevCalendar1.ForeColor = System.Drawing.Color.White;
-            this.btnPrevCalendar1.Image = global::Trang_chu_Main_Page_.Properties.Resources.roiii;
-            this.btnPrevCalendar1.ImageSize = new System.Drawing.Size(50, 50);
-            this.btnPrevCalendar1.Name = "btnPrevCalendar1";
-            this.btnPrevCalendar1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.btnPrevCalendar1.UseTransparentBackground = true;
-            this.btnPrevCalendar1.Click += new System.EventHandler(this.btnPrevCalendar1_Click);
-            // 
-            // btn_NextCalendar
-            // 
-            resources.ApplyResources(this.btn_NextCalendar, "btn_NextCalendar");
-            this.btn_NextCalendar.Animated = true;
-            this.btn_NextCalendar.BackColor = System.Drawing.Color.Transparent;
-            this.btn_NextCalendar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn_NextCalendar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn_NextCalendar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_NextCalendar.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_NextCalendar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_NextCalendar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            this.btn_NextCalendar.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
-            this.btn_NextCalendar.ForeColor = System.Drawing.Color.White;
-            this.btn_NextCalendar.Image = global::Trang_chu_Main_Page_.Properties.Resources._1_ht;
-            this.btn_NextCalendar.ImageSize = new System.Drawing.Size(50, 50);
-            this.btn_NextCalendar.Name = "btn_NextCalendar";
-            this.btn_NextCalendar.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.btn_NextCalendar.UseTransparentBackground = true;
-            this.btn_NextCalendar.Click += new System.EventHandler(this.btn_NextCalendar1_Click);
             // 
             // Statistic
             // 
@@ -658,7 +611,6 @@
         private System.Windows.Forms.Label lblTotalExpense;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel8;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel10;
-        private Guna.UI2.WinForms.Guna2TextBox txt_Finacial_SearchBar;
         private Guna.UI2.WinForms.Guna2Panel pn_Statistic_DanhMucThu;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
@@ -691,10 +643,7 @@
         private Guna.Charts.WinForms.GunaBarDataset cExpense;
         private Guna.Charts.WinForms.GunaPieDataset c_No1;
         private Guna.Charts.WinForms.GunaChart c_BestSeller;
+        private Guna.Charts.WinForms.GunaChart c_MostPayment;
         private Guna.Charts.WinForms.GunaPieDataset c_No2;
-        private Guna.Charts.WinForms.GunaChart gunaChart2;
-        private Guna.Charts.WinForms.GunaPieDataset c_No3;
-        private Guna.Charts.WinForms.GunaPieDataset c_No4;
-        private Guna.Charts.WinForms.GunaPieDataset c_No5;
     }
 }

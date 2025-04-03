@@ -651,9 +651,11 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI_QLHangHoa\GoiYNhapHangBangAI.en.resx">
       <DependentUpon>GoiYNhapHangBangAI.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI_QLHangHoa\GoiYNhapHangBangAI.resx">
       <DependentUpon>GoiYNhapHangBangAI.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI_QLHangHoa\KhieuNai.en.resx">
       <DependentUpon>KhieuNai.cs</DependentUpon>
@@ -761,6 +763,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI_QL_TC_NS\Statistic.resx">
       <DependentUpon>Statistic.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

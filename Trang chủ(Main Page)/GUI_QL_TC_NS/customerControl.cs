@@ -13,6 +13,7 @@ using ServiceStack.OrmLite.Converters;
 using System.Text.RegularExpressions;
 using static Jenga.Theme;
 using Trang_chu_Main_Page_.GUI_QL_TC_NS;
+using System.Threading;
 
 namespace Trang_chủ_Main_Page_
 {
@@ -33,14 +34,25 @@ namespace Trang_chủ_Main_Page_
         //Load danh sách khách hàng
         private void customerControl_Load(object sender, EventArgs e)
         {
-
             dtg_CustomerList.DataSource = bLL_QuanlyTCNS.xemDSKH();
-            dtg_CustomerList.Columns["Sodienthoai"].HeaderText = "Số điện thoại";
-            dtg_CustomerList.Columns["Hoten"].HeaderText = "Họ tên";
-            dtg_CustomerList.Columns["Diachi"].HeaderText = "Địa chỉ";
-            dtg_CustomerList.Columns["Diemthuong"].HeaderText = "Điểm thưởng";
-            dtg_CustomerList.Columns["Gioitinh"].HeaderText = "Giới tính";
-            dtg_CustomerList.Columns["Hang"].HeaderText = "Hạng";
+            if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+            {
+                dtg_CustomerList.Columns["Sodienthoai"].HeaderText = "Số điện thoại";
+                dtg_CustomerList.Columns["Hoten"].HeaderText = "Họ tên";
+                dtg_CustomerList.Columns["Diachi"].HeaderText = "Địa chỉ";
+                dtg_CustomerList.Columns["Diemthuong"].HeaderText = "Điểm thưởng";
+                dtg_CustomerList.Columns["Gioitinh"].HeaderText = "Giới tính";
+                dtg_CustomerList.Columns["Hang"].HeaderText = "Hạng";
+            }
+            else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+            {
+                dtg_CustomerList.Columns["Sodienthoai"].HeaderText = "Phone Number";
+                dtg_CustomerList.Columns["Hoten"].HeaderText = "Full Name";
+                dtg_CustomerList.Columns["Diachi"].HeaderText = "Address";
+                dtg_CustomerList.Columns["Diemthuong"].HeaderText = "Reward Points";
+                dtg_CustomerList.Columns["Gioitinh"].HeaderText = "Gender";
+                dtg_CustomerList.Columns["Hang"].HeaderText = "Rank";
+            }
 
             foreach (DataGridViewColumn column in dtg_CustomerList.Columns)
             {

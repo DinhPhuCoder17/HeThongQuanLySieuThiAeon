@@ -73,15 +73,15 @@ namespace Trang_chủ_Main_Page_
             {
                 // Kiểm tra Tên Hàng Hóa
                 string tenHangHoa = txtTenHangHoa.Text.Trim();
-                if (!Regex.IsMatch(tenHangHoa, @"^[a-zA-Z0-9\s\.,/-]{2,20}$"))
+                if (!Regex.IsMatch(tenHangHoa, @"^[\p{L}0-9\s\.,/-]{2,50}$"))
                 {
                     if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
                     {
-                        MessageBox.Show("Tên hàng hóa không hợp lệ! (Chỉ chứa chữ cái, số, dấu phẩy, dấu chấm, gạch ngang, gạch chéo và khoảng trắng. Độ dài: 2-20 ký tự).");
+                        MessageBox.Show("Tên hàng hóa không hợp lệ! (Chỉ chứa chữ cái, số, dấu phẩy, dấu chấm, gạch ngang, gạch chéo và khoảng trắng. Độ dài: 2-50 ký tự).");
                     }
                     else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
                     {
-                        MessageBox.Show("Invalid product name! (Only letters, numbers, commas, periods, hyphens, slashes, and spaces are allowed. Length: 2-20 characters).");
+                        MessageBox.Show("Invalid product name! (Only letters, numbers, commas, periods, hyphens, slashes, and spaces are allowed. Length: 2-50 characters).");
                     }
 
                     return;
@@ -89,15 +89,15 @@ namespace Trang_chủ_Main_Page_
 
                 // Kiểm tra Tên Danh Mục
                 string tenDanhMuc = txtTenDanhMuc.Text.Trim();
-                if (!Regex.IsMatch(tenDanhMuc, @"^[a-zA-Z0-9\s\.,/-]{2,20}$"))
+                if (!Regex.IsMatch(tenDanhMuc, @"^[\p{L}0-9\s\.,/-]{2,50}$"))
                 {
                     if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
                     {
-                        MessageBox.Show("Tên danh mục không hợp lệ! (Chỉ chứa chữ cái, số, dấu phẩy, dấu chấm, gạch ngang, gạch chéo và khoảng trắng. Độ dài: 2-20 ký tự).");
+                        MessageBox.Show("Tên danh mục không hợp lệ! (Chỉ chứa chữ cái, số, dấu phẩy, dấu chấm, gạch ngang, gạch chéo và khoảng trắng. Độ dài: 2-50 ký tự).");
                     }
                     else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
                     {
-                        MessageBox.Show("Invalid category name! (Only letters, numbers, commas, periods, hyphens, slashes, and spaces are allowed. Length: 2-20 characters).");
+                        MessageBox.Show("Invalid category name! (Only letters, numbers, commas, periods, hyphens, slashes, and spaces are allowed. Length: 2-50 characters).");
                     }
 
                     return;
@@ -167,16 +167,42 @@ namespace Trang_chủ_Main_Page_
                 // Kiểm tra hình ảnh
                 if (imgImage.Image != null)
                 {
-                    using (MemoryStream ms = new MemoryStream())
+                    try
                     {
-                        imgImage.Image.Save(ms, imgImage.Image.RawFormat);
-                        hangHoa.HinhAnh = ms.ToArray();
+                        using (MemoryStream ms = new MemoryStream())
+                        {
+                            imgImage.Image.Save(ms, imgImage.Image.RawFormat);
+                            hangHoa.HinhAnh = ms.ToArray();
+                        }
+
+                        
+                    }
+                    catch (Exception ex)
+                    {
+                        // Thông báo lỗi khi có vấn đề khi lưu hình ảnh
+                        if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                        {
+                            MessageBox.Show("Có lỗi khi lưu hình ảnh: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                        {
+                            MessageBox.Show("Error saving image: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                 }
                 else
                 {
-                    hangHoa.HinhAnh = null;
+                    // Thông báo khi không có hình ảnh
+                    if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                    {
+                        MessageBox.Show("Vui lòng chọn hình ảnh để lưu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                    {
+                        MessageBox.Show("Please select an image to save!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                 }
+
 
                 // Thêm mặt hàng
                 bool kq = BLLQuanLyKho.Instance.ThemMatHang(hangHoa);
