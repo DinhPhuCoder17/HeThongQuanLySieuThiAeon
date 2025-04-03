@@ -6,10 +6,12 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
 using Guna.UI2.WinForms;
+using Trang_chu_Main_Page_.GUI_Admin;
 
 namespace Trang_chủ_Main_Page_
 {
@@ -17,6 +19,7 @@ namespace Trang_chủ_Main_Page_
     {
         bool menuExpand_3=false;
         private bool isEditing = false; // Kiểm tra có đang sửa không
+        private DataGridViewRow selectedRow;
 
         public Admin()
         {
@@ -162,7 +165,17 @@ namespace Trang_chủ_Main_Page_
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            if (guna2DataGridView2.SelectedRows.Count == 0)
+            btnXoa.Enabled = false;
+            isEditing = true;
+            selectedRow = guna2DataGridView2.CurrentRow; // Lưu dòng đang sửa
+
+            //Thêm combobox vào ô giới tính
+            cbAltGender = new DataGridViewComboBoxCell();
+            cbAltGender.Items.AddRange("Nam", "Nữ");
+            cbAltGender.Value = selectedRow.Cells[4].Value;
+            selectedRow.Cells[4] = cbAltGender;
+
+            if (selectedRow == null)
             {
                 string message, title;
 
@@ -180,8 +193,23 @@ namespace Trang_chủ_Main_Page_
                 MessageBox.Show(message, title, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            isEditing = true;
-            guna2DataGridView2.ReadOnly = false; // Cho phép chỉnh sửa
+            else {
+                guna2DataGridView2.ReadOnly = false;
+                // Khóa tất cả các dòng trước khi mở dòng được chọn
+                foreach (DataGridViewRow row in guna2DataGridView2.Rows)
+                {
+                    foreach (DataGridViewCell cell in row.Cells)
+                    {
+                        cell.ReadOnly = (row != selectedRow); // Chỉ mở khóa ô của dòng đang chỉnh sửa
+                    }
+                }
+
+
+                guna2DataGridView2.Columns["Manhanvien"].ReadOnly = true;
+                guna2DataGridView2.Columns["CCCD"].ReadOnly = true;
+                selectedRow.DefaultCellStyle.BackColor = Color.DarkGray;
+                selectedRow.DefaultCellStyle.SelectionBackColor = Color.Gray;
+            }
             btnLuu.Enabled = true; // Kích hoạt nút Lưu
         }
 
@@ -261,47 +289,117 @@ namespace Trang_chủ_Main_Page_
             }
         }
 
+        private DataGridViewComboBoxCell cbAltGender;
         // Sự kiện nhấn nút Lưu
         private void btnLuu_Click(object sender, EventArgs e)
         {
             if (!isEditing) return;
             try
             {
-                DataGridViewRow row = guna2DataGridView2.SelectedRows[0];
-                string maNhanVien = row.Cells["Manhanvien"].Value.ToString();
-                string hoTen = row.Cells["Hoten"].Value.ToString();
-                string cccd = row.Cells["CCCD"].Value.ToString();
-                DateTime ngaySinh = Convert.ToDateTime(row.Cells["Ngaysinh"].Value);
-                string gioiTinh = row.Cells["Gioitinh"].Value.ToString();
-                string diaChi = row.Cells["Diachi"].Value.ToString();
-                string soDienThoai = row.Cells["Sodienthoai"].Value.ToString();
+                string maNhanVien = selectedRow.Cells["Manhanvien"].Value.ToString();
+                string hoTen = selectedRow.Cells["Hoten"].Value.ToString();
+                string cccd = selectedRow.Cells["CCCD"].Value.ToString();
+                DateTime ngaySinh = Convert.ToDateTime(selectedRow.Cells["Ngaysinh"].Value);
+                string gioiTinh = selectedRow.Cells["Gioitinh"].Value.ToString();
+                string diaChi = selectedRow.Cells["Diachi"].Value.ToString();
+                string soDienThoai = selectedRow.Cells["Sodienthoai"].Value.ToString();
+                string vaiTro = selectedRow.Cells["Vaitro"].Value.ToString();
+                DynamicCreateNhanVien dynamicCreateNhanVien = new DynamicCreateNhanVien();
 
-                bool result = BLL_Nhanvien.Instance.UpdateEmployee(maNhanVien, hoTen, cccd, ngaySinh, gioiTinh, diaChi, soDienThoai);
-
-                if (result)
+                if (vaiTro == "Quản Lý" || vaiTro == "quản lý" || vaiTro == "Quản Lí" || vaiTro == "quản lí" || vaiTro == "quan ly" || vaiTro == "quan li")
                 {
-                    if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                    dynamicCreateNhanVien.ShowDialog();
+
+                    if(!dynamicCreateNhanVien.isFillingIn)
+                    {
+                        return;
+                    }
+
+                    vaiTro = dynamicCreateNhanVien.role;
+                    BLL_Nhanvien.Instance.AddManager(maNhanVien, dynamicCreateNhanVien.userName, dynamicCreateNhanVien.passWord, dynamicCreateNhanVien.role);
+                }
+
+
+
+                if (string.IsNullOrEmpty(hoTen) || string.IsNullOrEmpty(cccd) || string.IsNullOrEmpty(diaChi) || string.IsNullOrEmpty(soDienThoai))
+                {
+                    MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                if (!IsValidFullName(hoTen))
+                {
+                    MessageBox.Show("Họ tên không hợp lệ!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                if (!IsValidCCCD(cccd))
+                {
+                    MessageBox.Show("CCCD không hợp lệ!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                if (!IsValidBirthDate(ngaySinh))
+                {
+                    MessageBox.Show("Tuổi không hợp lệ!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                if (!IsValidAddress(diaChi))
+                {
+                    MessageBox.Show("Địa chỉ không hợp lệ!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                if (!IsValidPhoneNumber(soDienThoai))
+                {
+                    MessageBox.Show("Số điện thoại không hợp lệ!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                if (!IsValidRoleNV(vaiTro))
+                {
+                    MessageBox.Show("Số điện thoại không hợp lệ!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                DialogResult askResult = MessageBox.Show("Bạn có chắc chắn muốn sửa nhân viên này?", 
+                                         "Xác nhận", 
+                                         MessageBoxButtons.YesNo, 
+                                         MessageBoxIcon.Question);
+                if (askResult == DialogResult.Yes)
+                {
+                    bool result = BLL_Nhanvien.Instance.UpdateEmployee(maNhanVien, hoTen, cccd, ngaySinh, gioiTinh, diaChi, soDienThoai, vaiTro);
+
+                    if (result)
+                    {
+                        if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                        {
+                            MessageBox.Show("Cập nhật thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else // Mặc định là tiếng Anh
+                        {
+                            MessageBox.Show("Update successful!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+
+                        LoadEmployeeList(); // Cập nhật lại danh sách
+                    }
+                    else
+                    {
+                        if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                        {
+                            MessageBox.Show("Cập nhật thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else // Mặc định là tiếng Anh
+                        {
+                            MessageBox.Show("Update failed!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+
+                    }
+
+                    if (result)
                     {
                         MessageBox.Show("Cập nhật thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoadEmployeeList(); // Cập nhật lại danh sách
                     }
-                    else // Mặc định là tiếng Anh
-                    {
-                        MessageBox.Show("Update successful!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-
-                    LoadEmployeeList(); // Cập nhật lại danh sách
-                }
-                else
-                {
-                    if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                    else
                     {
                         MessageBox.Show("Cập nhật thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    else // Mặc định là tiếng Anh
-                    {
-                        MessageBox.Show("Update failed!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-
                 }
             }
             catch (Exception ex)
@@ -320,6 +418,47 @@ namespace Trang_chủ_Main_Page_
             isEditing = false;
             guna2DataGridView2.ReadOnly = true; // Không cho chỉnh sửa nữa
             btnLuu.Enabled = false; // Vô hiệu hóa nút Lưu
+            btnXoa.Enabled = true;
+        }
+
+        //Check Họ tên hợp lệ
+        public static bool IsValidFullName(string fullName)
+        {
+            string pattern = @"^([A-ZĐ][a-zàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]+)(\s+[A-ZĐ][a-zàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]+){0,49}$";
+            return Regex.IsMatch(fullName, pattern);
+        }
+        //Check tuổi
+        public static bool IsValidBirthDate(DateTime birthDate)
+        {
+            int year = birthDate.Year;
+            int currentYear = DateTime.Now.Year;
+            int age = currentYear - year;
+            return year >= 1900 && year <= currentYear && age >= 18;
+        }
+        //Check CCCD hợp lệ
+        public static bool IsValidCCCD(string cccd)
+        {
+            string pattern = @"^\d{12}$";
+            return Regex.IsMatch(cccd, pattern);
+        }
+        //Check SĐT hợp lệ
+        public static bool IsValidPhoneNumber(string phoneNumber)
+        {
+            string pattern = @"^\d{10}$";
+            return Regex.IsMatch(phoneNumber, pattern);
+        }
+        //Check địa chỉ hợp lệ
+        public static bool IsValidAddress(string address)
+        {
+            string pattern = @"^[a-zA-ZĐđàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹ0-9,./\- ]{5,500}$";
+            return Regex.IsMatch(address, pattern);
+        }
+
+        //Check vai trò
+        public static bool IsValidRoleNV(string address)
+        {
+            string pattern = @"^[a-zA-ZĐđàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹ0-9,.\- ]{5,500}$";
+            return Regex.IsMatch(address, pattern);
         }
     }
 }

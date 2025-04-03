@@ -4,14 +4,20 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Media.Media3D;
 using BLL;
 using Bunifu.Charts.WinForms;
 using Guna.UI2.WinForms;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using Microsoft.PowerBI.Api.Models;
+using Microsoft.PowerBI.Api;
 
 namespace Trang_chủ_Main_Page_
 {
@@ -40,21 +46,53 @@ namespace Trang_chủ_Main_Page_
             {
                 Color.FromArgb(255, 0, 79)
             };
-
+            LoadPieChartData();
             LoadData();
 
         }
-
-
+ 
         public void LoadPieChartData()
         {
-            UpdateMonthLabel();
+            UpdateMonthLabel(); // Cập nhật nhãn tháng
+            
+
+            // Lấy năm và tháng hiện tại
             int selectedYear = selectedMonth.Year;
             int selectedMonthValue = selectedMonth.Month;
-            DataTable dt = bLL_QuanlyTCNS.LoadDuLieuPieChart(selectedYear, selectedMonthValue);
 
+            // Lấy dữ liệu từ database
+            DataTable dt = bLL_QuanlyTCNS.LoadDuLieuPieChart(selectedYear, selectedMonthValue);
+            DataTable dt1 = bLL_QuanlyTCNS.LoadDuLieuPieChart1(selectedYear, selectedMonthValue);
+            // Xóa dữ liệu cũ của PieChart
+            c_No1.DataPoints.Clear();
+            c_BestSeller.Datasets.Clear(); // Chỉ giữ lại 1 dataset duy nhất
+            c_MostPayment.Datasets.Clear();
+            c_No2.DataPoints.Clear();
+            // Thêm dữ liệu từ DataTable vào PieChart
+            foreach (DataRow row in dt1.Rows)
+            {
+                string tenSanPham = row["Tenhanghoa"].ToString();
+                int tongSoLuong = Convert.ToInt32(row["TongSoluong"]); // Lấy tổng số lượng đã bán
+                c_No2.DataPoints.Add(tenSanPham, tongSoLuong); // Thêm vào dataset duy nhất
+            }
+            foreach (DataRow row in dt.Rows)
+            {
+                string tenSanPham = row["Tenhanghoa"].ToString();
+                int tongSoLuong = Convert.ToInt32(row["TongSoluong"]); // Lấy tổng số lượng đã bán
+
+                c_No1.DataPoints.Add(tenSanPham, tongSoLuong); // Thêm vào dataset duy nhất
+            }
+            c_MostPayment.Datasets.Add(c_No2); // Thêm dataset duy nhất vào PieChart
+            // Thêm dataset duy nhất vào PieChart
+            c_BestSeller.Datasets.Add(c_No1);
+
+            // Cập nhật biểu đồ để hiển thị dữ liệu mới
+            c_BestSeller.Update();
+            c_MostPayment.Update();
         }
 
+
+      
         public void LoadData()
         {
             UpdateMonthLabel();
@@ -126,9 +164,10 @@ namespace Trang_chủ_Main_Page_
             }
 
             // Cập nhật tổng giá trị vào giao diện
-            lblTotalRevenue.Text = totalRevenue.ToString();
-            lblTotalExpense.Text = totalExpense.ToString();
-            lblTotalProfit.Text = totalProfit.ToString(); // Hiển thị tổng lợi nhuận
+            // Thay thế các dòng hiển thị giá trị cũ bằng:
+            lblTotalRevenue.Text = totalRevenue.ToString("N0", CultureInfo.InvariantCulture);
+            lblTotalExpense.Text = totalExpense.ToString("N0", CultureInfo.InvariantCulture);
+            lblTotalProfit.Text = totalProfit.ToString("N0", CultureInfo.InvariantCulture); 
 
             // Cập nhật giao diện biểu đồ
             c_Satistic.Update();
@@ -161,6 +200,7 @@ namespace Trang_chủ_Main_Page_
             {
                 selectedMonth = selectedMonth.AddMonths(1);
                 UpdateMonthLabel();
+                LoadPieChartData();
                 LoadData();
             }
         }
@@ -171,6 +211,7 @@ namespace Trang_chủ_Main_Page_
             {
                 selectedMonth = selectedMonth.AddMonths(-1);
                 UpdateMonthLabel();
+                LoadPieChartData();
                 LoadData(); 
             }
         }
@@ -189,5 +230,239 @@ namespace Trang_chủ_Main_Page_
         {
 
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label17_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void c_BestSeller_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblTotalRevenue_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+
+        private void btn_Statistic_Print_Click(object sender, EventArgs e)
+        {
+            // Dữ liệu tài chính từ giao diện
+            int totalRevenue = 0;
+            int totalExpense = 0;
+            int totalProfit = 0;
+
+            int selectedYear = selectedMonth.Year;
+            int selectedMonthValue = selectedMonth.Month;
+
+            // Lấy dữ liệu từ các phương thức đã có
+            DataTable dt = bLL_QuanlyTCNS.LoadDuLieuChartChi(selectedYear, selectedMonthValue);
+            DataTable dt1 = bLL_QuanlyTCNS.LoadDuLieuChartThu(selectedYear, selectedMonthValue);
+            DataTable dtPieChart = bLL_QuanlyTCNS.LoadDuLieuPieChart(selectedYear, selectedMonthValue);
+            DataTable dtPieChart1 = bLL_QuanlyTCNS.LoadDuLieuPieChart1(selectedYear, selectedMonthValue);
+
+            // Tính toán tổng doanh thu, chi phí và lợi nhuận
+            double[] expenseData = new double[4];
+            double[] revenueData = new double[4];
+            double[] profitData = new double[4];
+
+            for (int i = 0; i < 4; i++)
+            {
+                expenseData[i] = 0;
+                revenueData[i] = 0;
+                profitData[i] = 0;
+            }
+
+            foreach (DataRow row in dt1.Rows)
+            {
+                int week = Convert.ToInt32(row["WeekNumber"]);
+                double revenue = Convert.ToDouble(row["TotalRevenue"]);
+                if (week >= 1 && week <= 4)
+                {
+                    revenueData[week - 1] = revenue;
+                }
+            }
+
+            foreach (DataRow row in dt.Rows)
+            {
+                int week = Convert.ToInt32(row["WeekNumber"]);
+                double expense = Convert.ToDouble(row["TotalExpense"]);
+                if (week >= 1 && week <= 4)
+                {
+                    expenseData[week - 1] = expense;
+                }
+            }
+
+            // Tính lợi nhuận cho từng tuần và tổng lợi nhuận
+            for (int i = 0; i < 4; i++)
+            {
+                profitData[i] = revenueData[i] - expenseData[i];
+                totalRevenue += Convert.ToInt32(revenueData[i]);
+                totalExpense += Convert.ToInt32(expenseData[i]);
+                totalProfit += Convert.ToInt32(profitData[i]);
+            }
+
+            // Lấy dữ liệu các sản phẩm bán chạy nhất và bán ít nhất
+            var bestSellingProducts = dtPieChart.AsEnumerable()
+                .OrderByDescending(row => row.Field<int>("TongSoluong"))
+                .Take(5) // Lấy top 5 sản phẩm bán chạy nhất
+                .ToList();
+
+            var leastSellingProducts = dtPieChart1.AsEnumerable()
+                .OrderBy(row => row.Field<int>("TongSoluong"))
+                .Take(5) // Lấy top 5 sản phẩm bán ít nhất
+                .ToList();
+
+            // Tạo SaveFileDialog để lưu báo cáo
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "PDF Files|*.pdf|All Files|*.*";
+            saveFileDialog.Title = "Chọn nơi lưu báo cáo tài chính";
+            saveFileDialog.FileName = "Báo_Cáo_Tài_Chính_" + selectedMonth.Month + "_" + selectedYear + ".pdf"; // Tên file mặc định
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    // Tạo file PDF
+                    using (FileStream fs = new FileStream(saveFileDialog.FileName, FileMode.Create))
+                    {
+                        Document doc = new Document(PageSize.A4);
+                        PdfWriter writer = PdfWriter.GetInstance(doc, fs);
+                        doc.Open();
+
+                        // Đường dẫn font Times New Roman
+                        string fontPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Fonts), "times.ttf");
+
+                        if (!File.Exists(fontPath))
+                        {
+                            MessageBox.Show("Không tìm thấy phông Times New Roman! Vui lòng kiểm tra.");
+                            return;
+                        }
+
+                        // Nhúng font vào tài liệu
+                        BaseFont bf = BaseFont.CreateFont(fontPath, BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
+                        iTextSharp.text.Font titleFont = new iTextSharp.text.Font(bf, 16, iTextSharp.text.Font.BOLD);
+                        iTextSharp.text.Font normalFont = new iTextSharp.text.Font(bf, 12, iTextSharp.text.Font.NORMAL);
+                        iTextSharp.text.Font boldFont = new iTextSharp.text.Font(bf, 12, iTextSharp.text.Font.BOLD);
+                        iTextSharp.text.Font italicFont = new iTextSharp.text.Font(bf, 12, iTextSharp.text.Font.ITALIC);
+
+                        // Tiêu đề báo cáo
+                        Paragraph title = new Paragraph("BÁO CÁO TÀI CHÍNH THÁNG " + selectedMonth.Month, titleFont)
+                        {
+                            Alignment = Element.ALIGN_CENTER
+                        };
+                        doc.Add(title);
+
+                        // Thêm ngày tạo báo cáo
+                        doc.Add(Chunk.NEWLINE);
+                        Paragraph dateCreated = new Paragraph($"Ngày {DateTime.Now:dd/MM/yyyy}", italicFont)
+                        {
+                            Alignment = Element.ALIGN_CENTER
+                        };
+                        doc.Add(dateCreated);
+
+                        // Thêm thông tin tổng quan tài chính
+                        doc.Add(Chunk.NEWLINE);
+                        doc.Add(new Paragraph($"Tổng Doanh Thu: {totalRevenue:N0} VND", normalFont));
+                        doc.Add(new Paragraph($"Tổng Chi Phí: {totalExpense:N0} VND", normalFont));
+                        doc.Add(new Paragraph($"Tổng Lợi Nhuận: {totalProfit:N0} VND", boldFont));
+
+                        // Bảng doanh thu, chi phí, lợi nhuận từng tuần
+                        doc.Add(Chunk.NEWLINE);
+                        Paragraph weeklyReport = new Paragraph("Doanh Thu, Chi Phí, và Lợi Nhuận Theo Tuần", boldFont);
+                        doc.Add(weeklyReport);
+
+                        // Tạo bảng cho doanh thu, chi phí, lợi nhuận từng tuần
+                        PdfPTable weeklyTable = new PdfPTable(4);
+                        weeklyTable.WidthPercentage = 100;
+                        weeklyTable.AddCell(new PdfPCell(new Phrase("Tuần", boldFont)));
+                        weeklyTable.AddCell(new PdfPCell(new Phrase("Doanh Thu (VND)", boldFont)));
+                        weeklyTable.AddCell(new PdfPCell(new Phrase("Chi Phí (VND)", boldFont)));
+                        weeklyTable.AddCell(new PdfPCell(new Phrase("Lợi Nhuận (VND)", boldFont)));
+
+                        // Thêm dữ liệu từng tuần vào bảng
+                        for (int i = 0; i < 4; i++)
+                        {
+                            weeklyTable.AddCell(new PdfPCell(new Phrase("Tuần " + (i + 1), normalFont)));
+                            weeklyTable.AddCell(new PdfPCell(new Phrase(revenueData[i].ToString("N0"), normalFont)));
+                            weeklyTable.AddCell(new PdfPCell(new Phrase(expenseData[i].ToString("N0"), normalFont)));
+                            weeklyTable.AddCell(new PdfPCell(new Phrase(profitData[i].ToString("N0"), normalFont)));
+                        }
+
+                        doc.Add(weeklyTable);
+
+                        // Thêm thông tin chi tiết các sản phẩm bán chạy nhất
+                        doc.Add(Chunk.NEWLINE);
+                        Paragraph bestSelling = new Paragraph("Sản Phẩm Bán Chạy Nhất", boldFont);
+                        doc.Add(bestSelling);
+                        PdfPTable bestSellingTable = new PdfPTable(2);
+                        bestSellingTable.WidthPercentage = 100;
+                        bestSellingTable.AddCell(new PdfPCell(new Phrase("Tên Sản Phẩm", boldFont)));
+                        bestSellingTable.AddCell(new PdfPCell(new Phrase("Tổng Số Lượng", boldFont)));
+
+                        foreach (var row in bestSellingProducts)
+                        {
+                            bestSellingTable.AddCell(new PdfPCell(new Phrase(row["Tenhanghoa"].ToString(), normalFont)));
+                            bestSellingTable.AddCell(new PdfPCell(new Phrase(row["TongSoluong"].ToString(), normalFont)));
+                        }
+                        doc.Add(bestSellingTable);
+
+                        // Thêm thông tin chi tiết các sản phẩm bán ít nhất
+                        doc.Add(Chunk.NEWLINE);
+                        Paragraph leastSelling = new Paragraph("Sản Phẩm Bán Ít Nhất", boldFont);
+                        doc.Add(leastSelling);
+                        PdfPTable leastSellingTable = new PdfPTable(2);
+                        leastSellingTable.WidthPercentage = 100;
+                        leastSellingTable.AddCell(new PdfPCell(new Phrase("Tên Sản Phẩm", boldFont)));
+                        leastSellingTable.AddCell(new PdfPCell(new Phrase("Tổng Số Lượng", boldFont)));
+
+                        foreach (var row in leastSellingProducts)
+                        {
+                            leastSellingTable.AddCell(new PdfPCell(new Phrase(row["Tenhanghoa"].ToString(), normalFont)));
+                            leastSellingTable.AddCell(new PdfPCell(new Phrase(row["TongSoluong"].ToString(), normalFont)));
+                        }
+                        doc.Add(leastSellingTable);
+
+                        // Đóng tài liệu PDF
+                        doc.Close();
+
+                        // Thông báo thành công
+                        MessageBox.Show("Báo cáo tài chính đã được tạo thành công!\n" + saveFileDialog.FileName);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi khi lưu báo cáo: " + ex.Message);
+                }
+            }
+        }
+
+
+
     }
 }
+

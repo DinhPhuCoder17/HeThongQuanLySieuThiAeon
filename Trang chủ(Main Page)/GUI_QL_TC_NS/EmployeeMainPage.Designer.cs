@@ -315,9 +315,13 @@
             this.btn_AddData_ChamCong.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btn_AddData_ChamCong.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btn_AddData_ChamCong.FillColor = System.Drawing.Color.Transparent;
+            this.btn_AddData_ChamCong.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btn_AddData_ChamCong.ForeColor = System.Drawing.Color.White;
             this.btn_AddData_ChamCong.Image = ((System.Drawing.Image)(resources.GetObject("btn_AddData_ChamCong.Image")));
             this.btn_AddData_ChamCong.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btn_AddData_ChamCong.ImageOffset = new System.Drawing.Point(20, 0);
+            this.btn_AddData_ChamCong.Location = new System.Drawing.Point(0, 0);
+            this.btn_AddData_ChamCong.Margin = new System.Windows.Forms.Padding(0);
             this.btn_AddData_ChamCong.Name = "btn_AddData_ChamCong";
             this.btn_AddData_ChamCong.TextOffset = new System.Drawing.Point(14, 0);
             this.btn_AddData_ChamCong.Click += new System.EventHandler(this.btn_AddData_ChamCong_Click);
@@ -342,9 +346,13 @@
             this.btn_AddData_banHang.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btn_AddData_banHang.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btn_AddData_banHang.FillColor = System.Drawing.Color.Transparent;
+            this.btn_AddData_banHang.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btn_AddData_banHang.ForeColor = System.Drawing.Color.White;
             this.btn_AddData_banHang.Image = ((System.Drawing.Image)(resources.GetObject("btn_AddData_banHang.Image")));
             this.btn_AddData_banHang.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btn_AddData_banHang.ImageOffset = new System.Drawing.Point(20, 0);
+            this.btn_AddData_banHang.Location = new System.Drawing.Point(0, 0);
+            this.btn_AddData_banHang.Margin = new System.Windows.Forms.Padding(0);
             this.btn_AddData_banHang.Name = "btn_AddData_banHang";
             this.btn_AddData_banHang.TextOffset = new System.Drawing.Point(-18, 0);
             this.btn_AddData_banHang.Click += new System.EventHandler(this.btn_AddData_banHang_Click);

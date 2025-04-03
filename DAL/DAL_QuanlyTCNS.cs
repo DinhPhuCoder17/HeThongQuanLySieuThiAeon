@@ -12,6 +12,12 @@ namespace DAL
 {
     public class DAL_QuanlyTCNS
     {
+        public DataTable LoadDuLieuPieChart1(int currentYear, int currentMonth)
+        {
+            string query = "EXEC usp_GetMonthlyWorstSeller @Year , @Month";
+            DataTable dt = DataProvider.Instance.ExecuteQuery(query, new object[] { currentYear, currentMonth });
+            return dt;
+        }
         // Them du lieu bieu do tron
         public DataTable LoadDuLieuPieChart(int currentYear, int currentMonth)
         {

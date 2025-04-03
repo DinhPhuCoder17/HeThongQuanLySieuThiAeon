@@ -1,4 +1,5 @@
 ﻿using BLL;
+using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -101,24 +102,19 @@ namespace Trang_chủ_Main_Page_
                 return;
             }
 
-            isEditing = true;
-            selectedRow = guna2DataGridView2.CurrentRow; // Lưu dòng đang sửa
+            //isEditing = true;
 
-            // Mở khóa chỉ dòng được chọn, khóa tất cả các dòng khác
-            foreach (DataGridViewRow row in guna2DataGridView2.Rows)
-            {
-                foreach (DataGridViewCell cell in row.Cells)
-                {
-                    if (row == selectedRow)
-                    {
-                        cell.ReadOnly = false; // Chỉ mở khóa ô của dòng đang chỉnh sửa
-                    }
-                    else
-                    {
-                        cell.ReadOnly = true; // Khóa tất cả ô của các dòng khác
-                    }
-                }
-            }
+            //selectedRow = guna2DataGridView2.CurrentRow; // Lưu dòng đang sửa
+            //guna2DataGridView2.ReadOnly = true;
+
+            //// Khóa tất cả các dòng trước khi mở dòng được chọn
+            //foreach (DataGridViewRow row in guna2DataGridView2.Rows)
+            //{
+            //    foreach (DataGridViewCell cell in row.Cells)
+            //    {
+            //        cell.ReadOnly = true; // Chỉ mở khóa ô của dòng đang chỉnh sửa
+            //    }
+            //}
 
             btnLuu.Enabled = true; // Kích hoạt nút Lưu
         }
@@ -138,8 +134,9 @@ namespace Trang_chủ_Main_Page_
                 string gioiTinh = row.Cells["Gioitinh"].Value.ToString();
                 string diaChi = row.Cells["Diachi"].Value.ToString();
                 string soDienThoai = row.Cells["Sodienthoai"].Value.ToString();
+                string vaiTro = row.Cells["Vaitro"].Value.ToString();
 
-                bool result = BLL_Nhanvien.Instance.UpdateEmployee(maNhanVien, hoTen, cccd, ngaySinh, gioiTinh, diaChi, soDienThoai);
+                bool result = BLL_Nhanvien.Instance.UpdateEmployee(maNhanVien, hoTen, cccd, ngaySinh, gioiTinh, diaChi, soDienThoai, vaiTro);
 
                 string successMessage, errorMessage, successTitle, errorTitle;
 

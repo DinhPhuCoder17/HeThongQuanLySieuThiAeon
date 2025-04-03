@@ -450,6 +450,12 @@
     <Compile Include="GUI_Admin\Admin.Designer.cs">
       <DependentUpon>Admin.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI_Admin\DynamicCreateNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI_Admin\DynamicCreateNhanVien.Designer.cs">
+      <DependentUpon>DynamicCreateNhanVien.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI_QLHangHoa\CTDH.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -651,9 +657,11 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI_QLHangHoa\GoiYNhapHangBangAI.en.resx">
       <DependentUpon>GoiYNhapHangBangAI.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI_QLHangHoa\GoiYNhapHangBangAI.resx">
       <DependentUpon>GoiYNhapHangBangAI.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI_QLHangHoa\KhieuNai.en.resx">
       <DependentUpon>KhieuNai.cs</DependentUpon>
@@ -761,6 +769,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI_QL_TC_NS\Statistic.resx">
       <DependentUpon>Statistic.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
