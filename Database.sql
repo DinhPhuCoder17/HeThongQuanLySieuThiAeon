@@ -1030,3 +1030,5 @@ From Calam cl left join Batbuoc bb
 	inner join Nhanvien nv on nv.Manhanvien = bb.Manhanvien 
 Where ThoigianBD > '2025/3/30' and ThoigianKT < '2025/4/7'
 Group by bb.Manhanvien, Hoten, Vaitro, ThoigianBD, ThoigianKT  
+
+exec themMaHDNH 10000000, 10
