@@ -8725,6 +8725,9 @@
   <data name="label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>AI-Suggested Inventory:</value>
+  </data>
   <data name="Column4.HeaderText" xml:space="preserve">
     <value>Supplier Code</value>
   </data>

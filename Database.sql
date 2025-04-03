@@ -129,7 +129,7 @@ CREATE TABLE HD_HH (
     CONSTRAINT FK_HD_HH_Sohd FOREIGN KEY (Sohd) REFERENCES HD_Nhaphang(Sohd)
 );
 
-
+--delete from Hoadonbanhang
 
 CREATE TABLE Hoadonbanhang (
     Mahoadon varchar(10) CONSTRAINT PK_Hoadonbanhang PRIMARY KEY,
@@ -139,8 +139,8 @@ CREATE TABLE Hoadonbanhang (
     CONSTRAINT FK_Hoadonbanhang_Manhanvien FOREIGN KEY (Manhanvien) REFERENCES Nhanvien(Manhanvien),
 	Thanhtien float
 );
-
-
+-- select * from HD_HH
+--delete from HH_HDBH
 CREATE TABLE HH_HDBH (
     Mahanghoa varchar(10),
     Mahoadon varchar(10),
@@ -612,23 +612,52 @@ AS
 BEGIN
     SET NOCOUNT ON;
 
+    -- Xác định ngày đầu và ngày cuối của tháng
+    DECLARE @StartDate DATE = DATEFROMPARTS(@Year, @Month, 1);
+    DECLARE @EndDate DATE = EOMONTH(@StartDate);
+
     WITH WeeklyData AS (
         SELECT 
-            -- Tính số tuần trong tháng
-            ((DAY(Ngaynhap) - 1) / 7) + 1 AS WeekNumber,
+            CASE 
+                WHEN DAY(Ngaynhap) BETWEEN 1 AND 7 THEN 1
+                WHEN DAY(Ngaynhap) BETWEEN 8 AND 14 THEN 2
+                WHEN DAY(Ngaynhap) BETWEEN 15 AND 21 THEN 3
+                ELSE 4
+            END AS WeekNumber,
             SUM(Thanhtien) AS TotalExpense
         FROM HD_HH
-        WHERE YEAR(Ngaynhap) = @Year 
-              AND MONTH(Ngaynhap) = @Month
-              AND Trangthai = N'Đã Nhập Kho'
-        GROUP BY ((DAY(Ngaynhap) - 1) / 7) + 1
+        WHERE Ngaynhap BETWEEN @StartDate AND @EndDate
+            AND Trangthai = N'Đã Nhập Kho'
+        GROUP BY 
+            CASE 
+                WHEN DAY(Ngaynhap) BETWEEN 1 AND 7 THEN 1
+                WHEN DAY(Ngaynhap) BETWEEN 8 AND 14 THEN 2
+                WHEN DAY(Ngaynhap) BETWEEN 15 AND 21 THEN 3
+                ELSE 4
+            END
+    ),
+    Weeks AS (
+        SELECT 1 AS WeekNumber UNION ALL
+        SELECT 2 UNION ALL
+        SELECT 3 UNION ALL
+        SELECT 4
     )
     SELECT 
-        WeekNumber, 
-        COALESCE(TotalExpense, 0) AS TotalExpense
-    FROM WeeklyData
-    ORDER BY WeekNumber;
+        w.WeekNumber,
+        COALESCE(wd.TotalExpense, 0) AS TotalExpense
+    FROM Weeks w
+    LEFT JOIN WeeklyData wd ON w.WeekNumber = wd.WeekNumber
+    ORDER BY w.WeekNumber;
 END;
+
+
+
+
+
+--EXEC usp_GetWeeklyExpense @Year = 2025, @Month = 4;
+
+
+
 go
 CREATE PROCEDURE usp_GetWeeklyRevenue
     @Year INT,
@@ -655,9 +684,45 @@ BEGIN
     ORDER BY WeekNumber;
 END;
 GO
+CREATE PROCEDURE usp_GetMonthlyBestSeller
+    @Year INT,
+    @Month INT
+AS
+BEGIN
+    SELECT TOP 5 
+        hh.Tenhanghoa, 
+        SUM(hh_hdbh.Soluong) AS TongSoluong, 
+        SUM(hh_hdbh.Tongtien) AS TongTien
+    FROM HH_HDBH hh_hdbh
+    JOIN Hanghoa hh ON hh_hdbh.Mahanghoa = hh.Mahanghoa
+    JOIN Hoadonbanhang hdb ON hh_hdbh.Mahoadon = hdb.Mahoadon
+    WHERE YEAR(hdb.Thoigianban) = @Year 
+    AND MONTH(hdb.Thoigianban) = @Month
+    GROUP BY hh.Tenhanghoa
+    ORDER BY TongSoluong DESC;
+END;
 
 go
 
+go
+CREATE PROCEDURE usp_GetMonthlyWorstSeller
+    @Year INT,
+    @Month INT
+AS
+BEGIN
+    SELECT TOP 3 
+        hh.Tenhanghoa, 
+        SUM(hh_hdbh.Soluong) AS TongSoluong, 
+        SUM(hh_hdbh.Tongtien) AS TongTien
+    FROM HH_HDBH hh_hdbh
+    JOIN Hanghoa hh ON hh_hdbh.Mahanghoa = hh.Mahanghoa
+    JOIN Hoadonbanhang hdb ON hh_hdbh.Mahoadon = hdb.Mahoadon
+    WHERE YEAR(hdb.Thoigianban) = @Year 
+    AND MONTH(hdb.Thoigianban) = @Month
+    GROUP BY hh.Tenhanghoa
+    ORDER BY TongSoluong ASC;
+END;
+go 
 -- Procedure thêm dữ liệu bảng chấm công
 	-- Tự động thêm khoá chính
 	-- Tự động thêm Trạng Thái
@@ -918,6 +983,7 @@ go
 --Select * From HD_Nhaphang
 --Select * From HD_HH
 --Delete from HD_Nhaphang
+--delete from HD_HH
 exec themMaHDNH 10000, 10
 exec themHD_HH 'HH0002', 'NH0001', 100
 go 
@@ -996,8 +1062,8 @@ VALUES
     ('HD0018', '2025-02-05', N'Đã Xử Lý', 910000, 25, '2025-03-05'),
     ('HD0019', '2025-02-18', N'Đã Xử Lý', 620000, 13, '2025-03-18'),
     ('HD0020', '2025-03-28', N'Đã Xử Lý', 740000, 15, '2025-04-28');
-
-
+--delete from HD_Nhaphang
+--delete from HD_HH
 	INSERT INTO HD_Nhaphang (Sohd, Ngaydat, Trangthai, Tongtien, Soluong, Hanthanhtoan )
 VALUES
     ('HD0021', '2025-01-05', N'Đã Xử Lý', 510000, 9, '2025-02-05'),
