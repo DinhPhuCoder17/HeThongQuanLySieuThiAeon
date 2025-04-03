@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
-
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Trang_chu_Main_Page_.Properties;
 namespace Trang_chủ_Main_Page_
 {
     public partial class Mainpage : Form
@@ -20,7 +23,10 @@ namespace Trang_chủ_Main_Page_
             //string password = "123";
             //string hashedPassword = BCrypt.Net.BCrypt.HashPassword(password);
             //System.Diagnostics.Debug.WriteLine("Hashed Password: " + hashedPassword);
+            string savedLanguage = Trang_chu_Main_Page_.Properties.Settings.Default.UserLanguage;
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(savedLanguage);
             InitializeComponent();
+            LoadUserLanguage();
             BLLQuanLyKho.Instance.AutoUpdateTrangThaiNhapHang();
         }
 
@@ -30,11 +36,6 @@ namespace Trang_chủ_Main_Page_
         }
 
         private void guna2CirclePictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2ComboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
@@ -122,6 +123,44 @@ namespace Trang_chủ_Main_Page_
         //        pageSelection = value; // Lưu giá trị từ TextBox
         //    }
         //}
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedLanguage = "vi-VN"; // Mặc định là Tiếng Việt
+
+            switch (guna2ComboBox2.SelectedIndex)
+            {
+                case 0:
+                    selectedLanguage = "vi-VN"; // Tiếng Việt
+                    break;
+                case 1:
+                    selectedLanguage = "en-US"; // Tiếng Anh
+                    break;
+            }
+
+            // Lưu lại ngôn ngữ vào Settings
+            Trang_chu_Main_Page_.Properties.Settings.Default.UserLanguage = selectedLanguage;
+            Trang_chu_Main_Page_.Properties.Settings.Default.Save();
+
+            // Đổi ngôn ngữ ngay lập tức
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(selectedLanguage);
+
+            // Cập nhật lại Form
+            this.Controls.Clear();
+            InitializeComponent();
+        }
+        private void LoadUserLanguage()
+        {
+            string savedLanguage = Trang_chu_Main_Page_.Properties.Settings.Default.UserLanguage;
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(savedLanguage);
+
+            // Đặt lại comboBox theo ngôn ngữ đã lưu
+            if (savedLanguage == "vi-VN")
+                guna2ComboBox2.SelectedIndex = 0;
+            else if (savedLanguage == "en-US")
+                guna2ComboBox2.SelectedIndex = 1;
+        }
+
+
 
     }
 }

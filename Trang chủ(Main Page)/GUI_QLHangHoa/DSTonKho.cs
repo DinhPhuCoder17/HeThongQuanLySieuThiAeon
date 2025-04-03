@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Trang_chu_Main_Page_.GUI_QLHangHoa;
@@ -24,7 +25,16 @@ namespace Trang_chủ_Main_Page_
             InitializeComponent();
 
             int count = danhSachTonKho.Count(item => item.GetType() == typeof(DTO_Hanghoa));
-            lblTongSoLuongSanPham.Text = $"Tổng số lượng hàng hóa: {count}";
+
+            if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+            {
+                lblTongSoLuongSanPham.Text = $"Tổng số lượng hàng hóa: {count}";
+            }
+            else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+            {
+                lblTongSoLuongSanPham.Text = $"Total number of products: {count}";
+            }
+
 
             var unique = dsHH.GroupBy(dd => dd.DanhMuc)
                      .Select(g => g.First())
@@ -41,8 +51,46 @@ namespace Trang_chủ_Main_Page_
             ;
         }
 
-         private void DSTonKho_Load(object sender, EventArgs e)
+        private void DSTonKho_Load(object sender, EventArgs e)
         {
+            // Kiểm tra culture hiện tại
+            string cultureName = Thread.CurrentThread.CurrentUICulture.Name;
+            string headerMaHang, headerTenHang, headerDanhMuc, headerSoLuong, headerGiaBan, headerGiaNhap, headerNhaCC, headerTHSD;
+
+            if (cultureName == "vi-VN")
+            {
+                headerMaHang = "Mã hàng";
+                headerTenHang = "Tên hàng";
+                headerDanhMuc = "Danh mục";
+                headerSoLuong = "Số lượng";
+                headerGiaBan = "Giá bán";
+                headerGiaNhap = "Giá nhập";
+                headerNhaCC = "Nhà cung cấp";
+                headerTHSD = "Thời hạn sử dụng";
+            }
+            else if (cultureName == "en-US")
+            {
+                headerMaHang = "Product Code";
+                headerTenHang = "Product Name";
+                headerDanhMuc = "Category";
+                headerSoLuong = "Quantity";
+                headerGiaBan = "Selling Price";
+                headerGiaNhap = "Purchase Price";
+                headerNhaCC = "Supplier";
+                headerTHSD = "Expiry Date";
+            }
+            else
+            {
+                // Mặc định dùng tiếng Anh
+                headerMaHang = "Product Code";
+                headerTenHang = "Product Name";
+                headerDanhMuc = "Category";
+                headerSoLuong = "Quantity";
+                headerGiaBan = "Selling Price";
+                headerGiaNhap = "Purchase Price";
+                headerNhaCC = "Supplier";
+                headerTHSD = "Expiry Date";
+            }
 
             dgvDSTonKho.AutoGenerateColumns = false;
             dgvDSTonKho.Columns.Clear();
@@ -50,61 +98,70 @@ namespace Trang_chủ_Main_Page_
             var colMaHang = new DataGridViewTextBoxColumn
             {
                 DataPropertyName = "MaHangHoa",
-                HeaderText = "Mã hàng",
+                HeaderText = headerMaHang,
                 Name = "colMaHang"
             };
             dgvDSTonKho.Columns.Add(colMaHang);
+
             var colTenHang = new DataGridViewTextBoxColumn
             {
                 DataPropertyName = "TenHangHoa",
-                HeaderText = "Tên hàng",
+                HeaderText = headerTenHang,
                 Name = "colTenHang"
             };
             dgvDSTonKho.Columns.Add(colTenHang);
+
             var colDanhMuc = new DataGridViewTextBoxColumn
             {
                 DataPropertyName = "DanhMuc",
-                HeaderText = "Danh mục",
+                HeaderText = headerDanhMuc,
                 Name = "colDanhMuc"
             };
             dgvDSTonKho.Columns.Add(colDanhMuc);
+
             var colSoLuong = new DataGridViewTextBoxColumn
             {
                 DataPropertyName = "SoLuong",
-                HeaderText = "Số lượng",
+                HeaderText = headerSoLuong,
                 Name = "colSoLuong"
             };
             dgvDSTonKho.Columns.Add(colSoLuong);
+
             var colGiaBan = new DataGridViewTextBoxColumn
             {
                 DataPropertyName = "GiaBan",
-                HeaderText = "Giá bán",
+                HeaderText = headerGiaBan,
                 Name = "colGiaBan"
             };
             dgvDSTonKho.Columns.Add(colGiaBan);
+
             var colGiaNhap = new DataGridViewTextBoxColumn
             {
                 DataPropertyName = "GiaNhap",
-                HeaderText = "Giá Nhập",
+                HeaderText = headerGiaNhap,
                 Name = "colGiaNhap"
             };
             dgvDSTonKho.Columns.Add(colGiaNhap);
+
             var colNhaCC = new DataGridViewTextBoxColumn
             {
                 DataPropertyName = "NhaCC",
-                HeaderText = "Nhà Cung Cấp",
+                HeaderText = headerNhaCC,
                 Name = "colNhaCC"
             };
             dgvDSTonKho.Columns.Add(colNhaCC);
+
             var colTHSD = new DataGridViewTextBoxColumn
             {
                 DataPropertyName = "THSD",
-                HeaderText = "Thời Hạn Sử Dụng",
+                HeaderText = headerTHSD,
                 Name = "colTHSD"
             };
             dgvDSTonKho.Columns.Add(colTHSD);
+
             LoadData();
         }
+
 
 
 
@@ -143,7 +200,15 @@ namespace Trang_chủ_Main_Page_
                 }
                 else
                 {
-                    MessageBox.Show("Không tìm thấy dữ liệu cho mã hàng: " + mahh);
+                    if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                    {
+                        MessageBox.Show("No data found for product code: " + mahh);
+                    }
+                    else if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                    {
+                        MessageBox.Show("Không tìm thấy dữ liệu cho mã hàng: " + mahh);
+                    }
+
                 }
             }
         }

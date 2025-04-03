@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Trang_chu_Main_Page_.DSHangHoa_Dat;
@@ -200,18 +201,28 @@ namespace Trang_chủ_Main_Page_
             string newValue = rowEdited.Cells["Column12"].Value?.ToString().Trim();
             if (string.IsNullOrEmpty(newValue))
             {
-                MessageBox.Show("Cột Số lượng đặt không được để trống!",
-                                "Lỗi",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Error);
+                if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                {
+                    MessageBox.Show("The 'Quantity Ordered' column cannot be left blank!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                {
+                    MessageBox.Show("Cột Số lượng đặt không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
                 return;
             }
             if (!int.TryParse(newValue, out int soLuong))
             {
-                MessageBox.Show("Cột Số lượng đặt chỉ được nhập số nguyên!",
-                                "Lỗi",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Error);
+                if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                {
+                    MessageBox.Show("The 'Quantity Ordered' column must only contain integers!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                {
+                    MessageBox.Show("Cột Số lượng đặt chỉ được nhập số nguyên!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
                 return;
             }
 
@@ -229,7 +240,15 @@ namespace Trang_chủ_Main_Page_
             btnSua.Text = "Sửa";
             isEdited = false;
 
-            MessageBox.Show("Lưu thay đổi thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+            {
+                MessageBox.Show("Changes saved successfully!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+            {
+                MessageBox.Show("Lưu thay đổi thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
         }
 
 
@@ -251,7 +270,15 @@ namespace Trang_chủ_Main_Page_
             }
             else
             {
-                MessageBox.Show("Vui lòng chọn dòng cần xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                {
+                    MessageBox.Show("Please select the row to delete!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                {
+                    MessageBox.Show("Vui lòng chọn dòng cần xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
             }
         }
 
@@ -292,7 +319,9 @@ namespace Trang_chủ_Main_Page_
             }
         }
 
-
-
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

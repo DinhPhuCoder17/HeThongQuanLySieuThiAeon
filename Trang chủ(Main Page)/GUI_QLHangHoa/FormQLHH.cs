@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Trang_chu_Main_Page_.GUI_QLHangHoa;
@@ -69,23 +70,39 @@ namespace Trang_chủ_Main_Page_
             container(new Admin());
         }
 
-     
+
 
 
         private void ButtonDangXuat_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show(
-            "Bạn có chắc chắn muốn đăng xuất?", 
-            "Xác nhận đăng xuất",
-            MessageBoxButtons.OKCancel,
-            MessageBoxIcon.Question 
-            );
+            DialogResult result = DialogResult.None; // Initialize with default value
 
-            if(result == DialogResult.OK)
+            if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+            {
+                result = MessageBox.Show(
+                    "Are you sure you want to log out?",
+                    "Logout Confirmation",
+                    MessageBoxButtons.OKCancel,
+                    MessageBoxIcon.Question
+                );
+            }
+            else if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+            {
+                result = MessageBox.Show(
+                    "Bạn có chắc chắn muốn đăng xuất?",
+                    "Xác nhận đăng xuất",
+                    MessageBoxButtons.OKCancel,
+                    MessageBoxIcon.Question
+                );
+            }
+
+            if (result == DialogResult.OK)
             {
                 Application.Exit();
             }
         }
+
+
 
         private void btnDSTonKho_Click(object sender, EventArgs e)
         {
