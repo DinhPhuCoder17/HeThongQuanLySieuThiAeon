@@ -26,11 +26,23 @@ namespace DAL
         private DAL_Nhanvien() { }
 
         //Hàm thêm nhân viên (dùng cho cả thêm quản lý)
-        public bool InsertEmployee(string hoTen, string cccd, DateTime ngaySinh, string gioiTinh, string diaChi, string sdt, string username, string password, string role)
+        public bool InsertEmployee(string hoTen, string cccd, DateTime ngaySinh, string gioiTinh, string diaChi, string sdt, string rolenv, string username, string password, string role)
         {
 
             // Gọi stored procedure và lấy mã nhân viên mới
-            string query = "EXEC themMaNhanvien @HoTen , @CCCD , @NgaySinh , @GioiTinh , @DiaChi , @Sodienthoai ";
+            string query = "EXEC themMaNhanvien @HoTen , @CCCD , @NgaySinh , @GioiTinh , @DiaChi , @Sodienthoai , @Vaitro ";
+            switch (rolenv)
+            {
+                case "TCNS":
+                    rolenv = "Tài Chính Nhân Sự";
+                    break;
+                case "Admin":
+                    rolenv = "Quản Trị Hệ Thống";
+                    break;
+                case "Kho":
+                    rolenv = "Quản Lý Kho";
+                    break;
+            }
             object[] parameters =
             {
             hoTen,
@@ -38,7 +50,8 @@ namespace DAL
             ngaySinh,
             gioiTinh,
             diaChi,     
-            SecurityHelper.Encrypt(sdt) //Mã hoá SĐT
+            SecurityHelper.Encrypt(sdt), //Mã hoá SĐT
+            rolenv
             };
 
             object result = DataProvider.Instance.ExecuteScalar(query, parameters);
@@ -70,13 +83,7 @@ namespace DAL
         public DataTable GetEmployeeList()
         {
             string query = @"
-        SELECT nv.Manhanvien, nv.Hoten, nv.CCCD, nv.Ngaysinh, nv.Gioitinh, nv.Diachi, nv.Sodienthoai,
-            CASE 
-                WHEN nv.Manhanvien IN (SELECT Manhanvien FROM Quanly WHERE Role = 'Admin') THEN N'Admin'
-                WHEN nv.Manhanvien IN (SELECT Manhanvien FROM Quanly WHERE Role = 'Kho') THEN N'Quản lý kho'
-                WHEN nv.Manhanvien IN (SELECT Manhanvien FROM Quanly WHERE Role = 'TCNS') THEN N'Quản lý nhân sự'
-                ELSE 'Nhân viên'
-            END AS VaiTro
+        SELECT nv.Manhanvien, nv.Hoten, nv.CCCD, nv.Ngaysinh, nv.Gioitinh, nv.Diachi, nv.Sodienthoai, nv.Vaitro
         FROM Nhanvien nv
         WHERE nv.Xoa = 1";
 

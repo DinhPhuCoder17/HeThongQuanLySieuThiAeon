@@ -46,6 +46,8 @@
             this.txtHoTen = new Guna.UI2.WinForms.Guna2TextBox();
             this.gunaBarDataset1 = new Guna.Charts.WinForms.GunaBarDataset();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.txtVaiTro = new Guna.UI2.WinForms.Guna2TextBox();
+            this.lbVaiTro = new System.Windows.Forms.Label();
             this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,6 +57,8 @@
             this.guna2Panel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2Panel1.BorderColor = System.Drawing.Color.Transparent;
             this.guna2Panel1.BorderRadius = 8;
+            this.guna2Panel1.Controls.Add(this.lbVaiTro);
+            this.guna2Panel1.Controls.Add(this.txtVaiTro);
             this.guna2Panel1.Controls.Add(this.btnTaoTaiKhoan);
             this.guna2Panel1.Controls.Add(this.txtDiaChi);
             this.guna2Panel1.Controls.Add(this.label10);
@@ -129,6 +133,8 @@
             this.txtSDT.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtSDT.ForeColor = System.Drawing.Color.Gray;
             this.txtSDT.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtSDT.Location = new System.Drawing.Point(656, 193);
+            this.txtSDT.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtSDT.Name = "txtSDT";
             this.txtSDT.PlaceholderText = "Enter Phone Number:";
             this.txtSDT.SelectedText = "";
@@ -138,6 +144,7 @@
             resources.ApplyResources(this.label9, "label9");
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.ForeColor = System.Drawing.Color.Black;
+            this.label9.Location = new System.Drawing.Point(653, 164);
             this.label9.Name = "label9";
             // 
             // txtCCCD
@@ -250,6 +257,39 @@
             this.guna2Elipse1.BorderRadius = 20;
             this.guna2Elipse1.TargetControl = this;
             // 
+            // txtVaiTro
+            // 
+            this.txtVaiTro.BorderColor = System.Drawing.Color.Silver;
+            this.txtVaiTro.BorderRadius = 8;
+            this.txtVaiTro.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtVaiTro.DefaultText = "";
+            this.txtVaiTro.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtVaiTro.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtVaiTro.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtVaiTro.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtVaiTro.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtVaiTro.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtVaiTro.ForeColor = System.Drawing.Color.Gray;
+            this.txtVaiTro.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtVaiTro.Location = new System.Drawing.Point(656, 290);
+            this.txtVaiTro.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtVaiTro.Name = "txtVaiTro";
+            this.txtVaiTro.PlaceholderText = "Nhập vai trò";
+            this.txtVaiTro.SelectedText = "";
+            this.txtVaiTro.Size = new System.Drawing.Size(333, 43);
+            this.txtVaiTro.TabIndex = 33;
+            // 
+            // lbVaiTro
+            // 
+            this.lbVaiTro.BackColor = System.Drawing.Color.Transparent;
+            this.lbVaiTro.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbVaiTro.ForeColor = System.Drawing.Color.Black;
+            this.lbVaiTro.Location = new System.Drawing.Point(651, 262);
+            this.lbVaiTro.Name = "lbVaiTro";
+            this.lbVaiTro.Size = new System.Drawing.Size(127, 24);
+            this.lbVaiTro.TabIndex = 34;
+            this.lbVaiTro.Text = "Vai trò";
+            // 
             // FormAddNV
             // 
             resources.ApplyResources(this, "$this");
@@ -280,5 +320,7 @@
         private Guna.Charts.WinForms.GunaBarDataset gunaBarDataset1;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private Guna.UI2.WinForms.Guna2GradientButton btnTaoTaiKhoan;
+        private System.Windows.Forms.Label lbVaiTro;
+        private Guna.UI2.WinForms.Guna2TextBox txtVaiTro;
     }
 }
