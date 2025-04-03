@@ -39,8 +39,9 @@ namespace Trang_chủ_Main_Page_
         {
 
         }
+        private int soLanNhap = 3; //Số lần nhập sai tối đa
+        private int countdown = 30; //Thời gian chờ 30s
 
-        
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             string username = guna2TextBox1.Text;

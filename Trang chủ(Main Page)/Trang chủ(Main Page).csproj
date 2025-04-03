@@ -679,6 +679,9 @@
     <Compile Include="GUI_QL_TC_NS\Statistic.Designer.cs">
       <DependentUpon>Statistic.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="GUI_QL_TC_NS\CT_HDBH.en.resx">
+      <DependentUpon>CT_HDBH.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI_QL_TC_NS\CT_HDBH.resx">
       <DependentUpon>CT_HDBH.cs</DependentUpon>
     </EmbeddedResource>
