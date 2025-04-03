@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using BLL;
 using static Jenga.Theme;
+using System.Threading;
 
 namespace Trang_chủ_Main_Page_
 {
@@ -31,13 +32,26 @@ namespace Trang_chủ_Main_Page_
            
             //Datagridview bảng nhân viên
             dtg_Employee.DataSource = bLL_QuanlyTCNS.xemDSNV();
-            dtg_Employee.Columns[0].HeaderText = "Mã nhân viên";
-            dtg_Employee.Columns[1].HeaderText = "Họ tên";
-            dtg_Employee.Columns[2].HeaderText = "CCCD";
-            dtg_Employee.Columns[3].HeaderText = "Ngày sinh";
-            dtg_Employee.Columns[4].HeaderText = "Giới tính";
-            dtg_Employee.Columns[5].HeaderText = "Địa chỉ";
-            dtg_Employee.Columns[6].HeaderText = "Số điện thoại";
+            if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+            {
+                dtg_Employee.Columns[0].HeaderText = "Mã nhân viên";
+                dtg_Employee.Columns[1].HeaderText = "Họ tên";
+                dtg_Employee.Columns[2].HeaderText = "CCCD";
+                dtg_Employee.Columns[3].HeaderText = "Ngày sinh";
+                dtg_Employee.Columns[4].HeaderText = "Giới tính";
+                dtg_Employee.Columns[5].HeaderText = "Địa chỉ";
+                dtg_Employee.Columns[6].HeaderText = "Số điện thoại";
+            }
+            else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+            {
+                dtg_Employee.Columns[0].HeaderText = "Employee ID";
+                dtg_Employee.Columns[1].HeaderText = "Full Name";
+                dtg_Employee.Columns[2].HeaderText = "Citizen ID";
+                dtg_Employee.Columns[3].HeaderText = "Date of Birth";
+                dtg_Employee.Columns[4].HeaderText = "Gender";
+                dtg_Employee.Columns[5].HeaderText = "Address";
+                dtg_Employee.Columns[6].HeaderText = "Phone Number";
+            }
 
         }
 

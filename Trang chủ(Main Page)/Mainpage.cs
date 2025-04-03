@@ -51,7 +51,15 @@ namespace Trang_chủ_Main_Page_
             // Kiểm tra thông tin hợp lệ
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                {
+                    MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                {
+                    MessageBox.Show("Please enter all required information!", "NOTIFICATION", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
                 return;
             }
             // Gọi BLL để lấy role
