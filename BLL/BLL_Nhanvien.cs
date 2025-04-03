@@ -22,9 +22,9 @@ namespace BLL
         }
         private BLL_Nhanvien() { }
 
-        public bool AddEmployee(string hoTen, string cccd, DateTime ngaySinh, string gioiTinh, string diaChi, string sdt, string username, string password, string role)
+        public bool AddEmployee(string hoTen, string cccd, DateTime ngaySinh, string gioiTinh, string diaChi, string sdt, string rolenv, string username, string password, string role)
         {
-            return DAL_Nhanvien.Instance.InsertEmployee(hoTen, cccd, ngaySinh, gioiTinh, diaChi, sdt, username, password, role);
+            return DAL_Nhanvien.Instance.InsertEmployee(hoTen, cccd, ngaySinh, gioiTinh, diaChi, sdt, rolenv, username, password, role);
         }
 
         public DataTable GetAllEmployees()

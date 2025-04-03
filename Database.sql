@@ -317,7 +317,6 @@ End
 
 ----------------------------Procedure-----------------------------
 --Procedure thêm mã cho nhân viên mới--
-drop proc themMaNhanvien
 go
 create proc themMaNhanvien 
 	@Hoten NVARCHAR(100),

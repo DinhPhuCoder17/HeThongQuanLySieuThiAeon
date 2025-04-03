@@ -42,6 +42,7 @@ namespace Trang_chủ_Main_Page_
             string gioiTinh = cmbGioiTinh.SelectedItem.ToString();
             string diaChi = txtDiaChi.Text;
             string sdt = txtSDT.Text;
+            string rolenv = txtVaiTro.Text;
 
             //Bắt đầu check nhập dữ liệu
             if (string.IsNullOrEmpty(hoTen) || string.IsNullOrEmpty(cccd) || string.IsNullOrEmpty(diaChi) || string.IsNullOrEmpty(sdt) ||
@@ -75,9 +76,14 @@ namespace Trang_chủ_Main_Page_
                 MessageBox.Show("Số điện thoại không hợp lệ!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            if (!IsValidRoleNV(rolenv))
+            {
+                MessageBox.Show("Số điện thoại không hợp lệ!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             //Kết thúc check nhập dữ liệu
 
-            if (BLL_Nhanvien.Instance.AddEmployee(hoTen, cccd, ngaySinh, gioiTinh, diaChi, sdt, "","",""))
+            if (BLL_Nhanvien.Instance.AddEmployee(hoTen, cccd, ngaySinh, gioiTinh, diaChi, sdt, rolenv, "","",""))
             {
                 MessageBox.Show("Thêm nhân viên thành công!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
@@ -116,6 +122,13 @@ namespace Trang_chủ_Main_Page_
         }
         //Check địa chỉ hợp lệ
         public static bool IsValidAddress(string address)
+        {
+            string pattern = @"^[a-zA-ZĐđàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹ0-9,.\- ]{5,500}$";
+            return Regex.IsMatch(address, pattern);
+        }
+
+        //Check vai trò
+        public static bool IsValidRoleNV(string address)
         {
             string pattern = @"^[a-zA-ZĐđàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹ0-9,.\- ]{5,500}$";
             return Regex.IsMatch(address, pattern);
