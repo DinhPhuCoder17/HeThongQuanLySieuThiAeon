@@ -23,12 +23,13 @@ namespace DAL
         //private String connectionStr = @"Data Source=LAPTOP-P1IHVTIA;Initial Catalog=QuanLySieuThiAEON;Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
 
         //Quang
-        //private String connectionStr = @"Data Source=LAPTOP-200CVLCR\MSSQLSERVER2005;Initial Catalog=QuanLySieuThiAEON;Integrated Security=True";
+        private String connectionStr = @"Data Source=LAPTOP-200CVLCR\MSSQLSERVER2005;Initial Catalog=QuanLySieuThiAEON;Integrated Security=True";
 
         //Phú laptop
         //private String connectionStr = @"Data Source=LAPTOP-P1IHVTIA;Initial Catalog=QuanLySieuThiAEON;Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
         //Phú pc
         //private String connectionStr = @"Data Source=ADMIN\MSSQLSERVER01;Initial Catalog=QuanLySieuThiAEON;Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
+        
         //Tạo singleton
         private static DataProvider instance;
 

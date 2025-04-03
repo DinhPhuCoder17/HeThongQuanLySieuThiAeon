@@ -202,8 +202,6 @@ namespace BLL
         {
             return DAL_QuanLyKho.Instance.xemNgayDatHang(MaNH);
         }
-
-
         public DataTable timKiemHDNH(String tukhoa)
         {
             return DAL_QuanLyKho.Instance.timKiemHDNH(tukhoa);

@@ -41,6 +41,7 @@
             this.dtg_LichSuMH = new Guna.UI2.WinForms.Guna2DataGridView();
             this.btnExit = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Elipse3 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_LichSuMH)).BeginInit();
             this.SuspendLayout();
@@ -91,6 +92,8 @@
             // 
             // dtg_LichSuMH
             // 
+            this.dtg_LichSuMH.AllowUserToAddRows = false;
+            this.dtg_LichSuMH.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dtg_LichSuMH.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -114,6 +117,7 @@
             this.dtg_LichSuMH.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dtg_LichSuMH.Location = new System.Drawing.Point(12, 52);
             this.dtg_LichSuMH.Name = "dtg_LichSuMH";
+            this.dtg_LichSuMH.ReadOnly = true;
             this.dtg_LichSuMH.RowHeadersVisible = false;
             this.dtg_LichSuMH.RowHeadersWidth = 51;
             this.dtg_LichSuMH.RowTemplate.Height = 24;
@@ -132,7 +136,7 @@
             this.dtg_LichSuMH.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.dtg_LichSuMH.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dtg_LichSuMH.ThemeStyle.HeaderStyle.Height = 4;
-            this.dtg_LichSuMH.ThemeStyle.ReadOnly = false;
+            this.dtg_LichSuMH.ThemeStyle.ReadOnly = true;
             this.dtg_LichSuMH.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.dtg_LichSuMH.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dtg_LichSuMH.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -140,6 +144,7 @@
             this.dtg_LichSuMH.ThemeStyle.RowsStyle.Height = 24;
             this.dtg_LichSuMH.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dtg_LichSuMH.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dtg_LichSuMH.DoubleClick += new System.EventHandler(this.dtg_LichSuMH_DoubleClick);
             // 
             // btnExit
             // 
@@ -163,11 +168,30 @@
             this.guna2Elipse3.BorderRadius = 20;
             this.guna2Elipse3.TargetControl = this.dtg_LichSuMH;
             // 
+            // guna2Button1
+            // 
+            this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.FillColor = System.Drawing.Color.Transparent;
+            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.Image = global::Trang_chu_Main_Page_.Properties.Resources.Exit_Icon;
+            this.guna2Button1.ImageSize = new System.Drawing.Size(190, 120);
+            this.guna2Button1.Location = new System.Drawing.Point(764, 9);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.Size = new System.Drawing.Size(41, 34);
+            this.guna2Button1.TabIndex = 15;
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
+            // 
             // LichSuKH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(817, 454);
+            this.Controls.Add(this.guna2Button1);
             this.Controls.Add(this.lbLichSuMH);
             this.Controls.Add(this.dtg_LichSuMH);
             this.Controls.Add(this.btnExit);
@@ -192,5 +216,6 @@
         private Guna.UI2.WinForms.Guna2Button btnExit;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse2;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse3;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
     }
 }

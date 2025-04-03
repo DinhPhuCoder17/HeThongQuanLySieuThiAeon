@@ -193,5 +193,24 @@ namespace Trang_chủ_Main_Page_
         {
 
         }
+
+        private void btn_SignOut_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+            "Bạn có chắc chắn muốn đăng xuất?",
+            "Xác nhận đăng xuất",
+            MessageBoxButtons.OKCancel,
+            MessageBoxIcon.Question
+            );
+
+            if (result == DialogResult.OK)
+            {
+                this.Hide();
+                Mainpage mainpage = new Mainpage();
+                mainpage.Show();
+
+                this.Close();
+            }
+        }
     }
 }

@@ -98,7 +98,11 @@ namespace Trang_chủ_Main_Page_
 
             if (result == DialogResult.OK)
             {
-                Application.Exit();
+                this.Hide();
+                Mainpage mainpage = new Mainpage();
+                mainpage.Show();
+
+                this.Close();
             }
         }
 
