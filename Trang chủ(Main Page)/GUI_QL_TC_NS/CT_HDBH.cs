@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
@@ -32,12 +33,24 @@ namespace Trang_chu_Main_Page_.GUI_QL_TC_NS
 
             // Gọi BLL để lấy dữ liệu chi tiết hóa đơn
             DataTable dataTable = bLL_QuanlyTCNS.xemChiTietHDBH(maHoaDon);
-            dtg_HistoryMH.DataSource = dataTable;
-            dtg_HistoryMH.Columns[0].HeaderText = "Mã Hóa Đơn";
-            dtg_HistoryMH.Columns[1].HeaderText = "Mã Hàng Hóa";
-            dtg_HistoryMH.Columns[2].HeaderText = "Tên Hàng Hóa";
-            dtg_HistoryMH.Columns[3].HeaderText = "Số Lượng";
-            dtg_HistoryMH.Columns[4].HeaderText = "Tổng Tiền";
+            if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+            {
+                // Tiếng Việt
+                dtg_HistoryMH.Columns[0].HeaderText = "Mã Hóa Đơn";
+                dtg_HistoryMH.Columns[1].HeaderText = "Mã Hàng Hóa";
+                dtg_HistoryMH.Columns[2].HeaderText = "Tên Hàng Hóa";
+                dtg_HistoryMH.Columns[3].HeaderText = "Số Lượng";
+                dtg_HistoryMH.Columns[4].HeaderText = "Tổng Tiền";
+            }
+            else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+            {
+                // Tiếng Anh
+                dtg_HistoryMH.Columns[0].HeaderText = "Invoice Code";
+                dtg_HistoryMH.Columns[1].HeaderText = "Product Code";
+                dtg_HistoryMH.Columns[2].HeaderText = "Product Name";
+                dtg_HistoryMH.Columns[3].HeaderText = "Quantity";
+                dtg_HistoryMH.Columns[4].HeaderText = "Total Amount";
+            }
             dtg_HistoryMH.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dtg_HistoryMH.ColumnHeadersHeight = 30; // Đặt chiều cao header là 30 pixel
             foreach (DataGridViewColumn column in dtg_HistoryMH.Columns)

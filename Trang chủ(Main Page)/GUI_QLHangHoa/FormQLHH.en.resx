@@ -616,6 +616,35 @@
   <data name="btnDatHang.Text" xml:space="preserve">
     <value>Place Order</value>
   </data>
+  <data name="btnNhapHang.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAABGdBTUEAALGPC/xhBQAABNpJREFUeF7t
+        3E3o5VMcx/HZWXlKKYqErDwsWDELKSGSBXnYyEZGTEkkD6U0KRoLjLKzGCUleUjNQhYeVqQxxUKTkJoZ
+        koXC6q1T/8X07tx7z+/3O+f3O+fOedXU9O98vuf7/S1m7jn/e++uXV3XdV3XCDbw+i4zP3Dz+i4zP3Dz
+        +i4zP3Dz+uZ4oETXuk4p3ti8vjkeKNEnrlOKNzavb44HGuBy1yrBm5rXN8cDDfCOa5XgTc3rm+OBBrrA
+        9XLzhub1zfFAA73perl5Q/P65nigEc50zZy8mXl9czzQCC+5Zk7ezLx+6wBfeGhzZh1n5+Z+UgAvuk7E
+        U85lAdzsnSKedW4VB+fmfjYBLnSNiL+cywo47B3lX2dWcXBu7mcT4G3XiLjXuayAO71jxKPOxTg0N/ez
+        DrDb+YjDzhUBHPXOctyZGIfm5n7WAT53PuI654oAHvDOEfc7Zw7Mzf2sAtznbMRHzhUFnHAH8qMz5sDc
+        3M8qwM/ORlziXFHAXncQcYdzJ/PiubmfmPCS0rmI152bBfCPO5GvnZnCxc3rpwone++xwtnOzgJ42p1E
+        3ODcWC5sXj8V8Ib3iHjSuVm5m4hPnRnLhc3rpwCucP2IP52bXeLR/GrnxnBR8/opgI9dP6LsoSsFcLq7
+        injfuTFc1Lx+LOBW14741rnFhFcB7i7iUueGckHz+rGA71w74ibnFgOc5+4i3nJuKBc0rx8D2OO6ER84
+        t7jwgN1lxLnODeFi5vVjhNtM1424xrnFAZe5y4hXnRvCxczrh0p8QTFphqKA99xtxGnOpXIh8/ohEu/6
+        g4udrUZ4ueluI15wLpULmdcPkXjX/5xz1QEOuWtzJpXrmNenSrzr/730mw6yAK535xFPOLekxLv+h52r
+        FvCVu5eyvzcdIPGu/xvnqgbc5gkiHnRuCYl3/fc4Vz3giKeQX5yZW+Jd/7y/6colXFR5koi7nZvLgLv+
+        G51tBvCTp5Ejzswl8a5/8vXJosK/854o4hbnSku86w+yXKMvCvjDU8mXzpSWeNf/inNNAh73ZA04Dlzk
+        WZoF/OcJK/eMZ2ga8LwnrNj3wBmeoVnAWZ6wcns8Q9PCR5c8YcU+c/9NA67yhBU74f6bB3zoKSv1rntv
+        HnC7p6xIeEvlD+HBA3e5960Q3hfqqSN2O9dlED4h4ycdMcun6085wPnAb37aEcU/WX9KAvb7SUfsd67L
+        ALjSTzoi+VOU3UDAy37aEY8412UCHPPTlqPOdBn5aUe0++u9FvhpbxvPWx03vG08b3WAx9z0NvG81QHO
+        AX5149vC81YJeMiNbwvPWi3gNTe/DTxn1YB9wN8eomWesXrhC113TsfhMwObDmnV83xd13VdV63wzufw
+        udqT/hMOf8Lfw89mf1e01d7fJMBBv4qIOOjcXGrvbxJPsYnzpXn/TZyvWuJ3ydle1yml9v4mCd+b6c4H
+        KP6dm7X3NxlwwF0PcMD1cqu9v8nCu4vd9QDF35lce3+TJXyZ6zrF351ce3+TTbxwO+Z6udXe32Qp35Sy
+        xiHXy632/ibbOUGOVfybqGrvb7Kdo/1YxY/+tfeXReIR32Y78tfeXxbufhPnS/P+mzjfhMQj/2JH/Nr7
+        y2Ln6B9On+EAFF6Dhz/h7+Fnix/ta++v67qu67qu67rt8z8f3mjDod8MYQAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="btnNhapHang.Text" xml:space="preserve">
+    <value>Add Stock</value>
+  </data>
   <data name="btnNhaCungCap.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAfQAAAH0CAYAAADL1t+KAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
@@ -883,34 +912,5 @@
   </data>
   <data name="guna2Button2.Text" xml:space="preserve">
     <value>Logout</value>
-  </data>
-  <data name="btnNhapHang.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAABGdBTUEAALGPC/xhBQAABNpJREFUeF7t
-        3E3o5VMcx/HZWXlKKYqErDwsWDELKSGSBXnYyEZGTEkkD6U0KRoLjLKzGCUleUjNQhYeVqQxxUKTkJoZ
-        koXC6q1T/8X07tx7z+/3O+f3O+fOedXU9O98vuf7/S1m7jn/e++uXV3XdV3XCDbw+i4zP3Dz+i4zP3Dz
-        +i4zP3Dz+uZ4oETXuk4p3ti8vjkeKNEnrlOKNzavb44HGuBy1yrBm5rXN8cDDfCOa5XgTc3rm+OBBrrA
-        9XLzhub1zfFAA73perl5Q/P65nigEc50zZy8mXl9czzQCC+5Zk7ezLx+6wBfeGhzZh1n5+Z+UgAvuk7E
-        U85lAdzsnSKedW4VB+fmfjYBLnSNiL+cywo47B3lX2dWcXBu7mcT4G3XiLjXuayAO71jxKPOxTg0N/ez
-        DrDb+YjDzhUBHPXOctyZGIfm5n7WAT53PuI654oAHvDOEfc7Zw7Mzf2sAtznbMRHzhUFnHAH8qMz5sDc
-        3M8qwM/ORlziXFHAXncQcYdzJ/PiubmfmPCS0rmI152bBfCPO5GvnZnCxc3rpwone++xwtnOzgJ42p1E
-        3ODcWC5sXj8V8Ib3iHjSuVm5m4hPnRnLhc3rpwCucP2IP52bXeLR/GrnxnBR8/opgI9dP6LsoSsFcLq7
-        injfuTFc1Lx+LOBW14741rnFhFcB7i7iUueGckHz+rGA71w74ibnFgOc5+4i3nJuKBc0rx8D2OO6ER84
-        t7jwgN1lxLnODeFi5vVjhNtM1424xrnFAZe5y4hXnRvCxczrh0p8QTFphqKA99xtxGnOpXIh8/ohEu/6
-        g4udrUZ4ueluI15wLpULmdcPkXjX/5xz1QEOuWtzJpXrmNenSrzr/730mw6yAK535xFPOLekxLv+h52r
-        FvCVu5eyvzcdIPGu/xvnqgbc5gkiHnRuCYl3/fc4Vz3giKeQX5yZW+Jd/7y/6colXFR5koi7nZvLgLv+
-        G51tBvCTp5Ejzswl8a5/8vXJosK/854o4hbnSku86w+yXKMvCvjDU8mXzpSWeNf/inNNAh73ZA04Dlzk
-        WZoF/OcJK/eMZ2ga8LwnrNj3wBmeoVnAWZ6wcns8Q9PCR5c8YcU+c/9NA67yhBU74f6bB3zoKSv1rntv
-        HnC7p6xIeEvlD+HBA3e5960Q3hfqqSN2O9dlED4h4ycdMcun6085wPnAb37aEcU/WX9KAvb7SUfsd67L
-        ALjSTzoi+VOU3UDAy37aEY8412UCHPPTlqPOdBn5aUe0++u9FvhpbxvPWx03vG08b3WAx9z0NvG81QHO
-        AX5149vC81YJeMiNbwvPWi3gNTe/DTxn1YB9wN8eomWesXrhC113TsfhMwObDmnV83xd13VdV63wzufw
-        udqT/hMOf8Lfw89mf1e01d7fJMBBv4qIOOjcXGrvbxJPsYnzpXn/TZyvWuJ3ydle1yml9v4mCd+b6c4H
-        KP6dm7X3NxlwwF0PcMD1cqu9v8nCu4vd9QDF35lce3+TJXyZ6zrF351ce3+TTbxwO+Z6udXe32Qp35Sy
-        xiHXy632/ibbOUGOVfybqGrvb7Kdo/1YxY/+tfeXReIR32Y78tfeXxbufhPnS/P+mzjfhMQj/2JH/Nr7
-        y2Ln6B9On+EAFF6Dhz/h7+Fnix/ta++v67qu67qu67rt8z8f3mjDod8MYQAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="btnNhapHang.Text" xml:space="preserve">
-    <value>Add Stock</value>
   </data>
 </root>

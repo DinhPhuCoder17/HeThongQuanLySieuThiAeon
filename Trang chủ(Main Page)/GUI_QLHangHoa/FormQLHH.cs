@@ -22,6 +22,19 @@ namespace Trang_chủ_Main_Page_
         public Form1()
         {
             InitializeComponent();
+            if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+            {
+                btnDSTonKho.ImageOffset = new Point(-7, 0);
+                btnDSTonKho.TextOffset = new Point(0, 0);
+                btnDatHang.ImageOffset = new Point(-22, 0);
+                btnDatHang.TextOffset = new Point(-16, 0);
+                btnNhapHang.ImageOffset = new Point(0, 0);
+                btnNhapHang.TextOffset = new Point(-13, 0);
+                btnNhaCungCap.ImageOffset = new Point(0, 0);
+                btnNhaCungCap.TextOffset = new Point(-8, 0);
+                guna2Button2.ImageOffset = new Point(5, 0);
+                guna2Button2.TextOffset = new Point(-15, 0);
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)

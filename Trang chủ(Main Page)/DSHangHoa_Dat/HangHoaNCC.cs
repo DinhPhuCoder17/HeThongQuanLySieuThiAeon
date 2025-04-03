@@ -7,6 +7,7 @@ using System.Drawing.Drawing2D;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -18,18 +19,36 @@ namespace Trang_chu_Main_Page_.DSHangHoa_Dat
         {
             get
             {
-                int result;
-                if (int.TryParse(txtSoLuong.Text, out result) && result > 0)
+                if (string.IsNullOrWhiteSpace(txtSoLuong.Text))
+                {
+                    return 1;
+                }
+                if (int.TryParse(txtSoLuong.Text, out int result) && result > 0)
+                {
                     return result;
+                }
                 else
-                    MessageBox.Show("Bạn vui lòng hãy nhập giá trị lớn hơn 0, không có kí tự đặc biệt và chữ cái",
-                "Thông báo",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Warning);
+                {
+                    if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                    {
+                        MessageBox.Show("Bạn vui lòng hãy nhập số nguyên dương lớn hơn 0, không có ký tự đặc biệt hoặc chữ cái.",
+                                        "Thông báo",
+                                        MessageBoxButtons.OK,
+                                        MessageBoxIcon.Warning);
+                    }
+                    else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                    {
+                        MessageBox.Show("Please enter a positive integer greater than 0, without special characters or letters.",
+                                        "Notification",
+                                        MessageBoxButtons.OK,
+                                        MessageBoxIcon.Warning);
+                    }
 
-                return 0;
+                    return 0; 
+                }
             }
         }
+
 
         public event EventHandler OnSelect = null;
         private double cost;

@@ -77,20 +77,20 @@
             // 
             // guna2PictureBox2
             // 
-            resources.ApplyResources(this.guna2PictureBox2, "guna2PictureBox2");
             this.guna2PictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.guna2PictureBox2.FillColor = System.Drawing.Color.Transparent;
             this.guna2PictureBox2.ImageRotate = 0F;
+            resources.ApplyResources(this.guna2PictureBox2, "guna2PictureBox2");
             this.guna2PictureBox2.Name = "guna2PictureBox2";
             this.guna2PictureBox2.TabStop = false;
             this.guna2PictureBox2.UseTransparentBackground = true;
             // 
             // guna2PictureBox4
             // 
-            resources.ApplyResources(this.guna2PictureBox4, "guna2PictureBox4");
             this.guna2PictureBox4.BackColor = System.Drawing.Color.Transparent;
             this.guna2PictureBox4.Image = global::Trang_chu_Main_Page_.Properties.Resources.Thiết_kế_chưa_có_tên__12_;
             this.guna2PictureBox4.ImageRotate = 0F;
+            resources.ApplyResources(this.guna2PictureBox4, "guna2PictureBox4");
             this.guna2PictureBox4.Name = "guna2PictureBox4";
             this.guna2PictureBox4.TabStop = false;
             this.guna2PictureBox4.UseTransparentBackground = true;
@@ -98,17 +98,16 @@
             // 
             // guna2PictureBox3
             // 
-            resources.ApplyResources(this.guna2PictureBox3, "guna2PictureBox3");
             this.guna2PictureBox3.BackColor = System.Drawing.Color.Transparent;
             this.guna2PictureBox3.FillColor = System.Drawing.Color.Transparent;
             this.guna2PictureBox3.ImageRotate = 0F;
+            resources.ApplyResources(this.guna2PictureBox3, "guna2PictureBox3");
             this.guna2PictureBox3.Name = "guna2PictureBox3";
             this.guna2PictureBox3.TabStop = false;
             this.guna2PictureBox3.UseTransparentBackground = true;
             // 
             // btnDSTonKho
             // 
-            resources.ApplyResources(this.btnDSTonKho, "btnDSTonKho");
             this.btnDSTonKho.Animated = true;
             this.btnDSTonKho.BackColor = System.Drawing.Color.Transparent;
             this.btnDSTonKho.BorderRadius = 15;
@@ -117,6 +116,7 @@
             this.btnDSTonKho.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnDSTonKho.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnDSTonKho.FillColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.btnDSTonKho, "btnDSTonKho");
             this.btnDSTonKho.ForeColor = System.Drawing.Color.White;
             this.btnDSTonKho.Image = ((System.Drawing.Image)(resources.GetObject("btnDSTonKho.Image")));
             this.btnDSTonKho.ImageOffset = new System.Drawing.Point(-17, 0);
@@ -126,7 +126,6 @@
             // 
             // btnDatHang
             // 
-            resources.ApplyResources(this.btnDatHang, "btnDatHang");
             this.btnDatHang.Animated = true;
             this.btnDatHang.BackColor = System.Drawing.Color.Transparent;
             this.btnDatHang.BorderRadius = 15;
@@ -135,9 +134,10 @@
             this.btnDatHang.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnDatHang.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnDatHang.FillColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.btnDatHang, "btnDatHang");
             this.btnDatHang.ForeColor = System.Drawing.Color.White;
             this.btnDatHang.Image = ((System.Drawing.Image)(resources.GetObject("btnDatHang.Image")));
-            this.btnDatHang.ImageOffset = new System.Drawing.Point(-21, 0);
+            this.btnDatHang.ImageOffset = new System.Drawing.Point(-22, 0);
             this.btnDatHang.ImageSize = new System.Drawing.Size(25, 25);
             this.btnDatHang.Name = "btnDatHang";
             this.btnDatHang.TextOffset = new System.Drawing.Point(-10, 0);
@@ -145,9 +145,9 @@
             // 
             // pn_Customer
             // 
-            resources.ApplyResources(this.pn_Customer, "pn_Customer");
             this.pn_Customer.BackColor = System.Drawing.Color.Transparent;
             this.pn_Customer.Controls.Add(this.btnNhapHang);
+            resources.ApplyResources(this.pn_Customer, "pn_Customer");
             this.pn_Customer.Name = "pn_Customer";
             // 
             // btnNhapHang
@@ -189,12 +189,11 @@
             this.btnNhaCungCap.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnNhaCungCap.ImageSize = new System.Drawing.Size(25, 25);
             this.btnNhaCungCap.Name = "btnNhaCungCap";
-            this.btnNhaCungCap.TextOffset = new System.Drawing.Point(-11, 0);
+            this.btnNhaCungCap.TextOffset = new System.Drawing.Point(-12, 0);
             this.btnNhaCungCap.Click += new System.EventHandler(this.btnNhaCungCap_Click);
             // 
             // guna2Button2
             // 
-            resources.ApplyResources(this.guna2Button2, "guna2Button2");
             this.guna2Button2.Animated = true;
             this.guna2Button2.BackColor = System.Drawing.Color.Transparent;
             this.guna2Button2.BorderRadius = 15;
@@ -205,6 +204,7 @@
             this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.guna2Button2.FillColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.guna2Button2, "guna2Button2");
             this.guna2Button2.ForeColor = System.Drawing.Color.White;
             this.guna2Button2.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button2.Image")));
             this.guna2Button2.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -216,9 +216,9 @@
             // 
             // Form1
             // 
-            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            resources.ApplyResources(this, "$this");
             this.Controls.Add(this.guna2Panel3);
             this.Controls.Add(this.sidebarContainer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
