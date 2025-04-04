@@ -17,7 +17,7 @@ namespace DAL
         //Liêm
         String connectionStr = $"Data Source=" + computerName + @";Initial Catalog=QuanLySieuThiAEON;Integrated Security=True;Encrypt=True";
 
-        private String connectionStr = @"Data Source=.\SQLEXPRESS;Initial Catalog=QuanLySieuThiAEON;Integrated Security=True";
+        //private String connectionStr = @"Data Source=.\SQLEXPRESS;Initial Catalog=QuanLySieuThiAEON;Integrated Security=True";
 
         //Phú
         //private String connectionStr = @"Data Source=LAPTOP-P1IHVTIA;Initial Catalog=QuanLySieuThiAEON;Integrated Security=True;Encrypt=True;TrustServerCertificate=True";

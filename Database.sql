@@ -219,32 +219,6 @@ Begin
 End
 --Trigger Cham cong--
 
---Trigger bang Batbuoc--
-go
-Create trigger tg_BB
-on Batbuoc
-for insert
-As
-Begin
-	--Khong duoc them khi vuot qua so luong ca--
-	Declare @macalam varchar(10), @soluong int
-	Select @macalam = (select Macalam from inserted)
-	if (
-		Select count(*)
-		From inserted i join Batbuoc bb
-		on i.Macalam = bb.Macalam
-	) > (
-		Select Soluong
-		From Calam join inserted i
-		on i.Macalam = Calam.Macalam
-	)
-	Begin
-		print(N'Đã vượt quá số lượng người trong ca')
-		rollback tran
-	End
-End
---End Trigger bang Batbuoc--
-
 --Trigger bang HH_HDBH--
 go
 Create trigger tg_HH_HDBH
@@ -1122,4 +1096,7 @@ Where ThoigianBD > '2025/3/30' and ThoigianKT < '2025/4/7'
 Group by bb.Manhanvien, Hoten, Vaitro, ThoigianBD, ThoigianKT  
 
 exec themMaHDNH 10000000, 10
+
+
+ 
 

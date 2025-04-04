@@ -197,12 +197,14 @@ namespace Trang_chủ_Main_Page_
 
                     dtg_CustomerList.ReadOnly = false; // Mở khóa tất cả các dòng
                     dtg_CustomerList.Columns["Sodienthoai"].ReadOnly = true;
+                    dtg_CustomerList.Columns["Diemthuong"].ReadOnly = true;
+
 
                     foreach (DataGridViewRow row in dtg_CustomerList.Rows)
                     {
                         foreach (DataGridViewCell cell in row.Cells)
                         {
-                            if (row == dtg_CustomerList.CurrentRow && cell.OwningColumn.Name != "Sodienthoai")
+                            if (row == dtg_CustomerList.CurrentRow && cell.OwningColumn.Name != "Sodienthoai" && cell.OwningColumn.Name != "Diemthuong")
                             {
                                 cell.ReadOnly = false; // Mở khóa
                             }
