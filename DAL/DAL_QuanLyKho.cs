@@ -91,7 +91,13 @@ namespace DAL
             DataTable dt = DataProvider.Instance.ExecuteQuery(query, new object[] { mahh });
             return dt;
         }
+        public DataTable XemHanSuDung(string mahh)
+        {
+            string query = @"SELECT Hansudung FROM HD_HH WHERE Mahanghoa = @mahh AND Trangthai = N'Đã Nhập Kho'";
 
+            DataTable dt = DataProvider.Instance.ExecuteQuery(query, new object[] { mahh });
+            return dt;
+        }
         public string themMaHDNH(double tongTien, int tongSoLuong)
         {
             string queryThemMaHDNH = "EXEC themMaHDNH @Tongtien , @Soluong";
