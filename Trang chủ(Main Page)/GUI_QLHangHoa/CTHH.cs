@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BLL;
+using DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,11 +15,15 @@ namespace Trang_chu_Main_Page_.GUI_QLHangHoa
 {
     public partial class CTHH : Form
     {
+        // Lưu danh sách các hàng hóa từ XemDSTonKho() vào biến toàn cục
+        List<DTO_Hanghoa> dsHangHoa = BLLQuanLyKho.Instance.XemDSTonKho();
+
         public DataTable DataCTHH { get; set; }
         public CTHH()
         {
             InitializeComponent();
             dgvCTHH.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+
         }
 
         private void CTHH_Load(object sender, EventArgs e)
@@ -56,13 +62,38 @@ namespace Trang_chu_Main_Page_.GUI_QLHangHoa
                 dgvCTHH.Columns["Hansudung"].DisplayIndex = 2;
                 dgvCTHH.Columns["Soluongnhan"].DisplayIndex = 3;
             }
-            if (DataCTHH != null)
-            {
-                dgvCTHH.DataSource = DataCTHH;
+            HighlightHansudungInCTHH();
+        }
 
+        private int GetTHSDFromList(string maHangHoa)
+        {
+            var hangHoa = dsHangHoa.FirstOrDefault(hh => hh.MaHangHoa == maHangHoa);
+            if (hangHoa != null)
+            {
+                return hangHoa.THSD;
+            }
+            return -1;  
+        }
+        private void HighlightHansudungInCTHH()
+        {
+            foreach (DataGridViewRow row in dgvCTHH.Rows)
+            {
+                string maHangHoa = row.Cells["Mahanghoa"].Value.ToString();
+                int thsd = GetTHSDFromList(maHangHoa);
+                if (thsd != -1)
+                {
+                    DateTime hansudungDate = Convert.ToDateTime(row.Cells["Hansudung"].Value);
+                    int remainingDays = (hansudungDate - DateTime.Now).Days;
+                    if (thsd > 30 && remainingDays < (0.15 * thsd))
+                    {
+                        row.Cells["Hansudung"].Style.BackColor = Color.Yellow;
+                    }
+                }
             }
         }
-        
+
+
+
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             if (DataCTHH != null)
@@ -90,6 +121,7 @@ namespace Trang_chu_Main_Page_.GUI_QLHangHoa
 
                 dv.RowFilter = filter;
                 dgvCTHH.DataSource = dv;
+                HighlightHansudungInCTHH();
             }
         }
 

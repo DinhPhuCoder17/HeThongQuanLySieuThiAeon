@@ -179,6 +179,7 @@ namespace Trang_chủ_Main_Page_
             dgvDSTonKho.Columns.Add(colBarcode);
         
             LoadData();
+            
         }
 
 
@@ -189,6 +190,8 @@ namespace Trang_chủ_Main_Page_
             List<DTO_Hanghoa> danhSachTonKho = BLLQuanLyKho.Instance.XemDSTonKho();
             dgvDSTonKho.DataSource = danhSachTonKho;
             dgvDSTonKho.SelectionChanged += dgvDSTonKho_SelectionChanged;
+            cmb_SapXepDM_DSTK.SelectedIndexChanged += cmbSelectedIndexChanged;
+            HighlightHansudungLessThan15Percent();
 
         }
 
@@ -242,6 +245,35 @@ namespace Trang_chủ_Main_Page_
             }
             
         }
+        public void HighlightHansudungLessThan15Percent()
+        {
+            foreach (DataGridViewRow row in dgvDSTonKho.Rows)
+            {
+
+                string mahh = row.Cells["colMahang"].Value.ToString(); 
+
+                DataTable dtCTHH = BLLQuanLyKho.Instance.XemCTHH(mahh);
+
+                if (dtCTHH.Rows.Count > 0)
+                {
+                    int thsd = Convert.ToInt32(row.Cells["colTHSD"].Value);
+
+                    foreach (DataRow dr in dtCTHH.Rows)
+                    {
+                       
+                        DateTime hansudungDate = Convert.ToDateTime(dr["Hansudung"]);
+                        int remainingDays = (hansudungDate - DateTime.Now).Days;  // Số ngày còn lại
+
+                        // Kiểm tra điều kiện 15% của THSD
+                        if (thsd > 30 && remainingDays < (0.15 * thsd))
+                        {
+                            // Tô màu vàng cho cột Hansudung trong dgvDSTonKho
+                            row.Cells["colTHSD"].Style.BackColor = Color.Yellow;
+                        }
+                    }
+                }
+            }
+        }
 
 
         private void txt_HH_SearchBar_TextChanged(object sender, EventArgs e)
@@ -262,10 +294,12 @@ namespace Trang_chủ_Main_Page_
                     .ToList();
 
                 bindingSource.DataSource = filteredList;
+                HighlightHansudungLessThan15Percent();
             }
             else
             {
                 bindingSource.DataSource = BLLQuanLyKho.Instance.XemDSTonKho();
+                HighlightHansudungLessThan15Percent();
             }
 
             dgvDSTonKho.DataSource = bindingSource;
@@ -280,6 +314,8 @@ namespace Trang_chủ_Main_Page_
             if (selectedCategory == "Tất cả")
             {
                 dgvDSTonKho.DataSource = danhSachTonKho;
+                HighlightHansudungLessThan15Percent();
+
             }
             else
             {
@@ -287,6 +323,7 @@ namespace Trang_chủ_Main_Page_
                     .Where(hh => hh.DanhMuc == selectedCategory)
                     .ToList();
                 dgvDSTonKho.DataSource = filterList;
+                HighlightHansudungLessThan15Percent();
             }
         }
 
@@ -351,7 +388,8 @@ namespace Trang_chủ_Main_Page_
                     if (isDeleted)
                     {
                         MessageBox.Show("Hàng hóa đã được xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        LoadData(); 
+                        LoadData();
+                        HighlightHansudungLessThan15Percent();
                     }
                     else
                     {
@@ -434,6 +472,7 @@ namespace Trang_chủ_Main_Page_
                 rowEdited.DefaultCellStyle.BackColor = Color.White;
                 rowEdited.DefaultCellStyle.SelectionBackColor = Color.FromArgb(255, 69, 0);
                 btnSua_DSTonKho.Text = "Sửa";
+                HighlightHansudungLessThan15Percent();
             }
         }
         private void dgvDSTonKho_SelectionChanged(object sender, EventArgs e)
@@ -494,6 +533,7 @@ namespace Trang_chủ_Main_Page_
                 rowEdited.DefaultCellStyle.SelectionBackColor = Color.FromArgb(255, 69, 0);
                 cellClick = true;
                 btnSua_DSTonKho.Text = "Sửa";
+                HighlightHansudungLessThan15Percent();
             }
         }
 
