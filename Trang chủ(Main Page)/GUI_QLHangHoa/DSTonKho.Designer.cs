@@ -155,7 +155,6 @@
             resources.ApplyResources(this.cmb_SapXepDM_DSTK, "cmb_SapXepDM_DSTK");
             this.cmb_SapXepDM_DSTK.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cmb_SapXepDM_DSTK.Name = "cmb_SapXepDM_DSTK";
-            this.cmb_SapXepDM_DSTK.SelectedIndexChanged += new System.EventHandler(this.cmbSelectedIndexChanged);
             // 
             // dgvDSTonKho
             // 

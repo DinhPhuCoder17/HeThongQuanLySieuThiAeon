@@ -37,7 +37,16 @@ namespace Trang_chủ_Main_Page_
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+            {
+                //vietnamese
+                guna2ComboBox2.SelectedIndex = 0;
+            }
+            else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+            {
+                //english
+                guna2ComboBox2.SelectedIndex = 1;
+            }
         }
 
         private void guna2CirclePictureBox1_Click(object sender, EventArgs e)

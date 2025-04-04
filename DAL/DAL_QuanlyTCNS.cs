@@ -400,9 +400,9 @@ namespace DAL
                 }
                 return false;
             }
-            catch
+            catch(Exception ex)
             {
-                MessageBox.Show("Trùng thời gian với ca làm khác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Trùng thời gian với ca làm khác " + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
         }

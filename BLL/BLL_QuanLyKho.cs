@@ -82,6 +82,10 @@ namespace BLL
         {
             return DAL_QuanLyKho.Instance.XemCTHH(mahh);
         }
+        public DataTable XemHanSuDung(string mahh)
+        {
+            return DAL_QuanLyKho.Instance.XemHanSuDung(mahh);
+        }
         public bool XoaHangHoa(string barcode)
         {
             return DAL_QuanLyKho.Instance.XoaHangHoa(barcode);
