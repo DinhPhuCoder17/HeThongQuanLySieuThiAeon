@@ -1,5 +1,6 @@
 ﻿using BLL;
 using DTO;
+using MySqlX.XDevAPI.Common;
 using ServiceStack;
 using System;
 using System.Collections.Generic;
@@ -71,6 +72,21 @@ namespace Trang_chủ_Main_Page_
         {
             try
             {
+                string barcode = TxtBarcode.Text.Trim();
+                if (!Regex.IsMatch(barcode, @"^[a-zA-Z0-9]{1,20}$"))
+                {
+                    if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                    {
+                        MessageBox.Show("Barcode không hợp lệ! (Chỉ chứa chữ cái và số. Độ dài tối đa: 20 ký tự).");
+                    }
+                    else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                    {
+                        MessageBox.Show("Invalid barcode! (Only letters and numbers are allowed. Maximum length: 20 characters).");
+                    }
+
+                    return;
+                }
+
                 // Kiểm tra Tên Hàng Hóa
                 string tenHangHoa = txtTenHangHoa.Text.Trim();
                 if (!Regex.IsMatch(tenHangHoa, @"^[\p{L}0-9\s\.,/-]{2,50}$"))
@@ -152,7 +168,67 @@ namespace Trang_chủ_Main_Page_
 
                     return;
                 }
+                List<DTO_Hanghoa> dsTonKho = BLLQuanLyKho.Instance.XemDSTonKho();
+                List<DTO_Hanghoa> Barcode_Cu = BLLQuanLyKho.Instance.xemBarcode();
+                // Kiểm tra xem Barcode có tồn tại trong danh sách hàng hóa không
+                bool isDuplicate = dsTonKho.Any(hh => hh.Barcode.Equals(barcode, StringComparison.OrdinalIgnoreCase));
+                if (isDuplicate)
+                {
+                    if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                    {
+                        DialogResult result = MessageBox.Show("Hàng hóa này đã tồn tại, bạn có muốn thay đổi thông tin?",
+                                         "Xác nhận cập nhật",
+                                         MessageBoxButtons.YesNo,
+                                         MessageBoxIcon.Question);
 
+                        if (result == DialogResult.Yes)
+                        {
+                            // Gọi phương thức UpdateHanghoa để cập nhật thông tin hàng hóa
+                            UpdateHanghoa(tenHangHoa, tenDanhMuc, giaNhap, giaBan, thsd, barcode);
+                            return;
+                        }
+                       
+                    }
+                    else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                    {
+                        DialogResult result = MessageBox.Show("This item already exists. Do you want to update the information?",
+                                         "Confirm update",
+                                         MessageBoxButtons.YesNo,
+                                         MessageBoxIcon.Question);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            // Gọi phương thức UpdateHanghoa để cập nhật thông tin hàng hóa
+
+                            UpdateHanghoa(tenHangHoa, tenDanhMuc, giaNhap, giaBan, thsd, barcode);
+                            return;
+                        }
+                    }
+
+                    return;
+                }
+                else if (Barcode_Cu.Any(hh => hh.Barcode.Equals(barcode, StringComparison.OrdinalIgnoreCase)))
+                {
+                    DialogResult result =  MessageBox.Show("Hàng hóa này đã bị xóa trước đó. Bạn có muốn thêm lại hàng hóa không?",
+                                              "Xác nhận khôi phục",
+                                              MessageBoxButtons.YesNo,
+                                              MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+                        KhoiPhucHangHoa(barcode);
+                        this.Close();
+                        return;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không thể khôi phục hàng hóa. Vui lòng thử lại.",
+                                        "Lỗi",
+                                        MessageBoxButtons.OK,
+                                        MessageBoxIcon.Error);
+                    }
+                   
+                }
+               
                 // Tạo đối tượng DTO_Hanghoa
                 DTO_Hanghoa hangHoa = new DTO_Hanghoa
                 {
@@ -161,7 +237,8 @@ namespace Trang_chủ_Main_Page_
                     THSD = thsd,
                     GiaNhap = giaNhap,
                     GiaBan = giaBan,
-                    NhaCC = lbTenNcc.Text.Trim()
+                    NhaCC = lbTenNcc.Text.Trim(),
+                    Barcode = barcode
                 };
 
                 // Kiểm tra hình ảnh
@@ -175,7 +252,7 @@ namespace Trang_chủ_Main_Page_
                             hangHoa.HinhAnh = ms.ToArray();
                         }
 
-                        
+
                     }
                     catch (Exception ex)
                     {
@@ -211,10 +288,12 @@ namespace Trang_chủ_Main_Page_
                     if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
                     {
                         MessageBox.Show("Thêm mặt hàng thành công!");
+                        this.Close();
                     }
                     else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
                     {
                         MessageBox.Show("Product added successfully!");
+                        this.Close();
                     }
 
                 }
@@ -222,11 +301,11 @@ namespace Trang_chủ_Main_Page_
                 {
                     if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
                     {
-                        MessageBox.Show("Thêm mặt hàng thành công!");
+                        MessageBox.Show("Thêm mặt hàng thất bại!");
                     }
                     else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
                     {
-                        MessageBox.Show("Product added successfully!");
+                        MessageBox.Show("Adding product failed!");
                     }
 
                 }
@@ -244,6 +323,106 @@ namespace Trang_chủ_Main_Page_
 
             }
         }
+        public void KhoiPhucHangHoa(string barcode)
+        {
+            // Giả sử phương thức này gọi đến BLL để khôi phục hàng hóa theo barcode
+            bool success = BLLQuanLyKho.Instance.KhoiPhucHangHoa(barcode);
+            if (success)
+            {
+                MessageBox.Show("Hàng hóa với Barcode " + barcode + " đã được khôi phục thành công!",
+                                "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Không thể khôi phục hàng hóa với Barcode " + barcode + ". Vui lòng thử lại sau.",
+                                "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        public void UpdateHanghoa(string tenHangHoa, string tenDanhMuc, float giaNhapText, float giaBanText, int thsd, string barcode)
+        {
+            // Chuyển đổi giá nhập và giá bán từ string sang float
+          
+
+            // Tạo đối tượng DTO_Hanghoa
+            DTO_Hanghoa hangHoa = new DTO_Hanghoa
+            {
+                TenHangHoa = tenHangHoa,
+                DanhMuc = tenDanhMuc,
+                THSD = thsd,
+                GiaNhap = giaNhapText,
+                GiaBan = giaBanText,
+                NhaCC = lbTenNcc.Text.Trim(),
+                Barcode = barcode
+            };
+
+            // Kiểm tra hình ảnh
+            if (imgImage.Image != null)
+            {
+                try
+                {
+                    using (MemoryStream ms = new MemoryStream())
+                    {
+                        imgImage.Image.Save(ms, imgImage.Image.RawFormat);
+                        hangHoa.HinhAnh = ms.ToArray(); // Lưu hình ảnh vào thuộc tính HinhAnh
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Thông báo lỗi khi có vấn đề khi lưu hình ảnh
+                    if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                    {
+                        MessageBox.Show("Có lỗi khi lưu hình ảnh: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                    {
+                        MessageBox.Show("Error saving image: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    return;
+                }
+            }
+            else
+            {
+                // Thông báo khi không có hình ảnh
+                if(Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                    {
+                    MessageBox.Show("Vui lòng chọn hình ảnh để lưu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                    else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                {
+                    MessageBox.Show("Please select an image to save!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                return;
+            }
+
+            // Thêm mặt hàng vào cơ sở dữ liệu
+            bool kq = BLLQuanLyKho.Instance.UpdateHanghoa(hangHoa);
+            if (kq)
+            {
+                if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                {
+                    MessageBox.Show("Thêm mặt hàng thành công!");
+                    this.Close();
+                }
+                else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                {
+                    MessageBox.Show("Product added successfully!");
+                    this.Close();
+                }
+                this.Close(); // Đóng form sau khi thêm thành công
+            }
+            else
+            {
+                if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                {
+                    MessageBox.Show("Thêm mặt hàng thất bại!");
+                }
+                else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                {
+                    MessageBox.Show("Adding product failed!");
+                }
+            }
+        }
+
 
         private void guna2Panel1_Paint(object sender, PaintEventArgs e)
         {
@@ -278,6 +457,16 @@ namespace Trang_chủ_Main_Page_
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTHSD_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

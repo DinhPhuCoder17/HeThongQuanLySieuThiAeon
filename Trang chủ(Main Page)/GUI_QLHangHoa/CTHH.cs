@@ -17,6 +17,7 @@ namespace Trang_chu_Main_Page_.GUI_QLHangHoa
         public CTHH()
         {
             InitializeComponent();
+            dgvCTHH.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
         }
 
         private void CTHH_Load(object sender, EventArgs e)
@@ -55,8 +56,13 @@ namespace Trang_chu_Main_Page_.GUI_QLHangHoa
                 dgvCTHH.Columns["Hansudung"].DisplayIndex = 2;
                 dgvCTHH.Columns["Soluongnhan"].DisplayIndex = 3;
             }
-        }
+            if (DataCTHH != null)
+            {
+                dgvCTHH.DataSource = DataCTHH;
 
+            }
+        }
+        
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             if (DataCTHH != null)
