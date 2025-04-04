@@ -82,7 +82,7 @@ namespace Trang_chủ_Main_Page_
                 ? "Khi ấn xác nhận, hàng hóa sẽ được nhập vào kho và không thể hủy."
                 : "Once confirmed, the goods will be entered into the warehouse and cannot be canceled.";
 
-            string title = language == "vi-VN" ? "Xác nhận nhập hàng" : "Confirm Goods Entry";
+            string title = "Xác nhận nhập hàng";
 
             DialogResult result = MessageBox.Show(message, title, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
 
@@ -96,7 +96,7 @@ namespace Trang_chủ_Main_Page_
                     {
                         if (int.Parse(row.Cells[4].Value.ToString()) != int.Parse(row.Cells[5].Value.ToString()))
                         {
-                            status = language == "vi-VN" ? "Chờ Xử Lý Bổ Sung" : "Pending Additional Processing";
+                            status = "Chờ Xử Lý Bổ Sung";
                         }
                     }
 
@@ -120,7 +120,7 @@ namespace Trang_chủ_Main_Page_
                             NgayNhan = DateTime.Parse(row.Cells[3].Value.ToString()),
                             NSX = DateTime.Parse(row.Cells[6].Value.ToString()),
                             HSD = DateTime.Parse(row.Cells[7].Value.ToString()),
-                            TrangThai = language == "vi-VN" ? "Đã Nhập Kho" : "Warehouse Entered"
+                            TrangThai = "Đã Nhập Kho"
                         };
 
                         hDNhapHang.CT_HDNH.Add(dto_HH_HDNH);
@@ -217,6 +217,7 @@ namespace Trang_chủ_Main_Page_
                 dgvCTDH.Columns[6].HeaderText = "Ngày sản xuất";
                 dgvCTDH.Columns[7].HeaderText = "Hạn sử dụng";
                 dgvCTDH.Columns[8].HeaderText = "Thành tiền";
+                dgvCTDH.Columns["Trangthai"].HeaderText = "Trạng thái";
             }
             else 
             {
@@ -229,6 +230,7 @@ namespace Trang_chủ_Main_Page_
                 dgvCTDH.Columns[6].HeaderText = "Manufacturing Date";
                 dgvCTDH.Columns[7].HeaderText = "Expiration Date";
                 dgvCTDH.Columns[8].HeaderText = "Total Price";
+                dgvCTDH.Columns["Trangthai"].HeaderText = "Status";
             }
 
             foreach (DataGridViewRow row in dgvCTDH.Rows)
@@ -249,7 +251,7 @@ namespace Trang_chủ_Main_Page_
             dgvCTDH.Columns[5].ReadOnly = false;
             dgvCTDH.Columns[6].ReadOnly = false;
 
-            if (Trangthai == "Nhập Kho Một Phần" || Trangthai == "Partial Warehouse Import")
+            if (Trangthai == "Nhập Kho Một Phần")
             {
                 foreach (DataGridViewRow row in dgvCTDH.Rows)
                 {

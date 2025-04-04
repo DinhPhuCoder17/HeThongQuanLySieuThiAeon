@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NhapHang));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NhapHang));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -38,25 +38,25 @@
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
             this.label4 = new System.Windows.Forms.Label();
+            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.txt_Searching_HDNH = new Guna.UI2.WinForms.Guna2TextBox();
             this.btn_MoveOn = new Guna.UI2.WinForms.Guna2GradientButton();
             this.btn_HuyHD = new Guna.UI2.WinForms.Guna2GradientButton();
             this.btn_PrintExportPDF = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhapHang)).BeginInit();
             this.guna2Panel4.SuspendLayout();
-            this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
+            this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvNhapHang
             // 
-            resources.ApplyResources(this.dgvNhapHang, "dgvNhapHang");
             this.dgvNhapHang.AllowUserToAddRows = false;
             this.dgvNhapHang.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dgvNhapHang.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            resources.ApplyResources(this.dgvNhapHang, "dgvNhapHang");
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -121,11 +121,11 @@
             // 
             // guna2Panel4
             // 
-            resources.ApplyResources(this.guna2Panel4, "guna2Panel4");
             this.guna2Panel4.BackColor = System.Drawing.Color.White;
             this.guna2Panel4.Controls.Add(this.label4);
             this.guna2Panel4.Controls.Add(this.guna2CirclePictureBox1);
             this.guna2Panel4.Controls.Add(this.txt_Searching_HDNH);
+            resources.ApplyResources(this.guna2Panel4, "guna2Panel4");
             this.guna2Panel4.Name = "guna2Panel4";
             // 
             // label4
@@ -133,9 +133,17 @@
             resources.ApplyResources(this.label4, "label4");
             this.label4.Name = "label4";
             // 
+            // guna2CirclePictureBox1
+            // 
+            this.guna2CirclePictureBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            resources.ApplyResources(this.guna2CirclePictureBox1, "guna2CirclePictureBox1");
+            this.guna2CirclePictureBox1.ImageRotate = 0F;
+            this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
+            this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.guna2CirclePictureBox1.TabStop = false;
+            // 
             // txt_Searching_HDNH
             // 
-            resources.ApplyResources(this.txt_Searching_HDNH, "txt_Searching_HDNH");
             this.txt_Searching_HDNH.Animated = true;
             this.txt_Searching_HDNH.BackColor = System.Drawing.Color.White;
             this.txt_Searching_HDNH.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
@@ -149,6 +157,7 @@
             this.txt_Searching_HDNH.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txt_Searching_HDNH.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
             this.txt_Searching_HDNH.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            resources.ApplyResources(this.txt_Searching_HDNH, "txt_Searching_HDNH");
             this.txt_Searching_HDNH.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_Searching_HDNH.Name = "txt_Searching_HDNH";
             this.txt_Searching_HDNH.PlaceholderForeColor = System.Drawing.Color.Black;
@@ -158,7 +167,6 @@
             // 
             // btn_MoveOn
             // 
-            resources.ApplyResources(this.btn_MoveOn, "btn_MoveOn");
             this.btn_MoveOn.Animated = true;
             this.btn_MoveOn.BackColor = System.Drawing.Color.Transparent;
             this.btn_MoveOn.BorderRadius = 8;
@@ -169,13 +177,13 @@
             this.btn_MoveOn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btn_MoveOn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
             this.btn_MoveOn.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            resources.ApplyResources(this.btn_MoveOn, "btn_MoveOn");
             this.btn_MoveOn.ForeColor = System.Drawing.Color.White;
             this.btn_MoveOn.Name = "btn_MoveOn";
             this.btn_MoveOn.Click += new System.EventHandler(this.btn_MoveOn_Click);
             // 
             // btn_HuyHD
             // 
-            resources.ApplyResources(this.btn_HuyHD, "btn_HuyHD");
             this.btn_HuyHD.Animated = true;
             this.btn_HuyHD.BackColor = System.Drawing.Color.Transparent;
             this.btn_HuyHD.BorderRadius = 8;
@@ -186,13 +194,13 @@
             this.btn_HuyHD.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btn_HuyHD.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
             this.btn_HuyHD.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            resources.ApplyResources(this.btn_HuyHD, "btn_HuyHD");
             this.btn_HuyHD.ForeColor = System.Drawing.Color.White;
             this.btn_HuyHD.Name = "btn_HuyHD";
             this.btn_HuyHD.Click += new System.EventHandler(this.btn_HuyHD_Click);
             // 
             // btn_PrintExportPDF
             // 
-            resources.ApplyResources(this.btn_PrintExportPDF, "btn_PrintExportPDF");
             this.btn_PrintExportPDF.Animated = true;
             this.btn_PrintExportPDF.BackColor = System.Drawing.Color.Transparent;
             this.btn_PrintExportPDF.BorderRadius = 8;
@@ -203,35 +211,27 @@
             this.btn_PrintExportPDF.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btn_PrintExportPDF.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
             this.btn_PrintExportPDF.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            resources.ApplyResources(this.btn_PrintExportPDF, "btn_PrintExportPDF");
             this.btn_PrintExportPDF.ForeColor = System.Drawing.Color.White;
             this.btn_PrintExportPDF.Name = "btn_PrintExportPDF";
             this.btn_PrintExportPDF.Click += new System.EventHandler(this.btn_PrintExportPDF_Click);
             // 
             // guna2Panel1
             // 
-            resources.ApplyResources(this.guna2Panel1, "guna2Panel1");
             this.guna2Panel1.BackColor = System.Drawing.Color.White;
             this.guna2Panel1.Controls.Add(this.btn_HuyHD);
             this.guna2Panel1.Controls.Add(this.btn_PrintExportPDF);
             this.guna2Panel1.Controls.Add(this.dgvNhapHang);
             this.guna2Panel1.Controls.Add(this.btn_MoveOn);
+            resources.ApplyResources(this.guna2Panel1, "guna2Panel1");
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint_1);
             // 
-            // guna2CirclePictureBox1
-            // 
-            resources.ApplyResources(this.guna2CirclePictureBox1, "guna2CirclePictureBox1");
-            this.guna2CirclePictureBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.guna2CirclePictureBox1.ImageRotate = 0F;
-            this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
-            this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox1.TabStop = false;
-            // 
             // NhapHang
             // 
-            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.LightGray;
+            resources.ApplyResources(this, "$this");
             this.Controls.Add(this.guna2Panel4);
             this.Controls.Add(this.guna2Panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -240,8 +240,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhapHang)).EndInit();
             this.guna2Panel4.ResumeLayout(false);
             this.guna2Panel4.PerformLayout();
-            this.guna2Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
+            this.guna2Panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
