@@ -36,6 +36,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.label4 = new System.Windows.Forms.Label();
+            this.pb_Avata = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.txt_Bill_SearchBar = new Guna.UI2.WinForms.Guna2TextBox();
             this.dtg_Bill = new Guna.UI2.WinForms.Guna2DataGridView();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.label11 = new System.Windows.Forms.Label();
@@ -44,20 +46,36 @@
             this.lblCustomerList = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.btn_Bill_Cancel = new Guna.UI2.WinForms.Guna2GradientButton();
             this.btn_Bill_FilterDate = new Guna.UI2.WinForms.Guna2GradientButton();
-            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.txt_Bill_SearchBar = new Guna.UI2.WinForms.Guna2TextBox();
+            this.tm_InforChanges = new System.Windows.Forms.Timer(this.components);
+            this.pn_infoChanges = new Guna.UI2.WinForms.Guna2Panel();
+            this.tb_mk2 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.tb_mk1 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.lb_sdt = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lb_Gioitinh = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lb_Ngaysinh = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lb_Hoten = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lb_Ma = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel14 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel11 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel12 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel13 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel15 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel16 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel17 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.btn_Xacnhan = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Avata)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_Bill)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
+            this.pn_infoChanges.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2Panel1
             // 
-            resources.ApplyResources(this.guna2Panel1, "guna2Panel1");
             this.guna2Panel1.BackColor = System.Drawing.Color.White;
             this.guna2Panel1.Controls.Add(this.label4);
-            this.guna2Panel1.Controls.Add(this.guna2CirclePictureBox1);
+            this.guna2Panel1.Controls.Add(this.pb_Avata);
             this.guna2Panel1.Controls.Add(this.txt_Bill_SearchBar);
+            resources.ApplyResources(this.guna2Panel1, "guna2Panel1");
             this.guna2Panel1.Name = "guna2Panel1";
             // 
             // label4
@@ -65,14 +83,48 @@
             resources.ApplyResources(this.label4, "label4");
             this.label4.Name = "label4";
             // 
+            // pb_Avata
+            // 
+            this.pb_Avata.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            resources.ApplyResources(this.pb_Avata, "pb_Avata");
+            this.pb_Avata.ImageRotate = 0F;
+            this.pb_Avata.Name = "pb_Avata";
+            this.pb_Avata.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.pb_Avata.TabStop = false;
+            this.pb_Avata.Click += new System.EventHandler(this.pb_Avata_Click_1);
+            // 
+            // txt_Bill_SearchBar
+            // 
+            this.txt_Bill_SearchBar.Animated = true;
+            this.txt_Bill_SearchBar.BackColor = System.Drawing.Color.White;
+            this.txt_Bill_SearchBar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.txt_Bill_SearchBar.BorderRadius = 8;
+            this.txt_Bill_SearchBar.BorderThickness = 0;
+            this.txt_Bill_SearchBar.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_Bill_SearchBar.DefaultText = "";
+            this.txt_Bill_SearchBar.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txt_Bill_SearchBar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txt_Bill_SearchBar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_Bill_SearchBar.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_Bill_SearchBar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
+            this.txt_Bill_SearchBar.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            resources.ApplyResources(this.txt_Bill_SearchBar, "txt_Bill_SearchBar");
+            this.txt_Bill_SearchBar.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_Bill_SearchBar.IconLeft = global::Trang_chu_Main_Page_.Properties.Resources.Thiết_kế_chưa_có_tên__14_;
+            this.txt_Bill_SearchBar.Name = "txt_Bill_SearchBar";
+            this.txt_Bill_SearchBar.PlaceholderForeColor = System.Drawing.Color.Black;
+            this.txt_Bill_SearchBar.PlaceholderText = "Enter Order Code";
+            this.txt_Bill_SearchBar.SelectedText = "";
+            this.txt_Bill_SearchBar.TextChanged += new System.EventHandler(this.txt_Bill_SearchBar_TextChanged);
+            // 
             // dtg_Bill
             // 
-            resources.ApplyResources(this.dtg_Bill, "dtg_Bill");
             this.dtg_Bill.AllowUserToAddRows = false;
             this.dtg_Bill.AllowUserToResizeColumns = false;
             this.dtg_Bill.AllowUserToResizeRows = false;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
             this.dtg_Bill.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            resources.ApplyResources(this.dtg_Bill, "dtg_Bill");
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -136,8 +188,8 @@
             // 
             // label11
             // 
-            resources.ApplyResources(this.label11, "label11");
             this.label11.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.label11, "label11");
             this.label11.Name = "label11";
             this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
@@ -172,13 +224,12 @@
             // 
             // lblCustomerList
             // 
-            resources.ApplyResources(this.lblCustomerList, "lblCustomerList");
             this.lblCustomerList.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.lblCustomerList, "lblCustomerList");
             this.lblCustomerList.Name = "lblCustomerList";
             // 
             // btn_Bill_Cancel
             // 
-            resources.ApplyResources(this.btn_Bill_Cancel, "btn_Bill_Cancel");
             this.btn_Bill_Cancel.Animated = true;
             this.btn_Bill_Cancel.BackColor = System.Drawing.Color.Transparent;
             this.btn_Bill_Cancel.BorderRadius = 8;
@@ -189,13 +240,13 @@
             this.btn_Bill_Cancel.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btn_Bill_Cancel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
             this.btn_Bill_Cancel.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            resources.ApplyResources(this.btn_Bill_Cancel, "btn_Bill_Cancel");
             this.btn_Bill_Cancel.ForeColor = System.Drawing.Color.White;
             this.btn_Bill_Cancel.Name = "btn_Bill_Cancel";
             this.btn_Bill_Cancel.Click += new System.EventHandler(this.btn_Bill_Cancel_Click);
             // 
             // btn_Bill_FilterDate
             // 
-            resources.ApplyResources(this.btn_Bill_FilterDate, "btn_Bill_FilterDate");
             this.btn_Bill_FilterDate.Animated = true;
             this.btn_Bill_FilterDate.BackColor = System.Drawing.Color.Transparent;
             this.btn_Bill_FilterDate.BorderRadius = 8;
@@ -206,47 +257,169 @@
             this.btn_Bill_FilterDate.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btn_Bill_FilterDate.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
             this.btn_Bill_FilterDate.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            resources.ApplyResources(this.btn_Bill_FilterDate, "btn_Bill_FilterDate");
             this.btn_Bill_FilterDate.ForeColor = System.Drawing.Color.White;
             this.btn_Bill_FilterDate.Name = "btn_Bill_FilterDate";
             this.btn_Bill_FilterDate.Click += new System.EventHandler(this.btn_Bill_FilterDate_Click);
             // 
-            // guna2CirclePictureBox1
+            // tm_InforChanges
             // 
-            resources.ApplyResources(this.guna2CirclePictureBox1, "guna2CirclePictureBox1");
-            this.guna2CirclePictureBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.guna2CirclePictureBox1.ImageRotate = 0F;
-            this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
-            this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox1.TabStop = false;
+            this.tm_InforChanges.Tick += new System.EventHandler(this.tm_InforChanges_Tick_1);
             // 
-            // txt_Bill_SearchBar
+            // pn_infoChanges
             // 
-            resources.ApplyResources(this.txt_Bill_SearchBar, "txt_Bill_SearchBar");
-            this.txt_Bill_SearchBar.Animated = true;
-            this.txt_Bill_SearchBar.BackColor = System.Drawing.Color.White;
-            this.txt_Bill_SearchBar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.txt_Bill_SearchBar.BorderRadius = 8;
-            this.txt_Bill_SearchBar.BorderThickness = 0;
-            this.txt_Bill_SearchBar.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_Bill_SearchBar.DefaultText = "";
-            this.txt_Bill_SearchBar.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txt_Bill_SearchBar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txt_Bill_SearchBar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txt_Bill_SearchBar.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txt_Bill_SearchBar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
-            this.txt_Bill_SearchBar.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_Bill_SearchBar.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_Bill_SearchBar.IconLeft = global::Trang_chu_Main_Page_.Properties.Resources.Thiết_kế_chưa_có_tên__14_;
-            this.txt_Bill_SearchBar.Name = "txt_Bill_SearchBar";
-            this.txt_Bill_SearchBar.PlaceholderForeColor = System.Drawing.Color.Black;
-            this.txt_Bill_SearchBar.PlaceholderText = "Enter Order Code";
-            this.txt_Bill_SearchBar.SelectedText = "";
-            this.txt_Bill_SearchBar.TextChanged += new System.EventHandler(this.txt_Bill_SearchBar_TextChanged);
+            this.pn_infoChanges.BackColor = System.Drawing.Color.Transparent;
+            this.pn_infoChanges.BorderColor = System.Drawing.Color.Transparent;
+            this.pn_infoChanges.BorderRadius = 20;
+            this.pn_infoChanges.Controls.Add(this.tb_mk2);
+            this.pn_infoChanges.Controls.Add(this.tb_mk1);
+            this.pn_infoChanges.Controls.Add(this.lb_sdt);
+            this.pn_infoChanges.Controls.Add(this.lb_Gioitinh);
+            this.pn_infoChanges.Controls.Add(this.lb_Ngaysinh);
+            this.pn_infoChanges.Controls.Add(this.lb_Hoten);
+            this.pn_infoChanges.Controls.Add(this.lb_Ma);
+            this.pn_infoChanges.Controls.Add(this.guna2HtmlLabel14);
+            this.pn_infoChanges.Controls.Add(this.guna2HtmlLabel11);
+            this.pn_infoChanges.Controls.Add(this.guna2HtmlLabel12);
+            this.pn_infoChanges.Controls.Add(this.guna2HtmlLabel13);
+            this.pn_infoChanges.Controls.Add(this.guna2HtmlLabel15);
+            this.pn_infoChanges.Controls.Add(this.guna2HtmlLabel16);
+            this.pn_infoChanges.Controls.Add(this.guna2HtmlLabel17);
+            this.pn_infoChanges.Controls.Add(this.btn_Xacnhan);
+            this.pn_infoChanges.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            resources.ApplyResources(this.pn_infoChanges, "pn_infoChanges");
+            this.pn_infoChanges.Name = "pn_infoChanges";
+            // 
+            // tb_mk2
+            // 
+            this.tb_mk2.BorderRadius = 8;
+            this.tb_mk2.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tb_mk2.DefaultText = "";
+            this.tb_mk2.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tb_mk2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tb_mk2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tb_mk2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tb_mk2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            resources.ApplyResources(this.tb_mk2, "tb_mk2");
+            this.tb_mk2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tb_mk2.Name = "tb_mk2";
+            this.tb_mk2.PlaceholderText = "";
+            this.tb_mk2.SelectedText = "";
+            // 
+            // tb_mk1
+            // 
+            this.tb_mk1.BorderRadius = 8;
+            this.tb_mk1.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tb_mk1.DefaultText = "";
+            this.tb_mk1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tb_mk1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tb_mk1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tb_mk1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tb_mk1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            resources.ApplyResources(this.tb_mk1, "tb_mk1");
+            this.tb_mk1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tb_mk1.Name = "tb_mk1";
+            this.tb_mk1.PlaceholderText = "";
+            this.tb_mk1.SelectedText = "";
+            // 
+            // lb_sdt
+            // 
+            this.lb_sdt.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.lb_sdt, "lb_sdt");
+            this.lb_sdt.Name = "lb_sdt";
+            this.lb_sdt.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lb_Gioitinh
+            // 
+            this.lb_Gioitinh.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.lb_Gioitinh, "lb_Gioitinh");
+            this.lb_Gioitinh.Name = "lb_Gioitinh";
+            this.lb_Gioitinh.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lb_Ngaysinh
+            // 
+            this.lb_Ngaysinh.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.lb_Ngaysinh, "lb_Ngaysinh");
+            this.lb_Ngaysinh.Name = "lb_Ngaysinh";
+            this.lb_Ngaysinh.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lb_Hoten
+            // 
+            this.lb_Hoten.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.lb_Hoten, "lb_Hoten");
+            this.lb_Hoten.Name = "lb_Hoten";
+            this.lb_Hoten.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lb_Ma
+            // 
+            this.lb_Ma.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.lb_Ma, "lb_Ma");
+            this.lb_Ma.Name = "lb_Ma";
+            this.lb_Ma.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // guna2HtmlLabel14
+            // 
+            this.guna2HtmlLabel14.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.guna2HtmlLabel14, "guna2HtmlLabel14");
+            this.guna2HtmlLabel14.Name = "guna2HtmlLabel14";
+            // 
+            // guna2HtmlLabel11
+            // 
+            this.guna2HtmlLabel11.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.guna2HtmlLabel11, "guna2HtmlLabel11");
+            this.guna2HtmlLabel11.Name = "guna2HtmlLabel11";
+            // 
+            // guna2HtmlLabel12
+            // 
+            this.guna2HtmlLabel12.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.guna2HtmlLabel12, "guna2HtmlLabel12");
+            this.guna2HtmlLabel12.Name = "guna2HtmlLabel12";
+            // 
+            // guna2HtmlLabel13
+            // 
+            this.guna2HtmlLabel13.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.guna2HtmlLabel13, "guna2HtmlLabel13");
+            this.guna2HtmlLabel13.Name = "guna2HtmlLabel13";
+            // 
+            // guna2HtmlLabel15
+            // 
+            this.guna2HtmlLabel15.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.guna2HtmlLabel15, "guna2HtmlLabel15");
+            this.guna2HtmlLabel15.Name = "guna2HtmlLabel15";
+            // 
+            // guna2HtmlLabel16
+            // 
+            this.guna2HtmlLabel16.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.guna2HtmlLabel16, "guna2HtmlLabel16");
+            this.guna2HtmlLabel16.Name = "guna2HtmlLabel16";
+            // 
+            // guna2HtmlLabel17
+            // 
+            this.guna2HtmlLabel17.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.guna2HtmlLabel17, "guna2HtmlLabel17");
+            this.guna2HtmlLabel17.Name = "guna2HtmlLabel17";
+            // 
+            // btn_Xacnhan
+            // 
+            this.btn_Xacnhan.Animated = true;
+            this.btn_Xacnhan.BackColor = System.Drawing.Color.Transparent;
+            this.btn_Xacnhan.BorderRadius = 8;
+            this.btn_Xacnhan.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_Xacnhan.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_Xacnhan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_Xacnhan.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_Xacnhan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_Xacnhan.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
+            this.btn_Xacnhan.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            resources.ApplyResources(this.btn_Xacnhan, "btn_Xacnhan");
+            this.btn_Xacnhan.ForeColor = System.Drawing.Color.White;
+            this.btn_Xacnhan.Name = "btn_Xacnhan";
             // 
             // financialManagement
             // 
-            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
+            resources.ApplyResources(this, "$this");
+            this.Controls.Add(this.pn_infoChanges);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.btn_Bill_FilterDate);
             this.Controls.Add(this.btn_Bill_Cancel);
@@ -260,8 +433,10 @@
             this.Load += new System.EventHandler(this.financialManagement_Load);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Avata)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_Bill)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
+            this.pn_infoChanges.ResumeLayout(false);
+            this.pn_infoChanges.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -279,7 +454,24 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel lblCustomerList;
         private Guna.UI2.WinForms.Guna2GradientButton btn_Bill_Cancel;
         private System.Windows.Forms.Label label4;
-        private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
+        private Guna.UI2.WinForms.Guna2CirclePictureBox pb_Avata;
         private Guna.UI2.WinForms.Guna2GradientButton btn_Bill_FilterDate;
+        private System.Windows.Forms.Timer tm_InforChanges;
+        private Guna.UI2.WinForms.Guna2Panel pn_infoChanges;
+        private Guna.UI2.WinForms.Guna2TextBox tb_mk2;
+        private Guna.UI2.WinForms.Guna2TextBox tb_mk1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lb_sdt;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lb_Gioitinh;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lb_Ngaysinh;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lb_Hoten;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lb_Ma;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel14;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel11;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel12;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel13;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel15;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel16;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel17;
+        private Guna.UI2.WinForms.Guna2GradientButton btn_Xacnhan;
     }
 }

@@ -14,6 +14,7 @@ using System.Threading;
 using iTextSharp.text.pdf;
 using iTextSharp.text;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace Trang_chủ_Main_Page_
 {
@@ -21,7 +22,6 @@ namespace Trang_chủ_Main_Page_
     {
         bool menuExpand = false;
         bool menuExpand_2=false;
-        bool menuExpand_3 = false;
         BLL_QuanlyTCNS bLL_QuanLyTCNS = new BLL_QuanlyTCNS();
         private readonly BLL_QuanlyTCNS bLL_QuanlyTCNS = new BLL_QuanlyTCNS();
 
@@ -289,33 +289,6 @@ namespace Trang_chủ_Main_Page_
 
         }
 
-        private void tm_InforChanges_Tick(object sender, EventArgs e)
-        {
-            if (menuExpand_3 == false)
-            {
-                pn_infoChanges.Height += 20;
-                if (pn_infoChanges.Height >= 280)
-                {
-                    tm_InforChanges.Stop();
-                    menuExpand_3 = true;
-                }
-            }
-            else
-            {
-                pn_infoChanges.Height -= 20;
-                if (pn_infoChanges.Height <= 0)
-                {
-                    tm_InforChanges.Stop();
-                    menuExpand_3 = false;
-                }
-            }
-        }
-
-        private void pb_Avatar_Click(object sender, EventArgs e)
-        {
-            tm_InforChanges.Start();
-        }
-
         private void btn_Employ_Report_Click(object sender, EventArgs e)
         {
             // Kiểm tra xem DataGridView có dữ liệu không
@@ -420,6 +393,79 @@ namespace Trang_chủ_Main_Page_
                     MessageBox.Show("Lỗi khi xuất báo cáo: " + ex.Message);
                 }
             }
+        }
+
+        // ----------- Phần của Quang ---------------------------
+        bool menuExpand_3 = false;
+        private void tm_InforChanges_Tick(object sender, EventArgs e)
+        {
+            if (menuExpand_3 == false)
+            {
+                pn_infoChanges.Height += 20;
+                if (pn_infoChanges.Height >= 280)
+                {
+                    tm_InforChanges.Stop();
+                    menuExpand_3 = true;
+                }
+            }
+            else
+            {
+                pn_infoChanges.Height -= 20;
+                if (pn_infoChanges.Height <= 0)
+                {
+                    tm_InforChanges.Stop();
+                    menuExpand_3 = false;
+                }
+            }
+        }
+        private void pb_Avatar_Click(object sender, EventArgs e)
+        {
+            tm_InforChanges.Start();
+            lb_Ma.Text = Mainpage.CurrentUser.MaNhanvien;
+            lb_Hoten.Text = Mainpage.CurrentUser.Hoten;
+            lb_Ngaysinh.Text = Mainpage.CurrentUser.Ngaysinh;
+            lb_Gioitinh.Text = Mainpage.CurrentUser.Gioitinh;
+            lb_sdt.Text = Mainpage.CurrentUser.Sodienthoai;
+        }
+        private void btn_Xacnhan_Click(object sender, EventArgs e)
+        {
+            string mk1 = tb_mk1.Text;
+            string mk2 = tb_mk2.Text;
+            if (string.IsNullOrEmpty(mk1))
+            {
+                MessageBox.Show("Vui lòng nhập mật khẩu mới!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (string.IsNullOrEmpty(mk2))
+            {
+                MessageBox.Show("Vui lòng nhập xác nhận mật khẩu mới!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (!mk1.Equals(mk2))
+            {
+                MessageBox.Show("Mật khẩu không trùng khớp!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (!IsValidPassword(mk1))
+            {
+                MessageBox.Show("Mật khẩu không hợp lệ!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (BLL_Nhanvien.Instance.UpdatePassword(Mainpage.CurrentUser.MaNhanvien, mk1))
+            {
+                MessageBox.Show("Đổi mật khẩu thành công!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Lỗi khi đổi mật khẩu!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        //Check Password hợp lệ
+        public static bool IsValidPassword(string password)
+        {
+            string pattern = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$";
+            return Regex.IsMatch(password, pattern);
         }
     }
 }

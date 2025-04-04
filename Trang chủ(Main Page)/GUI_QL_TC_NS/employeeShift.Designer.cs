@@ -96,29 +96,46 @@
             this.btn_Shift_Remove = new Guna.UI2.WinForms.Guna2GradientButton();
             this.txt_TenCa = new Guna.UI2.WinForms.Guna2TextBox();
             this.btn_exportFile = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.pn_infoChanges = new Guna.UI2.WinForms.Guna2Panel();
+            this.tb_mk2 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.tb_mk1 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.lb_sdt = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lb_Gioitinh = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lb_Ngaysinh = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lb_Hoten = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lb_Ma = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel14 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel11 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel12 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel13 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel15 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel16 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel17 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.btn_Xacnhan = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.tm_InforChanges = new System.Windows.Forms.Timer(this.components);
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_ChooseEmployee)).BeginInit();
             this.pn_ChooseEmployee.SuspendLayout();
+            this.pn_infoChanges.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2Panel1
             // 
-            resources.ApplyResources(this.guna2Panel1, "guna2Panel1");
             this.guna2Panel1.BackColor = System.Drawing.Color.White;
             this.guna2Panel1.Controls.Add(this.btn_NextCalendar);
             this.guna2Panel1.Controls.Add(this.btnPrevCalendar);
             this.guna2Panel1.Controls.Add(this.label24);
             this.guna2Panel1.Controls.Add(this.label26);
             this.guna2Panel1.Controls.Add(this.guna2CirclePictureBox1);
+            resources.ApplyResources(this.guna2Panel1, "guna2Panel1");
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
             // 
             // btn_NextCalendar
             // 
-            resources.ApplyResources(this.btn_NextCalendar, "btn_NextCalendar");
             this.btn_NextCalendar.Animated = true;
             this.btn_NextCalendar.BackColor = System.Drawing.Color.Transparent;
             this.btn_NextCalendar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -128,6 +145,7 @@
             this.btn_NextCalendar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btn_NextCalendar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
             this.btn_NextCalendar.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
+            resources.ApplyResources(this.btn_NextCalendar, "btn_NextCalendar");
             this.btn_NextCalendar.ForeColor = System.Drawing.Color.White;
             this.btn_NextCalendar.Image = global::Trang_chu_Main_Page_.Properties.Resources._1_ht;
             this.btn_NextCalendar.ImageSize = new System.Drawing.Size(50, 50);
@@ -138,7 +156,6 @@
             // 
             // btnPrevCalendar
             // 
-            resources.ApplyResources(this.btnPrevCalendar, "btnPrevCalendar");
             this.btnPrevCalendar.Animated = true;
             this.btnPrevCalendar.BackColor = System.Drawing.Color.Transparent;
             this.btnPrevCalendar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -148,6 +165,7 @@
             this.btnPrevCalendar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnPrevCalendar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
             this.btnPrevCalendar.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
+            resources.ApplyResources(this.btnPrevCalendar, "btnPrevCalendar");
             this.btnPrevCalendar.ForeColor = System.Drawing.Color.White;
             this.btnPrevCalendar.Image = global::Trang_chu_Main_Page_.Properties.Resources.roiii;
             this.btnPrevCalendar.ImageSize = new System.Drawing.Size(50, 50);
@@ -158,8 +176,8 @@
             // 
             // label24
             // 
-            resources.ApplyResources(this.label24, "label24");
             this.label24.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.label24, "label24");
             this.label24.Name = "label24";
             this.label24.Click += new System.EventHandler(this.label24_Click);
             // 
@@ -170,12 +188,13 @@
             // 
             // guna2CirclePictureBox1
             // 
-            resources.ApplyResources(this.guna2CirclePictureBox1, "guna2CirclePictureBox1");
             this.guna2CirclePictureBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            resources.ApplyResources(this.guna2CirclePictureBox1, "guna2CirclePictureBox1");
             this.guna2CirclePictureBox1.ImageRotate = 0F;
             this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
             this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.guna2CirclePictureBox1.TabStop = false;
+            this.guna2CirclePictureBox1.Click += new System.EventHandler(this.pb_Avata_Click);
             // 
             // guna2Elipse2
             // 
@@ -293,7 +312,6 @@
             // 
             // txt_Shift_Number
             // 
-            resources.ApplyResources(this.txt_Shift_Number, "txt_Shift_Number");
             this.txt_Shift_Number.BorderRadius = 8;
             this.txt_Shift_Number.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txt_Shift_Number.DefaultText = "";
@@ -302,6 +320,7 @@
             this.txt_Shift_Number.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txt_Shift_Number.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txt_Shift_Number.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            resources.ApplyResources(this.txt_Shift_Number, "txt_Shift_Number");
             this.txt_Shift_Number.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_Shift_Number.Name = "txt_Shift_Number";
             this.txt_Shift_Number.PlaceholderText = "";
@@ -309,7 +328,6 @@
             // 
             // btn_Shift_Add
             // 
-            resources.ApplyResources(this.btn_Shift_Add, "btn_Shift_Add");
             this.btn_Shift_Add.Animated = true;
             this.btn_Shift_Add.BackColor = System.Drawing.Color.Transparent;
             this.btn_Shift_Add.BorderRadius = 8;
@@ -320,13 +338,13 @@
             this.btn_Shift_Add.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btn_Shift_Add.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
             this.btn_Shift_Add.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            resources.ApplyResources(this.btn_Shift_Add, "btn_Shift_Add");
             this.btn_Shift_Add.ForeColor = System.Drawing.Color.White;
             this.btn_Shift_Add.Name = "btn_Shift_Add";
             this.btn_Shift_Add.Click += new System.EventHandler(this.btn_Shift_Add_Click);
             // 
             // panel1
             // 
-            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
@@ -334,6 +352,7 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label7);
+            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
             // 
             // label6
@@ -497,7 +516,6 @@
             // 
             // btnChooseEmployee
             // 
-            resources.ApplyResources(this.btnChooseEmployee, "btnChooseEmployee");
             this.btnChooseEmployee.Animated = true;
             this.btnChooseEmployee.BackColor = System.Drawing.Color.Transparent;
             this.btnChooseEmployee.BorderRadius = 8;
@@ -508,13 +526,13 @@
             this.btnChooseEmployee.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnChooseEmployee.FillColor = System.Drawing.Color.Gray;
             this.btnChooseEmployee.FillColor2 = System.Drawing.Color.Gray;
+            resources.ApplyResources(this.btnChooseEmployee, "btnChooseEmployee");
             this.btnChooseEmployee.ForeColor = System.Drawing.Color.White;
             this.btnChooseEmployee.Name = "btnChooseEmployee";
             this.btnChooseEmployee.Click += new System.EventHandler(this.btnChooseEmployee_Click);
             // 
             // dtg_ChooseEmployee
             // 
-            resources.ApplyResources(this.dtg_ChooseEmployee, "dtg_ChooseEmployee");
             this.dtg_ChooseEmployee.AllowUserToAddRows = false;
             this.dtg_ChooseEmployee.AllowUserToDeleteRows = false;
             this.dtg_ChooseEmployee.AllowUserToResizeColumns = false;
@@ -529,6 +547,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dtg_ChooseEmployee.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            resources.ApplyResources(this.dtg_ChooseEmployee, "dtg_ChooseEmployee");
             this.dtg_ChooseEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
@@ -567,8 +586,8 @@
             // 
             // pn_ChooseEmployee
             // 
-            resources.ApplyResources(this.pn_ChooseEmployee, "pn_ChooseEmployee");
             this.pn_ChooseEmployee.Controls.Add(this.dtg_ChooseEmployee);
+            resources.ApplyResources(this.pn_ChooseEmployee, "pn_ChooseEmployee");
             this.pn_ChooseEmployee.Name = "pn_ChooseEmployee";
             // 
             // timer_ChooseEmployee
@@ -578,7 +597,6 @@
             // 
             // btn_Shift_Edit
             // 
-            resources.ApplyResources(this.btn_Shift_Edit, "btn_Shift_Edit");
             this.btn_Shift_Edit.Animated = true;
             this.btn_Shift_Edit.BackColor = System.Drawing.Color.Transparent;
             this.btn_Shift_Edit.BorderRadius = 8;
@@ -589,13 +607,13 @@
             this.btn_Shift_Edit.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btn_Shift_Edit.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
             this.btn_Shift_Edit.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            resources.ApplyResources(this.btn_Shift_Edit, "btn_Shift_Edit");
             this.btn_Shift_Edit.ForeColor = System.Drawing.Color.White;
             this.btn_Shift_Edit.Name = "btn_Shift_Edit";
             this.btn_Shift_Edit.Click += new System.EventHandler(this.btn_Shift_Edit_Click);
             // 
             // btn_Shift_Confirm
             // 
-            resources.ApplyResources(this.btn_Shift_Confirm, "btn_Shift_Confirm");
             this.btn_Shift_Confirm.Animated = true;
             this.btn_Shift_Confirm.BackColor = System.Drawing.Color.Transparent;
             this.btn_Shift_Confirm.BorderRadius = 8;
@@ -606,13 +624,13 @@
             this.btn_Shift_Confirm.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btn_Shift_Confirm.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
             this.btn_Shift_Confirm.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            resources.ApplyResources(this.btn_Shift_Confirm, "btn_Shift_Confirm");
             this.btn_Shift_Confirm.ForeColor = System.Drawing.Color.White;
             this.btn_Shift_Confirm.Name = "btn_Shift_Confirm";
             this.btn_Shift_Confirm.Click += new System.EventHandler(this.btn_Shift_Confirm_Click);
             // 
             // btn_Shift_Remove
             // 
-            resources.ApplyResources(this.btn_Shift_Remove, "btn_Shift_Remove");
             this.btn_Shift_Remove.Animated = true;
             this.btn_Shift_Remove.BackColor = System.Drawing.Color.Transparent;
             this.btn_Shift_Remove.BorderRadius = 8;
@@ -623,13 +641,13 @@
             this.btn_Shift_Remove.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btn_Shift_Remove.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
             this.btn_Shift_Remove.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            resources.ApplyResources(this.btn_Shift_Remove, "btn_Shift_Remove");
             this.btn_Shift_Remove.ForeColor = System.Drawing.Color.White;
             this.btn_Shift_Remove.Name = "btn_Shift_Remove";
             this.btn_Shift_Remove.Click += new System.EventHandler(this.btn_Shift_Remove_Click);
             // 
             // txt_TenCa
             // 
-            resources.ApplyResources(this.txt_TenCa, "txt_TenCa");
             this.txt_TenCa.BorderRadius = 8;
             this.txt_TenCa.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txt_TenCa.DefaultText = "";
@@ -638,6 +656,7 @@
             this.txt_TenCa.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txt_TenCa.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txt_TenCa.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            resources.ApplyResources(this.txt_TenCa, "txt_TenCa");
             this.txt_TenCa.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_TenCa.Name = "txt_TenCa";
             this.txt_TenCa.PlaceholderText = "Shift name";
@@ -645,7 +664,6 @@
             // 
             // btn_exportFile
             // 
-            resources.ApplyResources(this.btn_exportFile, "btn_exportFile");
             this.btn_exportFile.Animated = true;
             this.btn_exportFile.BackColor = System.Drawing.Color.Transparent;
             this.btn_exportFile.BorderRadius = 8;
@@ -656,15 +674,170 @@
             this.btn_exportFile.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btn_exportFile.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
             this.btn_exportFile.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            resources.ApplyResources(this.btn_exportFile, "btn_exportFile");
             this.btn_exportFile.ForeColor = System.Drawing.Color.White;
             this.btn_exportFile.Name = "btn_exportFile";
             this.btn_exportFile.Click += new System.EventHandler(this.btn_ExportCalendar_Click);
             // 
+            // pn_infoChanges
+            // 
+            this.pn_infoChanges.BackColor = System.Drawing.Color.Transparent;
+            this.pn_infoChanges.BorderColor = System.Drawing.Color.Transparent;
+            this.pn_infoChanges.BorderRadius = 20;
+            this.pn_infoChanges.Controls.Add(this.tb_mk2);
+            this.pn_infoChanges.Controls.Add(this.tb_mk1);
+            this.pn_infoChanges.Controls.Add(this.lb_sdt);
+            this.pn_infoChanges.Controls.Add(this.lb_Gioitinh);
+            this.pn_infoChanges.Controls.Add(this.lb_Ngaysinh);
+            this.pn_infoChanges.Controls.Add(this.lb_Hoten);
+            this.pn_infoChanges.Controls.Add(this.lb_Ma);
+            this.pn_infoChanges.Controls.Add(this.guna2HtmlLabel14);
+            this.pn_infoChanges.Controls.Add(this.guna2HtmlLabel11);
+            this.pn_infoChanges.Controls.Add(this.guna2HtmlLabel12);
+            this.pn_infoChanges.Controls.Add(this.guna2HtmlLabel13);
+            this.pn_infoChanges.Controls.Add(this.guna2HtmlLabel15);
+            this.pn_infoChanges.Controls.Add(this.guna2HtmlLabel16);
+            this.pn_infoChanges.Controls.Add(this.guna2HtmlLabel17);
+            this.pn_infoChanges.Controls.Add(this.btn_Xacnhan);
+            this.pn_infoChanges.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            resources.ApplyResources(this.pn_infoChanges, "pn_infoChanges");
+            this.pn_infoChanges.Name = "pn_infoChanges";
+            // 
+            // tb_mk2
+            // 
+            this.tb_mk2.BorderRadius = 8;
+            this.tb_mk2.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tb_mk2.DefaultText = "";
+            this.tb_mk2.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tb_mk2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tb_mk2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tb_mk2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tb_mk2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            resources.ApplyResources(this.tb_mk2, "tb_mk2");
+            this.tb_mk2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tb_mk2.Name = "tb_mk2";
+            this.tb_mk2.PlaceholderText = "";
+            this.tb_mk2.SelectedText = "";
+            // 
+            // tb_mk1
+            // 
+            this.tb_mk1.BorderRadius = 8;
+            this.tb_mk1.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tb_mk1.DefaultText = "";
+            this.tb_mk1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tb_mk1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tb_mk1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tb_mk1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tb_mk1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            resources.ApplyResources(this.tb_mk1, "tb_mk1");
+            this.tb_mk1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tb_mk1.Name = "tb_mk1";
+            this.tb_mk1.PlaceholderText = "";
+            this.tb_mk1.SelectedText = "";
+            // 
+            // lb_sdt
+            // 
+            this.lb_sdt.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.lb_sdt, "lb_sdt");
+            this.lb_sdt.Name = "lb_sdt";
+            this.lb_sdt.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lb_Gioitinh
+            // 
+            this.lb_Gioitinh.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.lb_Gioitinh, "lb_Gioitinh");
+            this.lb_Gioitinh.Name = "lb_Gioitinh";
+            this.lb_Gioitinh.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lb_Ngaysinh
+            // 
+            this.lb_Ngaysinh.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.lb_Ngaysinh, "lb_Ngaysinh");
+            this.lb_Ngaysinh.Name = "lb_Ngaysinh";
+            this.lb_Ngaysinh.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lb_Hoten
+            // 
+            this.lb_Hoten.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.lb_Hoten, "lb_Hoten");
+            this.lb_Hoten.Name = "lb_Hoten";
+            this.lb_Hoten.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lb_Ma
+            // 
+            this.lb_Ma.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.lb_Ma, "lb_Ma");
+            this.lb_Ma.Name = "lb_Ma";
+            this.lb_Ma.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // guna2HtmlLabel14
+            // 
+            this.guna2HtmlLabel14.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.guna2HtmlLabel14, "guna2HtmlLabel14");
+            this.guna2HtmlLabel14.Name = "guna2HtmlLabel14";
+            // 
+            // guna2HtmlLabel11
+            // 
+            this.guna2HtmlLabel11.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.guna2HtmlLabel11, "guna2HtmlLabel11");
+            this.guna2HtmlLabel11.Name = "guna2HtmlLabel11";
+            // 
+            // guna2HtmlLabel12
+            // 
+            this.guna2HtmlLabel12.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.guna2HtmlLabel12, "guna2HtmlLabel12");
+            this.guna2HtmlLabel12.Name = "guna2HtmlLabel12";
+            // 
+            // guna2HtmlLabel13
+            // 
+            this.guna2HtmlLabel13.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.guna2HtmlLabel13, "guna2HtmlLabel13");
+            this.guna2HtmlLabel13.Name = "guna2HtmlLabel13";
+            // 
+            // guna2HtmlLabel15
+            // 
+            this.guna2HtmlLabel15.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.guna2HtmlLabel15, "guna2HtmlLabel15");
+            this.guna2HtmlLabel15.Name = "guna2HtmlLabel15";
+            // 
+            // guna2HtmlLabel16
+            // 
+            this.guna2HtmlLabel16.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.guna2HtmlLabel16, "guna2HtmlLabel16");
+            this.guna2HtmlLabel16.Name = "guna2HtmlLabel16";
+            // 
+            // guna2HtmlLabel17
+            // 
+            this.guna2HtmlLabel17.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.guna2HtmlLabel17, "guna2HtmlLabel17");
+            this.guna2HtmlLabel17.Name = "guna2HtmlLabel17";
+            // 
+            // btn_Xacnhan
+            // 
+            this.btn_Xacnhan.Animated = true;
+            this.btn_Xacnhan.BackColor = System.Drawing.Color.Transparent;
+            this.btn_Xacnhan.BorderRadius = 8;
+            this.btn_Xacnhan.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_Xacnhan.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_Xacnhan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_Xacnhan.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_Xacnhan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_Xacnhan.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
+            this.btn_Xacnhan.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            resources.ApplyResources(this.btn_Xacnhan, "btn_Xacnhan");
+            this.btn_Xacnhan.ForeColor = System.Drawing.Color.White;
+            this.btn_Xacnhan.Name = "btn_Xacnhan";
+            // 
+            // tm_InforChanges
+            // 
+            this.tm_InforChanges.Tick += new System.EventHandler(this.tm_InforChanges_Tick);
+            // 
             // employeeShift
             // 
-            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.BackColor = System.Drawing.SystemColors.Control;
+            resources.ApplyResources(this, "$this");
+            this.Controls.Add(this.pn_infoChanges);
             this.Controls.Add(this.btn_exportFile);
             this.Controls.Add(this.txt_TenCa);
             this.Controls.Add(this.btn_Shift_Remove);
@@ -690,6 +863,8 @@
             this.guna2Panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_ChooseEmployee)).EndInit();
             this.pn_ChooseEmployee.ResumeLayout(false);
+            this.pn_infoChanges.ResumeLayout(false);
+            this.pn_infoChanges.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -759,6 +934,23 @@
         private Guna.UI2.WinForms.Guna2GradientCircleButton btn_NextCalendar;
         private System.Windows.Forms.Label label27;
         private Guna.UI2.WinForms.Guna2GradientButton btn_exportFile;
+        private Guna.UI2.WinForms.Guna2Panel pn_infoChanges;
+        private Guna.UI2.WinForms.Guna2TextBox tb_mk2;
+        private Guna.UI2.WinForms.Guna2TextBox tb_mk1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lb_sdt;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lb_Gioitinh;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lb_Ngaysinh;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lb_Hoten;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lb_Ma;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel14;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel11;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel12;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel13;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel15;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel16;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel17;
+        private Guna.UI2.WinForms.Guna2GradientButton btn_Xacnhan;
+        private System.Windows.Forms.Timer tm_InforChanges;
     }
 }
 

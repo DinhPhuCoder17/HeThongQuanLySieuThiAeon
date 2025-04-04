@@ -75,6 +75,7 @@ namespace Trang_chủ_Main_Page_
             if (cmbGioiTinh.SelectedItem == null)
             {
                 MessageBox.Show("Vui lòng chọn giới tính!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
             else
             {

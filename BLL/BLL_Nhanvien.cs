@@ -59,5 +59,14 @@ namespace BLL
             return DAL_Nhanvien.Instance.AddManager(maNhanVien, userName, passWord, role);
         }
 
+        public DataTable GetEmployeeById(string maNV)
+        {
+            return DAL_Nhanvien.Instance.GetEmployeeInfo(maNV);
+        }
+        public bool UpdatePassword(string maNhanVien, string password)
+        {
+            return DAL_Nhanvien.Instance.UpdatePassword(maNhanVien, password);
+        }
+
     }
 }
