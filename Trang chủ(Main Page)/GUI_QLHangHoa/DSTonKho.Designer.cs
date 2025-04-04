@@ -142,6 +142,7 @@
             // 
             resources.ApplyResources(this.dgvDSTonKho, "dgvDSTonKho");
             this.dgvDSTonKho.AllowUserToAddRows = false;
+            this.dgvDSTonKho.AllowUserToDeleteRows = false;
             this.dgvDSTonKho.AllowUserToResizeColumns = false;
             this.dgvDSTonKho.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
@@ -273,7 +274,7 @@
             this.btnLuu_DSTonKho.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
             this.btnLuu_DSTonKho.ForeColor = System.Drawing.Color.White;
             this.btnLuu_DSTonKho.Name = "btnLuu_DSTonKho";
-            this.btnLuu_DSTonKho.Click += new System.EventHandler(this.btnLuu_DSTonKho_Click);
+            this.btnLuu_DSTonKho.Click += new System.EventHandler(this.btnLuu_DSTonKho_Click_1);
             // 
             // btnSua_DSTonKho
             // 
@@ -290,6 +291,7 @@
             this.btnSua_DSTonKho.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
             this.btnSua_DSTonKho.ForeColor = System.Drawing.Color.White;
             this.btnSua_DSTonKho.Name = "btnSua_DSTonKho";
+            this.btnSua_DSTonKho.Click += new System.EventHandler(this.btnSua_DSTonKho_Click);
             // 
             // btnXoa_DSTonKho
             // 
@@ -306,6 +308,7 @@
             this.btnXoa_DSTonKho.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
             this.btnXoa_DSTonKho.ForeColor = System.Drawing.Color.White;
             this.btnXoa_DSTonKho.Name = "btnXoa_DSTonKho";
+            this.btnXoa_DSTonKho.Click += new System.EventHandler(this.btnXoa_DSTonKho_Click);
             // 
             // guna2Elipse1
             // 

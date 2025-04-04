@@ -197,6 +197,9 @@
   <data name="&gt;&gt;NhaCungCap.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="colBarcode.HeaderText" xml:space="preserve">
+    <value>Column1</value>
+  </data>
   <data name="label1.Text" xml:space="preserve">
     <value>Lọc Theo Danh Mục:</value>
   </data>
@@ -8942,9 +8945,6 @@
   <data name="label1.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
-  <data name="&gt;&gt;DanhMuc.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="label1.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
@@ -8966,8 +8966,8 @@
   <data name="&gt;&gt;lblTongSoLuongSanPham.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="dgvDSTonKho.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>20, 20, 20, 20</value>
+  <data name="DanhMuc.MinimumWidth" type="System.Int32, mscorlib">
+    <value>6</value>
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
     <value>3</value>
@@ -9005,13 +9005,13 @@
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
     <value>112, 20</value>
   </data>
+  <data name="&gt;&gt;btnSua_DSTonKho.Parent" xml:space="preserve">
+    <value>guna2Panel2</value>
+  </data>
   <data name="&gt;&gt;MaHang.Name" xml:space="preserve">
     <value>MaHang</value>
   </data>
   <data name="SoLuong.MinimumWidth" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="DanhMuc.MinimumWidth" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
   <data name="cmb_SapXepDM_DSTK.Font" type="System.Drawing.Font, System.Drawing">
@@ -9023,8 +9023,14 @@
   <data name="&gt;&gt;guna2CirclePictureBox1.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="&gt;&gt;dgvDSTonKho.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="&gt;&gt;btnXoa_DSTonKho.ZOrder" xml:space="preserve">
     <value>2</value>
+  </data>
+  <data name="&gt;&gt;TenHang.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="btnLuu_DSTonKho.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 10pt</value>
@@ -9040,9 +9046,6 @@
   </data>
   <data name="guna2CustomGradientPanel1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
-  </data>
-  <data name="&gt;&gt;guna2GradientButton1.ZOrder" xml:space="preserve">
-    <value>0</value>
   </data>
   <data name="&gt;&gt;cmb_SapXepDM_DSTK.Parent" xml:space="preserve">
     <value>$this</value>
@@ -9101,6 +9104,9 @@
   <data name="&gt;&gt;btnSua_DSTonKho.Name" xml:space="preserve">
     <value>btnSua_DSTonKho</value>
   </data>
+  <data name="dgvDSTonKho.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>20, 20, 20, 20</value>
+  </data>
   <data name="dgvDSTonKho.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
@@ -9131,8 +9137,8 @@
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;btnSua_DSTonKho.Parent" xml:space="preserve">
-    <value>guna2Panel2</value>
+  <data name="&gt;&gt;DanhMuc.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnLuu_DSTonKho.Name" xml:space="preserve">
     <value>btnLuu_DSTonKho</value>
@@ -9158,14 +9164,17 @@
   <data name="&gt;&gt;guna2Panel2.Type" xml:space="preserve">
     <value>Guna.UI2.WinForms.Guna2Panel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
   </data>
-  <data name="&gt;&gt;TenHang.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;guna2GradientButton1.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="cmb_SapXepDM_DSTK.Size" type="System.Drawing.Size, System.Drawing">
     <value>255, 36</value>
   </data>
   <data name="&gt;&gt;guna2Panel2.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="&gt;&gt;colBarcode.Name" xml:space="preserve">
+    <value>colBarcode</value>
   </data>
   <data name="btnSua_DSTonKho.Size" type="System.Drawing.Size, System.Drawing">
     <value>163, 58</value>
@@ -9176,8 +9185,8 @@
   <data name="&gt;&gt;btnXoa_DSTonKho.Parent" xml:space="preserve">
     <value>guna2Panel2</value>
   </data>
-  <data name="&gt;&gt;dgvDSTonKho.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;colBarcode.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;guna2CustomGradientPanel1.Type" xml:space="preserve">
     <value>Guna.UI2.WinForms.Guna2CustomGradientPanel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
@@ -9196,6 +9205,9 @@
   </metadata>
   <metadata name="guna2Elipse2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>377, 17</value>
+  </metadata>
+  <metadata name="colBarcode.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
   </metadata>
   <metadata name="guna2AnimateWindow1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>

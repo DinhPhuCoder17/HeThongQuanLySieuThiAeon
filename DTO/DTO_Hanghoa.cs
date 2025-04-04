@@ -20,12 +20,13 @@ namespace DTO
 
         public string DanhMuc { get; set; }
         public int THSD { get; set; }
+        public string Barcode { get; set; }
         // Constructor không tham số
         public DTO_Hanghoa() { }
 
         // Constructor có tham số
         public DTO_Hanghoa(string maHangHoa, string tenHangHoa, float giaNhap, float giaBan,
-                          byte[] hinhAnh, int soLuong, string uuDai, string nhaCC, DateTime ngayHetHan, string DM, int HSD)
+                          byte[] hinhAnh, int soLuong, string uuDai, string nhaCC, DateTime ngayHetHan, string DM, int HSD, string barcode)
         {
             MaHangHoa = maHangHoa;
             TenHangHoa = tenHangHoa;
@@ -38,6 +39,7 @@ namespace DTO
             NgayHetHan = ngayHetHan;
             THSD = HSD;
             DanhMuc = DM;
+            Barcode = barcode;
         }
     }
 }
