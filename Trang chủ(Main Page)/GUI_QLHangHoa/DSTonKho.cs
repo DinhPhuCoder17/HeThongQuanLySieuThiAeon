@@ -55,7 +55,7 @@ namespace Trang_chủ_Main_Page_
         {
             // Kiểm tra culture hiện tại
             string cultureName = Thread.CurrentThread.CurrentUICulture.Name;
-            string headerMaHang, headerTenHang, headerDanhMuc, headerSoLuong, headerGiaBan, headerGiaNhap, headerNhaCC, headerTHSD;
+            string headerMaHang, headerTenHang, headerDanhMuc, headerSoLuong, headerGiaBan, headerGiaNhap, headerNhaCC, headerTHSD, headerBarcode;
 
             if (cultureName == "vi-VN")
             {
@@ -67,6 +67,7 @@ namespace Trang_chủ_Main_Page_
                 headerGiaNhap = "Giá nhập";
                 headerNhaCC = "Nhà cung cấp";
                 headerTHSD = "Thời hạn sử dụng";
+                headerBarcode = "Barcode";
             }
             else if (cultureName == "en-US")
             {
@@ -78,6 +79,7 @@ namespace Trang_chủ_Main_Page_
                 headerGiaNhap = "Purchase Price";
                 headerNhaCC = "Supplier";
                 headerTHSD = "Expiry Date";
+                headerBarcode = "Barcode";
             }
             else
             {
@@ -90,6 +92,7 @@ namespace Trang_chủ_Main_Page_
                 headerGiaNhap = "Purchase Price";
                 headerNhaCC = "Supplier";
                 headerTHSD = "Expiry Date";
+                headerBarcode = "Barcode";
             }
 
             dgvDSTonKho.AutoGenerateColumns = false;
@@ -158,7 +161,13 @@ namespace Trang_chủ_Main_Page_
                 Name = "colTHSD"
             };
             dgvDSTonKho.Columns.Add(colTHSD);
-
+            var colBarcode = new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "Barcode",
+                HeaderText = headerBarcode,
+                Name = "colBarcode"
+            };
+            dgvDSTonKho.Columns.Add(colBarcode);
             LoadData();
         }
 

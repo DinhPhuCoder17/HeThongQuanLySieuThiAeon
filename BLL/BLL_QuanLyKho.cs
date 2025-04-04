@@ -33,18 +33,19 @@ namespace BLL
 
                 foreach (DataRow dr in dt.Rows)
                 {
-                    DTO_Hanghoa _list = new DTO_Hanghoa
-                    {
-                        MaHangHoa = dr["MaHangHoa"].ToString(),
-                        TenHangHoa = dr["TenHangHoa"].ToString(),
-                        GiaNhap = float.Parse(dr["TienNhap"].ToString()),
-                        GiaBan = float.Parse(dr["TienBan"].ToString()),
-                        HinhAnh = dr["ImageData"] == DBNull.Value ? null : (byte[])dr["ImageData"],
-                        SoLuong = int.Parse(dr["SoLuong"].ToString()),
-                        UuDai = dr["UuDai"].ToString(),
-                        NhaCC = dr["MaNCC"].ToString(),
-                        DanhMuc = dr["TenDanhMuc"].ToString(),
-                        THSD = (int)dr["THSD"]
+                DTO_Hanghoa _list = new DTO_Hanghoa
+                {
+                    MaHangHoa = dr["MaHangHoa"].ToString(),
+                    TenHangHoa = dr["TenHangHoa"].ToString(),
+                    GiaNhap = float.Parse(dr["TienNhap"].ToString()),
+                    GiaBan = float.Parse(dr["TienBan"].ToString()),
+                    HinhAnh = dr["ImageData"] == DBNull.Value ? null : (byte[])dr["ImageData"],
+                    SoLuong = int.Parse(dr["SoLuong"].ToString()),
+                    UuDai = dr["UuDai"].ToString(),
+                    NhaCC = dr["MaNCC"].ToString(),
+                    DanhMuc = dr["TenDanhMuc"].ToString(),
+                    THSD = (int)dr["THSD"],
+                    Barcode = dr["Barcode"].ToString()
                     };
 
                     dsHangHoa.Add(_list);
@@ -52,6 +53,33 @@ namespace BLL
      
                 return dsHangHoa;
             }
+        public List<DTO_Hanghoa> xemBarcode()
+        {
+            DataTable dt = DAL_QuanLyKho.Instance.xemBarcode();
+            List<DTO_Hanghoa> dsHangHoa = new List<DTO_Hanghoa>();
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                DTO_Hanghoa _list = new DTO_Hanghoa
+                {
+
+                    Barcode = dr["Barcode"].ToString()
+                };
+
+                dsHangHoa.Add(_list);
+            }
+
+            return dsHangHoa;
+        }
+        public bool UpdateHanghoa(DTO_Hanghoa hangHoa)
+        {
+            return DAL_QuanLyKho.Instance.UpdateHanghoa(hangHoa);
+        }
+        public bool KhoiPhucHangHoa(string barcode)
+        {
+            return DAL_QuanLyKho.Instance.KhoiPhucHangHoa(barcode);
+        }
+
         public DataTable XemCTHH(string mahh)
         {
             return DAL_QuanLyKho.Instance.XemCTHH(mahh);

@@ -101,7 +101,7 @@ CREATE TABLE Hanghoa (
 	THSD int
     CONSTRAINT FK_Hanghoa_MaNCC FOREIGN KEY (MaNCC) REFERENCES Nhacungcap(MaNCC),
 	Xoa int,
-	Barcode VARCHAR(20) not null
+	Barcode VARCHAR(50) NOT NULL UNIQUE,
 );
 
 --CREATE TABLE Hansudung (
@@ -361,7 +361,8 @@ create proc themMaHanghoa
 	@Soluong INT,
     @Uudai NVARCHAR(255),
     @MaNCC varchar(10),
-	@THSD int
+	@THSD int,
+	@Barcode VARCHAR(50)
 As
 Begin 
 Declare @newMaHanghoa varchar(10);
@@ -379,8 +380,8 @@ Begin
 	Set @newMaHanghoa = 'HH' + right('0000' + cast(@soMoi as varchar(4)), 4)
 	End
 	--Insert
-INSERT INTO Hanghoa (Mahanghoa, Tenhanghoa, Tiennhap, Tendanhmuc, Tienban, ImageData, Soluong, Uudai, MaNCC, THSD, Xoa)  
-Values (@newMaHanghoa, @Tenhanghoa, @Tiennhap, @Tendanhmuc, @Tienban, @ImageData, @Soluong, @Uudai, @MaNCC, @THSD, 1);
+INSERT INTO Hanghoa (Mahanghoa, Tenhanghoa, Tiennhap, Tendanhmuc, Tienban, ImageData, Soluong, Uudai, MaNCC, THSD,Barcode, Xoa)  
+Values (@newMaHanghoa, @Tenhanghoa, @Tiennhap, @Tendanhmuc, @Tienban, @ImageData, @Soluong, @Uudai, @MaNCC, @THSD,@Barcode, 1);
 print 'adding successfully: ' + @newMaHanghoa;
 End;
 

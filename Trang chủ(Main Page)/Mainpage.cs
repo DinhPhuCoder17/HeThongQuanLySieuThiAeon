@@ -13,6 +13,7 @@ using System.Windows.Forms;
 using BLL;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Trang_chu_Main_Page_.Properties;
+using Guna.UI2.WinForms;
 namespace Trang_chủ_Main_Page_
 {
     public partial class Mainpage : Form
@@ -28,6 +29,7 @@ namespace Trang_chủ_Main_Page_
             InitializeComponent();
             LoadUserLanguage();
             BLLQuanLyKho.Instance.AutoUpdateTrangThaiNhapHang();
+         
         }
 
         private void Form1_Load(object sender, EventArgs e)

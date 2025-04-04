@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ThemMatHang));
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.label1 = new System.Windows.Forms.Label();
             this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
@@ -56,7 +57,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2Elipse2 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.TxtBarcode = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.guna2Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             this.guna2Panel1.SuspendLayout();
@@ -72,6 +74,13 @@
             this.guna2Panel2.Controls.Add(this.guna2CirclePictureBox1);
             resources.ApplyResources(this.guna2Panel2, "guna2Panel2");
             this.guna2Panel2.Name = "guna2Panel2";
+            // 
+            // guna2ControlBox1
+            // 
+            resources.ApplyResources(this.guna2ControlBox1, "guna2ControlBox1");
+            this.guna2ControlBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
+            this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
+            this.guna2ControlBox1.Name = "guna2ControlBox1";
             // 
             // label1
             // 
@@ -92,6 +101,8 @@
             this.guna2Panel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2Panel1.BorderColor = System.Drawing.Color.Transparent;
             this.guna2Panel1.BorderRadius = 20;
+            this.guna2Panel1.Controls.Add(this.TxtBarcode);
+            this.guna2Panel1.Controls.Add(this.label4);
             this.guna2Panel1.Controls.Add(this.guna2PictureBox1);
             this.guna2Panel1.Controls.Add(this.label7);
             this.guna2Panel1.Controls.Add(this.imgImage);
@@ -276,6 +287,7 @@
             this.txtTHSD.Name = "txtTHSD";
             this.txtTHSD.PlaceholderText = "Enter expiration date (Unit: Days)";
             this.txtTHSD.SelectedText = "";
+            this.txtTHSD.TextChanged += new System.EventHandler(this.txtTHSD_TextChanged);
             // 
             // label8
             // 
@@ -283,6 +295,7 @@
             resources.ApplyResources(this.label8, "label8");
             this.label8.ForeColor = System.Drawing.Color.Black;
             this.label8.Name = "label8";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label5
             // 
@@ -350,12 +363,30 @@
             this.guna2Elipse2.BorderRadius = 20;
             this.guna2Elipse2.TargetControl = this;
             // 
-            // guna2ControlBox1
+            // TxtBarcode
             // 
-            resources.ApplyResources(this.guna2ControlBox1, "guna2ControlBox1");
-            this.guna2ControlBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
-            this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox1.Name = "guna2ControlBox1";
+            this.TxtBarcode.BorderColor = System.Drawing.Color.Silver;
+            this.TxtBarcode.BorderRadius = 8;
+            this.TxtBarcode.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TxtBarcode.DefaultText = "";
+            this.TxtBarcode.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.TxtBarcode.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.TxtBarcode.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.TxtBarcode.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.TxtBarcode.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            resources.ApplyResources(this.TxtBarcode, "TxtBarcode");
+            this.TxtBarcode.ForeColor = System.Drawing.Color.Gray;
+            this.TxtBarcode.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TxtBarcode.Name = "TxtBarcode";
+            this.TxtBarcode.PlaceholderText = "Enter Barcode;";
+            this.TxtBarcode.SelectedText = "";
+            // 
+            // label4
+            // 
+            this.label4.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.label4, "label4");
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Name = "label4";
             // 
             // ThemMatHang
             // 
@@ -405,5 +436,7 @@
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse2;
+        private Guna.UI2.WinForms.Guna2TextBox TxtBarcode;
+        private System.Windows.Forms.Label label4;
     }
 }

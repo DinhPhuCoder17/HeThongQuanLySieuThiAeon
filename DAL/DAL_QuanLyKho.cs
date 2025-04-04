@@ -25,9 +25,41 @@ namespace DAL
         private DAL_QuanLyKho() { }
         public DataTable XemDSTonKho()
         {
-            return DataProvider.Instance.ExecuteQuery("SELECT h.Mahanghoa, h.Tenhanghoa, h.Tiennhap, h.Tendanhmuc, h.Tienban, h.ImageData, h.Soluong, h.Uudai, n.MaNCC, h.THSD FROM Hanghoa h JOIN Nhacungcap n ON h.MaNCC = n.MaNCC WHERE h.Xoa = 1 and h.Soluong > = 0");
+            return DataProvider.Instance.ExecuteQuery("SELECT h.Mahanghoa, h.Tenhanghoa, h.Tiennhap, h.Tendanhmuc, h.Tienban, h.ImageData, h.Soluong, h.Uudai, n.MaNCC, h.THSD, h.Barcode FROM Hanghoa h JOIN Nhacungcap n ON h.MaNCC = n.MaNCC WHERE h.Xoa = 1 and h.Soluong > = 0");
         }
+        public DataTable xemBarcode() 
+        {
+            return DataProvider.Instance.ExecuteQuery("SELECT Barcode FROM Hanghoa WHERE Xoa = 0");
+        }
+        public bool KhoiPhucHangHoa(string barcode)
+        {
+            string query = "UPDATE HangHoa SET Xoa = 1 WHERE Barcode = @Barcode";
+            object[] parameters = new object[] { barcode };
+            int result = DataProvider.Instance.ExecuteNonQuery(query, parameters);
+            return result > 0;
+        }
+        public bool UpdateHanghoa(DTO_Hanghoa hangHoa)
+        {
+            // Câu lệnh SQL để cập nhật thông tin hàng hóa
+            string query = "UPDATE HangHoa SET TenHangHoa = @TenHangHoa , TenDanhMuc = @TenDanhMuc , Tiennhap = @GiaNhap , TienBan = @GiaBan , THSD = @THSD WHERE Barcode = @Barcode";
 
+            // Thêm tham số vào câu lệnh SQL
+            object[] parameters = new object[]
+            {
+            hangHoa.TenHangHoa,
+            hangHoa.DanhMuc,
+            hangHoa.GiaNhap,
+            hangHoa.GiaBan,
+            hangHoa.THSD,
+            hangHoa.Barcode
+            };
+
+            // Thực thi câu lệnh SQL thông qua phương thức ExecuteNonQuery
+            int result = DataProvider.Instance.ExecuteNonQuery(query, parameters);
+
+            // Nếu có ít nhất một hàng bị ảnh hưởng, trả về true (thành công)
+            return result > 0;
+        }
         public static DataTable hangHoa_NhapHang()
         {
             return DataProvider.Instance.ExecuteQuery("SELECT h.Mahanghoa, h.Tenhanghoa, h.Tiennhap, h.Tendanhmuc, h.Tienban, h.ImageData, h.Soluong, h.Uudai, n.TenNCC, h.THSD FROM Hanghoa h JOIN Nhacungcap n ON h.MaNCC = n.MaNCC WHERE h.Xoa = 1");
@@ -83,7 +115,7 @@ namespace DAL
         }
         public bool ThemHangHoa(DTO_Hanghoa hangHoa)
         {
-            string query = "EXEC themMaHanghoa @Tenhanghoa , @Tiennhap , @Tendanhmuc , @Tienban , @ImageData , @Soluong , @Uudai , @MaNCC , @THSD";
+            string query = "EXEC themMaHanghoa @Tenhanghoa , @Tiennhap , @Tendanhmuc , @Tienban , @ImageData , @Soluong , @Uudai , @MaNCC , @THSD , @Barcode";
 
             int rowAffected = DataProvider.Instance.ExecuteNonQuery(query, new object[]
             {
@@ -95,7 +127,8 @@ namespace DAL
         0,                 
         "0%",             
         hangHoa.NhaCC,     
-        hangHoa.THSD       
+        hangHoa.THSD,     
+        hangHoa.Barcode
             });
 
             return rowAffected > 0;
