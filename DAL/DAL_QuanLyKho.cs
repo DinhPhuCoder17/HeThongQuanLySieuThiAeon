@@ -38,20 +38,28 @@ namespace DAL
             int result = DataProvider.Instance.ExecuteNonQuery(query, parameters);
             return result > 0;
         }
+        public bool XoaHangHoa(string barcode)
+        {
+            string query = "UPDATE HangHoa SET Xoa = 0 WHERE Barcode = @Barcode";
+            object[] parameters = new object[] { barcode };
+            int result = DataProvider.Instance.ExecuteNonQuery(query, parameters);
+            return result > 0;
+        }
         public bool UpdateHanghoa(DTO_Hanghoa hangHoa)
         {
-            // Câu lệnh SQL để cập nhật thông tin hàng hóa
-            string query = "UPDATE HangHoa SET TenHangHoa = @TenHangHoa , TenDanhMuc = @TenDanhMuc , Tiennhap = @GiaNhap , TienBan = @GiaBan , THSD = @THSD WHERE Barcode = @Barcode";
+            // Câu lệnh SQL để cập nhật thông tin hàng hóa, bao gồm hình ảnh
+            string query = "UPDATE HangHoa SET TenHangHoa = @TenHangHoa , TenDanhMuc = @TenDanhMuc , Tiennhap = @GiaNhap , TienBan = @GiaBan , ImageData = @ImageData , THSD = @THSD WHERE Barcode = @Barcode";
 
             // Thêm tham số vào câu lệnh SQL
             object[] parameters = new object[]
             {
-            hangHoa.TenHangHoa,
-            hangHoa.DanhMuc,
-            hangHoa.GiaNhap,
-            hangHoa.GiaBan,
-            hangHoa.THSD,
-            hangHoa.Barcode
+        hangHoa.TenHangHoa,
+        hangHoa.DanhMuc,
+        hangHoa.GiaNhap,
+        hangHoa.GiaBan,
+        hangHoa.HinhAnh, // Đây là ảnh dưới dạng byte[]
+        hangHoa.THSD,
+        hangHoa.Barcode
             };
 
             // Thực thi câu lệnh SQL thông qua phương thức ExecuteNonQuery
@@ -60,6 +68,17 @@ namespace DAL
             // Nếu có ít nhất một hàng bị ảnh hưởng, trả về true (thành công)
             return result > 0;
         }
+
+        public bool SuaHangHoa(string barcode, string tenHangHoa, string danhMuc, float giaNhap, float giaBan, int thsd, string nhaCC, int soLuong)
+        {
+            string query = "UPDATE HangHoa SET TenHangHoa = @TenHangHoa , TenDanhMuc = @DanhMuc , TienNhap = @GiaNhap , TienBan = @GiaBan , THSD = @THSD , MaNCC = @NhaCC , SoLuong = @SoLuong WHERE Barcode = @Barcode";
+            object[] parameters = new object[] { tenHangHoa, danhMuc, giaNhap, giaBan, thsd, nhaCC, soLuong, barcode };
+
+            int result = DataProvider.Instance.ExecuteNonQuery(query, parameters);
+
+            return result > 0;
+        }
+
         public static DataTable hangHoa_NhapHang()
         {
             return DataProvider.Instance.ExecuteQuery("SELECT h.Mahanghoa, h.Tenhanghoa, h.Tiennhap, h.Tendanhmuc, h.Tienban, h.ImageData, h.Soluong, h.Uudai, n.TenNCC, h.THSD FROM Hanghoa h JOIN Nhacungcap n ON h.MaNCC = n.MaNCC WHERE h.Xoa = 1");

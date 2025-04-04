@@ -185,6 +185,7 @@ namespace Trang_chủ_Main_Page_
                         {
                             // Gọi phương thức UpdateHanghoa để cập nhật thông tin hàng hóa
                             UpdateHanghoa(tenHangHoa, tenDanhMuc, giaNhap, giaBan, thsd, barcode);
+                            return;
                         }
                        
                     }
@@ -200,6 +201,7 @@ namespace Trang_chủ_Main_Page_
                             // Gọi phương thức UpdateHanghoa để cập nhật thông tin hàng hóa
 
                             UpdateHanghoa(tenHangHoa, tenDanhMuc, giaNhap, giaBan, thsd, barcode);
+                            return;
                         }
                     }
 
@@ -226,11 +228,7 @@ namespace Trang_chủ_Main_Page_
                     }
                    
                 }
-                else
-                {
-                    MessageBox.Show("Barcode này không tồn tại trong kho và không phải barcode cũ. Vui lòng kiểm tra lại.",
-                                    "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+               
                 // Tạo đối tượng DTO_Hanghoa
                 DTO_Hanghoa hangHoa = new DTO_Hanghoa
                 {

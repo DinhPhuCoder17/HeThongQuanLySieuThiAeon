@@ -49,8 +49,7 @@ namespace BLL
                     };
 
                     dsHangHoa.Add(_list);
-                }         
-     
+                }
                 return dsHangHoa;
             }
         public List<DTO_Hanghoa> xemBarcode()
@@ -62,7 +61,6 @@ namespace BLL
             {
                 DTO_Hanghoa _list = new DTO_Hanghoa
                 {
-
                     Barcode = dr["Barcode"].ToString()
                 };
 
@@ -84,9 +82,16 @@ namespace BLL
         {
             return DAL_QuanLyKho.Instance.XemCTHH(mahh);
         }
+        public bool XoaHangHoa(string barcode)
+        {
+            return DAL_QuanLyKho.Instance.XoaHangHoa(barcode);
+        }
+        public bool SuaHangHoa(string barcode, string tenHangHoa, string danhMuc, float giaNhap, float giaBan, int thsd, string nhaCC, int soLuong)
+        {
+            return DAL_QuanLyKho.Instance.SuaHangHoa(barcode, tenHangHoa, danhMuc, giaNhap, giaBan, thsd, nhaCC, soLuong);
+        }
 
 
-      
         public List<DTO_Hanghoa> hangHoa_NhapHang()
             {
             DataTable dt = DAL_QuanLyKho.hangHoa_NhapHang();

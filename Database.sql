@@ -4,7 +4,12 @@ create database QuanLySieuThiAEON
 go
 use QuanLySieuThiAEON
 go
-
+INSERT INTO Hanghoa (Mahanghoa, Tenhanghoa, Tiennhap, Tendanhmuc, Tienban, ImageData, Soluong, Uudai, MaNCC, THSD, Xoa, Barcode)
+VALUES 
+('HH0019', 'Product 1', 100000, 'Category 1', 1500.00, NULL, 10,NULL , 'NC0001', 3, 0, '12345678901'),
+('H00022', 'Product 2', 200000, 'Category 2', 2500.00, NULL, 20,NULL , 'NC0002', 2, 0, '09876543211');
+UPDATE HangHoa SET Xoa = 0 WHERE Barcode = '0987654321'
+UPDATE HangHoa SET Barcode = '0987654321' WHERE Barcode = '0987654321'
 --select * from Quanly
 
 CREATE TABLE Nhanvien (
