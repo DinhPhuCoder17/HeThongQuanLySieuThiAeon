@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -43,18 +44,44 @@ namespace Trang_chu_Main_Page_.GUI_Admin
             }
             if (!IsValidUsername(userName))
             {
-                MessageBox.Show("Tên tài khoản không hợp lệ!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                if(Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                {
+                    MessageBox.Show("Tên tài khoản không hợp lệ!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                {
+                    MessageBox.Show("Username is not valid!", "NOTIFICATION", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
             }
             if (!IsValidPassword(passWord))
             {
-                MessageBox.Show("Mật khẩu không hợp lệ!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                if(Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                {
+                    MessageBox.Show("Mật khẩu không hợp lệ!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                {
+                    MessageBox.Show("Password is not valid!", "NOTIFICATION", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
             }
             if (rePassword != passWord) 
             {
-                MessageBox.Show("Nhập lại mật khẩu không đúng!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                if(Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                {
+                    MessageBox.Show("Nhập lại mật khẩu không đúng!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if(Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                {
+                    MessageBox.Show("Re-enter password is incorrect!", "NOTIFICATION", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
             }
 
             if (cbRole.Text != null)

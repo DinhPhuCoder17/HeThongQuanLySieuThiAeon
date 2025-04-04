@@ -619,6 +619,9 @@
     <EmbeddedResource Include="GUI_Admin\DSNhanVien.en.resx">
       <DependentUpon>DSNhanVien.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI_Admin\DynamicCreateNhanVien.en.resx">
+      <DependentUpon>DynamicCreateNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI_Admin\DynamicCreateNhanVien.resx">
       <DependentUpon>DynamicCreateNhanVien.cs</DependentUpon>
     </EmbeddedResource>
@@ -665,6 +668,9 @@
     <EmbeddedResource Include="GUI_QLHangHoa\GoiYNhapHangBangAI.resx">
       <DependentUpon>GoiYNhapHangBangAI.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI_QLHangHoa\KhieuNai.aa.resx">
+      <DependentUpon>KhieuNai.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI_QLHangHoa\KhieuNai.en.resx">
       <DependentUpon>KhieuNai.cs</DependentUpon>
@@ -728,6 +734,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI_QL_TC_NS\EmployeeMainPage.resx">
       <DependentUpon>EmployeeMainPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI_QL_TC_NS\employeeShift.en.resx">
+      <DependentUpon>employeeShift.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI_QL_TC_NS\employeeShift.resx">
       <DependentUpon>employeeShift.cs</DependentUpon>

@@ -15,6 +15,9 @@ using iTextSharp.text;
 using Font = iTextSharp.text.Font;
 using System.Threading;
 using System.Security.Policy;
+using System.Globalization;
+using static ClosedXML.Excel.XLPredefinedFormat;
+using DocumentFormat.OpenXml.VariantTypes;
 
 namespace Trang_chủ_Main_Page_
 {
@@ -50,10 +53,19 @@ namespace Trang_chủ_Main_Page_
         {
             DataTable dataTable = BLLQuanLyKho.Instance.xemDSNH();
             dgvNhapHang.DataSource = dataTable;
-            dgvNhapHang.Columns[0].HeaderText = "Mã đơn hàng";
-            dgvNhapHang.Columns[1].HeaderText = "Thời gian đặt";
-            dgvNhapHang.Columns[2].HeaderText = "Tổng tiền";
-            dgvNhapHang.Columns[3].HeaderText = "Trạng Thái";
+            if(Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+            {
+                dgvNhapHang.Columns[0].HeaderText = "Mã đơn hàng";
+                dgvNhapHang.Columns[1].HeaderText = "Thời gian đặt";
+                dgvNhapHang.Columns[2].HeaderText = "Tổng tiền";
+                dgvNhapHang.Columns[3].HeaderText = "Trạng Thái";
+            }else
+            {
+                dgvNhapHang.Columns[0].HeaderText = "Order ID";
+                dgvNhapHang.Columns[1].HeaderText = "Order Time";
+                dgvNhapHang.Columns[2].HeaderText = "Total Price";
+                dgvNhapHang.Columns[3].HeaderText = "Status";
+            }
 
             foreach (DataGridViewColumn column in dgvNhapHang.Columns)
             {
@@ -95,14 +107,22 @@ namespace Trang_chủ_Main_Page_
             {
                 if(dgvNhapHang.Rows[e.RowIndex].Cells[3].Value.ToString() == "Chờ Xác Nhận")
                 {
+                    btn_PrintExportPDF.Enabled = true;
                     btn_HuyHD.Enabled = true;
                 } else
                 {
                     btn_HuyHD.Enabled = false;
+                    btn_PrintExportPDF.Enabled = false;
                 }
-                soHDSelect = dgvNhapHang.Rows[e.RowIndex].Cells[0].Value.ToString();
+
                 btn_MoveOn.Enabled = true;
-                btn_PrintExportPDF.Enabled = true;
+
+                if (dgvNhapHang.Rows[e.RowIndex].Cells[3].Value.ToString() == "Đã Xử Lý")
+                {
+                    btn_MoveOn.Enabled = false;
+                }
+
+                soHDSelect = dgvNhapHang.Rows[e.RowIndex].Cells[0].Value.ToString();
             }
 
         }
@@ -164,6 +184,11 @@ namespace Trang_chủ_Main_Page_
 
             if (result == DialogResult.Yes)
             {
+                if(dgvNhapHang.CurrentRow.Cells[3].Value.ToString() == "Chờ Xác Nhận")
+                {
+                    btn_PrintExportPDF_Click(sender, e);
+                }
+
                 DTO_HDNhapHang hDNhapHang = new DTO_HDNhapHang
                 {
                     soHD = soHDSelect,
@@ -216,6 +241,16 @@ namespace Trang_chủ_Main_Page_
                 }
 
             }
+        }
+
+        public static string FormatShortNumber(decimal number)
+        {
+            if (number >= 1_000_000_000_000)
+                return (number / 1_000_000_000_000M).ToString("0.#") + "T";
+            else if (number >= 1_000_000_000)
+                return (number / 1_000_000_000M).ToString("0.#") + "B";
+            else
+                return number.ToString("0.#");
         }
 
         private void xuatHoaDonNhapHang(String Sohd)
@@ -272,7 +307,7 @@ namespace Trang_chủ_Main_Page_
                         doc.Add(Chunk.NEWLINE);
 
                         //DateCreated
-                        Paragraph dateCreate = new Paragraph(String.Format("Ngày {0} Tháng {1} Năm {2}", DateTime.Now.ToString("dd"), DateTime.Now.ToString("MM"), DateTime.Now.ToString("yyyy")), italicFont);
+                        Paragraph dateCreate = new Paragraph(String.Format("Ngày {0} Tháng {1} Năm {2}", System.DateTime.Now.ToString("dd"), System.DateTime.Now.ToString("MM"), System.DateTime.Now.ToString("yyyy")), italicFont);
                         dateCreate.Alignment = Element.ALIGN_CENTER;
                         doc.Add(dateCreate);
 
@@ -334,8 +369,23 @@ namespace Trang_chủ_Main_Page_
                             {
                                 if (col.ColumnName != "Số hóa đơn")
                                 {
-                                    PdfPCell cell;
-                                    cell = new PdfPCell(new Phrase(row[col].ToString(), normalFont));
+                                    PdfPCell cell = null;
+                                    if(col.ColumnName == "Giá" || col.ColumnName == "Thành tiền")
+                                    {
+                                        decimal value = decimal.Parse(row[col].ToString(), new CultureInfo("vi-VN"));
+                                        if (value >= 1_000_000_000)
+                                        {
+                                            cell = new PdfPCell(new Phrase(FormatShortNumber(value), normalFont));
+                                        }else
+                                        {
+                                            string formatted = value.ToString("N2", new CultureInfo("vi-VN"));
+                                            cell = new PdfPCell(new Phrase(formatted, normalFont));
+                                        }
+                                    }
+                                    else
+                                    {
+                                        cell = new PdfPCell(new Phrase(row[col].ToString(), normalFont));
+                                    }
                                     cell.HorizontalAlignment = Element.ALIGN_CENTER;
                                     cell.VerticalAlignment = Element.ALIGN_MIDDLE;
                                     cell.NoWrap = false; // Cho phép xuống dòng
@@ -354,16 +404,25 @@ namespace Trang_chủ_Main_Page_
                         table.AddCell(mergedCell);
 
                         int Quantity = dt.AsEnumerable().Sum(row => row.Field<int>("Số lượng đặt"));
-                        float Price = 0;
+                        decimal Price = 0;
                         foreach(DataRow row in dt.Rows)
                         {
                             foreach (DataColumn col in dt.Columns)
                             {
                                 if(col.ColumnName == "Thành tiền")
                                 {
-                                    Price += Convert.ToSingle(row["Thành tiền"]);
+                                    Price += Convert.ToDecimal(row["Thành tiền"]);
                                 }
                             }
+                        }
+
+                        string totalPriceString = "";
+                        if(Price > 1_000_000_000)
+                        {
+                            totalPriceString = FormatShortNumber(Price);
+                        }else
+                        {
+                            totalPriceString = Price.ToString();
                         }
 
                         PdfPCell totalQuantity = new PdfPCell(new Phrase(Quantity.ToString(), boldFont));
@@ -373,7 +432,7 @@ namespace Trang_chủ_Main_Page_
                         totalQuantity.Padding = 10f;
                         table.AddCell(totalQuantity);
 
-                        PdfPCell totalPrice = new PdfPCell(new Phrase(Price.ToString(), boldFont));
+                        PdfPCell totalPrice = new PdfPCell(new Phrase(totalPriceString, boldFont));
                         totalPrice.HorizontalAlignment = Element.ALIGN_CENTER; // Căn giữa
                         totalPrice.VerticalAlignment = Element.ALIGN_MIDDLE;
                         totalPrice.BackgroundColor = BaseColor.LIGHT_GRAY;
@@ -426,11 +485,25 @@ namespace Trang_chủ_Main_Page_
 
                         doc.Close();
                     }
-                    MessageBox.Show("File đã được lưu thành công: " + saveFileDialog.FileName);
+                    if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                    {
+                        MessageBox.Show("File đã được lưu thành công: " + saveFileDialog.FileName);
+                    }
+                    else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                    {
+                        MessageBox.Show("File has been saved successfully: " + saveFileDialog.FileName);
+                    }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Lỗi khi lưu file: " + ex.Message);
+                    if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                    {
+                        MessageBox.Show("Lỗi khi lưu file: " + ex.Message);
+                    }
+                    else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                    {
+                        MessageBox.Show("Error saving file: " + ex.Message);
+                    }
                 }
             }
 
@@ -446,12 +519,22 @@ namespace Trang_chủ_Main_Page_
              {
                 DataTable dataTable = BLLQuanLyKho.Instance.timKiemHDNH(txt_Searching_HDNH.Text);
                  dgvNhapHang.DataSource = dataTable;
-                 dgvNhapHang.Columns[0].HeaderText = "Mã đơn hàng";
-                 dgvNhapHang.Columns[1].HeaderText = "Thời gian đặt";
-                 dgvNhapHang.Columns[2].HeaderText = "Tổng tiền";
-                 dgvNhapHang.Columns[3].HeaderText = "Trạng Thái";
+                if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                {
+                    dgvNhapHang.Columns[0].HeaderText = "Mã đơn hàng";
+                    dgvNhapHang.Columns[1].HeaderText = "Thời gian đặt";
+                    dgvNhapHang.Columns[2].HeaderText = "Tổng tiền";
+                    dgvNhapHang.Columns[3].HeaderText = "Trạng Thái";
+                }
+                else
+                {
+                    dgvNhapHang.Columns[0].HeaderText = "Order ID";
+                    dgvNhapHang.Columns[1].HeaderText = "Order Time";
+                    dgvNhapHang.Columns[2].HeaderText = "Total Price";
+                    dgvNhapHang.Columns[3].HeaderText = "Status";
+                }
 
-                 foreach (DataGridViewColumn column in dgvNhapHang.Columns)
+                foreach (DataGridViewColumn column in dgvNhapHang.Columns)
                  {
                      column.SortMode = DataGridViewColumnSortMode.NotSortable;
                  }

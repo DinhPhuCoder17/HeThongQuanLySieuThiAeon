@@ -157,7 +157,7 @@ namespace DAL
 
         public DataTable xemDSNH()
         {
-            return DataProvider.Instance.ExecuteQuery("SELECT Sohd, Ngaydat, Tongtien, Trangthai FROM HD_Nhaphang");
+            return DataProvider.Instance.ExecuteQuery("SELECT Sohd, Ngaydat, FORMAT(Tongtien, 'C', 'vi-VN') AS Tongtien, Trangthai FROM HD_Nhaphang Order by Ngaydat desc");
         }
 
         public Boolean huyHD(String soHD)
@@ -224,7 +224,7 @@ namespace DAL
 
         public DataTable xemCTDHBySohd(String soHD)
         {
-            return DataProvider.Instance.ExecuteQuery("Select Sohd, hh.Mahanghoa, Tenhanghoa, Ngaynhap, Soluongdat, Soluongnhan, Ngaysanxuat, Hansudung, Thanhtien, THSD, Trangthai From HD_HH join Hanghoa hh on HD_HH.Mahanghoa = hh.Mahanghoa Where Sohd = @soHD ", new object[] { soHD });
+            return DataProvider.Instance.ExecuteQuery("Select Sohd, hh.Mahanghoa, Tenhanghoa, Ngaynhap, Soluongdat, Soluongnhan, Ngaysanxuat, Hansudung, FORMAT(Thanhtien, 'C', 'vi-VN') AS Thanhtien, THSD, Trangthai From HD_HH join Hanghoa hh on HD_HH.Mahanghoa = hh.Mahanghoa Where Sohd = @soHD ", new object[] { soHD });
         }
 
         public Boolean nhapKho(DTO_HDNhapHang hDNhapHang)

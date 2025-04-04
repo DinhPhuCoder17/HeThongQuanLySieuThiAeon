@@ -20,6 +20,7 @@ using Font = iTextSharp.text.Font;
 using ServiceStack.Text.Common;
 using System.Web.UI.WebControls;
 using Rectangle = iTextSharp.text.Rectangle;
+using System.Threading;
 
 
 namespace Trang_chu_Main_Page_.GUI_QLHangHoa
@@ -35,24 +36,56 @@ namespace Trang_chu_Main_Page_.GUI_QLHangHoa
         public void giveDataGridView(System.Data.DataTable dataTable)
         {
             dgv_KhieuNai.DataSource = dataTable;
-            dgv_KhieuNai.Columns["Sohd"].HeaderText = "Số hóa đơn";
-            dgv_KhieuNai.Columns["Mahanghoa"].HeaderText = "Mã hàng hóa";
-            dgv_KhieuNai.Columns["Tenhanghoa"].HeaderText = "Tên hàng hóa";
-            dgv_KhieuNai.Columns["Ngaynhap"].HeaderText = "Ngày nhập";
-            dgv_KhieuNai.Columns["Soluongdat"].HeaderText = "Số lượng đặt";
-            dgv_KhieuNai.Columns["Soluongnhan"].HeaderText = "Số lượng nhận";
-            dgv_KhieuNai.Columns["Lydochitiet"].HeaderText = "Lý do chi tiết";
-            dgv_KhieuNai.Columns["Luongchenhlech"].HeaderText = "Lượng chênh lệch";
-            dgv_KhieuNai.Columns["Yeucauxuly"].HeaderText = "Yêu cầu xử lý";
+
+            if(Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+            {
+                dgv_KhieuNai.Columns["Sohd"].HeaderText = "Số hóa đơn";
+                dgv_KhieuNai.Columns["Mahanghoa"].HeaderText = "Mã hàng hóa";
+                dgv_KhieuNai.Columns["Tenhanghoa"].HeaderText = "Tên hàng hóa";
+                dgv_KhieuNai.Columns["Ngaynhap"].HeaderText = "Ngày nhập";
+                dgv_KhieuNai.Columns["Soluongdat"].HeaderText = "Số lượng đặt";
+                dgv_KhieuNai.Columns["Soluongnhan"].HeaderText = "Số lượng nhận";
+                dgv_KhieuNai.Columns["Lydochitiet"].HeaderText = "Lý do chi tiết";
+                dgv_KhieuNai.Columns["Luongchenhlech"].HeaderText = "Lượng chênh lệch";
+                dgv_KhieuNai.Columns["Yeucauxuly"].HeaderText = "Yêu cầu xử lý";
+            }else
+            {
+                dgv_KhieuNai.Columns["Sohd"].HeaderText = "Invoice number";
+                dgv_KhieuNai.Columns["Mahanghoa"].HeaderText = "Product code";
+                dgv_KhieuNai.Columns["Tenhanghoa"].HeaderText = "Product name";
+                dgv_KhieuNai.Columns["Ngaynhap"].HeaderText = "Date of import";
+                dgv_KhieuNai.Columns["Soluongdat"].HeaderText = "Quantity ordered";
+                dgv_KhieuNai.Columns["Soluongnhan"].HeaderText = "Quantity received";
+                dgv_KhieuNai.Columns["Lydochitiet"].HeaderText = "Detailed reason";
+                dgv_KhieuNai.Columns["Luongchenhlech"].HeaderText = "Difference amount";
+                dgv_KhieuNai.Columns["Yeucauxuly"].HeaderText = "Request for processing";
+            }
+            
             dgv_KhieuNai.Columns["LoaiKhieuNai"].Visible = false;
 
             // Tạo cột ComboBox cho trường hợp nhận < đặt
             DataGridViewComboBoxColumn lessReceive = new DataGridViewComboBoxColumn();
-            lessReceive.HeaderText = "Loại khiếu nại"; // Tiêu đề cột
+            if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+            {
+                lessReceive.HeaderText = "Loại khiếu nại"; // Tiêu đề cột
+            }
+            else
+            {
+                lessReceive.HeaderText = "Type of complaint"; // Tiêu đề cột
+            }
             lessReceive.Name = "LoaiKhieuNaiView"; // Tên cột
-            lessReceive.DataSource = new string[] { "Sai hàng", "Thiếu hàng", "Hàng lỗi", "Dư hàng" }; // Danh sách lựa chọn
-            lessReceive.AutoComplete = true; // Cho phép tự động điền
 
+            if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+            {
+                lessReceive.DataSource = new string[] { "Sai hàng", "Thiếu hàng", "Hàng lỗi", "Dư hàng" }; // Danh sách lựa chọn
+            }
+            else
+            {
+                lessReceive.DataSource = new string[] { "Wrong Item", "Missing Item", "Damaged Item", "Extra Item" }; // Danh sách lựa chọn
+            }
+
+            lessReceive.AutoComplete = true; // Cho phép tự động điền
+           
             // Thêm cột vào DataGridView
             dgv_KhieuNai.Columns.Add(lessReceive);
             foreach (DataGridViewRow row in dgv_KhieuNai.Rows)
@@ -84,7 +117,11 @@ namespace Trang_chu_Main_Page_.GUI_QLHangHoa
                     if (cell.Value == null)
                     {
                         return false;
+                    }else if(cell.Value.ToString() == "")
+                    {
+                        return false;
                     }
+
                 }
             }
             return true;
@@ -92,29 +129,53 @@ namespace Trang_chu_Main_Page_.GUI_QLHangHoa
 
         private void btnTaoPhieuBoSung_Click(object sender, EventArgs e)
         {
-            if(kiemTraOTrong())
+            if (kiemTraOTrong())
             {
-                foreach(DataGridViewRow row in dgv_KhieuNai.Rows)
+                foreach (DataGridViewRow row in dgv_KhieuNai.Rows)
                 {
+                    String loaiKhieuNai = "";
+                    switch(row.Cells[0].Value.ToString())
+                    {
+                        case "Wrong Item":
+                            loaiKhieuNai = "Sai hàng";
+                            break;
+                        case "Missing Item":
+                            loaiKhieuNai = "Thiếu hàng";
+                            break;
+                        case "Damaged Item":
+                            loaiKhieuNai = "Hàng lỗi";
+                            break;
+                        case "Extra Item":
+                            loaiKhieuNai = "Dư hàng";
+                            break;
+                    }
+
                     DTO_Khieunai kn = new DTO_Khieunai()
                     {
                         SoHD = row.Cells[1].Value.ToString(),
                         MaHH = row.Cells[2].Value.ToString(),
                         Luongchenhlech = int.Parse(row.Cells[7].Value.ToString()),
-                        Loaikhieunai = row.Cells[0].Value.ToString(),
+                        Loaikhieunai = loaiKhieuNai,
                         Lydochitiet = row.Cells[9].Value.ToString(),
                         Yeucauxuly = row.Cells[10].Value.ToString(),
                     };
 
                     BLLQuanLyKho.Instance.themKN(kn);
-                    
+
                 }
 
                 xuatHoaDonKhieuNai();
             }
             else
             {
-                MessageBox.Show("Vui lòng điền đầy đủ thông tin!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                {
+                    MessageBox.Show("Vui lòng điền đầy đủ thông tin!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    MessageBox.Show("Please fill in all the information!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
         }
 
@@ -320,11 +381,25 @@ namespace Trang_chu_Main_Page_.GUI_QLHangHoa
 
                         doc.Close();
                     }
-                    MessageBox.Show("File đã được lưu thành công: " + saveFileDialog.FileName);
+                    if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                    {
+                        MessageBox.Show("File đã được lưu thành công: " + saveFileDialog.FileName);
+                    }
+                    else
+                    {
+                        MessageBox.Show("File has been saved successfully: " + saveFileDialog.FileName);
+                    }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Lỗi khi lưu file: " + ex.Message);
+                    if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                    {
+                        MessageBox.Show("Lỗi khi lưu file: " + ex.Message);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error saving file: " + ex.Message);
+                    }
                 }
             }
 
@@ -354,7 +429,14 @@ namespace Trang_chu_Main_Page_.GUI_QLHangHoa
                 // Kiểm tra nếu không phải số nguyên
                 if (!int.TryParse(newValue, out _))
                 {
-                    MessageBox.Show("Vui lòng nhập một số hợp lệ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                    {
+                        MessageBox.Show("Vui lòng nhập một số nguyên hợp lệ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please enter a valid integer!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                     e.Cancel = true; // Hủy bỏ thay đổi
                 }
             }
@@ -364,7 +446,14 @@ namespace Trang_chu_Main_Page_.GUI_QLHangHoa
                 // Kiểm tra nếu giá trị ô đang nhập là null hoặc rỗng
                 if (string.IsNullOrWhiteSpace(e.FormattedValue?.ToString()))
                 {
-                    MessageBox.Show("Vui lòng chọn một giá trị!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                    {
+                        MessageBox.Show("Vui lòng chọn một giá trị!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please select a value!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                     e.Cancel = true; // Hủy bỏ thay đổi nếu không hợp lệ
                 }
             }

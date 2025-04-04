@@ -83,9 +83,17 @@ namespace DAL
         public DataTable GetEmployeeList()
         {
             string query = @"
-        SELECT nv.Manhanvien, nv.Hoten, nv.CCCD, nv.Ngaysinh, nv.Gioitinh, nv.Diachi, nv.Sodienthoai, nv.Vaitro
-        FROM Nhanvien nv
-        WHERE nv.Xoa = 1";
+            SELECT 
+            nv.Manhanvien,
+            nv.Hoten, 
+            LEFT(CCCD, 4) + '****' + RIGHT(CCCD, 4) as CCCD, 
+            nv.Ngaysinh, 
+            nv.Gioitinh, 
+            nv.Diachi, 
+            LEFT(CCCD, 3) + '****' + RIGHT(CCCD, 3) as Sodienthoai, 
+            nv.Vaitro
+            FROM Nhanvien nv
+            WHERE nv.Xoa = 1";
 
             return DataProvider.Instance.ExecuteQuery(query);
         }
