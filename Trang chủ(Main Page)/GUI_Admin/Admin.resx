@@ -128,8 +128,8 @@
   <data name="cb_role.ItemHeight" type="System.Int32, mscorlib">
     <value>30</value>
   </data>
-  <data name="&gt;&gt;guna2TextBox2.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1381, 842</value>
   </data>
   <data name="guna2DataGridView2.Location" type="System.Drawing.Point, System.Drawing">
     <value>20, 50</value>
@@ -643,14 +643,14 @@
   <data name="guna2Panel3.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
+  <data name="guna2DataGridView2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>20, 20, 20, 20</value>
+  </data>
   <data name="&gt;&gt;lbl_role_Add.Name" xml:space="preserve">
     <value>lbl_role_Add</value>
   </data>
   <data name="label1.TabIndex" type="System.Int32, mscorlib">
     <value>19</value>
-  </data>
-  <data name="&gt;&gt;lbl_role.ZOrder" xml:space="preserve">
-    <value>7</value>
   </data>
   <data name="&gt;&gt;guna2DataGridView2.ZOrder" xml:space="preserve">
     <value>4</value>
@@ -718,6 +718,9 @@
   <data name="lbl_role_Add.Location" type="System.Drawing.Point, System.Drawing">
     <value>25, 134</value>
   </data>
+  <data name="&gt;&gt;guna2Panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="guna2DataGridView2.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
   </data>
@@ -742,8 +745,8 @@
   <data name="btnLuu.Size" type="System.Drawing.Size, System.Drawing">
     <value>163, 58</value>
   </data>
-  <data name="&gt;&gt;guna2Panel1.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="guna2TextBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 4</value>
   </data>
   <data name="cb_role.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 10pt</value>
@@ -751,26 +754,17 @@
   <data name="&gt;&gt;btnDSNV.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="guna2Panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1381, 0</value>
-  </data>
   <data name="&gt;&gt;guna2Elipse1.Type" xml:space="preserve">
     <value>Guna.UI2.WinForms.Guna2Elipse, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
     <value>Phan Đình Phú</value>
   </data>
-  <data name="&gt;&gt;cb_role.Name" xml:space="preserve">
-    <value>cb_role</value>
-  </data>
   <data name="&gt;&gt;guna2Elipse1.Name" xml:space="preserve">
     <value>guna2Elipse1</value>
   </data>
   <data name="&gt;&gt;lbl_role_Add.ZOrder" xml:space="preserve">
     <value>4</value>
-  </data>
-  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
-    <value>$this</value>
   </data>
   <data name="&gt;&gt;btnXoa.Type" xml:space="preserve">
     <value>Guna.UI2.WinForms.Guna2GradientButton, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
@@ -781,17 +775,14 @@
   <data name="btnSua.Text" xml:space="preserve">
     <value>Sửa</value>
   </data>
-  <data name="&gt;&gt;lbl_role.Name" xml:space="preserve">
-    <value>lbl_role</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1381, 842</value>
+  <data name="&gt;&gt;lbl_role.ZOrder" xml:space="preserve">
+    <value>7</value>
   </data>
   <data name="cb_role.Location" type="System.Drawing.Point, System.Drawing">
     <value>90, 167</value>
   </data>
-  <data name="guna2DataGridView2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>20, 20, 20, 20</value>
+  <data name="&gt;&gt;cb_role.Name" xml:space="preserve">
+    <value>cb_role</value>
   </data>
   <data name="&gt;&gt;label1.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -801,6 +792,9 @@
   </data>
   <data name="&gt;&gt;lbl_role_Add.Parent" xml:space="preserve">
     <value>$this</value>
+  </data>
+  <data name="&gt;&gt;guna2Panel3.Name" xml:space="preserve">
+    <value>guna2Panel3</value>
   </data>
   <data name="btnDSNV.Location" type="System.Drawing.Point, System.Drawing">
     <value>1146, 169</value>
@@ -856,8 +850,11 @@
   <data name="&gt;&gt;guna2CirclePictureBox1.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;guna2Panel3.Name" xml:space="preserve">
-    <value>guna2Panel3</value>
+  <data name="lbl_role_Add.Text" xml:space="preserve">
+    <value>Thêm nhân viên</value>
+  </data>
+  <data name="guna2TextBox2.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>Admin</value>
@@ -885,6 +882,69 @@
   </data>
   <data name="guna2Panel1.Location" type="System.Drawing.Point, System.Drawing">
     <value>-1, 235</value>
+  </data>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;lbl_role_Add.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="guna2TextBox2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
+  </data>
+  <data name="cb_role.Items1" xml:space="preserve">
+    <value>Quản lý Kho</value>
+  </data>
+  <data name="cb_role.Items2" xml:space="preserve">
+    <value>Nhân Viên</value>
+  </data>
+  <data name="&gt;&gt;guna2Panel1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lbl_role.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btnXoa.Size" type="System.Drawing.Size, System.Drawing">
+    <value>163, 58</value>
+  </data>
+  <data name="&gt;&gt;menuTransition_2.Name" xml:space="preserve">
+    <value>menuTransition_2</value>
+  </data>
+  <data name="&gt;&gt;guna2Elipse2.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2Elipse, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="lbl_role.Location" type="System.Drawing.Point, System.Drawing">
+    <value>26, 179</value>
+  </data>
+  <data name="&gt;&gt;guna2TextBox2.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;guna2Panel1.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2Panel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="btnLuu.Text" xml:space="preserve">
+    <value>Lưu</value>
+  </data>
+  <data name="&gt;&gt;btnLuu.Name" xml:space="preserve">
+    <value>btnLuu</value>
+  </data>
+  <data name="&gt;&gt;lbl_role.Name" xml:space="preserve">
+    <value>lbl_role</value>
+  </data>
+  <data name="&gt;&gt;btnLuu.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;guna2CirclePictureBox1.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="guna2Panel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1381, 0</value>
+  </data>
+  <data name="lbl_role_Add.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 13pt</value>
   </data>
   <data name="guna2CirclePictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -9477,66 +9537,6 @@
         AElFTkSuQmCC
 </value>
   </data>
-  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="guna2TextBox2.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="guna2TextBox2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 4, 3, 4</value>
-  </data>
-  <data name="cb_role.Items1" xml:space="preserve">
-    <value>Quản lý Kho</value>
-  </data>
-  <data name="cb_role.Items2" xml:space="preserve">
-    <value>Nhân Viên</value>
-  </data>
-  <data name="&gt;&gt;guna2Panel1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lbl_role.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="btnXoa.Size" type="System.Drawing.Size, System.Drawing">
-    <value>163, 58</value>
-  </data>
-  <data name="&gt;&gt;menuTransition_2.Name" xml:space="preserve">
-    <value>menuTransition_2</value>
-  </data>
-  <data name="&gt;&gt;guna2Elipse2.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2Elipse, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="lbl_role.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 179</value>
-  </data>
-  <data name="lbl_role_Add.Text" xml:space="preserve">
-    <value>Thêm nhân viên</value>
-  </data>
-  <data name="&gt;&gt;guna2Panel1.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2Panel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="btnLuu.Text" xml:space="preserve">
-    <value>Lưu</value>
-  </data>
-  <data name="&gt;&gt;btnLuu.Name" xml:space="preserve">
-    <value>btnLuu</value>
-  </data>
-  <data name="guna2TextBox2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 4</value>
-  </data>
-  <data name="&gt;&gt;btnLuu.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;guna2CirclePictureBox1.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;lbl_role_Add.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lbl_role_Add.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 13pt</value>
-  </data>
   <data name="&gt;&gt;btnDSNV.Name" xml:space="preserve">
     <value>btnDSNV</value>
   </data>
@@ -9548,9 +9548,6 @@
   </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>en</value>
   </metadata>
   <metadata name="guna2Elipse1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>

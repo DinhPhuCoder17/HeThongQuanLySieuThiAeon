@@ -67,8 +67,15 @@ namespace Trang_chu_Main_Page_.GUI_QL_TC_NS
             {
                 column.SortMode = DataGridViewColumnSortMode.NotSortable;
                 column.Resizable = DataGridViewTriState.False;
+               
                 column.ReadOnly = true; // Khóa tất cả cột
 
+            }
+            foreach (DataGridViewRow row in dtg_HistoryMH.Rows)
+            {
+               
+                row.Resizable = DataGridViewTriState.False;
+                row.ReadOnly = true; // Khóa tất cả cộtt chiều cao của mỗi hàng là 30 pixel
             }
             // Kiểm tra nếu có dữ liệu thì hiển thị
 

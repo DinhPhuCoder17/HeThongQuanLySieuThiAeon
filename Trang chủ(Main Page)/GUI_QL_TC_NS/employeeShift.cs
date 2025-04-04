@@ -7,6 +7,7 @@ using System.Linq;
 using System.Management;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
@@ -355,15 +356,26 @@ namespace Trang_chủ_Main_Page_
                 Location = new Point(23, 40)
             };
 
-            Label lbDetailQuantity = new Label
+            Label lbDetailQuantity = new Label();
+
+            if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
             {
-                Text = $"Số lượng: {batBuoc.Count} / {soLuong}",
-                AutoSize = false,
-                TextAlign = ContentAlignment.TopCenter,
-                ForeColor = Color.White,
-                Font = new Font("Microsoft Sans Serif", 9, FontStyle.Underline),
-                Location = new Point(23, 60)
-            };
+                lbDetailQuantity.Text = $"Số lượng: {batBuoc.Count} / {soLuong}";
+                lbDetailQuantity.AutoSize = false;
+                lbDetailQuantity.TextAlign = ContentAlignment.TopCenter;
+                lbDetailQuantity.ForeColor = Color.White;
+                lbDetailQuantity.Font = new Font("Microsoft Sans Serif", 9, FontStyle.Underline);
+                lbDetailQuantity.Location = new Point(23, 60);
+            }else
+            {
+                lbDetailQuantity.Text = $"Quantity: {batBuoc.Count} / {soLuong}";
+                lbDetailQuantity.AutoSize = false;
+                lbDetailQuantity.TextAlign = ContentAlignment.TopCenter;
+                lbDetailQuantity.ForeColor = Color.White;
+                lbDetailQuantity.Font = new Font("Microsoft Sans Serif", 9, FontStyle.Underline);
+                lbDetailQuantity.Location = new Point(23, 60);
+            }
+
 
             Label lbUnvisibleMaCaLam = new Label
             {
@@ -551,36 +563,93 @@ namespace Trang_chủ_Main_Page_
                 }
                 if (Regex.IsMatch(txt_Shift_Number.Text, "[^0-9]"))
                 {
-                    MessageBox.Show("Số lượng nhân viên không hợp lệ");
-                    return;
+                    if(Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                    {
+                        MessageBox.Show("Số lượng nhân viên không hợp lệ");
+                        return;
+                    }else
+                    {
+                        MessageBox.Show("Number of employees is not valid");
+                        return;
+                    }
+                    
                 }
                 else if (txt_TenCa.Text == "")
                 {
-                    MessageBox.Show("Tên ca làm không được để trống");
+                    if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                    {
+                        MessageBox.Show("Tên ca làm không được để trống");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Shift name cannot be empty");
+                    }
                 }
                 else if (dtp_Shift_Start.Value.ToString("dd/MM/yyyy") != dtp_Shift_End.Value.ToString("dd/MM/yyyy"))
                 {
-                    MessageBox.Show("Thời gian bắt đầu và kết thúc không hợp lệ");
+                    if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                    {
+                        MessageBox.Show("Thời gian bắt đầu và kết thúc không hợp lệ");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Start and end time are invalid");
+                    }
                 }
                 else if (dtp_Shift_Start.Value < DateTime.Now)
                 {
-                    MessageBox.Show("Không thể xếp ca làm trong quá khứ");
+                    if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                    {
+                        MessageBox.Show("Không thể xếp ca làm trong quá khứ");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Cannot assign shifts in the past");
+                    }
                 }
                 else if (txt_Shift_Number.Text == "")
                 {
-                    MessageBox.Show("Số lượng nhân viên trống");
+                    if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                    {
+                        MessageBox.Show("Số lượng nhân viên trống");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Number of employees is empty");
+                    }
                 }
                 else if (int.Parse(txt_Shift_Number.Text) < 0)
                 {
-                    MessageBox.Show("Số lượng nhân viên không hợp lệ");
+                    if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                    {
+                        MessageBox.Show("Số lượng nhân viên không hợp lệ");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Number of employees is not valid");
+                    }
                 }
                 else if (dtp_Shift_Start.Value >= dtp_Shift_End.Value)
                 {
-                    MessageBox.Show("Thời gian bắt đầu phải nhỏ hơn thời gian kết thúc");
+                    if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                    {
+                        MessageBox.Show("Thời gian bắt đầu phải nhỏ hơn thời gian kết thúc");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Start time must be less than end time");
+                    }
                 }
                 else if (phanCongNhanVien.Count == 0)
                 {
-                    MessageBox.Show("Chưa chọn nhân viên");
+                    if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                    {
+                        MessageBox.Show("Chưa chọn nhân viên");
+                    }
+                    else
+                    {
+                        MessageBox.Show("No employee selected");
+                    }
                 }
                 else
                 {
@@ -588,14 +657,27 @@ namespace Trang_chủ_Main_Page_
                     DTO_Calam calam = new DTO_Calam(null, txt_TenCa.Text, dtp_Shift_Start.Value, dtp_Shift_End.Value, int.Parse(txt_Shift_Number.Text), phanCongNhanVien);
                     if (bLL_QuanlyTCNS.themCaLam(calam))
                     {
-                        MessageBox.Show("Thêm ca làm thành công", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        toMauThoiKhoaBieu();
+                        if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                        {
+                            MessageBox.Show("Thêm ca làm thành công", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            toMauThoiKhoaBieu();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Add shift successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            toMauThoiKhoaBieu();
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Thêm ca làm thất bại", "Thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                        {
+                            MessageBox.Show("Thêm ca làm thất bại", "Thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }else
+                        {
+                            MessageBox.Show("Add shift failed", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
-
                 }
                 if (menu_ChooseEmployee)
                 {
@@ -615,19 +697,47 @@ namespace Trang_chủ_Main_Page_
             {
                 if (txt_TenCa.Text == "")
                 {
-                    MessageBox.Show("Tên ca làm không được để trống");
+                    if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                    {
+                        MessageBox.Show("Tên ca làm không được để trống");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Shift name cannot be empty");
+                    }
                 }
                 else if (Regex.IsMatch(txt_Shift_Number.Text, "[^0-9]"))
                 {
-                    MessageBox.Show("Số lượng nhân viên không hợp lệ");
+                    if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                    {
+                        MessageBox.Show("Số lượng nhân viên không hợp lệ");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Number of employees is not valid");
+                    }
                 }
                 else if (txt_Shift_Number.Text == "")
                 {
-                    MessageBox.Show("Số lượng nhân viên trống");
+                    if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                    {
+                        MessageBox.Show("Số lượng nhân viên trống");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Number of employees is empty");
+                    }
                 }
                 else if (int.Parse(txt_Shift_Number.Text) < 0)
                 {
-                    MessageBox.Show("Số lượng nhân viên không hợp lệ");
+                    if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                    {
+                        MessageBox.Show("Số lượng nhân viên không hợp lệ");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Number of employees is not valid");
+                    }
                 }
                 else
                 {
@@ -641,23 +751,47 @@ namespace Trang_chủ_Main_Page_
                     }
 
                     //Kiểm tra số lượng nhân viên có khớp với số lượng nhân viên đã chọn không
-                    
+
                     DTO_Calam calam = new DTO_Calam(editPanel.Controls[3].Text, txt_TenCa.Text, dtp_Shift_Start.Value, dtp_Shift_End.Value, int.Parse(txt_Shift_Number.Text), phanCongNhanVien);
-                    if(bLL_QuanlyTCNS.suaCaLam(calam))
+                    if (bLL_QuanlyTCNS.suaCaLam(calam))
                     {
-                        MessageBox.Show("Sửa ca làm thành công", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        toMauThoiKhoaBieu();
-                    }else
+                        if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                        {
+                            MessageBox.Show("Sửa ca làm thành công", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            toMauThoiKhoaBieu();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Edit shift successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            toMauThoiKhoaBieu();
+                        }
+                    }
+                    else
                     {
-                        MessageBox.Show("Sửa ca làm thất bại", "Thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        toMauThoiKhoaBieu();
+                        if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                        {
+                            MessageBox.Show("Sửa ca làm thất bại", "Thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            toMauThoiKhoaBieu();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Edit shift failed", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            toMauThoiKhoaBieu();
+                        }
                     }
                     editMode = false;
                 }
             }
             else
             {
-                MessageBox.Show("Vui lòng chọn chức năng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                {
+                    MessageBox.Show("Vui lòng chọn chức năng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Please select a function", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
             if(menu_ChooseEmployee)
             {
@@ -678,24 +812,52 @@ namespace Trang_chủ_Main_Page_
         {
             if (maCaLamChoose == "")
             {
-                MessageBox.Show("Chưa chọn ca làm");
+                if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                {
+                    MessageBox.Show("Chưa chọn ca làm");
+                }
+                else
+                {
+                    MessageBox.Show("No shift selected");
+                }
             }
             else
             {
                 Color oldColor = chooseShiftPanel.BackColor;
                 chooseShiftPanel.BackColor = Color.LightGray;
-                DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa ca làm này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                DialogResult result;
+                if(Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                {
+                    result = MessageBox.Show("Bạn có chắc chắn muốn xóa ca làm này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                }else
+                {
+                    result = MessageBox.Show("Are you sure you want to delete this shift?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                }
                 if (result == DialogResult.Yes)
                 {
                     if (bLL_QuanlyTCNS.xoaCaLam(maCaLamChoose))
                     {
-                        MessageBox.Show("Xóa ca làm thành công", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                        {
+                            MessageBox.Show("Xóa ca làm thành công", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Delete shift successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
                         toMauThoiKhoaBieu();
                         btn_Shift_Add.Enabled = true;
                     }
                     else
                     {
-                        MessageBox.Show("Xóa ca làm thất bại", "Thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                        {
+                            MessageBox.Show("Xóa ca làm thất bại", "Thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Delete shift failed", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                         btn_Shift_Add.Enabled = true;
                     }
                 }
@@ -723,11 +885,25 @@ namespace Trang_chủ_Main_Page_
                 }
                 else
                 {
-                    MessageBox.Show("Vui lòng chọn ca làm");
+                    if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                    {
+                        MessageBox.Show("Vui lòng chọn ca làm");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please select a shift");
+                    }
                 }
             }else
             {
-                MessageBox.Show("Đang ở chế độ thêm", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                {
+                    MessageBox.Show("Đang ở chế độ thêm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("In adding mode", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
         }
 
@@ -898,12 +1074,25 @@ namespace Trang_chủ_Main_Page_
                         worksheet.Rows().AdjustToContents();
                         workbook.SaveAs(saveFileDialog.FileName);
 
-                        Console.WriteLine("File Excel đã được tạo với dữ liệu tự động chuyển cột tại: " + saveFileDialog.FileName);
+                        if(Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                        {
+                            MessageBox.Show("Xuất Excel thành công" + saveFileDialog.FileName, "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }else
+                        {
+                            MessageBox.Show("Export Excel successfully" + saveFileDialog.FileName, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
                     }
                 }
                 catch(Exception ex)
                 {
-                    MessageBox.Show("Lỗi khi xuất Excel: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                    {
+                        MessageBox.Show("Lỗi khi xuất Excel: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error exporting Excel: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
 

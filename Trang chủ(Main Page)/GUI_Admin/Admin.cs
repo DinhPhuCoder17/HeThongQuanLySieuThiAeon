@@ -165,6 +165,23 @@ namespace Trang_chủ_Main_Page_
 
         private void btnSua_Click(object sender, EventArgs e)
         {
+            if (isEditing)
+            {
+                string message, title;
+                if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                {
+                    message = "Vui lòng lưu lại thay đổi trước khi sửa tiếp.";
+                    title = "Thông báo";
+                }
+                else // Mặc định là tiếng Anh
+                {
+                    message = "Please save changes before editing again.";
+                    title = "Notification";
+                }
+                MessageBox.Show(message, title, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             btnXoa.Enabled = false;
             isEditing = true;
             selectedRow = guna2DataGridView2.CurrentRow; // Lưu dòng đang sửa
@@ -306,7 +323,7 @@ namespace Trang_chủ_Main_Page_
                 string vaiTro = selectedRow.Cells["Vaitro"].Value.ToString();
                 DynamicCreateNhanVien dynamicCreateNhanVien = new DynamicCreateNhanVien();
 
-                if (vaiTro == "Quản Lý" || vaiTro == "quản lý" || vaiTro == "Quản Lí" || vaiTro == "quản lí" || vaiTro == "quan ly" || vaiTro == "quan li")
+                if (vaiTro == "Quản Lý" || vaiTro == "quản lý" || vaiTro == "Quản Lí" || vaiTro == "quản lí" || vaiTro == "quan ly" || vaiTro == "quan li" || vaiTro == "manager" || vaiTro =="Manager" || vaiTro == "Quan ly")
                 {
                     dynamicCreateNhanVien.ShowDialog();
 
@@ -323,44 +340,112 @@ namespace Trang_chủ_Main_Page_
 
                 if (string.IsNullOrEmpty(hoTen) || string.IsNullOrEmpty(cccd) || string.IsNullOrEmpty(diaChi) || string.IsNullOrEmpty(soDienThoai))
                 {
-                    MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
+                    if(Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                    {
+                        MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please fill in all the information!", "NOTIFICATION", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
                 }
                 if (!IsValidFullName(hoTen))
                 {
-                    MessageBox.Show("Họ tên không hợp lệ!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
+                    if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                    {
+                        MessageBox.Show("Họ tên không hợp lệ!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }else
+                    {
+                        MessageBox.Show("Full name is not valid!", "NOTIFICATION", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
                 }
                 if (!IsValidCCCD(cccd))
                 {
-                    MessageBox.Show("CCCD không hợp lệ!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
+                    if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                    {
+                        MessageBox.Show("CCCD không hợp lệ!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }else
+                    {
+                        MessageBox.Show("ID card is not valid!", "NOTIFICATION", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
                 }
                 if (!IsValidBirthDate(ngaySinh))
                 {
-                    MessageBox.Show("Tuổi không hợp lệ!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
+                    if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                    {
+                        MessageBox.Show("Tuổi không hợp lệ!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Age is not valid!", "NOTIFICATION", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                        
                 }
                 if (!IsValidAddress(diaChi))
                 {
-                    MessageBox.Show("Địa chỉ không hợp lệ!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
+                    if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                    {
+                        MessageBox.Show("Địa chỉ không hợp lệ!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Address is not valid!", "NOTIFICATION", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
                 }
                 if (!IsValidPhoneNumber(soDienThoai))
                 {
-                    MessageBox.Show("Số điện thoại không hợp lệ!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
+                    if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                    {
+                        MessageBox.Show("Số điện thoại không hợp lệ!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Phone number is not valid!", "NOTIFICATION", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
                 }
                 if (!IsValidRoleNV(vaiTro))
                 {
-                    MessageBox.Show("Số điện thoại không hợp lệ!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
+                    if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                    {
+                        MessageBox.Show("Vai trò không hợp lệ!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Role is not valid!", "NOTIFICATION", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                }
+                DialogResult askResult;
+                if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                {
+                    askResult = MessageBox.Show("Bạn có chắc chắn muốn sửa nhân viên này?",
+                                         "Xác nhận",
+                                         MessageBoxButtons.YesNo,
+                                         MessageBoxIcon.Question);
+                }
+                else
+                {
+                    askResult = MessageBox.Show("Are you sure you want to edit this employee?",
+                                         "Confirmation",
+                                         MessageBoxButtons.YesNo,
+                                         MessageBoxIcon.Question);
                 }
 
-                DialogResult askResult = MessageBox.Show("Bạn có chắc chắn muốn sửa nhân viên này?", 
-                                         "Xác nhận", 
-                                         MessageBoxButtons.YesNo, 
-                                         MessageBoxIcon.Question);
+                    
                 if (askResult == DialogResult.Yes)
                 {
                     bool result = BLL_Nhanvien.Instance.UpdateEmployee(maNhanVien, hoTen, cccd, ngaySinh, gioiTinh, diaChi, soDienThoai, vaiTro);
@@ -389,16 +474,6 @@ namespace Trang_chủ_Main_Page_
                             MessageBox.Show("Update failed!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
 
-                    }
-
-                    if (result)
-                    {
-                        MessageBox.Show("Cập nhật thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        LoadEmployeeList(); // Cập nhật lại danh sách
-                    }
-                    else
-                    {
-                        MessageBox.Show("Cập nhật thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }

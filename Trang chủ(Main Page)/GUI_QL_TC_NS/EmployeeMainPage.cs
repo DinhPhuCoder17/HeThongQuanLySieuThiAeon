@@ -103,18 +103,14 @@ namespace Trang_chủ_Main_Page_
       
         private void btnEmployeeShift_Click(object sender, EventArgs e)
         {
-            if (employeeShift == null)
-            {
+           
                 employeeShift = new employeeShift();
                 employeeShift.FormClosed += employeeAdd_FormClose;
                 employeeShift.MdiParent = this;
                 employeeShift.Dock = DockStyle.Fill;
                 employeeShift.Show();
-            }
-            else
-            {
-                employeeShift.Activate();
-            }
+            
+           
         }
 
 

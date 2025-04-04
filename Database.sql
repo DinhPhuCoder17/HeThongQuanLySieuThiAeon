@@ -4,12 +4,7 @@ create database QuanLySieuThiAEON
 go
 use QuanLySieuThiAEON
 go
-INSERT INTO Hanghoa (Mahanghoa, Tenhanghoa, Tiennhap, Tendanhmuc, Tienban, ImageData, Soluong, Uudai, MaNCC, THSD, Xoa, Barcode)
-VALUES 
-('HH0019', 'Product 1', 100000, 'Category 1', 1500.00, NULL, 10,NULL , 'NC0001', 3, 0, '12345678901'),
-('H00022', 'Product 2', 200000, 'Category 2', 2500.00, NULL, 20,NULL , 'NC0002', 2, 0, '09876543211');
-UPDATE HangHoa SET Xoa = 0 WHERE Barcode = '0987654321'
-UPDATE HangHoa SET Barcode = '0987654321' WHERE Barcode = '0987654321'
+
 --select * from Quanly
 
 CREATE TABLE Nhanvien (
@@ -56,7 +51,7 @@ CREATE TABLE QuanlyKho (
     Manhanvien varchar(10) CONSTRAINT PK_QuanlyKho PRIMARY KEY,
     CONSTRAINT FK_QuanlyKho_Manhanvien FOREIGN KEY (Manhanvien) REFERENCES Quanly(Manhanvien),
 );
-
+--select * from calam
 CREATE TABLE Calam (
     Macalam varchar(10) CONSTRAINT PK_Calam PRIMARY KEY,
     Tencalam NVARCHAR(100),
@@ -70,6 +65,7 @@ CREATE TABLE QuanlyTCNS (
     Manhanvien varchar(10) CONSTRAINT PK_QuanlyTCNS PRIMARY KEY,
     CONSTRAINT FK_QuanlyTCNS_Manhanvien FOREIGN KEY (Manhanvien) REFERENCES Quanly(Manhanvien)
 );
+--delete from Chamcong
 
 CREATE TABLE Chamcong (
     ID varchar(10) CONSTRAINT PK_Chamcong PRIMARY KEY,
@@ -145,7 +141,7 @@ CREATE TABLE Hoadonbanhang (
     CONSTRAINT FK_Hoadonbanhang_Manhanvien FOREIGN KEY (Manhanvien) REFERENCES Nhanvien(Manhanvien),
 	Thanhtien float
 );
--- select * from HD_HH
+-- select * from HH_HDBH where Mahoadon='HD0001'
 --delete from HH_HDBH
 CREATE TABLE HH_HDBH (
     Mahanghoa varchar(10),
@@ -520,7 +516,7 @@ BEGIN
     -- Lấy mã hóa đơn mới nhất từ bảng Hoadonbanhang
     SELECT TOP 1 @Mahoadon = Mahoadon 
     FROM Hoadonbanhang 
-    ORDER BY Thoigianban DESC;
+    ORDER BY Mahoadon DESC;
 
     -- Kiểm tra nếu không tìm thấy hóa đơn nào
     IF @Mahoadon IS NULL
@@ -737,67 +733,82 @@ go
 		-- DG: Vô đúng giờ hoặc sớm, về trễ hoặc đúng giờ
 		-- T – S: Đi trễ về sớm
 go
-create proc themChamCong 
-	@ThoigianCN date, 
-	@Checkin time, 
-	@Checkout time,
-	@Macalam varchar(10), 
-	@Manhanvien varchar(10)
-As
-Begin
-	Declare @ID varchar(10);
-	Declare @ThoigianBD time;
-	Declare @ThoigianKT time;
-	Declare @Trangthai nvarchar(100);
+-- DROP PROCEDURE themChamCong;
+CREATE PROCEDURE themChamCong 
+    @ThoigianCN DATE, 
+    @Checkin TIME, 
+    @Checkout TIME,
+    @Macalam VARCHAR(10), 
+    @Manhanvien VARCHAR(10)
+AS
+BEGIN
+    DECLARE @ID VARCHAR(10);
+    DECLARE @ThoigianBD TIME;
+    DECLARE @ThoigianKT TIME;
+    DECLARE @Trangthai NVARCHAR(100);
 
-	--Lấy giờ bắt đầu và kết thúc từ bảng Ca làm
-	Select @ThoigianBD = CONVERT(TIME, ThoigianBD), @ThoigianKT = CONVERT(TIME, ThoigianKT)
-	From Calam
-	Where Macalam = @Macalam;
-	-- Kiểm tra nếu không tìm thấy ca làm
-	IF @ThoigianBD is null or @ThoigianKT is null
-	Begin
-		Print 'Không tìm thấy ca làm';
-		Return;
-	End
-	-- Xác định trạng thái dựa trên Checkin và Checkout
-	If @Checkin > @ThoigianBD and @Checkout < @ThoigianKT
-		Set @Trangthai = N'T - S'; -- Đi trễ, về sớm
-	Else if @Checkin > @ThoigianBD and @Checkout >= @ThoigianKT
-		Set @Trangthai = N'T - DG' -- Đi trễ, về đúng giờ hoặc về trễ
-	Else if @Checkin <= @ThoigianBD and @Checkout >= @ThoigianKT
-		Set @Trangthai = N'DG' -- Đi đúng giờ hoặc sớm, về đúng giờ hoặc về trễ
-	ELSE
-        Set @Trangthai = N'T – DG'; -- Mặc định nếu không rơi vào các trường hợp trên
+    -- Lấy giờ bắt đầu và kết thúc từ bảng Ca làm
+    SELECT @ThoigianBD = CONVERT(TIME, ThoigianBD), @ThoigianKT = CONVERT(TIME, ThoigianKT)
+    FROM Calam
+    WHERE Macalam = @Macalam;
 
-	-- Tạo ID tự động (CC0001, CC0002,...)
+    -- Kiểm tra nếu không tìm thấy ca làm
+    IF @ThoigianBD IS NULL OR @ThoigianKT IS NULL
+    BEGIN
+        PRINT 'Không tìm thấy ca làm';
+        RETURN;
+    END;
+
+    -- Xác định trạng thái dựa trên Checkin và Checkout
+    IF @Checkin > @ThoigianBD AND @Checkout < @ThoigianKT
+        SET @Trangthai = N'T - S'; -- Đi trễ, về sớm
+    ELSE IF @Checkin > @ThoigianBD AND @Checkout >= @ThoigianKT
+        SET @Trangthai = N'T - DG'; -- Đi trễ, về đúng giờ hoặc về trễ
+    ELSE IF @Checkin <= @ThoigianBD AND @Checkout >= @ThoigianKT
+        SET @Trangthai = N'DG'; -- Đi đúng giờ hoặc sớm, về đúng giờ hoặc về trễ
+	 ELSE IF @Checkin <= @ThoigianBD AND @Checkout < @ThoigianKT
+        SET @Trangthai = N'DG - S'; -- Đi đúng giờ hoặc sớm, về đúng giờ hoặc về trễ
+    ELSE
+        SET @Trangthai = N'DG'; -- Mặc định nếu không rơi vào các trường hợp trên
+
+    -- Tạo ID tự động (CC0001, CC0002,...)
     DECLARE @MaxID INT;
     SELECT @MaxID = MAX(CAST(SUBSTRING(ID, 3, 4) AS INT)) FROM Chamcong;
-	-- Nếu bảng rỗng, bắt đầu từ 1
+    
+    -- Nếu bảng rỗng, bắt đầu từ 1
     IF @MaxID IS NULL
-        Set @MaxID = 1;
-    Else
-        Set @MaxID = @MaxID + 1;
-	-- Set ID
-	 SET @ID = 'CC' + RIGHT('0000' + CAST(@MaxID AS VARCHAR(4)), 4);
+        SET @MaxID = 1;
+    ELSE
+        SET @MaxID = @MaxID + 1;
 
-	 Declare @Socong float;
-	 -- Tính số phút làm việc
-	 DECLARE @SoPhut INT;
+    -- Set ID
+    SET @ID = 'CC' + RIGHT('0000' + CAST(@MaxID AS VARCHAR(4)), 4);
 
-	 If @Checkout < @ThoigianKT -- Về sớm
-		Set @SoPhut = DATEDIFF(Minute, @Checkin, @Checkout);
-	Else 
-		Set @SoPhut = DATEDIFF(Minute, @Checkin, @ThoigianKT);
+    DECLARE @Socong FLOAT;
+    DECLARE @SoGiay INT;
 
-	-- Chuyển phút thành số công (giờ)
-	Set @Socong = @SoPhut / 60.0 / 8.0
+    -- Kiểm tra thời gian về sớm hoặc đúng giờ
+    IF @Checkout <= @ThoigianKT -- Về sớm
+       
+        SET @SoGiay = DATEDIFF(SECOND, @Checkin, @ThoigianKT);
 
-	-- Thêm dữ liệu vào bảng Chamcong
+    -- Chuyển giây thành số công (giờ), với giả sử một ngày làm việc là 8 giờ (28800 giây)
+    SET @Socong = @SoGiay / 28800.0; -- 28800 giây = 8 giờ
+
+    -- Kiểm tra nếu Checkin muộn hơn một giây so với ThoigianBD (Tính trễ)
+    IF @Checkin > @ThoigianBD
+    BEGIN
+        -- Tính số công theo giây, nếu đi trễ thì giảm công
+        SET @Socong = @Socong - ((DATEDIFF(SECOND, @ThoigianBD, @Checkin)) / 28800.0);
+    END;
+
+    -- Thêm dữ liệu vào bảng Chamcong
     INSERT INTO Chamcong (ID, ThoigianCN, Checkin, Checkout, Socong, Trangthai, Macalam, Manhanvien)
     VALUES (@ID, @ThoigianCN, @Checkin, @Checkout, @Socong, @Trangthai, @Macalam, @Manhanvien);
-	PRINT 'Đã thêm chấm công với ID: ' + @ID + ' và trạng thái: ' + @Trangthai;
-End;
+
+    PRINT 'Đã thêm chấm công với ID: ' + @ID + ' và trạng thái: ' + @Trangthai;
+END;
+
 
 
 --Trigger Them Khach hang--
@@ -864,6 +875,7 @@ Begin
 	Declare @Thanhtien Decimal(18,2)
 	Select @Thanhtien = @Soluongdat * Tiennhap
 	From Hanghoa
+	Where Mahanghoa = @Mahanghoa
 
 	Insert into HD_HH values (@Mahanghoa, @Sohd, null, @Soluongdat, 0, null, null, @Thanhtien, N'Chưa Nhập Kho')
 End
@@ -1105,3 +1117,4 @@ Where ThoigianBD > '2025/3/30' and ThoigianKT < '2025/4/7'
 Group by bb.Manhanvien, Hoten, Vaitro, ThoigianBD, ThoigianKT  
 
 exec themMaHDNH 10000000, 10
+
