@@ -33,7 +33,8 @@ namespace Trang_chủ_Main_Page_
 
         private void employeeFilterOut_Load(object sender, EventArgs e)
         {
-           
+            btn_Customer_LogBuCong.Enabled = false;
+            btn_Employ_Report.Enabled = false;
             //Datagridview bảng nhân viên
             dtg_Employee.DataSource = bLL_QuanlyTCNS.xemDSNV();
             if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
@@ -113,6 +114,7 @@ namespace Trang_chủ_Main_Page_
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
+            
             logTransition.Start();
         }
 
@@ -128,6 +130,7 @@ namespace Trang_chủ_Main_Page_
 
         private void guna2GradientButton1_Click(object sender, EventArgs e)
         {
+
             //Datagridview bảng chấm công
             dtg_DSCC.DataSource = bLL_QuanlyTCNS.xemDSCC();
             dtg_DSCC.Columns[0].HeaderText = "ID";
@@ -150,6 +153,8 @@ namespace Trang_chủ_Main_Page_
                 {
                     logTransition_2.Stop();
                     menuExpand_2 = true;
+                    btn_Customer_LogBuCong.Enabled = true;
+                    btn_Employ_Report.Enabled = true;
                 }
             }
             else
@@ -159,6 +164,8 @@ namespace Trang_chủ_Main_Page_
                 {
                     logTransition_2.Stop();
                     menuExpand_2 = false;
+                    btn_Customer_LogBuCong.Enabled = false;
+                    btn_Employ_Report.Enabled = false;
                 }
             }
         }
@@ -306,7 +313,6 @@ namespace Trang_chủ_Main_Page_
             {
                 try
                 {
-                    // Lấy dữ liệu từ DataGridView
                     DataTable dt = (DataTable)dtg_DSCC.DataSource;
 
                     // Tạo file PDF
@@ -353,14 +359,38 @@ namespace Trang_chủ_Main_Page_
                         PdfPTable timesheetTable = new PdfPTable(dt.Columns.Count); // Số cột bằng số cột trong DataTable
                         timesheetTable.WidthPercentage = 100; // Đặt bảng chiếm toàn bộ chiều rộng trang
 
+                        // Tạo từ điển ánh xạ tên cột từ cũ sang mới
+                        Dictionary<string, string> columnNames = new Dictionary<string, string>()
+            {
+                { "ID", "ID" },
+                { "ThoigianCN", "Thời Gian Cập Nhật" },
+                { "Checkin", "Giờ Vào" },
+                { "Checkout", "Giờ Ra" },
+                { "Socong", "Số Công" },
+                { "Trangthai", "Trạng Thái" },
+                { "Macalam", "Mã Ca Làm" },
+                { "Manhanvien", "Mã Nhân Viên" }
+            };
+
                         // Thêm tiêu đề cột vào bảng
                         foreach (DataColumn column in dt.Columns)
                         {
-                            timesheetTable.AddCell(new PdfPCell(new Phrase(column.ColumnName, boldFont))
+                            string columnName = column.ColumnName;
+
+                            // Kiểm tra nếu tên cột có trong từ điển ánh xạ, nếu có thì thay thế
+                            if (columnNames.ContainsKey(columnName))
                             {
-                                HorizontalAlignment = Element.ALIGN_CENTER,
-                                VerticalAlignment = Element.ALIGN_MIDDLE
-                            });
+                                columnName = columnNames[columnName];
+                            }
+
+                            // Thêm tên cột vào bảng với tên đã thay thế
+                            PdfPCell cell = new PdfPCell(new Phrase(columnName, boldFont))
+                            {
+                                HorizontalAlignment = Element.ALIGN_CENTER,  // Căn giữa theo chiều ngang
+                                VerticalAlignment = Element.ALIGN_MIDDLE,   // Căn giữa theo chiều dọc
+                                BackgroundColor = BaseColor.LIGHT_GRAY      // Tạo màu nền nhẹ cho tiêu đề cột
+                            };
+                            timesheetTable.AddCell(cell);
                         }
 
                         // Thêm dữ liệu chấm công vào bảng
@@ -370,8 +400,8 @@ namespace Trang_chủ_Main_Page_
                             {
                                 timesheetTable.AddCell(new PdfPCell(new Phrase(cell.ToString(), normalFont))
                                 {
-                                    HorizontalAlignment = Element.ALIGN_CENTER,
-                                    VerticalAlignment = Element.ALIGN_MIDDLE
+                                    HorizontalAlignment = Element.ALIGN_CENTER,  // Căn giữa theo chiều ngang
+                                    VerticalAlignment = Element.ALIGN_MIDDLE   // Căn giữa theo chiều dọc
                                 });
                             }
                         }
@@ -379,7 +409,27 @@ namespace Trang_chủ_Main_Page_
                         // Thêm bảng vào tài liệu PDF
                         doc.Add(timesheetTable);
 
-                        // Đóng tài liệu PDF
+                        // Thêm thông tin đơn vị vào cuối tài liệu
+                        doc.Add(Chunk.NEWLINE);
+                        Paragraph section_1 = new Paragraph();
+                        section_1.Alignment = Element.ALIGN_LEFT;
+
+                        section_1.Add(new Chunk("Đơn vị: ", boldFont));
+                        section_1.Add(new Chunk("Công ty Trách nhiệm Hữu Hạn AEON Việt Nam", normalFont));
+                        section_1.Add(Chunk.NEWLINE);
+                        section_1.Add(new Chunk("Địa chỉ: ", boldFont));
+                        section_1.Add(new Chunk("243 Chu Văn An, P. 12, Q. Bình Thạnh, TP. HCM.", normalFont));
+                        section_1.Add(Chunk.NEWLINE);
+                        section_1.Add(new Chunk("Số điện thoại: ", boldFont));
+                        section_1.Add(new Chunk("0366-565454", normalFont));
+                        section_1.Add(Chunk.NEWLINE);
+                        section_1.Add(new Chunk("Mã số thuế: ", boldFont));
+                        section_1.Add(new Chunk("0311241512", normalFont));
+
+                        // Thêm phần thông tin đơn vị vào cuối
+                        doc.Add(section_1);
+
+                        
                         doc.Close();
 
                         // Thông báo thành công
@@ -391,6 +441,9 @@ namespace Trang_chủ_Main_Page_
                     MessageBox.Show("Lỗi khi xuất báo cáo: " + ex.Message);
                 }
             }
+
+
+
         }
 
         // ----------- Phần của Quang ---------------------------

@@ -31,10 +31,21 @@ namespace DAL
         {
             return DataProvider.Instance.ExecuteQuery("SELECT Barcode FROM Hanghoa WHERE Xoa = 0");
         }
+        public DataTable xemMaSoThue()
+        {
+            return DataProvider.Instance.ExecuteQuery("SELECT MaSoThue FROM NhaCungCap WHERE Xoa = 0");
+        }
         public bool KhoiPhucHangHoa(string barcode)
         {
             string query = "UPDATE HangHoa SET Xoa = 1 WHERE Barcode = @Barcode";
             object[] parameters = new object[] { barcode };
+            int result = DataProvider.Instance.ExecuteNonQuery(query, parameters);
+            return result > 0;
+        }
+        public bool KhoiPhucNCC(string MaSoThue)
+        {
+            string query = "UPDATE NhaCungCap SET Xoa = 1 WHERE MaSoThue = @MaSoThue";
+            object[] parameters = new object[] { MaSoThue };
             int result = DataProvider.Instance.ExecuteNonQuery(query, parameters);
             return result > 0;
         }
@@ -81,7 +92,7 @@ namespace DAL
 
         public static DataTable hangHoa_NhapHang()
         {
-            return DataProvider.Instance.ExecuteQuery("SELECT h.Mahanghoa, h.Tenhanghoa, h.Tiennhap, h.Tendanhmuc, h.Tienban, h.ImageData, h.Soluong, h.Uudai, n.TenNCC, h.THSD FROM Hanghoa h JOIN Nhacungcap n ON h.MaNCC = n.MaNCC WHERE h.Xoa = 1");
+            return DataProvider.Instance.ExecuteQuery("SELECT h.Mahanghoa, h.Tenhanghoa, h.Tiennhap, h.Tendanhmuc, h.Tienban, h.ImageData, h.Soluong, h.Uudai, n.TenNCC, h.THSD FROM Hanghoa h JOIN Nhacungcap n ON h.MaNCC = n.MaNCC WHERE h.Xoa = 1 and n.Xoa = 1");
         }
 
         public DataTable XemCTHH(string mahh)

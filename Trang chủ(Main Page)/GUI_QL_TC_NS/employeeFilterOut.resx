@@ -153,6 +153,126 @@
   <data name="&gt;&gt;dtg_Employee.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
+  <data name="&gt;&gt;txt.Name" xml:space="preserve">
+    <value>txt</value>
+  </data>
+  <data name="&gt;&gt;txt.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txt.Parent" xml:space="preserve">
+    <value>guna2Panel1</value>
+  </data>
+  <data name="&gt;&gt;txt.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;pb_Avatar.Name" xml:space="preserve">
+    <value>pb_Avatar</value>
+  </data>
+  <data name="&gt;&gt;pb_Avatar.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2CirclePictureBox, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;pb_Avatar.Parent" xml:space="preserve">
+    <value>guna2Panel1</value>
+  </data>
+  <data name="&gt;&gt;pb_Avatar.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;txt_Employee_SearchBar.Name" xml:space="preserve">
+    <value>txt_Employee_SearchBar</value>
+  </data>
+  <data name="&gt;&gt;txt_Employee_SearchBar.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2TextBox, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;txt_Employee_SearchBar.Parent" xml:space="preserve">
+    <value>guna2Panel1</value>
+  </data>
+  <data name="&gt;&gt;txt_Employee_SearchBar.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="guna2Panel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="guna2Panel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="guna2Panel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1181, 68</value>
+  </data>
+  <data name="guna2Panel1.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;guna2Panel1.Name" xml:space="preserve">
+    <value>guna2Panel1</value>
+  </data>
+  <data name="&gt;&gt;guna2Panel1.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2Panel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;guna2Panel1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;guna2Panel1.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;txt.Name" xml:space="preserve">
+    <value>txt</value>
+  </data>
+  <data name="&gt;&gt;txt.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txt.Parent" xml:space="preserve">
+    <value>guna2Panel1</value>
+  </data>
+  <data name="&gt;&gt;txt.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;pb_Avatar.Name" xml:space="preserve">
+    <value>pb_Avatar</value>
+  </data>
+  <data name="&gt;&gt;pb_Avatar.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2CirclePictureBox, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;pb_Avatar.Parent" xml:space="preserve">
+    <value>guna2Panel1</value>
+  </data>
+  <data name="&gt;&gt;pb_Avatar.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;txt_Employee_SearchBar.Name" xml:space="preserve">
+    <value>txt_Employee_SearchBar</value>
+  </data>
+  <data name="&gt;&gt;txt_Employee_SearchBar.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2TextBox, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;txt_Employee_SearchBar.Parent" xml:space="preserve">
+    <value>guna2Panel1</value>
+  </data>
+  <data name="&gt;&gt;txt_Employee_SearchBar.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="guna2Panel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="guna2Panel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="guna2Panel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1181, 68</value>
+  </data>
+  <data name="guna2Panel1.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;guna2Panel1.Name" xml:space="preserve">
+    <value>guna2Panel1</value>
+  </data>
+  <data name="&gt;&gt;guna2Panel1.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2Panel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;guna2Panel1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;guna2Panel1.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
   <data name="txt.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -8729,8 +8849,8 @@
         9agN2VArJvw6jFP4dDjsJaNaAwY9Ogz4DOgPmtEbtqHTbxYZeDpgEcI+0RNBYTSD/OghHM5EMJgMYCDh
         2y63B5HtiWB+RMPK0S5MdAUwGnej328UWT+Z4SgG3ToMS6047NGLGPPoMe41YNJnKgl7gBztFlF6v9E/
         JzGnEnyp9L496Y2Gw1Bsl9ipX05l9a1Ov3Cz09dvCPqN2BKC7iwJukb31C0iVjQXFjJ+FPuiyB6KoF/1
-        IeF3IOw2wmXV/dpta7nu99oWVDXYfOvrhGEYhvk/Rq/PduC+o+Hsd84Vrrx5tvDLNx8v4tsXj+Gb59bw
-        8Ew/VrpjyCdDmE0EMa8FsJAqCflKJoAl2rWteVGgASZRJ3KqhKwq4XBcRm/ch86QG1HZAcVqgtuog2yq
+  <data name="&gt;&gt;guna2Panel1.ZOrder" xml:space="preserve">
+    <value>7</value>
         R1fIjL6YAx1yO4z6RjQ11qK+rgZ1FPWNqK1tQF1dA5oaG9Da2ox2fQusphZ47G0IyGbEFBMyAQsGOxwY
         p98Xc2K6w4rpoAFTviYRWV8zxr3NGJUbMSI1YGhb0PuCZmT8RjEtTvW0Iya1iQx8NOVHbkhDcawHhcM9
         yPZrONLVgcOd1HvuwFRfFLmBOHJ9MQwnZAzHnBgMmjHgacMQ9czlVgxLLRhy6zAitWJUbsOYp10I+oRi
@@ -8789,8 +8909,8 @@
   <data name="pb_Avatar.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
   </data>
-  <data name="&gt;&gt;pb_Avatar.Name" xml:space="preserve">
-    <value>pb_Avatar</value>
+  <data name="&gt;&gt;menuContainer.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;pb_Avatar.Type" xml:space="preserve">
     <value>Guna.UI2.WinForms.Guna2CirclePictureBox, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
@@ -8849,8 +8969,8 @@
   <data name="&gt;&gt;guna2Panel1.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;guna2Panel1.ZOrder" xml:space="preserve">
-    <value>7</value>
+  <data name="&gt;&gt;menuContainer.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="btn_BuCong_Send_Click.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 10pt</value>
@@ -9008,6 +9128,27 @@
   <data name="&gt;&gt;txt_ThoiGianCapNhat.Name" xml:space="preserve">
     <value>txt_ThoiGianCapNhat</value>
   </data>
+  <data name="menuContainer.Location" type="System.Drawing.Point, System.Drawing">
+    <value>476, 13</value>
+  </data>
+  <data name="menuContainer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>454, 0</value>
+  </data>
+  <data name="menuContainer.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;menuContainer.Name" xml:space="preserve">
+    <value>menuContainer</value>
+  </data>
+  <data name="&gt;&gt;menuContainer.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2Panel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;menuContainer.Parent" xml:space="preserve">
+    <value>guna2Panel2</value>
+  </data>
+  <data name="&gt;&gt;menuContainer.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="&gt;&gt;txt_ThoiGianCapNhat.Type" xml:space="preserve">
     <value>Guna.UI2.WinForms.Guna2TextBox, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
   </data>
@@ -9128,27 +9269,6 @@
   <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
-  <data name="menuContainer.Location" type="System.Drawing.Point, System.Drawing">
-    <value>479, 148</value>
-  </data>
-  <data name="menuContainer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>454, 0</value>
-  </data>
-  <data name="menuContainer.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
-  <data name="&gt;&gt;menuContainer.Name" xml:space="preserve">
-    <value>menuContainer</value>
-  </data>
-  <data name="&gt;&gt;menuContainer.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2Panel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="&gt;&gt;menuContainer.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;menuContainer.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <metadata name="guna2Elipse2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
@@ -9180,7 +9300,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;guna2HtmlLabel1.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>5</value>
   </data>
   <metadata name="logTransition.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>161, 17</value>
@@ -9498,7 +9618,7 @@
     <value>10, 10, 10, 10</value>
   </data>
   <data name="guna2HtmlLabel9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>84, 39</value>
+    <value>155, 39</value>
   </data>
   <data name="guna2HtmlLabel9.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -9558,7 +9678,7 @@
     <value>10, 10, 10, 10</value>
   </data>
   <data name="guna2HtmlLabel5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>72, 39</value>
+    <value>136, 35</value>
   </data>
   <data name="guna2HtmlLabel5.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -9618,7 +9738,7 @@
     <value>10, 10, 10, 10</value>
   </data>
   <data name="guna2HtmlLabel12.Size" type="System.Drawing.Size, System.Drawing">
-    <value>151, 39</value>
+    <value>136, 35</value>
   </data>
   <data name="guna2HtmlLabel12.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -9714,7 +9834,28 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pn_infoChanges.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>0</value>
+  </data>
+  <data name="dtg_DSCC.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="dtg_DSCC.ColumnHeadersHeight" type="System.Int32, mscorlib">
+    <value>40</value>
+  </data>
+  <data name="dtg_DSCC.Location" type="System.Drawing.Point, System.Drawing">
+    <value>17, 48</value>
+  </data>
+  <data name="dtg_DSCC.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>20, 20, 20, 20</value>
+  </data>
+  <data name="dtg_DSCC.RowHeadersWidth" type="System.Int32, mscorlib">
+    <value>51</value>
+  </data>
+  <data name="dtg_DSCC.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1123, 600</value>
+  </data>
+  <data name="dtg_DSCC.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
   </data>
   <data name="dtg_DSCC.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -9747,7 +9888,25 @@
     <value>guna2Panel2</value>
   </data>
   <data name="&gt;&gt;dtg_DSCC.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
+  </data>
+  <data name="guna2HtmlLabel2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10.8pt, style=Bold</value>
+  </data>
+  <data name="guna2HtmlLabel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>27, 3</value>
+  </data>
+  <data name="guna2HtmlLabel2.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 10, 10, 10</value>
+  </data>
+  <data name="guna2HtmlLabel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>169, 47</value>
+  </data>
+  <data name="guna2HtmlLabel2.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="guna2HtmlLabel2.Text" xml:space="preserve">
+    <value>Bảng Chấm Công</value>
   </data>
   <data name="guna2HtmlLabel2.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 10.8pt, style=Bold</value>
@@ -9777,7 +9936,7 @@
     <value>guna2Panel2</value>
   </data>
   <data name="&gt;&gt;guna2HtmlLabel2.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="guna2Panel2.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 148</value>
@@ -9798,7 +9957,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;guna2Panel2.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>1</value>
   </data>
   <data name="btn_Employ_Report.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 10pt</value>
@@ -9825,7 +9984,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn_Employ_Report.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>2</value>
   </data>
   <data name="btn_Customer_BangBuCong.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 10pt</value>
@@ -9852,7 +10011,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn_Customer_BangBuCong.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>3</value>
   </data>
   <data name="btn_Customer_LogBuCong.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 10pt</value>
@@ -9879,7 +10038,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn_Customer_LogBuCong.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>4</value>
   </data>
   <data name="&gt;&gt;guna2Elipse2.Name" xml:space="preserve">
     <value>guna2Elipse2</value>

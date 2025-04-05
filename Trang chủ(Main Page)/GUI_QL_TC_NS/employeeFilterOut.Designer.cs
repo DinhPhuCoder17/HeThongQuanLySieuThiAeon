@@ -394,6 +394,7 @@
             // 
             this.guna2Panel2.BackColor = System.Drawing.Color.Transparent;
             this.guna2Panel2.BorderRadius = 20;
+            this.guna2Panel2.Controls.Add(this.menuContainer);
             this.guna2Panel2.Controls.Add(this.dtg_DSCC);
             this.guna2Panel2.Controls.Add(this.guna2HtmlLabel2);
             this.guna2Panel2.FillColor = System.Drawing.SystemColors.Control;
@@ -700,7 +701,6 @@
             // 
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             resources.ApplyResources(this, "$this");
-            this.Controls.Add(this.menuContainer);
             this.Controls.Add(this.pn_infoChanges);
             this.Controls.Add(this.guna2Panel2);
             this.Controls.Add(this.btn_Employ_Report);

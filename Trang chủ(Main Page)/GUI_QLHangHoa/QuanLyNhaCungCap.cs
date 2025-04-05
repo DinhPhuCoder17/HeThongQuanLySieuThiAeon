@@ -15,6 +15,7 @@ using static Jenga.Theme;
 using OfficeOpenXml.FormulaParsing.LexicalAnalysis;
 using System.Threading;
 using Trang_chủ_Main_Page_;
+using DTO;
 
 namespace Trang_chu_Main_Page_.GUI_QLHangHoa
 {
@@ -112,194 +113,270 @@ namespace Trang_chu_Main_Page_.GUI_QLHangHoa
 
         private void btn_Them_Click(object sender, EventArgs e)
         {
-            string tenNCC = txt_tenNCC.Text;
-            string diaChi = txt_diachi.Text;
-            string maSoThue = txt_mst.Text;
-            string sdt = txt_sdt.Text;
+            // 1. Đọc input
+            string tenNCC = txt_tenNCC.Text.Trim();
+            string diaChi = txt_diachi.Text.Trim();
+            string maSoThue = txt_mst.Text.Trim();
+            string sdt = txt_sdt.Text.Trim();
 
-            //Bắt đầu check nhập dữ liệu
-            if (string.IsNullOrEmpty(tenNCC) || string.IsNullOrEmpty(diaChi) || string.IsNullOrEmpty(maSoThue) || string.IsNullOrEmpty(sdt))
+            // 2. Validate nhập liệu
+            if (string.IsNullOrEmpty(tenNCC) ||
+                string.IsNullOrEmpty(diaChi) ||
+                string.IsNullOrEmpty(maSoThue) ||
+                string.IsNullOrEmpty(sdt))
             {
-                if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
-                {
-                    MessageBox.Show("Please fill in all the information!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                else if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
-                {
-                    MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
+                ShowMsg("Please fill in all the information!", "Notification",
+                        "Vui lòng nhập đầy đủ thông tin!", "THÔNG BÁO",
+                        MessageBoxIcon.Warning);
                 return;
             }
-
             if (!Regex.IsMatch(tenNCC, "^[a-zA-Z0-9À-ỹ ,.-]+$"))
             {
-                if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
-                {
-                    MessageBox.Show("Supplier name cannot contain numbers or special characters");
-                }
-                else if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
-                {
-                    MessageBox.Show("Tên NCC không được chứa số và kí tự đặc biệt");
-                }
+                ShowMsg("Supplier name cannot contain numbers or special characters", null,
+                        "Tên NCC không được chứa số và kí tự đặc biệt", null,
+                        MessageBoxIcon.Warning);
                 return;
             }
-
-            if (!Regex.IsMatch(sdt, "^[0-9]+$"))
+            if (!Regex.IsMatch(sdt, "^[0-9]{10}$"))
             {
-                if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
-                {
-                    MessageBox.Show("Invalid phone number");
-                }
-                else if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
-                {
-                    MessageBox.Show("Số điện thoại không hợp lệ");
-                }
+                ShowMsg("Invalid phone number", null,
+                        "Số điện thoại không hợp lệ", null,
+                        MessageBoxIcon.Warning);
                 return;
             }
-
             if (!Regex.IsMatch(diaChi, @"^[\p{L}0-9,.\- ]{5,500}$"))
             {
-                if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                ShowMsg("Address cannot contain special characters", null,
+                        "Địa chỉ không chứa kí tự đặc biệt", null,
+                        MessageBoxIcon.Warning);
+                return;
+            }
+            if (!Regex.IsMatch(maSoThue, @"^\d{10}$"))
+            {
+                ShowMsg("Tax code must contain only 10 numbers", null,
+                        "Mã số thuế chỉ chứa 10 số", null,
+                        MessageBoxIcon.Warning);
+                return;
+            }
+
+            // 3. Lấy danh sách NCC active và danh sách mã số thuế đã xóa
+            DataTable dtActive = BLLQuanLyKho.Instance.GetAllNCC();
+            var dsActive = dtActive.AsEnumerable()
+                .Select(r => new DTO_NhaCungCap
                 {
-                    MessageBox.Show("Address cannot contain special characters");
-                }
-                else if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                    MaNCC = r["MaNCC"].ToString(),
+                    MaSoThue = r["Masothue"].ToString()
+                })
+                .ToList();
+
+            var dsDeleted = BLLQuanLyKho.Instance.xemMaSoThue();
+
+            // 4. Kiểm tra trùng với NCC đang active
+            bool isDuplicate = dsActive
+                .Any(ncc => ncc.MaSoThue.Equals(maSoThue, StringComparison.OrdinalIgnoreCase));
+
+            if (isDuplicate)
+            {
+                // Hỏi có update không
+                if (ConfirmYesNo(
+                    "This supplier already exists. Do you want to update the information?",
+                    "Confirm update",
+                    "Nhà cung cấp này đã tồn tại, bạn có muốn thay đổi thông tin?",
+                    "Xác nhận cập nhật"))
                 {
-                    MessageBox.Show("Địa chỉ không chứa kí tự đặc biệt");
+                    // Lấy MaNCC cũ và update
+                    string existingMaNCC = dsActive
+                        .First(n => n.MaSoThue.Equals(maSoThue, StringComparison.OrdinalIgnoreCase))
+                        .MaNCC;
+                    BLLQuanLyKho.Instance.UpdateNCC(existingMaNCC, tenNCC, maSoThue, diaChi, sdt);
+                    LoadNCCList();
                 }
                 return;
             }
 
-            if (!Regex.IsMatch(maSoThue, @"^\d+$"))
+            // 5. Kiểm tra mã số thuế đã xóa trước đó
+            bool wasDeleted = dsDeleted
+                .Any(ncc => ncc.MaSoThue.Equals(maSoThue, StringComparison.OrdinalIgnoreCase));
+
+            if (wasDeleted)
             {
-                if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                if (ConfirmYesNo(
+                    "This supplier was previously deleted. Do you want to restore it?",
+                    "Restore Confirmation",
+                    "Nhà cung cấp này đã bị xóa trước đó. Bạn có muốn khôi phục lại không?",
+                    "Xác nhận khôi phục"))
                 {
-                    MessageBox.Show("Tax code must contain only numbers");
+                    BLLQuanLyKho.Instance.KhoiPhucNCC(maSoThue);
+                    LoadNCCList();
                 }
-                else if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                else
                 {
-                    MessageBox.Show("Mã số thuế chỉ chứa số");
+                    ShowMsg("Unable to restore the supplier. Please try again.",
+                            "Error",
+                            "Không thể khôi phục nhà cung cấp. Vui lòng thử lại.",
+                            "Lỗi",
+                            MessageBoxIcon.Error);
                 }
                 return;
             }
 
-            if (sdt.Length != 10)
+            // 6. Thêm mới
+            bool added = BLLQuanLyKho.Instance.AddNCC(tenNCC, diaChi, maSoThue, sdt);
+            if (added)
             {
-                if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
-                {
-                    MessageBox.Show("Invalid phone number");
-                }
-                else if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
-                {
-                    MessageBox.Show("Số điện thoại không hợp lệ");
-                }
-                return;
-            }
-
-            //Kết thúc check nhập dữ liệu
-
-            if (BLLQuanLyKho.Instance.AddNCC(tenNCC, diaChi, maSoThue, sdt))
-            {
-                if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
-                {
-                    MessageBox.Show("Added successfully!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
-                {
-                    MessageBox.Show("Thêm thành công!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                this.Close();
+                ShowMsg("Added successfully!", "Notification",
+                        "Thêm thành công!", "THÔNG BÁO",
+                        MessageBoxIcon.Information);
+                LoadNCCList();
             }
             else
             {
-                if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
-                {
-                    MessageBox.Show("Error adding new supplier!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
-                {
-                    MessageBox.Show("Lỗi thêm mới nhà cung cấp!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                ShowMsg("Error adding new supplier!", "Notification",
+                        "Lỗi thêm mới nhà cung cấp!", "THÔNG BÁO",
+                        MessageBoxIcon.Error);
             }
+        }
+
+        // Helper: Hiển thị MessageBox đa ngôn ngữ
+        private void ShowMsg(string enMsg, string enTitle,
+                             string viMsg, string viTitle,
+                             MessageBoxIcon icon)
+        {
+            if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                MessageBox.Show(enMsg, enTitle, MessageBoxButtons.OK, icon);
+            else
+                MessageBox.Show(viMsg, viTitle, MessageBoxButtons.OK, icon);
+        }
+
+        // Helper: Hỏi Yes/No đa ngôn ngữ, trả về true nếu Yes
+        private bool ConfirmYesNo(string enMsg, string enTitle,
+                                  string viMsg, string viTitle)
+        {
+            var (msg, title) = Thread.CurrentThread.CurrentUICulture.Name == "en-US"
+                ? (enMsg, enTitle)
+                : (viMsg, viTitle);
+
+            return MessageBox.Show(msg, title,
+                       MessageBoxButtons.YesNo,
+                       MessageBoxIcon.Question) == DialogResult.Yes;
         }
 
 
         //Sự kiện nhấn nút Sửa
 
-        bool anNutSua = false;
+        // 1. Khai báo cấp class
+        private bool isEditingNCC = false;
+        private DataGridViewRow rowEditingNCC;
+        private object[] originalNCCValues;
 
+        // 2. Event cho nút Sửa/Cancel/Save
         private void btnSuaNCC_Click(object sender, EventArgs e)
         {
-            if (anNutSua == false)
+            // --- Bước 1: Nếu chưa vào chế độ edit, chuyển sang edit mode ---
+            if (!isEditingNCC)
             {
                 if (dgvNhaCungCap.SelectedRows.Count == 0)
                 {
-                    if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
-                    {
-                        MessageBox.Show("Please select a row to edit.", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-                    else if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
-                    {
-                        MessageBox.Show("Vui lòng chọn một dòng để sửa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
+                    // Chưa chọn dòng nào
+                    if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                        MessageBox.Show("Vui lòng chọn một dòng để sửa!", "Thông báo",
+                                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    else
+                        MessageBox.Show("Please select a row to edit!", "Notification",
+                                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-                dgvNhaCungCap.ReadOnly = false; // Cho phép chỉnh sửa
-                anNutSua = true;
+
+                // Bật edit
+                isEditingNCC = true;
+                dgvNhaCungCap.ReadOnly = false;
+
+                // Khóa cột MaNCC, mở khóa các cột khác
+                foreach (DataGridViewColumn col in dgvNhaCungCap.Columns)
+                    col.ReadOnly = (col.Name == "MaNCC" || col.Name == "Masothue");
+
+
+                // Lưu lại giá trị gốc để có thể revert nếu Cancel
+                rowEditingNCC = dgvNhaCungCap.SelectedRows[0];
+                originalNCCValues = new object[rowEditingNCC.Cells.Count];
+                for (int i = 0; i < rowEditingNCC.Cells.Count; i++)
+                    originalNCCValues[i] = rowEditingNCC.Cells[i].Value;
+
+                // Thay đổi style dòng đang edit
+                rowEditingNCC.DefaultCellStyle.BackColor = Color.DarkGray;
+                rowEditingNCC.DefaultCellStyle.SelectionBackColor = Color.Gray;
+
+                // Vô hiệu nút Xóa (nếu có) và bỏ handler SelectionChanged
+                btnXoaNCC.Enabled = false;
+
+                // Đổi text nút thành Hủy/Cancel
+                btnSuaNCC.Text = (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN") ? "Lưu" : "Save";
             }
-            else // anNutSua = true
+            // --- Bước 2: Đang ở chế độ edit, bấm nút sẽ thực hiện Save ---
+            else
             {
                 try
                 {
-                    DataGridViewRow row = dgvNhaCungCap.SelectedRows[0];
-                    string maNCC = row.Cells["MaNCC"].Value.ToString();
-                    string tenNCC = row.Cells["TenNCC"].Value.ToString();
-                    string maSoThue = row.Cells["Masothue"].Value.ToString();
-                    string diaChi = row.Cells["Diachi"].Value.ToString();
-                    string sdt = row.Cells["Sodienthoai"].Value.ToString();
+                    // Đọc lại giá trị mới
+                    string maNCC = rowEditingNCC.Cells["MaNCC"].Value.ToString();
+                    string tenNCC = rowEditingNCC.Cells["TenNCC"].Value.ToString();
+                    string maSoThue = rowEditingNCC.Cells["Masothue"].Value.ToString();
+                    string diaChi = rowEditingNCC.Cells["Diachi"].Value.ToString();
+                    string sdt = rowEditingNCC.Cells["Sodienthoai"].Value.ToString();
 
                     bool result = BLLQuanLyKho.Instance.UpdateNCC(maNCC, tenNCC, maSoThue, diaChi, sdt);
-
                     if (result)
                     {
-                        if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
-                        {
-                            MessageBox.Show("Update successful!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                        else if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
-                        {
-                            MessageBox.Show("Cập nhật thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                        LoadNCCList(); // Cập nhật lại danh sách
+                        // Thông báo thành công
+                        if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                            MessageBox.Show("Cập nhật thành công!", "Thông báo",
+                                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        else
+                            MessageBox.Show("Update successful!", "Notification",
+                                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        // Reload dữ liệu
+                        LoadNCCList();
                     }
                     else
                     {
-                        if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
-                        {
-                            MessageBox.Show("Update failed!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                        else if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
-                        {
-                            MessageBox.Show("Cập nhật thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
+                        // Thông báo thất bại và revert lại giá trị cũ
+                        if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                            MessageBox.Show("Cập nhật thất bại!", "Lỗi",
+                                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        else
+                            MessageBox.Show("Update failed!", "Error",
+                                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        for (int i = 0; i < rowEditingNCC.Cells.Count; i++)
+                            rowEditingNCC.Cells[i].Value = originalNCCValues[i];
                     }
                 }
                 catch (Exception ex)
                 {
-                    if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
-                    {
-                        MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    else if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
-                    {
-                        MessageBox.Show("Lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    // Xử lý ngoại lệ, revert lại giá trị
+                    if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                        MessageBox.Show("Lỗi: " + ex.Message, "Lỗi",
+                                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else
+                        MessageBox.Show("Error: " + ex.Message, "Error",
+                                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    for (int i = 0; i < rowEditingNCC.Cells.Count; i++)
+                        rowEditingNCC.Cells[i].Value = originalNCCValues[i];
                 }
 
-                dgvNhaCungCap.ReadOnly = true; // Không cho chỉnh sửa nữa
-                anNutSua = false; // ấn nút sửa lần 2 là lưu
+                // --- Kết thúc edit mode: reset lại trạng thái form ---
+                isEditingNCC = false;
+                dgvNhaCungCap.ReadOnly = true;
+                foreach (DataGridViewColumn col in dgvNhaCungCap.Columns)
+                    col.ReadOnly = true;
+
+                btnXoaNCC.Enabled = true;
+                btnSuaNCC.Text = (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN") ? "Sửa" : "Edit";
             }
         }
+
 
 
         //Sự kiện nhấn nút Xoá

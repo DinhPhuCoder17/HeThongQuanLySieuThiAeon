@@ -262,5 +262,15 @@ namespace Trang_chủ_Main_Page_
                 }
             }
         }
+
+        private void guna2PictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void sidebarContainer_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

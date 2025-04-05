@@ -182,5 +182,25 @@ namespace DAL
             }
         }
 
+        // Kiểm tra xem CCCD đã tồn tại chưa
+        public bool IsCCCDExist(string cccd)
+        {
+            string query = "SELECT COUNT(*) FROM Nhanvien WHERE CCCD = @cccd ";
+            object[] parameters = { cccd };
+            object result = DataProvider.Instance.ExecuteScalar(query, parameters);
+            int count = Convert.ToInt32(result); // Trả về true nếu CCCD tồn tại
+            return count > 0;
+        }
+
+        // Kiểm tra xem SĐT đã tồn tại chưa
+        public bool IsPhoneExist(string sdt)
+        {
+            string query = "SELECT COUNT(*) FROM Nhanvien WHERE Sodienthoai = @sdt ";
+            object[] parameters = { sdt };
+            object result = DataProvider.Instance.ExecuteScalar(query, parameters);
+            int count = Convert.ToInt32(result); // Trả về true nếu SDT tồn tại
+            return count > 0;
+        }
+
     }
 }

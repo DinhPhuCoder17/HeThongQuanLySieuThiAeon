@@ -10,11 +10,11 @@ go
 CREATE TABLE Nhanvien (
     Manhanvien varchar(10) CONSTRAINT PK_Nhanvien PRIMARY KEY,
     Hoten NVARCHAR(100),
-    CCCD VARCHAR(20),
+    CCCD VARCHAR(20) UNIQUE,
     Ngaysinh DATE,
     Gioitinh NVARCHAR(10),
     Diachi NVARCHAR(255),
-    Sodienthoai VARCHAR(15),
+    Sodienthoai VARCHAR(15) UNIQUE,
 	Vaitro nvarchar(100),
 	Xoa int
 );
@@ -115,7 +115,7 @@ CREATE TABLE Hanghoa (
 	--Malo varchar(10) constraint FK_HSDHH_Malo_Hansudung Foreign Key references Hansudung(Malo),
 --	Mahanghoa varchar(10) constraint FK_HSDHH_Mahanghoa_HH Foreign Key references Hanghoa(Mahanghoa),
 --);
-
+select * from HD_HH
 CREATE TABLE HD_HH (
     Mahanghoa varchar(10),
     Sohd varchar(10),
@@ -448,15 +448,30 @@ go
 --Thêm Hóa Đơn Chi Tiết Hóa Đơn---
 go
 CREATE PROCEDURE themHH_HDBH
-    @Tenhanghoa NVARCHAR(255),
+    @Barcode NVARCHAR(50),
     @Soluong INT
 AS
 BEGIN
     DECLARE @Mahoadon VARCHAR(10);
     DECLARE @Mahanghoa VARCHAR(10);
+    DECLARE @Tenhanghoa NVARCHAR(255);  -- Thêm biến để lưu tên hàng hóa
     DECLARE @Tienban DECIMAL(18,2);
     DECLARE @Tongtien DECIMAL(18,2);
     DECLARE @SoluongTonKho INT;
+    DECLARE @SoluongNhan INT;
+    DECLARE @Ngaysanxuat DATE;
+
+    -- Lấy mã hàng hóa và tên hàng hóa từ Barcode trong bảng Hanghoa
+    SELECT @Mahanghoa = Mahanghoa, @Tenhanghoa = Tenhanghoa, @Tienban = Tienban
+    FROM Hanghoa
+    WHERE Barcode = @Barcode;
+
+    -- Kiểm tra nếu không tìm thấy mã hàng hóa
+    IF @Mahanghoa IS NULL
+    BEGIN
+        PRINT 'Error: Barcode does not exist in Hanghoa!';
+        RETURN;
+    END
 
     -- Lấy mã hóa đơn mới nhất từ bảng Hoadonbanhang
     SELECT TOP 1 @Mahoadon = Mahoadon 
@@ -466,26 +481,27 @@ BEGIN
     -- Kiểm tra nếu không tìm thấy hóa đơn nào
     IF @Mahoadon IS NULL
     BEGIN
-        PRINT ' Error: No existing Mahoadon in Hoadonbanhang!';
+        PRINT 'Error: No existing Mahoadon in Hoadonbanhang!';
         RETURN;
     END
 
-    -- Lấy mã hàng hóa, giá bán và số lượng tồn kho từ bảng Hanghoa
-    SELECT @Mahanghoa = Mahanghoa, @Tienban = Tienban, @SoluongTonKho = Soluong
-    FROM Hanghoa 
-    WHERE Tenhanghoa = @Tenhanghoa;
+    -- Lấy thông tin số lượng nhận của hàng hóa trong bảng HD_HH với Ngaysanxuat cũ nhất
+    SELECT TOP 1 @SoluongNhan = Soluongnhan, @Ngaysanxuat = Ngaysanxuat
+    FROM HD_HH 
+    WHERE Mahanghoa = @Mahanghoa
+    ORDER BY Ngaysanxuat ASC;
 
-    -- Kiểm tra nếu không tìm thấy mã hàng hóa
-    IF @Mahanghoa IS NULL
+    -- Kiểm tra nếu không tìm thấy số lượng nhận
+    IF @SoluongNhan IS NULL
     BEGIN
-        PRINT ' Error: Tenhanghoa does not exist!';
+        PRINT 'Error: No received quantity for the product in HD_HH!';
         RETURN;
     END
 
-    -- Kiểm tra nếu số lượng tồn kho không đủ để bán
-    IF @SoluongTonKho < @Soluong
+    -- Kiểm tra nếu số lượng nhận không đủ để bán
+    IF @SoluongNhan < @Soluong
     BEGIN
-        PRINT ' Error: Not enough stock for ' + @Tenhanghoa + '. Available: ' + CAST(@SoluongTonKho AS NVARCHAR);
+        PRINT 'Error: Not enough received stock for ' + @Tenhanghoa + '. Available: ' + CAST(@SoluongNhan AS NVARCHAR);
         RETURN;
     END
 
@@ -498,17 +514,23 @@ BEGIN
 
     -- Cập nhật tổng tiền trong Hoadonbanhang
     UPDATE Hoadonbanhang 
-    SET Thanhtien = (SELECT SUM(Tongtien) FROM HH_HDBH WHERE Mahoadon = @Mahoadon)
+    SET Thanhtien = ISNULL((SELECT SUM(Tongtien) FROM HH_HDBH WHERE Mahoadon = @Mahoadon), 0)
     WHERE Mahoadon = @Mahoadon;
+
+    -- Cập nhật lại số lượng nhận trong bảng HD_HH sau khi trừ đi số lượng bán
+    UPDATE HD_HH
+    SET Soluongnhan = Soluongnhan - @Soluong
+    WHERE Mahanghoa = @Mahanghoa AND Ngaysanxuat = @Ngaysanxuat;
 
     -- Trừ đi số lượng hàng hóa đã bán từ bảng Hanghoa
     UPDATE Hanghoa 
     SET Soluong = Soluong - @Soluong
     WHERE Mahanghoa = @Mahanghoa;
 
-    PRINT ' Added successfully to HH_HDBH and updated Thanhtien in Hoadonbanhang.';
-    PRINT ' Stock updated: ' + @Tenhanghoa + ' - Remaining: ' + CAST(@SoluongTonKho - @Soluong AS NVARCHAR);
+    PRINT 'Added successfully to HH_HDBH and updated Thanhtien in Hoadonbanhang.';
+    PRINT 'Stock updated: ' + @Tenhanghoa + ' - Remaining: ' + CAST(@SoluongTonKho - @Soluong AS NVARCHAR);
 END;
+
 
 go
 --xóa Hóa đơn
@@ -516,14 +538,47 @@ CREATE PROCEDURE sp_XoaHoaDon
     @MaHoaDon VARCHAR(10)
 AS
 BEGIN
+    DECLARE @Mahanghoa VARCHAR(10);
+    DECLARE @Soluong INT;
+    DECLARE @SoluongNhan INT;
+
+    -- Lặp qua các sản phẩm trong hóa đơn để cập nhật số lượng
+    DECLARE cur CURSOR FOR
+    SELECT Mahanghoa, Soluong
+    FROM HH_HDBH
+    WHERE Mahoadon = @MaHoaDon;
+
+    OPEN cur;
+    FETCH NEXT FROM cur INTO @Mahanghoa, @Soluong;
+
+    -- Duyệt qua tất cả các sản phẩm trong hóa đơn và cập nhật số lượng
+    WHILE @@FETCH_STATUS = 0
+    BEGIN
+        -- Cập nhật lại số lượng nhận trong bảng HD_HH
+        UPDATE HD_HH
+        SET Soluongnhan = Soluongnhan + @Soluong
+        WHERE Mahanghoa = @Mahanghoa AND Ngaysanxuat = (SELECT TOP 1 Ngaysanxuat FROM HD_HH WHERE Mahanghoa = @Mahanghoa ORDER BY Ngaysanxuat ASC);
+
+        -- Cập nhật lại số lượng tồn kho trong bảng Hanghoa
+        UPDATE Hanghoa
+        SET Soluong = Soluong + @Soluong
+        WHERE Mahanghoa = @Mahanghoa;
+
+        FETCH NEXT FROM cur INTO @Mahanghoa, @Soluong;
+    END
+
+    CLOSE cur;
+    DEALLOCATE cur;
+
     -- Xóa chi tiết hóa đơn trước
     DELETE FROM HH_HDBH WHERE Mahoadon = @MaHoaDon;
     
     -- Xóa hóa đơn chính
     DELETE FROM Hoadonbanhang WHERE Mahoadon = @MaHoaDon;
-    
-    PRINT 'Đã xóa hóa đơn thành công!';
+
+    PRINT 'Đã xóa hóa đơn thành công và cập nhật số lượng các sản phẩm!';
 END;
+
 --DROP PROCEDURE sp_XoaHoaDon
 --Procedure thêm mã hoá đơn nhập hàng--
 go
@@ -879,7 +934,16 @@ BEGIN
         SET @SoGiay = DATEDIFF(SECOND, @ThoigianBD, @Checkout);
         SET @Socong = @SoGiay / 28800.0; -- 28800 giây = 8 giờ
     END
-
+	 IF @Checkin > @ThoigianBD AND @Checkout < @ThoigianKT
+        SET @Trangthai = N'Trễ - Sớm'; -- Đi trễ, về sớm
+    ELSE IF @Checkin > @ThoigianBD AND @Checkout >= @ThoigianKT
+        SET @Trangthai = N'Trễ - Đúng Giờ'; -- Đi trễ, về đúng giờ hoặc về trễ
+    ELSE IF @Checkin <= @ThoigianBD AND @Checkout >= @ThoigianKT
+        SET @Trangthai = N'Đúng Giờ'; -- Đi đúng giờ hoặc sớm, về đúng giờ hoặc về trễ
+    ELSE IF @Checkin <= @ThoigianBD AND @Checkout < @ThoigianKT
+        SET @Trangthai = N'Đúng Giờ - Sớm'; -- Đi đúng giờ hoặc sớm, về đúng giờ hoặc về trễ
+    ELSE
+        SET @Trangthai = N'DG'; -- Mặc định nếu không rơi vào các trường hợp trên
     -- Thêm dữ liệu vào bảng Chamcong
     INSERT INTO Chamcong (ID, ThoigianCN, Checkin, Checkout, Socong, Trangthai, Macalam, Manhanvien)
     VALUES (@ID, @ThoigianCN, @Checkin, @Checkout, @Socong, @Trangthai, @Macalam, @Manhanvien);
@@ -888,6 +952,8 @@ BEGIN
 	END;
 END;--end proc 
 
+go
+go
 
     -- Kiểm tra nếu nhân viên có được phân
 
