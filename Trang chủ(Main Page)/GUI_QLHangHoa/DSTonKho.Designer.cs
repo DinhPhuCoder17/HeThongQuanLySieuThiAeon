@@ -37,7 +37,6 @@
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.txtSearchDSTonKho = new Guna.UI2.WinForms.Guna2TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.pb_Avata = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.lblTongSoLuongSanPham = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.label1 = new System.Windows.Forms.Label();
             this.cmb_SapXepDM_DSTK = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -57,27 +56,28 @@
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2Elipse2 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.pn_infoChanges = new Guna.UI2.WinForms.Guna2Panel();
-            this.tb_mk2 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.tm_InforChanges = new System.Windows.Forms.Timer(this.components);
+            this.pb_Avata = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.btn_Xacnhan = new Guna.UI2.WinForms.Guna2GradientButton();
             this.tb_mk1 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.lb_sdt = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.lb_Gioitinh = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.lb_Ngaysinh = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.lb_Hoten = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.lb_Ma = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel14 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel11 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.tb_mk2 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.pn_infoChanges = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel12 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel13 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel15 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel16 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel17 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.btn_Xacnhan = new Guna.UI2.WinForms.Guna2GradientButton();
-            this.tm_InforChanges = new System.Windows.Forms.Timer(this.components);
+            this.guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel9 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel14 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lb_Ma = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lb_Hoten = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lb_Ngaysinh = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lb_Gioitinh = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lb_sdt = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2CustomGradientPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_Avata)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSTonKho)).BeginInit();
             this.guna2Panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Avata)).BeginInit();
             this.pn_infoChanges.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -118,16 +118,6 @@
             // 
             resources.ApplyResources(this.label4, "label4");
             this.label4.Name = "label4";
-            // 
-            // pb_Avata
-            // 
-            this.pb_Avata.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.pb_Avata.ImageRotate = 0F;
-            resources.ApplyResources(this.pb_Avata, "pb_Avata");
-            this.pb_Avata.Name = "pb_Avata";
-            this.pb_Avata.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.pb_Avata.TabStop = false;
-            this.pb_Avata.Click += new System.EventHandler(this.pb_Avata_Click_1);
             // 
             // lblTongSoLuongSanPham
             // 
@@ -172,6 +162,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvDSTonKho.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            resources.ApplyResources(this.dgvDSTonKho, "dgvDSTonKho");
             this.dgvDSTonKho.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dgvDSTonKho.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaHang,
@@ -346,138 +337,19 @@
             resources.ApplyResources(this.guna2Panel2, "guna2Panel2");
             this.guna2Panel2.Name = "guna2Panel2";
             // 
-            // pn_infoChanges
+            // tm_InforChanges
             // 
-            this.pn_infoChanges.BackColor = System.Drawing.Color.Transparent;
-            this.pn_infoChanges.BorderColor = System.Drawing.Color.Transparent;
-            this.pn_infoChanges.BorderRadius = 20;
-            this.pn_infoChanges.Controls.Add(this.tb_mk2);
-            this.pn_infoChanges.Controls.Add(this.tb_mk1);
-            this.pn_infoChanges.Controls.Add(this.lb_sdt);
-            this.pn_infoChanges.Controls.Add(this.lb_Gioitinh);
-            this.pn_infoChanges.Controls.Add(this.lb_Ngaysinh);
-            this.pn_infoChanges.Controls.Add(this.lb_Hoten);
-            this.pn_infoChanges.Controls.Add(this.lb_Ma);
-            this.pn_infoChanges.Controls.Add(this.guna2HtmlLabel14);
-            this.pn_infoChanges.Controls.Add(this.guna2HtmlLabel11);
-            this.pn_infoChanges.Controls.Add(this.guna2HtmlLabel12);
-            this.pn_infoChanges.Controls.Add(this.guna2HtmlLabel13);
-            this.pn_infoChanges.Controls.Add(this.guna2HtmlLabel15);
-            this.pn_infoChanges.Controls.Add(this.guna2HtmlLabel16);
-            this.pn_infoChanges.Controls.Add(this.guna2HtmlLabel17);
-            this.pn_infoChanges.Controls.Add(this.btn_Xacnhan);
-            this.pn_infoChanges.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            resources.ApplyResources(this.pn_infoChanges, "pn_infoChanges");
-            this.pn_infoChanges.Name = "pn_infoChanges";
+            this.tm_InforChanges.Tick += new System.EventHandler(this.tm_InforChanges_Tick_1);
             // 
-            // tb_mk2
+            // pb_Avata
             // 
-            this.tb_mk2.BorderRadius = 8;
-            this.tb_mk2.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tb_mk2.DefaultText = "";
-            this.tb_mk2.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.tb_mk2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.tb_mk2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tb_mk2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tb_mk2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            resources.ApplyResources(this.tb_mk2, "tb_mk2");
-            this.tb_mk2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tb_mk2.Name = "tb_mk2";
-            this.tb_mk2.PlaceholderText = "";
-            this.tb_mk2.SelectedText = "";
-            // 
-            // tb_mk1
-            // 
-            this.tb_mk1.BorderRadius = 8;
-            this.tb_mk1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tb_mk1.DefaultText = "";
-            this.tb_mk1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.tb_mk1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.tb_mk1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tb_mk1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tb_mk1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            resources.ApplyResources(this.tb_mk1, "tb_mk1");
-            this.tb_mk1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tb_mk1.Name = "tb_mk1";
-            this.tb_mk1.PlaceholderText = "";
-            this.tb_mk1.SelectedText = "";
-            // 
-            // lb_sdt
-            // 
-            this.lb_sdt.BackColor = System.Drawing.Color.Transparent;
-            resources.ApplyResources(this.lb_sdt, "lb_sdt");
-            this.lb_sdt.Name = "lb_sdt";
-            this.lb_sdt.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lb_Gioitinh
-            // 
-            this.lb_Gioitinh.BackColor = System.Drawing.Color.Transparent;
-            resources.ApplyResources(this.lb_Gioitinh, "lb_Gioitinh");
-            this.lb_Gioitinh.Name = "lb_Gioitinh";
-            this.lb_Gioitinh.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lb_Ngaysinh
-            // 
-            this.lb_Ngaysinh.BackColor = System.Drawing.Color.Transparent;
-            resources.ApplyResources(this.lb_Ngaysinh, "lb_Ngaysinh");
-            this.lb_Ngaysinh.Name = "lb_Ngaysinh";
-            this.lb_Ngaysinh.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lb_Hoten
-            // 
-            this.lb_Hoten.BackColor = System.Drawing.Color.Transparent;
-            resources.ApplyResources(this.lb_Hoten, "lb_Hoten");
-            this.lb_Hoten.Name = "lb_Hoten";
-            this.lb_Hoten.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lb_Ma
-            // 
-            this.lb_Ma.BackColor = System.Drawing.Color.Transparent;
-            resources.ApplyResources(this.lb_Ma, "lb_Ma");
-            this.lb_Ma.Name = "lb_Ma";
-            this.lb_Ma.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // guna2HtmlLabel14
-            // 
-            this.guna2HtmlLabel14.BackColor = System.Drawing.Color.Transparent;
-            resources.ApplyResources(this.guna2HtmlLabel14, "guna2HtmlLabel14");
-            this.guna2HtmlLabel14.Name = "guna2HtmlLabel14";
-            // 
-            // guna2HtmlLabel11
-            // 
-            this.guna2HtmlLabel11.BackColor = System.Drawing.Color.Transparent;
-            resources.ApplyResources(this.guna2HtmlLabel11, "guna2HtmlLabel11");
-            this.guna2HtmlLabel11.Name = "guna2HtmlLabel11";
-            // 
-            // guna2HtmlLabel12
-            // 
-            this.guna2HtmlLabel12.BackColor = System.Drawing.Color.Transparent;
-            resources.ApplyResources(this.guna2HtmlLabel12, "guna2HtmlLabel12");
-            this.guna2HtmlLabel12.Name = "guna2HtmlLabel12";
-            // 
-            // guna2HtmlLabel13
-            // 
-            this.guna2HtmlLabel13.BackColor = System.Drawing.Color.Transparent;
-            resources.ApplyResources(this.guna2HtmlLabel13, "guna2HtmlLabel13");
-            this.guna2HtmlLabel13.Name = "guna2HtmlLabel13";
-            // 
-            // guna2HtmlLabel15
-            // 
-            this.guna2HtmlLabel15.BackColor = System.Drawing.Color.Transparent;
-            resources.ApplyResources(this.guna2HtmlLabel15, "guna2HtmlLabel15");
-            this.guna2HtmlLabel15.Name = "guna2HtmlLabel15";
-            // 
-            // guna2HtmlLabel16
-            // 
-            this.guna2HtmlLabel16.BackColor = System.Drawing.Color.Transparent;
-            resources.ApplyResources(this.guna2HtmlLabel16, "guna2HtmlLabel16");
-            this.guna2HtmlLabel16.Name = "guna2HtmlLabel16";
-            // 
-            // guna2HtmlLabel17
-            // 
-            this.guna2HtmlLabel17.BackColor = System.Drawing.Color.Transparent;
-            resources.ApplyResources(this.guna2HtmlLabel17, "guna2HtmlLabel17");
-            this.guna2HtmlLabel17.Name = "guna2HtmlLabel17";
+            this.pb_Avata.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.pb_Avata.ImageRotate = 0F;
+            resources.ApplyResources(this.pb_Avata, "pb_Avata");
+            this.pb_Avata.Name = "pb_Avata";
+            this.pb_Avata.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.pb_Avata.TabStop = false;
+            this.pb_Avata.Click += new System.EventHandler(this.pb_Avata_Click_1);
             // 
             // btn_Xacnhan
             // 
@@ -495,9 +367,138 @@
             this.btn_Xacnhan.ForeColor = System.Drawing.Color.White;
             this.btn_Xacnhan.Name = "btn_Xacnhan";
             // 
-            // tm_InforChanges
+            // tb_mk1
             // 
-            this.tm_InforChanges.Tick += new System.EventHandler(this.tm_InforChanges_Tick_1);
+            this.tb_mk1.BorderRadius = 8;
+            this.tb_mk1.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tb_mk1.DefaultText = "";
+            this.tb_mk1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tb_mk1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tb_mk1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tb_mk1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tb_mk1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            resources.ApplyResources(this.tb_mk1, "tb_mk1");
+            this.tb_mk1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tb_mk1.Name = "tb_mk1";
+            this.tb_mk1.PlaceholderText = "";
+            this.tb_mk1.SelectedText = "";
+            // 
+            // tb_mk2
+            // 
+            this.tb_mk2.BorderRadius = 8;
+            this.tb_mk2.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tb_mk2.DefaultText = "";
+            this.tb_mk2.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tb_mk2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tb_mk2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tb_mk2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tb_mk2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            resources.ApplyResources(this.tb_mk2, "tb_mk2");
+            this.tb_mk2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tb_mk2.Name = "tb_mk2";
+            this.tb_mk2.PlaceholderText = "";
+            this.tb_mk2.SelectedText = "";
+            // 
+            // pn_infoChanges
+            // 
+            this.pn_infoChanges.BackColor = System.Drawing.Color.Transparent;
+            this.pn_infoChanges.BorderColor = System.Drawing.Color.Transparent;
+            this.pn_infoChanges.BorderRadius = 20;
+            this.pn_infoChanges.Controls.Add(this.tb_mk2);
+            this.pn_infoChanges.Controls.Add(this.tb_mk1);
+            this.pn_infoChanges.Controls.Add(this.lb_sdt);
+            this.pn_infoChanges.Controls.Add(this.lb_Gioitinh);
+            this.pn_infoChanges.Controls.Add(this.lb_Ngaysinh);
+            this.pn_infoChanges.Controls.Add(this.lb_Hoten);
+            this.pn_infoChanges.Controls.Add(this.lb_Ma);
+            this.pn_infoChanges.Controls.Add(this.guna2HtmlLabel14);
+            this.pn_infoChanges.Controls.Add(this.guna2HtmlLabel9);
+            this.pn_infoChanges.Controls.Add(this.guna2HtmlLabel7);
+            this.pn_infoChanges.Controls.Add(this.guna2HtmlLabel5);
+            this.pn_infoChanges.Controls.Add(this.guna2HtmlLabel13);
+            this.pn_infoChanges.Controls.Add(this.guna2HtmlLabel12);
+            this.pn_infoChanges.Controls.Add(this.guna2HtmlLabel3);
+            this.pn_infoChanges.Controls.Add(this.btn_Xacnhan);
+            this.pn_infoChanges.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            resources.ApplyResources(this.pn_infoChanges, "pn_infoChanges");
+            this.pn_infoChanges.Name = "pn_infoChanges";
+            // 
+            // guna2HtmlLabel3
+            // 
+            this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.guna2HtmlLabel3, "guna2HtmlLabel3");
+            this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
+            // 
+            // guna2HtmlLabel12
+            // 
+            this.guna2HtmlLabel12.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.guna2HtmlLabel12, "guna2HtmlLabel12");
+            this.guna2HtmlLabel12.Name = "guna2HtmlLabel12";
+            // 
+            // guna2HtmlLabel13
+            // 
+            this.guna2HtmlLabel13.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.guna2HtmlLabel13, "guna2HtmlLabel13");
+            this.guna2HtmlLabel13.Name = "guna2HtmlLabel13";
+            // 
+            // guna2HtmlLabel5
+            // 
+            this.guna2HtmlLabel5.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.guna2HtmlLabel5, "guna2HtmlLabel5");
+            this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
+            // 
+            // guna2HtmlLabel7
+            // 
+            this.guna2HtmlLabel7.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.guna2HtmlLabel7, "guna2HtmlLabel7");
+            this.guna2HtmlLabel7.Name = "guna2HtmlLabel7";
+            // 
+            // guna2HtmlLabel9
+            // 
+            this.guna2HtmlLabel9.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.guna2HtmlLabel9, "guna2HtmlLabel9");
+            this.guna2HtmlLabel9.Name = "guna2HtmlLabel9";
+            // 
+            // guna2HtmlLabel14
+            // 
+            this.guna2HtmlLabel14.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.guna2HtmlLabel14, "guna2HtmlLabel14");
+            this.guna2HtmlLabel14.Name = "guna2HtmlLabel14";
+            // 
+            // lb_Ma
+            // 
+            this.lb_Ma.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.lb_Ma, "lb_Ma");
+            this.lb_Ma.Name = "lb_Ma";
+            this.lb_Ma.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lb_Hoten
+            // 
+            this.lb_Hoten.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.lb_Hoten, "lb_Hoten");
+            this.lb_Hoten.Name = "lb_Hoten";
+            this.lb_Hoten.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lb_Ngaysinh
+            // 
+            this.lb_Ngaysinh.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.lb_Ngaysinh, "lb_Ngaysinh");
+            this.lb_Ngaysinh.Name = "lb_Ngaysinh";
+            this.lb_Ngaysinh.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lb_Gioitinh
+            // 
+            this.lb_Gioitinh.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.lb_Gioitinh, "lb_Gioitinh");
+            this.lb_Gioitinh.Name = "lb_Gioitinh";
+            this.lb_Gioitinh.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lb_sdt
+            // 
+            this.lb_sdt.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.lb_sdt, "lb_sdt");
+            this.lb_sdt.Name = "lb_sdt";
+            this.lb_sdt.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // DSTonKho
             // 
@@ -515,9 +516,9 @@
             this.Load += new System.EventHandler(this.DSTonKho_Load);
             this.guna2CustomGradientPanel1.ResumeLayout(false);
             this.guna2CustomGradientPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_Avata)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSTonKho)).EndInit();
             this.guna2Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Avata)).EndInit();
             this.pn_infoChanges.ResumeLayout(false);
             this.pn_infoChanges.PerformLayout();
             this.ResumeLayout(false);
@@ -538,7 +539,6 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel lblTongSoLuongSanPham;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse2;
         private System.Windows.Forms.Label label4;
-        private Guna.UI2.WinForms.Guna2CirclePictureBox pb_Avata;
         private Guna.UI2.WinForms.Guna2TextBox txtSearchDSTonKho;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaHang;
@@ -549,22 +549,23 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn GiaNhap;
         private System.Windows.Forms.DataGridViewTextBoxColumn NhaCungCap;
         private System.Windows.Forms.DataGridViewTextBoxColumn THSD;
-        private Guna.UI2.WinForms.Guna2Panel pn_infoChanges;
-        private Guna.UI2.WinForms.Guna2TextBox tb_mk2;
+        private System.Windows.Forms.Timer tm_InforChanges;
+        private Guna.UI2.WinForms.Guna2CirclePictureBox pb_Avata;
+        private Guna.UI2.WinForms.Guna2GradientButton btn_Xacnhan;
         private Guna.UI2.WinForms.Guna2TextBox tb_mk1;
+        private Guna.UI2.WinForms.Guna2TextBox tb_mk2;
+        private Guna.UI2.WinForms.Guna2Panel pn_infoChanges;
         private Guna.UI2.WinForms.Guna2HtmlLabel lb_sdt;
         private Guna.UI2.WinForms.Guna2HtmlLabel lb_Gioitinh;
         private Guna.UI2.WinForms.Guna2HtmlLabel lb_Ngaysinh;
         private Guna.UI2.WinForms.Guna2HtmlLabel lb_Hoten;
         private Guna.UI2.WinForms.Guna2HtmlLabel lb_Ma;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel14;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel11;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel12;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel9;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel7;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel5;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel13;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel15;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel16;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel17;
-        private Guna.UI2.WinForms.Guna2GradientButton btn_Xacnhan;
-        private System.Windows.Forms.Timer tm_InforChanges;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel12;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
     }
 }

@@ -732,16 +732,18 @@ BEGIN
         PRINT 'Không tìm thấy ca làm';
         RETURN;
     END;
+	DECLARE @Socong FLOAT;
+  
 
     -- Xác định trạng thái dựa trên Checkin và Checkout
     IF @Checkin > @ThoigianBD AND @Checkout < @ThoigianKT
-        SET @Trangthai = N'T - S'; -- Đi trễ, về sớm
+        SET @Trangthai = N'Trễ - Sớm'; -- Đi trễ, về sớm
     ELSE IF @Checkin > @ThoigianBD AND @Checkout >= @ThoigianKT
-        SET @Trangthai = N'T - DG'; -- Đi trễ, về đúng giờ hoặc về trễ
+        SET @Trangthai = N'Ttrễ - Đúng Giờ'; -- Đi trễ, về đúng giờ hoặc về trễ
     ELSE IF @Checkin <= @ThoigianBD AND @Checkout >= @ThoigianKT
-        SET @Trangthai = N'DG'; -- Đi đúng giờ hoặc sớm, về đúng giờ hoặc về trễ
-	 ELSE IF @Checkin <= @ThoigianBD AND @Checkout < @ThoigianKT
-        SET @Trangthai = N'DG - S'; -- Đi đúng giờ hoặc sớm, về đúng giờ hoặc về trễ
+        SET @Trangthai = N'Đúng Giờ'; -- Đi đúng giờ hoặc sớm, về đúng giờ hoặc về trễ
+    ELSE IF @Checkin <= @ThoigianBD AND @Checkout < @ThoigianKT
+        SET @Trangthai = N'Đúng Giờ  - SỚm'; -- Đi đúng giờ hoặc sớm, về đúng giờ hoặc về trễ
     ELSE
         SET @Trangthai = N'DG'; -- Mặc định nếu không rơi vào các trường hợp trên
 
@@ -758,12 +760,21 @@ BEGIN
     -- Set ID
     SET @ID = 'CC' + RIGHT('0000' + CAST(@MaxID AS VARCHAR(4)), 4);
 
-    DECLARE @Socong FLOAT;
+      -- Kiểm tra nếu Checkin hoặc Checkout là 00:00:00, số công = 0
+    IF @Checkin = '00:00:00' OR @Checkout = '00:00:00'
+    BEGIN
+        SET @Socong = 0;
+        SET @Trangthai = N'Không chấm công';
+        -- Thêm dữ liệu vào bảng Chamcong với số công = 0
+       INSERT INTO Chamcong (ID, ThoigianCN, Checkin, Checkout, Socong, Trangthai, Macalam, Manhanvien)
+    VALUES (@ID, @ThoigianCN, @Checkin, @Checkout, @Socong, @Trangthai, @Macalam, @Manhanvien);
+        PRINT 'Đã thêm chấm công với ID: CC0000 và trạng thái: Không chấm công';
+        RETURN;
+    END;
     DECLARE @SoGiay INT;
 
     -- Kiểm tra thời gian về sớm hoặc đúng giờ
     IF @Checkout <= @ThoigianKT -- Về sớm
-       
         SET @SoGiay = DATEDIFF(SECOND, @Checkin, @ThoigianKT);
 
     -- Chuyển giây thành số công (giờ), với giả sử một ngày làm việc là 8 giờ (28800 giây)
@@ -782,6 +793,7 @@ BEGIN
 
     PRINT 'Đã thêm chấm công với ID: ' + @ID + ' và trạng thái: ' + @Trangthai;
 END;
+
 
 
 

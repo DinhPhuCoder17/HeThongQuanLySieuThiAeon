@@ -183,12 +183,9 @@ namespace Trang_chủ_Main_Page_
         {
             if (txt_ThoiGianCapNhat.Text == "")
             {
-                MessageBox.Show("Vui lòng nhập thời gian cập nhật!");
+                MessageBox.Show("Vui lòng nhập ngày làm!");
             }
-            else if (txt_MaCalam.Text == "")
-            {
-                MessageBox.Show("Vui lòng nhập mã ca làm!");
-            }
+           
             else if (txt_CheckIn.Text == "")
             {
                 MessageBox.Show("Vui lòng nhập thời gian check In");
@@ -242,7 +239,7 @@ namespace Trang_chủ_Main_Page_
 
 
                 // Gọi phương thức thêm chấm công với dữ liệu đúng kiểu
-                bool result = bLL_QuanlyTCNS.ThemChamCong(thoiGianCN, checkIn, checkOut, txt_MaCalam.Text, txt_MaNhanVien.Text );
+                bool result = bLL_QuanlyTCNS.ThemChamCong(thoiGianCN, checkIn, checkOut, txt_MaNhanVien.Text );
 
                 // Kiểm tra kết quả
                 if (result)
@@ -261,7 +258,7 @@ namespace Trang_chủ_Main_Page_
                     logTransition.Start();
                     txt_CheckIn.Text = "";
                     txt_CheckOut.Text = "";
-                    txt_MaCalam.Text = "";
+                   
                     txt_MaNhanVien.Text = "";
                     txt_ThoiGianCapNhat.Text = "";
                 
@@ -272,7 +269,7 @@ namespace Trang_chủ_Main_Page_
                     logTransition.Start();
                     txt_CheckIn.Text = "";
                     txt_CheckOut.Text = "";
-                    txt_MaCalam.Text = "";
+                   
                     txt_MaNhanVien.Text = "";
                     txt_ThoiGianCapNhat.Text = "";
                 }
@@ -466,6 +463,11 @@ namespace Trang_chủ_Main_Page_
         {
             string pattern = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$";
             return Regex.IsMatch(password, pattern);
+        }
+
+        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

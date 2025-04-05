@@ -560,6 +560,7 @@
             // 
             // tm_InforChanges
             // 
+            this.tm_InforChanges.Interval = 10;
             this.tm_InforChanges.Tick += new System.EventHandler(this.tm_InforChanges_Tick_1);
             // 
             // pn_infoChanges

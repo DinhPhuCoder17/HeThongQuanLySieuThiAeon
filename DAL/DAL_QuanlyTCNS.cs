@@ -80,12 +80,11 @@ namespace DAL
             {
          
 
-                int line = DataProvider.Instance.ExecuteNonQuery("exec themChamCong @ThoigianCN , @Checkin , @Checkout , @Macalam , @Manhanvien", new object[]
+                int line = DataProvider.Instance.ExecuteNonQuery("exec themChamCong @ThoigianCN , @Checkin , @Checkout , @Manhanvien", new object[]
                 {
             chamCong.thoiGianCN,
             chamCong.checkIn ,
             chamCong.checkOut ,
-            chamCong.maCaLam ,
             chamCong.maNhanVien
                 });
 
