@@ -73,15 +73,15 @@ namespace Trang_chủ_Main_Page_
             try
             {
                 string barcode = TxtBarcode.Text.Trim();
-                if (!Regex.IsMatch(barcode, @"^[a-zA-Z0-9]{1,20}$"))
+                if (!Regex.IsMatch(barcode, @"^\d{13}$"))
                 {
                     if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
                     {
-                        MessageBox.Show("Barcode không hợp lệ! (Chỉ chứa chữ cái và số. Độ dài tối đa: 20 ký tự).");
+                        MessageBox.Show("Barcode không hợp lệ! (Chỉ chứa số. Chỉ có 13 ký tự).");
                     }
                     else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
                     {
-                        MessageBox.Show("Invalid barcode! (Only letters and numbers are allowed. Maximum length: 20 characters).");
+                        MessageBox.Show("Invalid barcode! (Numbers only. Must be exactly 13 characters long.)");
                     }
 
                     return;

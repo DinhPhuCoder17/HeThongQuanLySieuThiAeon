@@ -77,7 +77,27 @@ namespace BLL
         {
             return DAL_QuanLyKho.Instance.KhoiPhucHangHoa(barcode);
         }
+        public bool KhoiPhucNCC(string MaSoThue)
+        {
+            return DAL_QuanLyKho.Instance.KhoiPhucNCC(MaSoThue);
+        }
+        public List<DTO_NhaCungCap> xemMaSoThue()
+        {
+            DataTable dt = DAL_QuanLyKho.Instance.xemMaSoThue();
+            List<DTO_NhaCungCap> ds = new List<DTO_NhaCungCap>();
 
+            foreach (DataRow dr in dt.Rows)
+            {
+                DTO_NhaCungCap _list = new DTO_NhaCungCap
+                {
+                    MaSoThue = dr["MaSoThue"].ToString()
+                };
+
+                ds.Add(_list);
+            }
+
+            return ds;
+        }
         public DataTable XemCTHH(string mahh)
         {
             return DAL_QuanLyKho.Instance.XemCTHH(mahh);
