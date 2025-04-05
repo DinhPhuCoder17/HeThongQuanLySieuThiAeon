@@ -8849,8 +8849,8 @@
         9agN2VArJvw6jFP4dDjsJaNaAwY9Ogz4DOgPmtEbtqHTbxYZeDpgEcI+0RNBYTSD/OghHM5EMJgMYCDh
         2y63B5HtiWB+RMPK0S5MdAUwGnej328UWT+Z4SgG3ToMS6047NGLGPPoMe41YNJnKgl7gBztFlF6v9E/
         JzGnEnyp9L496Y2Gw1Bsl9ipX05l9a1Ov3Cz09dvCPqN2BKC7iwJukb31C0iVjQXFjJ+FPuiyB6KoF/1
-  <data name="&gt;&gt;guna2Panel1.ZOrder" xml:space="preserve">
-    <value>7</value>
+        IeF3IOw2wmXV/dpta7nu99oWVDXYfOvrhGEYhvk/Rq/PduC+o+Hsd84Vrrx5tvDLNx8v4tsXj+Gb59bw
+        8Ew/VrpjyCdDmE0EMa8FsJAqCflKJoAl2rWteVGgASZRJ3KqhKwq4XBcRm/ch86QG1HZAcVqgtuog2yq
         R1fIjL6YAx1yO4z6RjQ11qK+rgZ1FPWNqK1tQF1dA5oaG9Da2ox2fQusphZ47G0IyGbEFBMyAQsGOxwY
         p98Xc2K6w4rpoAFTviYRWV8zxr3NGJUbMSI1YGhb0PuCZmT8RjEtTvW0Iya1iQx8NOVHbkhDcawHhcM9
         yPZrONLVgcOd1HvuwFRfFLmBOHJ9MQwnZAzHnBgMmjHgacMQ9czlVgxLLRhy6zAitWJUbsOYp10I+oRi
@@ -8892,10 +8892,12 @@
         MAzDMAzDMAzDMAzDMAzDMAzDMAzDMAzDMAzDMAzDMAzDMAzDMAzDMAzDMAzDMAzDMAzDMAzDMAzDMAzD
         MAzDMAzDMAzDMAzDMAzDMAzDMAzDMAzDMAzDMAzDMAzDMAzDMAzDMAzDMAzD/Pf8J1b/xKGEylkQAAAA
         AElFTkSuQmCC
-</value>
+  
+	</value>
   </data>
   <data name="pb_Avatar.InitialImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
+    <value>
+	  </value>
   </data>
   <data name="pb_Avatar.Location" type="System.Drawing.Point, System.Drawing">
     <value>696, 6</value>
