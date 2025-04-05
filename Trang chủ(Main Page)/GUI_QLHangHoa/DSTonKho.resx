@@ -9044,6 +9044,30 @@
   <metadata name="tm_InforChanges.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>521, 17</value>
   </metadata>
+  <data name="pb_Avata.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pb_Avata.Location" type="System.Drawing.Point, System.Drawing">
+    <value>707, 23</value>
+  </data>
+  <data name="pb_Avata.Size" type="System.Drawing.Size, System.Drawing">
+    <value>51, 48</value>
+  </data>
+  <data name="pb_Avata.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;pb_Avata.Name" xml:space="preserve">
+    <value>pb_Avata</value>
+  </data>
+  <data name="&gt;&gt;pb_Avata.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2CirclePictureBox, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;pb_Avata.Parent" xml:space="preserve">
+    <value>guna2CustomGradientPanel1</value>
+  </data>
+  <data name="&gt;&gt;pb_Avata.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
   <data name="btn_Xacnhan.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 10pt</value>
   </data>

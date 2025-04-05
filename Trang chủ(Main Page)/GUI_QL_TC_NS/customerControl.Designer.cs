@@ -87,6 +87,7 @@
             // 
             // txt_Customer_Hoten
             // 
+            resources.ApplyResources(this.txt_Customer_Hoten, "txt_Customer_Hoten");
             this.txt_Customer_Hoten.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txt_Customer_Hoten.DefaultText = "";
             this.txt_Customer_Hoten.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -94,7 +95,6 @@
             this.txt_Customer_Hoten.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txt_Customer_Hoten.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txt_Customer_Hoten.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            resources.ApplyResources(this.txt_Customer_Hoten, "txt_Customer_Hoten");
             this.txt_Customer_Hoten.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_Customer_Hoten.Name = "txt_Customer_Hoten";
             this.txt_Customer_Hoten.PlaceholderText = "Họ tên khách hàng";
@@ -102,6 +102,7 @@
             // 
             // txt_DiaChiKH
             // 
+            resources.ApplyResources(this.txt_DiaChiKH, "txt_DiaChiKH");
             this.txt_DiaChiKH.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txt_DiaChiKH.DefaultText = "";
             this.txt_DiaChiKH.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -109,7 +110,6 @@
             this.txt_DiaChiKH.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txt_DiaChiKH.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txt_DiaChiKH.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            resources.ApplyResources(this.txt_DiaChiKH, "txt_DiaChiKH");
             this.txt_DiaChiKH.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_DiaChiKH.Name = "txt_DiaChiKH";
             this.txt_DiaChiKH.PlaceholderText = "Địa chỉ khách hàng";
@@ -127,6 +127,7 @@
             // 
             // menu_CusTomer_Add
             // 
+            resources.ApplyResources(this.menu_CusTomer_Add, "menu_CusTomer_Add");
             this.menu_CusTomer_Add.Controls.Add(this.cb_GioiTinhKH);
             this.menu_CusTomer_Add.Controls.Add(this.lb_GioiTinhKH);
             this.menu_CusTomer_Add.Controls.Add(this.txt_Customer_SDT);
@@ -136,18 +137,17 @@
             this.menu_CusTomer_Add.Controls.Add(this.btnCustomerAdd_Send);
             this.menu_CusTomer_Add.Controls.Add(this.lb_DiaChiKH);
             this.menu_CusTomer_Add.Controls.Add(this.txt_DiaChiKH);
-            resources.ApplyResources(this.menu_CusTomer_Add, "menu_CusTomer_Add");
             this.menu_CusTomer_Add.Name = "menu_CusTomer_Add";
             this.menu_CusTomer_Add.Paint += new System.Windows.Forms.PaintEventHandler(this.menu_CusTomer_Add_Paint);
             // 
             // cb_GioiTinhKH
             // 
+            resources.ApplyResources(this.cb_GioiTinhKH, "cb_GioiTinhKH");
             this.cb_GioiTinhKH.BackColor = System.Drawing.Color.Transparent;
             this.cb_GioiTinhKH.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cb_GioiTinhKH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_GioiTinhKH.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cb_GioiTinhKH.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            resources.ApplyResources(this.cb_GioiTinhKH, "cb_GioiTinhKH");
             this.cb_GioiTinhKH.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cb_GioiTinhKH.Items.AddRange(new object[] {
             resources.GetString("cb_GioiTinhKH.Items"),
@@ -163,6 +163,7 @@
             // 
             // txt_Customer_SDT
             // 
+            resources.ApplyResources(this.txt_Customer_SDT, "txt_Customer_SDT");
             this.txt_Customer_SDT.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txt_Customer_SDT.DefaultText = "";
             this.txt_Customer_SDT.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -170,7 +171,6 @@
             this.txt_Customer_SDT.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txt_Customer_SDT.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txt_Customer_SDT.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            resources.ApplyResources(this.txt_Customer_SDT, "txt_Customer_SDT");
             this.txt_Customer_SDT.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_Customer_SDT.Name = "txt_Customer_SDT";
             this.txt_Customer_SDT.PlaceholderText = "Số điện thoại khách hàng";
@@ -183,13 +183,13 @@
             // 
             // btnCustomerAdd_Send
             // 
+            resources.ApplyResources(this.btnCustomerAdd_Send, "btnCustomerAdd_Send");
             this.btnCustomerAdd_Send.BorderRadius = 8;
             this.btnCustomerAdd_Send.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnCustomerAdd_Send.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnCustomerAdd_Send.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnCustomerAdd_Send.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnCustomerAdd_Send.FillColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.btnCustomerAdd_Send, "btnCustomerAdd_Send");
             this.btnCustomerAdd_Send.ForeColor = System.Drawing.Color.Black;
             this.btnCustomerAdd_Send.Name = "btnCustomerAdd_Send";
             this.btnCustomerAdd_Send.Click += new System.EventHandler(this.btnCustomerAdd_Send_Click);
@@ -207,25 +207,25 @@
             // 
             // guna2Separator2
             // 
+            resources.ApplyResources(this.guna2Separator2, "guna2Separator2");
             this.guna2Separator2.BackColor = System.Drawing.Color.Transparent;
             this.guna2Separator2.FillColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.guna2Separator2, "guna2Separator2");
             this.guna2Separator2.Name = "guna2Separator2";
             this.guna2Separator2.UseTransparentBackground = true;
             // 
             // lblCustomerList
             // 
-            this.lblCustomerList.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.lblCustomerList, "lblCustomerList");
+            this.lblCustomerList.BackColor = System.Drawing.Color.Transparent;
             this.lblCustomerList.Name = "lblCustomerList";
             // 
             // guna2Panel1
             // 
+            resources.ApplyResources(this.guna2Panel1, "guna2Panel1");
             this.guna2Panel1.BackColor = System.Drawing.Color.White;
             this.guna2Panel1.Controls.Add(this.label4);
             this.guna2Panel1.Controls.Add(this.pb_Avata);
             this.guna2Panel1.Controls.Add(this.txt_Customer_SearchBar);
-            resources.ApplyResources(this.guna2Panel1, "guna2Panel1");
             this.guna2Panel1.Name = "guna2Panel1";
             // 
             // label4
@@ -235,8 +235,8 @@
             // 
             // pb_Avata
             // 
-            this.pb_Avata.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             resources.ApplyResources(this.pb_Avata, "pb_Avata");
+            this.pb_Avata.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.pb_Avata.ImageRotate = 0F;
             this.pb_Avata.Name = "pb_Avata";
             this.pb_Avata.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
@@ -245,6 +245,7 @@
             // 
             // txt_Customer_SearchBar
             // 
+            resources.ApplyResources(this.txt_Customer_SearchBar, "txt_Customer_SearchBar");
             this.txt_Customer_SearchBar.Animated = true;
             this.txt_Customer_SearchBar.BackColor = System.Drawing.Color.White;
             this.txt_Customer_SearchBar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
@@ -258,7 +259,6 @@
             this.txt_Customer_SearchBar.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txt_Customer_SearchBar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
             this.txt_Customer_SearchBar.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            resources.ApplyResources(this.txt_Customer_SearchBar, "txt_Customer_SearchBar");
             this.txt_Customer_SearchBar.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_Customer_SearchBar.IconLeft = global::Trang_chu_Main_Page_.Properties.Resources.Thiết_kế_chưa_có_tên__14_;
             this.txt_Customer_SearchBar.Name = "txt_Customer_SearchBar";
@@ -274,6 +274,7 @@
             // 
             // dtg_CustomerList
             // 
+            resources.ApplyResources(this.dtg_CustomerList, "dtg_CustomerList");
             this.dtg_CustomerList.AllowUserToAddRows = false;
             this.dtg_CustomerList.AllowUserToDeleteRows = false;
             this.dtg_CustomerList.AllowUserToResizeColumns = false;
@@ -288,7 +289,6 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dtg_CustomerList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            resources.ApplyResources(this.dtg_CustomerList, "dtg_CustomerList");
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -348,19 +348,19 @@
             // 
             // guna2HtmlLabel1
             // 
-            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.guna2HtmlLabel1, "guna2HtmlLabel1");
+            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
             // 
             // cb_Customer_Filter
             // 
+            resources.ApplyResources(this.cb_Customer_Filter, "cb_Customer_Filter");
             this.cb_Customer_Filter.BackColor = System.Drawing.Color.Transparent;
             this.cb_Customer_Filter.BorderRadius = 8;
             this.cb_Customer_Filter.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cb_Customer_Filter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_Customer_Filter.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cb_Customer_Filter.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            resources.ApplyResources(this.cb_Customer_Filter, "cb_Customer_Filter");
             this.cb_Customer_Filter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cb_Customer_Filter.Items.AddRange(new object[] {
             resources.GetString("cb_Customer_Filter.Items"),
@@ -370,6 +370,7 @@
             // 
             // btn_Customer_Delete
             // 
+            resources.ApplyResources(this.btn_Customer_Delete, "btn_Customer_Delete");
             this.btn_Customer_Delete.Animated = true;
             this.btn_Customer_Delete.BackColor = System.Drawing.Color.Transparent;
             this.btn_Customer_Delete.BorderRadius = 8;
@@ -380,13 +381,13 @@
             this.btn_Customer_Delete.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btn_Customer_Delete.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
             this.btn_Customer_Delete.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            resources.ApplyResources(this.btn_Customer_Delete, "btn_Customer_Delete");
             this.btn_Customer_Delete.ForeColor = System.Drawing.Color.White;
             this.btn_Customer_Delete.Name = "btn_Customer_Delete";
             this.btn_Customer_Delete.Click += new System.EventHandler(this.btn_Customer_Delete_Click);
             // 
             // btn_Customer_Add
             // 
+            resources.ApplyResources(this.btn_Customer_Add, "btn_Customer_Add");
             this.btn_Customer_Add.Animated = true;
             this.btn_Customer_Add.BackColor = System.Drawing.Color.Transparent;
             this.btn_Customer_Add.BorderRadius = 8;
@@ -397,13 +398,13 @@
             this.btn_Customer_Add.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btn_Customer_Add.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
             this.btn_Customer_Add.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            resources.ApplyResources(this.btn_Customer_Add, "btn_Customer_Add");
             this.btn_Customer_Add.ForeColor = System.Drawing.Color.White;
             this.btn_Customer_Add.Name = "btn_Customer_Add";
             this.btn_Customer_Add.Click += new System.EventHandler(this.btn_Customer_Add_Click);
             // 
             // btn_Customer_Change
             // 
+            resources.ApplyResources(this.btn_Customer_Change, "btn_Customer_Change");
             this.btn_Customer_Change.Animated = true;
             this.btn_Customer_Change.BackColor = System.Drawing.Color.Transparent;
             this.btn_Customer_Change.BorderRadius = 8;
@@ -414,13 +415,13 @@
             this.btn_Customer_Change.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btn_Customer_Change.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
             this.btn_Customer_Change.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            resources.ApplyResources(this.btn_Customer_Change, "btn_Customer_Change");
             this.btn_Customer_Change.ForeColor = System.Drawing.Color.White;
             this.btn_Customer_Change.Name = "btn_Customer_Change";
             this.btn_Customer_Change.Click += new System.EventHandler(this.btn_Customer_Change_Click);
             // 
             // pn_infoChanges
             // 
+            resources.ApplyResources(this.pn_infoChanges, "pn_infoChanges");
             this.pn_infoChanges.BackColor = System.Drawing.Color.Transparent;
             this.pn_infoChanges.BorderColor = System.Drawing.Color.Transparent;
             this.pn_infoChanges.BorderRadius = 20;
@@ -440,11 +441,11 @@
             this.pn_infoChanges.Controls.Add(this.guna2HtmlLabel3);
             this.pn_infoChanges.Controls.Add(this.btn_Xacnhan);
             this.pn_infoChanges.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            resources.ApplyResources(this.pn_infoChanges, "pn_infoChanges");
             this.pn_infoChanges.Name = "pn_infoChanges";
             // 
             // tb_mk2
             // 
+            resources.ApplyResources(this.tb_mk2, "tb_mk2");
             this.tb_mk2.BorderRadius = 8;
             this.tb_mk2.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tb_mk2.DefaultText = "";
@@ -453,7 +454,6 @@
             this.tb_mk2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tb_mk2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tb_mk2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            resources.ApplyResources(this.tb_mk2, "tb_mk2");
             this.tb_mk2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tb_mk2.Name = "tb_mk2";
             this.tb_mk2.PlaceholderText = "";
@@ -461,6 +461,7 @@
             // 
             // tb_mk1
             // 
+            resources.ApplyResources(this.tb_mk1, "tb_mk1");
             this.tb_mk1.BorderRadius = 8;
             this.tb_mk1.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tb_mk1.DefaultText = "";
@@ -469,7 +470,6 @@
             this.tb_mk1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tb_mk1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tb_mk1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            resources.ApplyResources(this.tb_mk1, "tb_mk1");
             this.tb_mk1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tb_mk1.Name = "tb_mk1";
             this.tb_mk1.PlaceholderText = "";
@@ -477,83 +477,84 @@
             // 
             // lb_sdt
             // 
-            this.lb_sdt.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.lb_sdt, "lb_sdt");
+            this.lb_sdt.BackColor = System.Drawing.Color.Transparent;
             this.lb_sdt.Name = "lb_sdt";
             this.lb_sdt.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lb_Gioitinh
             // 
-            this.lb_Gioitinh.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.lb_Gioitinh, "lb_Gioitinh");
+            this.lb_Gioitinh.BackColor = System.Drawing.Color.Transparent;
             this.lb_Gioitinh.Name = "lb_Gioitinh";
             this.lb_Gioitinh.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lb_Ngaysinh
             // 
-            this.lb_Ngaysinh.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.lb_Ngaysinh, "lb_Ngaysinh");
+            this.lb_Ngaysinh.BackColor = System.Drawing.Color.Transparent;
             this.lb_Ngaysinh.Name = "lb_Ngaysinh";
             this.lb_Ngaysinh.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lb_Hoten
             // 
-            this.lb_Hoten.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.lb_Hoten, "lb_Hoten");
+            this.lb_Hoten.BackColor = System.Drawing.Color.Transparent;
             this.lb_Hoten.Name = "lb_Hoten";
             this.lb_Hoten.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lb_Ma
             // 
-            this.lb_Ma.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.lb_Ma, "lb_Ma");
+            this.lb_Ma.BackColor = System.Drawing.Color.Transparent;
             this.lb_Ma.Name = "lb_Ma";
             this.lb_Ma.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // guna2HtmlLabel14
             // 
-            this.guna2HtmlLabel14.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.guna2HtmlLabel14, "guna2HtmlLabel14");
+            this.guna2HtmlLabel14.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel14.Name = "guna2HtmlLabel14";
             // 
             // guna2HtmlLabel9
             // 
-            this.guna2HtmlLabel9.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.guna2HtmlLabel9, "guna2HtmlLabel9");
+            this.guna2HtmlLabel9.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel9.Name = "guna2HtmlLabel9";
             // 
             // guna2HtmlLabel7
             // 
-            this.guna2HtmlLabel7.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.guna2HtmlLabel7, "guna2HtmlLabel7");
+            this.guna2HtmlLabel7.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel7.Name = "guna2HtmlLabel7";
             // 
             // guna2HtmlLabel5
             // 
-            this.guna2HtmlLabel5.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.guna2HtmlLabel5, "guna2HtmlLabel5");
+            this.guna2HtmlLabel5.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
             // 
             // guna2HtmlLabel13
             // 
-            this.guna2HtmlLabel13.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.guna2HtmlLabel13, "guna2HtmlLabel13");
+            this.guna2HtmlLabel13.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel13.Name = "guna2HtmlLabel13";
             // 
             // guna2HtmlLabel12
             // 
-            this.guna2HtmlLabel12.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.guna2HtmlLabel12, "guna2HtmlLabel12");
+            this.guna2HtmlLabel12.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel12.Name = "guna2HtmlLabel12";
             // 
             // guna2HtmlLabel3
             // 
-            this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.guna2HtmlLabel3, "guna2HtmlLabel3");
+            this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
             // 
             // btn_Xacnhan
             // 
+            resources.ApplyResources(this.btn_Xacnhan, "btn_Xacnhan");
             this.btn_Xacnhan.Animated = true;
             this.btn_Xacnhan.BackColor = System.Drawing.Color.Transparent;
             this.btn_Xacnhan.BorderRadius = 8;
@@ -564,7 +565,6 @@
             this.btn_Xacnhan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btn_Xacnhan.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
             this.btn_Xacnhan.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            resources.ApplyResources(this.btn_Xacnhan, "btn_Xacnhan");
             this.btn_Xacnhan.ForeColor = System.Drawing.Color.White;
             this.btn_Xacnhan.Name = "btn_Xacnhan";
             this.btn_Xacnhan.Click += new System.EventHandler(this.btn_Xacnhan_Click);
@@ -576,8 +576,8 @@
             // 
             // customerControl
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             resources.ApplyResources(this, "$this");
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.Controls.Add(this.pn_infoChanges);
             this.Controls.Add(this.btn_Customer_Change);
             this.Controls.Add(this.btn_Customer_Add);

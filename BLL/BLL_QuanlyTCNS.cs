@@ -126,8 +126,8 @@ namespace BLL
                                   TimeSpan.TryParse(dataTable.Rows[i][2].ToString().Trim(), out TimeSpan checkOut) ? checkOut : TimeSpan.Zero, // Check-out (mặc định 00:00 nếu lỗi)
                                   0, // Số công (mặc định là 0)
                                   null, // Trạng thái (để null)
-                                  dataTable.Rows[i][3]?.ToString(), // Mã ca làm
-                                  dataTable.Rows[i][4]?.ToString() // Mã nhân viên
+                                  null, // Mã ca làm
+                                  dataTable.Rows[i][3]?.ToString() // Mã nhân viên
   );
 
                                 listChamCong.Add(chamCong);
@@ -176,7 +176,7 @@ namespace BLL
                     var item = danhSachCTHD[count];
                     item.maHoaDon = hoaDon.maHoaDon;
                     count++;
-                    string danhSachSanPham = item.tenHangHoa; ;  // Chuỗi sản phẩm
+                    string danhSachSanPham = item.barCode; ;  // Chuỗi sản phẩm
                     string danhSachSoLuong = item.soLuong;
                     var chiTietHoaDons = TachSanPhamVaSoLuong(danhSachSanPham, danhSachSoLuong);
                 foreach (var cthd in chiTietHoaDons)
@@ -229,9 +229,11 @@ namespace BLL
                                 DTO_CT_HDBH cT_HDBH = new DTO_CT_HDBH(
                                     null, // Mã hàng hóa
                                     null, // Mã hóa đơn (có thể cần cập nhật sau)
-                                    dataTable.Rows[i][3]?.ToString(), // Tên hàng hóa
+                                    null, // Tên hàng hóa (có thể cần cập nhật sau)
+                                    
                                     dataTable.Rows[i][4]?.ToString(), // Số lượng
-                                    0 // Tổng tiền
+                                    0,
+                                    dataTable.Rows[i][3]?.ToString()// barcode
                                 );
 
                                 listHoaDon.Add(hoadonbanhang);
@@ -269,10 +271,12 @@ namespace BLL
             {
                 DTO_CT_HDBH cT_HDB = new DTO_CT_HDBH(
                                    null, // Mã hàng hóa
-                                   null, // Mã hóa đơn (có thể cần cập nhật sau)
-                                   sanPhams[i].Trim(),
+                                   null,
+                                   null,// Mã hóa đơn (có thể cần cập nhật sau)
+                                   
                                    soLuongs[i].Trim(),// Số lượng
-                                   0 // Tổng tiền
+                                   0,
+                                   sanPhams[i].Trim()// Tổng tiền
                                );
                 danhSachCTHD.Add(cT_HDB);
             }
@@ -294,7 +298,7 @@ namespace BLL
         //thêm  chi tiết hóa đơn
         public bool ThemChiTietHoaDon(string tenHangHoa, String  soLuong)
         {
-            DTO_CT_HDBH chiTietHoaDon = new DTO_CT_HDBH(null,null, tenHangHoa, soLuong, 0);
+            DTO_CT_HDBH chiTietHoaDon = new DTO_CT_HDBH(null,null,null,  soLuong, 0,tenHangHoa);
 
             if (dAL_QuanlyTCNS.ThemChiTietHoaDon(chiTietHoaDon))
             {

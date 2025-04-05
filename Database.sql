@@ -115,7 +115,7 @@ CREATE TABLE Hanghoa (
 	--Malo varchar(10) constraint FK_HSDHH_Malo_Hansudung Foreign Key references Hansudung(Malo),
 --	Mahanghoa varchar(10) constraint FK_HSDHH_Mahanghoa_HH Foreign Key references Hanghoa(Mahanghoa),
 --);
-
+select * from HD_HH
 CREATE TABLE HD_HH (
     Mahanghoa varchar(10),
     Sohd varchar(10),
@@ -182,36 +182,7 @@ CREATE TABLE Khieunai (
 -- End Trigger đếm giờ chuyển trạng thái xác nhận--
 
 --Trigger tranh nhan vien cham cong 2 lan--
-go
-Create trigger tg_ChamCong
-on Chamcong
-For Insert
-As
-Begin
-	--Kiem tra nhan vien da cham cong chua--
-	if (
-		Select count(*)
-		From Chamcong join Inserted i on Chamcong.Macalam = i.Macalam
-		Where Chamcong.Manhanvien = i.Manhanvien
-		Group By Chamcong.Macalam, Chamcong.Manhanvien
-	) >= 2
-	Begin
-		print(N'Nhân viên đã chấm công ca này')
-		rollback tran
-		return
-	End
 
-	--Kiem tra nhan vien co duoc xep ca do khong--
-	if not exists (
-		Select 1
-		From inserted i join Batbuoc bb
-		on i.Macalam = bb.Macalam and i.Manhanvien = bb.Manhanvien
-	)
-	Begin
-		print(N'Nhân viên không được phân công ca này')
-		rollback tran
-	End	
-End
 --Trigger Cham cong--
 
 --Trigger bang HH_HDBH--
@@ -477,15 +448,30 @@ go
 --Thêm Hóa Đơn Chi Tiết Hóa Đơn---
 go
 CREATE PROCEDURE themHH_HDBH
-    @Tenhanghoa NVARCHAR(255),
+    @Barcode NVARCHAR(50),
     @Soluong INT
 AS
 BEGIN
     DECLARE @Mahoadon VARCHAR(10);
     DECLARE @Mahanghoa VARCHAR(10);
+    DECLARE @Tenhanghoa NVARCHAR(255);  -- Thêm biến để lưu tên hàng hóa
     DECLARE @Tienban DECIMAL(18,2);
     DECLARE @Tongtien DECIMAL(18,2);
     DECLARE @SoluongTonKho INT;
+    DECLARE @SoluongNhan INT;
+    DECLARE @Ngaysanxuat DATE;
+
+    -- Lấy mã hàng hóa và tên hàng hóa từ Barcode trong bảng Hanghoa
+    SELECT @Mahanghoa = Mahanghoa, @Tenhanghoa = Tenhanghoa, @Tienban = Tienban
+    FROM Hanghoa
+    WHERE Barcode = @Barcode;
+
+    -- Kiểm tra nếu không tìm thấy mã hàng hóa
+    IF @Mahanghoa IS NULL
+    BEGIN
+        PRINT 'Error: Barcode does not exist in Hanghoa!';
+        RETURN;
+    END
 
     -- Lấy mã hóa đơn mới nhất từ bảng Hoadonbanhang
     SELECT TOP 1 @Mahoadon = Mahoadon 
@@ -495,26 +481,27 @@ BEGIN
     -- Kiểm tra nếu không tìm thấy hóa đơn nào
     IF @Mahoadon IS NULL
     BEGIN
-        PRINT ' Error: No existing Mahoadon in Hoadonbanhang!';
+        PRINT 'Error: No existing Mahoadon in Hoadonbanhang!';
         RETURN;
     END
 
-    -- Lấy mã hàng hóa, giá bán và số lượng tồn kho từ bảng Hanghoa
-    SELECT @Mahanghoa = Mahanghoa, @Tienban = Tienban, @SoluongTonKho = Soluong
-    FROM Hanghoa 
-    WHERE Tenhanghoa = @Tenhanghoa;
+    -- Lấy thông tin số lượng nhận của hàng hóa trong bảng HD_HH với Ngaysanxuat cũ nhất
+    SELECT TOP 1 @SoluongNhan = Soluongnhan, @Ngaysanxuat = Ngaysanxuat
+    FROM HD_HH 
+    WHERE Mahanghoa = @Mahanghoa
+    ORDER BY Ngaysanxuat ASC;
 
-    -- Kiểm tra nếu không tìm thấy mã hàng hóa
-    IF @Mahanghoa IS NULL
+    -- Kiểm tra nếu không tìm thấy số lượng nhận
+    IF @SoluongNhan IS NULL
     BEGIN
-        PRINT ' Error: Tenhanghoa does not exist!';
+        PRINT 'Error: No received quantity for the product in HD_HH!';
         RETURN;
     END
 
-    -- Kiểm tra nếu số lượng tồn kho không đủ để bán
-    IF @SoluongTonKho < @Soluong
+    -- Kiểm tra nếu số lượng nhận không đủ để bán
+    IF @SoluongNhan < @Soluong
     BEGIN
-        PRINT ' Error: Not enough stock for ' + @Tenhanghoa + '. Available: ' + CAST(@SoluongTonKho AS NVARCHAR);
+        PRINT 'Error: Not enough received stock for ' + @Tenhanghoa + '. Available: ' + CAST(@SoluongNhan AS NVARCHAR);
         RETURN;
     END
 
@@ -527,17 +514,23 @@ BEGIN
 
     -- Cập nhật tổng tiền trong Hoadonbanhang
     UPDATE Hoadonbanhang 
-    SET Thanhtien = (SELECT SUM(Tongtien) FROM HH_HDBH WHERE Mahoadon = @Mahoadon)
+    SET Thanhtien = ISNULL((SELECT SUM(Tongtien) FROM HH_HDBH WHERE Mahoadon = @Mahoadon), 0)
     WHERE Mahoadon = @Mahoadon;
+
+    -- Cập nhật lại số lượng nhận trong bảng HD_HH sau khi trừ đi số lượng bán
+    UPDATE HD_HH
+    SET Soluongnhan = Soluongnhan - @Soluong
+    WHERE Mahanghoa = @Mahanghoa AND Ngaysanxuat = @Ngaysanxuat;
 
     -- Trừ đi số lượng hàng hóa đã bán từ bảng Hanghoa
     UPDATE Hanghoa 
     SET Soluong = Soluong - @Soluong
     WHERE Mahanghoa = @Mahanghoa;
 
-    PRINT ' Added successfully to HH_HDBH and updated Thanhtien in Hoadonbanhang.';
-    PRINT ' Stock updated: ' + @Tenhanghoa + ' - Remaining: ' + CAST(@SoluongTonKho - @Soluong AS NVARCHAR);
+    PRINT 'Added successfully to HH_HDBH and updated Thanhtien in Hoadonbanhang.';
+    PRINT 'Stock updated: ' + @Tenhanghoa + ' - Remaining: ' + CAST(@SoluongTonKho - @Soluong AS NVARCHAR);
 END;
+
 
 go
 --xóa Hóa đơn
@@ -707,48 +700,178 @@ go
 		-- DG: Vô đúng giờ hoặc sớm, về trễ hoặc đúng giờ
 		-- T – S: Đi trễ về sớm
 go
+-- delete  from chamcong
 -- DROP PROCEDURE themChamCong;
 CREATE PROCEDURE themChamCong 
     @ThoigianCN DATE, 
     @Checkin TIME, 
     @Checkout TIME,
-    @Macalam VARCHAR(10), 
     @Manhanvien VARCHAR(10)
 AS
-BEGIN
+BEGIN--begin proc
     DECLARE @ID VARCHAR(10);
     DECLARE @ThoigianBD TIME;
     DECLARE @ThoigianKT TIME;
     DECLARE @Trangthai NVARCHAR(100);
+    DECLARE @Macalam VARCHAR(10);
+    DECLARE @Socong FLOAT;
+    DECLARE @MaxID INT;
+
+    -- Lấy mã ca làm dựa trên Mã nhân viên
+    SELECT @Macalam = bb.Macalam
+    FROM Batbuoc bb
+    WHERE bb.Manhanvien = @Manhanvien;
+
+    -- Kiểm tra nếu không tìm thấy mã ca làm
+    IF @Macalam IS NULL
+    BEGIN
+        PRINT 'Không tìm thấy ca làm cho nhân viên này';
+        RETURN;
+    END;
 
     -- Lấy giờ bắt đầu và kết thúc từ bảng Ca làm
     SELECT @ThoigianBD = CONVERT(TIME, ThoigianBD), @ThoigianKT = CONVERT(TIME, ThoigianKT)
     FROM Calam
     WHERE Macalam = @Macalam;
 
-    -- Kiểm tra nếu không tìm thấy ca làm
+    -- Kiểm tra nếu không tìm thấy ca làm trong bảng Calam
     IF @ThoigianBD IS NULL OR @ThoigianKT IS NULL
     BEGIN
         PRINT 'Không tìm thấy ca làm';
         RETURN;
     END;
-	DECLARE @Socong FLOAT;
-  
 
-    -- Xác định trạng thái dựa trên Checkin và Checkout
+    -- Kiểm tra nếu nhân viên đã chấm công cho ca này vào ngày này và có Checkin hoặc Checkout là '00:00:00'
+    IF EXISTS (
+        SELECT 1
+        FROM Chamcong c
+        WHERE c.Manhanvien = @Manhanvien 
+          AND c.Macalam = @Macalam 
+          AND c.ThoigianCN = @ThoigianCN 
+          AND (c.Checkin = '00:00:00' OR c.Checkout = '00:00:00')
+    )
+    BEGIN--bg1
+        -- Cập nhật Checkin hoặc Checkout thành giá trị mới từ tham số truyền vào nếu nó là '00:00:00'
+        IF @Checkin <> '00:00:00'
+        BEGIN
+            -- Cập nhật Checkin nếu Checkin cũ là '00:00:00'
+            UPDATE Chamcong
+            SET Checkin = @Checkin
+            WHERE Manhanvien = @Manhanvien AND Macalam = @Macalam AND ThoigianCN = @ThoigianCN AND Checkin = '00:00:00';
+            PRINT 'Đã cập nhật Checkin cho nhân viên với giờ chấm công mới';
+        END
+
+        IF @Checkout <> '00:00:00'
+        BEGIN
+            -- Cập nhật Checkout nếu Checkout cũ là '00:00:00'
+            UPDATE Chamcong
+            SET Checkout = @Checkout
+            WHERE Manhanvien = @Manhanvien AND Macalam = @Macalam AND ThoigianCN = @ThoigianCN AND Checkout = '00:00:00';
+            PRINT 'Đã cập nhật Checkout cho nhân viên với giờ chấm công mới';
+        END
+
+        -- Tính lại số công sau khi cập nhật Checkin hoặc Checkout
+        DECLARE @SoGiay INT;
+        
+        -- Kiểm tra thời gian về sớm hoặc đúng giờ
+        IF @Checkout >= @ThoigianKT AND @Checkin >= @ThoigianBD -- Về đúng giờ, tới trễ
+        BEGIN
+            SET @SoGiay = DATEDIFF(SECOND, @Checkin, @ThoigianKT);
+            SET @Socong = @SoGiay / 28800.0; -- 28800 giây = 8 giờ
+        END
+
+        IF @Checkout < @ThoigianKT AND @Checkin >= @ThoigianBD -- Về sớm, tới trễ
+        BEGIN
+            SET @SoGiay = DATEDIFF(SECOND, @Checkin, @Checkout);
+            SET @Socong = @SoGiay / 28800.0; -- 28800 giây = 8 giờ
+        END
+
+        IF @Checkout < @ThoigianKT AND @Checkin < @ThoigianBD -- Về sớm, tới đúng giờ
+        BEGIN
+            SET @SoGiay = DATEDIFF(SECOND, @ThoigianBD, @Checkout);
+            SET @Socong = @SoGiay / 28800.0; -- 28800 giây = 8 giờ
+        END
+		 IF @Checkout >= @ThoigianKT AND @Checkin < @ThoigianBD -- Về sớm, tới đúng giờ
+        BEGIN
+            SET @SoGiay = DATEDIFF(SECOND, @ThoigianBD, @ThoigianKT);
+            SET @Socong = @SoGiay / 28800.0; -- 28800 giây = 8 giờ
+        END
+    -- Đóng khối IF
+
+    -- Xác định trạng thái
     IF @Checkin > @ThoigianBD AND @Checkout < @ThoigianKT
         SET @Trangthai = N'Trễ - Sớm'; -- Đi trễ, về sớm
     ELSE IF @Checkin > @ThoigianBD AND @Checkout >= @ThoigianKT
-        SET @Trangthai = N'Ttrễ - Đúng Giờ'; -- Đi trễ, về đúng giờ hoặc về trễ
+        SET @Trangthai = N'Trễ - Đúng Giờ'; -- Đi trễ, về đúng giờ hoặc về trễ
     ELSE IF @Checkin <= @ThoigianBD AND @Checkout >= @ThoigianKT
         SET @Trangthai = N'Đúng Giờ'; -- Đi đúng giờ hoặc sớm, về đúng giờ hoặc về trễ
     ELSE IF @Checkin <= @ThoigianBD AND @Checkout < @ThoigianKT
-        SET @Trangthai = N'Đúng Giờ  - SỚm'; -- Đi đúng giờ hoặc sớm, về đúng giờ hoặc về trễ
+        SET @Trangthai = N'Đúng Giờ - Sớm'; -- Đi đúng giờ hoặc sớm, về đúng giờ hoặc về trễ
     ELSE
         SET @Trangthai = N'DG'; -- Mặc định nếu không rơi vào các trường hợp trên
 
+    -- Cập nhật lại trạng thái và số công trong bảng Chamcong
+    UPDATE Chamcong
+    SET Socong = @Socong, Trangthai = @Trangthai
+    WHERE Manhanvien = @Manhanvien AND Macalam = @Macalam AND ThoigianCN = @ThoigianCN;
+
+    PRINT 'Đã tính lại số công cho nhân viên sau khi cập nhật giờ chấm công';
+    RETURN;  -- Dừng thủ tục sau khi cập nhật thành công
+
+	END;--end1 -- Đóng thủ tục chính
+
+-- Nếu không có bản ghi chấm công cho nhân viên vào ngày này, thêm mới
+ELSE
+BEGIN
+    -- Kiểm tra nếu nhân viên đã chấm công cho ca này vào ngày này
+    IF EXISTS (
+        SELECT 1
+        FROM Chamcong c
+        WHERE c.Manhanvien = @Manhanvien AND c.Macalam = @Macalam AND c.ThoigianCN = @ThoigianCN
+    )
+    BEGIN
+        PRINT 'Nhân viên đã chấm công cho ca này vào ngày này';
+        RETURN;
+    END;
+
+    -- Kiểm tra nếu nhân viên có được phân công ca này hay không
+    IF NOT EXISTS (
+        SELECT 1
+        FROM Batbuoc bb
+        WHERE bb.Manhanvien = @Manhanvien AND bb.Macalam = @Macalam
+    )
+    BEGIN
+        PRINT 'Nhân viên không được phân công ca này';
+        RETURN;
+    END;
+
+    -- Kiểm tra nếu Checkin hoặc Checkout là '00:00:00'
+    IF @Checkin = '00:00:00' OR @Checkout = '00:00:00'
+    BEGIN
+        -- Thêm dữ liệu vào bảng Chamcong nếu chưa có bản ghi chấm công
+        SELECT @MaxID = MAX(CAST(SUBSTRING(ID, 3, 4) AS INT)) FROM Chamcong;
+        
+        -- Nếu bảng rỗng, bắt đầu từ 1
+        IF @MaxID IS NULL
+            SET @MaxID = 1;
+        ELSE
+            SET @MaxID = @MaxID + 1;
+
+        -- Set ID
+        SET @ID = 'CC' + RIGHT('0000' + CAST(@MaxID AS VARCHAR(4)), 4);
+
+        SET @Socong = 0;
+        SET @Trangthai = N'Không chấm công';
+        
+        -- Thêm dữ liệu vào bảng Chamcong với số công = 0
+        INSERT INTO Chamcong (ID, ThoigianCN, Checkin, Checkout, Socong, Trangthai, Macalam, Manhanvien)
+        VALUES (@ID, @ThoigianCN, @Checkin, @Checkout, @Socong, @Trangthai, @Macalam, @Manhanvien);
+
+        PRINT 'Đã thêm chấm công với ID: ' + @ID + ' và trạng thái: Không chấm công';
+        RETURN;
+    END;
+
     -- Tạo ID tự động (CC0001, CC0002,...)
-    DECLARE @MaxID INT;
     SELECT @MaxID = MAX(CAST(SUBSTRING(ID, 3, 4) AS INT)) FROM Chamcong;
     
     -- Nếu bảng rỗng, bắt đầu từ 1
@@ -760,42 +883,51 @@ BEGIN
     -- Set ID
     SET @ID = 'CC' + RIGHT('0000' + CAST(@MaxID AS VARCHAR(4)), 4);
 
-      -- Kiểm tra nếu Checkin hoặc Checkout là 00:00:00, số công = 0
-    IF @Checkin = '00:00:00' OR @Checkout = '00:00:00'
-    BEGIN
-        SET @Socong = 0;
-        SET @Trangthai = N'Không chấm công';
-        -- Thêm dữ liệu vào bảng Chamcong với số công = 0
-       INSERT INTO Chamcong (ID, ThoigianCN, Checkin, Checkout, Socong, Trangthai, Macalam, Manhanvien)
-    VALUES (@ID, @ThoigianCN, @Checkin, @Checkout, @Socong, @Trangthai, @Macalam, @Manhanvien);
-        PRINT 'Đã thêm chấm công với ID: CC0000 và trạng thái: Không chấm công';
-        RETURN;
-    END;
-    DECLARE @SoGiay INT;
-
     -- Kiểm tra thời gian về sớm hoặc đúng giờ
-    IF @Checkout <= @ThoigianKT -- Về sớm
-        SET @SoGiay = DATEDIFF(SECOND, @Checkin, @ThoigianKT);
-
-    -- Chuyển giây thành số công (giờ), với giả sử một ngày làm việc là 8 giờ (28800 giây)
-    SET @Socong = @SoGiay / 28800.0; -- 28800 giây = 8 giờ
-
-    -- Kiểm tra nếu Checkin muộn hơn một giây so với ThoigianBD (Tính trễ)
-    IF @Checkin > @ThoigianBD
+    IF @Checkout >= @ThoigianKT AND @Checkin >= @ThoigianBD -- Về đúng giờ, tới trễ
     BEGIN
-        -- Tính số công theo giây, nếu đi trễ thì giảm công
-        SET @Socong = @Socong - ((DATEDIFF(SECOND, @ThoigianBD, @Checkin)) / 28800.0);
-    END;
+        SET @SoGiay = DATEDIFF(SECOND, @Checkin, @ThoigianKT);
+        SET @Socong = @SoGiay / 28800.0; -- 28800 giây = 8 giờ
+    END
 
+    IF @Checkout < @ThoigianKT AND @Checkin >= @ThoigianBD -- Về sớm, tới trễ
+    BEGIN
+        SET @SoGiay = DATEDIFF(SECOND, @Checkin, @Checkout);
+        SET @Socong = @SoGiay / 28800.0; -- 28800 giây = 8 giờ
+    END
+
+    IF @Checkout < @ThoigianKT AND @Checkin < @ThoigianBD -- Về sớm, tới đúng giờ
+    BEGIN
+        SET @SoGiay = DATEDIFF(SECOND, @ThoigianBD, @Checkout);
+        SET @Socong = @SoGiay / 28800.0; -- 28800 giây = 8 giờ
+    END
+	 IF @Checkin > @ThoigianBD AND @Checkout < @ThoigianKT
+        SET @Trangthai = N'Trễ - Sớm'; -- Đi trễ, về sớm
+    ELSE IF @Checkin > @ThoigianBD AND @Checkout >= @ThoigianKT
+        SET @Trangthai = N'Trễ - Đúng Giờ'; -- Đi trễ, về đúng giờ hoặc về trễ
+    ELSE IF @Checkin <= @ThoigianBD AND @Checkout >= @ThoigianKT
+        SET @Trangthai = N'Đúng Giờ'; -- Đi đúng giờ hoặc sớm, về đúng giờ hoặc về trễ
+    ELSE IF @Checkin <= @ThoigianBD AND @Checkout < @ThoigianKT
+        SET @Trangthai = N'Đúng Giờ - Sớm'; -- Đi đúng giờ hoặc sớm, về đúng giờ hoặc về trễ
+    ELSE
+        SET @Trangthai = N'DG'; -- Mặc định nếu không rơi vào các trường hợp trên
     -- Thêm dữ liệu vào bảng Chamcong
     INSERT INTO Chamcong (ID, ThoigianCN, Checkin, Checkout, Socong, Trangthai, Macalam, Manhanvien)
     VALUES (@ID, @ThoigianCN, @Checkin, @Checkout, @Socong, @Trangthai, @Macalam, @Manhanvien);
 
     PRINT 'Đã thêm chấm công với ID: ' + @ID + ' và trạng thái: ' + @Trangthai;
-END;
+	END;
+END;--end proc 
+
+go
+    -- Kiểm tra nếu nhân viên có được phân
+
+	-- delete from chamcong
 
 
+-- EXEC themChamCong '2025-06-04', '05:59:59', '14:00:00', 'NV0001';
 
+-- select * from batbuoc
 
 --Trigger Them Khach hang--
 go
