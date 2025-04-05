@@ -447,7 +447,23 @@ namespace Trang_chủ_Main_Page_
                             leastSellingTable.AddCell(new PdfPCell(new Phrase(row["TongSoluong"].ToString(), normalFont)));
                         }
                         doc.Add(leastSellingTable);
+                        Paragraph section_1 = new Paragraph();
+                        section_1.Alignment = Element.ALIGN_LEFT;
 
+                        section_1.Add(new Chunk("Đơn vị: ", boldFont));
+                        section_1.Add(new Chunk("Công ty Trách nhiệm Hữu Hạn AEON Việt Nam", normalFont));
+                        section_1.Add(Chunk.NEWLINE);
+                        section_1.Add(new Chunk("Địa chỉ: ", boldFont));
+                        section_1.Add(new Chunk("243 Chu Văn An, P. 12, Q. Bình Thạnh, TP. HCM.", normalFont));
+                        section_1.Add(Chunk.NEWLINE);
+                        section_1.Add(new Chunk("Số điện thoại: ", boldFont));
+                        section_1.Add(new Chunk("0366-565454", normalFont));
+                        section_1.Add(Chunk.NEWLINE);
+                        section_1.Add(new Chunk("Mã số thuế: ", boldFont));
+                        section_1.Add(new Chunk("0311241512", normalFont));
+
+                        // Thêm phần thông tin đơn vị vào cuối
+                        doc.Add(section_1);
                         // Đóng tài liệu PDF
                         doc.Close();
 

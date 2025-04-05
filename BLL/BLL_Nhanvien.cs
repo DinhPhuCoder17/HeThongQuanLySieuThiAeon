@@ -68,5 +68,15 @@ namespace BLL
             return DAL_Nhanvien.Instance.UpdatePassword(maNhanVien, password);
         }
 
+        public bool IsCCCDExist(string cccd)
+        {
+            return DAL_Nhanvien.Instance.IsCCCDExist(cccd);
+        }
+
+        public bool IsPhoneExist(string sdt)
+        {
+            return DAL_Nhanvien.Instance.IsPhoneExist(sdt);
+        }
+
     }
 }

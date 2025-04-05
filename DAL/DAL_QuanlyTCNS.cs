@@ -12,6 +12,10 @@ namespace DAL
 {
     public class DAL_QuanlyTCNS
     {
+        public void XoaChamCong()
+        {
+            DataProvider.Instance.ExecuteQuery("Delete from Chamcong");
+        }
         public DataTable LoadDuLieuPieChart1(int currentYear, int currentMonth)
         {
             string query = "EXEC usp_GetMonthlyWorstSeller @Year , @Month";
@@ -123,11 +127,10 @@ namespace DAL
             try
             {
                 int line = DataProvider.Instance.ExecuteNonQuery(
-                    "EXEC themHH_HDBH  @Tenhanghoa , @Soluong",
+                    "EXEC themHH_HDBH  @Barcode , @Soluong",
                     new object[]
                     {
-                
-                chiTietHoaDon.tenHangHoa, // Tên hàng hóa
+                chiTietHoaDon.barCode, // Tên hàng hóa
                 chiTietHoaDon.soLuong,   // Số lượng
                     });
 

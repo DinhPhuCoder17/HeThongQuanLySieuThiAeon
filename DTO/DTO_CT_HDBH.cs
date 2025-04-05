@@ -14,17 +14,18 @@ namespace DTO
         public String tenHangHoa { get; set; }
         public String  soLuong { get; set; }
         public double tongTien { get; set; }
-
+        public String barCode { get; set; }
         public List<DTO_CT_HDBH> CTHD { get; set; }
 
 
-        public DTO_CT_HDBH(String maHoadon, String maHangHoa, String tenHangHoa,String soLuong, double tongTien)
+        public DTO_CT_HDBH(String maHoadon, String maHangHoa, String tenHangHoa,String soLuong, double tongTien, String barCode)
         {
             this.maHangHoa = maHangHoa;
             this.maHoaDon = maHoadon;
             this.tenHangHoa = tenHangHoa;
             this.soLuong = soLuong;
             this.tongTien = tongTien;
+            this.barCode = barCode;
         }
     }
 }

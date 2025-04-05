@@ -36,5 +36,10 @@ namespace BLL
             return DAL_Account.Instance.GetMaNV(username, password);
         }
 
+        // Lấy Xoá từ bảng nhân viên
+        public string CheckXoa(string username, string password)
+        {
+            return DAL_Account.Instance.CheckXoa(username, password);
+        }
     }
 }

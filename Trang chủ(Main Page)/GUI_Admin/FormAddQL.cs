@@ -121,6 +121,16 @@ namespace Trang_chủ_Main_Page_
                 MessageBox.Show("Số điện thoại không hợp lệ!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return; 
             }
+            if (BLL_Nhanvien.Instance.IsCCCDExist(cccd))
+            {
+                MessageBox.Show("CCCD đã tồn tại!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            if (BLL_Nhanvien.Instance.IsPhoneExist(sdt))
+            {
+                MessageBox.Show("Số điện thoại đã tồn tại!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             if (BLL_Nhanvien.Instance.AddEmployee(hoTen, cccd, ngaySinh, gioiTinh, diaChi, sdt, role, userName, password, role))
             {
                 MessageBox.Show("Thêm nhân viên thành công!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -173,7 +183,7 @@ namespace Trang_chủ_Main_Page_
         //Check địa chỉ hợp lệ
         public static bool IsValidAddress(string address)
         {
-            string pattern = @"^([A-ZĐ][a-zàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]+)(\s+[A-ZĐ][a-zàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]+){0,49}$";
+            string pattern = @"^[a-zA-ZĐđàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹ0-9,./\- ]{5,500}$";
             return Regex.IsMatch(address, pattern);
         }
     }
