@@ -11,6 +11,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Trang_chủ_Main_Page_;
+using DTO;
 
 namespace Trang_chu_Main_Page_.GUI_QLHangHoa
 {

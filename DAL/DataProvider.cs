@@ -12,10 +12,10 @@ namespace DAL
 
     public class DataProvider
     {
-        private String connectionStr = @"Data Source=DESKTOP-9UCJD9K;Initial Catalog=QuanLySieuThiAEON;Integrated Security=True;TrustServerCertificate=True";
+        //private String connectionStr = @"Data Source=DESKTOP-9UCJD9K;Initial Catalog=QuanLySieuThiAEON;Integrated Security=True;TrustServerCertificate=True";
         private readonly static string computerName = Environment.MachineName;
         //Liêm
-        //String connectionStr = $"Data Source=" + computerName + @";Initial Catalog=QuanLySieuThiAEON;Integrated Security=True;Encrypt=True";
+        String connectionStr = $"Data Source=" + computerName + @";Initial Catalog=QuanLySieuThiAEON;Integrated Security=True;Encrypt=True";
 
         //Who?
         //private String connectionStr = @"Data Source=.\SQLEXPRESS;Initial Catalog=QuanLySieuThiAEON;Integrated Security=True";
@@ -24,7 +24,7 @@ namespace DAL
         //private String connectionStr = @"Data Source=LAPTOP-P1IHVTIA;Initial Catalog=QuanLySieuThiAEON;Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
 
         //Quang
-        private String connectionStr = @"Data Source=LAPTOP-200CVLCR\MSSQLSERVER2005;Initial Catalog=QuanLySieuThiAEON;Integrated Security=True";
+        //private String connectionStr = @"Data Source=LAPTOP-200CVLCR\MSSQLSERVER2005;Initial Catalog=QuanLySieuThiAEON;Integrated Security=True";
 
         //Phú laptop
         //private String connectionStr = @"Data Source=LAPTOP-P1IHVTIA;Initial Catalog=QuanLySieuThiAEON;Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
