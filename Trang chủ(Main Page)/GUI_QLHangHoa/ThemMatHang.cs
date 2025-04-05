@@ -209,10 +209,24 @@ namespace Trang_chủ_Main_Page_
                 }
                 else if (Barcode_Cu.Any(hh => hh.Barcode.Equals(barcode, StringComparison.OrdinalIgnoreCase)))
                 {
-                    DialogResult result =  MessageBox.Show("Hàng hóa này đã bị xóa trước đó. Bạn có muốn thêm lại hàng hóa không?",
-                                              "Xác nhận khôi phục",
-                                              MessageBoxButtons.YesNo,
-                                              MessageBoxIcon.Question);
+                    string message, title;
+
+                    if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                    {
+                        message = "Hàng hóa này đã bị xóa trước đó. Bạn có muốn thêm lại hàng hóa không?";
+                        title = "Xác nhận khôi phục";
+                    }
+                    else // Mặc định tiếng Anh
+                    {
+                        message = "This product was previously deleted. Do you want to restore it?";
+                        title = "Restore Confirmation";
+                    }
+
+                    DialogResult result = MessageBox.Show(message,
+                                                          title,
+                                                          MessageBoxButtons.YesNo,
+                                                          MessageBoxIcon.Question);
+
                     if (result == DialogResult.Yes)
                     {
                         KhoiPhucHangHoa(barcode);
@@ -221,12 +235,26 @@ namespace Trang_chủ_Main_Page_
                     }
                     else
                     {
-                        MessageBox.Show("Không thể khôi phục hàng hóa. Vui lòng thử lại.",
-                                        "Lỗi",
+                        string _message, _title;
+
+                        if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                        {
+                            _message = "Không thể khôi phục hàng hóa. Vui lòng thử lại.";
+                            _title = "Lỗi";
+                        }
+                        else // Mặc định tiếng Anh
+                        {
+                            _message = "Unable to restore the product. Please try again.";
+                            _title = "Error";
+                        }
+
+                        MessageBox.Show(_message,
+                                        _title,
                                         MessageBoxButtons.OK,
                                         MessageBoxIcon.Error);
+
                     }
-                   
+
                 }
                
                 // Tạo đối tượng DTO_Hanghoa
@@ -329,13 +357,45 @@ namespace Trang_chủ_Main_Page_
             bool success = BLLQuanLyKho.Instance.KhoiPhucHangHoa(barcode);
             if (success)
             {
-                MessageBox.Show("Hàng hóa với Barcode " + barcode + " đã được khôi phục thành công!",
-                                "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                string message, title;
+
+                if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                {
+                    message = "Hàng hóa với Barcode " + barcode + " đã được khôi phục thành công!";
+                    title = "Thông báo";
+                }
+                else // Mặc định tiếng Anh
+                {
+                    message = "The product with Barcode " + barcode + " has been successfully restored!";
+                    title = "Notification";
+                }
+
+                MessageBox.Show(message,
+                                title,
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+
             }
             else
             {
-                MessageBox.Show("Không thể khôi phục hàng hóa với Barcode " + barcode + ". Vui lòng thử lại sau.",
-                                "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                string message, title;
+
+                if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                {
+                    message = "Không thể khôi phục hàng hóa với Barcode " + barcode + ". Vui lòng thử lại sau.";
+                    title = "Thông báo lỗi";
+                }
+                else // Mặc định tiếng Anh
+                {
+                    message = "Unable to restore the product with Barcode " + barcode + ". Please try again later.";
+                    title = "Error Notification";
+                }
+
+                MessageBox.Show(message,
+                                title,
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+
             }
         }
         public void UpdateHanghoa(string tenHangHoa, string tenDanhMuc, float giaNhapText, float giaBanText, int thsd, string barcode)

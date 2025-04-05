@@ -344,9 +344,9 @@ namespace DAL
         //Update Nha cung cap
         public bool UpdateNCC(string maNCC, string tenNCC, string diaChi, string maSoThue, string sdt)
         {
-            string query = "UPDATE Nhacungcap SET TenNCC = @TenNCC , Diachi = @Diachi , Masothue = @Masothue, Sodienthoai = @Sodienthoai WHERE MaNCC = @MaNCC ";
+            string query = "UPDATE Nhacungcap SET TenNCC = @TenNCC , Diachi = @Diachi , Masothue = @Masothue , Sodienthoai = @Sodienthoai WHERE MaNCC = @MaNCC ";
 
-            object[] parameters = { maNCC, diaChi, maSoThue, sdt, maNCC };
+            object[] parameters = { tenNCC, diaChi, maSoThue, sdt, maNCC };
 
             return DataProvider.Instance.ExecuteNonQuery(query, parameters) > 0;
         }
