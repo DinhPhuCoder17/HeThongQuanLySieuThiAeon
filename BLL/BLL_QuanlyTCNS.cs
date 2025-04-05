@@ -126,8 +126,8 @@ namespace BLL
                                   TimeSpan.TryParse(dataTable.Rows[i][2].ToString().Trim(), out TimeSpan checkOut) ? checkOut : TimeSpan.Zero, // Check-out (mặc định 00:00 nếu lỗi)
                                   0, // Số công (mặc định là 0)
                                   null, // Trạng thái (để null)
-                                  dataTable.Rows[i][3]?.ToString(), // Mã ca làm
-                                  dataTable.Rows[i][4]?.ToString() // Mã nhân viên
+                                  null, // Mã ca làm
+                                  dataTable.Rows[i][3]?.ToString() // Mã nhân viên
   );
 
                                 listChamCong.Add(chamCong);
