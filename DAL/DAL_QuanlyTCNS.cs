@@ -12,6 +12,10 @@ namespace DAL
 {
     public class DAL_QuanlyTCNS
     {
+        public void XoaChamCong()
+        {
+            DataProvider.Instance.ExecuteQuery("Delete from Chamcong");
+        }
         public DataTable LoadDuLieuPieChart1(int currentYear, int currentMonth)
         {
             string query = "EXEC usp_GetMonthlyWorstSeller @Year , @Month";

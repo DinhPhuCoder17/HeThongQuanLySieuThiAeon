@@ -267,5 +267,10 @@ namespace Trang_chủ_Main_Page_
         {
 
         }
+
+        private void sidebarContainer_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

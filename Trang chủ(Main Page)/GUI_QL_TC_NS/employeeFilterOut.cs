@@ -32,7 +32,8 @@ namespace Trang_chủ_Main_Page_
 
         private void employeeFilterOut_Load(object sender, EventArgs e)
         {
-           
+            btn_Customer_LogBuCong.Enabled = false;
+            btn_Employ_Report.Enabled = false;
             //Datagridview bảng nhân viên
             dtg_Employee.DataSource = bLL_QuanlyTCNS.xemDSNV();
             if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
@@ -112,6 +113,7 @@ namespace Trang_chủ_Main_Page_
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
+            
             logTransition.Start();
         }
 
@@ -127,6 +129,7 @@ namespace Trang_chủ_Main_Page_
 
         private void guna2GradientButton1_Click(object sender, EventArgs e)
         {
+
             //Datagridview bảng chấm công
             dtg_DSCC.DataSource = bLL_QuanlyTCNS.xemDSCC();
             dtg_DSCC.Columns[0].HeaderText = "ID";
@@ -149,6 +152,8 @@ namespace Trang_chủ_Main_Page_
                 {
                     logTransition_2.Stop();
                     menuExpand_2 = true;
+                    btn_Customer_LogBuCong.Enabled = true;
+                    btn_Employ_Report.Enabled = true;
                 }
             }
             else
@@ -158,6 +163,8 @@ namespace Trang_chủ_Main_Page_
                 {
                     logTransition_2.Stop();
                     menuExpand_2 = false;
+                    btn_Customer_LogBuCong.Enabled = false;
+                    btn_Employ_Report.Enabled = false;
                 }
             }
         }

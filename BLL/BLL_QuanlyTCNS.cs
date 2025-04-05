@@ -44,7 +44,11 @@ namespace BLL
         {
             return dAL_QuanlyTCNS.locHoaDon(ngayBatDau, ngayKetThuc);
         }
-
+        //xoa chamcong
+        public void XoaChamCong()
+        {
+            dAL_QuanlyTCNS.XoaChamCong();
+        }
         //xóa hóa đơn
         public bool XoaHoaDon(string maHoaDon)
         {
@@ -89,7 +93,12 @@ namespace BLL
                 foreach (var chamCong in danhSachChamCong)
                 {
                     bool success = dal.ThemChamCong(chamCong);
-                    if (!success) return false;
+                    if (!success)
+                    {
+                        MessageBox.Show($"Lỗi khi thêm dữ liệu cho nhân viên {chamCong.maNhanVien}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        XoaChamCong();
+                        return false;
+                    }
                 }
 
                 return true;

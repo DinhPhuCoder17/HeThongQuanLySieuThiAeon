@@ -953,6 +953,8 @@ BEGIN
 END;--end proc 
 
 go
+go
+
     -- Kiểm tra nếu nhân viên có được phân
 
 	-- delete from chamcong
