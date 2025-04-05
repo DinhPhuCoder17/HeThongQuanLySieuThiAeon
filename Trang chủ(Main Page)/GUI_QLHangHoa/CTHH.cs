@@ -101,31 +101,37 @@ namespace Trang_chu_Main_Page_.GUI_QLHangHoa
             if (DataCTHH != null)
             {
                 string keyword = txtSearchCTHH.Text.Trim();
-                DataView dv = new DataView(DataCTHH);
-                string filter = "";
-
-                foreach (DataColumn col in DataCTHH.Columns)
+                if (string.IsNullOrEmpty(keyword))
                 {
-                    if (col.DataType == typeof(string))
-                    {
-                        if (filter.Length > 0) filter += " OR ";
-                        filter += $"{col.ColumnName} LIKE '%{keyword}%'";
-                    }
-                    else if (col.DataType == typeof(int) || col.DataType == typeof(double) || col.DataType == typeof(decimal))
-                    {
-                        if (int.TryParse(keyword, out _)) 
-                        {
-                            if (filter.Length > 0) filter += " OR ";
-                            filter += $"{col.ColumnName} = {keyword}";
-                        }
-                    }
+                    dgvCTHH.DataSource = DataCTHH;
+                    return;
                 }
 
-                dv.RowFilter = filter;
-                dgvCTHH.DataSource = dv;
+                string lowerKeyword = keyword.ToLower();
+
+                var filteredRows = DataCTHH.AsEnumerable().Where(row =>
+                {
+                    foreach (DataColumn col in DataCTHH.Columns)
+                    {
+                        string cellValue = row[col]?.ToString();
+                        if (!string.IsNullOrEmpty(cellValue) && cellValue.ToLower().Contains(lowerKeyword))
+                        {
+                            return true;
+                        }
+                    }
+                    return false;
+                });
+                DataTable dtFiltered = filteredRows.Any() ? filteredRows.CopyToDataTable() : DataCTHH.Clone();
+
+                dgvCTHH.DataSource = dtFiltered;
                 HighlightHansudungInCTHH();
             }
         }
+
+
+
+
+
 
         private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {

@@ -256,7 +256,7 @@ namespace BLL
 
         public bool UpdateNCC(string maNCC, string tenNCC, string maSoThue, string diaChi, string sdt)
         {
-            return DAL_QuanLyKho.Instance.UpdateNCC(maNCC, tenNCC, maSoThue, diaChi, sdt);
+            return DAL_QuanLyKho.Instance.UpdateNCC(maNCC, tenNCC, diaChi, maSoThue, sdt);
         }
 
         public bool DeleteNCC(string maNCC)

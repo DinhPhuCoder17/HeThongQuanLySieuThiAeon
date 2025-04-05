@@ -148,9 +148,9 @@ namespace BLL
             return listChamCong;
         }
         //THêm Chấm Công
-        public bool ThemChamCong( DateTime thoiGianCN, TimeSpan CheckIn, TimeSpan checkOut, String maCaLam, String maNhanVien)
+        public bool ThemChamCong( DateTime thoiGianCN, TimeSpan CheckIn, TimeSpan checkOut, String maNhanVien)
         {
-            DTO_Chamcong cc = new DTO_Chamcong(null,thoiGianCN,CheckIn,checkOut,0,null,maCaLam,maNhanVien);
+            DTO_Chamcong cc = new DTO_Chamcong(null,thoiGianCN,CheckIn,checkOut,0,null,null,maNhanVien);
             if (dAL_QuanlyTCNS.ThemChamCong(cc))
             {
                 return true;

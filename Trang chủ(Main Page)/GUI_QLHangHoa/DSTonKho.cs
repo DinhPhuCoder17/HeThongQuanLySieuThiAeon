@@ -374,12 +374,30 @@ namespace Trang_chủ_Main_Page_
         {
             if (dgvDSTonKho.SelectedRows.Count > 0)
             {
-                DialogResult dialogResult = MessageBox.Show(
-                    "Bạn có chắc chắn muốn xóa hàng hóa này?", 
-                    "Xác nhận xóa", 
-                    MessageBoxButtons.YesNo, 
-                    MessageBoxIcon.Question 
-                );
+                DialogResult dialogResult = DialogResult.None; 
+
+
+                if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                {
+                    dialogResult = MessageBox.Show(
+                        "Bạn có chắc chắn muốn xóa hàng hóa này?",
+                        "Xác nhận xóa",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question
+                    );
+                }
+                else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                {
+                    dialogResult = MessageBox.Show(
+                        "Are you sure you want to delete this product?",
+                        "Delete Confirmation",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question
+                    );
+                }
+
+
+
 
                 if (dialogResult == DialogResult.Yes)
                 {
@@ -388,23 +406,55 @@ namespace Trang_chủ_Main_Page_
 
                     if (isDeleted)
                     {
-                        MessageBox.Show("Hàng hóa đã được xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                        {
+                            MessageBox.Show("Hàng hóa đã được xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                        {
+                            MessageBox.Show("The product has been successfully deleted!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+
                         LoadData();
                         HighlightHansudungLessThan15Percent();
                     }
                     else
                     {
-                        MessageBox.Show("Xóa hàng hóa thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                        {
+                            MessageBox.Show("Xóa hàng hóa thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                        {
+                            MessageBox.Show("Failed to delete the product!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Hành động xóa đã bị hủy!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                    {
+                        MessageBox.Show("Hành động xóa đã bị hủy!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                    {
+                        MessageBox.Show("The delete action has been canceled!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+
                 }
             }
             else
             {
-                MessageBox.Show("Vui lòng chọn một dòng để xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                {
+                    MessageBox.Show("Vui lòng chọn một dòng để xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                {
+                    MessageBox.Show("Please select a row to delete!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
             }
         }
 
@@ -414,10 +464,21 @@ namespace Trang_chủ_Main_Page_
             {
                 if (dgvDSTonKho.SelectedRows.Count > 0)
                 {
-                    MessageBox.Show("Bạn chỉ được sửa các thông tin trừ Barcode và Mã hàng hóa!",
-                                    "Thông báo",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Warning);
+                    if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                    {
+                        MessageBox.Show("Bạn chỉ được sửa các thông tin trừ Barcode và Mã hàng hóa!",
+                                        "Thông báo",
+                                        MessageBoxButtons.OK,
+                                        MessageBoxIcon.Warning);
+                    }
+                    else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                    {
+                        MessageBox.Show("You can only edit information except Barcode and Product Code!",
+                                        "Notification",
+                                        MessageBoxButtons.OK,
+                                        MessageBoxIcon.Warning);
+                    }
+
                     isEdited = true;
                     dgvDSTonKho.ReadOnly = false;
 
@@ -439,15 +500,34 @@ namespace Trang_chủ_Main_Page_
                     rowEdited.DefaultCellStyle.SelectionBackColor = Color.Gray;
                     btnXoa_DSTonKho.Enabled = false;
                     dgvDSTonKho.SelectionChanged -= dgvDSTonKho_SelectionChanged;
-                    btnSua_DSTonKho.Text = "Hủy";
+                    if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                    {
+                        btnSua_DSTonKho.Text = "Hủy";
+                    }
+                    else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                    {
+                        btnSua_DSTonKho.Text = "Cancel";
+                    }
+
                     cellClick = false;
                 }
                 else
                 {
-                    MessageBox.Show("Vui lòng chọn dòng cần sửa!",
-                                    "Thông báo",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Warning);
+                    if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                    {
+                        MessageBox.Show("Vui lòng chọn dòng cần sửa!",
+                                        "Thông báo",
+                                        MessageBoxButtons.OK,
+                                        MessageBoxIcon.Warning);
+                    }
+                    else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                    {
+                        MessageBox.Show("Please select a row to edit!",
+                                        "Notification",
+                                        MessageBoxButtons.OK,
+                                        MessageBoxIcon.Warning);
+                    }
+
                 }
             }
             else
@@ -472,7 +552,15 @@ namespace Trang_chủ_Main_Page_
                 }
                 rowEdited.DefaultCellStyle.BackColor = Color.White;
                 rowEdited.DefaultCellStyle.SelectionBackColor = Color.FromArgb(255, 69, 0);
-                btnSua_DSTonKho.Text = "Sửa";
+                if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                {
+                    btnSua_DSTonKho.Text = "Sửa";
+                }
+                else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                {
+                    btnSua_DSTonKho.Text = "Edit";
+                }
+
                 HighlightHansudungLessThan15Percent();
             }
         }
@@ -503,14 +591,30 @@ namespace Trang_chủ_Main_Page_
 
                 if (isUpdated)
                 {
-                    MessageBox.Show("Cập nhật hàng hóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                    {
+                        MessageBox.Show("Cập nhật hàng hóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                    {
+                        MessageBox.Show("Product updated successfully!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+
                     List<DTO_Hanghoa> danhSachTonKho = BLLQuanLyKho.Instance.XemDSTonKho();
                     dgvDSTonKho.DataSource = danhSachTonKho;
 
                 }
                 else
                 {
-                    MessageBox.Show("Cập nhật hàng hóa thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                    {
+                        MessageBox.Show("Cập nhật hàng hóa thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                    {
+                        MessageBox.Show("Failed to update the product!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
                 }
                 isEdited = false;
                 dgvDSTonKho.ReadOnly = true;
@@ -533,7 +637,15 @@ namespace Trang_chủ_Main_Page_
                 rowEdited.DefaultCellStyle.BackColor = Color.White;
                 rowEdited.DefaultCellStyle.SelectionBackColor = Color.FromArgb(255, 69, 0);
                 cellClick = true;
-                btnSua_DSTonKho.Text = "Sửa";
+                if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                {
+                    btnSua_DSTonKho.Text = "Sửa";
+                }
+                else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                {
+                    btnSua_DSTonKho.Text = "Edit";
+                }
+
                 HighlightHansudungLessThan15Percent();
             }
         }
@@ -544,37 +656,7 @@ namespace Trang_chủ_Main_Page_
 
         private void btn_Xacnhan_Click(object sender, EventArgs e)
         {
-            string mk1 = tb_mk1.Text;
-            string mk2 = tb_mk2.Text;
-            if (string.IsNullOrEmpty(mk1))
-            {
-                MessageBox.Show("Vui lòng nhập mật khẩu mới!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            if (string.IsNullOrEmpty(mk2))
-            {
-                MessageBox.Show("Vui lòng nhập xác nhận mật khẩu mới!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            if (!mk1.Equals(mk2))
-            {
-                MessageBox.Show("Mật khẩu không trùng khớp!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            if (!IsValidPassword(mk1))
-            {
-                MessageBox.Show("Mật khẩu không hợp lệ!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            if (BLL_Nhanvien.Instance.UpdatePassword(Mainpage.CurrentUser.MaNhanvien, mk1))
-            {
-                MessageBox.Show("Đổi mật khẩu thành công!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("Lỗi khi đổi mật khẩu!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+
         }
         //Check Password hợp lệ
         public static bool IsValidPassword(string password)
