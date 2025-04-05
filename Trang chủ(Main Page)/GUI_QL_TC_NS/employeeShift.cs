@@ -251,7 +251,7 @@ namespace Trang_chủ_Main_Page_
             }
 
             DateTime endDate = startDate.AddDays(7);
-            Dictionary<String, DTO_Calam> listPhanCong = bLL_QuanlyTCNS.toMauThoiKhoaBieu(startDate.ToString("yyyy/MM/dd"), endDate.ToString("yyyy/MM/dd"));
+            Dictionary<String, DTO_Calam> listPhanCong = bLL_QuanlyTCNS.toMauThoiKhoaBieu(startDate.ToString("yyyy-MM-dd"), endDate.ToString("yyyy-MM-dd"));
             foreach (var item in listPhanCong)
             {
                 DTO_Calam calam = item.Value;
@@ -519,6 +519,19 @@ namespace Trang_chủ_Main_Page_
         //Chọn option Thêm nhân viên
         private void btn_Shift_Add_Click(object sender, EventArgs e)
         {
+            if(editMode)
+            {
+                if(Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                {
+                    MessageBox.Show("Trong chế độ sửa");
+                    return;
+                }else
+                {
+                    MessageBox.Show("In editing mode");
+                    return;
+                }
+            }
+
             addMode = true;
 
             //Vô hiệu hóa các chức năng khác
@@ -650,21 +663,64 @@ namespace Trang_chủ_Main_Page_
                     {
                         MessageBox.Show("No employee selected");
                     }
+                }else if(int.Parse(txt_Shift_Number.Text) < phanCongNhanVien.Count)
+                {
+                    if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                    {
+                        MessageBox.Show("Số lượng phân công nhân viên không hợp lệ");
+                    }
+                    else
+                    {
+                        MessageBox.Show("The assigned employee quantity is invalid");
+                    }
+                }else if(dtp_Shift_Start.Value.TimeOfDay < TimeSpan.Parse("06:00"))
+                {
+                    if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                    {
+                        MessageBox.Show("Thời gian không hợp lệ - Trước 6:00");
+                    }
+                    else
+                    {
+                        MessageBox.Show("The time is invalid - Before 6:00");
+                    }
                 }
                 else
                 {
-
+                    DialogResult result;
+                    if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                    {
+                        result = MessageBox.Show("Bạn có chắc chắn muốn thêm ca làm này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        result = MessageBox.Show("Are you sure you want to add this shift?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    }
+                    if(result == DialogResult.No)
+                    {
+                        addMode = false;
+                        dtg_ChooseEmployee.Columns["chkSelect"].ReadOnly = true;
+                        foreach (DataGridViewRow row in dtg_ChooseEmployee.Rows)
+                        {
+                            if (Convert.ToBoolean(row.Cells[0].Value) == true)
+                            {
+                                row.Cells[0].Value = false;
+                            }
+                        }
+                        return;
+                    }
                     DTO_Calam calam = new DTO_Calam(null, txt_TenCa.Text, dtp_Shift_Start.Value, dtp_Shift_End.Value, int.Parse(txt_Shift_Number.Text), phanCongNhanVien);
                     if (bLL_QuanlyTCNS.themCaLam(calam))
                     {
                         if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
                         {
                             MessageBox.Show("Thêm ca làm thành công", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            addMode = false;
                             toMauThoiKhoaBieu();
                         }
                         else
                         {
                             MessageBox.Show("Add shift successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            addMode = false;
                             toMauThoiKhoaBieu();
                         }
                     }
@@ -672,9 +728,12 @@ namespace Trang_chủ_Main_Page_
                     {
                         if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
                         {
+                            addMode = false;
                             MessageBox.Show("Thêm ca làm thất bại", "Thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }else
+                        }
+                        else
                         {
+                            addMode = false;
                             MessageBox.Show("Add shift failed", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
@@ -683,8 +742,8 @@ namespace Trang_chủ_Main_Page_
                 {
                     timer_ChooseEmployee.Start();
                 }
-                addMode = false;
-                dtg_ChooseEmployee.Columns["chkSelect"].ReadOnly = true;
+                //addMode = false;
+                //dtg_ChooseEmployee.Columns["chkSelect"].ReadOnly = true;
                 foreach (DataGridViewRow row in dtg_ChooseEmployee.Rows)
                 {
                     if (Convert.ToBoolean(row.Cells[0].Value) == true)
@@ -695,6 +754,16 @@ namespace Trang_chủ_Main_Page_
             }
             else if(editMode)
             {
+                List<String> phanCongNhanVien = new List<string>();
+
+                //Tạo list nhân viên phân công
+                foreach (DataGridViewRow row in dtg_ChooseEmployee.Rows)
+                {
+                    if (Convert.ToBoolean(row.Cells[0].Value) == true)
+                    {
+                        phanCongNhanVien.Add(row.Cells[1].Value.ToString());
+                    }
+                }
                 if (txt_TenCa.Text == "")
                 {
                     if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
@@ -739,20 +808,36 @@ namespace Trang_chủ_Main_Page_
                         MessageBox.Show("Number of employees is not valid");
                     }
                 }
+                else if (int.Parse(txt_Shift_Number.Text) < phanCongNhanVien.Count)
+                {
+                    if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                    {
+                        MessageBox.Show("Số lượng phân công nhân viên không hợp lệ");
+                    }
+                    else
+                    {
+                        MessageBox.Show("The assigned employee quantity is invalid");
+                    }
+                }
                 else
                 {
-                    List<String> phanCongNhanVien = new List<string>();
-                    foreach (DataGridViewRow row in dtg_ChooseEmployee.Rows)
+                    DialogResult result;
+                    if(Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
                     {
-                        if (Convert.ToBoolean(row.Cells[0].Value))
-                        {
-                            phanCongNhanVien.Add(row.Cells[1].Value.ToString());
-                        }
+
+                        result = MessageBox.Show("Bạn có chắc chắn muốn sửa ca làm này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    }else
+                    {
+                        result = MessageBox.Show("Are you sure you want to edit this shift?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                     }
 
-                    //Kiểm tra số lượng nhân viên có khớp với số lượng nhân viên đã chọn không
-
-                    DTO_Calam calam = new DTO_Calam(editPanel.Controls[3].Text, txt_TenCa.Text, dtp_Shift_Start.Value, dtp_Shift_End.Value, int.Parse(txt_Shift_Number.Text), phanCongNhanVien);
+                    if (result == DialogResult.No)
+                    {
+                        editMode = false;
+                        dtg_ChooseEmployee.Columns["chkSelect"].ReadOnly = true;
+                        return;
+                    }
+                        DTO_Calam calam = new DTO_Calam(editPanel.Controls[3].Text, txt_TenCa.Text, dtp_Shift_Start.Value, dtp_Shift_End.Value, int.Parse(txt_Shift_Number.Text), phanCongNhanVien);
                     if (bLL_QuanlyTCNS.suaCaLam(calam))
                     {
                         if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
@@ -797,7 +882,7 @@ namespace Trang_chủ_Main_Page_
             {
                 timer_ChooseEmployee.Start();
             }
-            dtg_ChooseEmployee.Columns["chkSelect"].ReadOnly = true;
+            //dtg_ChooseEmployee.Columns["chkSelect"].ReadOnly = true;
             foreach (DataGridViewRow row in dtg_ChooseEmployee.Rows)
             {
                 if (Convert.ToBoolean(row.Cells[0].Value) == true)
@@ -1118,5 +1203,80 @@ namespace Trang_chủ_Main_Page_
             }
             return "";
         }
+
+        // ---------------- Phần của Quang ----------------------
+        bool menuExpand_3 = false;
+        private void tm_InforChanges_Tick(object sender, EventArgs e)
+        {
+            if (menuExpand_3 == false)
+            {
+                pn_infoChanges.Height += 20;
+                if (pn_infoChanges.Height >= 280)
+                {
+                    tm_InforChanges.Stop();
+                    menuExpand_3 = true;
+                }
+            }
+            else
+            {
+                pn_infoChanges.Height -= 20;
+                if (pn_infoChanges.Height <= 0)
+                {
+                    tm_InforChanges.Stop();
+                    menuExpand_3 = false;
+                }
+            }
+        }
+        private void pb_Avata_Click(object sender, EventArgs e)
+        {
+            tm_InforChanges.Start();
+            lb_Ma.Text = Mainpage.CurrentUser.MaNhanvien;
+            lb_Hoten.Text = Mainpage.CurrentUser.Hoten;
+            lb_Ngaysinh.Text = Mainpage.CurrentUser.Ngaysinh;
+            lb_Gioitinh.Text = Mainpage.CurrentUser.Gioitinh;
+            lb_sdt.Text = Mainpage.CurrentUser.Sodienthoai;
+        }
+
+        private void btn_Xacnhan_Click(object sender, EventArgs e)
+        {
+            string mk1 = tb_mk1.Text;
+            string mk2 = tb_mk2.Text;
+            if (string.IsNullOrEmpty(mk1))
+            {
+                MessageBox.Show("Vui lòng nhập mật khẩu mới!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (string.IsNullOrEmpty(mk2))
+            {
+                MessageBox.Show("Vui lòng nhập xác nhận mật khẩu mới!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (!mk1.Equals(mk2))
+            {
+                MessageBox.Show("Mật khẩu không trùng khớp!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (!IsValidPassword(mk1))
+            {
+                MessageBox.Show("Mật khẩu không hợp lệ!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (BLL_Nhanvien.Instance.UpdatePassword(Mainpage.CurrentUser.MaNhanvien, mk1))
+            {
+                MessageBox.Show("Đổi mật khẩu thành công!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Lỗi khi đổi mật khẩu!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        //Check Password hợp lệ
+        public static bool IsValidPassword(string password)
+        {
+            string pattern = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$";
+            return Regex.IsMatch(password, pattern);
+        }
+
     }
 }

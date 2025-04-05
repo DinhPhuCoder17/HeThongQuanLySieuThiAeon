@@ -48,6 +48,7 @@ namespace Trang_chủ_Main_Page_
             if(cmbGioiTinh.SelectedItem == null)
             {
                 MessageBox.Show("Vui lòng chọn giới tính!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
             else
             {
@@ -85,7 +86,7 @@ namespace Trang_chủ_Main_Page_
             }
             if (!IsValidRoleNV(rolenv))
             {
-                MessageBox.Show("Số điện thoại không hợp lệ!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vai trò không khớp!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             //Kết thúc check nhập dữ liệu

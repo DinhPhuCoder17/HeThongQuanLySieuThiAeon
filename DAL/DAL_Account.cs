@@ -43,5 +43,25 @@ namespace DAL
 
             return null; // Trả về null nếu không tìm thấy tài khoản
         }
+
+        // Lấy mã nhân viên từ database
+        public string GetMaNV(string username, string password)
+        {
+            string query = "SELECT Manhanvien, Password FROM Quanly WHERE Username = @username";
+            DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] { username });
+
+            if (result.Rows.Count > 0)
+            {
+                string storedHashedPassword = result.Rows[0]["Password"].ToString();
+
+                // Kiểm tra mật khẩu nhập vào có khớp với mật khẩu đã lưu không
+                if (BCrypt.Net.BCrypt.Verify(password, storedHashedPassword))
+                {
+                    return result.Rows[0]["Manhanvien"].ToString(); // Đăng nhập thành công
+                }
+            }
+
+            return null; // Trả về null nếu không tìm thấy tài khoản
+        }
     }
 }

@@ -134,6 +134,24 @@ namespace DAL
             return DataProvider.Instance.ExecuteNonQuery(queryQL, parametersQL) > 0;
         }
 
+        // lấy Info nhân viên từ mã nhân viên
+        public DataTable GetEmployeeInfo(string maNV)
+        {
+            string query = "SELECT * FROM Nhanvien WHERE Manhanvien = @Manhanvien";
+            return DataProvider.Instance.ExecuteQuery(query, new object[] { maNV });
+        }
+
+        //Hàm UPDATE mật khẩu mới
+        public bool UpdatePassword(string maNhanVien, string password)
+        {
+            string hashedPassword = BCrypt.Net.BCrypt.HashPassword(password); // Hash mật khẩu
+            string query = "UPDATE Quanly SET Password = @Password WHERE Manhanvien = @Manhanvien";
+
+            object[] parameters = { hashedPassword, maNhanVien };
+
+            return DataProvider.Instance.ExecuteNonQuery(query, parameters) > 0;
+        }
+
 
     }
 }

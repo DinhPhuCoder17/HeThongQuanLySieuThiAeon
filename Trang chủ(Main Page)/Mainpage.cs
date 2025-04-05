@@ -14,6 +14,7 @@ using BLL;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Trang_chu_Main_Page_.Properties;
 using Guna.UI2.WinForms;
+using DTO;
 namespace Trang_chủ_Main_Page_
 {
     public partial class Mainpage : Form
@@ -29,7 +30,9 @@ namespace Trang_chủ_Main_Page_
             InitializeComponent();
             LoadUserLanguage();
             BLLQuanLyKho.Instance.AutoUpdateTrangThaiNhapHang();
-         
+            timer1.Interval = 1000; // 1 giây
+            timer1.Tick += timer1_Tick;
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -50,86 +53,95 @@ namespace Trang_chủ_Main_Page_
         {
 
         }
+
+        // ------------------------- Phần Đăng Nhập -----------------------------
+        //
         private int soLanNhap = 3; //Số lần nhập sai tối đa
         private int countdown = 30; //Thời gian chờ 30s
-
+        public static DTO_User CurrentUser { get; set; }
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             string username = guna2TextBox1.Text;
             string password = guna2TextBox2.Text;
 
-
             // Kiểm tra thông tin hợp lệ
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
-                if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
-                {
-                    MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
-                {
-                    MessageBox.Show("Please enter all required information!", "NOTIFICATION", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            // Gọi BLL để lấy role
+
+            // Gọi BLL để lấy Mã nhân viên và Role
             string role = BLL_Account.Instance.GetRole(username, password);
+            string maNV = BLL_Account.Instance.GetMaNV(username, password);
 
-            if (role != null)
-            {
-                soLanNhap = 3; //Đặt lại soLanNhap nếu đăng nhập thành công
-                lblWarning.Text = ""; //Xóa cảnh báo nếu có
-
-                // Gán giá trị cho pageSelection dựa vào role lấy từ database
-                if (role == "Admin")
-                    Mainpage.pageSelection = 3;
-                else if (role == "Kho")
-                    Mainpage.pageSelection = 2;
-                else if (role == "TCNS")
-                    Mainpage.pageSelection = 1;
-
-                // Hiển thị form loading
-                loading load = new loading();
-                load.Show();
-                this.Hide();
-            }
-            else
+            // Kiểm tra nếu role hoặc mã nhân viên null thì không tiếp tục
+            if (role == null || maNV == null)
             {
                 MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 soLanNhap--;
-                if(soLanNhap > 0)
+                if (soLanNhap > 0)
                 {
-                    lblWarning.Text = "Sai mật khẩu hoặc tên tài khoản! Còn " + soLanNhap + " lần nhập.";
+                    lbWarning.Text = "Sai mật khẩu hoặc tên tài khoản! Còn " + soLanNhap + " lần nhập.";
                 }
                 else
                 {
-                    lblWarning.Text = "Bạn đã nhập sai quá 3 lần. Vui lòng đợi 30s...";
+                    lbWarning.Text = "Bạn đã nhập sai quá 3 lần. Vui lòng đợi 30s...";
                     guna2GradientButton2.Enabled = false;
                     StartLockTimer();
                 }
+                return;  // Dừng lại nếu thông tin đăng nhập không hợp lệ
             }
+
+            // Gọi BLL để lấy thông tin nhân viên từ mã nhân viên
+            DataTable dtNhanVien = BLL_Nhanvien.Instance.GetEmployeeById(maNV);
+            if (dtNhanVien.Rows.Count > 0)
+            {
+                string hoTen = dtNhanVien.Rows[0]["Hoten"].ToString();
+                string ngaySinh = DateTime.Parse((dtNhanVien.Rows[0]["Ngaysinh"]).ToString()).ToString("dd/MM/yyyy");
+                string gioiTinh = dtNhanVien.Rows[0]["Gioitinh"].ToString();
+                string diaChi = dtNhanVien.Rows[0]["Diachi"].ToString();
+                string sdt = dtNhanVien.Rows[0]["Sodienthoai"].ToString();
+
+                // Gán vào CurrentUser
+                Mainpage.CurrentUser = new DTO_User(maNV, hoTen, ngaySinh, gioiTinh, diaChi, sdt, role);
+            }
+
+            soLanNhap = 3; // Đặt lại soLanNhap nếu đăng nhập thành công
+            lbWarning.Text = ""; // Xóa cảnh báo nếu có
+
+            // Gán giá trị cho pageSelection dựa vào role lấy từ database
+            if (role == "Admin")
+                Mainpage.pageSelection = 3;
+            else if (role == "Kho")
+                Mainpage.pageSelection = 2;
+            else if (role == "TCNS")
+                Mainpage.pageSelection = 1;
+
+            // Hiển thị form loading
+            loading load = new loading();
+            load.Show();
+            this.Hide();
         }
+
         // Hàm bắt đầu khóa đăng nhập
         private void StartLockTimer()
         {
             countdown = 30;
-            timer1.Interval = 1000; // 1 giây
-            timer1.Tick += timer1_Tick;
             timer1.Start();
         }
         //Hàm xử lý đếm ngược
         private void timer1_Tick(object sender, EventArgs e)
         {
             countdown--;
-            lblWarning.Text = "Bạn đã nhập sai quá 3 lần. Vui lòng đợi " + countdown + "s...";
+            lbWarning.Text = "Bạn đã nhập sai quá 3 lần. Vui lòng đợi " + countdown + "s...";
 
             if (countdown <= 0)
             {
                 timer1.Stop();
                 guna2GradientButton2.Enabled = true;
-                lblWarning.Text = ""; // Xóa cảnh báo
                 soLanNhap = 3; // Reset số lần nhập sai
+                lbWarning.Text = ""; // Xóa cảnh báo
             }
         }
 

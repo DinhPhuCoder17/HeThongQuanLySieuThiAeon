@@ -283,11 +283,11 @@ namespace Trang_chủ_Main_Page_
             {
                 if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
                 {
-                    MessageBox.Show("Nhân viên đã được xóa (ẩn).", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Nhân viên đã được xóa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else // Mặc định là tiếng Anh
                 {
-                    MessageBox.Show("The employee has been deleted (hidden).", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("The employee has been deleted.", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
                 LoadEmployeeList(); // Cập nhật lại danh sách

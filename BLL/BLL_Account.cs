@@ -24,10 +24,16 @@ namespace BLL
 
         private BLL_Account() { }
 
-        // Kiểm tra role từ database
+        // Lấy role từ database
         public string GetRole(string username, string password)
         {
             return DAL_Account.Instance.GetRole(username, password);
+        }
+
+        //Lấy mã nhân viên từ database
+        public string GetMaNV(string username, string password)
+        {
+            return DAL_Account.Instance.GetMaNV(username, password);
         }
 
     }

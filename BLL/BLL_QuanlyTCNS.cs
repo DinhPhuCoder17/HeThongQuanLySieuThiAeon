@@ -410,37 +410,14 @@ namespace BLL
         //Thêm ca làm
         public bool themCaLam(DTO_Calam caLam)
         {
-            DialogResult result;
-            if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+            if (dAL_QuanlyTCNS.themCaLam(caLam))
             {
-                result = MessageBox.Show("Bạn có chắc chắn muốn thêm ca làm này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                return true;
             }
             else
             {
-                result = MessageBox.Show("Are you sure you want to add this shift?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-            }
-            if (result == DialogResult.Yes) {
-                if (caLam.soLuongNhanVien < caLam.PC_Nhanvien.Count)
-                {
-                    MessageBox.Show("Số lượng nhân viên không hợp lệ");
-                    return false;
-                }
-                if (caLam.tgBatDau.TimeOfDay < TimeSpan.Parse("06:00"))
-                {
-                    MessageBox.Show("Thời gian không hợp lệ - Trước 6:00");
                 return false;
-                }
-
-            if (dAL_QuanlyTCNS.themCaLam(caLam))
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
             }
-            return false;
         }
 
         public bool xoaCaLam(String maCaLam)
@@ -465,18 +442,10 @@ namespace BLL
 
         public bool suaCaLam(DTO_Calam calam)
         {
-            if(calam.PC_Nhanvien.Count <= calam.soLuongNhanVien)
+            if(dAL_QuanlyTCNS.suaCaLam(calam))
             {
-                DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn sửa ca làm này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                if (result == DialogResult.Yes)
-                {
-                    if(dAL_QuanlyTCNS.suaCaLam(calam))
-                    {
-                        return true;
-                    }
-                }
+                return true;
             }
-            MessageBox.Show("Số lượng nhân viên không hợp lệ");
             return false;
         }
 
