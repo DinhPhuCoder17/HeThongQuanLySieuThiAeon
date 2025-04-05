@@ -207,37 +207,6 @@ namespace Trang_chủ_Main_Page_
 
         // ---------------- Phần của Quang ----------------------
         bool menuExpand_3 = false;
-        private void tm_InforChanges_Tick(object sender, EventArgs e)
-        {
-            if (menuExpand_3 == false)
-            {
-                pn_infoChanges.Height += 20;
-                if (pn_infoChanges.Height >= 280)
-                {
-                    tm_InforChanges.Stop();
-                    menuExpand_3 = true;
-                }
-            }
-            else
-            {
-                pn_infoChanges.Height -= 20;
-                if (pn_infoChanges.Height <= 0)
-                {
-                    tm_InforChanges.Stop();
-                    menuExpand_3 = false;
-                }
-            }
-        }
-        private void pb_Avata_Click(object sender, EventArgs e)
-        {
-            tm_InforChanges.Start();
-            lb_Ma.Text = Mainpage.CurrentUser.MaNhanvien;
-            lb_Hoten.Text = Mainpage.CurrentUser.Hoten;
-            lb_Ngaysinh.Text = Mainpage.CurrentUser.Ngaysinh;
-            lb_Gioitinh.Text = Mainpage.CurrentUser.Gioitinh;
-            lb_sdt.Text = Mainpage.CurrentUser.Sodienthoai;
-        }
-
         private void btn_Xacnhan_Click(object sender, EventArgs e)
         {
             string mk1 = tb_mk1.Text;

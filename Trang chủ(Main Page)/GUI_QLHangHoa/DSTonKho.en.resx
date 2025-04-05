@@ -117,12 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="label4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="pb_Avata.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="guna2CirclePictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAfQAAAH0CAYAAADL1t+KAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         vAAADrwBlbxySQAA/7JJREFUeF7s/XeUZMl55QlWVWaG1hEewrXWWmvtHuGhtdYZGZFaV2bpQkFrSRBE
@@ -8629,17 +8625,9 @@
         odnL+N8AAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="pb_Avata.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="label4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
-  </data>
-  <data name="pb_Avata.InitialImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
-  </data>
-  <data name="pb_Avata.Size" type="System.Drawing.Size, System.Drawing">
-    <value>54, 46</value>
-  </data>
-  <data name="pb_Avata.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>Zoom</value>
   </data>
   <data name="label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -8686,178 +8674,25 @@
   <data name="btnXoa_DSTonKho.Text" xml:space="preserve">
     <value>Delete</value>
   </data>
-  <data name="tb_mk2.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="tb_mk2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 4, 3, 4</value>
-  </data>
-  <data name="tb_mk2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>147, 45</value>
-  </data>
-  <data name="tb_mk1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="tb_mk1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 4, 3, 4</value>
-  </data>
-  <data name="tb_mk1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>147, 45</value>
-  </data>
-  <data name="lb_sdt.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 8pt</value>
-  </data>
-  <data name="lb_sdt.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 10, 10, 10</value>
-  </data>
-  <data name="lb_sdt.Size" type="System.Drawing.Size, System.Drawing">
-    <value>106, 39</value>
-  </data>
-  <data name="lb_sdt.Text" xml:space="preserve">
-    <value>Mã Nhân Viên</value>
-  </data>
-  <data name="lb_Gioitinh.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 8pt</value>
-  </data>
-  <data name="lb_Gioitinh.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 10, 10, 10</value>
-  </data>
-  <data name="lb_Gioitinh.Size" type="System.Drawing.Size, System.Drawing">
-    <value>106, 39</value>
-  </data>
-  <data name="lb_Gioitinh.Text" xml:space="preserve">
-    <value>Mã Nhân Viên</value>
-  </data>
-  <data name="lb_Ngaysinh.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 8pt</value>
-  </data>
-  <data name="lb_Ngaysinh.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 10, 10, 10</value>
-  </data>
-  <data name="lb_Ngaysinh.Size" type="System.Drawing.Size, System.Drawing">
-    <value>106, 39</value>
-  </data>
-  <data name="lb_Ngaysinh.Text" xml:space="preserve">
-    <value>Mã Nhân Viên</value>
-  </data>
-  <data name="lb_Hoten.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 8pt</value>
-  </data>
-  <data name="lb_Hoten.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 10, 10, 10</value>
-  </data>
-  <data name="lb_Hoten.Size" type="System.Drawing.Size, System.Drawing">
-    <value>106, 39</value>
-  </data>
-  <data name="lb_Hoten.Text" xml:space="preserve">
-    <value>Mã Nhân Viên</value>
-  </data>
-  <data name="lb_Ma.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 8pt</value>
-  </data>
-  <data name="lb_Ma.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 10, 10, 10</value>
-  </data>
-  <data name="lb_Ma.Size" type="System.Drawing.Size, System.Drawing">
-    <value>106, 39</value>
-  </data>
-  <data name="lb_Ma.Text" xml:space="preserve">
-    <value>Mã Nhân Viên</value>
-  </data>
-  <data name="guna2HtmlLabel14.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 8pt, style=Bold</value>
-  </data>
-  <data name="guna2HtmlLabel14.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 10, 10, 10</value>
-  </data>
-  <data name="guna2HtmlLabel14.Size" type="System.Drawing.Size, System.Drawing">
-    <value>114, 39</value>
-  </data>
-  <data name="guna2HtmlLabel14.Text" xml:space="preserve">
-    <value>Số Điện Thoại:</value>
-  </data>
-  <data name="guna2HtmlLabel11.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 8pt, style=Bold</value>
-  </data>
-  <data name="guna2HtmlLabel11.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 10, 10, 10</value>
-  </data>
-  <data name="guna2HtmlLabel11.Size" type="System.Drawing.Size, System.Drawing">
-    <value>84, 39</value>
-  </data>
-  <data name="guna2HtmlLabel11.Text" xml:space="preserve">
-    <value>Giới Tính:</value>
-  </data>
-  <data name="guna2HtmlLabel12.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 8pt, style=Bold</value>
-  </data>
-  <data name="guna2HtmlLabel12.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 10, 10, 10</value>
-  </data>
-  <data name="guna2HtmlLabel12.Size" type="System.Drawing.Size, System.Drawing">
-    <value>90, 39</value>
-  </data>
-  <data name="guna2HtmlLabel12.Text" xml:space="preserve">
-    <value>Ngày Sinh:</value>
-  </data>
-  <data name="guna2HtmlLabel13.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 8pt, style=Bold</value>
-  </data>
-  <data name="guna2HtmlLabel13.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 10, 10, 10</value>
-  </data>
-  <data name="guna2HtmlLabel13.Size" type="System.Drawing.Size, System.Drawing">
-    <value>72, 39</value>
-  </data>
-  <data name="guna2HtmlLabel13.Text" xml:space="preserve">
-    <value>Họ Tên:</value>
-  </data>
-  <data name="guna2HtmlLabel15.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 8pt, style=Bold</value>
-  </data>
-  <data name="guna2HtmlLabel15.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 10, 10, 10</value>
-  </data>
-  <data name="guna2HtmlLabel15.Size" type="System.Drawing.Size, System.Drawing">
-    <value>181, 39</value>
-  </data>
-  <data name="guna2HtmlLabel15.Text" xml:space="preserve">
-    <value>Xác Nhận Mật Khẩu Mới :</value>
-  </data>
-  <data name="guna2HtmlLabel16.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 8pt, style=Bold</value>
-  </data>
-  <data name="guna2HtmlLabel16.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 10, 10, 10</value>
-  </data>
-  <data name="guna2HtmlLabel16.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 39</value>
-  </data>
-  <data name="guna2HtmlLabel16.Text" xml:space="preserve">
-    <value>Nhập Mật Khẩu Mới :</value>
-  </data>
-  <data name="guna2HtmlLabel17.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 8pt, style=Bold</value>
-  </data>
-  <data name="guna2HtmlLabel17.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 10, 10, 10</value>
-  </data>
-  <data name="guna2HtmlLabel17.Size" type="System.Drawing.Size, System.Drawing">
-    <value>115, 39</value>
-  </data>
-  <data name="guna2HtmlLabel17.Text" xml:space="preserve">
-    <value>Mã Nhân Viên:</value>
-  </data>
-  <data name="btn_Xacnhan.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 10pt</value>
-  </data>
-  <data name="btn_Xacnhan.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 56</value>
-  </data>
-  <data name="btn_Xacnhan.Text" xml:space="preserve">
-    <value>Xác Nhận Đổi</value>
-  </data>
   <data name="pn_infoChanges.Size" type="System.Drawing.Size, System.Drawing">
     <value>624, 0</value>
+  </data>
+  <data name="guna2HtmlLabel13.Location" type="System.Drawing.Point, System.Drawing">
+    <value>251, 84</value>
+  </data>
+  <data name="guna2HtmlLabel13.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 35</value>
+  </data>
+  <data name="guna2HtmlLabel13.Text" xml:space="preserve">
+    <value>Xác nhận Mật Khẩu Mới:</value>
+  </data>
+  <data name="guna2HtmlLabel12.Location" type="System.Drawing.Point, System.Drawing">
+    <value>270, 32</value>
+  </data>
+  <data name="guna2HtmlLabel12.Size" type="System.Drawing.Size, System.Drawing">
+    <value>133, 35</value>
+  </data>
+  <data name="guna2HtmlLabel12.Text" xml:space="preserve">
+    <value>Nhập Mật Khẩu Mới:</value>
   </data>
 </root>

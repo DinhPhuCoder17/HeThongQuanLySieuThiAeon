@@ -117,974 +117,278 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="txt_Customer_Hoten.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="txt_Customer_Hoten.Location" type="System.Drawing.Point, System.Drawing">
-    <value>135, 29</value>
+  <data name="&gt;&gt;cb_Customer_Filter.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="txt_Customer_Hoten.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 4, 3, 4</value>
-  </data>
-  <data name="txt_Customer_Hoten.Size" type="System.Drawing.Size, System.Drawing">
-    <value>412, 48</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="txt_Customer_Hoten.TabIndex" type="System.Int32, mscorlib">
-    <value>25</value>
-  </data>
-  <data name="&gt;&gt;txt_Customer_Hoten.Name" xml:space="preserve">
-    <value>txt_Customer_Hoten</value>
-  </data>
-  <data name="&gt;&gt;txt_Customer_Hoten.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2TextBox, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="&gt;&gt;txt_Customer_Hoten.Parent" xml:space="preserve">
-    <value>menu_CusTomer_Add</value>
-  </data>
-  <data name="&gt;&gt;txt_Customer_Hoten.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="txt_DiaChiKH.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="txt_DiaChiKH.Location" type="System.Drawing.Point, System.Drawing">
-    <value>135, 170</value>
-  </data>
-  <data name="txt_DiaChiKH.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 4, 3, 4</value>
-  </data>
-  <data name="txt_DiaChiKH.Size" type="System.Drawing.Size, System.Drawing">
-    <value>412, 48</value>
-  </data>
-  <data name="txt_DiaChiKH.TabIndex" type="System.Int32, mscorlib">
-    <value>26</value>
-  </data>
-  <data name="&gt;&gt;txt_DiaChiKH.Name" xml:space="preserve">
-    <value>txt_DiaChiKH</value>
-  </data>
-  <data name="&gt;&gt;txt_DiaChiKH.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2TextBox, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="&gt;&gt;txt_DiaChiKH.Parent" xml:space="preserve">
-    <value>menu_CusTomer_Add</value>
-  </data>
-  <data name="&gt;&gt;txt_DiaChiKH.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="lbl_Customer_HoTen.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbl_Customer_HoTen.Location" type="System.Drawing.Point, System.Drawing">
-    <value>56, 49</value>
-  </data>
-  <data name="lbl_Customer_HoTen.Size" type="System.Drawing.Size, System.Drawing">
-    <value>52, 16</value>
-  </data>
-  <data name="lbl_Customer_HoTen.TabIndex" type="System.Int32, mscorlib">
-    <value>21</value>
-  </data>
-  <data name="lbl_Customer_HoTen.Text" xml:space="preserve">
-    <value>Họ Tên</value>
-  </data>
-  <data name="&gt;&gt;lbl_Customer_HoTen.Name" xml:space="preserve">
-    <value>lbl_Customer_HoTen</value>
-  </data>
-  <data name="&gt;&gt;lbl_Customer_HoTen.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbl_Customer_HoTen.Parent" xml:space="preserve">
-    <value>menu_CusTomer_Add</value>
-  </data>
-  <data name="&gt;&gt;lbl_Customer_HoTen.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="lb_DiaChiKH.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lb_DiaChiKH.Location" type="System.Drawing.Point, System.Drawing">
-    <value>56, 186</value>
-  </data>
-  <data name="lb_DiaChiKH.Size" type="System.Drawing.Size, System.Drawing">
-    <value>47, 16</value>
-  </data>
-  <data name="lb_DiaChiKH.TabIndex" type="System.Int32, mscorlib">
-    <value>22</value>
-  </data>
-  <data name="lb_DiaChiKH.Text" xml:space="preserve">
-    <value>Địa chỉ</value>
-  </data>
-  <data name="&gt;&gt;lb_DiaChiKH.Name" xml:space="preserve">
-    <value>lb_DiaChiKH</value>
-  </data>
-  <data name="&gt;&gt;lb_DiaChiKH.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lb_DiaChiKH.Parent" xml:space="preserve">
-    <value>menu_CusTomer_Add</value>
-  </data>
-  <data name="&gt;&gt;lb_DiaChiKH.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="cb_GioiTinhKH.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 10pt</value>
-  </data>
-  <data name="cb_GioiTinhKH.ItemHeight" type="System.Int32, mscorlib">
-    <value>30</value>
-  </data>
-  <data name="cb_GioiTinhKH.Items" xml:space="preserve">
-    <value>Nam</value>
-  </data>
-  <data name="cb_GioiTinhKH.Items1" xml:space="preserve">
-    <value>Nữ</value>
-  </data>
-  <data name="cb_GioiTinhKH.Location" type="System.Drawing.Point, System.Drawing">
-    <value>135, 246</value>
-  </data>
-  <data name="cb_GioiTinhKH.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 36</value>
-  </data>
-  <data name="cb_GioiTinhKH.TabIndex" type="System.Int32, mscorlib">
-    <value>29</value>
-  </data>
-  <data name="&gt;&gt;cb_GioiTinhKH.Name" xml:space="preserve">
-    <value>cb_GioiTinhKH</value>
-  </data>
-  <data name="&gt;&gt;cb_GioiTinhKH.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2ComboBox, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="&gt;&gt;cb_GioiTinhKH.Parent" xml:space="preserve">
-    <value>menu_CusTomer_Add</value>
-  </data>
-  <data name="&gt;&gt;cb_GioiTinhKH.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="lb_GioiTinhKH.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lb_GioiTinhKH.Location" type="System.Drawing.Point, System.Drawing">
-    <value>56, 255</value>
-  </data>
-  <data name="lb_GioiTinhKH.Size" type="System.Drawing.Size, System.Drawing">
-    <value>54, 16</value>
-  </data>
-  <data name="lb_GioiTinhKH.TabIndex" type="System.Int32, mscorlib">
-    <value>28</value>
-  </data>
-  <data name="lb_GioiTinhKH.Text" xml:space="preserve">
-    <value>Giới tính</value>
-  </data>
-  <data name="&gt;&gt;lb_GioiTinhKH.Name" xml:space="preserve">
-    <value>lb_GioiTinhKH</value>
-  </data>
-  <data name="&gt;&gt;lb_GioiTinhKH.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lb_GioiTinhKH.Parent" xml:space="preserve">
-    <value>menu_CusTomer_Add</value>
-  </data>
-  <data name="&gt;&gt;lb_GioiTinhKH.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="txt_Customer_SDT.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="txt_Customer_SDT.Location" type="System.Drawing.Point, System.Drawing">
-    <value>135, 97</value>
-  </data>
-  <data name="txt_Customer_SDT.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 4, 3, 4</value>
-  </data>
-  <data name="txt_Customer_SDT.Size" type="System.Drawing.Size, System.Drawing">
-    <value>412, 48</value>
-  </data>
-  <data name="txt_Customer_SDT.TabIndex" type="System.Int32, mscorlib">
-    <value>24</value>
-  </data>
-  <data name="&gt;&gt;txt_Customer_SDT.Name" xml:space="preserve">
-    <value>txt_Customer_SDT</value>
-  </data>
-  <data name="&gt;&gt;txt_Customer_SDT.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2TextBox, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="&gt;&gt;txt_Customer_SDT.Parent" xml:space="preserve">
-    <value>menu_CusTomer_Add</value>
-  </data>
-  <data name="&gt;&gt;txt_Customer_SDT.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="lbl_Customer_SDT.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbl_Customer_SDT.Location" type="System.Drawing.Point, System.Drawing">
-    <value>37, 118</value>
-  </data>
-  <data name="lbl_Customer_SDT.Size" type="System.Drawing.Size, System.Drawing">
-    <value>92, 16</value>
-  </data>
-  <data name="lbl_Customer_SDT.TabIndex" type="System.Int32, mscorlib">
-    <value>20</value>
-  </data>
-  <data name="lbl_Customer_SDT.Text" xml:space="preserve">
-    <value>Số Điện Thoại</value>
+  <data name="guna2HtmlLabel12.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 10, 10, 10</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="pn_infoChanges.Location" type="System.Drawing.Point, System.Drawing">
+    <value>420, 74</value>
   </data>
   <data name="&gt;&gt;lbl_Customer_SDT.Name" xml:space="preserve">
     <value>lbl_Customer_SDT</value>
   </data>
-  <data name="&gt;&gt;lbl_Customer_SDT.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbl_Customer_SDT.Parent" xml:space="preserve">
-    <value>menu_CusTomer_Add</value>
-  </data>
-  <data name="&gt;&gt;lbl_Customer_SDT.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="btnCustomerAdd_Send.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="btnCustomerAdd_Send.Location" type="System.Drawing.Point, System.Drawing">
-    <value>216, 317</value>
-  </data>
-  <data name="btnCustomerAdd_Send.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 45</value>
-  </data>
-  <data name="btnCustomerAdd_Send.TabIndex" type="System.Int32, mscorlib">
-    <value>23</value>
-  </data>
-  <data name="btnCustomerAdd_Send.Text" xml:space="preserve">
-    <value>Xác Nhận</value>
-  </data>
-  <data name="&gt;&gt;btnCustomerAdd_Send.Name" xml:space="preserve">
-    <value>btnCustomerAdd_Send</value>
-  </data>
-  <data name="&gt;&gt;btnCustomerAdd_Send.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2Button, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="&gt;&gt;btnCustomerAdd_Send.Parent" xml:space="preserve">
-    <value>menu_CusTomer_Add</value>
-  </data>
-  <data name="&gt;&gt;btnCustomerAdd_Send.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="menu_CusTomer_Add.Location" type="System.Drawing.Point, System.Drawing">
-    <value>198, 130</value>
-  </data>
-  <data name="menu_CusTomer_Add.Size" type="System.Drawing.Size, System.Drawing">
-    <value>580, 0</value>
-  </data>
-  <data name="menu_CusTomer_Add.TabIndex" type="System.Int32, mscorlib">
-    <value>19</value>
-  </data>
-  <data name="&gt;&gt;menu_CusTomer_Add.Name" xml:space="preserve">
-    <value>menu_CusTomer_Add</value>
-  </data>
-  <data name="&gt;&gt;menu_CusTomer_Add.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2Panel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="&gt;&gt;menu_CusTomer_Add.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;menu_CusTomer_Add.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <metadata name="guna2BorderlessForm1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>515, 17</value>
-  </metadata>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1181, 842</value>
-  </data>
-  <data name="tb_mk2.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="tb_mk2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>427, 82</value>
-  </data>
-  <data name="tb_mk2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 4, 3, 4</value>
-  </data>
-  <data name="tb_mk2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>147, 45</value>
-  </data>
-  <data name="tb_mk2.TabIndex" type="System.Int32, mscorlib">
-    <value>23</value>
-  </data>
-  <data name="&gt;&gt;tb_mk2.Name" xml:space="preserve">
-    <value>tb_mk2</value>
-  </data>
-  <data name="&gt;&gt;tb_mk2.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2TextBox, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="&gt;&gt;tb_mk2.Parent" xml:space="preserve">
-    <value>pn_infoChanges</value>
-  </data>
-  <data name="&gt;&gt;tb_mk2.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="tb_mk1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="tb_mk1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>427, 30</value>
-  </data>
-  <data name="tb_mk1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 4, 3, 4</value>
-  </data>
-  <data name="tb_mk1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>147, 45</value>
-  </data>
-  <data name="tb_mk1.TabIndex" type="System.Int32, mscorlib">
-    <value>23</value>
-  </data>
-  <data name="&gt;&gt;tb_mk1.Name" xml:space="preserve">
-    <value>tb_mk1</value>
-  </data>
-  <data name="&gt;&gt;tb_mk1.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2TextBox, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="&gt;&gt;tb_mk1.Parent" xml:space="preserve">
-    <value>pn_infoChanges</value>
-  </data>
-  <data name="&gt;&gt;tb_mk1.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="lb_sdt.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 8pt</value>
-  </data>
-  <data name="lb_sdt.Location" type="System.Drawing.Point, System.Drawing">
-    <value>129, 214</value>
-  </data>
-  <data name="lb_sdt.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 10, 10, 10</value>
-  </data>
-  <data name="lb_sdt.Size" type="System.Drawing.Size, System.Drawing">
-    <value>106, 39</value>
-  </data>
-  <data name="lb_sdt.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="lb_sdt.Text" xml:space="preserve">
-    <value>Mã Nhân Viên</value>
-  </data>
-  <data name="&gt;&gt;lb_sdt.Name" xml:space="preserve">
-    <value>lb_sdt</value>
-  </data>
-  <data name="&gt;&gt;lb_sdt.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2HtmlLabel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="&gt;&gt;lb_sdt.Parent" xml:space="preserve">
-    <value>pn_infoChanges</value>
-  </data>
-  <data name="&gt;&gt;lb_sdt.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="lb_Gioitinh.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 8pt</value>
-  </data>
-  <data name="lb_Gioitinh.Location" type="System.Drawing.Point, System.Drawing">
-    <value>100, 169</value>
-  </data>
-  <data name="lb_Gioitinh.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 10, 10, 10</value>
-  </data>
-  <data name="lb_Gioitinh.Size" type="System.Drawing.Size, System.Drawing">
-    <value>106, 39</value>
-  </data>
-  <data name="lb_Gioitinh.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="lb_Gioitinh.Text" xml:space="preserve">
-    <value>Mã Nhân Viên</value>
-  </data>
-  <data name="&gt;&gt;lb_Gioitinh.Name" xml:space="preserve">
-    <value>lb_Gioitinh</value>
-  </data>
-  <data name="&gt;&gt;lb_Gioitinh.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2HtmlLabel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="&gt;&gt;lb_Gioitinh.Parent" xml:space="preserve">
-    <value>pn_infoChanges</value>
-  </data>
-  <data name="&gt;&gt;lb_Gioitinh.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="lb_Ngaysinh.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 8pt</value>
-  </data>
-  <data name="lb_Ngaysinh.Location" type="System.Drawing.Point, System.Drawing">
-    <value>100, 124</value>
-  </data>
-  <data name="lb_Ngaysinh.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 10, 10, 10</value>
-  </data>
-  <data name="lb_Ngaysinh.Size" type="System.Drawing.Size, System.Drawing">
-    <value>106, 39</value>
-  </data>
-  <data name="lb_Ngaysinh.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="lb_Ngaysinh.Text" xml:space="preserve">
-    <value>Mã Nhân Viên</value>
-  </data>
-  <data name="&gt;&gt;lb_Ngaysinh.Name" xml:space="preserve">
-    <value>lb_Ngaysinh</value>
-  </data>
-  <data name="&gt;&gt;lb_Ngaysinh.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2HtmlLabel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="&gt;&gt;lb_Ngaysinh.Parent" xml:space="preserve">
-    <value>pn_infoChanges</value>
-  </data>
-  <data name="&gt;&gt;lb_Ngaysinh.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="lb_Hoten.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 8pt</value>
-  </data>
-  <data name="lb_Hoten.Location" type="System.Drawing.Point, System.Drawing">
-    <value>86, 83</value>
-  </data>
-  <data name="lb_Hoten.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 10, 10, 10</value>
-  </data>
-  <data name="lb_Hoten.Size" type="System.Drawing.Size, System.Drawing">
-    <value>106, 39</value>
-  </data>
-  <data name="lb_Hoten.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="lb_Hoten.Text" xml:space="preserve">
-    <value>Mã Nhân Viên</value>
+  <data name="label4.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI Semibold, 9pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;pb_Avata.Name" xml:space="preserve">
+    <value>pb_Avata</value>
   </data>
   <data name="&gt;&gt;lb_Hoten.Name" xml:space="preserve">
     <value>lb_Hoten</value>
   </data>
-  <data name="&gt;&gt;lb_Hoten.Type" xml:space="preserve">
+  <data name="&gt;&gt;lb_Gioitinh.Type" xml:space="preserve">
     <value>Guna.UI2.WinForms.Guna2HtmlLabel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="&gt;&gt;lb_Hoten.Parent" xml:space="preserve">
-    <value>pn_infoChanges</value>
-  </data>
-  <data name="&gt;&gt;lb_Hoten.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="lb_Ma.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 8pt</value>
-  </data>
-  <data name="lb_Ma.Location" type="System.Drawing.Point, System.Drawing">
-    <value>129, 33</value>
-  </data>
-  <data name="lb_Ma.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 10, 10, 10</value>
-  </data>
-  <data name="lb_Ma.Size" type="System.Drawing.Size, System.Drawing">
-    <value>106, 39</value>
-  </data>
-  <data name="lb_Ma.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="lb_Ma.Text" xml:space="preserve">
-    <value>Mã Nhân Viên</value>
-  </data>
-  <data name="&gt;&gt;lb_Ma.Name" xml:space="preserve">
-    <value>lb_Ma</value>
-  </data>
-  <data name="&gt;&gt;lb_Ma.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2HtmlLabel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="&gt;&gt;lb_Ma.Parent" xml:space="preserve">
-    <value>pn_infoChanges</value>
-  </data>
-  <data name="&gt;&gt;lb_Ma.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="guna2HtmlLabel14.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 8pt, style=Bold</value>
-  </data>
-  <data name="guna2HtmlLabel14.Location" type="System.Drawing.Point, System.Drawing">
-    <value>30, 214</value>
-  </data>
-  <data name="guna2HtmlLabel14.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 10, 10, 10</value>
-  </data>
-  <data name="guna2HtmlLabel14.Size" type="System.Drawing.Size, System.Drawing">
-    <value>114, 39</value>
-  </data>
-  <data name="guna2HtmlLabel14.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="guna2HtmlLabel14.Text" xml:space="preserve">
-    <value>Số Điện Thoại:</value>
-  </data>
-  <data name="&gt;&gt;guna2HtmlLabel14.Name" xml:space="preserve">
-    <value>guna2HtmlLabel14</value>
-  </data>
-  <data name="&gt;&gt;guna2HtmlLabel14.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2HtmlLabel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="&gt;&gt;guna2HtmlLabel14.Parent" xml:space="preserve">
-    <value>pn_infoChanges</value>
-  </data>
-  <data name="&gt;&gt;guna2HtmlLabel14.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="guna2HtmlLabel9.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 8pt, style=Bold</value>
-  </data>
-  <data name="guna2HtmlLabel9.Location" type="System.Drawing.Point, System.Drawing">
-    <value>30, 169</value>
-  </data>
-  <data name="guna2HtmlLabel9.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 10, 10, 10</value>
-  </data>
-  <data name="guna2HtmlLabel9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>84, 39</value>
-  </data>
-  <data name="guna2HtmlLabel9.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="guna2HtmlLabel9.Text" xml:space="preserve">
-    <value>Giới Tính:</value>
-  </data>
-  <data name="&gt;&gt;guna2HtmlLabel9.Name" xml:space="preserve">
-    <value>guna2HtmlLabel9</value>
-  </data>
-  <data name="&gt;&gt;guna2HtmlLabel9.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2HtmlLabel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="&gt;&gt;guna2HtmlLabel9.Parent" xml:space="preserve">
-    <value>pn_infoChanges</value>
-  </data>
-  <data name="&gt;&gt;guna2HtmlLabel9.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="guna2HtmlLabel7.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 8pt, style=Bold</value>
-  </data>
-  <data name="guna2HtmlLabel7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>30, 124</value>
-  </data>
-  <data name="guna2HtmlLabel7.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 10, 10, 10</value>
-  </data>
-  <data name="guna2HtmlLabel7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>90, 39</value>
-  </data>
-  <data name="guna2HtmlLabel7.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="guna2HtmlLabel7.Text" xml:space="preserve">
-    <value>Ngày Sinh:</value>
-  </data>
-  <data name="&gt;&gt;guna2HtmlLabel7.Name" xml:space="preserve">
-    <value>guna2HtmlLabel7</value>
-  </data>
-  <data name="&gt;&gt;guna2HtmlLabel7.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2HtmlLabel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="&gt;&gt;guna2HtmlLabel7.Parent" xml:space="preserve">
-    <value>pn_infoChanges</value>
-  </data>
-  <data name="&gt;&gt;guna2HtmlLabel7.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="guna2HtmlLabel5.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 8pt, style=Bold</value>
-  </data>
-  <data name="guna2HtmlLabel5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>30, 83</value>
-  </data>
-  <data name="guna2HtmlLabel5.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 10, 10, 10</value>
-  </data>
-  <data name="guna2HtmlLabel5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>72, 39</value>
-  </data>
-  <data name="guna2HtmlLabel5.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="guna2HtmlLabel5.Text" xml:space="preserve">
-    <value>Họ Tên:</value>
-  </data>
-  <data name="&gt;&gt;guna2HtmlLabel5.Name" xml:space="preserve">
-    <value>guna2HtmlLabel5</value>
-  </data>
-  <data name="&gt;&gt;guna2HtmlLabel5.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2HtmlLabel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="&gt;&gt;guna2HtmlLabel5.Parent" xml:space="preserve">
-    <value>pn_infoChanges</value>
-  </data>
-  <data name="&gt;&gt;guna2HtmlLabel5.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="guna2HtmlLabel13.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 8pt, style=Bold</value>
-  </data>
-  <data name="guna2HtmlLabel13.Location" type="System.Drawing.Point, System.Drawing">
-    <value>253, 94</value>
-  </data>
-  <data name="guna2HtmlLabel13.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 10, 10, 10</value>
-  </data>
-  <data name="guna2HtmlLabel13.Size" type="System.Drawing.Size, System.Drawing">
-    <value>181, 39</value>
-  </data>
-  <data name="guna2HtmlLabel13.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="guna2HtmlLabel13.Text" xml:space="preserve">
-    <value>Xác Nhận Mật Khẩu Mới :</value>
-  </data>
-  <data name="&gt;&gt;guna2HtmlLabel13.Name" xml:space="preserve">
-    <value>guna2HtmlLabel13</value>
-  </data>
-  <data name="&gt;&gt;guna2HtmlLabel13.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2HtmlLabel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="&gt;&gt;guna2HtmlLabel13.Parent" xml:space="preserve">
-    <value>pn_infoChanges</value>
-  </data>
-  <data name="&gt;&gt;guna2HtmlLabel13.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="guna2HtmlLabel12.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 8pt, style=Bold</value>
-  </data>
-  <data name="guna2HtmlLabel12.Location" type="System.Drawing.Point, System.Drawing">
-    <value>279, 36</value>
-  </data>
-  <data name="guna2HtmlLabel12.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 10, 10, 10</value>
-  </data>
-  <data name="guna2HtmlLabel12.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 39</value>
-  </data>
-  <data name="guna2HtmlLabel12.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="guna2HtmlLabel12.Text" xml:space="preserve">
-    <value>Nhập Mật Khẩu Mới :</value>
-  </data>
-  <data name="&gt;&gt;guna2HtmlLabel12.Name" xml:space="preserve">
-    <value>guna2HtmlLabel12</value>
-  </data>
-  <data name="&gt;&gt;guna2HtmlLabel12.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2HtmlLabel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="&gt;&gt;guna2HtmlLabel12.Parent" xml:space="preserve">
-    <value>pn_infoChanges</value>
-  </data>
-  <data name="&gt;&gt;guna2HtmlLabel12.ZOrder" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="guna2HtmlLabel3.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 8pt, style=Bold</value>
-  </data>
-  <data name="guna2HtmlLabel3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>30, 34</value>
-  </data>
-  <data name="guna2HtmlLabel3.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 10, 10, 10</value>
-  </data>
-  <data name="guna2HtmlLabel3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>115, 39</value>
-  </data>
-  <data name="guna2HtmlLabel3.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="guna2HtmlLabel3.Text" xml:space="preserve">
-    <value>Mã Nhân Viên:</value>
-  </data>
-  <data name="&gt;&gt;guna2HtmlLabel3.Name" xml:space="preserve">
-    <value>guna2HtmlLabel3</value>
-  </data>
-  <data name="&gt;&gt;guna2HtmlLabel3.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2HtmlLabel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="&gt;&gt;guna2HtmlLabel3.Parent" xml:space="preserve">
-    <value>pn_infoChanges</value>
   </data>
   <data name="&gt;&gt;guna2HtmlLabel3.ZOrder" xml:space="preserve">
     <value>13</value>
   </data>
-  <data name="btn_Xacnhan.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 10pt</value>
-  </data>
-  <data name="btn_Xacnhan.Location" type="System.Drawing.Point, System.Drawing">
-    <value>394, 152</value>
-  </data>
-  <data name="btn_Xacnhan.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 56</value>
-  </data>
-  <data name="btn_Xacnhan.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="btn_Xacnhan.Text" xml:space="preserve">
-    <value>Xác Nhận Đổi</value>
-  </data>
-  <data name="&gt;&gt;btn_Xacnhan.Name" xml:space="preserve">
-    <value>btn_Xacnhan</value>
-  </data>
-  <data name="&gt;&gt;btn_Xacnhan.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2GradientButton, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="&gt;&gt;btn_Xacnhan.Parent" xml:space="preserve">
-    <value>pn_infoChanges</value>
-  </data>
-  <data name="&gt;&gt;btn_Xacnhan.ZOrder" xml:space="preserve">
-    <value>14</value>
-  </data>
-  <data name="pn_infoChanges.Location" type="System.Drawing.Point, System.Drawing">
-    <value>420, 74</value>
-  </data>
-  <data name="pn_infoChanges.Size" type="System.Drawing.Size, System.Drawing">
-    <value>624, 0</value>
-  </data>
-  <data name="pn_infoChanges.TabIndex" type="System.Int32, mscorlib">
-    <value>24</value>
-  </data>
-  <data name="&gt;&gt;pn_infoChanges.Name" xml:space="preserve">
-    <value>pn_infoChanges</value>
-  </data>
-  <data name="&gt;&gt;pn_infoChanges.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2Panel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="&gt;&gt;pn_infoChanges.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;pn_infoChanges.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="btn_Customer_Change.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 10pt</value>
-  </data>
-  <data name="btn_Customer_Change.Location" type="System.Drawing.Point, System.Drawing">
-    <value>600, 74</value>
-  </data>
-  <data name="btn_Customer_Change.Size" type="System.Drawing.Size, System.Drawing">
-    <value>163, 49</value>
-  </data>
-  <data name="btn_Customer_Change.TabIndex" type="System.Int32, mscorlib">
-    <value>23</value>
-  </data>
-  <data name="btn_Customer_Change.Text" xml:space="preserve">
-    <value>Sửa Khách Hàng</value>
-  </data>
-  <data name="&gt;&gt;btn_Customer_Change.Name" xml:space="preserve">
-    <value>btn_Customer_Change</value>
-  </data>
-  <data name="&gt;&gt;btn_Customer_Change.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2GradientButton, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="&gt;&gt;btn_Customer_Change.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;btn_Customer_Change.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="btn_Customer_Add.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9.5pt</value>
-  </data>
-  <data name="btn_Customer_Add.Location" type="System.Drawing.Point, System.Drawing">
-    <value>431, 74</value>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="guna2Separator2.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
   </data>
   <data name="btn_Customer_Add.Size" type="System.Drawing.Size, System.Drawing">
     <value>163, 49</value>
   </data>
-  <data name="btn_Customer_Add.TabIndex" type="System.Int32, mscorlib">
-    <value>22</value>
-  </data>
-  <data name="btn_Customer_Add.Text" xml:space="preserve">
-    <value>Thêm Khách hàng</value>
-  </data>
-  <data name="&gt;&gt;btn_Customer_Add.Name" xml:space="preserve">
-    <value>btn_Customer_Add</value>
-  </data>
-  <data name="&gt;&gt;btn_Customer_Add.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2GradientButton, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="&gt;&gt;btn_Customer_Add.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;btn_Customer_Add.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="btn_Customer_Delete.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 10pt</value>
-  </data>
-  <data name="btn_Customer_Delete.Location" type="System.Drawing.Point, System.Drawing">
-    <value>769, 74</value>
-  </data>
-  <data name="btn_Customer_Delete.Size" type="System.Drawing.Size, System.Drawing">
-    <value>163, 49</value>
-  </data>
-  <data name="btn_Customer_Delete.TabIndex" type="System.Int32, mscorlib">
-    <value>21</value>
-  </data>
-  <data name="btn_Customer_Delete.Text" xml:space="preserve">
-    <value>Xóa Khách Hàng</value>
-  </data>
-  <data name="&gt;&gt;btn_Customer_Delete.Name" xml:space="preserve">
-    <value>btn_Customer_Delete</value>
-  </data>
-  <data name="&gt;&gt;btn_Customer_Delete.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2GradientButton, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="&gt;&gt;btn_Customer_Delete.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;btn_Customer_Delete.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="cb_Customer_Filter.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 10pt</value>
-  </data>
-  <data name="cb_Customer_Filter.ItemHeight" type="System.Int32, mscorlib">
-    <value>30</value>
-  </data>
-  <data name="cb_Customer_Filter.Items" xml:space="preserve">
-    <value>Tăng Dần</value>
-  </data>
-  <data name="cb_Customer_Filter.Items1" xml:space="preserve">
-    <value>Giảm Dần</value>
-  </data>
-  <data name="cb_Customer_Filter.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1012, 87</value>
-  </data>
-  <data name="cb_Customer_Filter.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 36</value>
-  </data>
-  <data name="cb_Customer_Filter.TabIndex" type="System.Int32, mscorlib">
-    <value>20</value>
-  </data>
-  <data name="&gt;&gt;cb_Customer_Filter.Name" xml:space="preserve">
-    <value>cb_Customer_Filter</value>
-  </data>
-  <data name="&gt;&gt;cb_Customer_Filter.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2ComboBox, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="&gt;&gt;cb_Customer_Filter.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;cb_Customer_Filter.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="guna2Separator2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>490, 498</value>
-  </data>
-  <data name="guna2Separator2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 10</value>
-  </data>
-  <data name="guna2Separator2.TabIndex" type="System.Int32, mscorlib">
-    <value>17</value>
-  </data>
-  <data name="&gt;&gt;guna2Separator2.Name" xml:space="preserve">
-    <value>guna2Separator2</value>
-  </data>
-  <data name="&gt;&gt;guna2Separator2.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2Separator, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="&gt;&gt;guna2Separator2.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;guna2Separator2.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="guna2HtmlLabel1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt, style=Bold</value>
-  </data>
-  <data name="guna2HtmlLabel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>961, 98</value>
-  </data>
-  <data name="guna2HtmlLabel1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 10, 10, 10</value>
-  </data>
-  <data name="guna2HtmlLabel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>83, 42</value>
-  </data>
-  <data name="guna2HtmlLabel1.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
-  <data name="guna2HtmlLabel1.Text" xml:space="preserve">
-    <value>Sắp Xếp:</value>
-  </data>
-  <data name="&gt;&gt;guna2HtmlLabel1.Name" xml:space="preserve">
-    <value>guna2HtmlLabel1</value>
-  </data>
-  <data name="&gt;&gt;guna2HtmlLabel1.Type" xml:space="preserve">
+  <data name="&gt;&gt;guna2HtmlLabel7.Type" xml:space="preserve">
     <value>Guna.UI2.WinForms.Guna2HtmlLabel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="&gt;&gt;guna2HtmlLabel1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;guna2HtmlLabel1.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="lblCustomerList.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 10.8pt, style=Bold</value>
-  </data>
-  <data name="lblCustomerList.Location" type="System.Drawing.Point, System.Drawing">
-    <value>29, 77</value>
-  </data>
-  <data name="lblCustomerList.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 10, 10, 10</value>
-  </data>
-  <data name="lblCustomerList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>324, 47</value>
-  </data>
-  <data name="lblCustomerList.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
-  <data name="lblCustomerList.Text" xml:space="preserve">
-    <value>Danh Sách Khách Hàng Thành Viên</value>
-  </data>
-  <data name="&gt;&gt;lblCustomerList.Name" xml:space="preserve">
-    <value>lblCustomerList</value>
-  </data>
-  <data name="&gt;&gt;lblCustomerList.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2HtmlLabel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="&gt;&gt;lblCustomerList.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lblCustomerList.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="label4.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label4.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI Semibold, 9pt, style=Bold</value>
   </data>
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
     <value>761, 23</value>
   </data>
-  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>112, 20</value>
+  <data name="&gt;&gt;guna2HtmlLabel1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="tb_mk2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="&gt;&gt;btn_Customer_Add.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="guna2HtmlLabel1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;guna2HtmlLabel9.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="lb_Ngaysinh.Size" type="System.Drawing.Size, System.Drawing">
+    <value>106, 39</value>
+  </data>
+  <data name="dtg_CustomerList.ColumnHeadersHeight" type="System.Int32, mscorlib">
+    <value>40</value>
+  </data>
+  <data name="guna2HtmlLabel13.Text" xml:space="preserve">
+    <value>Xác Nhận Mật Khẩu Mới :</value>
+  </data>
+  <data name="lbl_Customer_HoTen.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 16</value>
+  </data>
+  <data name="guna2HtmlLabel14.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 10, 10, 10</value>
+  </data>
+  <data name="&gt;&gt;pn_infoChanges.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="txt_Customer_SearchBar.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="btn_Customer_Add.Text" xml:space="preserve">
+    <value>Thêm Khách hàng</value>
+  </data>
+  <data name="cb_Customer_Filter.ItemHeight" type="System.Int32, mscorlib">
+    <value>30</value>
+  </data>
+  <data name="lb_Ma.Size" type="System.Drawing.Size, System.Drawing">
+    <value>106, 39</value>
+  </data>
+  <data name="&gt;&gt;guna2Separator2.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="btn_Customer_Delete.Text" xml:space="preserve">
+    <value>Xóa Khách Hàng</value>
+  </data>
+  <data name="guna2HtmlLabel5.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 10, 10, 10</value>
+  </data>
+  <data name="&gt;&gt;btnCustomerAdd_Send.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;txt_Customer_SearchBar.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="tb_mk1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="txt_Customer_Hoten.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
+  </data>
+  <data name="&gt;&gt;btn_Customer_Change.Name" xml:space="preserve">
+    <value>btn_Customer_Change</value>
+  </data>
+  <data name="&gt;&gt;tb_mk1.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2TextBox, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;cb_GioiTinhKH.Name" xml:space="preserve">
+    <value>cb_GioiTinhKH</value>
+  </data>
+  <data name="guna2HtmlLabel14.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 8pt, style=Bold</value>
+  </data>
+  <data name="guna2HtmlLabel13.Size" type="System.Drawing.Size, System.Drawing">
+    <value>181, 39</value>
+  </data>
+  <data name="lb_Ma.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="guna2HtmlLabel9.Location" type="System.Drawing.Point, System.Drawing">
+    <value>30, 169</value>
+  </data>
+  <data name="&gt;&gt;guna2HtmlLabel3.Name" xml:space="preserve">
+    <value>guna2HtmlLabel3</value>
+  </data>
+  <data name="lbl_Customer_SDT.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="guna2HtmlLabel3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>115, 39</value>
+  </data>
+  <data name="&gt;&gt;tb_mk2.Parent" xml:space="preserve">
+    <value>pn_infoChanges</value>
+  </data>
+  <data name="txt_Customer_SearchBar.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
+  </data>
+  <data name="&gt;&gt;lb_Hoten.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="txt_DiaChiKH.Location" type="System.Drawing.Point, System.Drawing">
+    <value>135, 170</value>
+  </data>
+  <data name="guna2HtmlLabel12.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 39</value>
+  </data>
+  <data name="&gt;&gt;lb_sdt.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="tb_mk1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
+  </data>
+  <data name="lb_Ma.Text" xml:space="preserve">
+    <value>Mã Nhân Viên</value>
+  </data>
+  <data name="&gt;&gt;txt_Customer_Hoten.Parent" xml:space="preserve">
+    <value>menu_CusTomer_Add</value>
+  </data>
+  <data name="guna2HtmlLabel13.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 8pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;txt_DiaChiKH.Parent" xml:space="preserve">
+    <value>menu_CusTomer_Add</value>
+  </data>
+  <data name="&gt;&gt;pb_Avata.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2CirclePictureBox, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="guna2HtmlLabel3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>30, 34</value>
+  </data>
+  <data name="lb_GioiTinhKH.Text" xml:space="preserve">
+    <value>Giới tính</value>
+  </data>
+  <data name="&gt;&gt;dtg_CustomerList.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2DataGridView, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;lb_Ngaysinh.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="btn_Customer_Change.Text" xml:space="preserve">
+    <value>Sửa Khách Hàng</value>
+  </data>
+  <data name="&gt;&gt;dtg_CustomerList.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="cb_GioiTinhKH.Items" xml:space="preserve">
+    <value>Nam</value>
+  </data>
+  <data name="lb_Ma.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 8pt</value>
+  </data>
+  <data name="&gt;&gt;lbl_Customer_HoTen.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tb_mk2.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
   </data>
   <data name="label4.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
   </data>
-  <data name="label4.Text" xml:space="preserve">
-    <value>Phan Đình Phú</value>
+  <data name="&gt;&gt;btn_Customer_Add.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
-  <data name="&gt;&gt;label4.Name" xml:space="preserve">
-    <value>label4</value>
+  <data name="btn_Xacnhan.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 56</value>
   </data>
-  <data name="&gt;&gt;label4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="btn_Customer_Add.Location" type="System.Drawing.Point, System.Drawing">
+    <value>431, 74</value>
   </data>
-  <data name="&gt;&gt;label4.Parent" xml:space="preserve">
-    <value>guna2Panel1</value>
+  <data name="&gt;&gt;guna2HtmlLabel1.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2HtmlLabel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
   </data>
-  <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;Timer_Customer_Add.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lblCustomerList.Location" type="System.Drawing.Point, System.Drawing">
+    <value>29, 77</value>
+  </data>
+  <data name="&gt;&gt;tb_mk2.Name" xml:space="preserve">
+    <value>tb_mk2</value>
+  </data>
+  <data name="guna2HtmlLabel14.Text" xml:space="preserve">
+    <value>Số Điện Thoại:</value>
+  </data>
+  <data name="&gt;&gt;lbl_Customer_HoTen.Name" xml:space="preserve">
+    <value>lbl_Customer_HoTen</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1181, 842</value>
+  </data>
+  <data name="pb_Avata.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;pn_infoChanges.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="lb_GioiTinhKH.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 16</value>
+  </data>
+  <data name="lb_sdt.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 8pt</value>
+  </data>
+  <data name="guna2HtmlLabel12.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;lb_sdt.Name" xml:space="preserve">
+    <value>lb_sdt</value>
+  </data>
+  <data name="guna2HtmlLabel3.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 10, 10, 10</value>
+  </data>
+  <data name="lbl_Customer_SDT.Location" type="System.Drawing.Point, System.Drawing">
+    <value>37, 118</value>
+  </data>
+  <data name="&gt;&gt;guna2HtmlLabel13.Name" xml:space="preserve">
+    <value>guna2HtmlLabel13</value>
+  </data>
+  <data name="lb_Hoten.Size" type="System.Drawing.Size, System.Drawing">
+    <value>106, 39</value>
+  </data>
+  <data name="&gt;&gt;lb_Gioitinh.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="guna2HtmlLabel5.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 8pt, style=Bold</value>
   </data>
   <data name="pb_Avata.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -9677,166 +8981,865 @@
         AElFTkSuQmCC
 </value>
   </data>
-  <data name="pb_Avata.InitialImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
+  <data name="&gt;&gt;guna2HtmlLabel12.Parent" xml:space="preserve">
+    <value>pn_infoChanges</value>
   </data>
-  <data name="pb_Avata.Location" type="System.Drawing.Point, System.Drawing">
-    <value>707, 12</value>
+  <data name="guna2HtmlLabel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>961, 98</value>
   </data>
-  <data name="pb_Avata.Size" type="System.Drawing.Size, System.Drawing">
-    <value>54, 46</value>
+  <data name="btn_Xacnhan.Text" xml:space="preserve">
+    <value>Xác Nhận Đổi</value>
   </data>
-  <data name="pb_Avata.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>Zoom</value>
+  <data name="lb_sdt.Size" type="System.Drawing.Size, System.Drawing">
+    <value>106, 39</value>
   </data>
-  <data name="pb_Avata.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
+  <data name="lb_DiaChiKH.Location" type="System.Drawing.Point, System.Drawing">
+    <value>56, 186</value>
   </data>
-  <data name="&gt;&gt;pb_Avata.Name" xml:space="preserve">
-    <value>pb_Avata</value>
-  </data>
-  <data name="&gt;&gt;pb_Avata.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2CirclePictureBox, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="&gt;&gt;pb_Avata.Parent" xml:space="preserve">
-    <value>guna2Panel1</value>
-  </data>
-  <data name="&gt;&gt;pb_Avata.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="txt_Customer_SearchBar.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="txt_Customer_SearchBar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>39, 13</value>
-  </data>
-  <data name="txt_Customer_SearchBar.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 4, 3, 4</value>
-  </data>
-  <data name="txt_Customer_SearchBar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>651, 39</value>
-  </data>
-  <data name="txt_Customer_SearchBar.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;txt_Customer_SearchBar.Name" xml:space="preserve">
-    <value>txt_Customer_SearchBar</value>
-  </data>
-  <data name="&gt;&gt;txt_Customer_SearchBar.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2TextBox, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="&gt;&gt;txt_Customer_SearchBar.Parent" xml:space="preserve">
-    <value>guna2Panel1</value>
-  </data>
-  <data name="&gt;&gt;txt_Customer_SearchBar.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="guna2Panel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="guna2Panel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="guna2Panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1181, 68</value>
-  </data>
-  <data name="guna2Panel1.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
+  <data name="txt_Customer_SDT.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
   </data>
   <data name="&gt;&gt;guna2Panel1.Name" xml:space="preserve">
     <value>guna2Panel1</value>
   </data>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>112, 20</value>
+  </data>
+  <data name="&gt;&gt;lb_GioiTinhKH.Name" xml:space="preserve">
+    <value>lb_GioiTinhKH</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>customerControl</value>
+  </data>
+  <data name="lb_GioiTinhKH.Location" type="System.Drawing.Point, System.Drawing">
+    <value>56, 255</value>
+  </data>
+  <data name="guna2HtmlLabel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>83, 42</value>
+  </data>
+  <data name="&gt;&gt;lb_GioiTinhKH.Parent" xml:space="preserve">
+    <value>menu_CusTomer_Add</value>
+  </data>
+  <data name="&gt;&gt;btn_Customer_Delete.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="cb_Customer_Filter.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 36</value>
+  </data>
+  <data name="&gt;&gt;lb_Ngaysinh.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2HtmlLabel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;dtg_CustomerList.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;pn_infoChanges.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2Panel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;btn_Customer_Delete.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="lblCustomerList.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 10, 10, 10</value>
+  </data>
+  <data name="lb_sdt.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;lb_GioiTinhKH.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lb_Ngaysinh.Text" xml:space="preserve">
+    <value>Mã Nhân Viên</value>
+  </data>
+  <data name="menu_CusTomer_Add.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="txt_Customer_SDT.Size" type="System.Drawing.Size, System.Drawing">
+    <value>412, 48</value>
+  </data>
+  <data name="guna2Panel1.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="txt_Customer_Hoten.Size" type="System.Drawing.Size, System.Drawing">
+    <value>412, 48</value>
+  </data>
+  <data name="txt_DiaChiKH.Size" type="System.Drawing.Size, System.Drawing">
+    <value>412, 48</value>
+  </data>
+  <data name="&gt;&gt;lblCustomerList.Name" xml:space="preserve">
+    <value>lblCustomerList</value>
+  </data>
+  <data name="cb_GioiTinhKH.Location" type="System.Drawing.Point, System.Drawing">
+    <value>135, 246</value>
+  </data>
+  <data name="lbl_Customer_HoTen.Location" type="System.Drawing.Point, System.Drawing">
+    <value>56, 49</value>
+  </data>
+  <data name="&gt;&gt;label4.Name" xml:space="preserve">
+    <value>label4</value>
+  </data>
+  <data name="guna2HtmlLabel7.Text" xml:space="preserve">
+    <value>Ngày Sinh:</value>
+  </data>
+  <data name="&gt;&gt;btn_Customer_Change.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;guna2HtmlLabel9.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2HtmlLabel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;menu_CusTomer_Add.Name" xml:space="preserve">
+    <value>menu_CusTomer_Add</value>
+  </data>
+  <data name="guna2HtmlLabel7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 39</value>
+  </data>
+  <data name="&gt;&gt;btn_Customer_Change.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2GradientButton, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="guna2HtmlLabel9.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 10, 10, 10</value>
+  </data>
+  <data name="guna2HtmlLabel1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 10, 10, 10</value>
+  </data>
+  <data name="&gt;&gt;guna2HtmlLabel12.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2HtmlLabel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;pn_infoChanges.Name" xml:space="preserve">
+    <value>pn_infoChanges</value>
+  </data>
+  <data name="guna2HtmlLabel9.Text" xml:space="preserve">
+    <value>Giới Tính:</value>
+  </data>
+  <data name="&gt;&gt;btn_Xacnhan.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2GradientButton, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;guna2HtmlLabel5.Name" xml:space="preserve">
+    <value>guna2HtmlLabel5</value>
+  </data>
+  <data name="guna2HtmlLabel7.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 8pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;menu_CusTomer_Add.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2Panel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="guna2HtmlLabel5.Text" xml:space="preserve">
+    <value>Họ Tên:</value>
+  </data>
+  <data name="cb_Customer_Filter.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="&gt;&gt;txt_Customer_SDT.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Phan Đình Phú</value>
+  </data>
+  <data name="&gt;&gt;cb_GioiTinhKH.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;Timer_Customer_Add.Name" xml:space="preserve">
+    <value>Timer_Customer_Add</value>
+  </data>
+  <data name="&gt;&gt;btn_Customer_Add.Name" xml:space="preserve">
+    <value>btn_Customer_Add</value>
+  </data>
+  <data name="&gt;&gt;lb_Ma.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;guna2HtmlLabel7.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;guna2HtmlLabel3.Parent" xml:space="preserve">
+    <value>pn_infoChanges</value>
+  </data>
+  <data name="&gt;&gt;guna2HtmlLabel13.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2HtmlLabel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="cb_GioiTinhKH.ItemHeight" type="System.Int32, mscorlib">
+    <value>30</value>
+  </data>
+  <data name="lb_Gioitinh.Size" type="System.Drawing.Size, System.Drawing">
+    <value>106, 39</value>
+  </data>
+  <data name="&gt;&gt;guna2BorderlessForm1.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2BorderlessForm, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="tb_mk1.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="&gt;&gt;guna2HtmlLabel12.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;guna2HtmlLabel5.Parent" xml:space="preserve">
+    <value>pn_infoChanges</value>
+  </data>
+  <data name="dtg_CustomerList.Location" type="System.Drawing.Point, System.Drawing">
+    <value>29, 146</value>
+  </data>
+  <data name="lblCustomerList.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10.8pt, style=Bold</value>
+  </data>
+  <data name="lb_Hoten.Text" xml:space="preserve">
+    <value>Mã Nhân Viên</value>
+  </data>
+  <data name="&gt;&gt;pb_Avata.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="guna2HtmlLabel12.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 8pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;tb_mk1.Parent" xml:space="preserve">
+    <value>pn_infoChanges</value>
+  </data>
+  <data name="&gt;&gt;btn_Xacnhan.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="tb_mk1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>427, 30</value>
+  </data>
+  <data name="lb_Hoten.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 10, 10, 10</value>
+  </data>
+  <data name="dtg_CustomerList.RowHeadersWidth" type="System.Int32, mscorlib">
+    <value>51</value>
+  </data>
+  <data name="pb_Avata.InitialImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="&gt;&gt;lbl_Customer_HoTen.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;guna2HtmlLabel14.Name" xml:space="preserve">
+    <value>guna2HtmlLabel14</value>
+  </data>
+  <data name="&gt;&gt;btn_Xacnhan.Name" xml:space="preserve">
+    <value>btn_Xacnhan</value>
+  </data>
+  <data name="cb_Customer_Filter.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10pt</value>
+  </data>
+  <data name="txt_Customer_Hoten.Location" type="System.Drawing.Point, System.Drawing">
+    <value>135, 29</value>
+  </data>
+  <data name="&gt;&gt;btnCustomerAdd_Send.Name" xml:space="preserve">
+    <value>btnCustomerAdd_Send</value>
+  </data>
+  <data name="lb_sdt.Location" type="System.Drawing.Point, System.Drawing">
+    <value>129, 205</value>
+  </data>
+  <data name="dtg_CustomerList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1123, 664</value>
+  </data>
+  <data name="menu_CusTomer_Add.Location" type="System.Drawing.Point, System.Drawing">
+    <value>198, 130</value>
+  </data>
+  <data name="cb_GioiTinhKH.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10pt</value>
+  </data>
+  <data name="txt_DiaChiKH.TabIndex" type="System.Int32, mscorlib">
+    <value>26</value>
+  </data>
+  <data name="btn_Customer_Change.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
   <data name="&gt;&gt;guna2Panel1.Type" xml:space="preserve">
     <value>Guna.UI2.WinForms.Guna2Panel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
   </data>
-  <data name="&gt;&gt;guna2Panel1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;cb_Customer_Filter.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="menu_CusTomer_Add.Size" type="System.Drawing.Size, System.Drawing">
+    <value>580, 0</value>
+  </data>
+  <data name="&gt;&gt;btn_Customer_Change.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;guna2Panel1.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
-  <data name="dtg_CustomerList.ColumnHeadersHeight" type="System.Int32, mscorlib">
-    <value>40</value>
+  <data name="&gt;&gt;lb_Ngaysinh.Parent" xml:space="preserve">
+    <value>pn_infoChanges</value>
   </data>
-  <data name="dtg_CustomerList.Location" type="System.Drawing.Point, System.Drawing">
-    <value>29, 146</value>
-  </data>
-  <data name="dtg_CustomerList.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>20, 20, 20, 20</value>
-  </data>
-  <data name="dtg_CustomerList.RowHeadersWidth" type="System.Int32, mscorlib">
-    <value>51</value>
-  </data>
-  <data name="dtg_CustomerList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1123, 664</value>
-  </data>
-  <data name="dtg_CustomerList.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="&gt;&gt;dtg_CustomerList.Name" xml:space="preserve">
-    <value>dtg_CustomerList</value>
-  </data>
-  <data name="&gt;&gt;dtg_CustomerList.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2DataGridView, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="&gt;&gt;dtg_CustomerList.Parent" xml:space="preserve">
+  <data name="&gt;&gt;menu_CusTomer_Add.Parent" xml:space="preserve">
     <value>$this</value>
-  </data>
-  <data name="&gt;&gt;dtg_CustomerList.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
-    <value>CenterScreen</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>customerControl</value>
-  </data>
-  <data name="&gt;&gt;guna2BorderlessForm1.Name" xml:space="preserve">
-    <value>guna2BorderlessForm1</value>
-  </data>
-  <data name="&gt;&gt;guna2BorderlessForm1.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2BorderlessForm, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="&gt;&gt;logTransition.Name" xml:space="preserve">
-    <value>logTransition</value>
-  </data>
-  <data name="&gt;&gt;logTransition.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;guna2Elipse2.Name" xml:space="preserve">
-    <value>guna2Elipse2</value>
-  </data>
-  <data name="&gt;&gt;guna2Elipse2.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2Elipse, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="&gt;&gt;Timer_Customer_Add.Name" xml:space="preserve">
-    <value>Timer_Customer_Add</value>
-  </data>
-  <data name="&gt;&gt;Timer_Customer_Add.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tm_InforChanges.Name" xml:space="preserve">
     <value>tm_InforChanges</value>
   </data>
-  <data name="&gt;&gt;tm_InforChanges.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;guna2Separator2.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="lb_Ma.Location" type="System.Drawing.Point, System.Drawing">
+    <value>129, 24</value>
+  </data>
+  <data name="btn_Customer_Change.Size" type="System.Drawing.Size, System.Drawing">
+    <value>163, 49</value>
+  </data>
+  <data name="txt_Customer_SDT.Location" type="System.Drawing.Point, System.Drawing">
+    <value>135, 97</value>
+  </data>
+  <data name="lblCustomerList.Text" xml:space="preserve">
+    <value>Danh Sách Khách Hàng Thành Viên</value>
+  </data>
+  <data name="&gt;&gt;guna2HtmlLabel14.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;lb_Ngaysinh.Name" xml:space="preserve">
+    <value>lb_Ngaysinh</value>
+  </data>
+  <data name="tb_mk2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
+  </data>
+  <data name="cb_GioiTinhKH.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 36</value>
+  </data>
+  <data name="lb_DiaChiKH.Size" type="System.Drawing.Size, System.Drawing">
+    <value>47, 16</value>
+  </data>
+  <data name="lb_Gioitinh.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;guna2HtmlLabel1.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;lb_Hoten.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2HtmlLabel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="txt_Customer_Hoten.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="&gt;&gt;txt_Customer_Hoten.Name" xml:space="preserve">
+    <value>txt_Customer_Hoten</value>
+  </data>
+  <data name="pn_infoChanges.Size" type="System.Drawing.Size, System.Drawing">
+    <value>624, 0</value>
+  </data>
+  <data name="&gt;&gt;txt_Customer_SDT.Name" xml:space="preserve">
+    <value>txt_Customer_SDT</value>
+  </data>
+  <data name="&gt;&gt;btnCustomerAdd_Send.Parent" xml:space="preserve">
+    <value>menu_CusTomer_Add</value>
+  </data>
+  <data name="guna2Panel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1181, 68</value>
+  </data>
+  <data name="&gt;&gt;txt_Customer_SearchBar.Name" xml:space="preserve">
+    <value>txt_Customer_SearchBar</value>
+  </data>
+  <data name="guna2HtmlLabel5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 39</value>
+  </data>
+  <data name="&gt;&gt;lb_sdt.Parent" xml:space="preserve">
+    <value>pn_infoChanges</value>
+  </data>
+  <data name="lbl_Customer_HoTen.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="&gt;&gt;guna2HtmlLabel14.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2HtmlLabel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;guna2HtmlLabel3.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2HtmlLabel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;guna2HtmlLabel5.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="guna2HtmlLabel9.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 8pt, style=Bold</value>
+  </data>
+  <data name="lb_DiaChiKH.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lb_Gioitinh.Location" type="System.Drawing.Point, System.Drawing">
+    <value>100, 160</value>
+  </data>
+  <data name="&gt;&gt;cb_Customer_Filter.Name" xml:space="preserve">
+    <value>cb_Customer_Filter</value>
+  </data>
+  <data name="btn_Customer_Change.Location" type="System.Drawing.Point, System.Drawing">
+    <value>600, 74</value>
+  </data>
+  <data name="&gt;&gt;dtg_CustomerList.Name" xml:space="preserve">
+    <value>dtg_CustomerList</value>
+  </data>
+  <data name="btn_Customer_Change.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10pt</value>
+  </data>
+  <data name="lblCustomerList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>324, 47</value>
+  </data>
+  <data name="&gt;&gt;lb_DiaChiKH.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btnCustomerAdd_Send.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 45</value>
+  </data>
+  <data name="btn_Customer_Delete.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="lb_Ngaysinh.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 10, 10, 10</value>
+  </data>
+  <data name="&gt;&gt;guna2Elipse2.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2Elipse, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="lb_Hoten.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 8pt</value>
+  </data>
+  <data name="btn_Customer_Delete.Size" type="System.Drawing.Size, System.Drawing">
+    <value>163, 49</value>
+  </data>
+  <data name="btn_Xacnhan.Location" type="System.Drawing.Point, System.Drawing">
+    <value>394, 152</value>
+  </data>
+  <data name="&gt;&gt;btn_Xacnhan.Parent" xml:space="preserve">
+    <value>pn_infoChanges</value>
+  </data>
+  <data name="guna2HtmlLabel13.Location" type="System.Drawing.Point, System.Drawing">
+    <value>253, 94</value>
+  </data>
+  <data name="lb_Ngaysinh.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 8pt</value>
+  </data>
+  <data name="txt_Customer_Hoten.TabIndex" type="System.Int32, mscorlib">
+    <value>25</value>
+  </data>
+  <data name="guna2Panel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="btn_Customer_Add.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9.5pt</value>
+  </data>
+  <data name="&gt;&gt;cb_GioiTinhKH.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2ComboBox, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="guna2HtmlLabel12.Location" type="System.Drawing.Point, System.Drawing">
+    <value>279, 36</value>
+  </data>
+  <data name="lb_DiaChiKH.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>customerControl</value>
   </data>
+  <data name="&gt;&gt;lb_DiaChiKH.Parent" xml:space="preserve">
+    <value>menu_CusTomer_Add</value>
+  </data>
+  <data name="&gt;&gt;btn_Customer_Add.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2GradientButton, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;label4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cb_GioiTinhKH.Parent" xml:space="preserve">
+    <value>menu_CusTomer_Add</value>
+  </data>
+  <data name="&gt;&gt;tb_mk2.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;lb_Ma.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2HtmlLabel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="cb_Customer_Filter.Items" xml:space="preserve">
+    <value>Tăng Dần</value>
+  </data>
+  <data name="&gt;&gt;lb_sdt.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2HtmlLabel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;guna2HtmlLabel9.Name" xml:space="preserve">
+    <value>guna2HtmlLabel9</value>
+  </data>
+  <data name="&gt;&gt;lblCustomerList.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="cb_GioiTinhKH.TabIndex" type="System.Int32, mscorlib">
+    <value>29</value>
+  </data>
+  <data name="txt_Customer_SDT.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
+  </data>
+  <data name="tb_mk2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>147, 45</value>
+  </data>
+  <data name="&gt;&gt;lb_Ma.Name" xml:space="preserve">
+    <value>lb_Ma</value>
+  </data>
+  <data name="tb_mk1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>147, 45</value>
+  </data>
+  <data name="txt_Customer_SearchBar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>651, 39</value>
+  </data>
+  <data name="&gt;&gt;label4.Parent" xml:space="preserve">
+    <value>guna2Panel1</value>
+  </data>
+  <data name="&gt;&gt;txt_DiaChiKH.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2TextBox, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;lb_DiaChiKH.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="guna2HtmlLabel5.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;guna2Separator2.Name" xml:space="preserve">
+    <value>guna2Separator2</value>
+  </data>
+  <data name="lblCustomerList.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="cb_Customer_Filter.Items1" xml:space="preserve">
+    <value>Giảm Dần</value>
+  </data>
+  <data name="&gt;&gt;lb_DiaChiKH.Name" xml:space="preserve">
+    <value>lb_DiaChiKH</value>
+  </data>
+  <data name="&gt;&gt;lbl_Customer_SDT.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txt_Customer_Hoten.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;lb_Gioitinh.Name" xml:space="preserve">
+    <value>lb_Gioitinh</value>
+  </data>
+  <data name="lb_GioiTinhKH.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;guna2HtmlLabel13.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="guna2HtmlLabel14.Size" type="System.Drawing.Size, System.Drawing">
+    <value>114, 39</value>
+  </data>
+  <data name="btnCustomerAdd_Send.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="lb_sdt.Text" xml:space="preserve">
+    <value>Mã Nhân Viên</value>
+  </data>
+  <data name="guna2HtmlLabel14.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="lb_GioiTinhKH.TabIndex" type="System.Int32, mscorlib">
+    <value>28</value>
+  </data>
+  <data name="pb_Avata.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 46</value>
+  </data>
+  <data name="txt_DiaChiKH.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="guna2HtmlLabel7.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;txt_DiaChiKH.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;tb_mk1.Name" xml:space="preserve">
+    <value>tb_mk1</value>
+  </data>
+  <data name="dtg_CustomerList.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>20, 20, 20, 20</value>
+  </data>
+  <data name="&gt;&gt;guna2Elipse2.Name" xml:space="preserve">
+    <value>guna2Elipse2</value>
+  </data>
+  <data name="&gt;&gt;guna2HtmlLabel14.Parent" xml:space="preserve">
+    <value>pn_infoChanges</value>
+  </data>
+  <data name="&gt;&gt;lb_Hoten.Parent" xml:space="preserve">
+    <value>pn_infoChanges</value>
+  </data>
+  <data name="txt_Customer_SDT.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="btnCustomerAdd_Send.Text" xml:space="preserve">
+    <value>Xác Nhận</value>
+  </data>
+  <data name="&gt;&gt;lbl_Customer_SDT.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="txt_Customer_SearchBar.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lb_Ngaysinh.Location" type="System.Drawing.Point, System.Drawing">
+    <value>100, 115</value>
+  </data>
+  <data name="&gt;&gt;pb_Avata.Parent" xml:space="preserve">
+    <value>guna2Panel1</value>
+  </data>
+  <data name="btn_Xacnhan.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;txt_Customer_Hoten.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2TextBox, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;menu_CusTomer_Add.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="btn_Xacnhan.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10pt</value>
+  </data>
+  <data name="lbl_Customer_HoTen.Text" xml:space="preserve">
+    <value>Họ Tên</value>
+  </data>
+  <data name="dtg_CustomerList.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;txt_Customer_SearchBar.Parent" xml:space="preserve">
+    <value>guna2Panel1</value>
+  </data>
+  <data name="btnCustomerAdd_Send.Location" type="System.Drawing.Point, System.Drawing">
+    <value>216, 317</value>
+  </data>
+  <data name="guna2HtmlLabel5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>30, 83</value>
+  </data>
+  <data name="pn_infoChanges.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
+  </data>
+  <data name="lb_sdt.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 10, 10, 10</value>
+  </data>
+  <data name="&gt;&gt;lb_Ma.Parent" xml:space="preserve">
+    <value>pn_infoChanges</value>
+  </data>
+  <data name="&gt;&gt;guna2Panel1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="lb_Gioitinh.Text" xml:space="preserve">
+    <value>Mã Nhân Viên</value>
+  </data>
+  <data name="guna2HtmlLabel3.Text" xml:space="preserve">
+    <value>Mã Nhân Viên:</value>
+  </data>
+  <data name="guna2Separator2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 10</value>
+  </data>
+  <data name="&gt;&gt;tb_mk1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;guna2BorderlessForm1.Name" xml:space="preserve">
+    <value>guna2BorderlessForm1</value>
+  </data>
+  <data name="&gt;&gt;guna2HtmlLabel7.Parent" xml:space="preserve">
+    <value>pn_infoChanges</value>
+  </data>
+  <data name="&gt;&gt;lb_GioiTinhKH.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="guna2HtmlLabel9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>84, 39</value>
+  </data>
+  <data name="lb_Hoten.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;txt_Customer_SearchBar.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2TextBox, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;guna2Separator2.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2Separator, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="btnCustomerAdd_Send.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="lb_Gioitinh.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 8pt</value>
+  </data>
+  <data name="&gt;&gt;guna2HtmlLabel9.Parent" xml:space="preserve">
+    <value>pn_infoChanges</value>
+  </data>
+  <data name="lbl_Customer_SDT.Size" type="System.Drawing.Size, System.Drawing">
+    <value>92, 16</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
+  </data>
+  <data name="&gt;&gt;txt_DiaChiKH.Name" xml:space="preserve">
+    <value>txt_DiaChiKH</value>
+  </data>
+  <data name="guna2HtmlLabel1.Text" xml:space="preserve">
+    <value>Sắp Xếp:</value>
+  </data>
+  <data name="label4.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lb_DiaChiKH.Text" xml:space="preserve">
+    <value>Địa chỉ</value>
+  </data>
+  <data name="btn_Customer_Delete.Location" type="System.Drawing.Point, System.Drawing">
+    <value>769, 74</value>
+  </data>
+  <data name="cb_GioiTinhKH.Items1" xml:space="preserve">
+    <value>Nữ</value>
+  </data>
+  <data name="lb_Ngaysinh.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="guna2HtmlLabel14.Location" type="System.Drawing.Point, System.Drawing">
+    <value>30, 214</value>
+  </data>
+  <data name="txt_DiaChiKH.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
+  </data>
+  <data name="&gt;&gt;lblCustomerList.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2HtmlLabel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;lbl_Customer_HoTen.Parent" xml:space="preserve">
+    <value>menu_CusTomer_Add</value>
+  </data>
+  <data name="pb_Avata.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="&gt;&gt;txt_Customer_SDT.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2TextBox, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="lb_Gioitinh.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 10, 10, 10</value>
+  </data>
+  <data name="guna2HtmlLabel9.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="pb_Avata.Location" type="System.Drawing.Point, System.Drawing">
+    <value>707, 12</value>
+  </data>
+  <data name="&gt;&gt;logTransition.Name" xml:space="preserve">
+    <value>logTransition</value>
+  </data>
+  <data name="guna2HtmlLabel1.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;btnCustomerAdd_Send.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2Button, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="cb_Customer_Filter.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1012, 87</value>
+  </data>
+  <data name="guna2Separator2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>490, 498</value>
+  </data>
+  <data name="lbl_Customer_SDT.Text" xml:space="preserve">
+    <value>Số Điện Thoại</value>
+  </data>
+  <data name="&gt;&gt;guna2HtmlLabel13.Parent" xml:space="preserve">
+    <value>pn_infoChanges</value>
+  </data>
+  <data name="&gt;&gt;guna2HtmlLabel12.Name" xml:space="preserve">
+    <value>guna2HtmlLabel12</value>
+  </data>
+  <data name="guna2HtmlLabel3.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 8pt, style=Bold</value>
+  </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txt_Customer_SDT.Parent" xml:space="preserve">
+    <value>menu_CusTomer_Add</value>
+  </data>
+  <data name="guna2HtmlLabel13.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="lb_Hoten.Location" type="System.Drawing.Point, System.Drawing">
+    <value>86, 74</value>
+  </data>
+  <data name="&gt;&gt;tm_InforChanges.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="guna2HtmlLabel7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>30, 124</value>
+  </data>
+  <data name="guna2HtmlLabel7.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 10, 10, 10</value>
+  </data>
+  <data name="&gt;&gt;logTransition.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbl_Customer_SDT.Parent" xml:space="preserve">
+    <value>menu_CusTomer_Add</value>
+  </data>
+  <data name="&gt;&gt;lb_Gioitinh.Parent" xml:space="preserve">
+    <value>pn_infoChanges</value>
+  </data>
+  <data name="lb_Ma.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 10, 10, 10</value>
+  </data>
+  <data name="&gt;&gt;guna2HtmlLabel1.Name" xml:space="preserve">
+    <value>guna2HtmlLabel1</value>
+  </data>
+  <data name="&gt;&gt;lblCustomerList.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="btn_Customer_Delete.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10pt</value>
+  </data>
+  <data name="&gt;&gt;guna2HtmlLabel7.Name" xml:space="preserve">
+    <value>guna2HtmlLabel7</value>
+  </data>
+  <data name="lbl_Customer_HoTen.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;btn_Customer_Delete.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2GradientButton, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="btn_Customer_Add.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="&gt;&gt;cb_Customer_Filter.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2ComboBox, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;btn_Customer_Delete.Name" xml:space="preserve">
+    <value>btn_Customer_Delete</value>
+  </data>
+  <data name="guna2HtmlLabel3.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="guna2HtmlLabel12.Text" xml:space="preserve">
+    <value>Nhập Mật Khẩu Mới :</value>
+  </data>
+  <data name="tb_mk2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>427, 82</value>
+  </data>
+  <data name="txt_Customer_SearchBar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>39, 13</value>
+  </data>
+  <data name="lbl_Customer_SDT.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;tb_mk2.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2TextBox, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="guna2Panel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="&gt;&gt;guna2HtmlLabel5.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2HtmlLabel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="guna2HtmlLabel13.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 10, 10, 10</value>
   </data>
   <metadata name="logTransition.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>723, 17</value>
   </metadata>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>en</value>
+  </metadata>
   <metadata name="guna2Elipse2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>869, 17</value>
+  </metadata>
+  <metadata name="tm_InforChanges.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>369, 3</value>
   </metadata>
   <metadata name="Timer_Customer_Add.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>1013, 17</value>
   </metadata>
-  <metadata name="tm_InforChanges.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>369, 3</value>
+  <metadata name="guna2BorderlessForm1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>515, 17</value>
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
   </metadata>
 </root>
