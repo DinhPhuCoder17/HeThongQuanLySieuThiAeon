@@ -126,6 +126,9 @@
     <value>True</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btn_Xacnhan.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10pt</value>
+  </data>
   <data name="lb_Hoten.Location" type="System.Drawing.Point, System.Drawing">
     <value>131, 72</value>
   </data>
@@ -135,17 +138,20 @@
   <data name="guna2HtmlLabel16.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>10, 10, 10, 10</value>
   </data>
+  <data name="btnPrevCalendar.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
   <data name="&gt;&gt;btnPrevCalendar.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <data name="label18.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
   </data>
+  <data name="label5.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
   <data name="&gt;&gt;guna2HtmlLabel9.Name" xml:space="preserve">
     <value>guna2HtmlLabel9</value>
-  </data>
-  <data name="label2.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
   </data>
   <data name="label22.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -165,14 +171,14 @@
   <data name="dtp_Shift_Start.Size" type="System.Drawing.Size, System.Drawing">
     <value>163, 36</value>
   </data>
-  <data name="btnChooseEmployee.Location" type="System.Drawing.Point, System.Drawing">
-    <value>807, 707</value>
+  <data name="guna2HtmlLabel4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>538, 3</value>
   </data>
   <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Semibold, 12pt, style=Bold</value>
   </data>
-  <data name="label26.Text" xml:space="preserve">
-    <value>Phan Đình Phú</value>
+  <data name="&gt;&gt;txt_TenCa.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2TextBox, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
   </data>
   <data name="&gt;&gt;guna2HtmlLabel9.Type" xml:space="preserve">
     <value>Guna.UI2.WinForms.Guna2HtmlLabel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
@@ -207,6 +213,9 @@
   <data name="label26.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="&gt;&gt;tb_mk2.Name" xml:space="preserve">
+    <value>tb_mk2</value>
+  </data>
   <data name="txt_TenCa.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 4, 3, 4</value>
   </data>
@@ -230,6 +239,9 @@
   </data>
   <data name="label21.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
+  </data>
+  <data name="&gt;&gt;lb_sdt.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2HtmlLabel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
   </data>
   <data name="&gt;&gt;label7.Parent" xml:space="preserve">
     <value>panel1</value>
@@ -264,12 +276,6 @@
   <data name="label17.Text" xml:space="preserve">
     <value>15h</value>
   </data>
-  <data name="&gt;&gt;guna2HtmlLabel13.Name" xml:space="preserve">
-    <value>guna2HtmlLabel13</value>
-  </data>
-  <data name="&gt;&gt;lb_Ngaysinh.Name" xml:space="preserve">
-    <value>lb_Ngaysinh</value>
-  </data>
   <data name="&gt;&gt;btn_NextCalendar.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
@@ -278,9 +284,6 @@
   </data>
   <data name="&gt;&gt;guna2HtmlLabel15.ZOrder" xml:space="preserve">
     <value>11</value>
-  </data>
-  <data name="&gt;&gt;label6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;guna2HtmlLabel17.Parent" xml:space="preserve">
     <value>pn_infoChanges</value>
@@ -296,6 +299,9 @@
   </data>
   <data name="guna2HtmlLabel7.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Semibold, 13.8pt, style=Bold</value>
+  </data>
+  <data name="pn_infoChanges.Location" type="System.Drawing.Point, System.Drawing">
+    <value>433, 71</value>
   </data>
   <data name="guna2HtmlLabel8.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Semibold, 12pt, style=Bold</value>
@@ -314,6 +320,9 @@
   </data>
   <data name="label2.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Semibold, 12pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;btnChooseEmployee.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;guna2BorderlessForm1.Type" xml:space="preserve">
     <value>Guna.UI2.WinForms.Guna2BorderlessForm, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
@@ -336,8 +345,8 @@
   <data name="&gt;&gt;guna2HtmlLabel14.Type" xml:space="preserve">
     <value>Guna.UI2.WinForms.Guna2HtmlLabel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
   </data>
-  <data name="pn_infoChanges.Location" type="System.Drawing.Point, System.Drawing">
-    <value>433, 71</value>
+  <data name="label27.Size" type="System.Drawing.Size, System.Drawing">
+    <value>28, 16</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -372,8 +381,8 @@
   <data name="btn_Shift_Edit.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 10pt</value>
   </data>
-  <data name="&gt;&gt;label16.Name" xml:space="preserve">
-    <value>label16</value>
+  <data name="&gt;&gt;label14.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="label17.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 353</value>
@@ -408,6 +417,9 @@
   <data name="guna2HtmlLabel9.Size" type="System.Drawing.Size, System.Drawing">
     <value>82, 219</value>
   </data>
+  <data name="&gt;&gt;label19.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="lb_Ngaysinh.Location" type="System.Drawing.Point, System.Drawing">
     <value>131, 115</value>
   </data>
@@ -428,9 +440,6 @@
   </data>
   <data name="&gt;&gt;guna2HtmlLabel2.Name" xml:space="preserve">
     <value>guna2HtmlLabel2</value>
-  </data>
-  <data name="guna2HtmlLabel1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
   </data>
   <data name="&gt;&gt;guna2Panel3.Name" xml:space="preserve">
     <value>guna2Panel3</value>
@@ -489,20 +498,17 @@
   <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
     <value>21, 16</value>
   </data>
-  <data name="label9.Text" xml:space="preserve">
-    <value>7h</value>
-  </data>
   <data name="guna2Panel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
+  </data>
+  <data name="&gt;&gt;btn_Xacnhan.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2GradientButton, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
   </data>
   <data name="tb_mk2.Size" type="System.Drawing.Size, System.Drawing">
     <value>147, 45</value>
   </data>
   <data name="&gt;&gt;container_Date.Type" xml:space="preserve">
     <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="tableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1114, 526</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>employeeShift</value>
@@ -582,8 +588,8 @@
   <data name="btn_exportFile.Size" type="System.Drawing.Size, System.Drawing">
     <value>163, 47</value>
   </data>
-  <data name="&gt;&gt;btn_Xacnhan.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2GradientButton, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  <data name="guna2HtmlLabel17.Size" type="System.Drawing.Size, System.Drawing">
+    <value>115, 39</value>
   </data>
   <data name="label10.Location" type="System.Drawing.Point, System.Drawing">
     <value>9, 135</value>
@@ -612,14 +618,20 @@
   <data name="&gt;&gt;label24.Name" xml:space="preserve">
     <value>label24</value>
   </data>
-  <data name="label27.Text" xml:space="preserve">
-    <value>22h</value>
+  <data name="dtp_Shift_End.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="tableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1114, 526</value>
   </data>
   <data name="tableLayoutPanel1.RowCount" type="System.Int32, mscorlib">
     <value>16</value>
   </data>
   <data name="&gt;&gt;btnPrevCalendar.Name" xml:space="preserve">
     <value>btnPrevCalendar</value>
+  </data>
+  <data name="lb_Ma.Location" type="System.Drawing.Point, System.Drawing">
+    <value>131, 25</value>
   </data>
   <data name="&gt;&gt;dtg_ChooseEmployee.Type" xml:space="preserve">
     <value>Guna.UI2.WinForms.Guna2DataGridView, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
@@ -648,9 +660,6 @@
   <data name="&gt;&gt;pn_infoChanges.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;txt_TenCa.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2TextBox, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
   <data name="&gt;&gt;label12.Name" xml:space="preserve">
     <value>label12</value>
   </data>
@@ -666,8 +675,8 @@
   <data name="pn_infoChanges.TabIndex" type="System.Int32, mscorlib">
     <value>32</value>
   </data>
-  <data name="&gt;&gt;label19.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;lb_sdt.Parent" xml:space="preserve">
+    <value>pn_infoChanges</value>
   </data>
   <data name="btn_exportFile.Location" type="System.Drawing.Point, System.Drawing">
     <value>134, 759</value>
@@ -690,14 +699,8 @@
   <data name="label14.Text" xml:space="preserve">
     <value>12h</value>
   </data>
-  <data name="container_Date.Location" type="System.Drawing.Point, System.Drawing">
-    <value>40, 50</value>
-  </data>
   <data name="container_Date.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
-  </data>
-  <data name="&gt;&gt;tb_mk1.Name" xml:space="preserve">
-    <value>tb_mk1</value>
   </data>
   <data name="label9.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -714,8 +717,8 @@
   <data name="&gt;&gt;container_Date.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;guna2CirclePictureBox1.Parent" xml:space="preserve">
-    <value>guna2Panel1</value>
+  <data name="&gt;&gt;guna2Elipse3.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2Elipse, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
   </data>
   <data name="dtp_Shift_Start.TabIndex" type="System.Int32, mscorlib">
     <value>20</value>
@@ -731,9 +734,6 @@
   </data>
   <data name="&gt;&gt;txt_TenCa.Name" xml:space="preserve">
     <value>txt_TenCa</value>
-  </data>
-  <data name="&gt;&gt;guna2HtmlLabel1.Name" xml:space="preserve">
-    <value>guna2HtmlLabel1</value>
   </data>
   <data name="&gt;&gt;label18.ZOrder" xml:space="preserve">
     <value>8</value>
@@ -756,9 +756,6 @@
   <data name="label13.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 228</value>
   </data>
-  <data name="&gt;&gt;label4.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
   <data name="label20.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 454</value>
   </data>
@@ -777,8 +774,8 @@
   <data name="btn_Shift_Edit.Text" xml:space="preserve">
     <value>Sửa</value>
   </data>
-  <data name="&gt;&gt;guna2HtmlLabel13.ZOrder" xml:space="preserve">
-    <value>10</value>
+  <data name="guna2HtmlLabel2.Text" xml:space="preserve">
+    <value>THỨ BA</value>
   </data>
   <data name="&gt;&gt;lb_Ma.Type" xml:space="preserve">
     <value>Guna.UI2.WinForms.Guna2HtmlLabel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
@@ -801,8 +798,8 @@
   <data name="guna2HtmlLabel16.Size" type="System.Drawing.Size, System.Drawing">
     <value>155, 39</value>
   </data>
-  <data name="&gt;&gt;label26.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="label26.Text" xml:space="preserve">
+    <value>Phan Đình Phú</value>
   </data>
   <data name="lb_Ma.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -840,8 +837,8 @@
   <data name="&gt;&gt;guna2HtmlLabel14.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
-  <data name="label27.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 585</value>
+  <data name="&gt;&gt;guna2HtmlLabel13.ZOrder" xml:space="preserve">
+    <value>10</value>
   </data>
   <data name="label17.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -849,8 +846,8 @@
   <data name="&gt;&gt;lb_Hoten.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="tableLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
+  <data name="btnChooseEmployee.Location" type="System.Drawing.Point, System.Drawing">
+    <value>807, 707</value>
   </data>
   <data name="&gt;&gt;label10.ZOrder" xml:space="preserve">
     <value>16</value>
@@ -882,20 +879,20 @@
   <data name="label14.Size" type="System.Drawing.Size, System.Drawing">
     <value>28, 16</value>
   </data>
+  <data name="guna2HtmlLabel14.Location" type="System.Drawing.Point, System.Drawing">
+    <value>31, 214</value>
+  </data>
   <data name="txt_Shift_Number.TabIndex" type="System.Int32, mscorlib">
     <value>22</value>
   </data>
   <data name="&gt;&gt;btn_Shift_Confirm.Name" xml:space="preserve">
     <value>btn_Shift_Confirm</value>
   </data>
-  <data name="label4.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
   <data name="guna2HtmlLabel12.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>10, 10, 10, 10</value>
   </data>
-  <data name="&gt;&gt;label20.Name" xml:space="preserve">
-    <value>label20</value>
+  <data name="guna2HtmlLabel1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;btn_Shift_Add.ZOrder" xml:space="preserve">
     <value>9</value>
@@ -927,14 +924,17 @@
   <data name="guna2HtmlLabel15.Text" xml:space="preserve">
     <value>Xác Nhận Mật Khẩu Mới :</value>
   </data>
-  <data name="btnPrevCalendar.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
+  <data name="lb_Ma.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 8pt</value>
   </data>
   <data name="&gt;&gt;label14.Name" xml:space="preserve">
     <value>label14</value>
   </data>
   <data name="&gt;&gt;btn_Xacnhan.Parent" xml:space="preserve">
     <value>pn_infoChanges</value>
+  </data>
+  <data name="&gt;&gt;label4.Name" xml:space="preserve">
+    <value>label4</value>
   </data>
   <data name="lb_Gioitinh.Location" type="System.Drawing.Point, System.Drawing">
     <value>131, 160</value>
@@ -945,8 +945,8 @@
   <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
     <value>160, 41</value>
   </data>
-  <data name="btn_Xacnhan.Text" xml:space="preserve">
-    <value>Xác Nhận Đổi</value>
+  <data name="container_Date.Location" type="System.Drawing.Point, System.Drawing">
+    <value>40, 50</value>
   </data>
   <data name="guna2HtmlLabel13.Text" xml:space="preserve">
     <value>Họ Tên:</value>
@@ -956,6 +956,9 @@
   </data>
   <data name="guna2HtmlLabel5.Size" type="System.Drawing.Size, System.Drawing">
     <value>142, 73</value>
+  </data>
+  <data name="&gt;&gt;label11.Parent" xml:space="preserve">
+    <value>guna2Panel3</value>
   </data>
   <data name="dtp_Shift_End.TabIndex" type="System.Int32, mscorlib">
     <value>21</value>
@@ -992,6 +995,9 @@
   </data>
   <data name="guna2HtmlLabel17.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 8pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;label20.Name" xml:space="preserve">
+    <value>label20</value>
   </data>
   <data name="lb_Hoten.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 8pt</value>
@@ -1038,6 +1044,9 @@
   <data name="lb_Ngaysinh.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
+  <data name="guna2HtmlLabel5.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
   <data name="guna2HtmlLabel3.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
@@ -1068,8 +1077,8 @@
   <data name="label16.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 322</value>
   </data>
-  <data name="&gt;&gt;btn_Shift_Confirm.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <data name="&gt;&gt;lb_Ngaysinh.Name" xml:space="preserve">
+    <value>lb_Ngaysinh</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>
@@ -9701,8 +9710,8 @@
   <data name="btn_Shift_Add.TabIndex" type="System.Int32, mscorlib">
     <value>24</value>
   </data>
-  <data name="&gt;&gt;tableLayoutPanel1.Parent" xml:space="preserve">
-    <value>guna2Panel3</value>
+  <data name="label27.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 585</value>
   </data>
   <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
     <value>6</value>
@@ -9725,8 +9734,8 @@
   <data name="tb_mk2.Location" type="System.Drawing.Point, System.Drawing">
     <value>408, 76</value>
   </data>
-  <data name="&gt;&gt;guna2Elipse3.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2Elipse, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  <data name="guna2HtmlLabel1.Text" xml:space="preserve">
+    <value>THỨ HAI</value>
   </data>
   <data name="&gt;&gt;label15.Parent" xml:space="preserve">
     <value>guna2Panel3</value>
@@ -9746,9 +9755,6 @@
   <data name="guna2HtmlLabel11.Location" type="System.Drawing.Point, System.Drawing">
     <value>61, 169</value>
   </data>
-  <data name="guna2HtmlLabel1.Text" xml:space="preserve">
-    <value>THỨ HAI</value>
-  </data>
   <data name="label19.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -9761,17 +9767,11 @@
   <data name="btn_Shift_Remove.Location" type="System.Drawing.Point, System.Drawing">
     <value>692, 759</value>
   </data>
-  <data name="&gt;&gt;pn_infoChanges.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2Panel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
   <data name="guna2Panel1.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
-  <data name="&gt;&gt;guna2Panel1.Name" xml:space="preserve">
-    <value>guna2Panel1</value>
-  </data>
-  <data name="guna2HtmlLabel5.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="&gt;&gt;guna2HtmlLabel4.Name" xml:space="preserve">
+    <value>guna2HtmlLabel4</value>
   </data>
   <data name="&gt;&gt;guna2HtmlLabel3.Name" xml:space="preserve">
     <value>guna2HtmlLabel3</value>
@@ -9779,11 +9779,8 @@
   <data name="label26.Location" type="System.Drawing.Point, System.Drawing">
     <value>750, 23</value>
   </data>
-  <data name="btn_Xacnhan.Location" type="System.Drawing.Point, System.Drawing">
-    <value>321, 152</value>
-  </data>
-  <data name="guna2HtmlLabel10.Text" xml:space="preserve">
-    <value>CA TỐI</value>
+  <data name="&gt;&gt;pn_infoChanges.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2Panel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
   </data>
   <data name="btn_Shift_Add.Size" type="System.Drawing.Size, System.Drawing">
     <value>163, 47</value>
@@ -9803,8 +9800,8 @@
   <data name="&gt;&gt;label3.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;guna2HtmlLabel8.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2HtmlLabel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  <data name="btnChooseEmployee.Size" type="System.Drawing.Size, System.Drawing">
+    <value>259, 36</value>
   </data>
   <data name="btn_NextCalendar.TabIndex" type="System.Int32, mscorlib">
     <value>26</value>
@@ -9833,9 +9830,6 @@
   <data name="guna2HtmlLabel14.Size" type="System.Drawing.Size, System.Drawing">
     <value>114, 39</value>
   </data>
-  <data name="btnChooseEmployee.Size" type="System.Drawing.Size, System.Drawing">
-    <value>259, 36</value>
-  </data>
   <data name="&gt;&gt;label8.ZOrder" xml:space="preserve">
     <value>18</value>
   </data>
@@ -9860,8 +9854,8 @@
   <data name="btn_Xacnhan.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
   </data>
-  <data name="label23.Text" xml:space="preserve">
-    <value>21h</value>
+  <data name="guna2HtmlLabel2.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
     <value>159, 41</value>
@@ -9878,14 +9872,14 @@
   <data name="lb_sdt.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>10, 10, 10, 10</value>
   </data>
-  <data name="label5.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
+  <data name="guna2HtmlLabel17.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 10, 10, 10</value>
   </data>
   <data name="dtp_Shift_Start.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Right</value>
   </data>
-  <data name="&gt;&gt;timer_ChooseEmployee.Name" xml:space="preserve">
-    <value>timer_ChooseEmployee</value>
+  <data name="label9.Text" xml:space="preserve">
+    <value>7h</value>
   </data>
   <data name="lb_Ma.Text" xml:space="preserve">
     <value>Mã Nhân Viên</value>
@@ -9935,9 +9929,6 @@
   <data name="&gt;&gt;lb_Ngaysinh.Parent" xml:space="preserve">
     <value>pn_infoChanges</value>
   </data>
-  <data name="&gt;&gt;label13.Parent" xml:space="preserve">
-    <value>guna2Panel3</value>
-  </data>
   <data name="guna2HtmlLabel17.Text" xml:space="preserve">
     <value>Mã Nhân Viên:</value>
   </data>
@@ -9962,17 +9953,20 @@
   <data name="&gt;&gt;label24.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;label21.Name" xml:space="preserve">
+    <value>label21</value>
+  </data>
   <data name="label7.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="lb_sdt.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 8pt</value>
+  <data name="label4.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
   </data>
   <data name="&gt;&gt;guna2HtmlLabel8.Name" xml:space="preserve">
     <value>guna2HtmlLabel8</value>
   </data>
-  <data name="btnChooseEmployee.TabIndex" type="System.Int32, mscorlib">
-    <value>25</value>
+  <data name="&gt;&gt;timer_ChooseEmployee.Name" xml:space="preserve">
+    <value>timer_ChooseEmployee</value>
   </data>
   <data name="label21.Size" type="System.Drawing.Size, System.Drawing">
     <value>28, 16</value>
@@ -9989,8 +9983,8 @@
   <data name="guna2HtmlLabel16.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 8pt, style=Bold</value>
   </data>
-  <data name="lb_Ma.Location" type="System.Drawing.Point, System.Drawing">
-    <value>131, 25</value>
+  <data name="label12.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 198</value>
   </data>
   <data name="tb_mk2.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9pt</value>
@@ -10000,9 +9994,6 @@
   </data>
   <data name="guna2HtmlLabel8.AutoSize" type="System.Boolean, mscorlib">
     <value>False</value>
-  </data>
-  <data name="guna2HtmlLabel17.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 10, 10, 10</value>
   </data>
   <data name="&gt;&gt;label27.Name" xml:space="preserve">
     <value>label27</value>
@@ -10025,6 +10016,9 @@
   <data name="&gt;&gt;label1.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;label26.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
   <data name="dtg_ChooseEmployee.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
@@ -10040,9 +10034,6 @@
   <data name="&gt;&gt;btn_Shift_Confirm.Type" xml:space="preserve">
     <value>Guna.UI2.WinForms.Guna2GradientButton, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
   </data>
-  <data name="guna2HtmlLabel2.Text" xml:space="preserve">
-    <value>THỨ BA</value>
-  </data>
   <data name="guna2HtmlLabel7.Size" type="System.Drawing.Size, System.Drawing">
     <value>142, 73</value>
   </data>
@@ -10055,9 +10046,6 @@
   <data name="guna2HtmlLabel4.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;lb_sdt.Parent" xml:space="preserve">
-    <value>pn_infoChanges</value>
-  </data>
   <data name="label18.Text" xml:space="preserve">
     <value>16h</value>
   </data>
@@ -10067,8 +10055,8 @@
   <data name="&gt;&gt;guna2HtmlLabel7.Name" xml:space="preserve">
     <value>guna2HtmlLabel7</value>
   </data>
-  <data name="guna2HtmlLabel14.Location" type="System.Drawing.Point, System.Drawing">
-    <value>31, 214</value>
+  <data name="btn_Shift_Remove.TabIndex" type="System.Int32, mscorlib">
+    <value>29</value>
   </data>
   <data name="guna2HtmlLabel1.Size" type="System.Drawing.Size, System.Drawing">
     <value>145, 73</value>
@@ -10091,8 +10079,8 @@
   <data name="pn_ChooseEmployee.TabIndex" type="System.Int32, mscorlib">
     <value>26</value>
   </data>
-  <data name="&gt;&gt;btnChooseEmployee.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;tb_mk1.Name" xml:space="preserve">
+    <value>tb_mk1</value>
   </data>
   <data name="dtg_ChooseEmployee.ColumnHeadersHeight" type="System.Int32, mscorlib">
     <value>4</value>
@@ -10106,8 +10094,8 @@
   <data name="label17.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
   </data>
-  <data name="label5.Text" xml:space="preserve">
-    <value>THỨ BẢY</value>
+  <data name="&gt;&gt;label13.Parent" xml:space="preserve">
+    <value>guna2Panel3</value>
   </data>
   <data name="pn_infoChanges.Size" type="System.Drawing.Size, System.Drawing">
     <value>624, 0</value>
@@ -10115,17 +10103,14 @@
   <data name="label3.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
   </data>
-  <data name="lb_Ma.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 8pt</value>
-  </data>
   <data name="&gt;&gt;label4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label14.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="guna2HtmlLabel8.Size" type="System.Drawing.Size, System.Drawing">
     <value>82, 73</value>
+  </data>
+  <data name="&gt;&gt;txt_Shift_Number.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2TextBox, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
   </data>
   <data name="label18.Size" type="System.Drawing.Size, System.Drawing">
     <value>28, 16</value>
@@ -10154,7 +10139,7 @@
   <data name="tb_mk1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 4, 3, 4</value>
   </data>
-  <data name="btn_Xacnhan.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="btn_exportFile.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 10pt</value>
   </data>
   <data name="&gt;&gt;pn_ChooseEmployee.Parent" xml:space="preserve">
@@ -10202,11 +10187,8 @@
   <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
     <value>40, 3</value>
   </data>
-  <data name="&gt;&gt;lb_sdt.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2HtmlLabel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="btn_Shift_Remove.TabIndex" type="System.Int32, mscorlib">
-    <value>29</value>
+  <data name="btn_Xacnhan.Location" type="System.Drawing.Point, System.Drawing">
+    <value>321, 152</value>
   </data>
   <data name="guna2HtmlLabel6.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -10232,6 +10214,9 @@
   <data name="tb_mk1.Location" type="System.Drawing.Point, System.Drawing">
     <value>408, 24</value>
   </data>
+  <data name="dtg_ChooseEmployee.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 4</value>
+  </data>
   <data name="btn_NextCalendar.Size" type="System.Drawing.Size, System.Drawing">
     <value>55, 55</value>
   </data>
@@ -10241,8 +10226,8 @@
   <data name="&gt;&gt;label15.ZOrder" xml:space="preserve">
     <value>11</value>
   </data>
-  <data name="dtp_Shift_End.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
+  <data name="btnChooseEmployee.TabIndex" type="System.Int32, mscorlib">
+    <value>25</value>
   </data>
   <data name="&gt;&gt;label23.Parent" xml:space="preserve">
     <value>guna2Panel3</value>
@@ -10255,6 +10240,9 @@
   </data>
   <data name="&gt;&gt;label23.Name" xml:space="preserve">
     <value>label23</value>
+  </data>
+  <data name="&gt;&gt;label16.Name" xml:space="preserve">
+    <value>label16</value>
   </data>
   <data name="&gt;&gt;label11.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -10274,14 +10262,17 @@
   <data name="lb_Gioitinh.Text" xml:space="preserve">
     <value>Mã Nhân Viên</value>
   </data>
-  <data name="dtg_ChooseEmployee.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 4</value>
+  <data name="&gt;&gt;guna2HtmlLabel13.Name" xml:space="preserve">
+    <value>guna2HtmlLabel13</value>
   </data>
   <data name="&gt;&gt;btn_exportFile.Name" xml:space="preserve">
     <value>btn_exportFile</value>
   </data>
   <data name="&gt;&gt;label17.Name" xml:space="preserve">
     <value>label17</value>
+  </data>
+  <data name="&gt;&gt;label11.Name" xml:space="preserve">
+    <value>label11</value>
   </data>
   <data name="&gt;&gt;label18.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -10292,6 +10283,9 @@
   <data name="guna2HtmlLabel10.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Semibold, 13.8pt, style=Bold</value>
   </data>
+  <data name="btn_Xacnhan.Text" xml:space="preserve">
+    <value>Xác Nhận Đổi</value>
+  </data>
   <data name="lb_Gioitinh.Size" type="System.Drawing.Size, System.Drawing">
     <value>106, 39</value>
   </data>
@@ -10301,8 +10295,8 @@
   <data name="&gt;&gt;label9.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;label1.Name" xml:space="preserve">
-    <value>label1</value>
+  <data name="&gt;&gt;guna2HtmlLabel1.Name" xml:space="preserve">
+    <value>guna2HtmlLabel1</value>
   </data>
   <data name="&gt;&gt;tm_InforChanges.Type" xml:space="preserve">
     <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -10334,14 +10328,20 @@
   <data name="label24.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;txt_Shift_Number.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2TextBox, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  <data name="&gt;&gt;guna2CirclePictureBox1.Parent" xml:space="preserve">
+    <value>guna2Panel1</value>
   </data>
   <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
+  <data name="label13.Size" type="System.Drawing.Size, System.Drawing">
+    <value>28, 16</value>
+  </data>
   <data name="&gt;&gt;tb_mk1.Type" xml:space="preserve">
     <value>Guna.UI2.WinForms.Guna2TextBox, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;guna2HtmlLabel8.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2HtmlLabel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
   </data>
   <data name="guna2HtmlLabel17.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -10379,8 +10379,8 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Form1</value>
   </data>
-  <data name="label25.Location" type="System.Drawing.Point, System.Drawing">
-    <value>594, 707</value>
+  <data name="&gt;&gt;tableLayoutPanel1.Parent" xml:space="preserve">
+    <value>guna2Panel3</value>
   </data>
   <data name="btn_Shift_Confirm.Size" type="System.Drawing.Size, System.Drawing">
     <value>163, 47</value>
@@ -10388,8 +10388,14 @@
   <data name="&gt;&gt;guna2Panel3.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
+  <data name="label25.Location" type="System.Drawing.Point, System.Drawing">
+    <value>594, 707</value>
+  </data>
   <data name="&gt;&gt;tm_InforChanges.Name" xml:space="preserve">
     <value>tm_InforChanges</value>
+  </data>
+  <data name="dtp_Shift_End.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
   </data>
   <data name="&gt;&gt;guna2HtmlLabel6.Type" xml:space="preserve">
     <value>Guna.UI2.WinForms.Guna2HtmlLabel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
@@ -10409,17 +10415,11 @@
   <data name="&gt;&gt;label5.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="guna2HtmlLabel4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>538, 3</value>
-  </data>
   <data name="&gt;&gt;dtp_Shift_End.ZOrder" xml:space="preserve">
     <value>11</value>
   </data>
   <data name="guna2CirclePictureBox1.Location" type="System.Drawing.Point, System.Drawing">
     <value>696, 12</value>
-  </data>
-  <data name="label12.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 198</value>
   </data>
   <data name="label3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
@@ -10472,9 +10472,6 @@
   <data name="label26.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
   </data>
-  <data name="&gt;&gt;btnPrevCalendar.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2GradientCircleButton, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
   <data name="label25.Size" type="System.Drawing.Size, System.Drawing">
     <value>123, 41</value>
   </data>
@@ -10484,11 +10481,11 @@
   <data name="guna2HtmlLabel11.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
-  <data name="guna2HtmlLabel17.Size" type="System.Drawing.Size, System.Drawing">
-    <value>115, 39</value>
-  </data>
   <data name="dtg_ChooseEmployee.Size" type="System.Drawing.Size, System.Drawing">
     <value>472, 287</value>
+  </data>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
   </data>
   <data name="&gt;&gt;lb_Gioitinh.Name" xml:space="preserve">
     <value>lb_Gioitinh</value>
@@ -10523,17 +10520,17 @@
   <data name="btn_Shift_Confirm.TabIndex" type="System.Int32, mscorlib">
     <value>28</value>
   </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>THỨ BẢY</value>
+  </data>
   <data name="label8.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="&gt;&gt;label13.Name" xml:space="preserve">
     <value>label13</value>
   </data>
-  <data name="&gt;&gt;label11.Name" xml:space="preserve">
-    <value>label11</value>
-  </data>
-  <data name="label27.Size" type="System.Drawing.Size, System.Drawing">
-    <value>28, 16</value>
+  <data name="&gt;&gt;label6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="lb_Ma.Size" type="System.Drawing.Size, System.Drawing">
     <value>106, 39</value>
@@ -10574,8 +10571,11 @@
   <data name="label25.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="dtp_Shift_End.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Right</value>
+  <data name="guna2HtmlLabel10.Text" xml:space="preserve">
+    <value>CA TỐI</value>
+  </data>
+  <data name="label11.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 166</value>
   </data>
   <data name="&gt;&gt;timer_ChooseEmployee.Type" xml:space="preserve">
     <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -10607,9 +10607,6 @@
   <data name="guna2HtmlLabel4.Size" type="System.Drawing.Size, System.Drawing">
     <value>142, 73</value>
   </data>
-  <data name="&gt;&gt;guna2HtmlLabel4.Name" xml:space="preserve">
-    <value>guna2HtmlLabel4</value>
-  </data>
   <data name="&gt;&gt;tb_mk2.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
@@ -10631,14 +10628,8 @@
   <data name="&gt;&gt;lb_Hoten.Name" xml:space="preserve">
     <value>lb_Hoten</value>
   </data>
-  <data name="btn_exportFile.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 10pt</value>
-  </data>
   <data name="&gt;&gt;guna2HtmlLabel16.Name" xml:space="preserve">
     <value>guna2HtmlLabel16</value>
-  </data>
-  <data name="label11.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 166</value>
   </data>
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
     <value>2</value>
@@ -10649,8 +10640,8 @@
   <data name="btn_Xacnhan.Size" type="System.Drawing.Size, System.Drawing">
     <value>180, 56</value>
   </data>
-  <data name="&gt;&gt;label11.Parent" xml:space="preserve">
-    <value>guna2Panel3</value>
+  <data name="&gt;&gt;guna2Panel1.Name" xml:space="preserve">
+    <value>guna2Panel1</value>
   </data>
   <data name="label25.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
@@ -10664,9 +10655,6 @@
   <data name="guna2HtmlLabel13.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 8pt, style=Bold</value>
   </data>
-  <data name="guna2HtmlLabel2.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
   <data name="label13.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
   </data>
@@ -10676,11 +10664,17 @@
   <data name="label12.Text" xml:space="preserve">
     <value>10h</value>
   </data>
-  <data name="label13.Size" type="System.Drawing.Size, System.Drawing">
-    <value>28, 16</value>
+  <data name="label2.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="lb_sdt.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 8pt</value>
   </data>
   <data name="label13.Text" xml:space="preserve">
     <value>11h</value>
+  </data>
+  <data name="&gt;&gt;btn_Shift_Confirm.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="label22.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -10709,6 +10703,9 @@
   <data name="btnPrevCalendar.TabIndex" type="System.Int32, mscorlib">
     <value>26</value>
   </data>
+  <data name="label27.Text" xml:space="preserve">
+    <value>22h</value>
+  </data>
   <data name="label27.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
   </data>
@@ -10724,17 +10721,17 @@
   <data name="&gt;&gt;pn_infoChanges.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;label4.Name" xml:space="preserve">
-    <value>label4</value>
+  <data name="tableLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
   </data>
-  <data name="&gt;&gt;tb_mk2.Name" xml:space="preserve">
-    <value>tb_mk2</value>
+  <data name="&gt;&gt;btnPrevCalendar.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2GradientCircleButton, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
   </data>
   <data name="&gt;&gt;label25.ZOrder" xml:space="preserve">
     <value>13</value>
   </data>
-  <data name="&gt;&gt;label21.Name" xml:space="preserve">
-    <value>label21</value>
+  <data name="&gt;&gt;label4.Parent" xml:space="preserve">
+    <value>panel1</value>
   </data>
   <data name="&gt;&gt;label26.Name" xml:space="preserve">
     <value>label26</value>
@@ -10744,6 +10741,9 @@
   </data>
   <data name="&gt;&gt;label10.Parent" xml:space="preserve">
     <value>guna2Panel3</value>
+  </data>
+  <data name="label23.Text" xml:space="preserve">
+    <value>21h</value>
   </data>
   <data name="&gt;&gt;tb_mk1.Parent" xml:space="preserve">
     <value>pn_infoChanges</value>
@@ -10781,14 +10781,14 @@
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="timer_ChooseEmployee.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>899, 54</value>
-  </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>205</value>
   </metadata>
   <metadata name="guna2Elipse1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
+  </metadata>
+  <metadata name="timer_ChooseEmployee.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>899, 54</value>
   </metadata>
   <metadata name="guna2Elipse3.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>305, 17</value>

@@ -15,6 +15,7 @@ using iTextSharp.text.pdf;
 using iTextSharp.text;
 using System.IO;
 using System.Text.RegularExpressions;
+using ServiceStack;
 
 namespace Trang_chủ_Main_Page_
 {
@@ -417,45 +418,52 @@ namespace Trang_chủ_Main_Page_
         }
         private void pb_Avatar_Click(object sender, EventArgs e)
         {
-            tm_InforChanges.Start();
             lb_Ma.Text = Mainpage.CurrentUser.MaNhanvien;
             lb_Hoten.Text = Mainpage.CurrentUser.Hoten;
             lb_Ngaysinh.Text = Mainpage.CurrentUser.Ngaysinh;
             lb_Gioitinh.Text = Mainpage.CurrentUser.Gioitinh;
-            lb_sdt.Text = Mainpage.CurrentUser.Sodienthoai;
+            lb_sdt.Text = Mainpage.CurrentUser.Sodienthoai; 
+            tm_InforChanges.Start();
         }
         private void btn_Xacnhan_Click(object sender, EventArgs e)
         {
-            string mk1 = tb_mk1.Text;
-            string mk2 = tb_mk2.Text;
-            if (string.IsNullOrEmpty(mk1))
+            string oldPassword = lb_OldPassword.Text;
+            string Password = tb_mk1.Text;
+            string Repassword = tb_mk2.Text;
+            if (string.IsNullOrEmpty(oldPassword))
+            {
+                MessageBox.Show("Vui lòng nhập mật khẩu cũ!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (string.IsNullOrEmpty(Password))
             {
                 MessageBox.Show("Vui lòng nhập mật khẩu mới!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if (string.IsNullOrEmpty(mk2))
+            if (string.IsNullOrEmpty(Repassword))
             {
                 MessageBox.Show("Vui lòng nhập xác nhận mật khẩu mới!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if (!mk1.Equals(mk2))
+            if (!Password.Equals(Repassword))
             {
                 MessageBox.Show("Mật khẩu không trùng khớp!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if (!IsValidPassword(mk1))
+            if (!IsValidPassword(Password))
             {
                 MessageBox.Show("Mật khẩu không hợp lệ!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if (BLL_Nhanvien.Instance.UpdatePassword(Mainpage.CurrentUser.MaNhanvien, mk1))
+            if (BLL_Nhanvien.Instance.UpdatePassword(Mainpage.CurrentUser.MaNhanvien, oldPassword, Password))
             {
                 MessageBox.Show("Đổi mật khẩu thành công!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
+                return;
             }
             else
             {
                 MessageBox.Show("Lỗi khi đổi mật khẩu!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
         }
         //Check Password hợp lệ

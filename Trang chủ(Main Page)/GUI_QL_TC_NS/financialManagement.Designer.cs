@@ -35,8 +35,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.pb_Avata = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.txt_Bill_SearchBar = new Guna.UI2.WinForms.Guna2TextBox();
             this.dtg_Bill = new Guna.UI2.WinForms.Guna2DataGridView();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
@@ -64,7 +62,6 @@
             this.guna2HtmlLabel17 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.btn_Xacnhan = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2Panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_Avata)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_Bill)).BeginInit();
             this.pn_infoChanges.SuspendLayout();
             this.SuspendLayout();
@@ -72,26 +69,9 @@
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.White;
-            this.guna2Panel1.Controls.Add(this.label4);
-            this.guna2Panel1.Controls.Add(this.pb_Avata);
             this.guna2Panel1.Controls.Add(this.txt_Bill_SearchBar);
             resources.ApplyResources(this.guna2Panel1, "guna2Panel1");
             this.guna2Panel1.Name = "guna2Panel1";
-            // 
-            // label4
-            // 
-            resources.ApplyResources(this.label4, "label4");
-            this.label4.Name = "label4";
-            // 
-            // pb_Avata
-            // 
-            this.pb_Avata.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            resources.ApplyResources(this.pb_Avata, "pb_Avata");
-            this.pb_Avata.ImageRotate = 0F;
-            this.pb_Avata.Name = "pb_Avata";
-            this.pb_Avata.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.pb_Avata.TabStop = false;
-            this.pb_Avata.Click += new System.EventHandler(this.pb_Avata_Click_1);
             // 
             // txt_Bill_SearchBar
             // 
@@ -433,8 +413,6 @@
             this.Name = "financialManagement";
             this.Load += new System.EventHandler(this.financialManagement_Load);
             this.guna2Panel1.ResumeLayout(false);
-            this.guna2Panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_Avata)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_Bill)).EndInit();
             this.pn_infoChanges.ResumeLayout(false);
             this.pn_infoChanges.PerformLayout();
@@ -454,8 +432,6 @@
         private Guna.UI2.WinForms.Guna2DateTimePicker dtp_Bill_End;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblCustomerList;
         private Guna.UI2.WinForms.Guna2GradientButton btn_Bill_Cancel;
-        private System.Windows.Forms.Label label4;
-        private Guna.UI2.WinForms.Guna2CirclePictureBox pb_Avata;
         private Guna.UI2.WinForms.Guna2GradientButton btn_Bill_FilterDate;
         private System.Windows.Forms.Timer tm_InforChanges;
         private Guna.UI2.WinForms.Guna2Panel pn_infoChanges;

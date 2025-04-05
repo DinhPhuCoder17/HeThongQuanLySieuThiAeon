@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using System.Windows.Forms;
+using System.Threading;
 
 
 namespace DAL
@@ -142,16 +144,43 @@ namespace DAL
         }
 
         //Hàm UPDATE mật khẩu mới
-        public bool UpdatePassword(string maNhanVien, string password)
+        public bool UpdatePassword(string maNhanVien, string oldpassword, string password)
         {
-            string hashedPassword = BCrypt.Net.BCrypt.HashPassword(password); // Hash mật khẩu
-            string query = "UPDATE Quanly SET Password = @Password WHERE Manhanvien = @Manhanvien";
+            try
+            {
+                DataTable dt = DataProvider.Instance.ExecuteQuery("Select * From Quanly where Manhanvien = @Manhanvien ", new object[] { maNhanVien});
+                if (dt.Rows.Count > 0)
+                {
+                    string storedHashedPassword = dt.Rows[0]["Password"].ToString();
 
-            object[] parameters = { hashedPassword, maNhanVien };
+                    // Kiểm tra mật khẩu nhập vào có khớp với mật khẩu đã lưu không
+                    if (!BCrypt.Net.BCrypt.Verify(oldpassword, storedHashedPassword))
+                    {
+                        if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                        {
+                            MessageBox.Show("Mật khẩu không đúng!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Password is not correct", "Nofication", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                    }
+                }
 
-            return DataProvider.Instance.ExecuteNonQuery(query, parameters) > 0;
+                string hashedPassword = BCrypt.Net.BCrypt.HashPassword(password); // Hash mật khẩu
+                string query = "UPDATE Quanly SET Password = @Password WHERE Manhanvien = @Manhanvien";
+
+                object[] parameters = { hashedPassword, maNhanVien };
+
+                return DataProvider.Instance.ExecuteNonQuery(query, parameters) > 0;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
         }
-
 
     }
 }

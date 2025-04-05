@@ -693,32 +693,37 @@ namespace Trang_chủ_Main_Page_
 
         private void btn_Xacnhan_Click_1(object sender, EventArgs e)
         {
-            string mk1 = tb_mk1.Text;
-            string mk2 = tb_mk2.Text;
-            if (string.IsNullOrEmpty(mk1))
+            string oldPassword = txt_OldPassword.Text;
+            string Password = tb_mk1.Text;
+            string Repassword = tb_mk2.Text;
+            if (string.IsNullOrEmpty(oldPassword))
+            {
+                MessageBox.Show("Vui lòng nhập mật khẩu cũ!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (string.IsNullOrEmpty(Password))
             {
                 MessageBox.Show("Vui lòng nhập mật khẩu mới!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if (string.IsNullOrEmpty(mk2))
+            if (string.IsNullOrEmpty(Repassword))
             {
                 MessageBox.Show("Vui lòng nhập xác nhận mật khẩu mới!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if (!mk1.Equals(mk2))
+            if (!Password.Equals(Repassword))
             {
                 MessageBox.Show("Mật khẩu không trùng khớp!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if (!IsValidPassword(mk1))
+            if (!IsValidPassword(Password))
             {
                 MessageBox.Show("Mật khẩu không hợp lệ!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if (BLL_Nhanvien.Instance.UpdatePassword(Mainpage.CurrentUser.MaNhanvien, mk1))
+            if (BLL_Nhanvien.Instance.UpdatePassword(Mainpage.CurrentUser.MaNhanvien, oldPassword, Password))
             {
                 MessageBox.Show("Đổi mật khẩu thành công!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
             }
             else
             {

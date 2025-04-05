@@ -1208,3 +1208,4 @@ exec themMaHDNH 10000000, 10
 
  
 
+ Select * From quanly
