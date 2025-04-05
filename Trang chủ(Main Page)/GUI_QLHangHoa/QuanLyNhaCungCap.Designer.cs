@@ -30,13 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuanLyNhaCungCap));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.pb_Avata = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnXoaNCC = new Guna.UI2.WinForms.Guna2GradientButton();
@@ -57,6 +57,7 @@
             this.guna2Elipse2 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.t_Supplier_Add = new System.Windows.Forms.Timer(this.components);
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.tm_InforChanges = new System.Windows.Forms.Timer(this.components);
             this.pn_infoChanges = new Guna.UI2.WinForms.Guna2Panel();
             this.tb_mk2 = new Guna.UI2.WinForms.Guna2TextBox();
             this.tb_mk1 = new Guna.UI2.WinForms.Guna2TextBox();
@@ -66,16 +67,15 @@
             this.lb_Hoten = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.lb_Ma = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel14 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel11 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel12 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel9 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel13 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel15 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel16 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel17 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel12 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.btn_Xacnhan = new Guna.UI2.WinForms.Guna2GradientButton();
-            this.tm_InforChanges = new System.Windows.Forms.Timer(this.components);
             this.guna2Panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_Avata)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhaCungCap)).BeginInit();
             this.pn_Supplier_Add.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
@@ -84,31 +84,32 @@
             // 
             // guna2Panel4
             // 
-            this.guna2Panel4.BackColor = System.Drawing.Color.White;
-            this.guna2Panel4.Controls.Add(this.label4);
-            this.guna2Panel4.Controls.Add(this.pb_Avata);
-            this.guna2Panel4.Controls.Add(this.guna2TextBox2);
             resources.ApplyResources(this.guna2Panel4, "guna2Panel4");
+            this.guna2Panel4.BackColor = System.Drawing.Color.White;
+            this.guna2Panel4.Controls.Add(this.guna2CirclePictureBox1);
+            this.guna2Panel4.Controls.Add(this.label4);
+            this.guna2Panel4.Controls.Add(this.guna2TextBox2);
             this.guna2Panel4.Name = "guna2Panel4";
             this.guna2Panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel4_Paint);
+            // 
+            // guna2CirclePictureBox1
+            // 
+            resources.ApplyResources(this.guna2CirclePictureBox1, "guna2CirclePictureBox1");
+            this.guna2CirclePictureBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.guna2CirclePictureBox1.ImageRotate = 0F;
+            this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
+            this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.guna2CirclePictureBox1.TabStop = false;
+            this.guna2CirclePictureBox1.Click += new System.EventHandler(this.guna2CirclePictureBox1_Click);
             // 
             // label4
             // 
             resources.ApplyResources(this.label4, "label4");
             this.label4.Name = "label4";
             // 
-            // pb_Avata
-            // 
-            this.pb_Avata.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.pb_Avata.ImageRotate = 0F;
-            resources.ApplyResources(this.pb_Avata, "pb_Avata");
-            this.pb_Avata.Name = "pb_Avata";
-            this.pb_Avata.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.pb_Avata.TabStop = false;
-            this.pb_Avata.Click += new System.EventHandler(this.pb_Avata_Click_1);
-            // 
             // guna2TextBox2
             // 
+            resources.ApplyResources(this.guna2TextBox2, "guna2TextBox2");
             this.guna2TextBox2.Animated = true;
             this.guna2TextBox2.BackColor = System.Drawing.Color.White;
             this.guna2TextBox2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
@@ -122,7 +123,6 @@
             this.guna2TextBox2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.guna2TextBox2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
             this.guna2TextBox2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            resources.ApplyResources(this.guna2TextBox2, "guna2TextBox2");
             this.guna2TextBox2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBox2.Name = "guna2TextBox2";
             this.guna2TextBox2.PlaceholderForeColor = System.Drawing.Color.Black;
@@ -131,14 +131,15 @@
             // 
             // label1
             // 
-            this.label1.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.label1, "label1");
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Name = "label1";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // btnXoaNCC
             // 
+            resources.ApplyResources(this.btnXoaNCC, "btnXoaNCC");
             this.btnXoaNCC.Animated = true;
             this.btnXoaNCC.BorderRadius = 8;
             this.btnXoaNCC.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -148,13 +149,13 @@
             this.btnXoaNCC.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnXoaNCC.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
             this.btnXoaNCC.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            resources.ApplyResources(this.btnXoaNCC, "btnXoaNCC");
             this.btnXoaNCC.ForeColor = System.Drawing.Color.White;
             this.btnXoaNCC.Name = "btnXoaNCC";
             this.btnXoaNCC.Click += new System.EventHandler(this.btnXoaNCC_Click);
             // 
             // btnSuaNCC
             // 
+            resources.ApplyResources(this.btnSuaNCC, "btnSuaNCC");
             this.btnSuaNCC.Animated = true;
             this.btnSuaNCC.BorderRadius = 8;
             this.btnSuaNCC.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -164,13 +165,13 @@
             this.btnSuaNCC.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnSuaNCC.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
             this.btnSuaNCC.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            resources.ApplyResources(this.btnSuaNCC, "btnSuaNCC");
             this.btnSuaNCC.ForeColor = System.Drawing.Color.White;
             this.btnSuaNCC.Name = "btnSuaNCC";
             this.btnSuaNCC.Click += new System.EventHandler(this.btnSuaNCC_Click);
             // 
             // btnThemNCC
             // 
+            resources.ApplyResources(this.btnThemNCC, "btnThemNCC");
             this.btnThemNCC.Animated = true;
             this.btnThemNCC.BackColor = System.Drawing.Color.Transparent;
             this.btnThemNCC.BorderRadius = 8;
@@ -181,47 +182,46 @@
             this.btnThemNCC.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnThemNCC.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
             this.btnThemNCC.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            resources.ApplyResources(this.btnThemNCC, "btnThemNCC");
             this.btnThemNCC.ForeColor = System.Drawing.Color.White;
             this.btnThemNCC.Name = "btnThemNCC";
             this.btnThemNCC.Click += new System.EventHandler(this.guna2GradientButton1_Click_1);
             // 
             // dgvNhaCungCap
             // 
+            resources.ApplyResources(this.dgvNhaCungCap, "dgvNhaCungCap");
             this.dgvNhaCungCap.AllowUserToAddRows = false;
             this.dgvNhaCungCap.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            this.dgvNhaCungCap.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
-            resources.ApplyResources(this.dgvNhaCungCap, "dgvNhaCungCap");
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvNhaCungCap.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.White;
+            this.dgvNhaCungCap.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvNhaCungCap.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle18;
             this.dgvNhaCungCap.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.OrangeRed;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvNhaCungCap.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.OrangeRed;
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvNhaCungCap.DefaultCellStyle = dataGridViewCellStyle19;
             this.dgvNhaCungCap.EnableHeadersVisualStyles = true;
             this.dgvNhaCungCap.GridColor = System.Drawing.Color.White;
             this.dgvNhaCungCap.Name = "dgvNhaCungCap";
             this.dgvNhaCungCap.ReadOnly = true;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvNhaCungCap.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvNhaCungCap.RowHeadersDefaultCellStyle = dataGridViewCellStyle20;
             this.dgvNhaCungCap.RowHeadersVisible = false;
             this.dgvNhaCungCap.RowTemplate.DividerHeight = 5;
             this.dgvNhaCungCap.RowTemplate.Height = 40;
@@ -254,6 +254,7 @@
             // 
             // pn_Supplier_Add
             // 
+            resources.ApplyResources(this.pn_Supplier_Add, "pn_Supplier_Add");
             this.pn_Supplier_Add.BackColor = System.Drawing.Color.Transparent;
             this.pn_Supplier_Add.BorderRadius = 20;
             this.pn_Supplier_Add.Controls.Add(this.btn_Them);
@@ -266,12 +267,12 @@
             this.pn_Supplier_Add.Controls.Add(this.txt_tenNCC);
             this.pn_Supplier_Add.Controls.Add(this.label8);
             this.pn_Supplier_Add.FillColor = System.Drawing.SystemColors.Control;
-            resources.ApplyResources(this.pn_Supplier_Add, "pn_Supplier_Add");
             this.pn_Supplier_Add.Name = "pn_Supplier_Add";
             this.pn_Supplier_Add.Paint += new System.Windows.Forms.PaintEventHandler(this.pn_Supplier_Add_Paint);
             // 
             // btn_Them
             // 
+            resources.ApplyResources(this.btn_Them, "btn_Them");
             this.btn_Them.Animated = true;
             this.btn_Them.BackColor = System.Drawing.Color.Transparent;
             this.btn_Them.BorderRadius = 8;
@@ -282,13 +283,13 @@
             this.btn_Them.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btn_Them.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
             this.btn_Them.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            resources.ApplyResources(this.btn_Them, "btn_Them");
             this.btn_Them.ForeColor = System.Drawing.Color.White;
             this.btn_Them.Name = "btn_Them";
             this.btn_Them.Click += new System.EventHandler(this.btn_Them_Click);
             // 
             // txt_diachi
             // 
+            resources.ApplyResources(this.txt_diachi, "txt_diachi");
             this.txt_diachi.BackColor = System.Drawing.Color.Transparent;
             this.txt_diachi.BorderColor = System.Drawing.Color.Silver;
             this.txt_diachi.BorderRadius = 8;
@@ -299,7 +300,6 @@
             this.txt_diachi.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txt_diachi.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txt_diachi.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            resources.ApplyResources(this.txt_diachi, "txt_diachi");
             this.txt_diachi.ForeColor = System.Drawing.Color.Gray;
             this.txt_diachi.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_diachi.Name = "txt_diachi";
@@ -308,13 +308,14 @@
             // 
             // label10
             // 
-            this.label10.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.label10, "label10");
+            this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.ForeColor = System.Drawing.Color.Black;
             this.label10.Name = "label10";
             // 
             // txt_mst
             // 
+            resources.ApplyResources(this.txt_mst, "txt_mst");
             this.txt_mst.BackColor = System.Drawing.Color.Transparent;
             this.txt_mst.BorderColor = System.Drawing.Color.Silver;
             this.txt_mst.BorderRadius = 8;
@@ -325,7 +326,6 @@
             this.txt_mst.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txt_mst.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txt_mst.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            resources.ApplyResources(this.txt_mst, "txt_mst");
             this.txt_mst.ForeColor = System.Drawing.Color.Gray;
             this.txt_mst.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_mst.Name = "txt_mst";
@@ -334,13 +334,14 @@
             // 
             // label2
             // 
-            this.label2.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.label2, "label2");
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Name = "label2";
             // 
             // txt_sdt
             // 
+            resources.ApplyResources(this.txt_sdt, "txt_sdt");
             this.txt_sdt.BackColor = System.Drawing.Color.Transparent;
             this.txt_sdt.BorderColor = System.Drawing.Color.Silver;
             this.txt_sdt.BorderRadius = 8;
@@ -351,7 +352,6 @@
             this.txt_sdt.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txt_sdt.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txt_sdt.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            resources.ApplyResources(this.txt_sdt, "txt_sdt");
             this.txt_sdt.ForeColor = System.Drawing.Color.Gray;
             this.txt_sdt.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_sdt.Name = "txt_sdt";
@@ -360,13 +360,14 @@
             // 
             // label9
             // 
-            this.label9.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.label9, "label9");
+            this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.ForeColor = System.Drawing.Color.Black;
             this.label9.Name = "label9";
             // 
             // txt_tenNCC
             // 
+            resources.ApplyResources(this.txt_tenNCC, "txt_tenNCC");
             this.txt_tenNCC.BackColor = System.Drawing.Color.Transparent;
             this.txt_tenNCC.BorderColor = System.Drawing.Color.Silver;
             this.txt_tenNCC.BorderRadius = 8;
@@ -377,7 +378,6 @@
             this.txt_tenNCC.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txt_tenNCC.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txt_tenNCC.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            resources.ApplyResources(this.txt_tenNCC, "txt_tenNCC");
             this.txt_tenNCC.ForeColor = System.Drawing.Color.Gray;
             this.txt_tenNCC.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_tenNCC.Name = "txt_tenNCC";
@@ -386,8 +386,8 @@
             // 
             // label8
             // 
-            this.label8.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.label8, "label8");
+            this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.ForeColor = System.Drawing.Color.Black;
             this.label8.Name = "label8";
             // 
@@ -403,12 +403,18 @@
             // 
             // guna2Panel2
             // 
-            this.guna2Panel2.Controls.Add(this.dgvNhaCungCap);
             resources.ApplyResources(this.guna2Panel2, "guna2Panel2");
+            this.guna2Panel2.Controls.Add(this.dgvNhaCungCap);
             this.guna2Panel2.Name = "guna2Panel2";
+            // 
+            // tm_InforChanges
+            // 
+            this.tm_InforChanges.Interval = 10;
+            this.tm_InforChanges.Tick += new System.EventHandler(this.tm_InforChanges_Tick_1);
             // 
             // pn_infoChanges
             // 
+            resources.ApplyResources(this.pn_infoChanges, "pn_infoChanges");
             this.pn_infoChanges.BackColor = System.Drawing.Color.Transparent;
             this.pn_infoChanges.BorderColor = System.Drawing.Color.Transparent;
             this.pn_infoChanges.BorderRadius = 20;
@@ -420,19 +426,19 @@
             this.pn_infoChanges.Controls.Add(this.lb_Hoten);
             this.pn_infoChanges.Controls.Add(this.lb_Ma);
             this.pn_infoChanges.Controls.Add(this.guna2HtmlLabel14);
-            this.pn_infoChanges.Controls.Add(this.guna2HtmlLabel11);
-            this.pn_infoChanges.Controls.Add(this.guna2HtmlLabel12);
+            this.pn_infoChanges.Controls.Add(this.guna2HtmlLabel9);
+            this.pn_infoChanges.Controls.Add(this.guna2HtmlLabel7);
+            this.pn_infoChanges.Controls.Add(this.guna2HtmlLabel5);
             this.pn_infoChanges.Controls.Add(this.guna2HtmlLabel13);
-            this.pn_infoChanges.Controls.Add(this.guna2HtmlLabel15);
-            this.pn_infoChanges.Controls.Add(this.guna2HtmlLabel16);
-            this.pn_infoChanges.Controls.Add(this.guna2HtmlLabel17);
+            this.pn_infoChanges.Controls.Add(this.guna2HtmlLabel12);
+            this.pn_infoChanges.Controls.Add(this.guna2HtmlLabel3);
             this.pn_infoChanges.Controls.Add(this.btn_Xacnhan);
             this.pn_infoChanges.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            resources.ApplyResources(this.pn_infoChanges, "pn_infoChanges");
             this.pn_infoChanges.Name = "pn_infoChanges";
             // 
             // tb_mk2
             // 
+            resources.ApplyResources(this.tb_mk2, "tb_mk2");
             this.tb_mk2.BorderRadius = 8;
             this.tb_mk2.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tb_mk2.DefaultText = "";
@@ -441,7 +447,6 @@
             this.tb_mk2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tb_mk2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tb_mk2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            resources.ApplyResources(this.tb_mk2, "tb_mk2");
             this.tb_mk2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tb_mk2.Name = "tb_mk2";
             this.tb_mk2.PlaceholderText = "";
@@ -449,6 +454,7 @@
             // 
             // tb_mk1
             // 
+            resources.ApplyResources(this.tb_mk1, "tb_mk1");
             this.tb_mk1.BorderRadius = 8;
             this.tb_mk1.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tb_mk1.DefaultText = "";
@@ -457,7 +463,6 @@
             this.tb_mk1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tb_mk1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tb_mk1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            resources.ApplyResources(this.tb_mk1, "tb_mk1");
             this.tb_mk1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tb_mk1.Name = "tb_mk1";
             this.tb_mk1.PlaceholderText = "";
@@ -465,83 +470,84 @@
             // 
             // lb_sdt
             // 
-            this.lb_sdt.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.lb_sdt, "lb_sdt");
+            this.lb_sdt.BackColor = System.Drawing.Color.Transparent;
             this.lb_sdt.Name = "lb_sdt";
             this.lb_sdt.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lb_Gioitinh
             // 
-            this.lb_Gioitinh.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.lb_Gioitinh, "lb_Gioitinh");
+            this.lb_Gioitinh.BackColor = System.Drawing.Color.Transparent;
             this.lb_Gioitinh.Name = "lb_Gioitinh";
             this.lb_Gioitinh.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lb_Ngaysinh
             // 
-            this.lb_Ngaysinh.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.lb_Ngaysinh, "lb_Ngaysinh");
+            this.lb_Ngaysinh.BackColor = System.Drawing.Color.Transparent;
             this.lb_Ngaysinh.Name = "lb_Ngaysinh";
             this.lb_Ngaysinh.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lb_Hoten
             // 
-            this.lb_Hoten.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.lb_Hoten, "lb_Hoten");
+            this.lb_Hoten.BackColor = System.Drawing.Color.Transparent;
             this.lb_Hoten.Name = "lb_Hoten";
             this.lb_Hoten.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lb_Ma
             // 
-            this.lb_Ma.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.lb_Ma, "lb_Ma");
+            this.lb_Ma.BackColor = System.Drawing.Color.Transparent;
             this.lb_Ma.Name = "lb_Ma";
             this.lb_Ma.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // guna2HtmlLabel14
             // 
-            this.guna2HtmlLabel14.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.guna2HtmlLabel14, "guna2HtmlLabel14");
+            this.guna2HtmlLabel14.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel14.Name = "guna2HtmlLabel14";
             // 
-            // guna2HtmlLabel11
+            // guna2HtmlLabel9
             // 
-            this.guna2HtmlLabel11.BackColor = System.Drawing.Color.Transparent;
-            resources.ApplyResources(this.guna2HtmlLabel11, "guna2HtmlLabel11");
-            this.guna2HtmlLabel11.Name = "guna2HtmlLabel11";
+            resources.ApplyResources(this.guna2HtmlLabel9, "guna2HtmlLabel9");
+            this.guna2HtmlLabel9.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel9.Name = "guna2HtmlLabel9";
             // 
-            // guna2HtmlLabel12
+            // guna2HtmlLabel7
             // 
-            this.guna2HtmlLabel12.BackColor = System.Drawing.Color.Transparent;
-            resources.ApplyResources(this.guna2HtmlLabel12, "guna2HtmlLabel12");
-            this.guna2HtmlLabel12.Name = "guna2HtmlLabel12";
+            resources.ApplyResources(this.guna2HtmlLabel7, "guna2HtmlLabel7");
+            this.guna2HtmlLabel7.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel7.Name = "guna2HtmlLabel7";
+            // 
+            // guna2HtmlLabel5
+            // 
+            resources.ApplyResources(this.guna2HtmlLabel5, "guna2HtmlLabel5");
+            this.guna2HtmlLabel5.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
             // 
             // guna2HtmlLabel13
             // 
-            this.guna2HtmlLabel13.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.guna2HtmlLabel13, "guna2HtmlLabel13");
+            this.guna2HtmlLabel13.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel13.Name = "guna2HtmlLabel13";
             // 
-            // guna2HtmlLabel15
+            // guna2HtmlLabel12
             // 
-            this.guna2HtmlLabel15.BackColor = System.Drawing.Color.Transparent;
-            resources.ApplyResources(this.guna2HtmlLabel15, "guna2HtmlLabel15");
-            this.guna2HtmlLabel15.Name = "guna2HtmlLabel15";
+            resources.ApplyResources(this.guna2HtmlLabel12, "guna2HtmlLabel12");
+            this.guna2HtmlLabel12.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel12.Name = "guna2HtmlLabel12";
             // 
-            // guna2HtmlLabel16
+            // guna2HtmlLabel3
             // 
-            this.guna2HtmlLabel16.BackColor = System.Drawing.Color.Transparent;
-            resources.ApplyResources(this.guna2HtmlLabel16, "guna2HtmlLabel16");
-            this.guna2HtmlLabel16.Name = "guna2HtmlLabel16";
-            // 
-            // guna2HtmlLabel17
-            // 
-            this.guna2HtmlLabel17.BackColor = System.Drawing.Color.Transparent;
-            resources.ApplyResources(this.guna2HtmlLabel17, "guna2HtmlLabel17");
-            this.guna2HtmlLabel17.Name = "guna2HtmlLabel17";
+            resources.ApplyResources(this.guna2HtmlLabel3, "guna2HtmlLabel3");
+            this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
             // 
             // btn_Xacnhan
             // 
+            resources.ApplyResources(this.btn_Xacnhan, "btn_Xacnhan");
             this.btn_Xacnhan.Animated = true;
             this.btn_Xacnhan.BackColor = System.Drawing.Color.Transparent;
             this.btn_Xacnhan.BorderRadius = 8;
@@ -552,18 +558,14 @@
             this.btn_Xacnhan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btn_Xacnhan.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
             this.btn_Xacnhan.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            resources.ApplyResources(this.btn_Xacnhan, "btn_Xacnhan");
             this.btn_Xacnhan.ForeColor = System.Drawing.Color.White;
             this.btn_Xacnhan.Name = "btn_Xacnhan";
-            // 
-            // tm_InforChanges
-            // 
-            this.tm_InforChanges.Tick += new System.EventHandler(this.tm_InforChanges_Tick_1);
+            this.btn_Xacnhan.Click += new System.EventHandler(this.btn_Xacnhan_Click);
             // 
             // QuanLyNhaCungCap
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             resources.ApplyResources(this, "$this");
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.Controls.Add(this.pn_infoChanges);
             this.Controls.Add(this.pn_Supplier_Add);
             this.Controls.Add(this.label1);
@@ -577,7 +579,7 @@
             this.Load += new System.EventHandler(this.QuanLyNhaCungCap_Load);
             this.guna2Panel4.ResumeLayout(false);
             this.guna2Panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_Avata)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhaCungCap)).EndInit();
             this.pn_Supplier_Add.ResumeLayout(false);
             this.guna2Panel2.ResumeLayout(false);
@@ -592,7 +594,6 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox2;
         private System.Windows.Forms.Label label4;
-        private Guna.UI2.WinForms.Guna2CirclePictureBox pb_Avata;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2GradientButton btnXoaNCC;
         private Guna.UI2.WinForms.Guna2GradientButton btnSuaNCC;
@@ -612,6 +613,8 @@
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse2;
         private System.Windows.Forms.Timer t_Supplier_Add;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
+        private System.Windows.Forms.Timer tm_InforChanges;
+        private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
         private Guna.UI2.WinForms.Guna2Panel pn_infoChanges;
         private Guna.UI2.WinForms.Guna2TextBox tb_mk2;
         private Guna.UI2.WinForms.Guna2TextBox tb_mk1;
@@ -621,13 +624,12 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel lb_Hoten;
         private Guna.UI2.WinForms.Guna2HtmlLabel lb_Ma;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel14;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel11;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel12;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel9;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel7;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel5;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel13;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel15;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel16;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel17;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel12;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
         private Guna.UI2.WinForms.Guna2GradientButton btn_Xacnhan;
-        private System.Windows.Forms.Timer tm_InforChanges;
     }
 }

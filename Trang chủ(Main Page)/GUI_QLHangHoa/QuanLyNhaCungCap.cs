@@ -360,7 +360,13 @@ namespace Trang_chu_Main_Page_.GUI_QLHangHoa
 
         // ---------------- Phần của Quang ----------------------
         bool menuExpand_3 = false;
-        private void tm_InforChanges_Tick(object sender, EventArgs e)
+        //Check Password hợp lệ
+        public static bool IsValidPassword(string password)
+        {
+            string pattern = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$";
+            return Regex.IsMatch(password, pattern);
+        }
+        private void tm_InforChanges_Tick_1(object sender, EventArgs e)
         {
             if (menuExpand_3 == false)
             {
@@ -381,7 +387,39 @@ namespace Trang_chu_Main_Page_.GUI_QLHangHoa
                 }
             }
         }
-        private void pb_Avata_Click(object sender, EventArgs e)
+        
+
+        private void pn_infoChanges_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void lb_Hoten_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lb_Ma_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lb_Ngaysinh_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lb_Gioitinh_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lb_sdt_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2CirclePictureBox1_Click(object sender, EventArgs e)
         {
             tm_InforChanges.Start();
             lb_Ma.Text = Mainpage.CurrentUser.MaNhanvien;
@@ -424,44 +462,7 @@ namespace Trang_chu_Main_Page_.GUI_QLHangHoa
             {
                 MessageBox.Show("Lỗi khi đổi mật khẩu!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-        //Check Password hợp lệ
-        public static bool IsValidPassword(string password)
-        {
-            string pattern = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$";
-            return Regex.IsMatch(password, pattern);
-        }
 
-        private void pb_Avata_Click_1(object sender, EventArgs e)
-        {
-            tm_InforChanges.Start();
-            lb_Ma.Text = Mainpage.CurrentUser.MaNhanvien;
-            lb_Hoten.Text = Mainpage.CurrentUser.Hoten;
-            lb_Ngaysinh.Text = Mainpage.CurrentUser.Ngaysinh;
-            lb_Gioitinh.Text = Mainpage.CurrentUser.Gioitinh;
-            lb_sdt.Text = Mainpage.CurrentUser.Sodienthoai;
-        }
-
-        private void tm_InforChanges_Tick_1(object sender, EventArgs e)
-        {
-            if (menuExpand_3 == false)
-            {
-                pn_infoChanges.Height += 20;
-                if (pn_infoChanges.Height >= 280)
-                {
-                    tm_InforChanges.Stop();
-                    menuExpand_3 = true;
-                }
-            }
-            else
-            {
-                pn_infoChanges.Height -= 20;
-                if (pn_infoChanges.Height <= 0)
-                {
-                    tm_InforChanges.Stop();
-                    menuExpand_3 = false;
-                }
-            }
         }
     }
 }
