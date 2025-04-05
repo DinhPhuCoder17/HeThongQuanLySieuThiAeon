@@ -10,11 +10,11 @@ go
 CREATE TABLE Nhanvien (
     Manhanvien varchar(10) CONSTRAINT PK_Nhanvien PRIMARY KEY,
     Hoten NVARCHAR(100),
-    CCCD VARCHAR(20),
+    CCCD VARCHAR(20) UNIQUE,
     Ngaysinh DATE,
     Gioitinh NVARCHAR(10),
     Diachi NVARCHAR(255),
-    Sodienthoai VARCHAR(15),
+    Sodienthoai VARCHAR(15) UNIQUE,
 	Vaitro nvarchar(100),
 	Xoa int
 );

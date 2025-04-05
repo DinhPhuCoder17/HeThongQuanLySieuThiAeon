@@ -9336,7 +9336,7 @@
     <value>511, 74</value>
   </data>
   <data name="pn_infoChanges.Size" type="System.Drawing.Size, System.Drawing">
-    <value>624, 5000</value>
+    <value>624, 0</value>
   </data>
   <data name="pn_infoChanges.TabIndex" type="System.Int32, mscorlib">
     <value>33</value>

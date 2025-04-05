@@ -75,8 +75,15 @@ namespace Trang_chủ_Main_Page_
             string role = BLL_Account.Instance.GetRole(username, password);
             string maNV = BLL_Account.Instance.GetMaNV(username, password);
 
-            // Kiểm tra nếu role hoặc mã nhân viên null thì không tiếp tục
-            if (role == null || maNV == null)
+            string xoaValue = BLL_Account.Instance.CheckXoa(username, password);
+            if (xoaValue != null)
+            {
+                MessageBox.Show("Tài khoản đã dừng hoạt động!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+                // Kiểm tra nếu role hoặc mã nhân viên null thì không tiếp tục
+                if (role == null || maNV == null)
             {
                 MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 soLanNhap--;
