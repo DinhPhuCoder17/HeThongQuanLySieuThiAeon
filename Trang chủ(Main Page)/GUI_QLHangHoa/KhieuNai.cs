@@ -119,7 +119,8 @@ namespace Trang_chu_Main_Page_.GUI_QLHangHoa
                     if (cell.Value == null)
                     {
                         return false;
-                    }else if(cell.Value.ToString() == "")
+                    }
+                    else if (cell.Value.ToString() == "" && cell.OwningColumn.Name != "Loaikhieunai")
                     {
                         return false;
                     }
@@ -135,7 +136,7 @@ namespace Trang_chu_Main_Page_.GUI_QLHangHoa
             {
                 foreach (DataGridViewRow row in dgv_KhieuNai.Rows)
                 {
-                    String loaiKhieuNai = "";
+                    String loaiKhieuNai = row.Cells[0].Value.ToString();
                     switch(row.Cells[0].Value.ToString())
                     {
                         case "Wrong Item":
