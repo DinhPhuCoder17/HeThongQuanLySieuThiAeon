@@ -47,13 +47,13 @@
             this.btn_FinancialManagement = new Guna.UI2.WinForms.Guna2Button();
             this.pn_Report = new Guna.UI2.WinForms.Guna2Panel();
             this.btn_Statistic = new Guna.UI2.WinForms.Guna2Button();
-            this.pn_Menu_Financial = new System.Windows.Forms.FlowLayoutPanel();
             this.pn_AddData = new Guna.UI2.WinForms.Guna2Panel();
             this.btn_AddData = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.btn_AddData_ChamCong = new Guna.UI2.WinForms.Guna2Button();
+            this.pn_Menu_Financial = new System.Windows.Forms.FlowLayoutPanel();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.btn_AddData_banHang = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btn_AddData_ChamCong = new Guna.UI2.WinForms.Guna2Button();
             this.btn_SignOut = new Guna.UI2.WinForms.Guna2Button();
             this.logTransition = new System.Windows.Forms.Timer(this.components);
             this.sidebarContainer.SuspendLayout();
@@ -65,10 +65,10 @@
             this.pn_Customer.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
             this.pn_Report.SuspendLayout();
-            this.pn_Menu_Financial.SuspendLayout();
             this.pn_AddData.SuspendLayout();
-            this.guna2Panel1.SuspendLayout();
+            this.pn_Menu_Financial.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
+            this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2Elipse1
@@ -121,6 +121,7 @@
             this.guna2PictureBox1.Name = "guna2PictureBox1";
             this.guna2PictureBox1.TabStop = false;
             this.guna2PictureBox1.UseTransparentBackground = true;
+            this.guna2PictureBox1.Click += new System.EventHandler(this.guna2PictureBox1_Click);
             // 
             // menuEmployeeContainer
             // 
@@ -261,14 +262,6 @@
             this.btn_Statistic.Name = "btn_Statistic";
             this.btn_Statistic.Click += new System.EventHandler(this.btn_Statistic_Click);
             // 
-            // pn_Menu_Financial
-            // 
-            this.pn_Menu_Financial.BackColor = System.Drawing.Color.Transparent;
-            this.pn_Menu_Financial.Controls.Add(this.guna2Panel2);
-            this.pn_Menu_Financial.Controls.Add(this.guna2Panel1);
-            resources.ApplyResources(this.pn_Menu_Financial, "pn_Menu_Financial");
-            this.pn_Menu_Financial.Name = "pn_Menu_Financial";
-            // 
             // pn_AddData
             // 
             this.pn_AddData.BackColor = System.Drawing.Color.Transparent;
@@ -296,33 +289,13 @@
             this.btn_AddData.TextOffset = new System.Drawing.Point(-7, 0);
             this.btn_AddData.Click += new System.EventHandler(this.btn_AddData_Click);
             // 
-            // guna2Panel1
+            // pn_Menu_Financial
             // 
-            this.guna2Panel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Panel1.Controls.Add(this.btn_AddData_ChamCong);
-            resources.ApplyResources(this.guna2Panel1, "guna2Panel1");
-            this.guna2Panel1.Name = "guna2Panel1";
-            // 
-            // btn_AddData_ChamCong
-            // 
-            this.btn_AddData_ChamCong.Animated = true;
-            this.btn_AddData_ChamCong.BackColor = System.Drawing.Color.Transparent;
-            this.btn_AddData_ChamCong.BorderRadius = 15;
-            this.btn_AddData_ChamCong.CheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.btn_AddData_ChamCong.CustomImages.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_AddData_ChamCong.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn_AddData_ChamCong.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn_AddData_ChamCong.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_AddData_ChamCong.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_AddData_ChamCong.FillColor = System.Drawing.Color.Transparent;
-            resources.ApplyResources(this.btn_AddData_ChamCong, "btn_AddData_ChamCong");
-            this.btn_AddData_ChamCong.ForeColor = System.Drawing.Color.White;
-            this.btn_AddData_ChamCong.Image = ((System.Drawing.Image)(resources.GetObject("btn_AddData_ChamCong.Image")));
-            this.btn_AddData_ChamCong.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_AddData_ChamCong.ImageOffset = new System.Drawing.Point(20, 0);
-            this.btn_AddData_ChamCong.Name = "btn_AddData_ChamCong";
-            this.btn_AddData_ChamCong.TextOffset = new System.Drawing.Point(14, 0);
-            this.btn_AddData_ChamCong.Click += new System.EventHandler(this.btn_AddData_ChamCong_Click);
+            this.pn_Menu_Financial.BackColor = System.Drawing.Color.Transparent;
+            this.pn_Menu_Financial.Controls.Add(this.guna2Panel2);
+            this.pn_Menu_Financial.Controls.Add(this.guna2Panel1);
+            resources.ApplyResources(this.pn_Menu_Financial, "pn_Menu_Financial");
+            this.pn_Menu_Financial.Name = "pn_Menu_Financial";
             // 
             // guna2Panel2
             // 
@@ -351,6 +324,34 @@
             this.btn_AddData_banHang.Name = "btn_AddData_banHang";
             this.btn_AddData_banHang.TextOffset = new System.Drawing.Point(5, 0);
             this.btn_AddData_banHang.Click += new System.EventHandler(this.btn_AddData_banHang_Click);
+            // 
+            // guna2Panel1
+            // 
+            this.guna2Panel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Panel1.Controls.Add(this.btn_AddData_ChamCong);
+            resources.ApplyResources(this.guna2Panel1, "guna2Panel1");
+            this.guna2Panel1.Name = "guna2Panel1";
+            // 
+            // btn_AddData_ChamCong
+            // 
+            this.btn_AddData_ChamCong.Animated = true;
+            this.btn_AddData_ChamCong.BackColor = System.Drawing.Color.Transparent;
+            this.btn_AddData_ChamCong.BorderRadius = 15;
+            this.btn_AddData_ChamCong.CheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.btn_AddData_ChamCong.CustomImages.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btn_AddData_ChamCong.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_AddData_ChamCong.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_AddData_ChamCong.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_AddData_ChamCong.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_AddData_ChamCong.FillColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.btn_AddData_ChamCong, "btn_AddData_ChamCong");
+            this.btn_AddData_ChamCong.ForeColor = System.Drawing.Color.White;
+            this.btn_AddData_ChamCong.Image = ((System.Drawing.Image)(resources.GetObject("btn_AddData_ChamCong.Image")));
+            this.btn_AddData_ChamCong.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btn_AddData_ChamCong.ImageOffset = new System.Drawing.Point(20, 0);
+            this.btn_AddData_ChamCong.Name = "btn_AddData_ChamCong";
+            this.btn_AddData_ChamCong.TextOffset = new System.Drawing.Point(14, 0);
+            this.btn_AddData_ChamCong.Click += new System.EventHandler(this.btn_AddData_ChamCong_Click);
             // 
             // btn_SignOut
             // 
@@ -398,10 +399,10 @@
             this.pn_Customer.ResumeLayout(false);
             this.guna2Panel3.ResumeLayout(false);
             this.pn_Report.ResumeLayout(false);
-            this.pn_Menu_Financial.ResumeLayout(false);
             this.pn_AddData.ResumeLayout(false);
-            this.guna2Panel1.ResumeLayout(false);
+            this.pn_Menu_Financial.ResumeLayout(false);
             this.guna2Panel2.ResumeLayout(false);
+            this.guna2Panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
