@@ -538,14 +538,47 @@ CREATE PROCEDURE sp_XoaHoaDon
     @MaHoaDon VARCHAR(10)
 AS
 BEGIN
+    DECLARE @Mahanghoa VARCHAR(10);
+    DECLARE @Soluong INT;
+    DECLARE @SoluongNhan INT;
+
+    -- Lặp qua các sản phẩm trong hóa đơn để cập nhật số lượng
+    DECLARE cur CURSOR FOR
+    SELECT Mahanghoa, Soluong
+    FROM HH_HDBH
+    WHERE Mahoadon = @MaHoaDon;
+
+    OPEN cur;
+    FETCH NEXT FROM cur INTO @Mahanghoa, @Soluong;
+
+    -- Duyệt qua tất cả các sản phẩm trong hóa đơn và cập nhật số lượng
+    WHILE @@FETCH_STATUS = 0
+    BEGIN
+        -- Cập nhật lại số lượng nhận trong bảng HD_HH
+        UPDATE HD_HH
+        SET Soluongnhan = Soluongnhan + @Soluong
+        WHERE Mahanghoa = @Mahanghoa AND Ngaysanxuat = (SELECT TOP 1 Ngaysanxuat FROM HD_HH WHERE Mahanghoa = @Mahanghoa ORDER BY Ngaysanxuat ASC);
+
+        -- Cập nhật lại số lượng tồn kho trong bảng Hanghoa
+        UPDATE Hanghoa
+        SET Soluong = Soluong + @Soluong
+        WHERE Mahanghoa = @Mahanghoa;
+
+        FETCH NEXT FROM cur INTO @Mahanghoa, @Soluong;
+    END
+
+    CLOSE cur;
+    DEALLOCATE cur;
+
     -- Xóa chi tiết hóa đơn trước
     DELETE FROM HH_HDBH WHERE Mahoadon = @MaHoaDon;
     
     -- Xóa hóa đơn chính
     DELETE FROM Hoadonbanhang WHERE Mahoadon = @MaHoaDon;
-    
-    PRINT 'Đã xóa hóa đơn thành công!';
+
+    PRINT 'Đã xóa hóa đơn thành công và cập nhật số lượng các sản phẩm!';
 END;
+
 --DROP PROCEDURE sp_XoaHoaDon
 --Procedure thêm mã hoá đơn nhập hàng--
 go
