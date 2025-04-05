@@ -90,6 +90,16 @@ namespace Trang_chủ_Main_Page_
                 return;
             }
             //Kết thúc check nhập dữ liệu
+            if (BLL_Nhanvien.Instance.IsCCCDExist(cccd))
+            {
+                MessageBox.Show("CCCD đã tồn tại!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            if (BLL_Nhanvien.Instance.IsPhoneExist(sdt))
+            {
+                MessageBox.Show("Số điện thoại đã tồn tại!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
 
             if (BLL_Nhanvien.Instance.AddEmployee(hoTen, cccd, ngaySinh, gioiTinh, diaChi, sdt, rolenv, "","",""))
             {

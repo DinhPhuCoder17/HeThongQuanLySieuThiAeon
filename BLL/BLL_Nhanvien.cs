@@ -67,21 +67,16 @@ namespace BLL
         {
             return DAL_Nhanvien.Instance.UpdatePassword(maNhanVien, password);
         }
-        //public bool IsCCCDExist(string cccd)
-        //{
-        //    // Kiểm tra trong database xem CCCD đã tồn tại chưa
-        //    string query = "SELECT COUNT(*) FROM NhanVien WHERE CCCD = @cccd";
-        //    int count = DataProvider.Instance.ExecuteScalar<int>(query, new { cccd });
-        //    return count > 0; // Nếu có bản ghi trùng thì trả về true
-        //}
 
-        //public bool IsPhoneExist(string sdt)
-        //{
-        //    // Kiểm tra trong database xem SĐT đã tồn tại chưa
-        //    string query = "SELECT COUNT(*) FROM NhanVien WHERE SDT = @sdt";
-        //    int count = DataProvider.Instance.ExecuteScalar<int>(query, new { sdt });
-        //    return count > 0; // Nếu có bản ghi trùng thì trả về true
-        //}
+        public bool IsCCCDExist(string cccd)
+        {
+            return DAL_Nhanvien.Instance.IsCCCDExist(cccd);
+        }
+
+        public bool IsPhoneExist(string sdt)
+        {
+            return DAL_Nhanvien.Instance.IsPhoneExist(sdt);
+        }
 
     }
 }
