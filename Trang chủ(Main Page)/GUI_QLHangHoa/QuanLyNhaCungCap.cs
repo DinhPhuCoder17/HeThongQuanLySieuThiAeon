@@ -31,11 +31,15 @@ namespace Trang_chu_Main_Page_.GUI_QLHangHoa
         {
 
         }
+        private DataTable originalNCCData; // Lưu dữ liệu gốc để lọc
 
         //Load danh sách nhà cung cấp
         private void LoadNCCList()
         {
-            dgvNhaCungCap.DataSource = BLLQuanLyKho.Instance.GetAllNCC();
+            //dgvNhaCungCap.DataSource = BLLQuanLyKho.Instance.GetAllNCC();
+            originalNCCData = BLLQuanLyKho.Instance.GetAllNCC();
+            dgvNhaCungCap.DataSource = originalNCCData;
+
             if (dgvNhaCungCap.DataSource != null)
             {
                 if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
@@ -56,12 +60,36 @@ namespace Trang_chu_Main_Page_.GUI_QLHangHoa
                 }
 
             }
+            //dgvNhaCungCap.DataSource = originalNCCData;
             dgvNhaCungCap.ReadOnly = true; // Ban đầu không cho chỉnh sửa
 
         }
         private void QuanLyNhaCungCap_Load(object sender, EventArgs e)
         {
-            LoadNCCList();        
+            LoadNCCList();
+            dgvNhaCungCap.DataSource = originalNCCData;
+        }
+        private void txtSearchNCC_TextChanged(object sender, EventArgs e)
+        {
+            string keyword = txtSearchNCC.Text.Trim().ToLower();
+
+            if (originalNCCData == null)
+                return;
+
+            if (string.IsNullOrEmpty(keyword))
+            {
+                dgvNhaCungCap.DataSource = originalNCCData;
+            }
+            else
+            {
+                DataView dv = originalNCCData.DefaultView;
+                dv.RowFilter = $"MaNCC LIKE '%{keyword}%' OR " +
+                               $"TenNCC LIKE '%{keyword}%' OR " +
+                               $"Diachi LIKE '%{keyword}%' OR " +
+                               $"Masothue LIKE '%{keyword}%' OR " +
+                               $"Sodienthoai LIKE '%{keyword}%'";
+                dgvNhaCungCap.DataSource = dv;
+            }
         }
 
         private void t_Supplier_Add_Tick(object sender, EventArgs e)
@@ -69,7 +97,7 @@ namespace Trang_chu_Main_Page_.GUI_QLHangHoa
             if (pn_supplier_Add_Expand == false)
             {
                 pn_Supplier_Add.Height += 20;
-                if (pn_Supplier_Add.Height >= 0)
+                if (pn_Supplier_Add.Height >= 280)
                 {
                     t_Supplier_Add.Stop();
                     pn_supplier_Add_Expand = true;
@@ -86,19 +114,10 @@ namespace Trang_chu_Main_Page_.GUI_QLHangHoa
             }
         }
 
-        private void guna2GradientButton1_Click(object sender, EventArgs e)
-        {
-            
-        }
-
+        //Nut them NCC moi 
         private void guna2GradientButton1_Click_1(object sender, EventArgs e)
         {
             t_Supplier_Add.Start();
-        }
-
-        private void btnLuuNCC_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void guna2Panel4_Paint(object sender, PaintEventArgs e)
