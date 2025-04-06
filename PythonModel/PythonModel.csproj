@@ -7,6 +7,7 @@
   <ItemGroup>
     <None Remove="predictor.py" />
     <None Remove="regression_model.pkl" />
+    <None Remove="regression_model.zip" />
   </ItemGroup>
 
   <ItemGroup>
@@ -16,11 +17,19 @@
     <Content Include="regression_model.pkl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="regression_model.zip">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="ExcelDataReader" Version="3.7.0" />
     <PackageReference Include="ExcelDataReader.DataSet" Version="3.7.0" />
+    <PackageReference Include="Microsoft.ML" Version="4.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DTO\DTO.csproj" />
   </ItemGroup>
 
 </Project>
