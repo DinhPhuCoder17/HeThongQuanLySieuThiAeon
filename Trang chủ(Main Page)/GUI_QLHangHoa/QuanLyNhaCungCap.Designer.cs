@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuanLyNhaCungCap));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -58,22 +58,22 @@
             this.t_Supplier_Add = new System.Windows.Forms.Timer(this.components);
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.tm_InforChanges = new System.Windows.Forms.Timer(this.components);
-            this.pn_infoChanges = new Guna.UI2.WinForms.Guna2Panel();
-            this.tb_mk2 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.tb_mk1 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.lb_sdt = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.lb_Gioitinh = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.lb_Ngaysinh = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.lb_Hoten = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.lb_Ma = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel14 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel9 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel13 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel12 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.btn_Xacnhan = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.tb_mk1 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.tb_mk2 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.pn_infoChanges = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel12 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel13 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel9 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel14 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lb_Ma = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lb_Hoten = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lb_Ngaysinh = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lb_Gioitinh = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lb_sdt = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhaCungCap)).BeginInit();
@@ -191,37 +191,37 @@
             resources.ApplyResources(this.dgvNhaCungCap, "dgvNhaCungCap");
             this.dgvNhaCungCap.AllowUserToAddRows = false;
             this.dgvNhaCungCap.AllowUserToResizeRows = false;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.White;
-            this.dgvNhaCungCap.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle17;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvNhaCungCap.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvNhaCungCap.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvNhaCungCap.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvNhaCungCap.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.OrangeRed;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvNhaCungCap.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.OrangeRed;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvNhaCungCap.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvNhaCungCap.EnableHeadersVisualStyles = true;
             this.dgvNhaCungCap.GridColor = System.Drawing.Color.White;
             this.dgvNhaCungCap.Name = "dgvNhaCungCap";
             this.dgvNhaCungCap.ReadOnly = true;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvNhaCungCap.RowHeadersDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvNhaCungCap.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvNhaCungCap.RowHeadersVisible = false;
             this.dgvNhaCungCap.RowTemplate.DividerHeight = 5;
             this.dgvNhaCungCap.RowTemplate.Height = 40;
@@ -412,6 +412,55 @@
             this.tm_InforChanges.Interval = 10;
             this.tm_InforChanges.Tick += new System.EventHandler(this.tm_InforChanges_Tick_1);
             // 
+            // btn_Xacnhan
+            // 
+            resources.ApplyResources(this.btn_Xacnhan, "btn_Xacnhan");
+            this.btn_Xacnhan.Animated = true;
+            this.btn_Xacnhan.BackColor = System.Drawing.Color.Transparent;
+            this.btn_Xacnhan.BorderRadius = 8;
+            this.btn_Xacnhan.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_Xacnhan.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_Xacnhan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_Xacnhan.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_Xacnhan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_Xacnhan.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
+            this.btn_Xacnhan.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.btn_Xacnhan.ForeColor = System.Drawing.Color.White;
+            this.btn_Xacnhan.Name = "btn_Xacnhan";
+            this.btn_Xacnhan.Click += new System.EventHandler(this.btn_Xacnhan_Click);
+            // 
+            // tb_mk1
+            // 
+            resources.ApplyResources(this.tb_mk1, "tb_mk1");
+            this.tb_mk1.BorderRadius = 8;
+            this.tb_mk1.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tb_mk1.DefaultText = "";
+            this.tb_mk1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tb_mk1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tb_mk1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tb_mk1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tb_mk1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tb_mk1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tb_mk1.Name = "tb_mk1";
+            this.tb_mk1.PlaceholderText = "";
+            this.tb_mk1.SelectedText = "";
+            // 
+            // tb_mk2
+            // 
+            resources.ApplyResources(this.tb_mk2, "tb_mk2");
+            this.tb_mk2.BorderRadius = 8;
+            this.tb_mk2.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tb_mk2.DefaultText = "";
+            this.tb_mk2.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tb_mk2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tb_mk2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tb_mk2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tb_mk2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tb_mk2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tb_mk2.Name = "tb_mk2";
+            this.tb_mk2.PlaceholderText = "";
+            this.tb_mk2.SelectedText = "";
+            // 
             // pn_infoChanges
             // 
             resources.ApplyResources(this.pn_infoChanges, "pn_infoChanges");
@@ -436,65 +485,47 @@
             this.pn_infoChanges.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.pn_infoChanges.Name = "pn_infoChanges";
             // 
-            // tb_mk2
+            // guna2HtmlLabel3
             // 
-            resources.ApplyResources(this.tb_mk2, "tb_mk2");
-            this.tb_mk2.BorderRadius = 8;
-            this.tb_mk2.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tb_mk2.DefaultText = "";
-            this.tb_mk2.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.tb_mk2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.tb_mk2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tb_mk2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tb_mk2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tb_mk2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tb_mk2.Name = "tb_mk2";
-            this.tb_mk2.PlaceholderText = "";
-            this.tb_mk2.SelectedText = "";
+            resources.ApplyResources(this.guna2HtmlLabel3, "guna2HtmlLabel3");
+            this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
             // 
-            // tb_mk1
+            // guna2HtmlLabel12
             // 
-            resources.ApplyResources(this.tb_mk1, "tb_mk1");
-            this.tb_mk1.BorderRadius = 8;
-            this.tb_mk1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tb_mk1.DefaultText = "";
-            this.tb_mk1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.tb_mk1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.tb_mk1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tb_mk1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tb_mk1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tb_mk1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tb_mk1.Name = "tb_mk1";
-            this.tb_mk1.PlaceholderText = "";
-            this.tb_mk1.SelectedText = "";
+            resources.ApplyResources(this.guna2HtmlLabel12, "guna2HtmlLabel12");
+            this.guna2HtmlLabel12.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel12.Name = "guna2HtmlLabel12";
             // 
-            // lb_sdt
+            // guna2HtmlLabel13
             // 
-            resources.ApplyResources(this.lb_sdt, "lb_sdt");
-            this.lb_sdt.BackColor = System.Drawing.Color.Transparent;
-            this.lb_sdt.Name = "lb_sdt";
-            this.lb_sdt.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            resources.ApplyResources(this.guna2HtmlLabel13, "guna2HtmlLabel13");
+            this.guna2HtmlLabel13.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel13.Name = "guna2HtmlLabel13";
             // 
-            // lb_Gioitinh
+            // guna2HtmlLabel5
             // 
-            resources.ApplyResources(this.lb_Gioitinh, "lb_Gioitinh");
-            this.lb_Gioitinh.BackColor = System.Drawing.Color.Transparent;
-            this.lb_Gioitinh.Name = "lb_Gioitinh";
-            this.lb_Gioitinh.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            resources.ApplyResources(this.guna2HtmlLabel5, "guna2HtmlLabel5");
+            this.guna2HtmlLabel5.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
             // 
-            // lb_Ngaysinh
+            // guna2HtmlLabel7
             // 
-            resources.ApplyResources(this.lb_Ngaysinh, "lb_Ngaysinh");
-            this.lb_Ngaysinh.BackColor = System.Drawing.Color.Transparent;
-            this.lb_Ngaysinh.Name = "lb_Ngaysinh";
-            this.lb_Ngaysinh.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            resources.ApplyResources(this.guna2HtmlLabel7, "guna2HtmlLabel7");
+            this.guna2HtmlLabel7.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel7.Name = "guna2HtmlLabel7";
             // 
-            // lb_Hoten
+            // guna2HtmlLabel9
             // 
-            resources.ApplyResources(this.lb_Hoten, "lb_Hoten");
-            this.lb_Hoten.BackColor = System.Drawing.Color.Transparent;
-            this.lb_Hoten.Name = "lb_Hoten";
-            this.lb_Hoten.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            resources.ApplyResources(this.guna2HtmlLabel9, "guna2HtmlLabel9");
+            this.guna2HtmlLabel9.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel9.Name = "guna2HtmlLabel9";
+            // 
+            // guna2HtmlLabel14
+            // 
+            resources.ApplyResources(this.guna2HtmlLabel14, "guna2HtmlLabel14");
+            this.guna2HtmlLabel14.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel14.Name = "guna2HtmlLabel14";
             // 
             // lb_Ma
             // 
@@ -503,64 +534,33 @@
             this.lb_Ma.Name = "lb_Ma";
             this.lb_Ma.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // guna2HtmlLabel14
+            // lb_Hoten
             // 
-            resources.ApplyResources(this.guna2HtmlLabel14, "guna2HtmlLabel14");
-            this.guna2HtmlLabel14.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel14.Name = "guna2HtmlLabel14";
+            resources.ApplyResources(this.lb_Hoten, "lb_Hoten");
+            this.lb_Hoten.BackColor = System.Drawing.Color.Transparent;
+            this.lb_Hoten.Name = "lb_Hoten";
+            this.lb_Hoten.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // guna2HtmlLabel9
+            // lb_Ngaysinh
             // 
-            resources.ApplyResources(this.guna2HtmlLabel9, "guna2HtmlLabel9");
-            this.guna2HtmlLabel9.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel9.Name = "guna2HtmlLabel9";
+            resources.ApplyResources(this.lb_Ngaysinh, "lb_Ngaysinh");
+            this.lb_Ngaysinh.BackColor = System.Drawing.Color.Transparent;
+            this.lb_Ngaysinh.Name = "lb_Ngaysinh";
+            this.lb_Ngaysinh.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // guna2HtmlLabel7
+            // lb_Gioitinh
             // 
-            resources.ApplyResources(this.guna2HtmlLabel7, "guna2HtmlLabel7");
-            this.guna2HtmlLabel7.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel7.Name = "guna2HtmlLabel7";
+            resources.ApplyResources(this.lb_Gioitinh, "lb_Gioitinh");
+            this.lb_Gioitinh.BackColor = System.Drawing.Color.Transparent;
+            this.lb_Gioitinh.Name = "lb_Gioitinh";
+            this.lb_Gioitinh.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // guna2HtmlLabel5
+            // lb_sdt
             // 
-            resources.ApplyResources(this.guna2HtmlLabel5, "guna2HtmlLabel5");
-            this.guna2HtmlLabel5.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
-            // 
-            // guna2HtmlLabel13
-            // 
-            resources.ApplyResources(this.guna2HtmlLabel13, "guna2HtmlLabel13");
-            this.guna2HtmlLabel13.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel13.Name = "guna2HtmlLabel13";
-            // 
-            // guna2HtmlLabel12
-            // 
-            resources.ApplyResources(this.guna2HtmlLabel12, "guna2HtmlLabel12");
-            this.guna2HtmlLabel12.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel12.Name = "guna2HtmlLabel12";
-            // 
-            // guna2HtmlLabel3
-            // 
-            resources.ApplyResources(this.guna2HtmlLabel3, "guna2HtmlLabel3");
-            this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            // 
-            // btn_Xacnhan
-            // 
-            resources.ApplyResources(this.btn_Xacnhan, "btn_Xacnhan");
-            this.btn_Xacnhan.Animated = true;
-            this.btn_Xacnhan.BackColor = System.Drawing.Color.Transparent;
-            this.btn_Xacnhan.BorderRadius = 8;
-            this.btn_Xacnhan.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn_Xacnhan.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn_Xacnhan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_Xacnhan.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_Xacnhan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_Xacnhan.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
-            this.btn_Xacnhan.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            this.btn_Xacnhan.ForeColor = System.Drawing.Color.White;
-            this.btn_Xacnhan.Name = "btn_Xacnhan";
-            this.btn_Xacnhan.Click += new System.EventHandler(this.btn_Xacnhan_Click);
+            resources.ApplyResources(this.lb_sdt, "lb_sdt");
+            this.lb_sdt.BackColor = System.Drawing.Color.Transparent;
+            this.lb_sdt.Name = "lb_sdt";
+            this.lb_sdt.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // QuanLyNhaCungCap
             // 
@@ -615,9 +615,10 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private System.Windows.Forms.Timer tm_InforChanges;
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
-        private Guna.UI2.WinForms.Guna2Panel pn_infoChanges;
-        private Guna.UI2.WinForms.Guna2TextBox tb_mk2;
+        private Guna.UI2.WinForms.Guna2GradientButton btn_Xacnhan;
         private Guna.UI2.WinForms.Guna2TextBox tb_mk1;
+        private Guna.UI2.WinForms.Guna2TextBox tb_mk2;
+        private Guna.UI2.WinForms.Guna2Panel pn_infoChanges;
         private Guna.UI2.WinForms.Guna2HtmlLabel lb_sdt;
         private Guna.UI2.WinForms.Guna2HtmlLabel lb_Gioitinh;
         private Guna.UI2.WinForms.Guna2HtmlLabel lb_Ngaysinh;
@@ -630,6 +631,5 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel13;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel12;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
-        private Guna.UI2.WinForms.Guna2GradientButton btn_Xacnhan;
     }
 }

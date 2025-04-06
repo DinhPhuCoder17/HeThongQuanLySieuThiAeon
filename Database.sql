@@ -5,16 +5,16 @@ go
 use QuanLySieuThiAEON
 go
 
---select * from Quanly
+--select * from Nhanvien
 
 CREATE TABLE Nhanvien (
     Manhanvien varchar(10) CONSTRAINT PK_Nhanvien PRIMARY KEY,
     Hoten NVARCHAR(100),
-    CCCD VARCHAR(20) UNIQUE,
+    CCCD VARCHAR(255) UNIQUE,
     Ngaysinh DATE,
     Gioitinh NVARCHAR(10),
     Diachi NVARCHAR(255),
-    Sodienthoai VARCHAR(15) UNIQUE,
+    Sodienthoai VARCHAR(255) UNIQUE,
 	Vaitro nvarchar(100),
 	Xoa int
 );
@@ -1061,16 +1061,12 @@ End
 go
 INSERT INTO Nhanvien (Manhanvien, Hoten, CCCD, Ngaysinh, Gioitinh, Diachi, Sodienthoai, Vaitro, Xoa) 
 VALUES 
-('NV0001', N'Nguyễn Văn A', '123456789012', '1990-01-01', N'Nam', N'Hà Nội', '0987654321', N'Lao công', 1),
-('NV0002', N'Trần Thị B', '123456789013', '1992-02-02', N'Nữ', N'Hồ Chí Minh', '0912345678', N'Bảo vệ', 1),
-('NV0003', N'Lê Văn C', '123456789014', '1995-03-03', N'Nam', N'Đà Nẵng', '0901234567', N'Bảo vệ',  1),
-('NV0004', N'Phạm Thị D', '123456789015', '1998-04-04', N'Nữ', N'Hải Phòng', '0988123456', N'Nhân viên tài chính', 1),
-('NV0005', N'Hồ Văn E', '123456789016', '1991-05-05', N'Nam', N'Cần Thơ', '0971234567', N'Nhân viên kho', 1),
-('NV0006', N'Đinh Thị F', '123456789017', '1994-06-06', N'Nữ', N'Bình Dương', '0961234567', N'Thu ngân', 1),
-('NV0007', N'Bùi Văn G', '123456789018', '1993-07-07', N'Nam', N'Quảng Ninh', '0951234567', N'PG', 1),
-('NV0008', N'Ngô Thị H', '123456789019', '1996-08-08', N'Nữ', N'Vũng Tàu', '0941234567', N'Kiểm soát chất lượng', 1),
-('NV0009', N'Doãn Văn I', '123456789020', '1997-09-09', N'Nam', N'Thái Bình', '0931234567', N'Kế toán', 1),
-('NV0010', N'Vũ Thị K', '123456789021', '1990-10-10', N'Nữ', N'An Giang', '0921234567', N'Nhân viên bán hàng', 1);
+('NV0001', N'Nguyễn Văn An', '124545124512', '1990-01-01', N'Nam', N'Hà Nội', '0956448775', N'Lao công', 1),
+('NV0002', N'Trần Thị Ba', '784596126352', '1992-02-02', N'Nữ', N'Hồ Chí Minh', '0457845124', N'Bảo vệ', 1),
+('NV0003', N'Lê Văn Chính', '857496857421', '1995-03-03', N'Nam', N'Đà Nẵng', '0845784512', N'Bảo vệ', 1),
+('NV0004', N'Phạm Thị Duy', '124545784512', '1998-04-04', N'Nữ', N'Hải Phòng', '0989894561', N'Nhân viên tài chính', 1);
+select * from Nhanvien
+
 
 Insert into Quanly values
 ('NV0001', '1', '$2a$11$z9zAD5bZeEbk81MyEfUwQuRITnMDNuctPaACjDsbdWqf/rRzIZ1fy', 'Admin'),

@@ -82,19 +82,7 @@ namespace DAL
         //Lấy danh sách nhân viên
         public DataTable GetEmployeeList()
         {
-            string query = @"
-            SELECT 
-            nv.Manhanvien,
-            nv.Hoten, 
-            LEFT(CCCD, 4) + '****' + RIGHT(CCCD, 4) as CCCD, 
-            nv.Ngaysinh, 
-            nv.Gioitinh, 
-            nv.Diachi, 
-            LEFT(CCCD, 3) + '****' + RIGHT(CCCD, 3) as Sodienthoai, 
-            nv.Vaitro
-            FROM Nhanvien nv
-            WHERE nv.Xoa = 1";
-
+            string query = "SELECT Manhanvien, Hoten, CCCD, Ngaysinh, Gioitinh, Diachi, Sodienthoai, Vaitro FROM Nhanvien WHERE Xoa = 1";
             return DataProvider.Instance.ExecuteQuery(query);
         }
 
@@ -145,7 +133,7 @@ namespace DAL
         public bool UpdatePassword(string maNhanVien, string password)
         {
             string hashedPassword = BCrypt.Net.BCrypt.HashPassword(password); // Hash mật khẩu
-            string query = "UPDATE Quanly SET Password = @Password WHERE Manhanvien = @Manhanvien";
+            string query = "UPDATE Quanly SET Password = @Password WHERE Manhanvien = @Manhanvien ";
 
             object[] parameters = { hashedPassword, maNhanVien };
 
@@ -171,6 +159,36 @@ namespace DAL
             int count = Convert.ToInt32(result); // Trả về true nếu SDT tồn tại
             return count > 0;
         }
+        //Tìm kiếm nhân viên
+        public DataTable timKiemNV(String tukhoa)
+        {
+            return DataProvider.Instance.ExecuteQueryOneParameter("Select Manhanvien, Hoten, CCCD, Ngaysinh, Gioitinh, Diachi, Sodienthoai  From Nhanvien where (Manhanvien LIKE '%' + @tukhoa + '%' " +
+                                                                                                                                            "or Hoten LIKE '%' + @tukhoa + '%' " +
+                                                                                                                                            "or Diachi LIKE '%' + @tukhoa + '%' " +
+                                                                                                                                            "or Gioitinh LIKE '%' + @tukhoa + '%' " +
+                                                                                                                                            "or Ngaysinh LIKE '%' + @tukhoa + '%') and Xoa = 1", new object[] { tukhoa });
+        }
+        //Hàm Reset tài khoản mật khẩu mới
+        public bool ResetAccount(string maNhanVien, string username, string password, out string error)
+        {
+            try
+            {
+                error = null;
+                string hashedPassword = BCrypt.Net.BCrypt.HashPassword(password); // Hash mật khẩu
+                string query = "UPDATE Quanly SET Password = @Password , Username = @Username WHERE Manhanvien = @Manhanvien ";
+
+                object[] parameters = { hashedPassword, username, maNhanVien };
+
+                return DataProvider.Instance.ExecuteNonQuery(query, parameters) > 0;
+            }
+            catch (SqlException e)
+            {
+                if (e.Number == 2627 || e.Number == 2601) error = "Username đã tồn tại";
+                else error = "Lỗi SQL: " + e.Message;
+                return false;
+            }
+        }
+
 
     }
 }

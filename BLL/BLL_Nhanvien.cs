@@ -31,6 +31,10 @@ namespace BLL
         {
             return DAL_Nhanvien.Instance.GetEmployeeList();
         }
+        public string DecryptData(string encryptedText)
+        {
+            return SecurityHelper.Decrypt(encryptedText);
+        }
 
         public bool UpdateEmployee(string maNhanVien, string hoTen, string cccd, DateTime ngaySinh, string gioiTinh, string diaChi, string soDienThoai, string vaiTro)
         {
@@ -76,6 +80,16 @@ namespace BLL
         public bool IsPhoneExist(string sdt)
         {
             return DAL_Nhanvien.Instance.IsPhoneExist(sdt);
+        }
+        //Tìm kiếm nhân viên
+        public DataTable timKiemNV(String tukhoa)
+        {
+            return DAL_Nhanvien.Instance.timKiemNV(tukhoa);
+        }
+        //Reset tài khoản (đổi cả mật khẩu và username)
+        public bool ResetAccount(string maNhanVien, string username, string password, out string error)
+        {
+            return DAL_Nhanvien.Instance.ResetAccount(maNhanVien, username, password, out error);
         }
 
     }
