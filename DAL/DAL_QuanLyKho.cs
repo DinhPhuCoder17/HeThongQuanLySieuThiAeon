@@ -174,7 +174,7 @@ namespace DAL
 
         public DataTable xemDSNH()
         {
-            return DataProvider.Instance.ExecuteQuery("SELECT Sohd, Ngaydat, FORMAT(Tongtien, 'C', 'vi-VN') AS Tongtien, Trangthai FROM HD_Nhaphang Order by Ngaydat desc");
+            return DataProvider.Instance.ExecuteQuery("SELECT Sohd, Ngaydat, FORMAT(Tongtien, 'N0', 'vi-VN') + N' đ' AS Tongtien, Trangthai FROM HD_Nhaphang Order by Ngaydat desc");
         }
 
         public Boolean huyHD(String soHD)

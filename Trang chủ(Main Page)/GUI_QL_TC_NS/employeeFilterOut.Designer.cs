@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(employeeFilterOut));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle65 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle66 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle67 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle68 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle69 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle70 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle71 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle72 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dtg_Employee = new Guna.UI2.WinForms.Guna2DataGridView();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.txt = new System.Windows.Forms.Label();
@@ -97,40 +97,40 @@
             // 
             // dtg_Employee
             // 
+            resources.ApplyResources(this.dtg_Employee, "dtg_Employee");
             this.dtg_Employee.AllowUserToAddRows = false;
             this.dtg_Employee.AllowUserToResizeColumns = false;
             this.dtg_Employee.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dtg_Employee.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            resources.ApplyResources(this.dtg_Employee, "dtg_Employee");
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtg_Employee.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.OrangeRed;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtg_Employee.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle65.BackColor = System.Drawing.Color.White;
+            this.dtg_Employee.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle65;
+            dataGridViewCellStyle66.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle66.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle66.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle66.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle66.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle66.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle66.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtg_Employee.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle66;
+            dataGridViewCellStyle67.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle67.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle67.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle67.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle67.SelectionBackColor = System.Drawing.Color.OrangeRed;
+            dataGridViewCellStyle67.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle67.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtg_Employee.DefaultCellStyle = dataGridViewCellStyle67;
             this.dtg_Employee.EnableHeadersVisualStyles = true;
             this.dtg_Employee.GridColor = System.Drawing.Color.White;
             this.dtg_Employee.Name = "dtg_Employee";
             this.dtg_Employee.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtg_Employee.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle68.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle68.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle68.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle68.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle68.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle68.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle68.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtg_Employee.RowHeadersDefaultCellStyle = dataGridViewCellStyle68;
             this.dtg_Employee.RowHeadersVisible = false;
             this.dtg_Employee.RowTemplate.DividerHeight = 5;
             this.dtg_Employee.RowTemplate.Height = 40;
@@ -159,11 +159,11 @@
             // 
             // guna2Panel1
             // 
+            resources.ApplyResources(this.guna2Panel1, "guna2Panel1");
             this.guna2Panel1.BackColor = System.Drawing.Color.White;
             this.guna2Panel1.Controls.Add(this.txt);
             this.guna2Panel1.Controls.Add(this.pb_Avatar);
             this.guna2Panel1.Controls.Add(this.txt_Employee_SearchBar);
-            resources.ApplyResources(this.guna2Panel1, "guna2Panel1");
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
             // 
@@ -174,8 +174,8 @@
             // 
             // pb_Avatar
             // 
-            this.pb_Avatar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             resources.ApplyResources(this.pb_Avatar, "pb_Avatar");
+            this.pb_Avatar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.pb_Avatar.ImageRotate = 0F;
             this.pb_Avatar.Name = "pb_Avatar";
             this.pb_Avatar.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
@@ -184,6 +184,7 @@
             // 
             // txt_Employee_SearchBar
             // 
+            resources.ApplyResources(this.txt_Employee_SearchBar, "txt_Employee_SearchBar");
             this.txt_Employee_SearchBar.Animated = true;
             this.txt_Employee_SearchBar.BackColor = System.Drawing.Color.White;
             this.txt_Employee_SearchBar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
@@ -197,7 +198,6 @@
             this.txt_Employee_SearchBar.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txt_Employee_SearchBar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
             this.txt_Employee_SearchBar.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            resources.ApplyResources(this.txt_Employee_SearchBar, "txt_Employee_SearchBar");
             this.txt_Employee_SearchBar.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_Employee_SearchBar.IconLeft = global::Trang_chu_Main_Page_.Properties.Resources.Thiết_kế_chưa_có_tên__14_;
             this.txt_Employee_SearchBar.Name = "txt_Employee_SearchBar";
@@ -208,6 +208,7 @@
             // 
             // menuContainer
             // 
+            resources.ApplyResources(this.menuContainer, "menuContainer");
             this.menuContainer.BackColor = System.Drawing.Color.Transparent;
             this.menuContainer.BorderRadius = 20;
             this.menuContainer.Controls.Add(this.btn_BuCong_Send_Click);
@@ -221,12 +222,12 @@
             this.menuContainer.Controls.Add(this.label2);
             this.menuContainer.Controls.Add(this.label6);
             this.menuContainer.FillColor = System.Drawing.Color.WhiteSmoke;
-            resources.ApplyResources(this.menuContainer, "menuContainer");
             this.menuContainer.Name = "menuContainer";
             this.menuContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.menuContainer_Paint_2);
             // 
             // btn_BuCong_Send_Click
             // 
+            resources.ApplyResources(this.btn_BuCong_Send_Click, "btn_BuCong_Send_Click");
             this.btn_BuCong_Send_Click.Animated = true;
             this.btn_BuCong_Send_Click.BackColor = System.Drawing.Color.Transparent;
             this.btn_BuCong_Send_Click.BorderRadius = 8;
@@ -237,13 +238,13 @@
             this.btn_BuCong_Send_Click.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btn_BuCong_Send_Click.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
             this.btn_BuCong_Send_Click.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            resources.ApplyResources(this.btn_BuCong_Send_Click, "btn_BuCong_Send_Click");
             this.btn_BuCong_Send_Click.ForeColor = System.Drawing.Color.White;
             this.btn_BuCong_Send_Click.Name = "btn_BuCong_Send_Click";
             this.btn_BuCong_Send_Click.Click += new System.EventHandler(this.btn_BuCong_Send_Click_Click);
             // 
             // txt_CheckOut
             // 
+            resources.ApplyResources(this.txt_CheckOut, "txt_CheckOut");
             this.txt_CheckOut.BorderRadius = 8;
             this.txt_CheckOut.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txt_CheckOut.DefaultText = "";
@@ -252,7 +253,6 @@
             this.txt_CheckOut.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txt_CheckOut.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txt_CheckOut.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            resources.ApplyResources(this.txt_CheckOut, "txt_CheckOut");
             this.txt_CheckOut.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_CheckOut.Name = "txt_CheckOut";
             this.txt_CheckOut.PlaceholderText = "";
@@ -260,6 +260,7 @@
             // 
             // txt_MaNhanVien
             // 
+            resources.ApplyResources(this.txt_MaNhanVien, "txt_MaNhanVien");
             this.txt_MaNhanVien.BorderRadius = 8;
             this.txt_MaNhanVien.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txt_MaNhanVien.DefaultText = "";
@@ -268,7 +269,6 @@
             this.txt_MaNhanVien.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txt_MaNhanVien.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txt_MaNhanVien.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            resources.ApplyResources(this.txt_MaNhanVien, "txt_MaNhanVien");
             this.txt_MaNhanVien.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_MaNhanVien.Name = "txt_MaNhanVien";
             this.txt_MaNhanVien.PlaceholderText = "";
@@ -276,6 +276,7 @@
             // 
             // txt_CheckIn
             // 
+            resources.ApplyResources(this.txt_CheckIn, "txt_CheckIn");
             this.txt_CheckIn.BorderRadius = 8;
             this.txt_CheckIn.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txt_CheckIn.DefaultText = "";
@@ -284,7 +285,6 @@
             this.txt_CheckIn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txt_CheckIn.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txt_CheckIn.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            resources.ApplyResources(this.txt_CheckIn, "txt_CheckIn");
             this.txt_CheckIn.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_CheckIn.Name = "txt_CheckIn";
             this.txt_CheckIn.PlaceholderText = "";
@@ -297,6 +297,7 @@
             // 
             // txt_ThoiGianCapNhat
             // 
+            resources.ApplyResources(this.txt_ThoiGianCapNhat, "txt_ThoiGianCapNhat");
             this.txt_ThoiGianCapNhat.BorderRadius = 8;
             this.txt_ThoiGianCapNhat.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txt_ThoiGianCapNhat.DefaultText = "";
@@ -305,7 +306,6 @@
             this.txt_ThoiGianCapNhat.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txt_ThoiGianCapNhat.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txt_ThoiGianCapNhat.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            resources.ApplyResources(this.txt_ThoiGianCapNhat, "txt_ThoiGianCapNhat");
             this.txt_ThoiGianCapNhat.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_ThoiGianCapNhat.Name = "txt_ThoiGianCapNhat";
             this.txt_ThoiGianCapNhat.PlaceholderText = "";
@@ -330,8 +330,8 @@
             // 
             // label6
             // 
-            this.label6.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.label6, "label6");
+            this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Name = "label6";
             // 
             // guna2Elipse2
@@ -341,8 +341,8 @@
             // 
             // guna2HtmlLabel1
             // 
-            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.guna2HtmlLabel1, "guna2HtmlLabel1");
+            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
             // 
             // logTransition
@@ -358,6 +358,7 @@
             // 
             // btn_Customer_LogBuCong
             // 
+            resources.ApplyResources(this.btn_Customer_LogBuCong, "btn_Customer_LogBuCong");
             this.btn_Customer_LogBuCong.Animated = true;
             this.btn_Customer_LogBuCong.BackColor = System.Drawing.Color.Transparent;
             this.btn_Customer_LogBuCong.BorderRadius = 8;
@@ -368,13 +369,13 @@
             this.btn_Customer_LogBuCong.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btn_Customer_LogBuCong.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
             this.btn_Customer_LogBuCong.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            resources.ApplyResources(this.btn_Customer_LogBuCong, "btn_Customer_LogBuCong");
             this.btn_Customer_LogBuCong.ForeColor = System.Drawing.Color.White;
             this.btn_Customer_LogBuCong.Name = "btn_Customer_LogBuCong";
             this.btn_Customer_LogBuCong.Click += new System.EventHandler(this.guna2Button2_Click);
             // 
             // btn_Customer_BangBuCong
             // 
+            resources.ApplyResources(this.btn_Customer_BangBuCong, "btn_Customer_BangBuCong");
             this.btn_Customer_BangBuCong.Animated = true;
             this.btn_Customer_BangBuCong.BackColor = System.Drawing.Color.Transparent;
             this.btn_Customer_BangBuCong.BorderRadius = 8;
@@ -385,58 +386,57 @@
             this.btn_Customer_BangBuCong.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btn_Customer_BangBuCong.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
             this.btn_Customer_BangBuCong.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            resources.ApplyResources(this.btn_Customer_BangBuCong, "btn_Customer_BangBuCong");
             this.btn_Customer_BangBuCong.ForeColor = System.Drawing.Color.White;
             this.btn_Customer_BangBuCong.Name = "btn_Customer_BangBuCong";
             this.btn_Customer_BangBuCong.Click += new System.EventHandler(this.guna2GradientButton1_Click);
             // 
             // guna2Panel2
             // 
+            resources.ApplyResources(this.guna2Panel2, "guna2Panel2");
             this.guna2Panel2.BackColor = System.Drawing.Color.Transparent;
             this.guna2Panel2.BorderRadius = 20;
             this.guna2Panel2.Controls.Add(this.menuContainer);
             this.guna2Panel2.Controls.Add(this.dtg_DSCC);
             this.guna2Panel2.Controls.Add(this.guna2HtmlLabel2);
             this.guna2Panel2.FillColor = System.Drawing.SystemColors.Control;
-            resources.ApplyResources(this.guna2Panel2, "guna2Panel2");
             this.guna2Panel2.Name = "guna2Panel2";
             // 
             // dtg_DSCC
             // 
+            resources.ApplyResources(this.dtg_DSCC, "dtg_DSCC");
             this.dtg_DSCC.AllowUserToAddRows = false;
             this.dtg_DSCC.AllowUserToResizeColumns = false;
             this.dtg_DSCC.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            this.dtg_DSCC.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
-            resources.ApplyResources(this.dtg_DSCC, "dtg_DSCC");
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtg_DSCC.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.OrangeRed;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtg_DSCC.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle69.BackColor = System.Drawing.Color.White;
+            this.dtg_DSCC.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle69;
+            dataGridViewCellStyle70.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle70.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle70.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle70.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle70.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle70.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle70.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtg_DSCC.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle70;
+            dataGridViewCellStyle71.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle71.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle71.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle71.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle71.SelectionBackColor = System.Drawing.Color.OrangeRed;
+            dataGridViewCellStyle71.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle71.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtg_DSCC.DefaultCellStyle = dataGridViewCellStyle71;
             this.dtg_DSCC.EnableHeadersVisualStyles = true;
             this.dtg_DSCC.GridColor = System.Drawing.Color.White;
             this.dtg_DSCC.Name = "dtg_DSCC";
             this.dtg_DSCC.ReadOnly = true;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtg_DSCC.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle72.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle72.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle72.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle72.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle72.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle72.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle72.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtg_DSCC.RowHeadersDefaultCellStyle = dataGridViewCellStyle72;
             this.dtg_DSCC.RowHeadersVisible = false;
             this.dtg_DSCC.RowTemplate.DividerHeight = 5;
             this.dtg_DSCC.RowTemplate.Height = 40;
@@ -465,8 +465,8 @@
             // 
             // guna2HtmlLabel2
             // 
-            this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.guna2HtmlLabel2, "guna2HtmlLabel2");
+            this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
             // 
             // logTransition_2
@@ -481,6 +481,7 @@
             // 
             // pn_infoChanges
             // 
+            resources.ApplyResources(this.pn_infoChanges, "pn_infoChanges");
             this.pn_infoChanges.BackColor = System.Drawing.Color.Transparent;
             this.pn_infoChanges.BorderColor = System.Drawing.Color.Transparent;
             this.pn_infoChanges.BorderRadius = 20;
@@ -502,19 +503,19 @@
             this.pn_infoChanges.Controls.Add(this.guna2HtmlLabel3);
             this.pn_infoChanges.Controls.Add(this.btn_Xacnhan);
             this.pn_infoChanges.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            resources.ApplyResources(this.pn_infoChanges, "pn_infoChanges");
             this.pn_infoChanges.Name = "pn_infoChanges";
             // 
             // lb_OldPassword
             // 
-            this.lb_OldPassword.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.lb_OldPassword, "lb_OldPassword");
+            this.lb_OldPassword.BackColor = System.Drawing.Color.Transparent;
             this.lb_OldPassword.ForeColor = System.Drawing.Color.Black;
             this.lb_OldPassword.Name = "lb_OldPassword";
             this.lb_OldPassword.Click += new System.EventHandler(this.guna2HtmlLabel3_Click);
             // 
             // txt_OldPassword
             // 
+            resources.ApplyResources(this.txt_OldPassword, "txt_OldPassword");
             this.txt_OldPassword.BorderRadius = 8;
             this.txt_OldPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txt_OldPassword.DefaultText = "";
@@ -523,7 +524,6 @@
             this.txt_OldPassword.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txt_OldPassword.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txt_OldPassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            resources.ApplyResources(this.txt_OldPassword, "txt_OldPassword");
             this.txt_OldPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_OldPassword.Name = "txt_OldPassword";
             this.txt_OldPassword.PlaceholderText = "";
@@ -532,6 +532,7 @@
             // 
             // tb_mk2
             // 
+            resources.ApplyResources(this.tb_mk2, "tb_mk2");
             this.tb_mk2.BorderRadius = 8;
             this.tb_mk2.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tb_mk2.DefaultText = "";
@@ -540,7 +541,6 @@
             this.tb_mk2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tb_mk2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tb_mk2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            resources.ApplyResources(this.tb_mk2, "tb_mk2");
             this.tb_mk2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tb_mk2.Name = "tb_mk2";
             this.tb_mk2.PlaceholderText = "";
@@ -549,6 +549,7 @@
             // 
             // tb_mk1
             // 
+            resources.ApplyResources(this.tb_mk1, "tb_mk1");
             this.tb_mk1.BorderRadius = 8;
             this.tb_mk1.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tb_mk1.DefaultText = "";
@@ -557,7 +558,6 @@
             this.tb_mk1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tb_mk1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tb_mk1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            resources.ApplyResources(this.tb_mk1, "tb_mk1");
             this.tb_mk1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tb_mk1.Name = "tb_mk1";
             this.tb_mk1.PlaceholderText = "";
@@ -566,95 +566,96 @@
             // 
             // lb_sdt
             // 
-            this.lb_sdt.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.lb_sdt, "lb_sdt");
+            this.lb_sdt.BackColor = System.Drawing.Color.Transparent;
             this.lb_sdt.Name = "lb_sdt";
             this.lb_sdt.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             this.lb_sdt.Click += new System.EventHandler(this.guna2HtmlLabel3_Click);
             // 
             // lb_Gioitinh
             // 
-            this.lb_Gioitinh.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.lb_Gioitinh, "lb_Gioitinh");
+            this.lb_Gioitinh.BackColor = System.Drawing.Color.Transparent;
             this.lb_Gioitinh.Name = "lb_Gioitinh";
             this.lb_Gioitinh.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             this.lb_Gioitinh.Click += new System.EventHandler(this.guna2HtmlLabel3_Click);
             // 
             // lb_Ngaysinh
             // 
-            this.lb_Ngaysinh.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.lb_Ngaysinh, "lb_Ngaysinh");
+            this.lb_Ngaysinh.BackColor = System.Drawing.Color.Transparent;
             this.lb_Ngaysinh.Name = "lb_Ngaysinh";
             this.lb_Ngaysinh.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             this.lb_Ngaysinh.Click += new System.EventHandler(this.guna2HtmlLabel3_Click);
             // 
             // lb_Hoten
             // 
-            this.lb_Hoten.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.lb_Hoten, "lb_Hoten");
+            this.lb_Hoten.BackColor = System.Drawing.Color.Transparent;
             this.lb_Hoten.Name = "lb_Hoten";
             this.lb_Hoten.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             this.lb_Hoten.Click += new System.EventHandler(this.guna2HtmlLabel3_Click);
             // 
             // lb_Ma
             // 
-            this.lb_Ma.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.lb_Ma, "lb_Ma");
+            this.lb_Ma.BackColor = System.Drawing.Color.Transparent;
             this.lb_Ma.Name = "lb_Ma";
             this.lb_Ma.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             this.lb_Ma.Click += new System.EventHandler(this.guna2HtmlLabel3_Click);
             // 
             // guna2HtmlLabel14
             // 
-            this.guna2HtmlLabel14.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.guna2HtmlLabel14, "guna2HtmlLabel14");
+            this.guna2HtmlLabel14.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel14.Name = "guna2HtmlLabel14";
             this.guna2HtmlLabel14.Click += new System.EventHandler(this.guna2HtmlLabel3_Click);
             // 
             // guna2HtmlLabel9
             // 
-            this.guna2HtmlLabel9.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.guna2HtmlLabel9, "guna2HtmlLabel9");
+            this.guna2HtmlLabel9.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel9.Name = "guna2HtmlLabel9";
             this.guna2HtmlLabel9.Click += new System.EventHandler(this.guna2HtmlLabel3_Click);
             // 
             // guna2HtmlLabel7
             // 
-            this.guna2HtmlLabel7.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.guna2HtmlLabel7, "guna2HtmlLabel7");
+            this.guna2HtmlLabel7.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel7.Name = "guna2HtmlLabel7";
             this.guna2HtmlLabel7.Click += new System.EventHandler(this.guna2HtmlLabel3_Click);
             // 
             // guna2HtmlLabel5
             // 
-            this.guna2HtmlLabel5.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.guna2HtmlLabel5, "guna2HtmlLabel5");
+            this.guna2HtmlLabel5.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
             this.guna2HtmlLabel5.Click += new System.EventHandler(this.guna2HtmlLabel3_Click);
             // 
             // guna2HtmlLabel13
             // 
-            this.guna2HtmlLabel13.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.guna2HtmlLabel13, "guna2HtmlLabel13");
+            this.guna2HtmlLabel13.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel13.Name = "guna2HtmlLabel13";
             this.guna2HtmlLabel13.Click += new System.EventHandler(this.guna2HtmlLabel3_Click);
             // 
             // guna2HtmlLabel12
             // 
-            this.guna2HtmlLabel12.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.guna2HtmlLabel12, "guna2HtmlLabel12");
+            this.guna2HtmlLabel12.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel12.Name = "guna2HtmlLabel12";
             this.guna2HtmlLabel12.Click += new System.EventHandler(this.guna2HtmlLabel3_Click);
             // 
             // guna2HtmlLabel3
             // 
-            this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.guna2HtmlLabel3, "guna2HtmlLabel3");
+            this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
             this.guna2HtmlLabel3.Click += new System.EventHandler(this.guna2HtmlLabel3_Click);
             // 
             // btn_Xacnhan
             // 
+            resources.ApplyResources(this.btn_Xacnhan, "btn_Xacnhan");
             this.btn_Xacnhan.Animated = true;
             this.btn_Xacnhan.BackColor = System.Drawing.Color.Transparent;
             this.btn_Xacnhan.BorderRadius = 8;
@@ -665,7 +666,6 @@
             this.btn_Xacnhan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btn_Xacnhan.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
             this.btn_Xacnhan.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            resources.ApplyResources(this.btn_Xacnhan, "btn_Xacnhan");
             this.btn_Xacnhan.ForeColor = System.Drawing.Color.White;
             this.btn_Xacnhan.Name = "btn_Xacnhan";
             this.btn_Xacnhan.Click += new System.EventHandler(this.btn_Xacnhan_Click);
@@ -682,6 +682,7 @@
             // 
             // btn_Employ_Report
             // 
+            resources.ApplyResources(this.btn_Employ_Report, "btn_Employ_Report");
             this.btn_Employ_Report.Animated = true;
             this.btn_Employ_Report.BackColor = System.Drawing.Color.Transparent;
             this.btn_Employ_Report.BorderRadius = 8;
@@ -692,15 +693,14 @@
             this.btn_Employ_Report.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btn_Employ_Report.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
             this.btn_Employ_Report.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            resources.ApplyResources(this.btn_Employ_Report, "btn_Employ_Report");
             this.btn_Employ_Report.ForeColor = System.Drawing.Color.White;
             this.btn_Employ_Report.Name = "btn_Employ_Report";
             this.btn_Employ_Report.Click += new System.EventHandler(this.btn_Employ_Report_Click);
             // 
             // employeeFilterOut
             // 
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             resources.ApplyResources(this, "$this");
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.Controls.Add(this.pn_infoChanges);
             this.Controls.Add(this.guna2Panel2);
             this.Controls.Add(this.btn_Employ_Report);
