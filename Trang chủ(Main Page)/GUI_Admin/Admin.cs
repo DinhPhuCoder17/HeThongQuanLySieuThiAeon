@@ -660,5 +660,10 @@ namespace Trang_chủ_Main_Page_
             string pattern = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$";
             return Regex.IsMatch(password, pattern);
         }
+
+        private void guna2GradientButton3_Click(object sender, EventArgs e)
+        {
+            pn_reset.Hide();
+        }
     }
 }
