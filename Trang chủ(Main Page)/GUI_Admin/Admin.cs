@@ -24,6 +24,9 @@ namespace Trang_chủ_Main_Page_
         public Admin()
         {
             InitializeComponent();
+            pn_reset.Hide();
+            if (pn_reset.Visible) guna2GradientButton1.Enabled = false;
+            else guna2GradientButton1.Enabled = true;
            
         }
 
@@ -72,11 +75,6 @@ namespace Trang_chủ_Main_Page_
             LoadEmployeeList();
         }
 
-        private void guna2CirclePictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void guna2Panel3_Paint(object sender, PaintEventArgs e)
         {
 
@@ -97,7 +95,7 @@ namespace Trang_chủ_Main_Page_
                     guna2DataGridView2.Columns["Gioitinh"].HeaderText = "Giới Tính";
                     guna2DataGridView2.Columns["Diachi"].HeaderText = "Địa Chỉ";
                     guna2DataGridView2.Columns["Sodienthoai"].HeaderText = "Số Điện Thoại";
-                    guna2DataGridView2.Columns["VaiTro"].HeaderText = "Vai Trò";
+                    guna2DataGridView2.Columns["Vaitro"].HeaderText = "Vai Trò";
                 }
                 else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
                 {
@@ -108,7 +106,7 @@ namespace Trang_chủ_Main_Page_
                     guna2DataGridView2.Columns["Gioitinh"].HeaderText = "Gender";
                     guna2DataGridView2.Columns["Diachi"].HeaderText = "Address";
                     guna2DataGridView2.Columns["Sodienthoai"].HeaderText = "Phone Number";
-                    guna2DataGridView2.Columns["VaiTro"].HeaderText = "Role";
+                    guna2DataGridView2.Columns["Vaitro"].HeaderText = "Role";
                 }
             }
             guna2DataGridView2.ReadOnly = true; // Ban đầu không cho chỉnh sửa
@@ -122,6 +120,7 @@ namespace Trang_chủ_Main_Page_
 
         private void menuTransition_2_Tick(object sender, EventArgs e)
         {
+            LoadEmployeeList();
             if (menuExpand_3 == false)
             {
                 cb_role.Hide();
@@ -535,6 +534,131 @@ namespace Trang_chủ_Main_Page_
         {
             string pattern = @"^[a-zA-ZĐđàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹ0-9,.\- ]{5,500}$";
             return Regex.IsMatch(address, pattern);
+        }
+
+        //Nút đăng xuất
+        private void btn_Xacnhan_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+            "Bạn có chắc chắn muốn đăng xuất?",
+            "Xác nhận đăng xuất",
+            MessageBoxButtons.OKCancel,
+            MessageBoxIcon.Question
+            );
+
+            if (result == DialogResult.OK)
+            {
+                this.Hide();
+                Mainpage mainpage = new Mainpage();
+                mainpage.Show();
+
+                this.Close();
+            }
+        }
+        bool menuExpand_4 = false;
+        //Nhấn vô Avata
+        private void guna2CirclePictureBox1_Click(object sender, EventArgs e)
+        {
+            tm_SignOut.Start();
+        }
+
+        //timer_Tick
+        private void tm_SignOut_Tick(object sender, EventArgs e)
+        {
+            if (menuExpand_4 == false)
+            {
+                pn_infoChanges.Height += 20;
+                if (pn_infoChanges.Height >= 100)
+                {
+                    tm_SignOut.Stop();
+                    menuExpand_4 = true;
+                }
+            }
+            else
+            {
+                pn_infoChanges.Height -= 20;
+                if (pn_infoChanges.Height <= 0)
+                {
+                    tm_SignOut.Stop();
+                    menuExpand_4 = false;
+                }
+            }
+        }
+
+        private void txt_search_TextChanged(object sender, EventArgs e)
+        {
+            if (txt_search.Text == null)
+            {
+                Admin_Load(sender, e);
+            }
+            else
+            {
+                guna2DataGridView2.DataSource = BLL_Nhanvien.Instance.timKiemNV(txt_search.Text);
+            }
+        }
+
+        //Reset tài khoản
+        private bool isReseting = false;
+        private void guna2GradientButton1_Click(object sender, EventArgs e)
+        {
+            pn_reset.Show();
+        }
+
+        private void guna2GradientButton2_Click(object sender, EventArgs e)
+        {
+            string maNV = tb_MaNV.Text;
+            string newUsername = tb_newUsername.Text;
+            string newPassword = tb_newPass.Text;
+            if (string.IsNullOrEmpty(maNV) || string.IsNullOrEmpty(newUsername) || string.IsNullOrEmpty(newPassword))
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin tài khoản!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (!IsValidUsername(newUsername))
+            {
+                MessageBox.Show("Tên tài khoản không hợp lệ!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (!IsValidPassword(newPassword))
+            {
+                MessageBox.Show("Mật khẩu không hợp lệ!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            string confirmMessage = (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN") ? "Bạn có chắc chắn muốn thay đổi tài khoản nhân viên này?" : "Are you sure you want to make change for this employee's account?";
+            string confirmTitle = (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN") ? "Xác nhận" : "Confirmation";
+            DialogResult dialog = MessageBox.Show(confirmMessage, confirmTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialog == DialogResult.No) return;
+            string error;
+            bool result = BLL_Nhanvien.Instance.ResetAccount(maNV, newUsername, newPassword, out error);
+            string successMessage = (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN") ? "Tài khoản của nhân viên đã được cập nhật." : "The employee's account has been updated.";
+            string successTitle = (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN") ? "Thông báo" : "Notification";
+            string errorMessage = (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN") ? "Cập nhật tài khoản thất bại!" : "Fail to update account!";
+            string errorTitle = (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN") ? "Lỗi" : "Error";
+            string errorMessageToShow = !string.IsNullOrEmpty(error) ? error : errorMessage;
+            if (result)
+            {
+                MessageBox.Show(successMessage, successTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoadEmployeeList(); // Cập nhật lại danh sách
+            }
+            else
+            {
+                MessageBox.Show(errorMessageToShow, errorTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            pn_reset.Hide();
+        }
+
+        //Check Username hợp lệ
+        public static bool IsValidUsername(string username)
+        {
+            string pattern = "^[a-zA-Z0-9]{6,20}$";
+            return Regex.IsMatch(username, pattern);
+        }
+        //Check Password hợp lệ
+        public static bool IsValidPassword(string password)
+        {
+            string pattern = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$";
+            return Regex.IsMatch(password, pattern);
         }
     }
 }
