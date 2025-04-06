@@ -97,7 +97,7 @@ namespace DAL
 
         public DataTable XemCTHH(string mahh)
         {
-            string query = @"SELECT Mahanghoa, NgaySanXuat, Hansudung, Soluongnhan FROM HD_HH WHERE Mahanghoa = @mahh AND Trangthai = N'Đã Nhập Kho'";
+            string query = @"SELECT Mahanghoa, NgaySanXuat, Hansudung, Soluongnhan FROM HD_HH WHERE Mahanghoa = @mahh AND Trangthai = N'Đã Nhập Kho' AND Soluongnhan > 0";
 
             DataTable dt = DataProvider.Instance.ExecuteQuery(query, new object[] { mahh });
             return dt;

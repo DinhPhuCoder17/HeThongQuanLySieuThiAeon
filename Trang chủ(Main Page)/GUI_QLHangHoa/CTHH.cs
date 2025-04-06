@@ -173,5 +173,10 @@ namespace Trang_chu_Main_Page_.GUI_QLHangHoa
         {
             
         }
+
+        private void guna2ControlBox1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

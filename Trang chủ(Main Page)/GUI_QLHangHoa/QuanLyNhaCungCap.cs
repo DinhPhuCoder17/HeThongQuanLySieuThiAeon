@@ -291,6 +291,7 @@ namespace Trang_chu_Main_Page_.GUI_QLHangHoa
         // 2. Event cho nút Sửa/Cancel/Save
         private void btnSuaNCC_Click(object sender, EventArgs e)
         {
+            txtSearchNCC.Enabled = false;
             if (!isEditingNCC)
             {
                 if (dgvNhaCungCap.SelectedRows.Count == 0)
@@ -347,6 +348,7 @@ namespace Trang_chu_Main_Page_.GUI_QLHangHoa
                             ? "Cập nhật thành công!"
                             : "Update successful!";
                         MessageBox.Show(msg, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        txtSearchNCC.Enabled = true;
                         LoadNCCList();
                     }
                     else
