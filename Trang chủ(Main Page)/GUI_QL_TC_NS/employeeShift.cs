@@ -684,6 +684,7 @@ namespace Trang_chủ_Main_Page_
                         MessageBox.Show("The time is invalid - Before 6:00");
                     }
                 }
+
                 else
                 {
                     DialogResult result;
@@ -818,7 +819,7 @@ namespace Trang_chủ_Main_Page_
                     {
                         MessageBox.Show("The assigned employee quantity is invalid");
                     }
-                }
+                }   
                 else
                 {
                     DialogResult result;
@@ -895,6 +896,19 @@ namespace Trang_chủ_Main_Page_
         }
         private void btn_Shift_Remove_Click(object sender, EventArgs e)
         {
+            if (dtp_Shift_Start.Value < DateTime.Now)
+            {
+                if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                {
+                    MessageBox.Show("Không thể xóa ca làm trong quá khứ");
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show("Can't remove shift in the past");
+                    return;
+                }
+            }
             if (maCaLamChoose == "")
             {
                 if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
@@ -952,7 +966,20 @@ namespace Trang_chủ_Main_Page_
 
         private void btn_Shift_Edit_Click(object sender, EventArgs e)
         {
-            if(!addMode)
+            if (dtp_Shift_Start.Value < DateTime.Now)
+            {
+                if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                {
+                    MessageBox.Show("Không thể sửa ca làm trong quá khứ");
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show("Can't change shift in the past");
+                    return;
+                }
+            }
+            if (!addMode)
             {
                 if (chooseShiftPanel != null)
                 {
