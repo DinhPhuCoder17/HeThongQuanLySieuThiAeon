@@ -5,16 +5,16 @@ go
 use QuanLySieuThiAEON
 go
 
---select * from Nhanvien
+--select * from Quanly
 
 CREATE TABLE Nhanvien (
     Manhanvien varchar(10) CONSTRAINT PK_Nhanvien PRIMARY KEY,
     Hoten NVARCHAR(100),
-    CCCD VARCHAR(255) UNIQUE,
+    CCCD VARCHAR(20) UNIQUE,
     Ngaysinh DATE,
     Gioitinh NVARCHAR(10),
     Diachi NVARCHAR(255),
-    Sodienthoai VARCHAR(255) UNIQUE,
+    Sodienthoai VARCHAR(15) UNIQUE,
 	Vaitro nvarchar(100),
 	Xoa int
 );
@@ -176,66 +176,8 @@ CREATE TABLE Khieunai (
         REFERENCES HD_HH (Mahanghoa, Sohd)
 );
 
---Trigger tu dong tru hanghoa
-CREATE TRIGGER trg_AutoTruSoLuongHD_HH
-ON Hanghoa
-AFTER UPDATE
-AS
-BEGIN
-    SET NOCOUNT ON;
 
-    DECLARE @MaHH VARCHAR(10), @SLCu INT, @SLMoi INT, @SoLuongTru INT;
-
-    -- Giả sử chỉ cập nhật 1 dòng tại 1 thời điểm (nếu bạn cần multi-row, có thể nâng cấp sau)
-    SELECT @MaHH = d.Mahanghoa, @SLCu = d.Soluong, @SLMoi = i.Soluong
-    FROM deleted d
-    INNER JOIN inserted i ON d.Mahanghoa = i.Mahanghoa;
-
-    -- Chỉ xử lý nếu số lượng bị GIẢM
-    IF @SLMoi < @SLCu
-    BEGIN
-        SET @SoLuongTru = @SLCu - @SLMoi;
-
-        DECLARE @SLTruConLai INT = @SoLuongTru;
-        DECLARE @SLNhan INT, @HSD DATE;
-
-        DECLARE cur CURSOR FOR
-        SELECT Hansudung, Soluongnhan
-        FROM HD_HH
-        WHERE Mahanghoa = @MaHH AND Soluongnhan > 0
-        ORDER BY Hansudung ASC;
-
-        OPEN cur;
-        FETCH NEXT FROM cur INTO @HSD, @SLNhan;
-
-        WHILE @@FETCH_STATUS = 0 AND @SLTruConLai > 0
-        BEGIN
-            DECLARE @Tru INT;
-
-            IF @SLNhan >= @SLTruConLai
-            BEGIN
-                SET @Tru = @SLTruConLai;
-                SET @SLTruConLai = 0;
-            END
-            ELSE
-            BEGIN
-                SET @Tru = @SLNhan;
-                SET @SLTruConLai = @SLTruConLai - @SLNhan;
-            END
-
-            -- Trừ số lượng
-            UPDATE HD_HH
-            SET Soluongnhan = Soluongnhan - @Tru
-            WHERE Mahanghoa = @MaHH AND Hansudung = @HSD;
-
-            FETCH NEXT FROM cur INTO @HSD, @SLNhan;
-        END
-
-        CLOSE cur;
-        DEALLOCATE cur;
-    END
-END
-
+--Trigger--
 --Trigger đếm giờ chuyển trạng thái xác nhận--
 -- End Trigger đếm giờ chuyển trạng thái xác nhận--
 
@@ -1121,12 +1063,16 @@ End
 go
 INSERT INTO Nhanvien (Manhanvien, Hoten, CCCD, Ngaysinh, Gioitinh, Diachi, Sodienthoai, Vaitro, Xoa) 
 VALUES 
-('NV0001', N'Nguyễn Văn An', '124545124512', '1990-01-01', N'Nam', N'Hà Nội', '0956448775', N'Lao công', 1),
-('NV0002', N'Trần Thị Ba', '784596126352', '1992-02-02', N'Nữ', N'Hồ Chí Minh', '0457845124', N'Bảo vệ', 1),
-('NV0003', N'Lê Văn Chính', '857496857421', '1995-03-03', N'Nam', N'Đà Nẵng', '0845784512', N'Bảo vệ', 1),
-('NV0004', N'Phạm Thị Duy', '124545784512', '1998-04-04', N'Nữ', N'Hải Phòng', '0989894561', N'Nhân viên tài chính', 1);
-select * from Nhanvien
-
+('NV0001', N'Nguyễn Văn A', '123456789012', '1990-01-01', N'Nam', N'Hà Nội', '0987654321', N'Lao công', 1),
+('NV0002', N'Trần Thị B', '123456789013', '1992-02-02', N'Nữ', N'Hồ Chí Minh', '0912345678', N'Bảo vệ', 1),
+('NV0003', N'Lê Văn C', '123456789014', '1995-03-03', N'Nam', N'Đà Nẵng', '0901234567', N'Bảo vệ',  1),
+('NV0004', N'Phạm Thị D', '123456789015', '1998-04-04', N'Nữ', N'Hải Phòng', '0988123456', N'Nhân viên tài chính', 1),
+('NV0005', N'Hồ Văn E', '123456789016', '1991-05-05', N'Nam', N'Cần Thơ', '0971234567', N'Nhân viên kho', 1),
+('NV0006', N'Đinh Thị F', '123456789017', '1994-06-06', N'Nữ', N'Bình Dương', '0961234567', N'Thu ngân', 1),
+('NV0007', N'Bùi Văn G', '123456789018', '1993-07-07', N'Nam', N'Quảng Ninh', '0951234567', N'PG', 1),
+('NV0008', N'Ngô Thị H', '123456789019', '1996-08-08', N'Nữ', N'Vũng Tàu', '0941234567', N'Kiểm soát chất lượng', 1),
+('NV0009', N'Doãn Văn I', '123456789020', '1997-09-09', N'Nam', N'Thái Bình', '0931234567', N'Kế toán', 1),
+('NV0010', N'Vũ Thị K', '123456789021', '1990-10-10', N'Nữ', N'An Giang', '0921234567', N'Nhân viên bán hàng', 1);
 
 Insert into Quanly values
 ('NV0001', '1', '$2a$11$z9zAD5bZeEbk81MyEfUwQuRITnMDNuctPaACjDsbdWqf/rRzIZ1fy', 'Admin'),

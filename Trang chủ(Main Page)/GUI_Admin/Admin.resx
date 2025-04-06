@@ -9882,10 +9882,10 @@
   </data>
   <data name="&gt;&gt;guna2GradientButton2.Parent" xml:space="preserve">
     <value>pn_reset</value>
-        PhZ3GFcyPEaVYRiG+SNkNmCtKHQ4pPmwtbMYcxxZUJ3F5ZTz/qWE87H5Dtuzxajj8mLM+W4+Yvs0F7L+
+	  </data>
   <data name="&gt;&gt;guna2GradientButton2.ZOrder" xml:space="preserve">
     <value>6</value>
-        0aUvTF9f6nS8MuKp//IRb+OZSW/b5pSin53ytA5l5bb4tGwwjQQOcqbNMAzDML8jt9+I07fddseNGBkZ
+	  </data>
   <metadata name="guna2Elipse2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>161, 17</value>
   </metadata>
