@@ -846,10 +846,11 @@ BEGIN--begin proc
     DECLARE @MaxID INT;
 
     -- Lấy mã ca làm dựa trên Mã nhân viên
-    SELECT @Macalam = bb.Macalam
-    FROM Batbuoc bb
-    WHERE bb.Manhanvien = @Manhanvien;
-
+    SELECT @Macalam = ca.Macalam
+    FROM Calam ca, Batbuoc bb
+    WHERE @ThoigianCN  = CAST(ca.ThoigianBD AS DATE) and @Manhanvien=bb.Manhanvien and ca.Macalam=bb.Macalam;
+	--select * from batbuoc
+	--select * from calam
     -- Kiểm tra nếu không tìm thấy mã ca làm
     IF @Macalam IS NULL
     BEGIN
@@ -859,7 +860,7 @@ BEGIN--begin proc
 	SELECT @ThoigianBD = CONVERT(Date, ThoigianBD), @ThoigianKT = CONVERT(Date ,ThoigianKT)
     FROM Calam
     WHERE Macalam = @Macalam;
-	IF @ThoigianCN <> CAST(@ThoigianBD AS DATE)
+	IF CAST(@ThoigianCN AS DATE) <> CAST(@ThoigianBD AS DATE)
     BEGIN
         PRINT 'Ngày làm phải trùng với ngày của ca làm!';
         RETURN;
@@ -1077,13 +1078,13 @@ END;
 go
 go
     -- Kiểm tra nếu nhân viên có được phân
-
+	--drop PROCEDURE themChamCong
 	-- delete from chamcong
 	--select * from calam
 	-- Thực hiện chấm công cho nhân viên NV0001
       -- Mã nhân viên
-
--- EXEC themChamCong '2025-09-03', '05:59:59', '13:59:59', 'NV0002';
+	  -- select * from batbuoc
+-- EXEC themChamCong '2025-04-07', '05:59:59', '13:59:59', 'NV0001';
 
 -- select * from batbuoc
 
