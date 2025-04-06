@@ -1409,3 +1409,38 @@ VALUES
 */
 delete from NhanVien
 where Manhanvien = 'NV0004'
+
+-- 1. Thêm dữ liệu vào bảng Hanghoa
+INSERT INTO Hanghoa
+  (Mahanghoa, Tenhanghoa, Tiennhap, Tendanhmuc, Tienban, ImageData, Soluong, Uudai, MaNCC, THSD, Xoa, Barcode)
+VALUES
+  ('HH0111', N'iPhone 13',              15000.00, N'Điện thoại', 20000.00, NULL, 50,  N'Giảm 10%', 'NC0001', 365, 0, '8901234567890'),
+  ('HH0112', N'Samsung Galaxy S21',      14000.00, N'Điện thoại', 19000.00, NULL, 30,  N'Giảm 5%',  'NC0002', 365, 0, '8901234567891'),
+  ('HH0113', N'Laptop Dell XPS 13',      25000.00, N'Laptop',     30000.00, NULL, 20,  N'Giảm 15%', 'NC0001', 730, 0, '8901234567892'),
+  ('HH0114', N'Chuột Logitech MX',        500.00,  N'Phụ kiện',    800.00,   NULL, 100, N'Giảm 20%', 'NC0003',1095, 0, '8901234567893'),
+  ('HH0115', N'Tai nghe Sony WH-1000XM4',  700.00,  N'Phụ kiện',   1200.00,  NULL, 40,  N'Giảm 10%', 'NC0002', 730, 0, '8901234567894');
+
+-- 2. Thêm dữ liệu vào bảng Hoadonbanhang
+INSERT INTO Hoadonbanhang
+  (Mahoadon, Thoigianban,           Manhanvien, Sodienthoai,   Thanhtien)
+VALUES
+  ('HD0011', '2025-04-01 10:15:00', 'NV0001',     '0909123456',  20800.00),
+  ('HD0022', '2025-04-02 14:30:00', 'NV0002',     '0912345678',  38000.00),
+  ('HD0033', '2025-04-03 09:45:00', 'NV0001',     '0987654321',  32400.00);
+
+-- 3. Thêm dữ liệu vào bảng HH_HDBH (chi tiết mỗi hóa đơn)
+INSERT INTO HH_HDBH
+  (Mahanghoa, Mahoadon, Tenhanghoa,                Soluong, Tongtien)
+VALUES
+  ('HH0111',   'HD0011', N'iPhone 13',              1,       20000.00),
+  ('HH0114',   'HD0011', N'Chuột Logitech MX',      1,        800.00),
+  ('HH0112',   'HD0022', N'Samsung Galaxy S21',      2,       38000.00),
+  ('HH0113',   'HD0033', N'Laptop Dell XPS 13',      1,       30000.00),
+  ('HH0115',   'HD0033', N'Tai nghe Sony WH-1000XM4', 2,        2400.00);
+
+-- Cập nhật chỉ Soluong
+UPDATE HH_HDBH
+SET Soluong = 20
+WHERE Mahanghoa = 'HH0115'
+  AND Mahoadon   = 'HD0033';
+
