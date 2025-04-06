@@ -55,7 +55,29 @@ namespace DAL
                "FROM HH_HDBH " +
                "WHERE Mahoadon = @Mahoadon", new object[] { maHoaDon });
         }
+        //Xem lịch sử chi tiết hóa đơn
+        public DataTable GetLichSuChiTietHoaDon(string maHoaDon)
+        {
+            // Câu lệnh SQL lấy dữ liệu từ bảng LichSuChiTietHoaDon
+            string query = "SELECT MaHoaDon, Mahanghoa, Tenhanghoa, Soluong, Tongtien " +
+                           "FROM LichSuChiTietHoaDon " +
+                           "WHERE MaHoaDon = @MaHoaDon";
+
+            // Trả về kết quả dưới dạng DataTable
+            return DataProvider.Instance.ExecuteQuery(query, new object[] { maHoaDon });
+        }
+
         //Xem danh sách hóa đơn
+        public DataTable GetLichSuHoaDon()
+        {
+            // Câu lệnh SQL lấy dữ liệu từ bảng LichSuKHD
+            string query = "SELECT MaHoaDon, ThoigianXoa, MaNhanVien, Sodienthoai, LidoXoa " +
+                           "FROM LichSuKHD";
+
+            // Trả về kết quả dưới dạng DataTable
+            return DataProvider.Instance.ExecuteQuery(query);
+        }
+
         public DataTable xemDSHD()
         {
             return DataProvider.Instance.ExecuteQuery("Select Mahoadon, Thoigianban, Manhanvien, Sodienthoai, Thanhtien From Hoadonbanhang");
@@ -143,13 +165,13 @@ namespace DAL
             }
         }
         //Xóa hóa đơn
-        public bool XoaHoaDon(string maHoaDon)
+        public bool XoaHoaDon(string maHoaDon ,string lido)
         {
             try
             {
                 int result = DataProvider.Instance.ExecuteNonQuery(
-                    "EXEC sp_XoaHoaDon @MaHoaDon",
-                    new object[] { maHoaDon });
+                    "EXEC sp_XoaHoaDon @MaHoaDon , @LidoXoa ",
+                    new object[] { maHoaDon , lido });
 
                 return result > 0;
             }

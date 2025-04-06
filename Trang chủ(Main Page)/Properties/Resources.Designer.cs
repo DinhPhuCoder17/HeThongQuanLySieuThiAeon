@@ -553,6 +553,26 @@ namespace Trang_chu_Main_Page_.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Thiết_kế_chưa_có_tên__27_ {
+            get {
+                object obj = ResourceManager.GetObject("Thiết kế chưa có tên (27)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Thiết_kế_chưa_có_tên__27_1 {
+            get {
+                object obj = ResourceManager.GetObject("Thiết kế chưa có tên (27)1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Thiết_kế_chưa_có_tên__3_ {
             get {
                 object obj = ResourceManager.GetObject("Thiết kế chưa có tên (3)", resourceCulture);

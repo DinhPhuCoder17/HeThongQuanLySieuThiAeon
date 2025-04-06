@@ -50,15 +50,24 @@ namespace BLL
             dAL_QuanlyTCNS.XoaChamCong();
         }
         //xóa hóa đơn
-        public bool XoaHoaDon(string maHoaDon)
+        public bool XoaHoaDon(string maHoaDon, string lido)
         {
-            return dAL_QuanlyTCNS.XoaHoaDon(maHoaDon);
+            return dAL_QuanlyTCNS.XoaHoaDon(maHoaDon, lido);
         }
 
+        //Xem chi tiết hóa đơn bán hàng
+        public DataTable GetLichSuChiTietHoaDon(string maHoaDon)
+        {
+            return dAL_QuanlyTCNS.GetLichSuChiTietHoaDon(maHoaDon);
+        }
         //Xem danh sách hàng hóa bán
         public DataTable xemChiTietHDBH(String maHoaDon)
         {
             return dAL_QuanlyTCNS.xemChiTietHDBH(maHoaDon);
+        }
+        public DataTable GetLichSuHoaDon()
+        {
+            return dAL_QuanlyTCNS.GetLichSuHoaDon();
         }
         // Xem danh sách hóa đơn  
         public DataTable xemDSHD()
