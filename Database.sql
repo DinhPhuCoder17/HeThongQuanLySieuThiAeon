@@ -484,84 +484,127 @@ AS
 BEGIN
     DECLARE @Mahoadon VARCHAR(10);
     DECLARE @Mahanghoa VARCHAR(10);
-    DECLARE @Tenhanghoa NVARCHAR(255);  -- Thêm biến để lưu tên hàng hóa
+    DECLARE @Tenhanghoa NVARCHAR(255);
     DECLARE @Tienban DECIMAL(18,2);
     DECLARE @Tongtien DECIMAL(18,2);
     DECLARE @SoluongTonKho INT;
     DECLARE @SoluongNhan INT;
     DECLARE @Ngaysanxuat DATE;
+    DECLARE @RemainingQuantity INT;  -- Số lượng còn lại cần trừ
 
-    -- Lấy mã hàng hóa và tên hàng hóa từ Barcode trong bảng Hanghoa
+    -- Lấy thông tin từ hàng hóa theo barcode
     SELECT @Mahanghoa = Mahanghoa, @Tenhanghoa = Tenhanghoa, @Tienban = Tienban
     FROM Hanghoa
     WHERE Barcode = @Barcode;
 
-    -- Kiểm tra nếu không tìm thấy mã hàng hóa
     IF @Mahanghoa IS NULL
     BEGIN
         PRINT 'Error: Barcode does not exist in Hanghoa!';
         RETURN;
     END
 
-    -- Lấy mã hóa đơn mới nhất từ bảng Hoadonbanhang
+    -- Lấy mã hóa đơn mới nhất
     SELECT TOP 1 @Mahoadon = Mahoadon 
     FROM Hoadonbanhang 
     ORDER BY Mahoadon DESC;
 
-    -- Kiểm tra nếu không tìm thấy hóa đơn nào
     IF @Mahoadon IS NULL
     BEGIN
         PRINT 'Error: No existing Mahoadon in Hoadonbanhang!';
         RETURN;
     END
 
-    -- Lấy thông tin số lượng nhận của hàng hóa trong bảng HD_HH với Ngaysanxuat cũ nhất
-    SELECT TOP 1 @SoluongNhan = Soluongnhan, @Ngaysanxuat = Ngaysanxuat
+    -- Lấy thông tin lô hàng nhập còn tồn
+    SELECT @SoluongNhan = Soluongnhan, @Ngaysanxuat = Ngaysanxuat
     FROM HD_HH 
     WHERE Mahanghoa = @Mahanghoa
     ORDER BY Ngaysanxuat ASC;
 
-    -- Kiểm tra nếu không tìm thấy số lượng nhận
     IF @SoluongNhan IS NULL
     BEGIN
         PRINT 'Error: No received quantity for the product in HD_HH!';
         RETURN;
     END
 
-    -- Kiểm tra nếu số lượng nhận không đủ để bán
-    IF @SoluongNhan < @Soluong
+    -- Nếu số lượng nhận không đủ, trừ hết số lượng nhận và bắt đầu từ các lô sau
+    SET @RemainingQuantity = @Soluong;
+
+    -- Lặp qua các bản ghi trong HD_HH và trừ dần từ số lượng
+    DECLARE cur CURSOR FOR
+    SELECT Mahanghoa, Soluongnhan, Ngaysanxuat
+    FROM HD_HH 
+    WHERE Mahanghoa = @Mahanghoa AND Soluongnhan > 0
+    ORDER BY Ngaysanxuat;  -- Sắp xếp theo ngày sản xuất (cũ nhất đến mới nhất)
+
+    OPEN cur;
+    FETCH NEXT FROM cur INTO @Mahanghoa, @SoluongNhan, @Ngaysanxuat;
+
+    WHILE @@FETCH_STATUS = 0 AND @RemainingQuantity > 0
     BEGIN
-        PRINT 'Error: Not enough received stock for ' + @Tenhanghoa + '. Available: ' + CAST(@SoluongNhan AS NVARCHAR);
+        IF @SoluongNhan >= @RemainingQuantity
+        BEGIN
+            -- Nếu số lượng nhận đủ để trừ
+            UPDATE HD_HH
+            SET Soluongnhan = Soluongnhan - @RemainingQuantity
+            WHERE Mahanghoa = @Mahanghoa AND Ngaysanxuat = @Ngaysanxuat;
+
+            -- Tính tổng tiền
+            SET @Tongtien = @RemainingQuantity * @Tienban;
+
+            -- Thêm dữ liệu vào bảng chi tiết hóa đơn
+            INSERT INTO HH_HDBH (Mahoadon, Mahanghoa, Tenhanghoa, Soluong, Tongtien)
+            VALUES (@Mahoadon, @Mahanghoa, @Tenhanghoa, @RemainingQuantity, @Tongtien);
+
+            -- Cập nhật tổng tiền trong bảng Hoadonbanhang
+            UPDATE Hoadonbanhang 
+            SET Thanhtien = ISNULL((SELECT SUM(Tongtien) FROM HH_HDBH WHERE Mahoadon = @Mahoadon), 0)
+            WHERE Mahoadon = @Mahoadon;
+
+            -- Đã trừ hết số lượng
+            SET @RemainingQuantity = 0;
+        END
+        ELSE
+        BEGIN
+            -- Nếu số lượng nhận không đủ, trừ hết số lượng nhận và giảm số lượng còn lại
+            UPDATE HD_HH
+            SET Soluongnhan = 0
+            WHERE Mahanghoa = @Mahanghoa AND Ngaysanxuat = @Ngaysanxuat;
+
+            -- Tính tổng tiền cho phần số lượng đã trừ
+            SET @Tongtien = @SoluongNhan * @Tienban;
+
+            -- Thêm dữ liệu vào bảng chi tiết hóa đơn
+            INSERT INTO HH_HDBH (Mahoadon, Mahanghoa, Tenhanghoa, Soluong, Tongtien)
+            VALUES (@Mahoadon, @Mahanghoa, @Tenhanghoa, @SoluongNhan, @Tongtien);
+
+            -- Cập nhật tổng tiền trong bảng Hoadonbanhang
+            UPDATE Hoadonbanhang 
+            SET Thanhtien = ISNULL((SELECT SUM(Tongtien) FROM HH_HDBH WHERE Mahoadon = @Mahoadon), 0)
+            WHERE Mahoadon = @Mahoadon;
+
+            -- Giảm số lượng còn lại cần trừ
+            SET @RemainingQuantity = @RemainingQuantity - @SoluongNhan;
+        END
+
+        FETCH NEXT FROM cur INTO @Mahanghoa, @SoluongNhan, @Ngaysanxuat;
+    END
+
+    CLOSE cur;
+    DEALLOCATE cur;
+
+    -- Nếu còn số lượng cần trừ nhưng không đủ trong các lô, thì báo lỗi
+    IF @RemainingQuantity > 0
+    BEGIN
+        PRINT 'Error: Not enough received stock to fulfill the order.';
         RETURN;
     END
 
-    -- Tính tổng tiền
-    SET @Tongtien = @Soluong * @Tienban;
-
-    -- Thêm dữ liệu vào bảng HH_HDBH
-    INSERT INTO HH_HDBH (Mahoadon, Mahanghoa, Tenhanghoa, Soluong, Tongtien)
-    VALUES (@Mahoadon, @Mahanghoa, @Tenhanghoa, @Soluong, @Tongtien);
-
-    -- Cập nhật tổng tiền trong Hoadonbanhang
-    UPDATE Hoadonbanhang 
-    SET Thanhtien = ISNULL((SELECT SUM(Tongtien) FROM HH_HDBH WHERE Mahoadon = @Mahoadon), 0)
-    WHERE Mahoadon = @Mahoadon;
-
-    -- Cập nhật lại số lượng nhận trong bảng HD_HH sau khi trừ đi số lượng bán
-    UPDATE HD_HH
-    SET Soluongnhan = Soluongnhan - @Soluong
-    WHERE Mahanghoa = @Mahanghoa AND Ngaysanxuat = @Ngaysanxuat;
-
-    -- Trừ đi số lượng hàng hóa đã bán từ bảng Hanghoa
-    UPDATE Hanghoa 
-    SET Soluong = Soluong - @Soluong
-    WHERE Mahanghoa = @Mahanghoa;
-
     PRINT 'Added successfully to HH_HDBH and updated Thanhtien in Hoadonbanhang.';
-    PRINT 'Stock updated: ' + @Tenhanghoa + ' - Remaining: ' + CAST(@SoluongTonKho - @Soluong AS NVARCHAR);
 END;
 
 
+--select * from hoadonbanhang
+-- exec themHH_HDBH '1000000000001', '1'
 go
 --xóa Hóa đơn
 --drop PROCEDURE sp_XoaHoaDon
