@@ -216,5 +216,16 @@ namespace Trang_chủ_Main_Page_
             }
         }
 
+        //private void txt_searchBar_TextChanged(object sender, EventArgs e)
+        //{
+        //    if (txt_searchBar.Text == null)
+        //    {
+        //        DSNhanVien_Load(sender, e);
+        //    }
+        //    else
+        //    {
+        //        guna2DataGridView2.DataSource = BLL_Nhanvien.Instance.timKiemNV(txt_searchBar.Text);
+        //    }
+        //}
     }
 }

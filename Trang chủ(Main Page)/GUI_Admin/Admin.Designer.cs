@@ -43,16 +43,30 @@
             this.btnDSNV = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.guna2GradientButton1 = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.txt_search = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnXoa = new Guna.UI2.WinForms.Guna2GradientButton();
             this.btnSua = new Guna.UI2.WinForms.Guna2GradientButton();
             this.btnLuu = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2DataGridView2 = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.pn_reset = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.tb_MaNV = new Guna.UI2.WinForms.Guna2TextBox();
+            this.lb_newPassword = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lb_newUsername = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.tb_newPass = new Guna.UI2.WinForms.Guna2TextBox();
+            this.tb_newUsername = new Guna.UI2.WinForms.Guna2TextBox();
+            this.guna2GradientButton2 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2Elipse2 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.menuTransition_2 = new System.Windows.Forms.Timer(this.components);
+            this.pn_infoChanges = new Guna.UI2.WinForms.Guna2Panel();
+            this.btn_Xacnhan = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.tm_SignOut = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView2)).BeginInit();
+            this.pn_reset.SuspendLayout();
+            this.pn_infoChanges.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2Panel3
@@ -138,7 +152,8 @@
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(234)))));
-            this.guna2Panel1.Controls.Add(this.guna2TextBox2);
+            this.guna2Panel1.Controls.Add(this.guna2GradientButton1);
+            this.guna2Panel1.Controls.Add(this.txt_search);
             this.guna2Panel1.Controls.Add(this.btnXoa);
             this.guna2Panel1.Controls.Add(this.btnSua);
             this.guna2Panel1.Controls.Add(this.btnLuu);
@@ -146,26 +161,44 @@
             resources.ApplyResources(this.guna2Panel1, "guna2Panel1");
             this.guna2Panel1.Name = "guna2Panel1";
             // 
-            // guna2TextBox2
+            // guna2GradientButton1
             // 
-            this.guna2TextBox2.Animated = true;
-            this.guna2TextBox2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2TextBox2.BorderColor = System.Drawing.Color.White;
-            this.guna2TextBox2.BorderRadius = 8;
-            this.guna2TextBox2.BorderThickness = 0;
-            this.guna2TextBox2.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox2.DefaultText = "";
-            this.guna2TextBox2.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            resources.ApplyResources(this.guna2TextBox2, "guna2TextBox2");
-            this.guna2TextBox2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox2.Name = "guna2TextBox2";
-            this.guna2TextBox2.PlaceholderForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox2.PlaceholderText = "Tìm Kiếm";
-            this.guna2TextBox2.SelectedText = "";
+            this.guna2GradientButton1.Animated = true;
+            this.guna2GradientButton1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2GradientButton1.BorderRadius = 8;
+            this.guna2GradientButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2GradientButton1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2GradientButton1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2GradientButton1.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2GradientButton1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2GradientButton1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
+            this.guna2GradientButton1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            resources.ApplyResources(this.guna2GradientButton1, "guna2GradientButton1");
+            this.guna2GradientButton1.ForeColor = System.Drawing.Color.White;
+            this.guna2GradientButton1.Name = "guna2GradientButton1";
+            this.guna2GradientButton1.Click += new System.EventHandler(this.guna2GradientButton1_Click);
+            // 
+            // txt_search
+            // 
+            this.txt_search.Animated = true;
+            this.txt_search.BackColor = System.Drawing.Color.Transparent;
+            this.txt_search.BorderColor = System.Drawing.Color.White;
+            this.txt_search.BorderRadius = 8;
+            this.txt_search.BorderThickness = 0;
+            this.txt_search.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_search.DefaultText = "";
+            this.txt_search.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txt_search.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txt_search.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_search.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_search.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            resources.ApplyResources(this.txt_search, "txt_search");
+            this.txt_search.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_search.Name = "txt_search";
+            this.txt_search.PlaceholderForeColor = System.Drawing.Color.Black;
+            this.txt_search.PlaceholderText = "Tìm Kiếm";
+            this.txt_search.SelectedText = "";
+            this.txt_search.TextChanged += new System.EventHandler(this.txt_search_TextChanged);
             // 
             // btnXoa
             // 
@@ -222,17 +255,9 @@
             // 
             this.guna2DataGridView2.AllowUserToAddRows = false;
             this.guna2DataGridView2.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.guna2DataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+           
             resources.ApplyResources(this.guna2DataGridView2, "guna2DataGridView2");
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.guna2DataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            
             this.guna2DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
@@ -280,6 +305,102 @@
             this.guna2DataGridView2.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             this.guna2DataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.guna2DataGridView2_CellContentClick);
             // 
+            // pn_reset
+            // 
+            this.pn_reset.BackColor = System.Drawing.Color.Transparent;
+            this.pn_reset.BorderColor = System.Drawing.Color.Transparent;
+            this.pn_reset.BorderRadius = 20;
+            this.pn_reset.Controls.Add(this.guna2HtmlLabel1);
+            this.pn_reset.Controls.Add(this.tb_MaNV);
+            this.pn_reset.Controls.Add(this.lb_newPassword);
+            this.pn_reset.Controls.Add(this.lb_newUsername);
+            this.pn_reset.Controls.Add(this.tb_newPass);
+            this.pn_reset.Controls.Add(this.tb_newUsername);
+            this.pn_reset.Controls.Add(this.guna2GradientButton2);
+            this.pn_reset.FillColor = System.Drawing.Color.Silver;
+            resources.ApplyResources(this.pn_reset, "pn_reset");
+            this.pn_reset.Name = "pn_reset";
+            // 
+            // guna2HtmlLabel1
+            // 
+            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.guna2HtmlLabel1, "guna2HtmlLabel1");
+            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
+            // 
+            // tb_MaNV
+            // 
+            this.tb_MaNV.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tb_MaNV.DefaultText = "";
+            this.tb_MaNV.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tb_MaNV.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tb_MaNV.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tb_MaNV.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tb_MaNV.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            resources.ApplyResources(this.tb_MaNV, "tb_MaNV");
+            this.tb_MaNV.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tb_MaNV.Name = "tb_MaNV";
+            this.tb_MaNV.PlaceholderText = "";
+            this.tb_MaNV.SelectedText = "";
+            // 
+            // lb_newPassword
+            // 
+            this.lb_newPassword.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.lb_newPassword, "lb_newPassword");
+            this.lb_newPassword.Name = "lb_newPassword";
+            // 
+            // lb_newUsername
+            // 
+            this.lb_newUsername.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.lb_newUsername, "lb_newUsername");
+            this.lb_newUsername.Name = "lb_newUsername";
+            // 
+            // tb_newPass
+            // 
+            this.tb_newPass.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tb_newPass.DefaultText = "";
+            this.tb_newPass.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tb_newPass.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tb_newPass.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tb_newPass.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tb_newPass.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            resources.ApplyResources(this.tb_newPass, "tb_newPass");
+            this.tb_newPass.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tb_newPass.Name = "tb_newPass";
+            this.tb_newPass.PlaceholderText = "";
+            this.tb_newPass.SelectedText = "";
+            // 
+            // tb_newUsername
+            // 
+            this.tb_newUsername.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tb_newUsername.DefaultText = "";
+            this.tb_newUsername.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tb_newUsername.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tb_newUsername.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tb_newUsername.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tb_newUsername.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            resources.ApplyResources(this.tb_newUsername, "tb_newUsername");
+            this.tb_newUsername.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tb_newUsername.Name = "tb_newUsername";
+            this.tb_newUsername.PlaceholderText = "";
+            this.tb_newUsername.SelectedText = "";
+            // 
+            // guna2GradientButton2
+            // 
+            this.guna2GradientButton2.Animated = true;
+            this.guna2GradientButton2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2GradientButton2.BorderRadius = 8;
+            this.guna2GradientButton2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2GradientButton2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2GradientButton2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2GradientButton2.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2GradientButton2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2GradientButton2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
+            this.guna2GradientButton2.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            resources.ApplyResources(this.guna2GradientButton2, "guna2GradientButton2");
+            this.guna2GradientButton2.ForeColor = System.Drawing.Color.White;
+            this.guna2GradientButton2.Name = "guna2GradientButton2";
+            this.guna2GradientButton2.Click += new System.EventHandler(this.guna2GradientButton2_Click);
+            // 
             // guna2Elipse2
             // 
             this.guna2Elipse2.BorderRadius = 20;
@@ -290,11 +411,45 @@
             this.menuTransition_2.Interval = 10;
             this.menuTransition_2.Tick += new System.EventHandler(this.menuTransition_2_Tick);
             // 
+            // pn_infoChanges
+            // 
+            this.pn_infoChanges.BackColor = System.Drawing.Color.Transparent;
+            this.pn_infoChanges.BorderColor = System.Drawing.Color.Transparent;
+            this.pn_infoChanges.BorderRadius = 20;
+            this.pn_infoChanges.Controls.Add(this.btn_Xacnhan);
+            this.pn_infoChanges.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            resources.ApplyResources(this.pn_infoChanges, "pn_infoChanges");
+            this.pn_infoChanges.Name = "pn_infoChanges";
+            // 
+            // btn_Xacnhan
+            // 
+            this.btn_Xacnhan.Animated = true;
+            this.btn_Xacnhan.BackColor = System.Drawing.Color.Transparent;
+            this.btn_Xacnhan.BorderRadius = 8;
+            this.btn_Xacnhan.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_Xacnhan.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_Xacnhan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_Xacnhan.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_Xacnhan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_Xacnhan.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
+            this.btn_Xacnhan.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            resources.ApplyResources(this.btn_Xacnhan, "btn_Xacnhan");
+            this.btn_Xacnhan.ForeColor = System.Drawing.Color.White;
+            this.btn_Xacnhan.Name = "btn_Xacnhan";
+            this.btn_Xacnhan.Click += new System.EventHandler(this.btn_Xacnhan_Click);
+            // 
+            // tm_SignOut
+            // 
+            this.tm_SignOut.Interval = 10;
+            this.tm_SignOut.Tick += new System.EventHandler(this.tm_SignOut_Tick);
+            // 
             // Admin
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             resources.ApplyResources(this, "$this");
+            this.Controls.Add(this.pn_reset);
+            this.Controls.Add(this.pn_infoChanges);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnDSNV);
@@ -309,6 +464,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
             this.guna2Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView2)).EndInit();
+            this.pn_reset.ResumeLayout(false);
+            this.pn_reset.PerformLayout();
+            this.pn_infoChanges.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -330,6 +488,18 @@
         private Guna.UI2.WinForms.Guna2GradientButton btnSua;
         private Guna.UI2.WinForms.Guna2GradientButton btnLuu;
         private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView2;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox2;
+        private Guna.UI2.WinForms.Guna2TextBox txt_search;
+        private Guna.UI2.WinForms.Guna2Panel pn_infoChanges;
+        private Guna.UI2.WinForms.Guna2GradientButton btn_Xacnhan;
+        private System.Windows.Forms.Timer tm_SignOut;
+        private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton1;
+        private Guna.UI2.WinForms.Guna2Panel pn_reset;
+        private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton2;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lb_newPassword;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lb_newUsername;
+        private Guna.UI2.WinForms.Guna2TextBox tb_newPass;
+        private Guna.UI2.WinForms.Guna2TextBox tb_newUsername;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
+        private Guna.UI2.WinForms.Guna2TextBox tb_MaNV;
     }
 }

@@ -121,14 +121,63 @@
   <data name="lbl_Customer_HoTen.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="lbl_Customer_HoTen.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 13</value>
+  </data>
   <data name="lb_DiaChiKH.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="lb_DiaChiKH.Size" type="System.Drawing.Size, System.Drawing">
+    <value>40, 13</value>
   </data>
   <data name="lb_GioiTinhKH.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="lb_GioiTinhKH.Size" type="System.Drawing.Size, System.Drawing">
+    <value>47, 13</value>
+  </data>
   <data name="lbl_Customer_SDT.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="lbl_Customer_SDT.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 13</value>
+  </data>
+  <data name="lb_sdt.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 35</value>
+  </data>
+  <data name="lb_Gioitinh.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 35</value>
+  </data>
+  <data name="lb_Ngaysinh.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 35</value>
+  </data>
+  <data name="lb_Hoten.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 35</value>
+  </data>
+  <data name="lb_Ma.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 35</value>
+  </data>
+  <data name="guna2HtmlLabel14.Size" type="System.Drawing.Size, System.Drawing">
+    <value>98, 35</value>
+  </data>
+  <data name="guna2HtmlLabel9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>73, 35</value>
+  </data>
+  <data name="guna2HtmlLabel7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>80, 35</value>
+  </data>
+  <data name="guna2HtmlLabel5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>63, 35</value>
+  </data>
+  <data name="guna2HtmlLabel13.Size" type="System.Drawing.Size, System.Drawing">
+    <value>157, 35</value>
+  </data>
+  <data name="guna2HtmlLabel12.Size" type="System.Drawing.Size, System.Drawing">
+    <value>136, 35</value>
+  </data>
+  <data name="guna2HtmlLabel3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>101, 35</value>
   </data>
   <data name="btn_Xacnhan.Text" xml:space="preserve">
     <value>Confirm</value>
@@ -142,15 +191,14 @@
   <data name="btn_Customer_Delete.Text" xml:space="preserve">
     <value>Delete Customer</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="guna2HtmlLabel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>56, 42</value>
+    <value>50, 37</value>
   </data>
   <data name="guna2HtmlLabel1.Text" xml:space="preserve">
     <value>Sort:</value>
   </data>
   <data name="lblCustomerList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>245, 47</value>
+    <value>198, 41</value>
   </data>
   <data name="lblCustomerList.Text" xml:space="preserve">
     <value>List of Member Customers</value>

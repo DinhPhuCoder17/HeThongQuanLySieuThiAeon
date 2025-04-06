@@ -4,8 +4,16 @@ create database QuanLySieuThiAEON
 go
 use QuanLySieuThiAEON
 go
+--ALTER DATABASE QuanLySieuThiAEON
+--SET SINGLE_USER
+--WITH ROLLBACK IMMEDIATE;
+--GO
+
 
 --select * from hanghoa
+--delete from Hanghoa
+select * from Nhanvien
+--delete from Hoadonbanhang
 
 CREATE TABLE Nhanvien (
     Manhanvien varchar(10) CONSTRAINT PK_Nhanvien PRIMARY KEY,
@@ -190,7 +198,7 @@ CREATE TABLE Khieunai (
     CONSTRAINT FK_KN_Mahanghoa_Sohd_HDHH FOREIGN KEY (Mahanghoa, Sohd) 
         REFERENCES HD_HH (Mahanghoa, Sohd)
 );
-
+go
 --Trigger tu dong tru hanghoa
 CREATE TRIGGER trg_AutoTruSoLuongHD_HH
 ON Hanghoa
@@ -199,58 +207,7 @@ AS
 BEGIN
     SET NOCOUNT ON;
 
-    DECLARE @MaHH VARCHAR(10), @SLCu INT, @SLMoi INT, @SoLuongTru INT;
-
-    -- Giả sử chỉ cập nhật 1 dòng tại 1 thời điểm (nếu bạn cần multi-row, có thể nâng cấp sau)
-    SELECT @MaHH = d.Mahanghoa, @SLCu = d.Soluong, @SLMoi = i.Soluong
-    FROM deleted d
-    INNER JOIN inserted i ON d.Mahanghoa = i.Mahanghoa;
-
-    -- Chỉ xử lý nếu số lượng bị GIẢM
-    IF @SLMoi < @SLCu
-    BEGIN
-        SET @SoLuongTru = @SLCu - @SLMoi;
-
-        DECLARE @SLTruConLai INT = @SoLuongTru;
-        DECLARE @SLNhan INT, @HSD DATE;
-
-        DECLARE cur CURSOR FOR
-        SELECT Hansudung, Soluongnhan
-        FROM HD_HH
-        WHERE Mahanghoa = @MaHH AND Soluongnhan > 0
-        ORDER BY Hansudung ASC;
-
-        OPEN cur;
-        FETCH NEXT FROM cur INTO @HSD, @SLNhan;
-
-        WHILE @@FETCH_STATUS = 0 AND @SLTruConLai > 0
-        BEGIN
-            DECLARE @Tru INT;
-
-            IF @SLNhan >= @SLTruConLai
-            BEGIN
-                SET @Tru = @SLTruConLai;
-                SET @SLTruConLai = 0;
-            END
-            ELSE
-            BEGIN
-                SET @Tru = @SLNhan;
-                SET @SLTruConLai = @SLTruConLai - @SLNhan;
-            END
-
-            -- Trừ số lượng
-            UPDATE HD_HH
-            SET Soluongnhan = Soluongnhan - @Tru
-            WHERE Mahanghoa = @MaHH AND Hansudung = @HSD;
-
-            FETCH NEXT FROM cur INTO @HSD, @SLNhan;
-        END
-
-        CLOSE cur;
-        DEALLOCATE cur;
-    END
-END
-
+--Trigger--
 --Trigger đếm giờ chuyển trạng thái xác nhận--
 -- End Trigger đếm giờ chuyển trạng thái xác nhận--
 
@@ -1225,7 +1182,7 @@ Begin
 		Insert into Khieunai values(@Mahanghoa, @Sohd, @Loaikhieunai, @Lydochitiet, @Luongchenhlech, @Yeucauxuly)
 	End
 End
-
+/*
 go
 INSERT INTO Nhanvien (Manhanvien, Hoten, CCCD, Ngaysinh, Gioitinh, Diachi, Sodienthoai, Vaitro, Xoa) 
 VALUES 
@@ -1436,8 +1393,18 @@ Where ThoigianBD > '2025/3/30' and ThoigianKT < '2025/4/7'
 Group by bb.Manhanvien, Hoten, Vaitro, ThoigianBD, ThoigianKT  
 
 exec themMaHDNH 10000000, 10
-
-
- 
-
  Select * From quanly
+ 
+ INSERT INTO Nhanvien (Manhanvien, Hoten, CCCD, Ngaysinh, Gioitinh, Diachi, Sodienthoai, Vaitro, Xoa) 
+VALUES 
+('NV0001', N'Nguyễn Văn A', '123456789012', '1990-01-01', N'Nam', N'Hà Nội', '0987654321', N'Lao công', 1),
+('NV0002', N'Trần Thị B', '123456789013', '1992-02-02', N'Nữ', N'Hồ Chí Minh', '0912345678', N'Bảo vệ', 1),
+('NV0003', N'Lê Văn C', '123456789014', '1995-03-03', N'Nam', N'Đà Nẵng', '0901234567', N'Bảo vệ',  1),
+
+ Insert into Quanly values
+('NV0001', '1', '$2a$11$z9zAD5bZeEbk81MyEfUwQuRITnMDNuctPaACjDsbdWqf/rRzIZ1fy', 'Admin'),
+('NV0002', '2', '$2a$11$z9zAD5bZeEbk81MyEfUwQuRITnMDNuctPaACjDsbdWqf/rRzIZ1fy', 'Kho'),
+('NV0003', '3', '$2a$11$z9zAD5bZeEbk81MyEfUwQuRITnMDNuctPaACjDsbdWqf/rRzIZ1fy', 'TCNS')
+*/
+delete from NhanVien
+where Manhanvien = 'NV0004'

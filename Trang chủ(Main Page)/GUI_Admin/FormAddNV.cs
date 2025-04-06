@@ -135,7 +135,7 @@ namespace Trang_chủ_Main_Page_
         //Check SĐT hợp lệ
         public static bool IsValidPhoneNumber(string phoneNumber)
         {
-            string pattern = @"^\d{10}$";
+            string pattern = @"^0\d{9}$";
             return Regex.IsMatch(phoneNumber, pattern);
         }
         //Check địa chỉ hợp lệ
