@@ -153,8 +153,23 @@ CREATE TABLE HH_HDBH (
     CONSTRAINT FK_HH_HDBH_Mahoadon FOREIGN KEY (Mahoadon) REFERENCES Hoadonbanhang(Mahoadon),
 	Tongtien float
 );
-
-
+go
+CREATE TABLE LichSuKHD (
+    MaHoaDon VARCHAR(10) PRIMARY KEY,  -- Mã hóa đơn đã xóa
+    ThoigianXoa DATETIME DEFAULT GETDATE(),  -- Thời gian xóa hóa đơn
+    MaNhanVien VARCHAR(10),  -- Mã nhân viên
+    Sodienthoai VARCHAR(15),  -- Số điện thoại của khách hàng (nếu cần)
+	    LidoXoa NVARCHAR(255)  -- Lý do xóa hóa đơn
+);
+go
+CREATE TABLE LichSuChiTietHoaDon (
+    MaHoaDon VARCHAR(10),  -- Mã hóa đơn đã xóa
+    Mahanghoa VARCHAR(10),  -- Mã hàng hóa
+    Tenhanghoa NVARCHAR(255),  -- Tên hàng hóa
+    Soluong INT,  -- Số lượng của sản phẩm trong hóa đơn
+    Tongtien DECIMAL(18,2),  -- Tổng tiền của sản phẩm trong hóa đơn
+    PRIMARY KEY (MaHoaDon, Mahanghoa)  -- Khóa chính là sự kết hợp giữa MaHoaDon và Mahanghoa
+);
 
 CREATE TABLE Batbuoc(
 	Macalam varchar(10),
@@ -534,26 +549,43 @@ END;
 
 go
 --xóa Hóa đơn
+--drop PROCEDURE sp_XoaHoaDon
 CREATE PROCEDURE sp_XoaHoaDon
-    @MaHoaDon VARCHAR(10)
+    @MaHoaDon VARCHAR(10),  -- Mã hóa đơn cần xóa
+    @LidoXoa NVARCHAR(255)  -- Lý do xóa hóa đơn
 AS
 BEGIN
-    DECLARE @Mahanghoa VARCHAR(10);
     DECLARE @Soluong INT;
-    DECLARE @SoluongNhan INT;
+    DECLARE @Mahanghoa VARCHAR(10);
+    DECLARE @Tenhanghoa NVARCHAR(255);
+    DECLARE @Tongtien DECIMAL(18,2);
+    DECLARE @Sodienthoai VARCHAR(15);
+    DECLARE @MaNhanVien VARCHAR(10);
 
-    -- Lặp qua các sản phẩm trong hóa đơn để cập nhật số lượng
+    -- Lấy thông tin mã nhân viên và số điện thoại từ bảng Hoadonbanhang
+    SELECT @MaNhanVien = Manhanvien, @Sodienthoai = Sodienthoai
+    FROM Hoadonbanhang
+    WHERE Mahoadon = @MaHoaDon;
+
+    -- Lặp qua các sản phẩm trong hóa đơn để lưu vào lịch sử và cập nhật số lượng
     DECLARE cur CURSOR FOR
-    SELECT Mahanghoa, Soluong
+    SELECT Mahanghoa, Tenhanghoa, Soluong
     FROM HH_HDBH
     WHERE Mahoadon = @MaHoaDon;
 
     OPEN cur;
-    FETCH NEXT FROM cur INTO @Mahanghoa, @Soluong;
+    FETCH NEXT FROM cur INTO @Mahanghoa, @Tenhanghoa, @Soluong;
 
-    -- Duyệt qua tất cả các sản phẩm trong hóa đơn và cập nhật số lượng
+    -- Duyệt qua tất cả các sản phẩm trong hóa đơn và lưu vào LichSuChiTietHoaDon
     WHILE @@FETCH_STATUS = 0
     BEGIN
+        -- Tính tổng tiền cho mỗi sản phẩm (Số lượng * Giá bán)
+        SET @Tongtien = @Soluong * 1;  -- Đã bỏ Tienban đi, chỉ cần giữ logic tính tổng tiền
+
+        -- Thêm thông tin vào bảng LichSuChiTietHoaDon
+        INSERT INTO LichSuChiTietHoaDon (MaHoaDon, Mahanghoa, Tenhanghoa, Soluong, Tongtien)
+        VALUES (@MaHoaDon, @Mahanghoa, @Tenhanghoa, @Soluong, @Tongtien);
+
         -- Cập nhật lại số lượng nhận trong bảng HD_HH
         UPDATE HD_HH
         SET Soluongnhan = Soluongnhan + @Soluong
@@ -564,20 +596,25 @@ BEGIN
         SET Soluong = Soluong + @Soluong
         WHERE Mahanghoa = @Mahanghoa;
 
-        FETCH NEXT FROM cur INTO @Mahanghoa, @Soluong;
+        FETCH NEXT FROM cur INTO @Mahanghoa, @Tenhanghoa, @Soluong;
     END
 
     CLOSE cur;
     DEALLOCATE cur;
 
-    -- Xóa chi tiết hóa đơn trước
+    -- Thêm thông tin vào bảng LichSuKHD
+    INSERT INTO LichSuKHD (MaHoaDon, ThoigianXoa, LidoXoa, MaNhanVien, Sodienthoai)
+    VALUES (@MaHoaDon, GETDATE(), @LidoXoa, @MaNhanVien, @Sodienthoai);
+
+    -- Xóa chi tiết hóa đơn trong bảng HH_HDBH
     DELETE FROM HH_HDBH WHERE Mahoadon = @MaHoaDon;
     
-    -- Xóa hóa đơn chính
+    -- Xóa hóa đơn trong bảng Hoadonbanhang
     DELETE FROM Hoadonbanhang WHERE Mahoadon = @MaHoaDon;
 
     PRINT 'Đã xóa hóa đơn thành công và cập nhật số lượng các sản phẩm!';
 END;
+
 
 --DROP PROCEDURE sp_XoaHoaDon
 --Procedure thêm mã hoá đơn nhập hàng--
@@ -743,8 +780,8 @@ CREATE PROCEDURE themChamCong
 AS
 BEGIN--begin proc
     DECLARE @ID VARCHAR(10);
-    DECLARE @ThoigianBD TIME;
-    DECLARE @ThoigianKT TIME;
+    DECLARE @ThoigianBD DATETIME;
+    DECLARE @ThoigianKT DATETIME;
     DECLARE @Trangthai NVARCHAR(100);
     DECLARE @Macalam VARCHAR(10);
     DECLARE @Socong FLOAT;
@@ -761,7 +798,14 @@ BEGIN--begin proc
         PRINT 'Không tìm thấy ca làm cho nhân viên này';
         RETURN;
     END;
-
+	SELECT @ThoigianBD = CONVERT(Date, ThoigianBD), @ThoigianKT = CONVERT(Date ,ThoigianKT)
+    FROM Calam
+    WHERE Macalam = @Macalam;
+	IF @ThoigianCN <> CAST(@ThoigianBD AS DATE)
+    BEGIN
+        PRINT 'Ngày làm phải trùng với ngày của ca làm!';
+        RETURN;
+    END
     -- Lấy giờ bắt đầu và kết thúc từ bảng Ca làm
     SELECT @ThoigianBD = CONVERT(TIME, ThoigianBD), @ThoigianKT = CONVERT(TIME, ThoigianKT)
     FROM Calam
@@ -773,7 +817,14 @@ BEGIN--begin proc
         PRINT 'Không tìm thấy ca làm';
         RETURN;
     END;
+	
+	
 
+-- Lấy phần giờ, phút, giây từ @ThoigianBD và lưu vào biến tạm @ThoigianBTHour
+DECLARE @ThoigianBTHour TIME = CONVERT(TIME, @ThoigianBD);
+
+-- Lấy phần giờ, phút, giây từ @ThoigianKT và lưu vào biến tạm @ThoigianKTHour
+DECLARE @ThoigianKTHour TIME = CONVERT(TIME, @ThoigianKT);
     -- Kiểm tra nếu nhân viên đã chấm công cho ca này vào ngày này và có Checkin hoặc Checkout là '00:00:00'
     IF EXISTS (
         SELECT 1
@@ -807,38 +858,39 @@ BEGIN--begin proc
         DECLARE @SoGiay INT;
         
         -- Kiểm tra thời gian về sớm hoặc đúng giờ
-        IF @Checkout >= @ThoigianKT AND @Checkin >= @ThoigianBD -- Về đúng giờ, tới trễ
+        IF @Checkout >= @ThoigianKTHour AND @Checkin >= @ThoigianBTHour -- Về đúng giờ, tới trễ
         BEGIN
-            SET @SoGiay = DATEDIFF(SECOND, @Checkin, @ThoigianKT);
+            SET @SoGiay = DATEDIFF(SECOND, @Checkin, @ThoigianKTHour);
             SET @Socong = @SoGiay / 28800.0; -- 28800 giây = 8 giờ
         END
 
-        IF @Checkout < @ThoigianKT AND @Checkin >= @ThoigianBD -- Về sớm, tới trễ
+        IF @Checkout < @ThoigianKTHour AND @Checkin >= @ThoigianBTHour -- Về sớm, tới trễ
         BEGIN
             SET @SoGiay = DATEDIFF(SECOND, @Checkin, @Checkout);
             SET @Socong = @SoGiay / 28800.0; -- 28800 giây = 8 giờ
         END
 
-        IF @Checkout < @ThoigianKT AND @Checkin < @ThoigianBD -- Về sớm, tới đúng giờ
+        IF @Checkout < @ThoigianKTHour AND @Checkin <= @ThoigianBTHour -- Về sớm, tới đúng giờ
         BEGIN
-            SET @SoGiay = DATEDIFF(SECOND, @ThoigianBD, @Checkout);
+            SET @SoGiay = DATEDIFF(SECOND, @ThoigianBTHour, @Checkout);
             SET @Socong = @SoGiay / 28800.0; -- 28800 giây = 8 giờ
         END
-		 IF @Checkout >= @ThoigianKT AND @Checkin < @ThoigianBD -- Về sớm, tới đúng giờ
+		 IF @Checkout >= @ThoigianKTHour AND @Checkin <= @ThoigianBTHour -- Về sớm, tới đúng giờ
         BEGIN
-            SET @SoGiay = DATEDIFF(SECOND, @ThoigianBD, @ThoigianKT);
+            SET @SoGiay = DATEDIFF(SECOND, @ThoigianBTHour, @ThoigianKTHour);
             SET @Socong = @SoGiay / 28800.0; -- 28800 giây = 8 giờ
         END
+		
     -- Đóng khối IF
 
     -- Xác định trạng thái
-    IF @Checkin > @ThoigianBD AND @Checkout < @ThoigianKT
+    IF @Checkin > @ThoigianBTHour AND @Checkout < @ThoigianKTHour
         SET @Trangthai = N'Trễ - Sớm'; -- Đi trễ, về sớm
-    ELSE IF @Checkin > @ThoigianBD AND @Checkout >= @ThoigianKT
+    ELSE IF @Checkin > @ThoigianBTHour AND @Checkout >= @ThoigianKTHour
         SET @Trangthai = N'Trễ - Đúng Giờ'; -- Đi trễ, về đúng giờ hoặc về trễ
-    ELSE IF @Checkin <= @ThoigianBD AND @Checkout >= @ThoigianKT
+    ELSE IF @Checkin <= @ThoigianBTHour AND @Checkout >= @ThoigianKTHour
         SET @Trangthai = N'Đúng Giờ'; -- Đi đúng giờ hoặc sớm, về đúng giờ hoặc về trễ
-    ELSE IF @Checkin <= @ThoigianBD AND @Checkout < @ThoigianKT
+    ELSE IF @Checkin <= @ThoigianBTHour AND @Checkout < @ThoigianKTHour
         SET @Trangthai = N'Đúng Giờ - Sớm'; -- Đi đúng giờ hoặc sớm, về đúng giờ hoặc về trễ
     ELSE
         SET @Trangthai = N'DG'; -- Mặc định nếu không rơi vào các trường hợp trên
@@ -917,30 +969,39 @@ BEGIN
     SET @ID = 'CC' + RIGHT('0000' + CAST(@MaxID AS VARCHAR(4)), 4);
 
     -- Kiểm tra thời gian về sớm hoặc đúng giờ
-    IF @Checkout >= @ThoigianKT AND @Checkin >= @ThoigianBD -- Về đúng giờ, tới trễ
-    BEGIN
-        SET @SoGiay = DATEDIFF(SECOND, @Checkin, @ThoigianKT);
-        SET @Socong = @SoGiay / 28800.0; -- 28800 giây = 8 giờ
-    END
+      IF @Checkout >= @ThoigianKTHour AND @Checkin >= @ThoigianBTHour -- Về đúng giờ, tới trễ
+        BEGIN
+            SET @SoGiay = DATEDIFF(SECOND, @Checkin, @ThoigianKTHour);
+            SET @Socong = @SoGiay / 28800.0; -- 28800 giây = 8 giờ
+        END
 
-    IF @Checkout < @ThoigianKT AND @Checkin >= @ThoigianBD -- Về sớm, tới trễ
-    BEGIN
-        SET @SoGiay = DATEDIFF(SECOND, @Checkin, @Checkout);
-        SET @Socong = @SoGiay / 28800.0; -- 28800 giây = 8 giờ
-    END
+        IF @Checkout < @ThoigianKTHour AND @Checkin >= @ThoigianBTHour -- Về sớm, tới trễ
+        BEGIN
+            SET @SoGiay = DATEDIFF(SECOND, @Checkin, @Checkout);
+            SET @Socong = @SoGiay / 28800.0; -- 28800 giây = 8 giờ
+        END
 
-    IF @Checkout < @ThoigianKT AND @Checkin < @ThoigianBD -- Về sớm, tới đúng giờ
-    BEGIN
-        SET @SoGiay = DATEDIFF(SECOND, @ThoigianBD, @Checkout);
-        SET @Socong = @SoGiay / 28800.0; -- 28800 giây = 8 giờ
-    END
-	 IF @Checkin > @ThoigianBD AND @Checkout < @ThoigianKT
+        IF @Checkout < @ThoigianKTHour AND @Checkin <= @ThoigianBTHour -- Về sớm, tới đúng giờ
+        BEGIN
+            SET @SoGiay = DATEDIFF(SECOND, @ThoigianBTHour, @Checkout);
+            SET @Socong = @SoGiay / 28800.0; -- 28800 giây = 8 giờ
+        END
+		 IF @Checkout >= @ThoigianKTHour AND @Checkin <= @ThoigianBTHour -- Về sớm, tới đúng giờ
+        BEGIN
+            SET @SoGiay = DATEDIFF(SECOND, @ThoigianBTHour, @ThoigianKTHour);
+            SET @Socong = @SoGiay / 28800.0; -- 28800 giây = 8 giờ
+        END
+		
+    -- Đóng khối IF
+
+    -- Xác định trạng thái
+    IF @Checkin > @ThoigianBTHour AND @Checkout < @ThoigianKTHour
         SET @Trangthai = N'Trễ - Sớm'; -- Đi trễ, về sớm
-    ELSE IF @Checkin > @ThoigianBD AND @Checkout >= @ThoigianKT
+    ELSE IF @Checkin > @ThoigianBTHour AND @Checkout >= @ThoigianKTHour
         SET @Trangthai = N'Trễ - Đúng Giờ'; -- Đi trễ, về đúng giờ hoặc về trễ
-    ELSE IF @Checkin <= @ThoigianBD AND @Checkout >= @ThoigianKT
+    ELSE IF @Checkin <= @ThoigianBTHour AND @Checkout >= @ThoigianKTHour
         SET @Trangthai = N'Đúng Giờ'; -- Đi đúng giờ hoặc sớm, về đúng giờ hoặc về trễ
-    ELSE IF @Checkin <= @ThoigianBD AND @Checkout < @ThoigianKT
+    ELSE IF @Checkin <= @ThoigianBTHour AND @Checkout < @ThoigianKTHour
         SET @Trangthai = N'Đúng Giờ - Sớm'; -- Đi đúng giờ hoặc sớm, về đúng giờ hoặc về trễ
     ELSE
         SET @Trangthai = N'DG'; -- Mặc định nếu không rơi vào các trường hợp trên
@@ -950,17 +1011,21 @@ BEGIN
 
     PRINT 'Đã thêm chấm công với ID: ' + @ID + ' và trạng thái: ' + @Trangthai;
 	END;
-END;--end proc 
+END;
+
+
+
 
 go
 go
-
     -- Kiểm tra nếu nhân viên có được phân
 
 	-- delete from chamcong
+	--select * from calam
+	-- Thực hiện chấm công cho nhân viên NV0001
+      -- Mã nhân viên
 
-
--- EXEC themChamCong '2025-06-04', '05:59:59', '14:00:00', 'NV0001';
+-- EXEC themChamCong '2025-09-03', '05:59:59', '13:59:59', 'NV0002';
 
 -- select * from batbuoc
 

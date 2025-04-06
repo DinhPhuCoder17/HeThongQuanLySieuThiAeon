@@ -29,13 +29,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(financialManagement));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(financialManagement));
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.txt_Bill_SearchBar = new Guna.UI2.WinForms.Guna2TextBox();
             this.dtg_Bill = new Guna.UI2.WinForms.Guna2DataGridView();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.label11 = new System.Windows.Forms.Label();
@@ -61,9 +64,17 @@
             this.guna2HtmlLabel16 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel17 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.btn_Xacnhan = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.btn_History_Bill = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.guna2PanelH = new Guna.UI2.WinForms.Guna2Panel();
+            this.dgvLichSuHoaDon = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.guna2Elipse2 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.txt_Bill_SearchBar = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_Bill)).BeginInit();
             this.pn_infoChanges.SuspendLayout();
+            this.guna2PanelH.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLichSuHoaDon)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Panel1
@@ -72,30 +83,6 @@
             this.guna2Panel1.Controls.Add(this.txt_Bill_SearchBar);
             resources.ApplyResources(this.guna2Panel1, "guna2Panel1");
             this.guna2Panel1.Name = "guna2Panel1";
-            // 
-            // txt_Bill_SearchBar
-            // 
-            this.txt_Bill_SearchBar.Animated = true;
-            this.txt_Bill_SearchBar.BackColor = System.Drawing.Color.White;
-            this.txt_Bill_SearchBar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.txt_Bill_SearchBar.BorderRadius = 8;
-            this.txt_Bill_SearchBar.BorderThickness = 0;
-            this.txt_Bill_SearchBar.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_Bill_SearchBar.DefaultText = "";
-            this.txt_Bill_SearchBar.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txt_Bill_SearchBar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txt_Bill_SearchBar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txt_Bill_SearchBar.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txt_Bill_SearchBar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
-            this.txt_Bill_SearchBar.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            resources.ApplyResources(this.txt_Bill_SearchBar, "txt_Bill_SearchBar");
-            this.txt_Bill_SearchBar.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_Bill_SearchBar.IconLeft = global::Trang_chu_Main_Page_.Properties.Resources.Thiết_kế_chưa_có_tên__14_;
-            this.txt_Bill_SearchBar.Name = "txt_Bill_SearchBar";
-            this.txt_Bill_SearchBar.PlaceholderForeColor = System.Drawing.Color.Black;
-            this.txt_Bill_SearchBar.PlaceholderText = "Enter Order Code";
-            this.txt_Bill_SearchBar.SelectedText = "";
-            this.txt_Bill_SearchBar.TextChanged += new System.EventHandler(this.txt_Bill_SearchBar_TextChanged);
             // 
             // dtg_Bill
             // 
@@ -396,13 +383,134 @@
             this.btn_Xacnhan.ForeColor = System.Drawing.Color.White;
             this.btn_Xacnhan.Name = "btn_Xacnhan";
             // 
+            // btn_History_Bill
+            // 
+            this.btn_History_Bill.Animated = true;
+            this.btn_History_Bill.BackColor = System.Drawing.Color.Transparent;
+            this.btn_History_Bill.BorderRadius = 8;
+            this.btn_History_Bill.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_History_Bill.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_History_Bill.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_History_Bill.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_History_Bill.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_History_Bill.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
+            this.btn_History_Bill.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            resources.ApplyResources(this.btn_History_Bill, "btn_History_Bill");
+            this.btn_History_Bill.ForeColor = System.Drawing.Color.White;
+            this.btn_History_Bill.Name = "btn_History_Bill";
+            this.btn_History_Bill.Click += new System.EventHandler(this.btn_History_Bill_Click);
+            // 
+            // guna2PanelH
+            // 
+            resources.ApplyResources(this.guna2PanelH, "guna2PanelH");
+            this.guna2PanelH.Controls.Add(this.dgvLichSuHoaDon);
+            this.guna2PanelH.Name = "guna2PanelH";
+            // 
+            // dgvLichSuHoaDon
+            // 
+            this.dgvLichSuHoaDon.AllowUserToAddRows = false;
+            this.dgvLichSuHoaDon.AllowUserToResizeColumns = false;
+            this.dgvLichSuHoaDon.AllowUserToResizeRows = false;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            this.dgvLichSuHoaDon.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            resources.ApplyResources(this.dgvLichSuHoaDon, "dgvLichSuHoaDon");
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLichSuHoaDon.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.OrangeRed;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvLichSuHoaDon.DefaultCellStyle = dataGridViewCellStyle7;
+            this.dgvLichSuHoaDon.EnableHeadersVisualStyles = true;
+            this.dgvLichSuHoaDon.GridColor = System.Drawing.Color.White;
+            this.dgvLichSuHoaDon.Name = "dgvLichSuHoaDon";
+            this.dgvLichSuHoaDon.ReadOnly = true;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLichSuHoaDon.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.dgvLichSuHoaDon.RowHeadersVisible = false;
+            this.dgvLichSuHoaDon.RowTemplate.DividerHeight = 5;
+            this.dgvLichSuHoaDon.RowTemplate.Height = 40;
+            this.dgvLichSuHoaDon.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvLichSuHoaDon.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.dgvLichSuHoaDon.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.dgvLichSuHoaDon.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.dgvLichSuHoaDon.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dgvLichSuHoaDon.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.dgvLichSuHoaDon.ThemeStyle.GridColor = System.Drawing.Color.White;
+            this.dgvLichSuHoaDon.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.White;
+            this.dgvLichSuHoaDon.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvLichSuHoaDon.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvLichSuHoaDon.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.DimGray;
+            this.dgvLichSuHoaDon.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvLichSuHoaDon.ThemeStyle.HeaderStyle.Height = 40;
+            this.dgvLichSuHoaDon.ThemeStyle.ReadOnly = true;
+            this.dgvLichSuHoaDon.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvLichSuHoaDon.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvLichSuHoaDon.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvLichSuHoaDon.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dgvLichSuHoaDon.ThemeStyle.RowsStyle.Height = 40;
+            this.dgvLichSuHoaDon.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.OrangeRed;
+            this.dgvLichSuHoaDon.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvLichSuHoaDon.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLichSuHoaDon_CellDoubleClick);
+            // 
+            // guna2Elipse2
+            // 
+            this.guna2Elipse2.BorderRadius = 20;
+            this.guna2Elipse2.TargetControl = this.dgvLichSuHoaDon;
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 10;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // txt_Bill_SearchBar
+            // 
+            this.txt_Bill_SearchBar.Animated = true;
+            this.txt_Bill_SearchBar.BackColor = System.Drawing.Color.White;
+            this.txt_Bill_SearchBar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.txt_Bill_SearchBar.BorderRadius = 8;
+            this.txt_Bill_SearchBar.BorderThickness = 0;
+            this.txt_Bill_SearchBar.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_Bill_SearchBar.DefaultText = "";
+            this.txt_Bill_SearchBar.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txt_Bill_SearchBar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txt_Bill_SearchBar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_Bill_SearchBar.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_Bill_SearchBar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
+            this.txt_Bill_SearchBar.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            resources.ApplyResources(this.txt_Bill_SearchBar, "txt_Bill_SearchBar");
+            this.txt_Bill_SearchBar.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_Bill_SearchBar.IconLeft = global::Trang_chu_Main_Page_.Properties.Resources.Thiết_kế_chưa_có_tên__14_;
+            this.txt_Bill_SearchBar.Name = "txt_Bill_SearchBar";
+            this.txt_Bill_SearchBar.PlaceholderForeColor = System.Drawing.Color.Black;
+            this.txt_Bill_SearchBar.PlaceholderText = "Enter Order Code";
+            this.txt_Bill_SearchBar.SelectedText = "";
+            this.txt_Bill_SearchBar.TextChanged += new System.EventHandler(this.txt_Bill_SearchBar_TextChanged);
+            // 
             // financialManagement
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             resources.ApplyResources(this, "$this");
+            this.Controls.Add(this.guna2PanelH);
             this.Controls.Add(this.pn_infoChanges);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.btn_Bill_FilterDate);
+            this.Controls.Add(this.btn_History_Bill);
             this.Controls.Add(this.btn_Bill_Cancel);
             this.Controls.Add(this.lblCustomerList);
             this.Controls.Add(this.dtp_Bill_End);
@@ -416,6 +524,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtg_Bill)).EndInit();
             this.pn_infoChanges.ResumeLayout(false);
             this.pn_infoChanges.PerformLayout();
+            this.guna2PanelH.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLichSuHoaDon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -450,5 +560,10 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel16;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel17;
         private Guna.UI2.WinForms.Guna2GradientButton btn_Xacnhan;
+        private Guna.UI2.WinForms.Guna2GradientButton btn_History_Bill;
+        private Guna.UI2.WinForms.Guna2Panel guna2PanelH;
+        private Guna.UI2.WinForms.Guna2DataGridView dgvLichSuHoaDon;
+        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse2;
+        private System.Windows.Forms.Timer timer1;
     }
 }

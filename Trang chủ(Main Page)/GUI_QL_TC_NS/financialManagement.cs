@@ -8,10 +8,11 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows.Forms;
 using BLL;
 using Trang_chu_Main_Page_.GUI_QL_TC_NS;
-
+using Microsoft.VisualBasic;
 namespace Trang_chủ_Main_Page_
 {
     public partial class financialManagement : Form
@@ -21,7 +22,8 @@ namespace Trang_chủ_Main_Page_
         {
             InitializeComponent();
         }
-
+        bool menuExpand = false;
+    
         private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -67,7 +69,8 @@ namespace Trang_chủ_Main_Page_
             }
 
         }
-
+        
+    
         private void btn_Bill_Cancel_Click(object sender, EventArgs e)
         {
             if (dtg_Bill.SelectedRows.Count > 0)
@@ -79,50 +82,69 @@ namespace Trang_chủ_Main_Page_
 
                 if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
                 {
-                   
                     confirmMessage = "Bạn có chắc chắn muốn xóa hóa đơn này?";
                     titleMessage = "Xác nhận xóa";
                 }
                 else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
                 {
-                    
                     confirmMessage = "Are you sure you want to delete this invoice?";
                     titleMessage = "Delete Confirmation";
                 }
+               
+                // Hiển thị MessageBox xác nhận
                 DialogResult result = MessageBox.Show(confirmMessage, titleMessage, MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
 
                 if (result == DialogResult.Yes)
                 {
-                    if (bLL_QuanlyTCNS.XoaHoaDon(maHoaDon))
+                    // Gọi Form nhập lý do xóa
+                   Lido reasonForm = new Lido();
+                    if (reasonForm.ShowDialog() == DialogResult.OK)
                     {
-                        if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
-                        {
-                            MessageBox.Show("Xóa hóa đơn thành công!");
-                        }
-                        else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
-                        {
-                            MessageBox.Show("Invoice deleted successfully!");
-                        }
+                        string reason = reasonForm.Reason;
 
-
-                        DataTable dataTable = bLL_QuanlyTCNS.xemDSHD();
-                        dtg_Bill.DataSource = dataTable;
-                    }
-                    else
-                    {
-                        if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                        if (!string.IsNullOrEmpty(reason))
                         {
-                            // Tiếng Việt
-                            MessageBox.Show("Xóa thất bại, vui lòng thử lại.");
+                            // Gọi Business Logic Layer để thực hiện xóa hóa đơn và lưu lý do
+                            bool isDeleted = bLL_QuanlyTCNS.XoaHoaDon(maHoaDon, reason);
+
+                            if (isDeleted)
+                            {
+                                if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                                {
+                                    MessageBox.Show("Xóa hóa đơn thành công!");
+                                }
+                                else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                                {
+                                    MessageBox.Show("Invoice deleted successfully!");
+                                }
+
+                                // Cập nhật lại danh sách hóa đơn
+                                DataTable dataTable = bLL_QuanlyTCNS.xemDSHD();
+                                dtg_Bill.DataSource = dataTable;
+                            }
+                            else
+                            {
+                                if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                                {
+                                    MessageBox.Show("Xóa thất bại, vui lòng thử lại.");
+                                }
+                                else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                                {
+                                    MessageBox.Show("Deletion failed, please try again.");
+                                }
+                            }
                         }
-                        else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                        else
                         {
-                            // Tiếng Anh
-                            MessageBox.Show("Deletion failed, please try again.");
+                            if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                            {
+                                MessageBox.Show("Vui lòng nhập lý do xóa!");
+                            }
+                            else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                            {
+                                MessageBox.Show("Please enter a reason for deletion!");
+                            }
                         }
-
-
                     }
                 }
             }
@@ -130,16 +152,14 @@ namespace Trang_chủ_Main_Page_
             {
                 if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
                 {
-                    // Tiếng Việt
                     MessageBox.Show("Vui lòng chọn hóa đơn cần xóa!");
                 }
                 else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
                 {
-                    // Tiếng Anh
                     MessageBox.Show("Please select an invoice to delete!");
                 }
-
             }
+
 
         }
 
@@ -245,6 +265,73 @@ namespace Trang_chủ_Main_Page_
                     menuExpand_3 = false;
                 }
             }
+        }
+
+        private void btn_History_Bill_Click(object sender, EventArgs e)
+        {
+            // Lấy danh sách lịch sử hóa đơn
+            DataTable dataTable = bLL_QuanlyTCNS.GetLichSuHoaDon(); // Gọi phương thức BLL để lấy dữ liệu lịch sử hóa đơn
+            dgvLichSuHoaDon.DataSource = dataTable;  // Hiển thị dữ liệu vào DataGridView
+
+            // Điều chỉnh tiêu đề cột dựa trên ngôn ngữ
+            if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+            {
+                // Tiếng Việt
+                dgvLichSuHoaDon.Columns[0].HeaderText = "Mã Hóa Đơn";
+                dgvLichSuHoaDon.Columns[1].HeaderText = "Thời Gian Xóa";
+                dgvLichSuHoaDon.Columns[2].HeaderText = "Mã Nhân Viên";
+                dgvLichSuHoaDon.Columns[3].HeaderText = "Số Điện Thoại";
+                dgvLichSuHoaDon.Columns[4].HeaderText = "Lý Do Xóa";
+            }
+            else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+            {
+                // Tiếng Anh
+                dgvLichSuHoaDon.Columns[0].HeaderText = "Invoice Code";
+                dgvLichSuHoaDon.Columns[1].HeaderText = "Deletion Time";
+                dgvLichSuHoaDon.Columns[2].HeaderText = "Employee Code";
+                dgvLichSuHoaDon.Columns[3].HeaderText = "Phone Number";
+                dgvLichSuHoaDon.Columns[4].HeaderText = "Reason for Deletion";
+            }
+
+            // Tắt tính năng sắp xếp cột
+            foreach (DataGridViewColumn column in dgvLichSuHoaDon.Columns)
+            {
+                column.SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
+
+            // Tắt tính năng thay đổi kích thước cột
+            foreach (DataGridViewColumn column in dgvLichSuHoaDon.Columns)
+            {
+                column.Resizable = DataGridViewTriState.False;
+            }
+            timer1.Start();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (menuExpand == false)
+            {
+                guna2PanelH.Height += 50;
+                if (guna2PanelH.Height >= 700)
+                {
+                    timer1.Stop();
+                    menuExpand = true;
+                }
+            }
+            else
+            {
+                guna2PanelH.Height -= 50;
+                if (guna2PanelH.Height <= 0)
+                {
+                    timer1.Stop();
+                    menuExpand = false;
+                }
+            }
+        }
+
+        private void dgvLichSuHoaDon_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
         }
     }
 }

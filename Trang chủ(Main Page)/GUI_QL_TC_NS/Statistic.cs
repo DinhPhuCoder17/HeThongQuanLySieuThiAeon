@@ -104,7 +104,15 @@ namespace Trang_chủ_Main_Page_
             int selectedYear = selectedMonth.Year;
             int selectedMonthValue = selectedMonth.Month;
 
-            List<string> labels = new List<string> { "Tuần 1", "Tuần 2", "Tuần 3", "Tuần 4" };
+            List<string> labels;
+            if (lbl2.Text == "Total Expenses") // Tiếng Việt
+            {
+                labels = new List<string> { "Week 1", "Week 2", "Week 3", "Week 4" };
+            }
+            else // Tiếng Anh
+            {
+                labels = new List<string>  { "Tuần 1", "Tuần 2", "Tuần 3", "Tuần 4" };
+            }
 
             double[] expenseData = new double[4];
             double[] revenueData = new double[4];
@@ -218,8 +226,22 @@ namespace Trang_chủ_Main_Page_
         }
         private void UpdateMonthLabel()
         {
-            lbl_Month_Display.Text = $"Tháng {selectedMonth.Month}"; // Định dạng "Tháng X"
-           
+         
+            List<string> labels;
+            if (lbl2.Text == "Total Expenses") // Tiếng Việt
+            {
+                string[] monthNames = new[] {
+            "January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+        };
+
+                // Cập nhật lbl_Month_Display để hiển thị tên tháng bằng tiếng Anh
+                lbl_Month_Display.Text = $"{monthNames[selectedMonth.Month - 1]}";
+            }
+            else // Tiếng Anh
+            {
+                lbl_Month_Display.Text = $"Tháng {selectedMonth.Month}"; // Định dạng "Tháng X"
+            }
         }
 
         private void label14_Click(object sender, EventArgs e)

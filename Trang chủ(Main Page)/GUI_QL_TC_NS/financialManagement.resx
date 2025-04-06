@@ -169,7 +169,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;guna2Panel1.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>10</value>
   </data>
   <data name="dtg_Bill.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
@@ -202,13 +202,16 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;dtg_Bill.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>9</value>
   </data>
   <metadata name="guna2Elipse1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
   <data name="label11.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Semibold, 10.8pt, style=Bold</value>
+  </data>
+  <data name="label11.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="label11.Location" type="System.Drawing.Point, System.Drawing">
     <value>34, 89</value>
@@ -232,7 +235,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label11.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="dtp_Bill_Start.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Right</value>
@@ -259,7 +262,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;dtp_Bill_Start.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>8</value>
   </data>
   <data name="dtp_Bill_End.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Right</value>
@@ -286,7 +289,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;dtp_Bill_End.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>7</value>
   </data>
   <data name="lblCustomerList.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9pt, style=Bold</value>
@@ -316,13 +319,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblCustomerList.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>6</value>
   </data>
   <data name="btn_Bill_Cancel.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 10pt</value>
   </data>
   <data name="btn_Bill_Cancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>355, 75</value>
+    <value>243, 75</value>
   </data>
   <data name="btn_Bill_Cancel.Size" type="System.Drawing.Size, System.Drawing">
     <value>163, 58</value>
@@ -343,7 +346,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn_Bill_Cancel.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>5</value>
   </data>
   <data name="btn_Bill_FilterDate.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 10pt</value>
@@ -370,7 +373,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn_Bill_FilterDate.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <metadata name="tm_InforChanges.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>161, 1</value>
@@ -835,13 +838,103 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pn_infoChanges.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btn_History_Bill.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10pt</value>
+  </data>
+  <data name="btn_History_Bill.Location" type="System.Drawing.Point, System.Drawing">
+    <value>426, 75</value>
+  </data>
+  <data name="btn_History_Bill.Size" type="System.Drawing.Size, System.Drawing">
+    <value>163, 58</value>
+  </data>
+  <data name="btn_History_Bill.TabIndex" type="System.Int32, mscorlib">
+    <value>25</value>
+  </data>
+  <data name="btn_History_Bill.Text" xml:space="preserve">
+    <value>Lịch Sử Hủy Đơn</value>
+  </data>
+  <data name="&gt;&gt;btn_History_Bill.Name" xml:space="preserve">
+    <value>btn_History_Bill</value>
+  </data>
+  <data name="&gt;&gt;btn_History_Bill.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2GradientButton, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;btn_History_Bill.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btn_History_Bill.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="guna2PanelH.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left</value>
+  </data>
+  <data name="dgvLichSuHoaDon.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="dgvLichSuHoaDon.ColumnHeadersHeight" type="System.Int32, mscorlib">
+    <value>40</value>
+  </data>
+  <data name="dgvLichSuHoaDon.Location" type="System.Drawing.Point, System.Drawing">
+    <value>29, 18</value>
+  </data>
+  <data name="dgvLichSuHoaDon.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>20, 20, 20, 20</value>
+  </data>
+  <data name="dgvLichSuHoaDon.RowHeadersWidth" type="System.Int32, mscorlib">
+    <value>51</value>
+  </data>
+  <data name="dgvLichSuHoaDon.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1125, 659</value>
+  </data>
+  <data name="dgvLichSuHoaDon.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;dgvLichSuHoaDon.Name" xml:space="preserve">
+    <value>dgvLichSuHoaDon</value>
+  </data>
+  <data name="&gt;&gt;dgvLichSuHoaDon.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2DataGridView, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;dgvLichSuHoaDon.Parent" xml:space="preserve">
+    <value>guna2PanelH</value>
+  </data>
+  <data name="&gt;&gt;dgvLichSuHoaDon.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="guna2PanelH.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 139</value>
+  </data>
+  <data name="guna2PanelH.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1169, 0</value>
+  </data>
+  <data name="guna2PanelH.TabIndex" type="System.Int32, mscorlib">
+    <value>34</value>
+  </data>
+  <data name="&gt;&gt;guna2PanelH.Name" xml:space="preserve">
+    <value>guna2PanelH</value>
+  </data>
+  <data name="&gt;&gt;guna2PanelH.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2Panel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;guna2PanelH.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;guna2PanelH.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="guna2Elipse2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>335, 20</value>
+  </metadata>
+  <metadata name="timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>479, 20</value>
+  </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>25</value>
+    <value>60</value>
   </metadata>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>1181, 842</value>
@@ -859,6 +952,18 @@
     <value>tm_InforChanges</value>
   </data>
   <data name="&gt;&gt;tm_InforChanges.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;guna2Elipse2.Name" xml:space="preserve">
+    <value>guna2Elipse2</value>
+  </data>
+  <data name="&gt;&gt;guna2Elipse2.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2Elipse, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;timer1.Name" xml:space="preserve">
+    <value>timer1</value>
+  </data>
+  <data name="&gt;&gt;timer1.Type" xml:space="preserve">
     <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
