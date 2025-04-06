@@ -572,7 +572,7 @@ namespace Trang_chủ_Main_Page_
                 // Mở lại combobox và search textbox khi hủy sửa
                 cmb_SapXepDM_DSTK.Enabled = true;     // Kích hoạt lại combobox
                 txtSearchDSTonKho.Enabled = true;       // Kích hoạt lại search textbox
-
+                
                 // Gỡ bỏ đăng ký sự kiện CellValidating
                 dgvDSTonKho.CellValidating -= dgvDSTonKho_CellValidating;
 
@@ -612,6 +612,7 @@ namespace Trang_chủ_Main_Page_
                                                     "Thông báo",
                                                     MessageBoxButtons.OK,
                                                     MessageBoxIcon.Warning);
+
                                 }
                                 else
                                 {
