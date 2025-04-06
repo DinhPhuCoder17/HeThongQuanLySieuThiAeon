@@ -69,7 +69,7 @@ namespace Trang_chu_Main_Page_.GUI_QLHangHoa
             if (pn_supplier_Add_Expand == false)
             {
                 pn_Supplier_Add.Height += 20;
-                if (pn_Supplier_Add.Height >= 300)
+                if (pn_Supplier_Add.Height >= 0)
                 {
                     t_Supplier_Add.Stop();
                     pn_supplier_Add_Expand = true;

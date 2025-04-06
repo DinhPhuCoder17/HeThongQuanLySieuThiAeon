@@ -84,15 +84,14 @@
             // 
             // guna2Panel4
             // 
-            resources.ApplyResources(this.guna2Panel4, "guna2Panel4");
             this.guna2Panel4.BackColor = System.Drawing.Color.White;
             this.guna2Panel4.Controls.Add(this.guna2TextBox2);
+            resources.ApplyResources(this.guna2Panel4, "guna2Panel4");
             this.guna2Panel4.Name = "guna2Panel4";
             this.guna2Panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel4_Paint);
             // 
             // guna2TextBox2
             // 
-            resources.ApplyResources(this.guna2TextBox2, "guna2TextBox2");
             this.guna2TextBox2.Animated = true;
             this.guna2TextBox2.BackColor = System.Drawing.Color.White;
             this.guna2TextBox2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
@@ -106,6 +105,7 @@
             this.guna2TextBox2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.guna2TextBox2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
             this.guna2TextBox2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            resources.ApplyResources(this.guna2TextBox2, "guna2TextBox2");
             this.guna2TextBox2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBox2.Name = "guna2TextBox2";
             this.guna2TextBox2.PlaceholderForeColor = System.Drawing.Color.Black;
@@ -114,15 +114,14 @@
             // 
             // label1
             // 
-            resources.ApplyResources(this.label1, "label1");
             this.label1.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.label1, "label1");
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Name = "label1";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // btnXoaNCC
             // 
-            resources.ApplyResources(this.btnXoaNCC, "btnXoaNCC");
             this.btnXoaNCC.Animated = true;
             this.btnXoaNCC.BorderRadius = 8;
             this.btnXoaNCC.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -132,13 +131,13 @@
             this.btnXoaNCC.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnXoaNCC.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
             this.btnXoaNCC.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            resources.ApplyResources(this.btnXoaNCC, "btnXoaNCC");
             this.btnXoaNCC.ForeColor = System.Drawing.Color.White;
             this.btnXoaNCC.Name = "btnXoaNCC";
             this.btnXoaNCC.Click += new System.EventHandler(this.btnXoaNCC_Click);
             // 
             // btnSuaNCC
             // 
-            resources.ApplyResources(this.btnSuaNCC, "btnSuaNCC");
             this.btnSuaNCC.Animated = true;
             this.btnSuaNCC.BorderRadius = 8;
             this.btnSuaNCC.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -148,13 +147,13 @@
             this.btnSuaNCC.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnSuaNCC.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
             this.btnSuaNCC.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            resources.ApplyResources(this.btnSuaNCC, "btnSuaNCC");
             this.btnSuaNCC.ForeColor = System.Drawing.Color.White;
             this.btnSuaNCC.Name = "btnSuaNCC";
             this.btnSuaNCC.Click += new System.EventHandler(this.btnSuaNCC_Click);
             // 
             // btnThemNCC
             // 
-            resources.ApplyResources(this.btnThemNCC, "btnThemNCC");
             this.btnThemNCC.Animated = true;
             this.btnThemNCC.BackColor = System.Drawing.Color.Transparent;
             this.btnThemNCC.BorderRadius = 8;
@@ -165,17 +164,18 @@
             this.btnThemNCC.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnThemNCC.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
             this.btnThemNCC.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            resources.ApplyResources(this.btnThemNCC, "btnThemNCC");
             this.btnThemNCC.ForeColor = System.Drawing.Color.White;
             this.btnThemNCC.Name = "btnThemNCC";
             this.btnThemNCC.Click += new System.EventHandler(this.guna2GradientButton1_Click_1);
             // 
             // dgvNhaCungCap
             // 
-            resources.ApplyResources(this.dgvNhaCungCap, "dgvNhaCungCap");
             this.dgvNhaCungCap.AllowUserToAddRows = false;
             this.dgvNhaCungCap.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dgvNhaCungCap.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            resources.ApplyResources(this.dgvNhaCungCap, "dgvNhaCungCap");
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -237,7 +237,6 @@
             // 
             // pn_Supplier_Add
             // 
-            resources.ApplyResources(this.pn_Supplier_Add, "pn_Supplier_Add");
             this.pn_Supplier_Add.BackColor = System.Drawing.Color.Transparent;
             this.pn_Supplier_Add.BorderRadius = 20;
             this.pn_Supplier_Add.Controls.Add(this.btn_Them);
@@ -250,12 +249,12 @@
             this.pn_Supplier_Add.Controls.Add(this.txt_tenNCC);
             this.pn_Supplier_Add.Controls.Add(this.label8);
             this.pn_Supplier_Add.FillColor = System.Drawing.SystemColors.Control;
+            resources.ApplyResources(this.pn_Supplier_Add, "pn_Supplier_Add");
             this.pn_Supplier_Add.Name = "pn_Supplier_Add";
             this.pn_Supplier_Add.Paint += new System.Windows.Forms.PaintEventHandler(this.pn_Supplier_Add_Paint);
             // 
             // btn_Them
             // 
-            resources.ApplyResources(this.btn_Them, "btn_Them");
             this.btn_Them.Animated = true;
             this.btn_Them.BackColor = System.Drawing.Color.Transparent;
             this.btn_Them.BorderRadius = 8;
@@ -266,13 +265,13 @@
             this.btn_Them.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btn_Them.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
             this.btn_Them.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            resources.ApplyResources(this.btn_Them, "btn_Them");
             this.btn_Them.ForeColor = System.Drawing.Color.White;
             this.btn_Them.Name = "btn_Them";
             this.btn_Them.Click += new System.EventHandler(this.btn_Them_Click);
             // 
             // txt_diachi
             // 
-            resources.ApplyResources(this.txt_diachi, "txt_diachi");
             this.txt_diachi.BackColor = System.Drawing.Color.Transparent;
             this.txt_diachi.BorderColor = System.Drawing.Color.Silver;
             this.txt_diachi.BorderRadius = 8;
@@ -283,6 +282,7 @@
             this.txt_diachi.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txt_diachi.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txt_diachi.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            resources.ApplyResources(this.txt_diachi, "txt_diachi");
             this.txt_diachi.ForeColor = System.Drawing.Color.Gray;
             this.txt_diachi.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_diachi.Name = "txt_diachi";
@@ -291,14 +291,13 @@
             // 
             // label10
             // 
-            resources.ApplyResources(this.label10, "label10");
             this.label10.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.label10, "label10");
             this.label10.ForeColor = System.Drawing.Color.Black;
             this.label10.Name = "label10";
             // 
             // txt_mst
             // 
-            resources.ApplyResources(this.txt_mst, "txt_mst");
             this.txt_mst.BackColor = System.Drawing.Color.Transparent;
             this.txt_mst.BorderColor = System.Drawing.Color.Silver;
             this.txt_mst.BorderRadius = 8;
@@ -309,6 +308,7 @@
             this.txt_mst.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txt_mst.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txt_mst.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            resources.ApplyResources(this.txt_mst, "txt_mst");
             this.txt_mst.ForeColor = System.Drawing.Color.Gray;
             this.txt_mst.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_mst.Name = "txt_mst";
@@ -317,14 +317,13 @@
             // 
             // label2
             // 
-            resources.ApplyResources(this.label2, "label2");
             this.label2.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.label2, "label2");
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Name = "label2";
             // 
             // txt_sdt
             // 
-            resources.ApplyResources(this.txt_sdt, "txt_sdt");
             this.txt_sdt.BackColor = System.Drawing.Color.Transparent;
             this.txt_sdt.BorderColor = System.Drawing.Color.Silver;
             this.txt_sdt.BorderRadius = 8;
@@ -335,6 +334,7 @@
             this.txt_sdt.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txt_sdt.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txt_sdt.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            resources.ApplyResources(this.txt_sdt, "txt_sdt");
             this.txt_sdt.ForeColor = System.Drawing.Color.Gray;
             this.txt_sdt.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_sdt.Name = "txt_sdt";
@@ -343,14 +343,13 @@
             // 
             // label9
             // 
-            resources.ApplyResources(this.label9, "label9");
             this.label9.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.label9, "label9");
             this.label9.ForeColor = System.Drawing.Color.Black;
             this.label9.Name = "label9";
             // 
             // txt_tenNCC
             // 
-            resources.ApplyResources(this.txt_tenNCC, "txt_tenNCC");
             this.txt_tenNCC.BackColor = System.Drawing.Color.Transparent;
             this.txt_tenNCC.BorderColor = System.Drawing.Color.Silver;
             this.txt_tenNCC.BorderRadius = 8;
@@ -361,6 +360,7 @@
             this.txt_tenNCC.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txt_tenNCC.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txt_tenNCC.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            resources.ApplyResources(this.txt_tenNCC, "txt_tenNCC");
             this.txt_tenNCC.ForeColor = System.Drawing.Color.Gray;
             this.txt_tenNCC.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_tenNCC.Name = "txt_tenNCC";
@@ -369,8 +369,8 @@
             // 
             // label8
             // 
-            resources.ApplyResources(this.label8, "label8");
             this.label8.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.label8, "label8");
             this.label8.ForeColor = System.Drawing.Color.Black;
             this.label8.Name = "label8";
             // 
@@ -386,8 +386,8 @@
             // 
             // guna2Panel2
             // 
-            resources.ApplyResources(this.guna2Panel2, "guna2Panel2");
             this.guna2Panel2.Controls.Add(this.dgvNhaCungCap);
+            resources.ApplyResources(this.guna2Panel2, "guna2Panel2");
             this.guna2Panel2.Name = "guna2Panel2";
             // 
             // tm_InforChanges
@@ -397,7 +397,6 @@
             // 
             // pn_infoChanges
             // 
-            resources.ApplyResources(this.pn_infoChanges, "pn_infoChanges");
             this.pn_infoChanges.BackColor = System.Drawing.Color.Transparent;
             this.pn_infoChanges.BorderColor = System.Drawing.Color.Transparent;
             this.pn_infoChanges.BorderRadius = 20;
@@ -417,11 +416,11 @@
             this.pn_infoChanges.Controls.Add(this.guna2HtmlLabel3);
             this.pn_infoChanges.Controls.Add(this.btn_Xacnhan);
             this.pn_infoChanges.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            resources.ApplyResources(this.pn_infoChanges, "pn_infoChanges");
             this.pn_infoChanges.Name = "pn_infoChanges";
             // 
             // tb_mk2
             // 
-            resources.ApplyResources(this.tb_mk2, "tb_mk2");
             this.tb_mk2.BorderRadius = 8;
             this.tb_mk2.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tb_mk2.DefaultText = "";
@@ -430,6 +429,7 @@
             this.tb_mk2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tb_mk2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tb_mk2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            resources.ApplyResources(this.tb_mk2, "tb_mk2");
             this.tb_mk2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tb_mk2.Name = "tb_mk2";
             this.tb_mk2.PlaceholderText = "";
@@ -437,7 +437,6 @@
             // 
             // tb_mk1
             // 
-            resources.ApplyResources(this.tb_mk1, "tb_mk1");
             this.tb_mk1.BorderRadius = 8;
             this.tb_mk1.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tb_mk1.DefaultText = "";
@@ -446,6 +445,7 @@
             this.tb_mk1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tb_mk1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tb_mk1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            resources.ApplyResources(this.tb_mk1, "tb_mk1");
             this.tb_mk1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tb_mk1.Name = "tb_mk1";
             this.tb_mk1.PlaceholderText = "";
@@ -453,84 +453,83 @@
             // 
             // lb_sdt
             // 
-            resources.ApplyResources(this.lb_sdt, "lb_sdt");
             this.lb_sdt.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.lb_sdt, "lb_sdt");
             this.lb_sdt.Name = "lb_sdt";
             this.lb_sdt.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lb_Gioitinh
             // 
-            resources.ApplyResources(this.lb_Gioitinh, "lb_Gioitinh");
             this.lb_Gioitinh.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.lb_Gioitinh, "lb_Gioitinh");
             this.lb_Gioitinh.Name = "lb_Gioitinh";
             this.lb_Gioitinh.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lb_Ngaysinh
             // 
-            resources.ApplyResources(this.lb_Ngaysinh, "lb_Ngaysinh");
             this.lb_Ngaysinh.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.lb_Ngaysinh, "lb_Ngaysinh");
             this.lb_Ngaysinh.Name = "lb_Ngaysinh";
             this.lb_Ngaysinh.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lb_Hoten
             // 
-            resources.ApplyResources(this.lb_Hoten, "lb_Hoten");
             this.lb_Hoten.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.lb_Hoten, "lb_Hoten");
             this.lb_Hoten.Name = "lb_Hoten";
             this.lb_Hoten.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lb_Ma
             // 
-            resources.ApplyResources(this.lb_Ma, "lb_Ma");
             this.lb_Ma.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.lb_Ma, "lb_Ma");
             this.lb_Ma.Name = "lb_Ma";
             this.lb_Ma.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // guna2HtmlLabel14
             // 
-            resources.ApplyResources(this.guna2HtmlLabel14, "guna2HtmlLabel14");
             this.guna2HtmlLabel14.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.guna2HtmlLabel14, "guna2HtmlLabel14");
             this.guna2HtmlLabel14.Name = "guna2HtmlLabel14";
             // 
             // guna2HtmlLabel9
             // 
-            resources.ApplyResources(this.guna2HtmlLabel9, "guna2HtmlLabel9");
             this.guna2HtmlLabel9.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.guna2HtmlLabel9, "guna2HtmlLabel9");
             this.guna2HtmlLabel9.Name = "guna2HtmlLabel9";
             // 
             // guna2HtmlLabel7
             // 
-            resources.ApplyResources(this.guna2HtmlLabel7, "guna2HtmlLabel7");
             this.guna2HtmlLabel7.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.guna2HtmlLabel7, "guna2HtmlLabel7");
             this.guna2HtmlLabel7.Name = "guna2HtmlLabel7";
             // 
             // guna2HtmlLabel5
             // 
-            resources.ApplyResources(this.guna2HtmlLabel5, "guna2HtmlLabel5");
             this.guna2HtmlLabel5.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.guna2HtmlLabel5, "guna2HtmlLabel5");
             this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
             // 
             // guna2HtmlLabel13
             // 
-            resources.ApplyResources(this.guna2HtmlLabel13, "guna2HtmlLabel13");
             this.guna2HtmlLabel13.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.guna2HtmlLabel13, "guna2HtmlLabel13");
             this.guna2HtmlLabel13.Name = "guna2HtmlLabel13";
             // 
             // guna2HtmlLabel12
             // 
-            resources.ApplyResources(this.guna2HtmlLabel12, "guna2HtmlLabel12");
             this.guna2HtmlLabel12.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.guna2HtmlLabel12, "guna2HtmlLabel12");
             this.guna2HtmlLabel12.Name = "guna2HtmlLabel12";
             // 
             // guna2HtmlLabel3
             // 
-            resources.ApplyResources(this.guna2HtmlLabel3, "guna2HtmlLabel3");
             this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.guna2HtmlLabel3, "guna2HtmlLabel3");
             this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
             // 
             // btn_Xacnhan
             // 
-            resources.ApplyResources(this.btn_Xacnhan, "btn_Xacnhan");
             this.btn_Xacnhan.Animated = true;
             this.btn_Xacnhan.BackColor = System.Drawing.Color.Transparent;
             this.btn_Xacnhan.BorderRadius = 8;
@@ -541,13 +540,26 @@
             this.btn_Xacnhan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btn_Xacnhan.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(124)))), ((int)(((byte)(99)))));
             this.btn_Xacnhan.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            resources.ApplyResources(this.btn_Xacnhan, "btn_Xacnhan");
             this.btn_Xacnhan.ForeColor = System.Drawing.Color.White;
             this.btn_Xacnhan.Name = "btn_Xacnhan";
             // 
+            // label4
+            // 
+            resources.ApplyResources(this.label4, "label4");
+            this.label4.Name = "label4";
+            // 
+            // guna2CirclePictureBox1
+            // 
+            resources.ApplyResources(this.guna2CirclePictureBox1, "guna2CirclePictureBox1");
+            this.guna2CirclePictureBox1.ImageRotate = 0F;
+            this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
+            this.guna2CirclePictureBox1.TabStop = false;
+            // 
             // QuanLyNhaCungCap
             // 
-            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
+            resources.ApplyResources(this, "$this");
             this.Controls.Add(this.pn_infoChanges);
             this.Controls.Add(this.pn_Supplier_Add);
             this.Controls.Add(this.label1);
@@ -560,7 +572,6 @@
             this.Name = "QuanLyNhaCungCap";
             this.Load += new System.EventHandler(this.QuanLyNhaCungCap_Load);
             this.guna2Panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhaCungCap)).EndInit();
             this.pn_Supplier_Add.ResumeLayout(false);
             this.guna2Panel2.ResumeLayout(false);
