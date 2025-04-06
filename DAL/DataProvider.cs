@@ -15,7 +15,7 @@ namespace DAL
         private String connectionStr = @"Data Source=DESKTOP-9UCJD9K;Initial Catalog=QuanLySieuThiAEON;Integrated Security=True;TrustServerCertificate=True";
         private readonly static string computerName = Environment.MachineName;
         //Liêm
-        //String connectionStr = $"Data Source=" + computerName + @";Initial Catalog=QuanLySieuThiAEON;Integrated Security=True;Encrypt=True";
+        String connectionStr = $"Data Source=" + computerName + @";Initial Catalog=QuanLySieuThiAEON;Integrated Security=True;Encrypt=True";
 
         //private String connectionStr = @"Data Source=.\SQLEXPRESS;Initial Catalog=QuanLySieuThiAEON;Integrated Security=True";
 

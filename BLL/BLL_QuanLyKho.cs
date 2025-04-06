@@ -118,21 +118,20 @@ namespace BLL
         public List<DTO_Hanghoa> hangHoa_NhapHang()
         {
             DataTable dt = DAL_QuanLyKho.hangHoa_NhapHang();
-            List<DTO_Hanghoa> list = new List<DTO_Hanghoa>();
-
-            string defaultImagePath = "Resources/z6338454431504_88b6a5b9be1edce907298e1dbea998ea.jpg";
-            byte[] defaultImage = File.Exists(defaultImagePath) ? File.ReadAllBytes(defaultImagePath) : null;
+            var list = new List<DTO_Hanghoa>();
 
             foreach (DataRow row in dt.Rows)
             {
-                DTO_Hanghoa hangHoa = new DTO_Hanghoa
+                var hangHoa = new DTO_Hanghoa
                 {
                     MaHangHoa = row["MaHangHoa"].ToString(),
                     DanhMuc = row["TenDanhMuc"].ToString(),
                     TenHangHoa = row["Tenhanghoa"].ToString(),
                     NhaCC = row["TenNCC"].ToString(),
                     GiaNhap = Convert.ToSingle(row["Tiennhap"]),
-                    HinhAnh = row["ImageData"] != DBNull.Value ? (byte[])row["ImageData"] : defaultImage
+                    // Nếu ImageData NULL thì gán mảng byte rỗng chứ không gán null
+                    HinhAnh = row["ImageData"] as byte[]
+
                 };
 
                 list.Add(hangHoa);
@@ -192,7 +191,6 @@ namespace BLL
                     MaNCC = row["MaNCC"].ToString(),
                     TenNCC = row["TenNCC"].ToString()
                 };
-
                 list.Add(ncc);
             }
 

@@ -374,7 +374,7 @@ namespace Trang_chủ_Main_Page_
                                     if(col.ColumnName == "Giá" || col.ColumnName == "Thành tiền")
                                     {
                                         decimal value = decimal.Parse(row[col].ToString(), new CultureInfo("vi-VN"));
-                                        int intValue = Convert.ToInt32(value);
+                                        long intValue = Convert.ToInt64(value);
                                         if (value >= 1_000_000_000)
                                         {
                                             cell = new PdfPCell(new Phrase(FormatShortNumber(value) + " đ", normalFont));
