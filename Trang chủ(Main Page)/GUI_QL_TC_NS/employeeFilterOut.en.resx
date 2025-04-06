@@ -8759,7 +8759,7 @@
     <value>73, 161</value>
   </data>
   <data name="lb_Ngaysinh.Location" type="System.Drawing.Point, System.Drawing">
-    <value>109, 116</value>
+    <value>90, 116</value>
   </data>
   <data name="lb_Hoten.Location" type="System.Drawing.Point, System.Drawing">
     <value>73, 70</value>
