@@ -15,6 +15,7 @@ using iTextSharp.text.pdf;
 using iTextSharp.text;
 using System.IO;
 using System.Text.RegularExpressions;
+using ServiceStack;
 
 namespace Trang_chủ_Main_Page_
 {
@@ -32,7 +33,8 @@ namespace Trang_chủ_Main_Page_
 
         private void employeeFilterOut_Load(object sender, EventArgs e)
         {
-           
+            btn_Customer_LogBuCong.Enabled = false;
+            btn_Employ_Report.Enabled = false;
             //Datagridview bảng nhân viên
             dtg_Employee.DataSource = bLL_QuanlyTCNS.xemDSNV();
             if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
@@ -112,6 +114,7 @@ namespace Trang_chủ_Main_Page_
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
+            
             logTransition.Start();
         }
 
@@ -127,6 +130,7 @@ namespace Trang_chủ_Main_Page_
 
         private void guna2GradientButton1_Click(object sender, EventArgs e)
         {
+
             //Datagridview bảng chấm công
             dtg_DSCC.DataSource = bLL_QuanlyTCNS.xemDSCC();
             dtg_DSCC.Columns[0].HeaderText = "ID";
@@ -149,6 +153,8 @@ namespace Trang_chủ_Main_Page_
                 {
                     logTransition_2.Stop();
                     menuExpand_2 = true;
+                    btn_Customer_LogBuCong.Enabled = true;
+                    btn_Employ_Report.Enabled = true;
                 }
             }
             else
@@ -158,6 +164,8 @@ namespace Trang_chủ_Main_Page_
                 {
                     logTransition_2.Stop();
                     menuExpand_2 = false;
+                    btn_Customer_LogBuCong.Enabled = false;
+                    btn_Employ_Report.Enabled = false;
                 }
             }
         }
@@ -305,7 +313,6 @@ namespace Trang_chủ_Main_Page_
             {
                 try
                 {
-                    // Lấy dữ liệu từ DataGridView
                     DataTable dt = (DataTable)dtg_DSCC.DataSource;
 
                     // Tạo file PDF
@@ -352,14 +359,38 @@ namespace Trang_chủ_Main_Page_
                         PdfPTable timesheetTable = new PdfPTable(dt.Columns.Count); // Số cột bằng số cột trong DataTable
                         timesheetTable.WidthPercentage = 100; // Đặt bảng chiếm toàn bộ chiều rộng trang
 
+                        // Tạo từ điển ánh xạ tên cột từ cũ sang mới
+                        Dictionary<string, string> columnNames = new Dictionary<string, string>()
+            {
+                { "ID", "ID" },
+                { "ThoigianCN", "Thời Gian Cập Nhật" },
+                { "Checkin", "Giờ Vào" },
+                { "Checkout", "Giờ Ra" },
+                { "Socong", "Số Công" },
+                { "Trangthai", "Trạng Thái" },
+                { "Macalam", "Mã Ca Làm" },
+                { "Manhanvien", "Mã Nhân Viên" }
+            };
+
                         // Thêm tiêu đề cột vào bảng
                         foreach (DataColumn column in dt.Columns)
                         {
-                            timesheetTable.AddCell(new PdfPCell(new Phrase(column.ColumnName, boldFont))
+                            string columnName = column.ColumnName;
+
+                            // Kiểm tra nếu tên cột có trong từ điển ánh xạ, nếu có thì thay thế
+                            if (columnNames.ContainsKey(columnName))
                             {
-                                HorizontalAlignment = Element.ALIGN_CENTER,
-                                VerticalAlignment = Element.ALIGN_MIDDLE
-                            });
+                                columnName = columnNames[columnName];
+                            }
+
+                            // Thêm tên cột vào bảng với tên đã thay thế
+                            PdfPCell cell = new PdfPCell(new Phrase(columnName, boldFont))
+                            {
+                                HorizontalAlignment = Element.ALIGN_CENTER,  // Căn giữa theo chiều ngang
+                                VerticalAlignment = Element.ALIGN_MIDDLE,   // Căn giữa theo chiều dọc
+                                BackgroundColor = BaseColor.LIGHT_GRAY      // Tạo màu nền nhẹ cho tiêu đề cột
+                            };
+                            timesheetTable.AddCell(cell);
                         }
 
                         // Thêm dữ liệu chấm công vào bảng
@@ -369,8 +400,8 @@ namespace Trang_chủ_Main_Page_
                             {
                                 timesheetTable.AddCell(new PdfPCell(new Phrase(cell.ToString(), normalFont))
                                 {
-                                    HorizontalAlignment = Element.ALIGN_CENTER,
-                                    VerticalAlignment = Element.ALIGN_MIDDLE
+                                    HorizontalAlignment = Element.ALIGN_CENTER,  // Căn giữa theo chiều ngang
+                                    VerticalAlignment = Element.ALIGN_MIDDLE   // Căn giữa theo chiều dọc
                                 });
                             }
                         }
@@ -378,7 +409,27 @@ namespace Trang_chủ_Main_Page_
                         // Thêm bảng vào tài liệu PDF
                         doc.Add(timesheetTable);
 
-                        // Đóng tài liệu PDF
+                        // Thêm thông tin đơn vị vào cuối tài liệu
+                        doc.Add(Chunk.NEWLINE);
+                        Paragraph section_1 = new Paragraph();
+                        section_1.Alignment = Element.ALIGN_LEFT;
+
+                        section_1.Add(new Chunk("Đơn vị: ", boldFont));
+                        section_1.Add(new Chunk("Công ty Trách nhiệm Hữu Hạn AEON Việt Nam", normalFont));
+                        section_1.Add(Chunk.NEWLINE);
+                        section_1.Add(new Chunk("Địa chỉ: ", boldFont));
+                        section_1.Add(new Chunk("243 Chu Văn An, P. 12, Q. Bình Thạnh, TP. HCM.", normalFont));
+                        section_1.Add(Chunk.NEWLINE);
+                        section_1.Add(new Chunk("Số điện thoại: ", boldFont));
+                        section_1.Add(new Chunk("0366-565454", normalFont));
+                        section_1.Add(Chunk.NEWLINE);
+                        section_1.Add(new Chunk("Mã số thuế: ", boldFont));
+                        section_1.Add(new Chunk("0311241512", normalFont));
+
+                        // Thêm phần thông tin đơn vị vào cuối
+                        doc.Add(section_1);
+
+                        
                         doc.Close();
 
                         // Thông báo thành công
@@ -390,6 +441,9 @@ namespace Trang_chủ_Main_Page_
                     MessageBox.Show("Lỗi khi xuất báo cáo: " + ex.Message);
                 }
             }
+
+
+
         }
 
         // ----------- Phần của Quang ---------------------------
@@ -417,45 +471,101 @@ namespace Trang_chủ_Main_Page_
         }
         private void pb_Avatar_Click(object sender, EventArgs e)
         {
-            tm_InforChanges.Start();
             lb_Ma.Text = Mainpage.CurrentUser.MaNhanvien;
             lb_Hoten.Text = Mainpage.CurrentUser.Hoten;
             lb_Ngaysinh.Text = Mainpage.CurrentUser.Ngaysinh;
             lb_Gioitinh.Text = Mainpage.CurrentUser.Gioitinh;
-            lb_sdt.Text = Mainpage.CurrentUser.Sodienthoai;
+            lb_sdt.Text = Mainpage.CurrentUser.Sodienthoai; 
+            tm_InforChanges.Start();
         }
         private void btn_Xacnhan_Click(object sender, EventArgs e)
         {
-            string mk1 = tb_mk1.Text;
-            string mk2 = tb_mk2.Text;
-            if (string.IsNullOrEmpty(mk1))
+            string oldPassword = lb_OldPassword.Text;
+            string Password = tb_mk1.Text;
+            string Repassword = tb_mk2.Text;
+            if (string.IsNullOrEmpty(oldPassword))
             {
-                MessageBox.Show("Vui lòng nhập mật khẩu mới!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                {
+                    MessageBox.Show("Vui lòng nhập mật khẩu cũ!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                {
+                    MessageBox.Show("Please enter the old password!", "NOTIFICATION", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
                 return;
             }
-            if (string.IsNullOrEmpty(mk2))
+            if (string.IsNullOrEmpty(Password))
             {
-                MessageBox.Show("Vui lòng nhập xác nhận mật khẩu mới!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                {
+                    MessageBox.Show("Vui lòng nhập mật khẩu mới!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                {
+                    MessageBox.Show("Please enter the new password!", "NOTIFICATION", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
                 return;
             }
-            if (!mk1.Equals(mk2))
+            if (string.IsNullOrEmpty(Repassword))
             {
-                MessageBox.Show("Mật khẩu không trùng khớp!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                {
+                    MessageBox.Show("Vui lòng nhập xác nhận mật khẩu mới!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                {
+                    MessageBox.Show("Please enter the new password confirmation!", "NOTIFICATION", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
                 return;
             }
-            if (!IsValidPassword(mk1))
+            if (!Password.Equals(Repassword))
             {
-                MessageBox.Show("Mật khẩu không hợp lệ!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                {
+                    MessageBox.Show("Mật khẩu không trùng khớp!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }else
+                {
+                    MessageBox.Show("Password does not match!", "NOTIFICATION", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
                 return;
             }
-            if (BLL_Nhanvien.Instance.UpdatePassword(Mainpage.CurrentUser.MaNhanvien, mk1))
+            if (!IsValidPassword(Password))
             {
-                MessageBox.Show("Đổi mật khẩu thành công!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
+                if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                {
+                    MessageBox.Show("Mật khẩu không hợp lệ! Mật khẩu phải có ít nhất 8 ký tự, bao gồm chữ hoa, chữ thường, số và ký tự đặc biệt.", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                {
+                    MessageBox.Show("Invalid password! Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one digit, and one special character.", "NOTIFICATION", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                return;
+            }
+            if (BLL_Nhanvien.Instance.UpdatePassword(Mainpage.CurrentUser.MaNhanvien, oldPassword, Password))
+            {
+                if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                {
+                    MessageBox.Show("Đổi mật khẩu thành công!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                {
+                    MessageBox.Show("Password changed successfully!", "NOTIFICATION", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                return;
             }
             else
             {
-                MessageBox.Show("Lỗi khi đổi mật khẩu!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                {
+                    MessageBox.Show("Lỗi khi đổi mật khẩu!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                {
+                    MessageBox.Show("Error changing password!", "NOTIFICATION", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                return;
             }
         }
         //Check Password hợp lệ

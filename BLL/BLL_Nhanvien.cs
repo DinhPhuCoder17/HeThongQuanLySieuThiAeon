@@ -67,9 +67,9 @@ namespace BLL
         {
             return DAL_Nhanvien.Instance.GetEmployeeInfo(maNV);
         }
-        public bool UpdatePassword(string maNhanVien, string password)
+        public bool UpdatePassword(string maNhanVien, string oldpassword, string password)
         {
-            return DAL_Nhanvien.Instance.UpdatePassword(maNhanVien, password);
+            return DAL_Nhanvien.Instance.UpdatePassword(maNhanVien, oldpassword, password);
         }
 
         public bool IsCCCDExist(string cccd)

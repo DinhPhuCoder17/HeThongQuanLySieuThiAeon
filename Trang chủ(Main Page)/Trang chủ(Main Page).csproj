@@ -728,6 +728,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI_QL_TC_NS\employeeFilterOut.resx">
       <DependentUpon>employeeFilterOut.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI_QL_TC_NS\EmployeeMainPage.en.resx">
       <DependentUpon>EmployeeMainPage.cs</DependentUpon>

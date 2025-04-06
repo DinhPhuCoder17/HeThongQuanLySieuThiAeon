@@ -226,7 +226,7 @@
     <value>6</value>
   </data>
   <data name="&gt;&gt;txt_Customer_SearchBar.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>0</value>
   </data>
   <data name="tb_mk1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9pt</value>

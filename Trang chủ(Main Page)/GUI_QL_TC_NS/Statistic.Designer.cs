@@ -91,8 +91,6 @@
             this.cProfit = new Guna.Charts.WinForms.GunaBarDataset();
             this.lbl_Month_Display = new System.Windows.Forms.Label();
             this.guna2Panel10 = new Guna.UI2.WinForms.Guna2Panel();
-            this.label15 = new System.Windows.Forms.Label();
-            this.pb_Avata = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.pn_Statistic_DanhMucThu = new Guna.UI2.WinForms.Guna2Panel();
             this.c_BestSeller = new Guna.Charts.WinForms.GunaChart();
             this.c_No2 = new Guna.Charts.WinForms.GunaPieDataset();
@@ -134,8 +132,6 @@
             this.btn_Xacnhan = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2Panel6.SuspendLayout();
             this.guna2Panel8.SuspendLayout();
-            this.guna2Panel10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_Avata)).BeginInit();
             this.pn_Statistic_DanhMucThu.SuspendLayout();
             this.guna2Panel13.SuspendLayout();
             this.pn_Statistic_DanhMucChi.SuspendLayout();
@@ -304,26 +300,9 @@
             // guna2Panel10
             // 
             this.guna2Panel10.BackColor = System.Drawing.Color.White;
-            this.guna2Panel10.Controls.Add(this.label15);
-            this.guna2Panel10.Controls.Add(this.pb_Avata);
             resources.ApplyResources(this.guna2Panel10, "guna2Panel10");
             this.guna2Panel10.Name = "guna2Panel10";
             this.guna2Panel10.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel10_Paint);
-            // 
-            // label15
-            // 
-            resources.ApplyResources(this.label15, "label15");
-            this.label15.Name = "label15";
-            // 
-            // pb_Avata
-            // 
-            this.pb_Avata.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            resources.ApplyResources(this.pb_Avata, "pb_Avata");
-            this.pb_Avata.ImageRotate = 0F;
-            this.pb_Avata.Name = "pb_Avata";
-            this.pb_Avata.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.pb_Avata.TabStop = false;
-            this.pb_Avata.Click += new System.EventHandler(this.pb_Avata_Click_1);
             // 
             // pn_Statistic_DanhMucThu
             // 
@@ -734,9 +713,6 @@
             this.guna2Panel6.ResumeLayout(false);
             this.guna2Panel6.PerformLayout();
             this.guna2Panel8.ResumeLayout(false);
-            this.guna2Panel10.ResumeLayout(false);
-            this.guna2Panel10.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_Avata)).EndInit();
             this.pn_Statistic_DanhMucThu.ResumeLayout(false);
             this.guna2Panel13.ResumeLayout(false);
             this.pn_Statistic_DanhMucChi.ResumeLayout(false);
@@ -771,8 +747,6 @@
         private Guna.UI2.WinForms.Guna2Panel pn_Statistic_DanhMucChi;
         private System.Windows.Forms.Label label14;
         private Guna.UI2.WinForms.Guna2GradientButton btn_Statistic_Print;
-        private System.Windows.Forms.Label label15;
-        private Guna.UI2.WinForms.Guna2CirclePictureBox pb_Avata;
         private Guna.Charts.WinForms.GunaChart c_Satistic;
         private Guna.Charts.WinForms.GunaBarDataset cRevenue;
         private Guna.Charts.WinForms.GunaBarDataset cProfit;

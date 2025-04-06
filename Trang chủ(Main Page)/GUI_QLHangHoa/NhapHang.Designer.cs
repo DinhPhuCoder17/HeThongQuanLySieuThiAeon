@@ -37,8 +37,6 @@
             this.dgvNhapHang = new Guna.UI2.WinForms.Guna2DataGridView();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.txt_Searching_HDNH = new Guna.UI2.WinForms.Guna2TextBox();
             this.btn_MoveOn = new Guna.UI2.WinForms.Guna2GradientButton();
             this.btn_HuyHD = new Guna.UI2.WinForms.Guna2GradientButton();
@@ -64,7 +62,6 @@
             this.tm_InforChanges = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhapHang)).BeginInit();
             this.guna2Panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             this.guna2Panel1.SuspendLayout();
             this.pn_infoChanges.SuspendLayout();
             this.SuspendLayout();
@@ -141,27 +138,10 @@
             // guna2Panel4
             // 
             this.guna2Panel4.BackColor = System.Drawing.Color.White;
-            this.guna2Panel4.Controls.Add(this.guna2CirclePictureBox1);
-            this.guna2Panel4.Controls.Add(this.label4);
             this.guna2Panel4.Controls.Add(this.txt_Searching_HDNH);
             resources.ApplyResources(this.guna2Panel4, "guna2Panel4");
             this.guna2Panel4.Name = "guna2Panel4";
             this.guna2Panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel4_Paint);
-            // 
-            // guna2CirclePictureBox1
-            // 
-            this.guna2CirclePictureBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            resources.ApplyResources(this.guna2CirclePictureBox1, "guna2CirclePictureBox1");
-            this.guna2CirclePictureBox1.ImageRotate = 0F;
-            this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
-            this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox1.TabStop = false;
-            this.guna2CirclePictureBox1.Click += new System.EventHandler(this.guna2CirclePictureBox1_Click);
-            // 
-            // label4
-            // 
-            resources.ApplyResources(this.label4, "label4");
-            this.label4.Name = "label4";
             // 
             // txt_Searching_HDNH
             // 
@@ -398,7 +378,6 @@
             resources.ApplyResources(this.guna2GradientButton1, "guna2GradientButton1");
             this.guna2GradientButton1.ForeColor = System.Drawing.Color.White;
             this.guna2GradientButton1.Name = "guna2GradientButton1";
-            this.guna2GradientButton1.Click += new System.EventHandler(this.guna2GradientButton1_Click);
             // 
             // tm_InforChanges
             // 
@@ -417,8 +396,6 @@
             this.Load += new System.EventHandler(this.NhapHang_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhapHang)).EndInit();
             this.guna2Panel4.ResumeLayout(false);
-            this.guna2Panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
             this.guna2Panel1.ResumeLayout(false);
             this.pn_infoChanges.ResumeLayout(false);
             this.pn_infoChanges.PerformLayout();
@@ -430,7 +407,6 @@
         private Guna.UI2.WinForms.Guna2DataGridView dgvNhapHang;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
-        private System.Windows.Forms.Label label4;
         private Guna.UI2.WinForms.Guna2TextBox txt_Searching_HDNH;
         private Guna.UI2.WinForms.Guna2GradientButton btn_MoveOn;
         private Guna.UI2.WinForms.Guna2GradientButton btn_HuyHD;
@@ -438,7 +414,6 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer tm_InforChanges;
-        private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
         private Guna.UI2.WinForms.Guna2Panel pn_infoChanges;
         private Guna.UI2.WinForms.Guna2TextBox tb_mk2;
         private Guna.UI2.WinForms.Guna2TextBox tb_mk1;

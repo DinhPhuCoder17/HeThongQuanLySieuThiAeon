@@ -684,6 +684,7 @@ namespace Trang_chủ_Main_Page_
                         MessageBox.Show("The time is invalid - Before 6:00");
                     }
                 }
+
                 else
                 {
                     DialogResult result;
@@ -818,7 +819,7 @@ namespace Trang_chủ_Main_Page_
                     {
                         MessageBox.Show("The assigned employee quantity is invalid");
                     }
-                }
+                }   
                 else
                 {
                     DialogResult result;
@@ -895,6 +896,19 @@ namespace Trang_chủ_Main_Page_
         }
         private void btn_Shift_Remove_Click(object sender, EventArgs e)
         {
+            if (dtp_Shift_Start.Value < DateTime.Now)
+            {
+                if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                {
+                    MessageBox.Show("Không thể xóa ca làm trong quá khứ");
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show("Can't remove shift in the past");
+                    return;
+                }
+            }
             if (maCaLamChoose == "")
             {
                 if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
@@ -952,7 +966,20 @@ namespace Trang_chủ_Main_Page_
 
         private void btn_Shift_Edit_Click(object sender, EventArgs e)
         {
-            if(!addMode)
+            if (dtp_Shift_Start.Value < DateTime.Now)
+            {
+                if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                {
+                    MessageBox.Show("Không thể sửa ca làm trong quá khứ");
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show("Can't change shift in the past");
+                    return;
+                }
+            }
+            if (!addMode)
             {
                 if (chooseShiftPanel != null)
                 {
@@ -1237,40 +1264,7 @@ namespace Trang_chủ_Main_Page_
             lb_sdt.Text = Mainpage.CurrentUser.Sodienthoai;
         }
 
-        private void btn_Xacnhan_Click(object sender, EventArgs e)
-        {
-            string mk1 = tb_mk1.Text;
-            string mk2 = tb_mk2.Text;
-            if (string.IsNullOrEmpty(mk1))
-            {
-                MessageBox.Show("Vui lòng nhập mật khẩu mới!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            if (string.IsNullOrEmpty(mk2))
-            {
-                MessageBox.Show("Vui lòng nhập xác nhận mật khẩu mới!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            if (!mk1.Equals(mk2))
-            {
-                MessageBox.Show("Mật khẩu không trùng khớp!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            if (!IsValidPassword(mk1))
-            {
-                MessageBox.Show("Mật khẩu không hợp lệ!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            if (BLL_Nhanvien.Instance.UpdatePassword(Mainpage.CurrentUser.MaNhanvien, mk1))
-            {
-                MessageBox.Show("Đổi mật khẩu thành công!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("Lỗi khi đổi mật khẩu!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+        
         //Check Password hợp lệ
         public static bool IsValidPassword(string password)
         {

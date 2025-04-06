@@ -38,8 +38,6 @@
             this.btn_NextCalendar = new Guna.UI2.WinForms.Guna2GradientCircleButton();
             this.btnPrevCalendar = new Guna.UI2.WinForms.Guna2GradientCircleButton();
             this.label24 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.guna2Elipse2 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2Elipse3 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
@@ -114,7 +112,6 @@
             this.btn_Xacnhan = new Guna.UI2.WinForms.Guna2GradientButton();
             this.tm_InforChanges = new System.Windows.Forms.Timer(this.components);
             this.guna2Panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_ChooseEmployee)).BeginInit();
@@ -129,8 +126,6 @@
             this.guna2Panel1.Controls.Add(this.btn_NextCalendar);
             this.guna2Panel1.Controls.Add(this.btnPrevCalendar);
             this.guna2Panel1.Controls.Add(this.label24);
-            this.guna2Panel1.Controls.Add(this.label26);
-            this.guna2Panel1.Controls.Add(this.guna2CirclePictureBox1);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
             // 
@@ -180,21 +175,6 @@
             this.label24.BackColor = System.Drawing.Color.Transparent;
             this.label24.Name = "label24";
             this.label24.Click += new System.EventHandler(this.label24_Click);
-            // 
-            // label26
-            // 
-            resources.ApplyResources(this.label26, "label26");
-            this.label26.Name = "label26";
-            // 
-            // guna2CirclePictureBox1
-            // 
-            resources.ApplyResources(this.guna2CirclePictureBox1, "guna2CirclePictureBox1");
-            this.guna2CirclePictureBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.guna2CirclePictureBox1.ImageRotate = 0F;
-            this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
-            this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox1.TabStop = false;
-            this.guna2CirclePictureBox1.Click += new System.EventHandler(this.pb_Avata_Click);
             // 
             // guna2Elipse2
             // 
@@ -857,8 +837,6 @@
             this.Name = "employeeShift";
             this.Load += new System.EventHandler(this.employeeShift_Load);
             this.guna2Panel1.ResumeLayout(false);
-            this.guna2Panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.guna2Panel3.ResumeLayout(false);
             this.guna2Panel3.PerformLayout();
@@ -894,8 +872,6 @@
         private Guna.UI2.WinForms.Guna2DateTimePicker dtp_Shift_Start;
         private System.Windows.Forms.Label label25;
         private Guna.UI2.WinForms.Guna2GradientButton btn_Shift_Add;
-        private System.Windows.Forms.Label label26;
-        private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label22;

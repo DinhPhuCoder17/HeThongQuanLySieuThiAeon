@@ -115,7 +115,7 @@ CREATE TABLE Hanghoa (
 	--Malo varchar(10) constraint FK_HSDHH_Malo_Hansudung Foreign Key references Hansudung(Malo),
 --	Mahanghoa varchar(10) constraint FK_HSDHH_Mahanghoa_HH Foreign Key references Hanghoa(Mahanghoa),
 --);
-select * from HD_HH
+
 CREATE TABLE HD_HH (
     Mahanghoa varchar(10),
     Sohd varchar(10),
@@ -176,8 +176,66 @@ CREATE TABLE Khieunai (
         REFERENCES HD_HH (Mahanghoa, Sohd)
 );
 
+--Trigger tu dong tru hanghoa
+CREATE TRIGGER trg_AutoTruSoLuongHD_HH
+ON Hanghoa
+AFTER UPDATE
+AS
+BEGIN
+    SET NOCOUNT ON;
 
---Trigger--
+    DECLARE @MaHH VARCHAR(10), @SLCu INT, @SLMoi INT, @SoLuongTru INT;
+
+    -- Giả sử chỉ cập nhật 1 dòng tại 1 thời điểm (nếu bạn cần multi-row, có thể nâng cấp sau)
+    SELECT @MaHH = d.Mahanghoa, @SLCu = d.Soluong, @SLMoi = i.Soluong
+    FROM deleted d
+    INNER JOIN inserted i ON d.Mahanghoa = i.Mahanghoa;
+
+    -- Chỉ xử lý nếu số lượng bị GIẢM
+    IF @SLMoi < @SLCu
+    BEGIN
+        SET @SoLuongTru = @SLCu - @SLMoi;
+
+        DECLARE @SLTruConLai INT = @SoLuongTru;
+        DECLARE @SLNhan INT, @HSD DATE;
+
+        DECLARE cur CURSOR FOR
+        SELECT Hansudung, Soluongnhan
+        FROM HD_HH
+        WHERE Mahanghoa = @MaHH AND Soluongnhan > 0
+        ORDER BY Hansudung ASC;
+
+        OPEN cur;
+        FETCH NEXT FROM cur INTO @HSD, @SLNhan;
+
+        WHILE @@FETCH_STATUS = 0 AND @SLTruConLai > 0
+        BEGIN
+            DECLARE @Tru INT;
+
+            IF @SLNhan >= @SLTruConLai
+            BEGIN
+                SET @Tru = @SLTruConLai;
+                SET @SLTruConLai = 0;
+            END
+            ELSE
+            BEGIN
+                SET @Tru = @SLNhan;
+                SET @SLTruConLai = @SLTruConLai - @SLNhan;
+            END
+
+            -- Trừ số lượng
+            UPDATE HD_HH
+            SET Soluongnhan = Soluongnhan - @Tru
+            WHERE Mahanghoa = @MaHH AND Hansudung = @HSD;
+
+            FETCH NEXT FROM cur INTO @HSD, @SLNhan;
+        END
+
+        CLOSE cur;
+        DEALLOCATE cur;
+    END
+END
+
 --Trigger đếm giờ chuyển trạng thái xác nhận--
 -- End Trigger đếm giờ chuyển trạng thái xác nhận--
 
@@ -953,6 +1011,8 @@ BEGIN
 END;--end proc 
 
 go
+go
+
     -- Kiểm tra nếu nhân viên có được phân
 
 	-- delete from chamcong
@@ -1072,7 +1132,7 @@ Insert into Quanly values
 ('NV0001', '1', '$2a$11$z9zAD5bZeEbk81MyEfUwQuRITnMDNuctPaACjDsbdWqf/rRzIZ1fy', 'Admin'),
 ('NV0002', '2', '$2a$11$z9zAD5bZeEbk81MyEfUwQuRITnMDNuctPaACjDsbdWqf/rRzIZ1fy', 'Kho'),
 ('NV0003', '3', '$2a$11$z9zAD5bZeEbk81MyEfUwQuRITnMDNuctPaACjDsbdWqf/rRzIZ1fy', 'TCNS')
-select * from Quanly
+
 --UPDATE Quanly SET Password = '$2a$11$z9zAD5bZeEbk81MyEfUwQuRITnMDNuctPaACjDsbdWqf/rRzIZ1fy' WHERE Username = '1';
 
 INSERT INTO Khachhang (Sodienthoai, Hoten, Diachi, Diemthuong, Gioitinh, Hang, Xoa) VALUES
@@ -1268,3 +1328,4 @@ exec themMaHDNH 10000000, 10
 
  
 
+ Select * From quanly

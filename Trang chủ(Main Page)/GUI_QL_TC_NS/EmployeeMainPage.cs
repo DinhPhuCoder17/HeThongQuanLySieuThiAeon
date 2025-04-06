@@ -224,12 +224,26 @@ namespace Trang_chủ_Main_Page_
 
         private void btn_SignOut_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show(
-            "Bạn có chắc chắn muốn đăng xuất?",
-            "Xác nhận đăng xuất",
-            MessageBoxButtons.OKCancel,
-            MessageBoxIcon.Question
-            );
+            DialogResult result = DialogResult.None; // Initialize with default value
+
+            if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+            {
+                result = MessageBox.Show(
+                    "Are you sure you want to log out?",
+                    "Logout Confirmation",
+                    MessageBoxButtons.OKCancel,
+                    MessageBoxIcon.Question
+                );
+            }
+            else if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+            {
+                result = MessageBox.Show(
+                    "Bạn có chắc chắn muốn đăng xuất?",
+                    "Xác nhận đăng xuất",
+                    MessageBoxButtons.OKCancel,
+                    MessageBoxIcon.Question
+                );
+            }
 
             if (result == DialogResult.OK)
             {
@@ -264,6 +278,11 @@ namespace Trang_chủ_Main_Page_
         }
 
         private void guna2PictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void sidebarContainer_Paint(object sender, PaintEventArgs e)
         {
 
         }

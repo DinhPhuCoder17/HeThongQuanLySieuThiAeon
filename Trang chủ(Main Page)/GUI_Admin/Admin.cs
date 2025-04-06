@@ -72,6 +72,7 @@ namespace Trang_chủ_Main_Page_
         private void btn_DSNhanVien_Click(object sender, EventArgs e)
         {
             menuTransition_2.Start();
+            LoadEmployeeList();
         }
 
         private void guna2Panel3_Paint(object sender, PaintEventArgs e)

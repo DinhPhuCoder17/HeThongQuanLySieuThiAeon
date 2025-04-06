@@ -447,7 +447,23 @@ namespace Trang_chủ_Main_Page_
                             leastSellingTable.AddCell(new PdfPCell(new Phrase(row["TongSoluong"].ToString(), normalFont)));
                         }
                         doc.Add(leastSellingTable);
+                        Paragraph section_1 = new Paragraph();
+                        section_1.Alignment = Element.ALIGN_LEFT;
 
+                        section_1.Add(new Chunk("Đơn vị: ", boldFont));
+                        section_1.Add(new Chunk("Công ty Trách nhiệm Hữu Hạn AEON Việt Nam", normalFont));
+                        section_1.Add(Chunk.NEWLINE);
+                        section_1.Add(new Chunk("Địa chỉ: ", boldFont));
+                        section_1.Add(new Chunk("243 Chu Văn An, P. 12, Q. Bình Thạnh, TP. HCM.", normalFont));
+                        section_1.Add(Chunk.NEWLINE);
+                        section_1.Add(new Chunk("Số điện thoại: ", boldFont));
+                        section_1.Add(new Chunk("0366-565454", normalFont));
+                        section_1.Add(Chunk.NEWLINE);
+                        section_1.Add(new Chunk("Mã số thuế: ", boldFont));
+                        section_1.Add(new Chunk("0311241512", normalFont));
+
+                        // Thêm phần thông tin đơn vị vào cuối
+                        doc.Add(section_1);
                         // Đóng tài liệu PDF
                         doc.Close();
 
@@ -473,40 +489,7 @@ namespace Trang_chủ_Main_Page_
 
         // ---------------- Phần của Quang ----------------------
         bool menuExpand_3 = false;
-        private void btn_Xacnhan_Click(object sender, EventArgs e)
-        {
-            string mk1 = tb_mk1.Text;
-            string mk2 = tb_mk2.Text;
-            if (string.IsNullOrEmpty(mk1))
-            {
-                MessageBox.Show("Vui lòng nhập mật khẩu mới!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            if (string.IsNullOrEmpty(mk2))
-            {
-                MessageBox.Show("Vui lòng nhập xác nhận mật khẩu mới!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            if (!mk1.Equals(mk2))
-            {
-                MessageBox.Show("Mật khẩu không trùng khớp!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            if (!IsValidPassword(mk1))
-            {
-                MessageBox.Show("Mật khẩu không hợp lệ!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            if (BLL_Nhanvien.Instance.UpdatePassword(Mainpage.CurrentUser.MaNhanvien, mk1))
-            {
-                MessageBox.Show("Đổi mật khẩu thành công!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("Lỗi khi đổi mật khẩu!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+        
         //Check Password hợp lệ
         public static bool IsValidPassword(string password)
         {

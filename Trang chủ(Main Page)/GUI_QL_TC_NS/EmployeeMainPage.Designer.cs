@@ -101,6 +101,7 @@
             this.sidebarContainer.Controls.Add(this.pn_Menu_Financial);
             this.sidebarContainer.Controls.Add(this.btn_SignOut);
             this.sidebarContainer.Name = "sidebarContainer";
+            this.sidebarContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.sidebarContainer_Paint);
             // 
             // guna2PictureBox2
             // 

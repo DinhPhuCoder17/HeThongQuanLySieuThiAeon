@@ -12,6 +12,10 @@ namespace DAL
 {
     public class DAL_QuanlyTCNS
     {
+        public void XoaChamCong()
+        {
+            DataProvider.Instance.ExecuteQuery("Delete from Chamcong");
+        }
         public DataTable LoadDuLieuPieChart1(int currentYear, int currentMonth)
         {
             string query = "EXEC usp_GetMonthlyWorstSeller @Year , @Month";
@@ -161,6 +165,15 @@ namespace DAL
         {
             try
             {
+                DataTable dt = DataProvider.Instance.ExecuteQuery("Select * From Khachhang where Sodienthoai = @Sodienthoai AND Xoa = 0", new object[] { kh.soDienThoai });
+                if(dt.Rows.Count > 0)
+                {
+                    DialogResult result = MessageBox.Show("Khách hàng đã tồn tại, bạn có muốn khôi phục không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if(result == DialogResult.No)
+                    {
+                        return false;
+                    }
+                }
                 int line = DataProvider.Instance.ExecuteNonQuery(
                     "exec themKH @Sodienthoai , @Hoten , @Diachi , @Gioitinh", new object[] { kh.soDienThoai, kh.hoTen, kh.diaChi, kh.gioiTinh }
                 );

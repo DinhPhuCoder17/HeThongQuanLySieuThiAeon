@@ -374,12 +374,13 @@ namespace Trang_chủ_Main_Page_
                                     if(col.ColumnName == "Giá" || col.ColumnName == "Thành tiền")
                                     {
                                         decimal value = decimal.Parse(row[col].ToString(), new CultureInfo("vi-VN"));
+                                        int intValue = Convert.ToInt32(value);
                                         if (value >= 1_000_000_000)
                                         {
-                                            cell = new PdfPCell(new Phrase(FormatShortNumber(value), normalFont));
+                                            cell = new PdfPCell(new Phrase(FormatShortNumber(value) + " đ", normalFont));
                                         }else
                                         {
-                                            string formatted = value.ToString("N2", new CultureInfo("vi-VN"));
+                                            string formatted = value.ToString("N0", new System.Globalization.CultureInfo("vi-VN")) + " đ";
                                             cell = new PdfPCell(new Phrase(formatted, normalFont));
                                         }
                                     }
@@ -420,10 +421,10 @@ namespace Trang_chủ_Main_Page_
                         string totalPriceString = "";
                         if(Price > 1_000_000_000)
                         {
-                            totalPriceString = FormatShortNumber(Price);
+                            totalPriceString = FormatShortNumber(Price) + " đ";
                         }else
                         {
-                            totalPriceString = Price.ToString();
+                            totalPriceString = Price.ToString("N0", new System.Globalization.CultureInfo("vi-VN")) + " đ";
                         }
 
                         PdfPCell totalQuantity = new PdfPCell(new Phrase(Quantity.ToString(), boldFont));
@@ -596,40 +597,7 @@ namespace Trang_chủ_Main_Page_
             lb_Gioitinh.Text = Mainpage.CurrentUser.Gioitinh;
             lb_sdt.Text = Mainpage.CurrentUser.Sodienthoai;
         }
-        private void guna2GradientButton1_Click(object sender, EventArgs e)
-        {
-            string mk1 = tb_mk1.Text;
-            string mk2 = tb_mk2.Text;
-            if (string.IsNullOrEmpty(mk1))
-            {
-                MessageBox.Show("Vui lòng nhập mật khẩu mới!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            if (string.IsNullOrEmpty(mk2))
-            {
-                MessageBox.Show("Vui lòng nhập xác nhận mật khẩu mới!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            if (!mk1.Equals(mk2))
-            {
-                MessageBox.Show("Mật khẩu không trùng khớp!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            if (!IsValidPassword(mk1))
-            {
-                MessageBox.Show("Mật khẩu không hợp lệ!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            if (BLL_Nhanvien.Instance.UpdatePassword(Mainpage.CurrentUser.MaNhanvien, mk1))
-            {
-                MessageBox.Show("Đổi mật khẩu thành công!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("Lỗi khi đổi mật khẩu!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+       
 
         private void guna2HtmlLabel2_Click(object sender, EventArgs e)
         {

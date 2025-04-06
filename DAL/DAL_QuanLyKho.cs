@@ -31,10 +31,21 @@ namespace DAL
         {
             return DataProvider.Instance.ExecuteQuery("SELECT Barcode FROM Hanghoa WHERE Xoa = 0");
         }
+        public DataTable xemMaSoThue()
+        {
+            return DataProvider.Instance.ExecuteQuery("SELECT MaSoThue FROM NhaCungCap WHERE Xoa = 0");
+        }
         public bool KhoiPhucHangHoa(string barcode)
         {
             string query = "UPDATE HangHoa SET Xoa = 1 WHERE Barcode = @Barcode";
             object[] parameters = new object[] { barcode };
+            int result = DataProvider.Instance.ExecuteNonQuery(query, parameters);
+            return result > 0;
+        }
+        public bool KhoiPhucNCC(string MaSoThue)
+        {
+            string query = "UPDATE NhaCungCap SET Xoa = 1 WHERE MaSoThue = @MaSoThue";
+            object[] parameters = new object[] { MaSoThue };
             int result = DataProvider.Instance.ExecuteNonQuery(query, parameters);
             return result > 0;
         }
@@ -81,12 +92,12 @@ namespace DAL
 
         public static DataTable hangHoa_NhapHang()
         {
-            return DataProvider.Instance.ExecuteQuery("SELECT h.Mahanghoa, h.Tenhanghoa, h.Tiennhap, h.Tendanhmuc, h.Tienban, h.ImageData, h.Soluong, h.Uudai, n.TenNCC, h.THSD FROM Hanghoa h JOIN Nhacungcap n ON h.MaNCC = n.MaNCC WHERE h.Xoa = 1");
+            return DataProvider.Instance.ExecuteQuery("SELECT h.Mahanghoa, h.Tenhanghoa, h.Tiennhap, h.Tendanhmuc, h.Tienban, h.ImageData, h.Soluong, h.Uudai, n.TenNCC, h.THSD FROM Hanghoa h JOIN Nhacungcap n ON h.MaNCC = n.MaNCC WHERE h.Xoa = 1 and n.Xoa = 1");
         }
 
         public DataTable XemCTHH(string mahh)
         {
-            string query = @"SELECT Mahanghoa, NgaySanXuat, Hansudung, Soluongnhan FROM HD_HH WHERE Mahanghoa = @mahh AND Trangthai = N'Đã Nhập Kho'";
+            string query = @"SELECT Mahanghoa, NgaySanXuat, Hansudung, Soluongnhan FROM HD_HH WHERE Mahanghoa = @mahh AND Trangthai = N'Đã Nhập Kho' AND Soluongnhan > 0";
 
             DataTable dt = DataProvider.Instance.ExecuteQuery(query, new object[] { mahh });
             return dt;
@@ -163,7 +174,7 @@ namespace DAL
 
         public DataTable xemDSNH()
         {
-            return DataProvider.Instance.ExecuteQuery("SELECT Sohd, Ngaydat, FORMAT(Tongtien, 'C', 'vi-VN') AS Tongtien, Trangthai FROM HD_Nhaphang Order by Ngaydat desc");
+            return DataProvider.Instance.ExecuteQuery("SELECT Sohd, Ngaydat, FORMAT(Tongtien, 'N0', 'vi-VN') + N' đ' AS Tongtien, Trangthai FROM HD_Nhaphang Order by Ngaydat desc");
         }
 
         public Boolean huyHD(String soHD)
