@@ -22,8 +22,8 @@ namespace Trang_chủ_Main_Page_
         BindingSource bindingSource = new BindingSource();
 
         private bool isEdited = false;
-        private object[] originalRowValues; 
-        private DataGridViewRow rowEdited; 
+        private object[] originalRowValues;
+        private DataGridViewRow rowEdited;
         private bool cellClick = true;
 
         public DSTonKho()
@@ -178,9 +178,9 @@ namespace Trang_chủ_Main_Page_
                 Name = "colBarcode"
             };
             dgvDSTonKho.Columns.Add(colBarcode);
-        
+
             LoadData();
-            
+
         }
 
 
@@ -203,7 +203,7 @@ namespace Trang_chủ_Main_Page_
 
         private void guna2ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
 
         }
         private void dgv_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -244,14 +244,14 @@ namespace Trang_chủ_Main_Page_
                     }
                 }
             }
-            
+
         }
         public void HighlightHansudungLessThan15Percent()
         {
             foreach (DataGridViewRow row in dgvDSTonKho.Rows)
             {
 
-                string mahh = row.Cells["colMahang"].Value.ToString(); 
+                string mahh = row.Cells["colMahang"].Value.ToString();
 
                 DataTable dtCTHH = BLLQuanLyKho.Instance.XemCTHH(mahh);
 
@@ -261,7 +261,7 @@ namespace Trang_chủ_Main_Page_
 
                     foreach (DataRow dr in dtCTHH.Rows)
                     {
-                       
+
                         DateTime hansudungDate = Convert.ToDateTime(dr["Hansudung"]);
                         int remainingDays = (hansudungDate - DateTime.Now).Days;  // Số ngày còn lại
 
@@ -328,7 +328,7 @@ namespace Trang_chủ_Main_Page_
             }
         }
 
-       
+
         private void guna2CustomGradientPanel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -374,7 +374,7 @@ namespace Trang_chủ_Main_Page_
         {
             if (dgvDSTonKho.SelectedRows.Count > 0)
             {
-                DialogResult dialogResult = DialogResult.None; 
+                DialogResult dialogResult = DialogResult.None;
 
 
                 if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
@@ -466,14 +466,14 @@ namespace Trang_chủ_Main_Page_
                 {
                     if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
                     {
-                        MessageBox.Show("Bạn chỉ được sửa các thông tin trừ Barcode và Mã hàng hóa!",
+                        MessageBox.Show("Bạn chỉ được sửa các thông tin trừ Barcode, mã nhà cung cấp và Mã hàng hóa!",
                                         "Thông báo",
                                         MessageBoxButtons.OK,
                                         MessageBoxIcon.Warning);
                     }
                     else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
                     {
-                        MessageBox.Show("You can only edit information except Barcode and Product Code!",
+                        MessageBox.Show("You can only edit information except Barcode, Supplier Code and Product Code!",
                                         "Notification",
                                         MessageBoxButtons.OK,
                                         MessageBoxIcon.Warning);
@@ -484,10 +484,11 @@ namespace Trang_chủ_Main_Page_
 
                     foreach (DataGridViewColumn col in dgvDSTonKho.Columns)
                     {
-                        if (col.Name == "colBarcode" || col.Name == "colMaHang")
-                            col.ReadOnly = true; 
+                        // Không cho phép sửa cột Barcode, Mã hàng hóa và mã nhà cung cấp (colNhaCC)
+                        if (col.Name == "colBarcode" || col.Name == "colMaHang" || col.Name == "colNhaCC")
+                            col.ReadOnly = true;
                         else
-                            col.ReadOnly = false; 
+                            col.ReadOnly = false;
                     }
 
                     rowEdited = dgvDSTonKho.SelectedRows[0];
@@ -500,6 +501,14 @@ namespace Trang_chủ_Main_Page_
                     rowEdited.DefaultCellStyle.SelectionBackColor = Color.Gray;
                     btnXoa_DSTonKho.Enabled = false;
                     dgvDSTonKho.SelectionChanged -= dgvDSTonKho_SelectionChanged;
+
+                    // Khóa combobox và search textbox khi đang sửa
+                    cmb_SapXepDM_DSTK.Enabled = false;     // Vô hiệu hóa combobox
+                    txtSearchDSTonKho.Enabled = false;       // Vô hiệu hóa search textbox
+
+                    // Đăng ký sự kiện CellValidating để kiểm tra cột colSoLuong và các cột khác nếu cần
+                    dgvDSTonKho.CellValidating += dgvDSTonKho_CellValidating;
+
                     if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
                     {
                         btnSua_DSTonKho.Text = "Hủy";
@@ -527,7 +536,6 @@ namespace Trang_chủ_Main_Page_
                                         MessageBoxButtons.OK,
                                         MessageBoxIcon.Warning);
                     }
-
                 }
             }
             else
@@ -561,10 +569,136 @@ namespace Trang_chủ_Main_Page_
                     btnSua_DSTonKho.Text = "Edit";
                 }
 
+                // Mở lại combobox và search textbox khi hủy sửa
+                cmb_SapXepDM_DSTK.Enabled = true;     // Kích hoạt lại combobox
+                txtSearchDSTonKho.Enabled = true;       // Kích hoạt lại search textbox
+                
+                // Gỡ bỏ đăng ký sự kiện CellValidating
+                dgvDSTonKho.CellValidating -= dgvDSTonKho_CellValidating;
+
+                // Cập nhật lại giao diện của DataGridView để khôi phục hiển thị
+                dgvDSTonKho.EndEdit();
+                LoadData();
+
+
                 HighlightHansudungLessThan15Percent();
             }
         }
-        private void dgvDSTonKho_SelectionChanged(object sender, EventArgs e)
+
+
+        // Sự kiện CellValidating dùng để kiểm tra
+        private void dgvDSTonKho_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+            string columnName = dgvDSTonKho.Columns[e.ColumnIndex].Name;
+
+            // Chỉ xử lý nếu dòng đang sửa là dòng hiện tại
+            if (dgvDSTonKho.CurrentRow != null && dgvDSTonKho.CurrentRow == rowEdited)
+            {
+                // 1. Kiểm tra colSoLuong: không được vượt quá số lượng gốc
+                if (columnName == "colSoLuong")
+                {
+                    int originalQuantity = 0;
+                    int newQuantity = 0;
+
+                    if (int.TryParse(originalRowValues[e.ColumnIndex].ToString(), out originalQuantity))
+                    {
+                        if (int.TryParse(e.FormattedValue.ToString(), out newQuantity))
+                        {
+                            if (newQuantity > originalQuantity)
+                            {
+                                if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                                {
+                                    MessageBox.Show("Số lượng không được vượt quá số lượng hiện tại!",
+                                                    "Thông báo",
+                                                    MessageBoxButtons.OK,
+                                                    MessageBoxIcon.Warning);
+
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Quantity cannot be greater than the current amount!",
+                                                    "Notification",
+                                                    MessageBoxButtons.OK,
+                                                    MessageBoxIcon.Warning);
+                                }
+                                e.Cancel = true;
+                            }
+                        }
+                        else
+                        {
+                            if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                            {
+                                MessageBox.Show("Vui lòng nhập số hợp lệ!",
+                                                "Thông báo",
+                                                MessageBoxButtons.OK,
+                                                MessageBoxIcon.Warning);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Please enter a valid number!",
+                                                "Notification",
+                                                MessageBoxButtons.OK,
+                                                MessageBoxIcon.Warning);
+                            }
+                            e.Cancel = true;
+                        }
+                    }
+                }
+
+                // 2. Kiểm tra colGiaBan và colGiaNhap: phải là số thực > 0
+                else if (columnName == "colGiaBan" || columnName == "colGiaNhap")
+                {
+                    decimal newPrice = 0;
+                    if (!decimal.TryParse(e.FormattedValue.ToString(), out newPrice) || newPrice <= 0)
+                    {
+                        if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                        {
+                            MessageBox.Show("Giá bán và giá nhập phải là số thập phân lớn hơn 0!",
+                                            "Thông báo",
+                                            MessageBoxButtons.OK,
+                                            MessageBoxIcon.Warning);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Sale price and purchase price must be a decimal number greater than 0!",
+                                            "Notification",
+                                            MessageBoxButtons.OK,
+                                            MessageBoxIcon.Warning);
+                        }
+                        e.Cancel = true;
+                    }
+                }
+
+                // 3. Kiểm tra colTHSD: phải là số nguyên > 0
+                else if (columnName == "colTHSD")
+                {
+                    int newTHSD = 0;
+                    if (!int.TryParse(e.FormattedValue.ToString(), out newTHSD) || newTHSD <= 0)
+                    {
+                        if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                        {
+                            MessageBox.Show("THSD phải là số nguyên lớn hơn 0!",
+                                            "Thông báo",
+                                            MessageBoxButtons.OK,
+                                            MessageBoxIcon.Warning);
+                        }
+                        else
+                        {
+                            MessageBox.Show("THSD must be an integer greater than 0!",
+                                            "Notification",
+                                            MessageBoxButtons.OK,
+                                            MessageBoxIcon.Warning);
+                        }
+                        e.Cancel = true;
+                    }
+                }
+            }
+        }
+
+
+
+
+    private void dgvDSTonKho_SelectionChanged(object sender, EventArgs e)
         {
             if (dgvDSTonKho.SelectedRows.Count > 0)
             {
@@ -645,7 +779,9 @@ namespace Trang_chủ_Main_Page_
                 {
                     btnSua_DSTonKho.Text = "Edit";
                 }
-
+                // Mở lại combobox và search textbox khi hủy sửa
+                cmb_SapXepDM_DSTK.Enabled = true;     // Kích hoạt lại combobox
+                txtSearchDSTonKho.Enabled = true;       // Kích hoạt lại search textbox
                 HighlightHansudungLessThan15Percent();
             }
         }
@@ -693,44 +829,95 @@ namespace Trang_chủ_Main_Page_
 
         private void btn_Xacnhan_Click_1(object sender, EventArgs e)
         {
-            string oldPassword = txt_OldPassword.Text;
+            string oldPassword = tb_OldPassword.Text;
             string Password = tb_mk1.Text;
             string Repassword = tb_mk2.Text;
             if (string.IsNullOrEmpty(oldPassword))
             {
-                MessageBox.Show("Vui lòng nhập mật khẩu cũ!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                {
+                    MessageBox.Show("Vui lòng nhập mật khẩu cũ!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                {
+                    MessageBox.Show("Please enter the old password!", "NOTIFICATION", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
                 return;
             }
             if (string.IsNullOrEmpty(Password))
             {
-                MessageBox.Show("Vui lòng nhập mật khẩu mới!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                {
+                    MessageBox.Show("Vui lòng nhập mật khẩu mới!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                {
+                    MessageBox.Show("Please enter the new password!", "NOTIFICATION", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
                 return;
             }
             if (string.IsNullOrEmpty(Repassword))
             {
-                MessageBox.Show("Vui lòng nhập xác nhận mật khẩu mới!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                {
+                    MessageBox.Show("Vui lòng nhập xác nhận mật khẩu mới!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                {
+                    MessageBox.Show("Please enter the new password confirmation!", "NOTIFICATION", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
                 return;
             }
             if (!Password.Equals(Repassword))
             {
-                MessageBox.Show("Mật khẩu không trùng khớp!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                {
+                    MessageBox.Show("Mật khẩu không trùng khớp!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    MessageBox.Show("Password does not match!", "NOTIFICATION", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
                 return;
             }
             if (!IsValidPassword(Password))
             {
-                MessageBox.Show("Mật khẩu không hợp lệ!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                {
+                    MessageBox.Show("Mật khẩu không hợp lệ! Mật khẩu phải có ít nhất 8 ký tự, bao gồm chữ hoa, chữ thường, số và ký tự đặc biệt.", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                {
+                    MessageBox.Show("Invalid password! Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one digit, and one special character.", "NOTIFICATION", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
                 return;
             }
             if (BLL_Nhanvien.Instance.UpdatePassword(Mainpage.CurrentUser.MaNhanvien, oldPassword, Password))
             {
-                MessageBox.Show("Đổi mật khẩu thành công!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                {
+                    MessageBox.Show("Đổi mật khẩu thành công!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                {
+                    MessageBox.Show("Password changed successfully!", "NOTIFICATION", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                return;
             }
             else
             {
-                MessageBox.Show("Lỗi khi đổi mật khẩu!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                {
+                    MessageBox.Show("Lỗi khi đổi mật khẩu!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                {
+                    MessageBox.Show("Error changing password!", "NOTIFICATION", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                return;
             }
         }
     }
-
 
 }

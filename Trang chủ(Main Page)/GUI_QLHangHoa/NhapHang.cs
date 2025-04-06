@@ -374,12 +374,13 @@ namespace Trang_chủ_Main_Page_
                                     if(col.ColumnName == "Giá" || col.ColumnName == "Thành tiền")
                                     {
                                         decimal value = decimal.Parse(row[col].ToString(), new CultureInfo("vi-VN"));
+                                        int intValue = Convert.ToInt32(value);
                                         if (value >= 1_000_000_000)
                                         {
-                                            cell = new PdfPCell(new Phrase(FormatShortNumber(value), normalFont));
+                                            cell = new PdfPCell(new Phrase(FormatShortNumber(value) + " đ", normalFont));
                                         }else
                                         {
-                                            string formatted = value.ToString("N2", new CultureInfo("vi-VN"));
+                                            string formatted = value.ToString("N0", new System.Globalization.CultureInfo("vi-VN")) + " đ";
                                             cell = new PdfPCell(new Phrase(formatted, normalFont));
                                         }
                                     }
@@ -420,10 +421,10 @@ namespace Trang_chủ_Main_Page_
                         string totalPriceString = "";
                         if(Price > 1_000_000_000)
                         {
-                            totalPriceString = FormatShortNumber(Price);
+                            totalPriceString = FormatShortNumber(Price) + " đ";
                         }else
                         {
-                            totalPriceString = Price.ToString();
+                            totalPriceString = Price.ToString("N0", new System.Globalization.CultureInfo("vi-VN")) + " đ";
                         }
 
                         PdfPCell totalQuantity = new PdfPCell(new Phrase(Quantity.ToString(), boldFont));
