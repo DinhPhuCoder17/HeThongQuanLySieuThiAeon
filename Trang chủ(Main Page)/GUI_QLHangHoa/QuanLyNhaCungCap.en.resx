@@ -161,6 +161,12 @@
     <value>Supplier Name</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="pn_infoChanges.Location" type="System.Drawing.Point, System.Drawing">
+    <value>513, 74</value>
+  </data>
+  <data name="pn_infoChanges.Size" type="System.Drawing.Size, System.Drawing">
+    <value>624, 0</value>
+  </data>
   <data name="lb_sdt.Location" type="System.Drawing.Point, System.Drawing">
     <value>119, 214</value>
   </data>
@@ -212,10 +218,35 @@
   <data name="guna2HtmlLabel3.Size" type="System.Drawing.Size, System.Drawing">
     <value>115, 39</value>
   </data>
-  <data name="pn_infoChanges.Location" type="System.Drawing.Point, System.Drawing">
-    <value>513, 74</value>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="label4.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
-  <data name="pn_infoChanges.Size" type="System.Drawing.Size, System.Drawing">
-    <value>624, 0</value>
+  <data name="label4.Font" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 23</value>
+  </data>
+  <data name="label4.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="guna2CirclePictureBox1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>Inherit</value>
+  </data>
+  <data name="guna2CirclePictureBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="guna2CirclePictureBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 64</value>
+  </data>
+  <data name="guna2CirclePictureBox1.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>Normal</value>
+  </data>
+  <data name="guna2CirclePictureBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
 </root>

@@ -115,7 +115,7 @@ CREATE TABLE Hanghoa (
 	--Malo varchar(10) constraint FK_HSDHH_Malo_Hansudung Foreign Key references Hansudung(Malo),
 --	Mahanghoa varchar(10) constraint FK_HSDHH_Mahanghoa_HH Foreign Key references Hanghoa(Mahanghoa),
 --);
-select * from HD_HH
+
 CREATE TABLE HD_HH (
     Mahanghoa varchar(10),
     Sohd varchar(10),
@@ -1078,7 +1078,7 @@ Insert into Quanly values
 ('NV0001', '1', '$2a$11$z9zAD5bZeEbk81MyEfUwQuRITnMDNuctPaACjDsbdWqf/rRzIZ1fy', 'Admin'),
 ('NV0002', '2', '$2a$11$z9zAD5bZeEbk81MyEfUwQuRITnMDNuctPaACjDsbdWqf/rRzIZ1fy', 'Kho'),
 ('NV0003', '3', '$2a$11$z9zAD5bZeEbk81MyEfUwQuRITnMDNuctPaACjDsbdWqf/rRzIZ1fy', 'TCNS')
-select * from Quanly
+
 --UPDATE Quanly SET Password = '$2a$11$z9zAD5bZeEbk81MyEfUwQuRITnMDNuctPaACjDsbdWqf/rRzIZ1fy' WHERE Username = '1';
 
 INSERT INTO Khachhang (Sodienthoai, Hoten, Diachi, Diemthuong, Gioitinh, Hang, Xoa) VALUES

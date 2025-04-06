@@ -466,14 +466,14 @@ namespace Trang_chủ_Main_Page_
                 {
                     if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
                     {
-                        MessageBox.Show("Bạn chỉ được sửa các thông tin trừ Barcode và Mã hàng hóa!",
+                        MessageBox.Show("Bạn chỉ được sửa các thông tin trừ Barcode, mã nhà cung cấp và Mã hàng hóa!",
                                         "Thông báo",
                                         MessageBoxButtons.OK,
                                         MessageBoxIcon.Warning);
                     }
                     else if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
                     {
-                        MessageBox.Show("You can only edit information except Barcode and Product Code!",
+                        MessageBox.Show("You can only edit information except Barcode, Supplier Code and Product Code!",
                                         "Notification",
                                         MessageBoxButtons.OK,
                                         MessageBoxIcon.Warning);
@@ -484,7 +484,8 @@ namespace Trang_chủ_Main_Page_
 
                     foreach (DataGridViewColumn col in dgvDSTonKho.Columns)
                     {
-                        if (col.Name == "colBarcode" || col.Name == "colMaHang")
+                        // Không cho phép sửa cột Barcode, Mã hàng hóa và mã nhà cung cấp (colNhaCC)
+                        if (col.Name == "colBarcode" || col.Name == "colMaHang" || col.Name == "colNhaCC")
                             col.ReadOnly = true;
                         else
                             col.ReadOnly = false;
@@ -500,6 +501,14 @@ namespace Trang_chủ_Main_Page_
                     rowEdited.DefaultCellStyle.SelectionBackColor = Color.Gray;
                     btnXoa_DSTonKho.Enabled = false;
                     dgvDSTonKho.SelectionChanged -= dgvDSTonKho_SelectionChanged;
+
+                    // Khóa combobox và search textbox khi đang sửa
+                    cmb_SapXepDM_DSTK.Enabled = false;     // Vô hiệu hóa combobox
+                    txtSearchDSTonKho.Enabled = false;       // Vô hiệu hóa search textbox
+
+                    // Đăng ký sự kiện CellValidating để kiểm tra cột colSoLuong và các cột khác nếu cần
+                    dgvDSTonKho.CellValidating += dgvDSTonKho_CellValidating;
+
                     if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
                     {
                         btnSua_DSTonKho.Text = "Hủy";
@@ -527,7 +536,6 @@ namespace Trang_chủ_Main_Page_
                                         MessageBoxButtons.OK,
                                         MessageBoxIcon.Warning);
                     }
-
                 }
             }
             else
@@ -561,10 +569,135 @@ namespace Trang_chủ_Main_Page_
                     btnSua_DSTonKho.Text = "Edit";
                 }
 
+                // Mở lại combobox và search textbox khi hủy sửa
+                cmb_SapXepDM_DSTK.Enabled = true;     // Kích hoạt lại combobox
+                txtSearchDSTonKho.Enabled = true;       // Kích hoạt lại search textbox
+
+                // Gỡ bỏ đăng ký sự kiện CellValidating
+                dgvDSTonKho.CellValidating -= dgvDSTonKho_CellValidating;
+
+                // Cập nhật lại giao diện của DataGridView để khôi phục hiển thị
+                dgvDSTonKho.EndEdit();
+                LoadData();
+
+
                 HighlightHansudungLessThan15Percent();
             }
         }
-        private void dgvDSTonKho_SelectionChanged(object sender, EventArgs e)
+
+
+        // Sự kiện CellValidating dùng để kiểm tra
+        private void dgvDSTonKho_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+            string columnName = dgvDSTonKho.Columns[e.ColumnIndex].Name;
+
+            // Chỉ xử lý nếu dòng đang sửa là dòng hiện tại
+            if (dgvDSTonKho.CurrentRow != null && dgvDSTonKho.CurrentRow == rowEdited)
+            {
+                // 1. Kiểm tra colSoLuong: không được vượt quá số lượng gốc
+                if (columnName == "colSoLuong")
+                {
+                    int originalQuantity = 0;
+                    int newQuantity = 0;
+
+                    if (int.TryParse(originalRowValues[e.ColumnIndex].ToString(), out originalQuantity))
+                    {
+                        if (int.TryParse(e.FormattedValue.ToString(), out newQuantity))
+                        {
+                            if (newQuantity > originalQuantity)
+                            {
+                                if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                                {
+                                    MessageBox.Show("Số lượng không được vượt quá số lượng hiện tại!",
+                                                    "Thông báo",
+                                                    MessageBoxButtons.OK,
+                                                    MessageBoxIcon.Warning);
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Quantity cannot be greater than the current amount!",
+                                                    "Notification",
+                                                    MessageBoxButtons.OK,
+                                                    MessageBoxIcon.Warning);
+                                }
+                                e.Cancel = true;
+                            }
+                        }
+                        else
+                        {
+                            if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                            {
+                                MessageBox.Show("Vui lòng nhập số hợp lệ!",
+                                                "Thông báo",
+                                                MessageBoxButtons.OK,
+                                                MessageBoxIcon.Warning);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Please enter a valid number!",
+                                                "Notification",
+                                                MessageBoxButtons.OK,
+                                                MessageBoxIcon.Warning);
+                            }
+                            e.Cancel = true;
+                        }
+                    }
+                }
+
+                // 2. Kiểm tra colGiaBan và colGiaNhap: phải là số thực > 0
+                else if (columnName == "colGiaBan" || columnName == "colGiaNhap")
+                {
+                    decimal newPrice = 0;
+                    if (!decimal.TryParse(e.FormattedValue.ToString(), out newPrice) || newPrice <= 0)
+                    {
+                        if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                        {
+                            MessageBox.Show("Giá bán và giá nhập phải là số thập phân lớn hơn 0!",
+                                            "Thông báo",
+                                            MessageBoxButtons.OK,
+                                            MessageBoxIcon.Warning);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Sale price and purchase price must be a decimal number greater than 0!",
+                                            "Notification",
+                                            MessageBoxButtons.OK,
+                                            MessageBoxIcon.Warning);
+                        }
+                        e.Cancel = true;
+                    }
+                }
+
+                // 3. Kiểm tra colTHSD: phải là số nguyên > 0
+                else if (columnName == "colTHSD")
+                {
+                    int newTHSD = 0;
+                    if (!int.TryParse(e.FormattedValue.ToString(), out newTHSD) || newTHSD <= 0)
+                    {
+                        if (Thread.CurrentThread.CurrentUICulture.Name == "vi-VN")
+                        {
+                            MessageBox.Show("THSD phải là số nguyên lớn hơn 0!",
+                                            "Thông báo",
+                                            MessageBoxButtons.OK,
+                                            MessageBoxIcon.Warning);
+                        }
+                        else
+                        {
+                            MessageBox.Show("THSD must be an integer greater than 0!",
+                                            "Notification",
+                                            MessageBoxButtons.OK,
+                                            MessageBoxIcon.Warning);
+                        }
+                        e.Cancel = true;
+                    }
+                }
+            }
+        }
+
+
+
+
+    private void dgvDSTonKho_SelectionChanged(object sender, EventArgs e)
         {
             if (dgvDSTonKho.SelectedRows.Count > 0)
             {
@@ -645,7 +778,9 @@ namespace Trang_chủ_Main_Page_
                 {
                     btnSua_DSTonKho.Text = "Edit";
                 }
-
+                // Mở lại combobox và search textbox khi hủy sửa
+                cmb_SapXepDM_DSTK.Enabled = true;     // Kích hoạt lại combobox
+                txtSearchDSTonKho.Enabled = true;       // Kích hoạt lại search textbox
                 HighlightHansudungLessThan15Percent();
             }
         }
