@@ -240,7 +240,7 @@ namespace BLL
                                     null, // Mã hóa đơn (có thể tạo mới)
                                     Convert.ToDateTime(dataTable.Rows[i][0]), // Thời gian bán
                                     dataTable.Rows[i][1]?.ToString(), // Mã nhân viên
-                                    int.TryParse(dataTable.Rows[i][2]?.ToString(), out int soDienThoai) ? soDienThoai : 0, // Số điện thoại
+                                    dataTable.Rows[i][2]?.ToString(), // Số điện thoại
                                     0
                                 );
 
@@ -303,7 +303,7 @@ namespace BLL
         }
 
         //THêm hóa đơn 
-        public bool ThemHoaDon(DateTime thoiGianBan, string maNhanVien, int soDienThoai, double thanhTien)
+        public bool ThemHoaDon(DateTime thoiGianBan, string maNhanVien, String soDienThoai, double thanhTien)
         {
             DTO_HoaDonBanHang hoaDon = new DTO_HoaDonBanHang(null, thoiGianBan, maNhanVien, soDienThoai,0);
 

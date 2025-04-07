@@ -1079,12 +1079,14 @@ go
 go
     -- Kiểm tra nếu nhân viên có được phân
 	--drop PROCEDURE themChamCong
+	--select * from HH_HDBH
 	-- delete from chamcong
 	--select * from calam
 	-- Thực hiện chấm công cho nhân viên NV0001
       -- Mã nhân viên
 	  -- select * from batbuoc
 -- EXEC themChamCong '2025-04-07', '05:59:59', '13:59:59', 'NV0001';
+
 
 -- select * from batbuoc
 
