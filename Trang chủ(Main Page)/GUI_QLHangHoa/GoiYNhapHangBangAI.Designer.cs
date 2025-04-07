@@ -280,6 +280,7 @@
             this.dgvGoiYNhapHang.ThemeStyle.RowsStyle.Height = 40;
             this.dgvGoiYNhapHang.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.OrangeRed;
             this.dgvGoiYNhapHang.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvGoiYNhapHang.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGoiYNhapHang_CellContentClick);
             // 
             // Column4
             // 

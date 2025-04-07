@@ -60,6 +60,16 @@ namespace Trang_chu_Main_Page_.GUI_QLHangHoa
                 }
 
             }
+            foreach (DataGridViewColumn column in dgvNhaCungCap.Columns)
+            {
+                column.SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
+
+            foreach (DataGridViewColumn column in dgvNhaCungCap.Columns)
+            {
+                column.Resizable = DataGridViewTriState.False;
+            }
+
             //dgvNhaCungCap.DataSource = originalNCCData;
             dgvNhaCungCap.ReadOnly = true; // Ban đầu không cho chỉnh sửa
 
@@ -512,6 +522,9 @@ namespace Trang_chu_Main_Page_.GUI_QLHangHoa
             lb_sdt.Text = Mainpage.CurrentUser.Sodienthoai;
         }
 
-        
+        private void dgvNhaCungCap_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

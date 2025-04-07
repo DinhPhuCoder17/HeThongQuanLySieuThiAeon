@@ -395,5 +395,10 @@ namespace Trang_chủ_Main_Page_
             lb_Gioitinh.Text = Mainpage.CurrentUser.Gioitinh;
             lb_sdt.Text = Mainpage.CurrentUser.Sodienthoai;
         }
+
+        private void dgvGoiYNhapHang_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

@@ -918,6 +918,11 @@ namespace Trang_chủ_Main_Page_
                 return;
             }
         }
+
+        private void dgvDSTonKho_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 
 }

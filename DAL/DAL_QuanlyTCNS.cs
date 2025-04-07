@@ -177,7 +177,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Lỗi khi xóa hóa đơn: " + ex.Message);
+                MessageBox.Show("Lỗi khi xóa hóa đơn: " + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }

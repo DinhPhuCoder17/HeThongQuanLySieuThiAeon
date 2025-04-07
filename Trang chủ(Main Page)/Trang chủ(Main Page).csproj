@@ -65,7 +65,7 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>z6480410767616_79a14013b473ecd00af9c35ddcf7aa08.ico</ApplicationIcon>
@@ -1165,6 +1165,7 @@
       <DependentUpon>Database_Main.mdf</DependentUpon>
     </Content>
     <Content Include="predictor.py" />
+    <None Include="Resources\Thiết kế chưa có tên %2828%29.png" />
     <Content Include="z6480410767616_79a14013b473ecd00af9c35ddcf7aa08.ico" />
   </ItemGroup>
   <ItemGroup>

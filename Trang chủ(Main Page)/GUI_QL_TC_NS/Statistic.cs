@@ -30,7 +30,7 @@ namespace Trang_chủ_Main_Page_
             
         }
         private readonly BLL_QuanlyTCNS bLL_QuanlyTCNS = new BLL_QuanlyTCNS();
-        DateTime selectedMonth = DateTime.Now.AddMonths(-1); // Bắt đầu từ tháng trước
+        DateTime selectedMonth = DateTime.Now; // Bắt đầu từ tháng trước
         private void Statistic_Load(object sender, EventArgs e)
         {
             cProfit.FillColors = new Guna.Charts.WinForms.ColorCollection()
@@ -204,7 +204,7 @@ namespace Trang_chủ_Main_Page_
 
         private void btn_NextCalendar1_Click(object sender, EventArgs e)
         {
-            DateTime lastMonth = DateTime.Now.AddMonths(-1); // Tháng giới hạn cuối
+            DateTime lastMonth = DateTime.Now; // Tháng giới hạn cuối
             if (selectedMonth.Month <= lastMonth.Month - 1) // Chặn tiến nếu đã đến tháng trước
             {
                 selectedMonth = selectedMonth.AddMonths(1);

@@ -16,7 +16,7 @@ namespace DAL
         private readonly static string computerName = Environment.MachineName;
         //Liêm
         //String connectionStr = $"Data Source=" + computerName + @";Initial Catalog=QuanLySieuThiAEON;Integrated Security=True;Encrypt=True";
-
+        private String connectionStr = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database_Main.mdf;Integrated Security = True";
         //private String connectionStr = @"Data Source=.\SQLEXPRESS;Initial Catalog=QuanLySieuThiAEON;Integrated Security=True";
 
         //Phú
@@ -29,7 +29,7 @@ namespace DAL
         //private String connectionStr = @"Data Source=LAPTOP-P1IHVTIA;Initial Catalog=QuanLySieuThiAEON;Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
         //Phú pc
         //private String connectionStr = @"Data Source=ADMIN\MSSQLSERVER01;Initial Catalog=QuanLySieuThiAEON;Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
-        
+
         //Tạo singleton
         private static DataProvider instance;
 
