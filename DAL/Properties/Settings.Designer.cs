@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Trang_chu_Main_Page_.Properties {
+namespace DAL.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -23,23 +23,12 @@ namespace Trang_chu_Main_Page_.Properties {
             }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("vi-VN")]
-        public string UserLanguage {
-            get {
-                return ((string)(this["UserLanguage"]));
-            }
-            set {
-                this["UserLanguage"] = value;
-            }
-        }
-        
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Database_Main" +
-            ".mdf;Integrated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\ADMIN\\Desktop\\Game\\" +
+            "Công Nghệ Phần Mềm\\Siêu Thị Aeon\\Git\\HeThongQuanLySieuThiAeon\\Trang chủ(Main Pag" +
+            "e)\\Database_Main.mdf\";Integrated Security=True")]
         public string Database_MainConnectionString {
             get {
                 return ((string)(this["Database_MainConnectionString"]));
