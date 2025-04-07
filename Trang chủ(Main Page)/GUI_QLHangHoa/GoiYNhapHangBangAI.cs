@@ -1,5 +1,6 @@
 ﻿using BLL;
 using DTO;
+using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,6 +28,8 @@ namespace Trang_chủ_Main_Page_
         {
             List<DTO_Hanghoa> dsHH = BLLQuanLyKho.Instance.XemDSTonKho();
             InitializeComponent();
+
+            guna2GradientButton2.Enabled = false;
 
             cmbTGTTHH.Items.Clear();
             cmbTGTTHH.Items.Add("1 tuần");
@@ -127,6 +130,10 @@ namespace Trang_chủ_Main_Page_
 
         private void btnSua_Click(object sender, EventArgs e)
         {
+            guna2GradientButton2.Enabled = true;
+            txtAI.Enabled = false;
+            btnXoa.Enabled = false;
+            guna2GradientButton4.Enabled = false;
             if (!isEdited)
             {
                 if (dgvGoiYNhapHang.SelectedRows.Count > 0)
@@ -189,6 +196,10 @@ namespace Trang_chủ_Main_Page_
                 rowEdited.DefaultCellStyle.SelectionBackColor = Color.FromArgb(255, 69, 0);
 
                 btnSua.Text = "Sửa";
+                guna2GradientButton2.Enabled = false;
+                txtAI.Enabled = true;
+                btnXoa.Enabled = true;
+                guna2GradientButton4.Enabled = true;
             }
         }
 
@@ -197,6 +208,9 @@ namespace Trang_chủ_Main_Page_
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
+            txtAI.Enabled = true;
+            btnXoa.Enabled = true;
+            guna2GradientButton4.Enabled = true;
             dgvGoiYNhapHang.EndEdit();
 
             string newValue = rowEdited.Cells["Column12"].Value?.ToString().Trim();

@@ -1441,8 +1441,3 @@ VALUES
   ('HH0115',   'HD0033', N'Tai nghe Sony WH-1000XM4', 2,        2400.00);
 
 -- Cập nhật chỉ Soluong
-UPDATE HH_HDBH
-SET Soluong = 20
-WHERE Mahanghoa = 'HH0115'
-  AND Mahoadon   = 'HD0033';
-
